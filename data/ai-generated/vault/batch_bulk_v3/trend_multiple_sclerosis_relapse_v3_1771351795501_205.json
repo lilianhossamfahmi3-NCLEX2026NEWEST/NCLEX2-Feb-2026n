@@ -1,0 +1,196 @@
+{
+    "id": "ngn_sa_trend_205",
+    "itemType": "standalone_trend",
+    "caseId": "msr_205",
+    "paradigm": "ngn",
+    "version": "2.0.0",
+    "seed": "BATCH-300-205-1771351755489",
+    "status": "active",
+    "cjjm": {
+        "step": "analyzeCues"
+    },
+    "cognitiveSkill": "nursingProcess_assessment",
+    "difficulty": 4,
+    "client": {
+        "age": "42 years",
+        "gender": "Male",
+        "setting": "Emergency Department",
+        "background": "The client has a 5-year history of relapsing-remitting multiple sclerosis (RRMS) and is treated with ocrelizumab infusions every 6 months. His last infusion was 3 weeks ago. He is a high school history teacher.",
+        "presenting": "The client presents to the emergency department with a 3-day history of worsening fatigue, blurred vision in his right eye, and a 'pins and needles' sensation that started in his feet and has now progressed up to his knees."
+    },
+    "tabs": [
+        {
+            "id": "tab1",
+            "title": "Neurology Follow-up (1 month ago)",
+            "content": {
+                "notes": [
+                    {
+                        "type": "note",
+                        "time": "1400",
+                        "author": "Neurologist, MD",
+                        "text": "Client seen for routine follow-up for RRMS. Reports feeling well, fatigue is at baseline. No new or worsening neurological symptoms. Neurological exam is stable and at his baseline. Scheduled for next ocrelizumab infusion in 1 week. Discussed importance of avoiding infection and managing stress."
+                    }
+                ],
+                "vitals": [
+                    {
+                        "label": "Temperature",
+                        "value": "37.0°C (98.6°F)"
+                    },
+                    {
+                        "label": "Heart Rate",
+                        "value": "72 bpm"
+                    },
+                    {
+                        "label": "Respirations",
+                        "value": "16/min"
+                    },
+                    {
+                        "label": "Blood Pressure",
+                        "value": "124/78 mmHg"
+                    },
+                    {
+                        "label": "SpO2",
+                        "value": "99% on room air"
+                    }
+                ],
+                "assessments": [
+                    {
+                        "label": "Neurological",
+                        "value": "Alert and oriented x4. Speech clear. Cranial nerves II-XII grossly intact. Vision clear bilaterally. Strength 5/5 in all extremities. Sensation intact to light touch throughout. Coordination and gait are at client's baseline, no new deficits."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "tab2",
+            "title": "ED Triage Note (Today)",
+            "content": {
+                "notes": [
+                    {
+                        "type": "note",
+                        "time": "0915",
+                        "author": "Triage Nurse, RN",
+                        "text": "Client presents with chief complaint of worsening MS symptoms over the last 3 days. Reports new onset blurred vision in right eye, which he describes as 'looking through a smudge.' Also reports paresthesia that began in his toes and is now 'up to my knees.' States fatigue is 'overwhelming' and much worse than his baseline."
+                    }
+                ],
+                "vitals": [
+                    {
+                        "label": "Temperature",
+                        "value": "37.2°C (99.0°F)"
+                    },
+                    {
+                        "label": "Heart Rate",
+                        "value": "94 bpm"
+                    },
+                    {
+                        "label": "Respirations",
+                        "value": "18/min"
+                    },
+                    {
+                        "label": "Blood Pressure",
+                        "value": "138/84 mmHg"
+                    },
+                    {
+                        "label": "SpO2",
+                        "value": "98% on room air"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "tab3",
+            "title": "ED Assessment Note (Today, 2 hours after triage)",
+            "content": {
+                "notes": [
+                    {
+                        "type": "note",
+                        "time": "1120",
+                        "author": "Emergency Department Nurse, RN",
+                        "text": "Client is anxious but cooperative. Expresses concern about missing work. He reports difficulty buttoning his shirt this morning. Denies fever, chills, or any signs of infection. Denies recent trauma or illness."
+                    }
+                ],
+                "assessments": [
+                    {
+                        "label": "Neurological",
+                        "value": "Alert and oriented x4. Speech clear but slightly slowed. Nystagmus noted on right lateral gaze. Right pupil sluggish to react to light. Visual acuity decreased in right eye. Sensation to light touch diminished from the toes to just below the knees bilaterally. Muscle strength 4/5 in bilateral lower extremities, 5/5 in upper extremities. Mild dysmetria noted on finger-to-nose test."
+                    }
+                ]
+            }
+        }
+    ],
+    "prompt": "The nurse reviews the client's record. Which 3 findings are the most significant indicators of a potential multiple sclerosis relapse?",
+    "item": {
+        "type": "multi_choice",
+        "multiSelect": true,
+        "selectN": 3,
+        "options": [
+            {
+                "id": "opt_1",
+                "label": "History of relapsing-remitting MS"
+            },
+            {
+                "id": "opt_2",
+                "label": "New onset nystagmus on right lateral gaze"
+            },
+            {
+                "id": "opt_3",
+                "label": "Blood pressure of 138/84 mmHg"
+            },
+            {
+                "id": "opt_4",
+                "label": "Paresthesia ascending to the knees"
+            },
+            {
+                "id": "opt_5",
+                "label": "Bilateral lower extremity strength of 4/5"
+            },
+            {
+                "id": "opt_6",
+                "label": "Last ocrelizumab infusion was 3 weeks ago"
+            }
+        ]
+    },
+    "answer": [
+        "opt_2",
+        "opt_4",
+        "opt_5"
+    ],
+    "answerBreakdown": {
+        "title": "Rationale",
+        "points": [
+            {
+                "optionId": "opt_1",
+                "isCorrect": false,
+                "rationale": "Incorrect. The client's history of RRMS is the underlying chronic condition and the context for the current presentation. However, it is not an acute finding or a cue that indicates a *current* relapse is occurring. It is baseline information."
+            },
+            {
+                "optionId": "opt_2",
+                "isCorrect": true,
+                "rationale": "Correct. Nystagmus is an objective clinical finding that was not present at the baseline neurology visit one month ago. Its new appearance indicates new demyelination or inflammation affecting the brainstem or cerebellum, which are common sites for MS lesions and a significant indicator of an acute relapse."
+            },
+            {
+                "optionId": "opt_3",
+                "isCorrect": false,
+                "rationale": "Incorrect. While the blood pressure is mildly elevated compared to his baseline, it is a non-specific finding. It can be attributed to anxiety, stress, or discomfort associated with his symptoms and the emergency department visit. It is not a direct neurological indicator of MS disease activity or relapse."
+            },
+            {
+                "id": "point_4",
+                "optionId": "opt_4",
+                "isCorrect": true,
+                "rationale": "Correct. Paresthesia (abnormal sensations like 'pins and needles') is a hallmark sensory symptom of an MS relapse. The fact that the sensation is new and has been 'ascending' (progressing from the feet to the knees) is a key indicator of an active and evolving neurological event consistent with demyelination along the spinal cord."
+            },
+            {
+                "id": "point_5",
+                "optionId": "opt_5",
+                "isCorrect": true,
+                "rationale": "Correct. The change in motor strength from 5/5 (normal) at his baseline visit to 4/5 (movement against gravity with some resistance) in the lower extremities is a significant new motor deficit. This objective finding points to new demyelination affecting the motor pathways in the brain or spinal cord, a clear sign of an MS relapse."
+            },
+            {
+                "id": "point_6",
+                "optionId": "opt_6",
+                "isCorrect": false,
+                "rationale": "Incorrect. The timing of his last infusion is important historical information for the medical team but it is not a clinical finding or symptom. It is part of his treatment plan. A relapse occurring despite recent treatment is known as a breakthrough exacerbation and, while clinically important, the treatment date itself is not a *finding* that indicates a relapse."
+            }
+        ]
+    }
+}

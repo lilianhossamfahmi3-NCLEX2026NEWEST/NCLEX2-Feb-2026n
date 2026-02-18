@@ -1,0 +1,300 @@
+{
+    "id": "nclex_bowtie_2026_001",
+    "itemType": "standalone_bowtie",
+    "question": {
+        "stem": "The nurse in the emergency department is caring for a 68-year-old male client who presented with sudden onset of right-sided weakness and expressive aphasia. The stroke team has evaluated the client, and the provider has entered an order for alteplase (tPA). The nurse has completed the pre-administration checklist and is preparing to initiate the infusion.",
+        "stimulus": [
+            {
+                "id": "tab1",
+                "type": "ehr_tab",
+                "label": "Nurses' Note",
+                "content": "14:00: Client arrives via EMS with chief complaint of right-sided weakness and difficulty speaking. Client's spouse states symptoms began suddenly at 12:30. Client has a history of hypertension and hyperlipidemia but states he 'ran out of his blood pressure pills about a month ago and couldn't afford a new visit.' Last known well was 12:30. NIH Stroke Scale (NIHSS) score is 15 (Moderate-Severe Stroke). Client is alert, oriented to person and place, but not time. Expressive aphasia noted. Right-sided facial droop and right hemiparesis present."
+            },
+            {
+                "id": "tab2",
+                "type": "ehr_tab",
+                "label": "Vital Signs",
+                "content": [
+                    {
+                        "time": "14:05",
+                        "values": {
+                            "HR": "92",
+                            "BP": "198/112",
+                            "RR": "18",
+                            "O2 Sat": "96% on room air",
+                            "Temp": "37.1°C (98.8°F)"
+                        }
+                    },
+                    {
+                        "time": "14:20",
+                        "values": {
+                            "HR": "88",
+                            "BP": "202/114",
+                            "RR": "16",
+                            "O2 Sat": "97% on room air",
+                            "Temp": "37.1°C (98.8°F)"
+                        }
+                    },
+                    {
+                        "time": "14:35",
+                        "values": {
+                            "HR": "90",
+                            "BP": "196/110",
+                            "RR": "18",
+                            "O2 Sat": "96% on room air",
+                            "Temp": "37.1°C (98.8°F)"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "tab3",
+                "type": "ehr_tab",
+                "label": "Laboratory Results",
+                "content": {
+                    "INR": "1.2",
+                    "aPTT": "32 seconds",
+                    "Platelet Count": "215,000/mm³",
+                    "Serum Glucose": "145 mg/dL",
+                    "BUN": "18 mg/dL",
+                    "Creatinine": "1.0 mg/dL"
+                }
+            },
+            {
+                "id": "tab4",
+                "type": "ehr_tab",
+                "label": "Diagnostic Results",
+                "content": "Non-contrast Head CT: Completed at 14:25. \nFINDINGS: No evidence of acute intracranial hemorrhage or mass effect. Subtle hypoattenuation in the left middle cerebral artery (MCA) territory is noted, suggestive of early ischemic changes."
+            },
+            {
+                "id": "tab5",
+                "type": "ehr_tab",
+                "label": "MAR",
+                "content": [
+                    {
+                        "medication": "Alteplase (tPA) IV infusion per stroke protocol",
+                        "dose": "Calculated based on weight",
+                        "route": "IV",
+                        "frequency": "STAT",
+                        "status": "Ordered"
+                    },
+                    {
+                        "medication": "Labetalol 10 mg",
+                        "dose": "10 mg",
+                        "route": "IV Push",
+                        "frequency": "PRN every 10-20 min for SBP > 185 mmHg or DBP > 110 mmHg",
+                        "status": "Available"
+                    }
+                ]
+            }
+        ],
+        "prompt": "Based on the client's electronic health record, what condition is the client most likely experiencing, what actions should the nurse take, and what parameters should the nurse monitor? Drag the potential condition, two actions, and three parameters to the boxes on the right."
+    },
+    "options": {
+        "potentialConditions": [
+            {
+                "id": "pc1",
+                "content": "Uncontrolled hypertension contraindicating thrombolytic therapy"
+            },
+            {
+                "id": "pc2",
+                "content": "Hemorrhagic stroke conversion"
+            },
+            {
+                "id": "pc3",
+                "content": "Acute kidney injury"
+            },
+            {
+                "id": "pc4",
+                "content": "Hypoglycemic event"
+            }
+        ],
+        "actionsToTake": [
+            {
+                "id": "a1",
+                "content": "Administer the alteplase bolus immediately"
+            },
+            {
+                "id": "a2",
+                "content": "Withhold the administration of alteplase"
+            },
+            {
+                "id": "a3",
+                "content": "Place the client in Trendelenburg position"
+            },
+            {
+                "id": "a4",
+                "content": "Administer PRN IV labetalol"
+            },
+            {
+                "id": "a5",
+                "content": "Request an order for an insulin sliding scale"
+            }
+        ],
+        "parametersToMonitor": [
+            {
+                "id": "pm1",
+                "content": "Blood pressure"
+            },
+            {
+                "id": "pm2",
+                "content": "Urine output"
+            },
+            {
+                "id": "pm3",
+                "content": "Neurological status using NIHSS"
+            },
+            {
+                "id": "pm4",
+                "content": "Serum potassium level"
+            },
+            {
+                "id": "pm5",
+                "content": "Heart rhythm on cardiac monitor"
+            },
+            {
+                "id": "pm6",
+                "content": "Signs of new or worsening bleeding"
+            }
+        ]
+    },
+    "correctResponse": {
+        "potentialCondition": "pc1",
+        "actionsToTake": [
+            "a2",
+            "a4"
+        ],
+        "parametersToMonitor": [
+            "pm1",
+            "pm3",
+            "pm6"
+        ]
+    },
+    "rationale": {
+        "correct": "The central clinical problem is that the client's blood pressure (persistently >185/110 mmHg) is a critical contraindication to the administration of alteplase (tPA). The non-contrast head CT has ruled out an active hemorrhage, and the time since last known well (within the 3-4.5 hour window) makes the client a potential candidate for thrombolysis. However, administering tPA in the setting of severe, uncontrolled hypertension poses an extremely high risk of converting the ischemic stroke into a life-threatening intracranial hemorrhage. The correct nursing actions are to first 'stop the line' and withhold the alteplase (a critical safety action) and then to take action to correct the contraindication by administering the PRN IV labetalol to lower the blood pressure to the target of <185/110 mmHg. Following this intervention, the nurse must closely monitor the blood pressure to assess treatment efficacy, continue to monitor neurological status for any improvement or deterioration, and watch for signs of bleeding, which remains a risk even with blood pressure control.",
+        "incorrect": "Administering the alteplase is a fatal error due to the high risk of hemorrhagic conversion. Placing the client in Trendelenburg position would dangerously increase intracranial pressure. Addressing the mildly elevated glucose is not the priority over the life-threatening risk of uncontrolled hypertension. Monitoring urine output and serum potassium are not the most critical parameters directly related to the immediate safety risk.",
+        "answerBreakdown": [
+            {
+                "label": "Potential Condition",
+                "content": [
+                    {
+                        "id": "pc1",
+                        "text": "Uncontrolled hypertension contraindicating thrombolytic therapy",
+                        "isCorrect": true,
+                        "justification": "This is the correct diagnosis of the immediate problem. The vital signs consistently show a BP >185/110 mmHg, which is an absolute contraindication for initiating alteplase due to the high risk of hemorrhagic transformation. All other data points (time window, labs, CT scan) support tPA eligibility, making the BP the single, critical 'stop' signal."
+                    },
+                    {
+                        "id": "pc2",
+                        "text": "Hemorrhagic stroke conversion",
+                        "isCorrect": false,
+                        "justification": "This is a potential *risk* if the nurse proceeds incorrectly, but it is not the client's current condition. The head CT was negative for hemorrhage. The goal of the nurse's actions is to prevent this from happening."
+                    },
+                    {
+                        "id": "pc3",
+                        "text": "Acute kidney injury",
+                        "isCorrect": false,
+                        "justification": "The client's BUN and Creatinine are within normal limits. There is no data to support a diagnosis of AKI."
+                    },
+                    {
+                        "id": "pc4",
+                        "text": "Hypoglycemic event",
+                        "isCorrect": false,
+                        "justification": "The client's serum glucose is 145 mg/dL, which is mildly elevated, not low. Hypoglycemia can mimic stroke symptoms, but this client's glucose level rules it out as the primary issue."
+                    }
+                ]
+            },
+            {
+                "label": "Actions to Take",
+                "content": [
+                    {
+                        "id": "a1",
+                        "text": "Administer the alteplase bolus immediately",
+                        "isCorrect": false,
+                        "justification": "This is an unsafe and potentially fatal action. Administering a thrombolytic to a client with a BP >185/110 mmHg significantly increases the risk of causing a catastrophic intracranial hemorrhage."
+                    },
+                    {
+                        "id": "a2",
+                        "text": "Withhold the administration of alteplase",
+                        "isCorrect": true,
+                        "justification": "This is the primary, critical safety action. The nurse must recognize the contraindication (severe hypertension) and stop the procedure to prevent harm. This independent nursing judgment is essential."
+                    },
+                    {
+                        "id": "a3",
+                        "text": "Place the client in Trendelenburg position",
+                        "isCorrect": false,
+                        "justification": "This position is contraindicated as it increases blood flow to the head, thereby increasing intracranial pressure (ICP), which is already at risk of elevating in a stroke."
+                    },
+                    {
+                        "id": "a4",
+                        "text": "Administer PRN IV labetalol",
+                        "isCorrect": true,
+                        "justification": "This is the correct therapeutic action to address the underlying problem. The MAR provides an order to treat the hypertension. By lowering the BP to <185/110 mmHg, the client may become an eligible and safe candidate for alteplase."
+                    },
+                    {
+                        "id": "a5",
+                        "text": "Request an order for an insulin sliding scale",
+                        "isCorrect": false,
+                        "justification": "While hyperglycemia should be managed in stroke patients, a glucose of 145 mg/dL is not the immediate life-threatening priority compared to the severely elevated blood pressure that contraindicates tPA."
+                    }
+                ]
+            },
+            {
+                "label": "Parameters to Monitor",
+                "content": [
+                    {
+                        "id": "pm1",
+                        "text": "Blood pressure",
+                        "isCorrect": true,
+                        "justification": "This is the most critical parameter to monitor after administering labetalol. The nurse must ensure the BP responds to treatment and falls below the 185/110 mmHg threshold before tPA can be considered. It must also be monitored closely during and after tPA infusion."
+                    },
+                    {
+                        "id": "pm2",
+                        "text": "Urine output",
+                        "isCorrect": false,
+                        "justification": "While important for overall fluid status and renal perfusion, it is not a priority parameter for monitoring the immediate safety and efficacy of the interventions related to alteplase administration and blood pressure control."
+                    },
+                    {
+                        "id": "pm3",
+                        "text": "Neurological status using NIHSS",
+                        "isCorrect": true,
+                        "justification": "This is a core component of stroke care. Frequent neurological assessments are vital to detect any deterioration (which could signal hemorrhage or worsening ischemia) or improvement (indicating reperfusion)."
+                    },
+                    {
+                        "id": "pm4",
+                        "text": "Serum potassium level",
+                        "isCorrect": false,
+                        "justification": "There is no indication of an electrolyte imbalance, and this parameter is not relevant to the acute management of ischemic stroke or the risks associated with alteplase."
+                    },
+                    {
+                        "id": "pm5",
+                        "text": "Heart rhythm on cardiac monitor",
+                        "isCorrect": false,
+                        "justification": "While continuous cardiac monitoring is standard for stroke patients (as atrial fibrillation is a common cause), it is not a specific parameter to monitor in response to the *actions* of withholding tPA and giving labetalol. BP and Neuro status are more direct."
+                    },
+                    {
+                        "id": "pm6",
+                        "text": "Signs of new or worsening bleeding",
+                        "isCorrect": true,
+                        "justification": "Even before tPA is given, aggressive blood pressure lowering carries some risk. After tPA is administered, monitoring for bleeding (e.g., oozing from IV sites, hematuria, new bruising, changes in mental status) becomes a paramount safety priority."
+                    }
+                ]
+            }
+        ]
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues, Analyze Cues, Prioritize Hypotheses, Take Actions, Evaluate Outcomes",
+        "nclexCategory": "Physiological Adaptation",
+        "difficulty": "Hard",
+        "topicTags": [
+            "Ischemic Stroke",
+            "Thrombolytic Therapy",
+            "Alteplase",
+            "tPA",
+            "Medication Safety",
+            "Contraindication",
+            "Hypertension",
+            "Patient Safety"
+        ]
+    }
+}

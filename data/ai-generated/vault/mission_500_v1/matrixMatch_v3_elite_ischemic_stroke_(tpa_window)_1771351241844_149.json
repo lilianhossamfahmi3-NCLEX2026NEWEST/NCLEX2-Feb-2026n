@@ -1,0 +1,125 @@
+{
+    "id": "MISSION-500-149-1771351211087",
+    "itemType": "matrixMatch",
+    "question": "A nurse is preparing to administer Alteplase (tPA) to a 68-year-old male diagnosed with an acute ischemic stroke. For each finding below, click to specify if it is consistent with, inconsistent with, or neutral to the immediate plan of care to administer Alteplase.",
+    "exhibits": [
+        {
+            "id": "exhibit_1",
+            "type": "EHR",
+            "tabs": [
+                {
+                    "title": "Nurses' Notes",
+                    "content": "<b>12:00:</b> Patient is a 68-year-old male who arrived via EMS with acute onset of left-sided weakness and expressive aphasia. Patient's son, who is translating, states symptoms began suddenly at 10:00 this morning. NIHSS score is 12 (moderate stroke). Patient is alert, oriented to person and place. History of hypertension and hyperlipidemia. Son reports patient has been having severe headaches for the past week. Yesterday, he was seen at a local community clinic and son states, 'they put a needle in his back to check the fluid for the headache.' Records from the clinic are not yet available."
+                },
+                {
+                    "title": "Vital Signs",
+                    "content": "<b>Time | BP | HR | RR | SpO2 | Temp (°C)</b><br><b>12:05 |</b> 192/108 | 94 | 18 | 96% | 37.1<br><b>12:15 |</b> 188/104 | 92 | 18 | 95% | 37.1<br><b>12:25 |</b> 189/106 | 90 | 16 | 96% | Not Retaken"
+                },
+                {
+                    "title": "Lab Results",
+                    "content": "<b>STAT Panel Results:</b><br><b>Glucose:</b> 138 mg/dL (7.7 mmol/L)<br><b>INR:</b> 1.2<br><b>PTT:</b> 32 seconds<br><b>Platelet Count:</b> 225,000/mm³<br><b>Creatinine:</b> 0.9 mg/dL"
+                },
+                {
+                    "title": "Diagnostics",
+                    "content": "<b>Non-Contrast Head CT Report:</b><br><b>Finding:</b> No evidence of acute intracranial hemorrhage. No mass effect or midline shift. Age-related cerebral atrophy noted. Subtle hypodensity in the right MCA territory may represent early ischemic change."
+                },
+                {
+                    "title": "Provider's Orders",
+                    "content": "<b>STAT Orders:</b><br>1. Obtain STAT non-contrast Head CT.<br>2. Obtain STAT Coagulation panel, CBC, and Glucose.<br>3. Initiate Alteplase (tPA) infusion per stroke protocol now.<br>4. Labetalol 10 mg IV Push now for SBP > 185 mmHg or DBP > 110 mmHg. May repeat x1.<br>5. Strict NPO."
+                }
+            ]
+        }
+    ],
+    "matrix": {
+        "rows": [
+            {
+                "id": "row1",
+                "label": "Time of symptom onset"
+            },
+            {
+                "id": "row2",
+                "label": "Non-contrast head CT result"
+            },
+            {
+                "id": "row3",
+                "label": "Most recent blood pressure reading"
+            },
+            {
+                "id": "row4",
+                "label": "Patient report of a 'needle in the back' yesterday"
+            },
+            {
+                "id": "row5",
+                "label": "INR result"
+            }
+        ],
+        "columns": [
+            {
+                "id": "col1",
+                "label": "Consistent with Plan of Care"
+            },
+            {
+                "id": "col2",
+                "label": "Inconsistent with Plan of Care"
+            },
+            {
+                "id": "col3",
+                "label": "Neutral Finding"
+            }
+        ]
+    },
+    "solution": [
+        {
+            "rowId": "row1",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row2",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row3",
+            "columnId": "col2"
+        },
+        {
+            "rowId": "row4",
+            "columnId": "col2"
+        },
+        {
+            "rowId": "row5",
+            "columnId": "col1"
+        }
+    ],
+    "scoring": {
+        "type": "0/1",
+        "rationale": "The student must correctly categorize all 5 findings to demonstrate understanding of inclusion and exclusion criteria for Alteplase administration, with a focus on identifying absolute contraindications that represent a critical safety risk."
+    },
+    "answerBreakdown": [
+        {
+            "rowId": "row1",
+            "columnId": "col1",
+            "rationale": "Correct. Symptom onset was 2 hours ago (10:00 to 12:00). This is well within the standard 3 to 4.5-hour window for tPA administration, making this finding consistent with the plan of care."
+        },
+        {
+            "rowId": "row2",
+            "columnId": "col1",
+            "rationale": "Correct. The non-contrast head CT shows no evidence of intracranial hemorrhage. This is a critical inclusion criterion for tPA, confirming the stroke is ischemic and not hemorrhagic. This finding is consistent with the plan of care."
+        },
+        {
+            "rowId": "row3",
+            "columnId": "col2",
+            "rationale": "Correct. The most recent blood pressure is 189/106 mmHg. tPA administration requires a blood pressure of less than 185/110 mmHg to reduce the risk of hemorrhagic conversion. This finding is currently inconsistent with the plan to administer tPA and requires intervention (like the ordered Labetalol) before proceeding. However, this is a manageable inconsistency, unlike an absolute contraindication."
+        },
+        {
+            "rowId": "row4",
+            "columnId": "col2",
+            "rationale": "Correct. The patient's report of a 'needle in the back' yesterday describes a lumbar puncture. A lumbar puncture within the last 24 hours is an absolute contraindication to tPA due to the unacceptably high risk of intraspinal or intracranial hemorrhage. This finding is inconsistent with the plan of care and represents a critical 'SAFETY STOP'. The nurse must withhold the tPA and immediately notify the provider."
+        },
+        {
+            "rowId": "row5",
+            "columnId": "col1",
+            "rationale": "Correct. The INR is 1.2. The standard cutoff for tPA is an INR of 1.7 or less. This result is within the acceptable range and is therefore consistent with the plan of care."
+        }
+    ],
+    "cognitiveSkill": "Analyze Cues & Prioritize Hypotheses"
+}

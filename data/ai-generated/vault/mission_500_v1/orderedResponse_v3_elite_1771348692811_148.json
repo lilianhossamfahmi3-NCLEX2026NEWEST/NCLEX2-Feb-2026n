@@ -1,0 +1,124 @@
+{
+    "id": "nclex_ngn_sa_or_2026_011",
+    "type": "orderedResponse",
+    "stem": "The nurse has reviewed the newly available data in the client's electronic health record. Based on this analysis, rank the nursing actions in order from highest to lowest priority. Drag and drop the options into the correct sequence.",
+    "prompt": "A 78-year-old male with a history of type 2 diabetes mellitus and hypertension was admitted 24 hours ago for dehydration and acute kidney injury (AKI) secondary to gastroenteritis. He reports feeling 'more tired' and a 'tingling' sensation in his hands. The nurse reviews the client's chart to prepare for the 10:00 medications and scheduled procedures.",
+    "exhibits": [
+        {
+            "id": "exh_01_notes",
+            "type": "ehr_nurses_notes",
+            "label": "Nurses' Notes",
+            "content": "{\n  \"timestamp_0100\": \"Client admitted from ED with diagnosis of pre-renal AKI. Client is a recent immigrant, speaks limited English, and relies on his son for translation. Son reports client had vomiting and diarrhea for 3 days and delayed seeking care due to transportation issues. Client oriented to person and place, but not time. Skin turgor poor, mucous membranes dry. IV of 0.9% sodium chloride initiated at 125 mL/hr.\",\n  \"timestamp_0800\": \"Urine output for last 8 hours is 120 mL. Client reports nausea has subsided but now complains of numbness and tingling in his hands and around his mouth. States he feels 'weak and heavy.' Appears lethargic. Lungs clear to auscultation bilaterally.\"\n}"
+        },
+        {
+            "id": "exh_02_vitals",
+            "type": "ehr_vitals_trend",
+            "label": "Vital Signs",
+            "content": "{\n  \"headers\": [\"Time\", \"Temp\", \"HR\", \"RR\", \"BP\", \"SpO2\"],\n  \"rows\": [\n    [\"02:00\", \"98.9°F (37.2°C)\", \"96\", \"18\", \"108/64\", \"96%\"],\n    [\"06:00\", \"99.1°F (37.3°C)\", \"92\", \"20\", \"110/68\", \"95%\"],\n    [\"09:30\", \"98.8°F (37.1°C)\", \"84\", \"22\", \"104/60\", \"94%\"]\n  ]\n}"
+        },
+        {
+            "id": "exh_03_labs",
+            "type": "ehr_labs",
+            "label": "Laboratory Results",
+            "content": "{\n  \"headers\": [\"Lab Test\", \"Result\", \"Reference Range\"],\n  \"rows\": [\n    [\"Sodium\", \"138 mEq/L\", \"136-145 mEq/L\"],\n    [\"Potassium\", \"7.1 mEq/L\", \"3.5-5.0 mEq/L\"],\n    [\"Chloride\", \"101 mEq/L\", \"98-106 mEq/L\"],\n    [\"BUN\", \"88 mg/dL\", \"10-20 mg/dL\"],\n    [\"Creatinine\", \"4.2 mg/dL\", \"0.6-1.2 mg/dL\"],\n    [\"Glucose\", \"155 mg/dL\", \"70-110 mg/dL\"]\n  ]\n}"
+        },
+        {
+            "id": "exh_04_diagnostics",
+            "type": "ehr_diagnostic_report",
+            "label": "Diagnostics",
+            "content": "{\n  \"type\": \"12-Lead ECG Interpretation\",\n  \"timestamp\": \"09:45\",\n  \"findings\": \"Sinus bradycardia at 58 bpm. P waves present. PR interval normal. QRS complex is widened at 0.14 seconds. T waves are tall and peaked. No ST segment elevation or depression noted.\"\n}"
+        },
+        {
+            "id": "exh_05_mar",
+            "type": "ehr_mar",
+            "label": "MAR",
+            "content": "{\n  \"headers\": [\"Medication/Order\", \"Dose\", \"Route\", \"Frequency\", \"Time Due\"],\n  \"rows\": [\n    [\"Lisinopril\", \"10 mg\", \"PO\", \"DAILY\", \"10:00\"],\n    [\"0.9% Sodium Chloride\", \"500 mL bolus\", \"IV\", \"ONCE\", \"10:00\"],\n    [\"CT Abdomen/Pelvis with IV contrast\", \"N/A\", \"N/A\", \"STAT\", \"On Call\"],\n    [\"Calcium Gluconate 10%\", \"10 mL\", \"IVPB\", \"PRN for K+ > 6.5\", \"PRN\"]\n  ]\n}"
+        }
+    ],
+    "options": [
+        {
+            "id": "opt_B",
+            "label": "B",
+            "content": "Administer the PRN IV calcium gluconate."
+        },
+        {
+            "id": "opt_A",
+            "label": "A",
+            "content": "Notify radiology to cancel the CT scan with contrast."
+        },
+        {
+            "id": "opt_D",
+            "label": "D",
+            "content": "Administer the scheduled 500 mL bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "opt_C",
+            "label": "C",
+            "content": "Place the client on continuous cardiac monitoring."
+        },
+        {
+            "id": "opt_E",
+            "label": "E",
+            "content": "Withhold the scheduled dose of lisinopril."
+        }
+    ],
+    "correctResponse": [
+        "opt_B",
+        "opt_E",
+        "opt_A",
+        "opt_C",
+        "opt_D"
+    ],
+    "rationale": {
+        "correct": "The correct prioritization addresses the most immediate life-threatening condition first, then prevents further harm, and finally implements monitoring and supportive care. The client's potassium of 7.1 mEq/L and corresponding ECG changes (widened QRS, peaked T-waves, bradycardia) indicate severe hyperkalemia-induced cardiotoxicity, which can lead to fatal dysrhythmias and cardiac arrest. Therefore, the highest priority is stabilizing the cardiac membrane with IV calcium gluconate (Action B). The next priorities involve 'stopping the line' on interventions that will worsen the situation: withholding lisinopril, which can exacerbate hyperkalemia (Action E), and canceling the CT with IV contrast, which is nephrotoxic and contraindicated in severe AKI (Action A). After taking these immediate life-saving and harm-prevention steps, instituting continuous cardiac monitoring is crucial for ongoing assessment (Action C). Finally, administering a fluid bolus is the lowest priority and potentially harmful (Action D), as the client is oliguric, and a fluid bolus could precipitate pulmonary edema without first addressing the life-threatening electrolyte imbalance.",
+        "incorrect": "Any sequence that does not prioritize immediate cardioprotection with calcium gluconate is incorrect and places the client at risk for imminent cardiac arrest. Placing the client on monitoring (C) before acting on the known critical data is a delay in care. Proceeding with contraindicated medications (E) or procedures (A) constitutes a medical error. Administering a fluid bolus (D) without considering the client's oliguria and risk for fluid overload is unsafe and fails to address the primary life threat.",
+        "answerBreakdown": [
+            {
+                "label": "B",
+                "content": "Administer the PRN IV calcium gluconate.",
+                "isCorrect": true,
+                "rationale": "PRIORITY 1: This is the most critical and immediate action. The K+ level of 7.1 and ECG changes (widened QRS, peaked T waves) signify severe cardiotoxicity. Calcium gluconate does not lower potassium levels but stabilizes the myocardial cell membrane, reducing the risk of fatal dysrhythmias. This is a direct, life-saving intervention that must be performed first."
+            },
+            {
+                "label": "E",
+                "content": "Withhold the scheduled dose of lisinopril.",
+                "isCorrect": true,
+                "rationale": "PRIORITY 2: This is a critical 'DON'T PROCEED' safety action. Lisinopril is an ACE inhibitor, which can cause or worsen hyperkalemia by inhibiting aldosterone secretion and subsequent potassium excretion. Administering this medication to a client with a K+ of 7.1 is a major contraindication and would actively harm the client."
+            },
+            {
+                "label": "A",
+                "content": "Notify radiology to cancel the CT scan with contrast.",
+                "isCorrect": true,
+                "rationale": "PRIORITY 3: This is another essential 'DON'T PROCEED' safety action. The client has severe AKI (BUN 88, Cr 4.2). IV contrast dye is nephrotoxic and would cause further, potentially irreversible, kidney damage. While crucial, preventing further kidney injury is secondary to preventing imminent cardiac arrest."
+            },
+            {
+                "label": "C",
+                "content": "Place the client on continuous cardiac monitoring.",
+                "isCorrect": true,
+                "rationale": "PRIORITY 4: This is an important monitoring action. However, the nurse already has a diagnostic ECG confirming cardiotoxicity. Acting on this information (Actions B, E, A) is a higher priority than simply continuing to monitor. This should be done concurrently with or immediately after the life-saving interventions are initiated."
+            },
+            {
+                "label": "D",
+                "content": "Administer the scheduled 500 mL bolus of 0.9% sodium chloride.",
+                "isCorrect": true,
+                "rationale": "PRIORITY 5 (Lowest): This action is the lowest priority and potentially unsafe. While the client initially had pre-renal AKI from dehydration, the oliguria (120 mL in 8 hours) suggests a progression to intra-renal injury. Administering a fluid bolus to an oliguric patient without careful assessment for fluid overload can lead to pulmonary edema. The immediate life threats of hyperkalemia must be addressed before considering fluid administration."
+            }
+        ]
+    },
+    "pedagogy": {
+        "bloomLevel": "Evaluating",
+        "cjmmStep": "Take Actions",
+        "nclexCategory": "Physiological Adaptation",
+        "nclexSubCategory": "Reduction of Risk Potential",
+        "difficulty": "Level 5",
+        "topicTags": [
+            "Acute Kidney Injury",
+            "Hyperkalemia",
+            "Medication Safety",
+            "Contraindication",
+            "Fluid and Electrolytes",
+            "Cardiotoxicity",
+            "Prioritization"
+        ]
+    }
+}

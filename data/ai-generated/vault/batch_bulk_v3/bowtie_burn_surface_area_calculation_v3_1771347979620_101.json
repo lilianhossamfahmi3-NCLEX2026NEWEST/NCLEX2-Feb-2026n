@@ -1,0 +1,164 @@
+{
+    "id": "NCLEX_BOWTIE_300101",
+    "itemType": "bowtie",
+    "seed": "BATCH-300-101-1771347948118",
+    "cjjm_step": "Analyze Cues",
+    "case_id": "CASE_300101_BURN",
+    "prompt": "A nurse in the emergency department is caring for a 45-year-old male who weighs 80 kg (176 lb). He was brought in after an electrical flash burn from a malfunctioning generator at a construction site. The client is awake and alert but disoriented to time and place. The assessment reveals full-thickness burns covering his entire anterior torso and partial-thickness burns covering his entire right arm. There is no evidence of soot in the nares or singed facial hair. Vital signs are: Blood pressure 92/58 mmHg, Heart rate 128 beats/minute, Respiratory rate 24 breaths/minute, SpO2 96% on room air.",
+    "bowtie_prompts": {
+        "action": "What actions would the nurse take?",
+        "condition": "What condition is the client most likely experiencing?",
+        "parameter": "What parameters would the nurse monitor?"
+    },
+    "options": {
+        "action": [
+            {
+                "id": "A1",
+                "text": "Initiate fluid resuscitation with Lactated Ringer's solution"
+            },
+            {
+                "id": "A2",
+                "text": "Administer tetanus toxoid intramuscularly"
+            },
+            {
+                "id": "A3",
+                "text": "Apply topical silver sulfadiazine to burn wounds"
+            },
+            {
+                "id": "A4",
+                "text": "Obtain a 12-lead electrocardiogram (EKG)"
+            },
+            {
+                "id": "A5",
+                "text": "Insert an indwelling urinary catheter"
+            }
+        ],
+        "condition": [
+            {
+                "id": "C1",
+                "text": "Acute Inhalation Injury"
+            },
+            {
+                "id": "C2",
+                "text": "Neurogenic Shock"
+            },
+            {
+                "id": "C3",
+                "text": "Hypovolemic Shock (Burn Shock)"
+            },
+            {
+                "id": "C4",
+                "text": "Septic Shock"
+            },
+            {
+                "id": "C5",
+                "text": "Cardiogenic Shock"
+            }
+        ],
+        "parameter": [
+            {
+                "id": "P1",
+                "text": "Core body temperature"
+            },
+            {
+                "id": "P2",
+                "text": "Urine output"
+            },
+            {
+                "id": "P3",
+                "text": "Serum potassium level"
+            },
+            {
+                "id": "P4",
+                "text": "Mean arterial pressure (MAP)"
+            },
+            {
+                "id": "P5",
+                "text": "Wound culture results"
+            }
+        ]
+    },
+    "correct_response": {
+        "action": [
+            "A1",
+            "A5"
+        ],
+        "condition": "C3",
+        "parameter": [
+            "P2",
+            "P4"
+        ]
+    },
+    "answerBreakdown": {
+        "condition": {
+            "id": "C3",
+            "rationale": "The client has full-thickness burns to the anterior torso (18%) and partial-thickness burns to the entire right arm (9%), resulting in a Total Body Surface Area (TBSA) burn of 27%. Major burns greater than 20% TBSA cause a systemic inflammatory response leading to massive fluid shifts from the intravascular to the interstitial space. This capillary leak results in significant intravascular volume depletion. The client's hypotension (92/58 mmHg) and tachycardia (128 bpm) are classic signs of hypovolemic shock, also known as burn shock."
+        },
+        "incorrect_conditions": [
+            {
+                "id": "C1",
+                "rationale": "While possible with burns, the scenario specifies no evidence of soot in the nares or singed facial hair, and the SpO2 is 96% on room air, making a primary, severe inhalation injury less likely than hypovolemic shock."
+            },
+            {
+                "id": "C2",
+                "rationale": "Neurogenic shock is characterized by hypotension and bradycardia due to a loss of sympathetic tone, typically seen in spinal cord injuries. This client is tachycardic, which is inconsistent with neurogenic shock."
+            },
+            {
+                "id": "C4",
+                "rationale": "Septic shock develops from a systemic infection. While burn patients are at high risk for infection, it is not an immediate complication. Septic shock typically occurs days to weeks after the initial injury."
+            },
+            {
+                "id": "C5",
+                "rationale": "Cardiogenic shock results from primary cardiac pump failure. While an electrical burn can cause dysrhythmias, the primary physiological event in a major thermal burn is fluid loss, making hypovolemic shock the most immediate and likely diagnosis."
+            }
+        ],
+        "actions": [
+            {
+                "id": "A1",
+                "rationale": "This is a priority action. Rapid and aggressive fluid resuscitation is the cornerstone of managing burn shock. Lactated Ringer's is the isotonic crystalloid of choice as its composition is most similar to extracellular fluid, helping to restore intravascular volume."
+            },
+            {
+                "id": "A5",
+                "rationale": "This is a priority action. An indwelling urinary catheter is essential for accurately monitoring hourly urine output. This is the most critical non-invasive indicator of end-organ perfusion and the adequacy of fluid resuscitation."
+            }
+        ],
+        "incorrect_actions": [
+            {
+                "id": "A2",
+                "rationale": "Tetanus prophylaxis is important for all burn patients due to the risk of clostridial infections, but it is not an immediate life-saving priority over hemodynamic stabilization."
+            },
+            {
+                "id": "A3",
+                "rationale": "Wound care, including the application of topical antimicrobials, is performed after the patient has been stabilized. The immediate priorities are airway, breathing, and circulation (fluid resuscitation)."
+            },
+            {
+                "id": "A4",
+                "rationale": "Obtaining a 12-lead EKG is important for any patient with an electrical burn to rule out cardiac dysrhythmias. However, in a patient with clear signs of shock from a 27% TBSA burn, initiating fluid resuscitation to address the circulatory collapse is a higher immediate priority."
+            }
+        ],
+        "parameters": [
+            {
+                "id": "P2",
+                "rationale": "This is a priority parameter. Hourly urine output is the most sensitive non-invasive indicator of renal perfusion and overall hemodynamic response to fluid resuscitation. The goal is typically 0.5-1 mL/kg/hr for an adult."
+            },
+            {
+                "id": "P4",
+                "rationale": "This is a priority parameter. Mean arterial pressure (MAP) is a critical indicator of systemic perfusion. Monitoring MAP (goal >65 mmHg) is essential to titrate fluid resuscitation and ensure vital organs are receiving adequate blood flow."
+            }
+        ],
+        "incorrect_parameters": [
+            {
+                "id": "P1",
+                "rationale": "Patients with large burns are at risk for hypothermia due to skin loss. While monitoring core temperature is important, it is not a primary indicator of the effectiveness of fluid resuscitation for burn shock."
+            },
+            {
+                "id": "P3",
+                "rationale": "Hyperkalemia can occur initially due to massive cell destruction, followed by hypokalemia as fluid shifts. While monitoring electrolytes is crucial, serum potassium is not a primary, real-time indicator used to titrate fluid resuscitation for hemodynamic stability."
+            },
+            {
+                "id": "P5",
+                "rationale": "Wound cultures are used to identify pathogens if signs of infection develop. This is part of long-term management and is irrelevant to monitoring the immediate response to resuscitation for burn shock."
+            }
+        ]
+    }
+}

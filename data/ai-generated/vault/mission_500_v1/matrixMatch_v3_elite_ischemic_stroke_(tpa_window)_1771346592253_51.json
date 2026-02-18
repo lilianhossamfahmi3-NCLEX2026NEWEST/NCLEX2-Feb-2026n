@@ -1,0 +1,104 @@
+{
+    "id": "MISSION-500-51-1771346554758",
+    "itemType": "matrixMatch",
+    "leadIn": "A nurse in the emergency department is preparing to administer Alteplase (tPA) to a client diagnosed with an acute ischemic stroke. The nurse reviews the electronic health record (EHR) before administration. Based on the provided information, the nurse should identify which findings indicate eligibility for or contraindicate the administration of Alteplase.",
+    "tabs": [
+        {
+            "id": "tab1",
+            "label": "Nurses' Notes",
+            "content": "Time: 14:00\nClient is a 68-year-old male who arrived via ambulance with sudden onset of left-sided weakness and garbled speech. Client is alert but only oriented to person. Last known well at 12:00 today per spouse. Spouse, who speaks limited English and is using a translator phone, reports that just before the weakness began, the client yelled out, grabbed his chest, and complained of a sudden, severe 'tearing' pain in his back between his shoulder blades. NIH Stroke Scale (NIHSS) score is 16."
+        },
+        {
+            "id": "tab2",
+            "label": "Vital Signs",
+            "content": "Time: 14:00 (On Arrival)\n- Blood Pressure: R Arm 188/96 mmHg, L Arm 165/88 mmHg\n- Heart Rate: 110/min (Sinus Tachycardia)\n- Respiratory Rate: 22/min\n- SpO2: 96% on room air\n- Temperature: 37.1°C (98.8°F)\n\nTime: 14:15 (Post Labetalol)\n- Blood Pressure: R Arm 176/90 mmHg, L Arm 148/80 mmHg\n- Heart Rate: 112/min (Sinus Tachycardia)\n- Respiratory Rate: 20/min\n- SpO2: 97% on room air"
+        },
+        {
+            "id": "tab3",
+            "label": "Laboratory Results",
+            "content": "- Glucose (point-of-care): 130 mg/dL (7.2 mmol/L)\n- Platelet Count: 220,000/mm³\n- International Normalized Ratio (INR): 1.1\n- D-dimer: 2.5 mcg/mL (High)\n- Troponin I: 0.08 ng/mL (Slightly Elevated)"
+        },
+        {
+            "id": "tab4",
+            "label": "Diagnostic Reports",
+            "content": "Non-Contrast Head CT: No evidence of acute intracranial hemorrhage or mass effect.\n\nPortable Chest X-ray: Questionable widened mediastinum.\n\n12-Lead ECG: Sinus tachycardia. Non-specific ST-T wave changes. No acute ST-elevation."
+        },
+        {
+            "id": "tab5",
+            "label": "MAR",
+            "content": "Scheduled:\n- Normal Saline 0.9% IV at 75 mL/hr\n\nPRN/One-Time:\n- Labetalol 10 mg IV PUSH (Administered at 14:10 for BP > 185/110 mmHg)\n\nPENDING:\n- Alteplase (tPA) IV infusion per stroke protocol. Weight: 80 kg. Dose: 72 mg total. Awaiting nurse verification and administration."
+        }
+    ],
+    "matrix": {
+        "rows": [
+            {
+                "id": "r1",
+                "label": "Last Known Well 2 hours ago"
+            },
+            {
+                "id": "r2",
+                "label": "Non-contrast Head CT result"
+            },
+            {
+                "id": "r3",
+                "label": "Blood pressure discrepancy between arms"
+            },
+            {
+                "id": "r4",
+                "label": "Widened mediastinum on chest x-ray"
+            },
+            {
+                "id": "r5",
+                "label": "International Normalized Ratio (INR) of 1.1"
+            }
+        ],
+        "columns": [
+            {
+                "id": "c1",
+                "label": "Indicates Eligibility for Alteplase"
+            },
+            {
+                "id": "c2",
+                "label": "Contraindicates Administration of Alteplase"
+            }
+        ]
+    },
+    "solution": {
+        "r1": "c1",
+        "r2": "c1",
+        "r3": "c2",
+        "r4": "c2",
+        "r5": "c1"
+    },
+    "answerBreakdown": [
+        {
+            "row": "r1",
+            "column": "c1",
+            "reasoning": "A last known well time of 2 hours places the client well within the standard 3 to 4.5-hour therapeutic window for Alteplase administration in acute ischemic stroke. This finding supports eligibility."
+        },
+        {
+            "row": "r2",
+            "column": "c1",
+            "reasoning": "A non-contrast head CT showing no evidence of intracranial hemorrhage is a critical prerequisite for administering Alteplase. This result rules out a hemorrhagic stroke, for which fibrinolytics would be fatal. This finding supports eligibility."
+        },
+        {
+            "row": "r3",
+            "column": "c2",
+            "reasoning": "A significant blood pressure difference between arms (>20 mmHg systolic) is a classic sign of aortic dissection. Administering Alteplase to a client with an aortic dissection would be catastrophic, leading to massive hemorrhage. This finding is a major 'SAFETY STOP' signal and an absolute contraindication."
+        },
+        {
+            "row": "r4",
+            "column": "c2",
+            "reasoning": "A widened mediastinum on chest x-ray is a key radiological sign of aortic dissection. This finding, combined with the tearing back pain and BP discrepancy, strongly suggests a diagnosis other than a simple ischemic stroke. This is an absolute contraindication to Alteplase therapy and requires immediate escalation to the provider to halt the stroke protocol."
+        },
+        {
+            "row": "r5",
+            "column": "c1",
+            "reasoning": "An INR of 1.1 is within the normal range and below the contraindication threshold of >1.7 for Alteplase administration. This finding, by itself, indicates that the client's coagulation status is acceptable for fibrinolytic therapy and thus supports eligibility."
+        }
+    ],
+    "scoring": {
+        "type": "dichotomous",
+        "points": 5
+    }
+}

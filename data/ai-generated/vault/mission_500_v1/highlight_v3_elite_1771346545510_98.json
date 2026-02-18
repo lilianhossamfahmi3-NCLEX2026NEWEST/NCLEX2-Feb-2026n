@@ -1,0 +1,180 @@
+{
+    "id": "nclex-ngn-psychometrician-ts-pneuma-01",
+    "questionType": "highlight",
+    "caseId": "standalone",
+    "tabs": [
+        {
+            "id": "tab1",
+            "title": "Electronic Health Record",
+            "widgets": [
+                {
+                    "type": "nursesNote",
+                    "title": "Nurses' Note",
+                    "data": {
+                        "date": "Today",
+                        "notes": [
+                            {
+                                "time": "12:00",
+                                "note": "Client admitted from ED following a fall from a 6-foot ladder. Alert and oriented x4. Complains of right-sided chest pain, rated 7/10. Oxygen 2 L/min via nasal cannula initiated. Client states he is a recent immigrant and delayed coming to the hospital due to concerns about cost and communication. Interpreter services contacted and in use. Family notified."
+                            },
+                            {
+                                "time": "14:30",
+                                "note": "Called to room for worsening shortness of breath. Client appears agitated and is clutching chest. Reports chest pain 8/10. Assessment reveals visible neck vein distention and trachea appears shifted to the left. On auscultation, there are absent breath sounds on the right. Current oxygen is via nasal cannula at 2 L/min. The provider's standing PRN order is for Morphine 2 mg IV for pain >6/10. The systolic blood pressure has dropped to 84 mmHg from 118 mmHg at 12:00."
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "vitalSigns",
+                    "title": "Vital Signs",
+                    "data": {
+                        "headers": [
+                            "Time",
+                            "HR",
+                            "BP",
+                            "RR",
+                            "SpO2"
+                        ],
+                        "rows": [
+                            [
+                                "12:00",
+                                "98",
+                                "118/76",
+                                "22",
+                                "95% on 2L NC"
+                            ],
+                            [
+                                "13:00",
+                                "110",
+                                "110/72",
+                                "26",
+                                "94% on 2L NC"
+                            ],
+                            [
+                                "14:00",
+                                "124",
+                                "102/68",
+                                "30",
+                                "92% on 2L NC"
+                            ],
+                            [
+                                "14:28",
+                                "142",
+                                "84/50",
+                                "36",
+                                "88% on 2L NC"
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "type": "diagnosticReport",
+                    "title": "Radiology Report",
+                    "data": {
+                        "reportType": "Chest X-Ray (Portable, Upright)",
+                        "timestamp": "12:15",
+                        "findings": "Small, simple right-sided pneumothorax noted, approximately 15% collapse. No evidence of mediastinal shift. Pulmonary vasculature and cardiac silhouette are within normal limits for this initial study. Recommend serial imaging."
+                    }
+                }
+            ]
+        }
+    ],
+    "prompt": "The nurse reviews the client's record at 14:30 before administering the PRN medication. Click to highlight the findings in the 14:30 Nurses' Note that indicate a life-threatening change in condition, requiring the nurse to **withhold the medication and immediately activate the rapid response team.**",
+    "textToHighlight": "Called to room for worsening shortness of breath. Client appears agitated and is clutching chest. Reports chest pain 8/10. Assessment reveals visible neck vein distention and trachea appears shifted to the left. On auscultation, there are absent breath sounds on the right. Current oxygen is via nasal cannula at 2 L/min. The provider's standing PRN order is for Morphine 2 mg IV for pain >6/10. The systolic blood pressure has dropped to 84 mmHg from 118 mmHg at 12:00.",
+    "highlightablePhrases": [
+        {
+            "phrase": "worsening shortness of breath",
+            "isCorrect": true
+        },
+        {
+            "phrase": "Client appears agitated",
+            "isCorrect": false
+        },
+        {
+            "phrase": "Reports chest pain 8/10",
+            "isCorrect": false
+        },
+        {
+            "phrase": "visible neck vein distention",
+            "isCorrect": true
+        },
+        {
+            "phrase": "trachea appears shifted to the left",
+            "isCorrect": true
+        },
+        {
+            "phrase": "absent breath sounds on the right",
+            "isCorrect": true
+        },
+        {
+            "phrase": "The provider's standing PRN order is for Morphine 2 mg IV for pain >6/10",
+            "isCorrect": false
+        },
+        {
+            "phrase": "The systolic blood pressure has dropped to 84 mmHg",
+            "isCorrect": true
+        }
+    ],
+    "rationale": {
+        "correct": "The combination of highlighted findings points definitively to the development of a tension pneumothorax, a life-threatening medical emergency. The initial simple pneumothorax has progressed, causing a mediastinal shift (tracheal deviation), compressing the heart and great vessels (JVD, hypotension), and leading to complete lung collapse (absent breath sounds, worsening SOB). This constitutes obstructive shock. Administering morphine, a CNS and respiratory depressant with vasodilatory effects, would be catastrophic. It would worsen hypotension and respiratory drive, accelerating cardiovascular collapse. The nurse's priority is to recognize this 'killer' complication, withhold the contraindicated medication, and activate emergency response for immediate needle decompression.",
+        "incorrect": "While the unselected phrases are clinically relevant, they are not the primary indicators of the life-threatening shift in pathophysiology. Agitation is a symptom of the severe hypoxia but is non-specific. The pain report is the reason for the medication order, but acting on it without analyzing the new data is unsafe. The provider's order is the action to be withheld, not a finding itself. The correct action is to identify the root cause of the patient's deterioration—the tension pneumothorax—by clustering the specific, life-threatening cues.",
+        "answerBreakdown": [
+            {
+                "label": "worsening shortness of breath",
+                "content": "Correct. This indicates the pneumothorax is enlarging, further collapsing the lung and compromising gas exchange, leading to severe hypoxemia.",
+                "isCorrect": true
+            },
+            {
+                "label": "Client appears agitated",
+                "content": "Incorrect. Agitation and restlessness are early signs of hypoxia. While a significant cue, it is a non-specific finding. The physical assessment findings (tracheal shift, JVD, breath sounds) are more definitive indicators of a tension pneumothorax.",
+                "isCorrect": false
+            },
+            {
+                "label": "Reports chest pain 8/10",
+                "content": "Incorrect. This is the symptom that prompted the potential medication administration. However, in the context of the other findings, the nurse must recognize that the cause of the pain has evolved into a life-threatening emergency that will not be resolved by analgesia and may be worsened by it.",
+                "isCorrect": false
+            },
+            {
+                "label": "visible neck vein distention",
+                "content": "Correct. Also known as jugular vein distention (JVD), this is a classic sign of tension pneumothorax. The increased intrathoracic pressure compresses the vena cava, impeding venous return to the heart and causing blood to back up in the venous system.",
+                "isCorrect": true
+            },
+            {
+                "label": "trachea appears shifted to the left",
+                "content": "Correct. This is a late and critical sign of a right-sided tension pneumothorax. The accumulating air in the right pleural space is creating so much pressure that it is pushing the entire mediastinum (heart, great vessels, and trachea) to the opposite (left) side.",
+                "isCorrect": true
+            },
+            {
+                "label": "absent breath sounds on the right",
+                "content": "Correct. This finding indicates that the right lung is fully collapsed due to the increasing volume of air in the pleural space, meaning no air is entering or leaving the lung on that side. This confirms the location and severity of the pneumothorax.",
+                "isCorrect": true
+            },
+            {
+                "label": "The provider's standing PRN order is for Morphine 2 mg IV for pain >6/10",
+                "content": "Incorrect. This is the action that the nurse must decide to withhold. It is part of the clinical problem to be solved, not a finding that indicates the client's condition has changed.",
+                "isCorrect": false
+            },
+            {
+                "label": "The systolic blood pressure has dropped to 84 mmHg",
+                "content": "Correct. This finding, especially when trended against the earlier vital signs, indicates hemodynamic collapse. The mediastinal shift and compression of the heart are preventing it from filling and pumping effectively, leading to obstructive shock.",
+                "isCorrect": true
+            }
+        ]
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyzing",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Adaptation",
+        "nclexSubCategory": "Pathophysiology",
+        "difficulty": "Level 5",
+        "topicTags": [
+            "Tension Pneumothorax",
+            "Obstructive Shock",
+            "Patient Safety",
+            "Medication Contraindication",
+            "Prioritization",
+            "Rapid Response",
+            "Respiratory Emergency"
+        ]
+    }
+}

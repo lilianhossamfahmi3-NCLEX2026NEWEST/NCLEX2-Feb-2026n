@@ -1,0 +1,113 @@
+{
+    "id": "ngn_mm_mission500_19",
+    "itemType": "matrixMatch",
+    "question": "The nurse is caring for a client in the emergency department. Based on the information in the client's electronic health record (EHR), for each finding, click to specify if it is a finding that supports the diagnosis, a finding that requires immediate follow-up, or a finding that is not clinically significant.",
+    "scenario": {
+        "patient": "78-year-old male",
+        "chiefComplaint": "Worsening shortness of breath and extreme weakness.",
+        "history": "Hypertension, Type 2 Diabetes Mellitus, Heart Failure with reduced Ejection Fraction (HFrEF, last known EF 25%), Chronic Kidney Disease Stage 3.",
+        "tabs": [
+            {
+                "id": "nursesNote",
+                "label": "Nurses' Note",
+                "content": "Client arrived via emergency medical services with a 3-day history of fever, chills, and a productive cough with purulent sputum. Reports running out of his prescribed furosemide one week ago and was unable to obtain a refill due to transportation issues. States he has been sleeping in a recliner for the past 4 nights because he 'can't breathe when lying flat.' Client is anxious and tachypneic but is alert and oriented to person, place, and time."
+            },
+            {
+                "id": "vitalSigns",
+                "label": "Vital Signs",
+                "content": [
+                    {
+                        "time": "14:00 (Admission)",
+                        "T": "38.9°C (102.0°F)",
+                        "HR": "125 bpm",
+                        "RR": "28/min",
+                        "BP": "88/50 mmHg (MAP 63)",
+                        "SpO2": "89% on 2L nasal cannula"
+                    }
+                ]
+            },
+            {
+                "id": "labResults",
+                "label": "Laboratory Results",
+                "content": {
+                    "WBC": "18.5 x 10^3/µL",
+                    "Lactate": "4.2 mmol/L",
+                    "Procalcitonin": "12.0 ng/mL",
+                    "BNP": "2500 pg/mL",
+                    "Troponin I": "0.08 ng/mL",
+                    "Creatinine": "2.5 mg/dL (Baseline 1.8 mg/dL)",
+                    "Potassium": "4.1 mEq/L"
+                }
+            },
+            {
+                "id": "diagnostics",
+                "label": "Diagnostic Results",
+                "content": "Chest X-Ray Report: Findings show diffuse bilateral interstitial opacities consistent with significant pulmonary edema. Cardiomegaly is present. An underlying consolidation in the right lower lobe cannot be ruled out."
+            },
+            {
+                "id": "orders",
+                "label": "Provider's Orders",
+                "content": [
+                    "Obtain blood cultures x2, urinalysis, sputum culture.",
+                    "Initiate Septic Shock Bundle.",
+                    "Administer IV Normal Saline 30 mL/kg bolus over 1 hour.",
+                    "Administer Piperacillin-tazobactam 3.375 g IV now.",
+                    "Start norepinephrine infusion if MAP remains < 65 mmHg after fluid bolus."
+                ]
+            }
+        ]
+    },
+    "matrixOptions": [
+        "Lactate 4.2 mmol/L",
+        "Blood pressure 88/50 mmHg (MAP 63)",
+        "B-type Natriuretic Peptide (BNP) 2500 pg/mL",
+        "Chest X-ray finding of 'diffuse bilateral interstitial opacities'",
+        "Temperature 38.9° C (102.0° F)",
+        "Potassium 4.1 mEq/L"
+    ],
+    "matrixChoices": [
+        "Finding that supports the diagnosis",
+        "Finding that requires immediate follow-up",
+        "Finding not clinically significant"
+    ],
+    "answer": {
+        "Lactate 4.2 mmol/L": "Finding that supports the diagnosis",
+        "Blood pressure 88/50 mmHg (MAP 63)": "Finding that supports the diagnosis",
+        "B-type Natriuretic Peptide (BNP) 2500 pg/mL": "Finding that requires immediate follow-up",
+        "Chest X-ray finding of 'diffuse bilateral interstitial opacities'": "Finding that requires immediate follow-up",
+        "Temperature 38.9° C (102.0° F)": "Finding that supports the diagnosis",
+        "Potassium 4.1 mEq/L": "Finding not clinically significant"
+    },
+    "answerBreakdown": [
+        {
+            "option": "Lactate 4.2 mmol/L",
+            "selected": "Finding that supports the diagnosis",
+            "rationale": "A lactate level greater than 2 mmol/L is a key indicator of tissue hypoperfusion and anaerobic metabolism. This finding is a criterion for septic shock and supports the diagnosis and the need for urgent intervention."
+        },
+        {
+            "option": "Blood pressure 88/50 mmHg (MAP 63)",
+            "selected": "Finding that supports the diagnosis",
+            "rationale": "Hypotension, defined as a mean arterial pressure (MAP) less than 65 mmHg, is a hallmark of shock. This finding confirms the presence of shock, which, in the context of infection, supports the diagnosis of septic shock."
+        },
+        {
+            "option": "B-type Natriuretic Peptide (BNP) 2500 pg/mL",
+            "selected": "Finding that requires immediate follow-up",
+            "rationale": "This extremely elevated BNP level is a critical finding that indicates severe heart failure and significant fluid overload. It directly contradicts the standing order for a large-volume (30 mL/kg) fluid bolus. Administering this bolus would likely cause flash pulmonary edema and severe respiratory distress. The nurse must question this order immediately. This represents a 'SAFETY STOP' situation where two disease processes (septic shock and acute decompensated heart failure) require conflicting treatments."
+        },
+        {
+            "option": "Chest X-ray finding of 'diffuse bilateral interstitial opacities'",
+            "selected": "Finding that requires immediate follow-up",
+            "rationale": "This radiologic finding is classic for pulmonary edema due to fluid overload, corroborating the high BNP. While a lung infiltrate (pneumonia) is the likely source of sepsis, the overwhelming evidence of pulmonary edema makes the large-volume fluid bolus a life-threatening intervention. The nurse must immediately contact the provider to discuss these findings and advocate for a modified fluid resuscitation strategy (e.g., smaller fluid challenges, earlier initiation of vasopressors)."
+        },
+        {
+            "option": "Temperature 38.9° C (102.0° F)",
+            "selected": "Finding that supports the diagnosis",
+            "rationale": "Fever is a cardinal sign of infection and a component of the Systemic Inflammatory Response Syndrome (SIRS) criteria. This finding strongly supports the diagnosis of sepsis."
+        },
+        {
+            "option": "Potassium 4.1 mEq/L",
+            "selected": "Finding not clinically significant",
+            "rationale": "This potassium level is within the normal range (typically 3.5-5.0 mEq/L). In this acute and complex clinical picture, this normal value does not require any action and is not clinically significant at this time."
+        }
+    ]
+}

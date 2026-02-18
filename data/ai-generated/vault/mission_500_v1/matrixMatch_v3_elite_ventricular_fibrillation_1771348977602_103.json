@@ -1,0 +1,146 @@
+{
+    "id": "MISSION-500-103-1771348937558",
+    "type": "matrixMatch",
+    "difficulty": "level_4",
+    "topic": "Ventricular Fibrillation",
+    "subject": "Management of Care",
+    "title": "Cardiac Arrest with Critical Electrolyte Imbalance",
+    "scenario": "A 68-year-old male with a history of coronary artery disease (CAD), heart failure (HF), and chronic kidney disease (CKD) was admitted to the medical-surgical unit 2 hours ago for evaluation of syncope. The client is now found unresponsive, pulseless, and apneic. A code blue is activated. The monitor shows coarse ventricular fibrillation. High-quality CPR is in progress, an IV has been established, and the client has been intubated.",
+    "tabs": [
+        {
+            "id": "Nurses' Notes",
+            "content": "Admitting Note (2 hours ago):\nClient is a 68-year-old male with known CAD, HF, and Stage 4 CKD. He presented to the ED after a syncopal episode at the homeless shelter where he currently resides. Client reports being non-adherent with his prescribed medications (lisinopril, furosemide, sevelamer) for 'at least a week' because he 'couldn't get refills.' He appears fatigued but is alert and oriented x3. Skin is cool and pale with 2+ pitting edema in the lower extremities. Denies chest pain at this time. He has a documented allergy to Procainamide (causes severe rash)."
+        },
+        {
+            "id": "Code Flowsheet",
+            "content": [
+                {
+                    "Time": "14:32",
+                    "Event": "Client found unresponsive, pulseless, apneic. Code blue activated. CPR initiated."
+                },
+                {
+                    "Time": "14:33",
+                    "Rhythm": "Ventricular Fibrillation",
+                    "Action": "Defibrillation delivered at 200 J. CPR immediately resumed."
+                },
+                {
+                    "Time": "14:34",
+                    "Action": "IV access obtained. Bag-valve mask ventilation with 100% O2."
+                },
+                {
+                    "Time": "14:35",
+                    "Action": "Epinephrine 1 mg IV push administered. Client intubated."
+                },
+                {
+                    "Time": "14:35",
+                    "Rhythm": "Ventricular Fibrillation",
+                    "Action": "Defibrillation delivered at 360 J. CPR immediately resumed."
+                }
+            ]
+        },
+        {
+            "id": "Laboratory Results",
+            "content": {
+                "Panel": "Admission Labs (2 hours ago)",
+                "results": [
+                    {
+                        "Test": "Potassium (K+)",
+                        "Value": "6.8 mEq/L",
+                        "Reference": "3.5-5.0 mEq/L"
+                    },
+                    {
+                        "Test": "Magnesium (Mg)",
+                        "Value": "1.9 mg/dL",
+                        "Reference": "1.7-2.2 mg/dL"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Value": "75 mg/dL",
+                        "Reference": "7-20 mg/dL"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Value": "3.8 mg/dL",
+                        "Reference": "0.6-1.2 mg/dL"
+                    },
+                    {
+                        "Test": "Troponin I",
+                        "Value": "0.9 ng/mL",
+                        "Reference": "<0.04 ng/mL"
+                    },
+                    {
+                        "Test": "Lactate",
+                        "Value": "4.1 mmol/L",
+                        "Reference": "0.5-2.2 mmol/L"
+                    }
+                ]
+            }
+        }
+    ],
+    "prompt": "The time is now 14:36. CPR is ongoing. The provider calls out a series of potential orders. For each potential action below, use the information in the client's electronic health record to determine if it is an **Appropriate Action**, **Inappropriate Action**, or **Unrelated Action** at this time.",
+    "columns": [
+        "Appropriate Action",
+        "Inappropriate Action",
+        "Unrelated Action"
+    ],
+    "rows": [
+        {
+            "id": "row_1",
+            "label": "Administer Calcium Chloride 1 gram IV push."
+        },
+        {
+            "id": "row_2",
+            "label": "Administer Procainamide 20 mg/min IV infusion."
+        },
+        {
+            "id": "row_3",
+            "label": "Withhold the next defibrillation to allow for medication administration."
+        },
+        {
+            "id": "row_4",
+            "label": "Administer Sodium Bicarbonate 50 mEq IV push."
+        },
+        {
+            "id": "row_5",
+            "label": "Prepare for nasogastric tube placement for decompression."
+        },
+        {
+            "id": "row_6",
+            "label": "Administer Amiodarone 300 mg IV push."
+        }
+    ],
+    "answer": {
+        "row_1": "Appropriate Action",
+        "row_2": "Inappropriate Action",
+        "row_3": "Inappropriate Action",
+        "row_4": "Appropriate Action",
+        "row_5": "Unrelated Action",
+        "row_6": "Appropriate Action"
+    },
+    "answerBreakdown": {
+        "row_1": {
+            "column": "Appropriate Action",
+            "rationale": "The client has severe, life-threatening hyperkalemia (K+ 6.8 mEq/L) which is a likely cause of the ventricular fibrillation. In hyperkalemic cardiac arrest, administering calcium chloride (or gluconate) is a critical, high-priority action to stabilize the cardiac membrane and restore its electrical potential, making it more responsive to defibrillation and other ACLS interventions."
+        },
+        "row_2": {
+            "column": "Inappropriate Action",
+            "rationale": "This action constitutes a critical medication error. The Nurses' Notes clearly document a client allergy to procainamide. Administering a known allergen during resuscitation could trigger anaphylaxis, worsening the client's hemodynamic instability and complicating the code."
+        },
+        "row_3": {
+            "column": "Inappropriate Action",
+            "rationale": "This action is a critical safety violation and deviation from ACLS protocol. Early and repeated defibrillation is the single most important treatment for ventricular fibrillation. Medications are administered during the two-minute intervals of CPR *between* rhythm checks and shocks. Withholding a shock delays definitive therapy and significantly reduces the chance of survival."
+        },
+        "row_4": {
+            "column": "Appropriate Action",
+            "rationale": "The client's severe CKD and elevated lactate indicate a metabolic acidosis, which is often present in hyperkalemic cardiac arrest. Sodium bicarbonate is an appropriate intervention to help correct severe acidosis and can also temporarily shift potassium into the cells, assisting in the management of hyperkalemia."
+        },
+        "row_5": {
+            "column": "Unrelated Action",
+            "rationale": "Nasogastric tube placement is not an intervention used in the management of ventricular fibrillation or cardiac arrest. This action is irrelevant to the immediate life-threatening situation and would divert attention and resources from critical life-saving tasks like CPR, defibrillation, and medication administration."
+        },
+        "row_6": {
+            "column": "Appropriate Action",
+            "rationale": "According to standard ACLS guidelines for shock-refractory ventricular fibrillation, after two unsuccessful shocks and a dose of epinephrine, an antiarrhythmic should be administered. Amiodarone 300 mg IV push is the first-line antiarrhythmic medication in this scenario."
+        }
+    }
+}

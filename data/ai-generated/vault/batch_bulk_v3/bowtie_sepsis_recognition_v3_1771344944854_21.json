@@ -1,0 +1,180 @@
+{
+    "questionId": "bowtie_BATCH-300-21-1771344910863",
+    "itemType": "bowtie",
+    "difficulty": 4,
+    "cjmm": "Analyze Cues",
+    "topic": "Sepsis Recognition",
+    "questionText": "A nurse in the emergency department is caring for a 58-year-old male who presents with increasing fatigue, chills, and confusion. He underwent a laparoscopic cholecystectomy 5 days ago. The nurse has reviewed the client's history and current assessment findings. Based on the data provided, what condition is the client most likely experiencing? What actions should the nurse take? What parameters should the nurse monitor to evaluate the client's response?",
+    "scenarioData": {
+        "tabs": [
+            {
+                "id": "vitals",
+                "label": "Vital Signs",
+                "content": "Time: 14:00\nTemperature: 102.5°F (39.2°C)\nHeart Rate: 118/min\nRespiratory Rate: 24/min\nBlood Pressure: 92/58 mmHg\nOxygen Saturation: 94% on room air"
+            },
+            {
+                "id": "assessment",
+                "label": "Nurse's Note",
+                "content": "Time: 14:15\nClient is alert but disoriented to time. Skin is warm and flushed. Capillary refill is 3 seconds. Abdomen is soft with mild, diffuse tenderness to palpation. Bowel sounds are hypoactive. Four small laparoscopic incisions are clean, dry, and intact with no erythema or purulent drainage noted."
+            },
+            {
+                "id": "labs",
+                "label": "Laboratory Results",
+                "content": "White blood cell (WBC) count: 18,500/mm³ (18.5 x 10⁹/L)\nSerum lactate: 4.2 mmol/L\nCreatinine: 1.6 mg/dL (141 mcmol/L)\nHemoglobin: 13.5 g/dL (135 g/L)"
+            }
+        ]
+    },
+    "options": {
+        "potentialConditions": [
+            {
+                "id": "cond_1",
+                "text": "Acute Pancreatitis"
+            },
+            {
+                "id": "cond_2",
+                "text": "Hypovolemic Shock"
+            },
+            {
+                "id": "cond_3",
+                "text": "Sepsis"
+            },
+            {
+                "id": "cond_4",
+                "text": "Postoperative Ileus"
+            },
+            {
+                "id": "cond_5",
+                "text": "Pulmonary Embolism"
+            }
+        ],
+        "potentialActions": [
+            {
+                "id": "act_1",
+                "text": "Administer a 30 mL/kg intravenous fluid bolus."
+            },
+            {
+                "id": "act_2",
+                "text": "Obtain blood cultures from two different sites."
+            },
+            {
+                "id": "act_3",
+                "text": "Administer acetaminophen for fever."
+            },
+            {
+                "id": "act_4",
+                "text": "Initiate broad-spectrum intravenous antibiotics."
+            },
+            {
+                "id": "act_5",
+                "text": "Prepare the client for an abdominal ultrasound."
+            }
+        ],
+        "potentialParameters": [
+            {
+                "id": "param_1",
+                "text": "Abdominal girth"
+            },
+            {
+                "id": "param_2",
+                "text": "Mean Arterial Pressure (MAP)"
+            },
+            {
+                "id": "param_3",
+                "text": "Urine output"
+            },
+            {
+                "id": "param_4",
+                "text": "Serum lactate level"
+            },
+            {
+                "id": "param_5",
+                "text": "Daily weight"
+            }
+        ]
+    },
+    "answer": {
+        "condition": "cond_3",
+        "actions": [
+            "act_1",
+            "act_2",
+            "act_4"
+        ],
+        "parameters": [
+            "param_2",
+            "param_3",
+            "param_4"
+        ]
+    },
+    "answerBreakdown": {
+        "condition": {
+            "id": "cond_3",
+            "rationale": "The client is exhibiting classic signs of sepsis, which is a systemic inflammatory response to infection. The combination of fever (102.5°F/39.2°C), tachycardia (118/min), tachypnea (24/min), hypotension (92/58 mmHg), altered mental status (disoriented), elevated WBC count (18,500/mm³), and elevated lactate (4.2 mmol/L) strongly indicates a dysregulated host response to a post-surgical infection."
+        },
+        "incorrectConditions": [
+            {
+                "id": "cond_1",
+                "rationale": "While acute pancreatitis can cause systemic inflammation, the client's primary signs and symptoms (fever, chills, high WBC) in the context of a recent surgery point more directly to an infectious process like sepsis rather than primary pancreatic inflammation."
+            },
+            {
+                "id": "cond_2",
+                "rationale": "Hypovolemic shock is characterized by fluid loss, leading to hypotension and tachycardia. However, it does not typically present with a high fever, chills, or a significantly elevated WBC count, which are hallmark signs of infection."
+            },
+            {
+                "id": "cond_4",
+                "rationale": "Postoperative ileus involves a temporary cessation of bowel motility. While it can cause abdominal tenderness and hypoactive bowel sounds, it does not account for the systemic signs of infection such as high fever, leukocytosis, altered mental status, and severe hemodynamic instability."
+            },
+            {
+                "id": "cond_5",
+                "rationale": "A pulmonary embolism can cause tachycardia, tachypnea, and hypotension, but it is less likely to cause a high-grade fever and significant leukocytosis. The clinical picture is more consistent with a systemic infection."
+            }
+        ],
+        "actions": [
+            {
+                "id": "act_1",
+                "rationale": "This is a correct action. Administering an initial crystalloid fluid bolus of 30 mL/kg is a cornerstone of the Surviving Sepsis Campaign guidelines to correct hypotension and improve tissue perfusion."
+            },
+            {
+                "id": "act_2",
+                "rationale": "This is a correct action. Blood cultures must be obtained before administering antibiotics to identify the causative organism and guide future antimicrobial therapy. This is a critical first step in the sepsis bundle."
+            },
+            {
+                "id": "act_4",
+                "rationale": "This is a correct action. Prompt administration of broad-spectrum IV antibiotics (within one hour of recognition) is crucial to control the source of infection and is directly linked to improved survival in sepsis."
+            }
+        ],
+        "incorrectActions": [
+            {
+                "id": "act_3",
+                "rationale": "This is an incorrect action. While the client has a fever, treating it with an antipyretic is a lower priority than life-saving interventions like fluid resuscitation, obtaining cultures, and starting antibiotics. It addresses a symptom, not the underlying cause of hemodynamic instability."
+            },
+            {
+                "id": "act_5",
+                "rationale": "This is an incorrect action. While diagnostic imaging may be necessary to locate the source of infection, the immediate priority is stabilization. Interventions to restore perfusion and control the infection (fluids, cultures, antibiotics) must be initiated first."
+            }
+        ],
+        "parameters": [
+            {
+                "id": "param_2",
+                "rationale": "This is a correct parameter. Mean Arterial Pressure (MAP) is a critical indicator of organ perfusion. The goal of fluid resuscitation in sepsis is to achieve a MAP of at least 65 mmHg to ensure vital organs are receiving adequate blood flow."
+            },
+            {
+                "id": "param_3",
+                "rationale": "This is a correct parameter. Urine output is a key indicator of renal and end-organ perfusion. An adequate urine output (≥0.5 mL/kg/hr) signifies that fluid resuscitation is effectively restoring perfusion to the kidneys."
+            },
+            {
+                "id": "param_4",
+                "rationale": "This is a correct parameter. The serum lactate level reflects tissue hypoxia and anaerobic metabolism. A decreasing lactate level in response to treatment is a primary indicator of successful resuscitation and improved cellular oxygenation."
+            }
+        ],
+        "incorrectParameters": [
+            {
+                "id": "param_1",
+                "rationale": "This is an incorrect parameter. While abdominal girth might be monitored for conditions like an ileus or ascites, it is not a primary parameter for evaluating the systemic response to sepsis resuscitation. Hemodynamic and perfusion markers are the priority."
+            },
+            {
+                "id": "param_5",
+                "rationale": "This is an incorrect parameter. Daily weight is important for assessing overall fluid balance over time but is not a sensitive, real-time indicator of a client's immediate response to acute sepsis interventions like fluid boluses."
+            }
+        ]
+    }
+}

@@ -1,0 +1,171 @@
+{
+    "id": "NGN-CLOZE-105",
+    "questionType": "clozeDropdown",
+    "stem": "A nurse in the ICU is caring for a 68-year-old male with severe Acute Respiratory Distress Syndrome (ARDS) secondary to sepsis. The patient was intubated 12 hours ago. The nurse reviews the most recent clinical data.",
+    "vignette": [
+        {
+            "type": "box",
+            "label": "Client Data",
+            "content": [
+                "**Vital Signs:**",
+                "Heart Rate: 118/min",
+                "Blood Pressure: 94/62 mmHg (on norepinephrine)",
+                "Respiratory Rate: 22/min (ventilator set rate)",
+                "Temperature: 38.5° C (101.3° F)",
+                "SpO2: 89%",
+                "",
+                "**Ventilator Settings:**",
+                "Mode: Assist-Control/Volume Control (AC/VC)",
+                "FiO2: 80% (0.80)",
+                "Tidal Volume (VT): 480 mL (Ideal Body Weight: 70 kg)",
+                "PEEP: 10 cm H2O",
+                "Respiratory Rate: 22/min",
+                "Plateau Pressure (Pplat): 34 cm H2O",
+                "",
+                "**Arterial Blood Gas (ABG):**",
+                "pH: 7.31",
+                "PaCO2: 52 mmHg",
+                "PaO2: 55 mmHg",
+                "HCO3-: 24 mEq/L"
+            ]
+        }
+    ],
+    "prompt": "The nurse collaborates with the respiratory therapist and intensivist to optimize the ventilation strategy. The nurse anticipates the need to {{blank1}} the PEEP and {{blank2}} the tidal volume. The primary goal of these specific adjustments is to {{blank3}}.",
+    "blanks": [
+        {
+            "id": "blank1",
+            "options": [
+                {
+                    "id": "opt1a",
+                    "label": "decrease"
+                },
+                {
+                    "id": "opt1b",
+                    "label": "increase"
+                },
+                {
+                    "id": "opt1c",
+                    "label": "maintain"
+                }
+            ]
+        },
+        {
+            "id": "blank2",
+            "options": [
+                {
+                    "id": "opt2a",
+                    "label": "increase"
+                },
+                {
+                    "id": "opt2b",
+                    "label": "decrease"
+                },
+                {
+                    "id": "opt2c",
+                    "label": "maintain"
+                }
+            ]
+        },
+        {
+            "id": "blank3",
+            "options": [
+                {
+                    "id": "opt3a",
+                    "label": "improve oxygenation"
+                },
+                {
+                    "id": "opt3b",
+                    "label": "normalize PaCO2"
+                },
+                {
+                    "id": "opt3c",
+                    "label": "decrease work of breathing"
+                }
+            ]
+        }
+    ],
+    "correctResponse": [
+        "opt1b",
+        "opt2b",
+        "opt3a"
+    ],
+    "rationale": {
+        "correct": "The patient's clinical picture indicates refractory hypoxemia (PaO2 of 55 mmHg despite an FiO2 of 80%) and signs of ventilator-induced lung injury (plateau pressure > 30 cm H2O), both hallmarks of severe ARDS. The correct management strategy involves lung-protective ventilation. This requires increasing the PEEP to recruit collapsed alveoli, improve functional residual capacity, and enhance gas exchange, thereby addressing the severe hypoxemia. Simultaneously, the tidal volume must be decreased to a low-volume setting (4-6 mL/kg ideal body weight) to reduce alveolar overdistension and lower the plateau pressure, minimizing barotrauma/volutrauma. The patient's current tidal volume is ~6.9 mL/kg, which is too high given the elevated plateau pressure. The primary, life-saving goal of these combined interventions is to improve oxygenation while preventing further iatrogenic lung injury.",
+        "incorrect": "Incorrect choices fail to address the critical issues of refractory hypoxemia and high plateau pressures according to the ARDSnet protocol for lung-protective ventilation. Decreasing or maintaining PEEP would not adequately recruit alveoli to improve oxygenation. Increasing or maintaining the tidal volume would worsen alveolar stretch and increase the risk of barotrauma, especially with an already elevated plateau pressure. Focusing on normalizing PaCO2 is inappropriate in this context, as permissive hypercapnia is an accepted consequence of low-tidal-volume ventilation to protect the lungs. Decreasing the work of breathing is not the primary goal, as the patient is fully supported by the ventilator.",
+        "answerBreakdown": [
+            {
+                "label": "Blank 1 - PEEP",
+                "options": [
+                    {
+                        "id": "opt1a",
+                        "content": "Decreasing the PEEP is incorrect. This would lead to further alveolar collapse (derecruitment) and worsen the intrapulmonary shunting, causing the severe hypoxemia to deteriorate further.",
+                        "isCorrect": false
+                    },
+                    {
+                        "id": "opt1b",
+                        "content": "Increasing the PEEP is correct. The patient has refractory hypoxemia (low PaO2/FiO2 ratio). Increasing PEEP helps to open collapsed alveoli, keeping them open at the end of expiration, which improves V/Q matching and increases oxygenation.",
+                        "isCorrect": true
+                    },
+                    {
+                        "id": "opt1c",
+                        "content": "Maintaining the PEEP is incorrect. The current PEEP of 10 cm H2O is insufficient to overcome the alveolar collapse and improve oxygenation, as evidenced by the SpO2 of 89% and PaO2 of 55 mmHg on 80% FiO2.",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "label": "Blank 2 - Tidal Volume",
+                "options": [
+                    {
+                        "id": "opt2a",
+                        "content": "Increasing the tidal volume is incorrect and dangerous. This would further increase the plateau pressure (>34 cm H2O), significantly raising the risk of ventilator-induced lung injury such as barotrauma and pneumothorax.",
+                        "isCorrect": false
+                    },
+                    {
+                        "id": "opt2b",
+                        "content": "Decreasing the tidal volume is correct. The patient's plateau pressure is 34 cm H2O, which is above the recommended goal of <30 cm H2O. A core principle of lung-protective ventilation is using low tidal volumes (4-6 mL/kg IBW) to minimize alveolar overdistension and injury.",
+                        "isCorrect": true
+                    },
+                    {
+                        "id": "opt2c",
+                        "content": "Maintaining the tidal volume is incorrect. The current volume of 480 mL (~6.9 mL/kg) is contributing to the dangerously high plateau pressure and is not aligned with the low-tidal-volume strategy necessary for managing severe ARDS.",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "label": "Blank 3 - Primary Goal",
+                "options": [
+                    {
+                        "id": "opt3a",
+                        "content": "Improving oxygenation is the correct primary goal. The patient's most immediate life-threatening problem is severe refractory hypoxemia (PaO2 55). The adjustments to PEEP and tidal volume are specifically intended to improve gas exchange and oxygen saturation.",
+                        "isCorrect": true
+                    },
+                    {
+                        "id": "opt3b",
+                        "content": "Normalizing PaCO2 is incorrect. In ARDS, a strategy of permissive hypercapnia is often employed. This means a higher-than-normal PaCO2 is tolerated as a necessary consequence of using lung-protective low tidal volumes. Attempting to normalize the PaCO2 would require increasing tidal volume or rate, which could worsen lung injury.",
+                        "isCorrect": false
+                    },
+                    {
+                        "id": "opt3c",
+                        "content": "Decreasing the work of breathing is incorrect. The patient is on assist-control ventilation and is likely sedated, meaning the ventilator is performing the majority of the work of breathing. While patient comfort is important, it is not the primary driver for these specific physiological adjustments.",
+                        "isCorrect": false
+                    }
+                ]
+            }
+        ]
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyzing",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation",
+        "difficulty": 4,
+        "topicTags": [
+            "ARDS",
+            "Mechanical Ventilation",
+            "Critical Care",
+            "Gas Exchange",
+            "Lung Protective Strategy"
+        ]
+    }
+}

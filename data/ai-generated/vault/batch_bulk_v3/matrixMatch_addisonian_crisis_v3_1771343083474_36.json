@@ -1,0 +1,173 @@
+{
+    "id": "NGN-MATRIX-110",
+    "version": 1,
+    "lastModified": "2024-03-21T10:00:00.000Z",
+    "type": "matrixMatch",
+    "stem": "A 45-year-old client with a history of Addison's disease is admitted to the emergency department after three days of vomiting and diarrhea. The client is lethargic and confused. The nurse reviews the initial assessment data and laboratory results.",
+    "vignette": [
+        {
+            "type": "box",
+            "label": "Client Data",
+            "fields": [
+                {
+                    "label": "Blood Pressure",
+                    "value": "84/50 mmHg"
+                },
+                {
+                    "label": "Heart Rate",
+                    "value": "128/min"
+                },
+                {
+                    "label": "Respiratory Rate",
+                    "value": "22/min"
+                },
+                {
+                    "label": "Temperature",
+                    "value": "101.2°F (38.4°C)"
+                },
+                {
+                    "label": "ECG",
+                    "value": "Sinus tachycardia with peaked T-waves"
+                },
+                {
+                    "label": "Serum Sodium",
+                    "value": "128 mEq/L (136-145 mEq/L)"
+                },
+                {
+                    "label": "Serum Potassium",
+                    "value": "6.2 mEq/L (3.5-5.0 mEq/L)"
+                },
+                {
+                    "label": "Blood Glucose",
+                    "value": "55 mg/dL (74-106 mg/dL)"
+                }
+            ]
+        }
+    ],
+    "prompt": "The nurse is developing the plan of care. For each clinical finding, select the priority nursing intervention.",
+    "matrix": {
+        "rows": [
+            {
+                "id": "R1",
+                "label": "Hypotension (BP 84/50 mmHg) and Tachycardia (HR 128/min)"
+            },
+            {
+                "id": "R2",
+                "label": "Hyperkalemia (K+ 6.2 mEq/L) and peaked T-waves"
+            },
+            {
+                "id": "R3",
+                "label": "Hypoglycemia (Glucose 55 mg/dL) and confusion"
+            },
+            {
+                "id": "R4",
+                "label": "Hyponatremia (Na+ 128 mEq/L)"
+            }
+        ],
+        "columns": [
+            {
+                "id": "C1",
+                "label": "Administer regular insulin IV with 50% dextrose"
+            },
+            {
+                "id": "C2",
+                "label": "Initiate seizure precautions and frequent neurological checks"
+            },
+            {
+                "id": "C3",
+                "label": "Administer 0.9% sodium chloride and hydrocortisone IV"
+            },
+            {
+                "id": "C4",
+                "label": "Administer spironolactone 25 mg PO"
+            },
+            {
+                "id": "C5",
+                "label": "Administer 5% dextrose in 0.9% sodium chloride (D5NS) infusion"
+            },
+            {
+                "id": "C6",
+                "label": "Restrict oral fluid intake to 1 L per day"
+            }
+        ]
+    },
+    "correctResponse": [
+        {
+            "rowId": "R1",
+            "columnId": "C3"
+        },
+        {
+            "rowId": "R2",
+            "columnId": "C1"
+        },
+        {
+            "rowId": "R3",
+            "columnId": "C5"
+        },
+        {
+            "rowId": "R4",
+            "columnId": "C2"
+        }
+    ],
+    "rationale": {
+        "correct": "An Addisonian crisis is a life-threatening endocrine emergency characterized by profound hypotension, hypoglycemia, hyponatremia, and hyperkalemia due to acute adrenal insufficiency. The priority is to rapidly reverse shock, correct life-threatening electrolyte imbalances, and replace corticosteroids. This requires administering IV hydrocortisone and large volumes of IV fluids (0.9% sodium chloride and D5NS), treating hyperkalemia to prevent cardiac arrest, and ensuring client safety related to hypoglycemia and hyponatremia.",
+        "incorrect": "Incorrect interventions either worsen the client's condition or are inappropriate for the pathophysiology of an Addisonian crisis. Spironolactone, a potassium-sparing diuretic, would exacerbate life-threatening hyperkalemia. Fluid restriction is contraindicated as the client is severely dehydrated and hypovolemic; it is a treatment for SIADH, not adrenal insufficiency.",
+        "answerBreakdown": [
+            {
+                "rowId": "R1",
+                "columnId": "C3",
+                "label": "Hypotension (BP 84/50 mmHg) and Tachycardia (HR 128/min) mapped to Administer 0.9% sodium chloride and hydrocortisone IV",
+                "content": "This is the correct match. Profound hypotension and tachycardia indicate circulatory collapse (shock) due to severe volume depletion and lack of cortisol. The immediate priority is to restore circulatory volume with a rapid infusion of 0.9% sodium chloride and to replace the deficient hormone with IV hydrocortisone, which also has mineralocorticoid effects to help raise blood pressure.",
+                "isCorrect": true
+            },
+            {
+                "rowId": "R2",
+                "columnId": "C1",
+                "label": "Hyperkalemia (K+ 6.2 mEq/L) and peaked T-waves mapped to Administer regular insulin IV with 50% dextrose",
+                "content": "This is the correct match. A potassium level of 6.2 mEq/L with associated ECG changes (peaked T-waves) is a medical emergency that can lead to fatal cardiac dysrhythmias. IV regular insulin temporarily shifts potassium from the bloodstream into the cells, lowering the serum potassium level. 50% dextrose is administered concurrently to prevent iatrogenic hypoglycemia.",
+                "isCorrect": true
+            },
+            {
+                "rowId": "R3",
+                "columnId": "C5",
+                "label": "Hypoglycemia (Glucose 55 mg/dL) and confusion mapped to Administer 5% dextrose in 0.9% sodium chloride (D5NS) infusion",
+                "content": "This is the correct match. Cortisol deficiency impairs gluconeogenesis, leading to hypoglycemia. The client's confusion is a neuroglycopenic symptom. A continuous infusion of D5NS provides a steady source of glucose to correct hypoglycemia and support cerebral function, while also contributing to volume and sodium replacement.",
+                "isCorrect": true
+            },
+            {
+                "rowId": "R4",
+                "columnId": "C2",
+                "label": "Hyponatremia (Na+ 128 mEq/L) mapped to Initiate seizure precautions and frequent neurological checks",
+                "content": "This is the correct match. Hyponatremia, especially when it develops acutely, lowers the seizure threshold by causing cerebral edema. While fluid resuscitation with 0.9% NS will help correct the sodium level, the immediate priority from a safety standpoint is to protect the client from injury by implementing seizure precautions and closely monitoring neurological status for changes.",
+                "isCorrect": true
+            },
+            {
+                "rowId": "R2",
+                "columnId": "C4",
+                "label": "Hyperkalemia (K+ 6.2 mEq/L) and peaked T-waves mapped to Administer spironolactone 25 mg PO",
+                "content": "This is incorrect. Spironolactone is a potassium-sparing diuretic. Administering it to a client with life-threatening hyperkalemia would further increase the potassium level and likely precipitate cardiac arrest. It is absolutely contraindicated.",
+                "isCorrect": false
+            },
+            {
+                "rowId": "R1",
+                "columnId": "C6",
+                "label": "Hypotension (BP 84/50 mmHg) and Tachycardia (HR 128/min) mapped to Restrict oral fluid intake to 1 L per day",
+                "content": "This is incorrect. Fluid restriction is a treatment for hypervolemic or euvolemic hyponatremia (like SIADH). This client is in hypovolemic shock from an Addisonian crisis. Restricting fluids would worsen the dehydration, exacerbate hypotension, and lead to cardiovascular collapse.",
+                "isCorrect": false
+            }
+        ]
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyzing",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation",
+        "difficulty": 4,
+        "topicTags": [
+            "Addisonian Crisis",
+            "Adrenal Insufficiency",
+            "Endocrine Emergency",
+            "Fluid and Electrolytes",
+            "Shock Management"
+        ]
+    }
+}

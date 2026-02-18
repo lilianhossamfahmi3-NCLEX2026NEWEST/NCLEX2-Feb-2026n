@@ -1,0 +1,158 @@
+{
+    "id": "nclex_ngn_sa_001",
+    "type": "multipleChoice",
+    "stem": "The nurse is caring for a 68-year-old client in the intensive care unit (ICU) following a ventricular fibrillation cardiac arrest. The nurse is preparing to administer the 0900 medications. Based on the data in the client's electronic health record, which action is most appropriate for the nurse to take?",
+    "exhibits": [
+        {
+            "label": "Nurses' Notes",
+            "type": "ehr_nurses_notes",
+            "data": {
+                "timestamp": "0800",
+                "note": "Client admitted to ICU post-ROSC from ventricular fibrillation arrest. Intubated and mechanically ventilated. Sedated with propofol. Norepinephrine infusion initiated for post-arrest hypotension. Targeted Temperature Management (TTM) protocol initiated, current core temp 35.5°C. Family at bedside reports client has End-Stage Renal Disease (ESRD) and missed the last two scheduled hemodialysis appointments due to transportation issues."
+            }
+        },
+        {
+            "label": "Vital Signs",
+            "type": "ehr_vitals",
+            "data": [
+                {
+                    "time": "0800",
+                    "HR": "110",
+                    "BP": "88/52",
+                    "MAP": "64",
+                    "RR": "16 (Vent)",
+                    "SpO2": "95%",
+                    "Temp_C": "35.5"
+                },
+                {
+                    "time": "0900",
+                    "HR": "115",
+                    "BP": "86/50",
+                    "MAP": "62",
+                    "RR": "16 (Vent)",
+                    "SpO2": "94%",
+                    "Temp_C": "35.4"
+                }
+            ]
+        },
+        {
+            "label": "Laboratory Results",
+            "type": "ehr_labs",
+            "data": [
+                {
+                    "name": "Potassium",
+                    "value": "3.1 mEq/L",
+                    "reference": "3.5-5.0 mEq/L"
+                },
+                {
+                    "name": "Magnesium",
+                    "value": "1.1 mg/dL",
+                    "reference": "1.7-2.2 mg/dL"
+                },
+                {
+                    "name": "Troponin I",
+                    "value": "2.5 ng/mL",
+                    "reference": "<0.04 ng/mL"
+                },
+                {
+                    "name": "Lactate",
+                    "value": "4.8 mmol/L",
+                    "reference": "0.5-2.0 mmol/L"
+                }
+            ]
+        },
+        {
+            "label": "Medication Administration Record",
+            "type": "ehr_mar",
+            "data": [
+                {
+                    "medication": "Norepinephrine",
+                    "dose": "8 mcg/min",
+                    "route": "IV Infusion",
+                    "instructions": "Titrate to maintain MAP > 65 mmHg."
+                },
+                {
+                    "medication": "Propofol",
+                    "dose": "20 mcg/kg/min",
+                    "route": "IV Infusion",
+                    "instructions": "For sedation."
+                },
+                {
+                    "medication": "Amiodarone",
+                    "dose": "1 mg/min",
+                    "route": "IV Infusion",
+                    "instructions": "Maintenance infusion."
+                },
+                {
+                    "medication": "Furosemide",
+                    "dose": "40 mg",
+                    "route": "IV",
+                    "instructions": "Every 12 hours. Due at 0900."
+                }
+            ]
+        }
+    ],
+    "options": [
+        {
+            "label": "B",
+            "content": "Titrate the norepinephrine infusion up to 10 mcg/min."
+        },
+        {
+            "label": "C",
+            "content": "Withhold the scheduled furosemide and notify the healthcare provider."
+        },
+        {
+            "label": "A",
+            "content": "Administer the furosemide 40 mg IV as scheduled."
+        },
+        {
+            "label": "D",
+            "content": "Request an order for an additional amiodarone bolus."
+        }
+    ],
+    "correctAnswer": "C",
+    "rationale": {
+        "correct": "The nurse must synthesize the data to identify a life-threatening contraindication. The client's history is ventricular fibrillation, a lethal arrhythmia. The laboratory results show critical hypomagnesemia (1.1 mg/dL) and hypokalemia (3.1 mEq/L). Both of these electrolyte abnormalities significantly increase myocardial irritability and are primary reversible causes of ventricular arrhythmias, including Torsades de Pointes and V-Fib. The MAR indicates a dose of furosemide is due. Furosemide is a loop diuretic that causes significant potassium and magnesium wasting. Administering this medication would further deplete these critical electrolytes, drastically increasing the risk of another cardiac arrest. Therefore, the priority safety action is to withhold the medication ('DON'T PROCEED') and immediately notify the provider to obtain orders for aggressive electrolyte repletion.",
+        "incorrect": "The incorrect options represent actions that either fail to address the root cause of instability, are less of a priority, or are actively harmful. The core of this question is recognizing that administering the scheduled furosemide is a 'killer' action due to the profound electrolyte derangements.",
+        "answerBreakdown": [
+            {
+                "label": "A",
+                "content": "Administer the furosemide 40 mg IV as scheduled.",
+                "isCorrect": false,
+                "justification": "This is an unsafe action. Furosemide promotes the excretion of potassium and magnesium. Given the client's existing critical hypomagnesemia and hypokalemia, administering this drug would exacerbate the electrolyte imbalance, lower the threshold for ventricular arrhythmias, and likely precipitate another episode of V-Fib or Torsades de Pointes. This action directly increases the risk of immediate death."
+            },
+            {
+                "label": "B",
+                "content": "Titrate the norepinephrine infusion up to 10 mcg/min.",
+                "isCorrect": false,
+                "justification": "While the client's MAP is 62 mmHg (below the goal of >65 mmHg), this is a secondary problem. The underlying cause of the hemodynamic instability and ectopy is likely the severe electrolyte imbalance. Simply increasing the vasopressor treats a symptom (hypotension) without addressing the root cause (myocardial irritability from electrolyte depletion). The priority is to correct the life-threatening metabolic derangement first; correcting electrolytes often improves hemodynamic stability. This action is not the most critical safety intervention."
+            },
+            {
+                "label": "C",
+                "content": "Withhold the scheduled furosemide and notify the healthcare provider.",
+                "isCorrect": true,
+                "justification": "This is the correct independent nursing action based on recognizing a critical contraindication. The nurse correctly identifies that furosemide is dangerous in the context of hypomagnesemia and hypokalemia, especially in a patient with a history of lethal arrhythmia. Withholding the drug prevents further harm, and notifying the provider initiates the necessary corrective action (i.e., ordering IV magnesium sulfate and potassium chloride infusions). This is a critical 'SAFETY STOP' intervention."
+            },
+            {
+                "label": "D",
+                "content": "Request an order for an additional amiodarone bolus.",
+                "isCorrect": false,
+                "justification": "Amiodarone is an antiarrhythmic, but it is not indicated here as the primary intervention. The client is already on a maintenance infusion, and the primary cause of electrical instability is metabolic (electrolyte depletion), not a primary conduction issue that more amiodarone would fix. The priority is to treat the underlying reversible cause (H's and T's of ACLS - in this case, Hypokalemia/Hypomagnesemia). Adding more antiarrhythmic medication without correcting the electrolytes is ineffective and can have proarrhythmic effects."
+            }
+        ]
+    },
+    "pedagogy": {
+        "bloomLevel": "Evaluating",
+        "cjmmStep": "Take Actions",
+        "nclexCategory": "Reduction of Risk Potential",
+        "difficulty": "Hard",
+        "topicTags": [
+            "Ventricular Fibrillation",
+            "Medication Safety",
+            "Electrolyte Imbalance",
+            "Critical Care",
+            "Post-Cardiac Arrest Care",
+            "Pharmacology"
+        ]
+    }
+}

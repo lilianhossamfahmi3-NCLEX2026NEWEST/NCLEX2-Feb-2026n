@@ -1,0 +1,217 @@
+{
+    "id": "nclex_ngn_safety_matrix_cs_001",
+    "type": "matrixMatch",
+    "prompt": "The nurse is caring for a client in the emergency department. Based on the information provided in the client's electronic health record (EHR), for each potential nursing action, specify if the action is Indicated (Essential), Contraindicated (Unsafe), or Non-Essential (Delayable) at this time.",
+    "tabs": [
+        {
+            "title": "Nurses' Notes",
+            "content": "A 45-year-old male construction worker presents to the ED with a severe crush injury to his right lower leg that occurred 10 hours ago after a heavy steel beam fell on it. Client states, \"I thought I could just tough it out, but the pain is unbearable now.\" Reports severe, deep, throbbing pain in the right calf, rated 10/10, which is unrelieved by two doses of morphine administered by EMS. He also describes a \"pins and needles\" sensation in his right foot. \n\n**Assessment:**\nRight lower leg is extremely tense, firm, and visibly swollen compared to the left. Skin is cool, pale, and taut. Capillary refill is >4 seconds on the right great toe. Dorsalis pedis pulse is faintly palpable with Doppler. Sensation to light touch is decreased over the dorsum of the right foot. Extreme pain is elicited with passive extension of the toes. Client is anxious and grimacing. Urine output via Foley catheter placed 30 minutes ago is 15 mL of dark, tea-colored urine."
+        },
+        {
+            "title": "Vital Signs",
+            "content": [
+                {
+                    "label": "Time",
+                    "values": [
+                        "On Arrival",
+                        "Current"
+                    ]
+                },
+                {
+                    "label": "Heart Rate (/min)",
+                    "values": [
+                        "110",
+                        "128"
+                    ]
+                },
+                {
+                    "label": "Blood Pressure (mmHg)",
+                    "values": [
+                        "118/76",
+                        "94/60"
+                    ]
+                },
+                {
+                    "label": "Respiratory Rate (/min)",
+                    "values": [
+                        "22",
+                        "24"
+                    ]
+                },
+                {
+                    "label": "Temperature (°C)",
+                    "values": [
+                        "37.1",
+                        "37.9"
+                    ]
+                },
+                {
+                    "label": "SpO2 (%)",
+                    "values": [
+                        "98",
+                        "97"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Laboratory Results",
+            "content": [
+                {
+                    "label": "Test",
+                    "value": "Result",
+                    "reference": "Reference Range"
+                },
+                {
+                    "label": "Potassium (K+)",
+                    "value": "6.2 mEq/L",
+                    "reference": "3.5-5.0 mEq/L"
+                },
+                {
+                    "label": "BUN",
+                    "value": "35 mg/dL",
+                    "reference": "10-20 mg/dL"
+                },
+                {
+                    "label": "Creatinine",
+                    "value": "2.1 mg/dL",
+                    "reference": "0.6-1.2 mg/dL"
+                },
+                {
+                    "label": "Creatine Kinase (CK)",
+                    "value": "68,000 U/L",
+                    "reference": "30-200 U/L"
+                },
+                {
+                    "label": "Urinalysis",
+                    "value": "Large myoglobin",
+                    "reference": "Negative"
+                }
+            ]
+        }
+    ],
+    "rows": [
+        {
+            "id": "action01",
+            "label": "Administer ketorolac 30 mg IV as prescribed for pain."
+        },
+        {
+            "id": "action02",
+            "label": "Elevate the affected limb on two pillows."
+        },
+        {
+            "id": "action03",
+            "label": "Initiate continuous cardiac monitoring."
+        },
+        {
+            "id": "action04",
+            "label": "Prepare for emergent surgical fasciotomy."
+        },
+        {
+            "id": "action05",
+            "label": "Administer a 1-liter bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "action06",
+            "label": "Obtain a detailed social history for the discharge planner."
+        }
+    ],
+    "columns": [
+        {
+            "id": "col01",
+            "label": "Indicated (Essential)"
+        },
+        {
+            "id": "col02",
+            "label": "Contraindicated (Unsafe)"
+        },
+        {
+            "id": "col03",
+            "label": "Non-Essential (Delayable)"
+        }
+    ],
+    "answer": [
+        {
+            "rowId": "action01",
+            "columnId": "col02"
+        },
+        {
+            "rowId": "action02",
+            "columnId": "col02"
+        },
+        {
+            "rowId": "action03",
+            "columnId": "col01"
+        },
+        {
+            "rowId": "action04",
+            "columnId": "col01"
+        },
+        {
+            "rowId": "action05",
+            "columnId": "col01"
+        },
+        {
+            "rowId": "action06",
+            "columnId": "col03"
+        }
+    ],
+    "rationale": {
+        "correct": "The client is exhibiting classic signs of advanced compartment syndrome (the 6 P's) complicated by rhabdomyolysis, life-threatening hyperkalemia, and acute kidney injury (AKI). The nurse must immediately implement actions to preserve limb and life while strictly avoiding actions that would worsen ischemia or renal function. The priorities are preparing for definitive surgical intervention (fasciotomy), managing systemic complications (hyperkalemia, AKI), and correct positioning.",
+        "incorrect": "Misclassifying these actions poses a significant safety risk. Administering a nephrotoxic medication (ketorolac) or elevating the limb would directly worsen the client's AKI and limb ischemia, respectively. Delaying essential actions like cardiac monitoring or fluid resuscitation could lead to fatal dysrhythmias or irreversible kidney failure. Focusing on non-essential tasks wastes critical time.",
+        "answerBreakdown": [
+            {
+                "label": "Administer ketorolac 30 mg IV as prescribed for pain.",
+                "isCorrect": false,
+                "classification": "Contraindicated (Unsafe)",
+                "justification": "Ketorolac is a nonsteroidal anti-inflammatory drug (NSAID) that is nephrotoxic. The client has clear evidence of rhabdomyolysis-induced acute kidney injury (elevated BUN/Creatinine, massive CK elevation, myoglobinuria, oliguria). Administering an NSAID would further damage the kidneys and is absolutely contraindicated."
+            },
+            {
+                "label": "Elevate the affected limb on two pillows.",
+                "isCorrect": false,
+                "classification": "Contraindicated (Unsafe)",
+                "justification": "In established compartment syndrome, elevating the limb above the level of the heart decreases the arterial-venous pressure gradient, which reduces arterial inflow and further compromises perfusion to the already ischemic tissues. The correct positioning is at the level of the heart (neutral position) to promote venous outflow without impeding arterial supply."
+            },
+            {
+                "label": "Initiate continuous cardiac monitoring.",
+                "isCorrect": true,
+                "classification": "Indicated (Essential)",
+                "justification": "The client's potassium level is 6.2 mEq/L, which is a life-threatening hyperkalemia. This is caused by the release of intracellular potassium from damaged muscle cells (rhabdomyolysis). Hyperkalemia can lead to fatal cardiac dysrhythmias (e.g., ventricular fibrillation, asystole). Continuous ECG monitoring is essential to detect early changes (peaked T waves, widened QRS) and intervene immediately."
+            },
+            {
+                "label": "Prepare for emergent surgical fasciotomy.",
+                "isCorrect": true,
+                "classification": "Indicated (Essential)",
+                "justification": "A fasciotomy is the definitive and only effective treatment for established compartment syndrome. This surgical procedure involves incising the fascia to relieve the pressure on the nerves and blood vessels within the compartment, restoring perfusion and preventing permanent neuromuscular damage. All other interventions are supportive; this is the limb-saving priority."
+            },
+            {
+                "label": "Administer a 1-liter bolus of 0.9% sodium chloride.",
+                "isCorrect": true,
+                "classification": "Indicated (Essential)",
+                "justification": "Aggressive IV fluid resuscitation is a cornerstone of managing rhabdomyolysis. The goal is to induce a vigorous diuresis to flush myoglobin casts from the renal tubules, thereby preventing and treating acute tubular necrosis. The client's oliguria and signs of shock (tachycardia, hypotension) also necessitate fluid resuscitation to maintain renal perfusion."
+            },
+            {
+                "label": "Obtain a detailed social history for the discharge planner.",
+                "isCorrect": false,
+                "classification": "Non-Essential (Delayable)",
+                "justification": "While a social history is important for comprehensive care and discharge planning, the client is in a state of limb- and life-threatening emergency. The nurse's immediate focus must be on stabilizing the client and implementing critical interventions. This task is a low priority and can be delegated or completed much later once the client is stabilized."
+            }
+        ]
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyzing",
+        "cjmmStep": "Take Actions",
+        "nclexCategory": "Management of Care",
+        "secondaryCategory": "Physiological Adaptation",
+        "difficulty": "Level 5",
+        "topicTags": [
+            "Compartment Syndrome",
+            "Patient Safety",
+            "Contraindications",
+            "Rhabdomyolysis",
+            "Acute Kidney Injury",
+            "Hyperkalemia",
+            "Surgical Emergency"
+        ]
+    }
+}

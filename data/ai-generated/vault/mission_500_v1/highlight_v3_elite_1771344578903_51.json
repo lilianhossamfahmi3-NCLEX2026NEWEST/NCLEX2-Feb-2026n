@@ -1,0 +1,122 @@
+{
+    "version": "1.0.0",
+    "id": "ngn_sa_highlight_vf_safety_stop_001",
+    "questionSource": "internal",
+    "questionType": "standalone_highlight",
+    "item": {
+        "stem": "The nurse in the intensive care unit (ICU) is preparing to administer scheduled medications for a client who is 1 hour post-cardiac arrest with return of spontaneous circulation (ROSC). The nurse reviews the client's electronic health record.",
+        "prompt": "Click to highlight the findings in the record that together indicate the nurse should **withhold a medication** and **notify the provider immediately**."
+    },
+    "questionPayload": {
+        "tabs": [
+            {
+                "id": "tab1",
+                "title": "Nurses' Notes",
+                "content": "0800: Client is a 68-year-old male with a history of hypertension and coronary artery disease, admitted to the ICU after an out-of-hospital cardiac arrest. The client was found unresponsive at a community center; bystander CPR was initiated, but the first shock was delayed due to lack of an on-site AED. Per EMS report, the initial rhythm was Ventricular Fibrillation. Client achieved ROSC in the emergency department after 3 defibrillations, epinephrine, and amiodarone 300 mg IV push. He is now intubated and sedated on a propofol infusion. Hemodynamically supported with a norepinephrine infusion. Suspected cause is an acute ST-elevation myocardial infarction (STEMI)."
+            },
+            {
+                "id": "tab2",
+                "title": "Vitals & Diagnostics",
+                "content": "**Vital Signs @ 0800:**\n- Heart Rate: 92/min\n- Blood Pressure: 94/52 mmHg (MAP 66 mmHg)\n- Respiratory Rate: 16/min (ventilator-controlled)\n- SpO2: 95% on FiO2 60%\n- Temperature: 36.1°C (97.0°F)\n\n**Laboratory Results @ 0730:**\n- Potassium: 3.2 mEq/L (3.5-5.0 mEq/L)\n- Magnesium: 1.7 mg/dL (1.7-2.2 mg/dL)\n- Troponin I: 15.2 ng/mL (<0.04 ng/mL)\n- Lactate: 4.8 mmol/L (0.5-2.2 mmol/L)\n- BUN: 25 mg/dL (10-20 mg/dL)\n\n**ECG Interpretation (Post-ROSC):**\n- Sinus rhythm with a corrected QT interval (QTc) of 520 ms."
+            },
+            {
+                "id": "tab3",
+                "title": "Medication Administration Record",
+                "content": "**Infusions:**\n- Norepinephrine infusion at 10 mcg/min\n- Propofol infusion at 30 mcg/kg/min\n\n**Scheduled Medications (Due @ 0830):**\n- Amiodarone 150 mg IVPB over 10 minutes\n- Potassium Chloride 20 mEq IVPB over 1 hour\n- Furosemide 20 mg IV push"
+            }
+        ],
+        "highlightablePhrases": [
+            "intubated and sedated on a propofol infusion",
+            "first shock was delayed due to lack of an on-site AED",
+            "Blood Pressure: 94/52 mmHg (MAP 66 mmHg)",
+            "Potassium: 3.2 mEq/L",
+            "Troponin I: 15.2 ng/mL",
+            "Sinus rhythm with a corrected QT interval (QTc) of 520 ms",
+            "Norepinephrine infusion at 10 mcg/min",
+            "Amiodarone 150 mg IVPB over 10 minutes",
+            "Potassium Chloride 20 mEq IVPB over 1 hour"
+        ],
+        "correctHighlightAnswers": [
+            "Potassium: 3.2 mEq/L",
+            "Sinus rhythm with a corrected QT interval (QTc) of 520 ms",
+            "Amiodarone 150 mg IVPB over 10 minutes"
+        ]
+    },
+    "rationale": {
+        "correct": "The combination of a severely prolonged QTc interval (>500 ms), hypokalemia (3.2 mEq/L), and a scheduled dose of amiodarone represents a critical safety risk. Amiodarone is a Class III antiarrhythmic that works by prolonging the cardiac action potential and, consequently, the QT interval. Administering it to a patient who already has a prolonged QTc, further exacerbated by hypokalemia, creates a high-risk scenario for developing Torsades de Pointes (TdP), a life-threatening polymorphic ventricular tachycardia. The nurse's priority is to recognize this 'perfect storm' for a lethal arrhythmia, withhold the amiodarone, and immediately notify the provider to discuss an alternative treatment plan and prioritize potassium repletion.",
+        "incorrect": "This question requires the nurse to synthesize multiple data points (ECG, labs, MAR) to identify a life-threatening medication contraindication. Highlighting individual findings without recognizing their combined effect is incorrect. Hypotension and elevated troponin are expected in a post-arrest STEMI patient and do not contraindicate amiodarone. The potassium chloride infusion is a necessary intervention, not a medication to withhold. The delay in defibrillation explains the patient's poor neurological and metabolic state but does not directly contraindicate the specific medication.",
+        "answerBreakdown": [
+            {
+                "label": "Correct Highlight",
+                "content": "Sinus rhythm with a corrected QT interval (QTc) of 520 ms",
+                "isCorrect": true,
+                "justification": "This is the primary contraindication. A QTc > 500 ms is considered severely prolonged and is a major risk factor for Torsades de Pointes (TdP). Administering a QT-prolonging drug like amiodarone is extremely dangerous and constitutes a 'safety stop' event."
+            },
+            {
+                "label": "Correct Highlight",
+                "content": "Potassium: 3.2 mEq/L",
+                "isCorrect": true,
+                "justification": "This is a critical contributing factor. Hypokalemia potentiates the effects of QT-prolonging drugs and independently increases the risk of TdP. Recognizing that this electrolyte imbalance exacerbates the primary risk of the prolonged QTc is essential for safe practice."
+            },
+            {
+                "label": "Correct Highlight",
+                "content": "Amiodarone 150 mg IVPB over 10 minutes",
+                "isCorrect": true,
+                "justification": "This is the specific intervention that must be withheld. The nurse must identify this medication as the agent that will trigger the adverse event, given the patient's current ECG and electrolyte status."
+            },
+            {
+                "label": "Incorrect Highlight",
+                "content": "intubated and sedated on a propofol infusion",
+                "isCorrect": false,
+                "justification": "This is standard and expected care for a post-cardiac arrest patient to manage ventilation and decrease metabolic demand. It does not represent a contraindication to the scheduled medications."
+            },
+            {
+                "label": "Incorrect Highlight",
+                "content": "first shock was delayed due to lack of an on-site AED",
+                "isCorrect": false,
+                "justification": "This information from the patient's history provides context for their clinical condition (e.g., elevated lactate, potential anoxic brain injury) but does not create a specific contraindication for administering amiodarone."
+            },
+            {
+                "label": "Incorrect Highlight",
+                "content": "Blood Pressure: 94/52 mmHg (MAP 66 mmHg)",
+                "isCorrect": false,
+                "justification": "While amiodarone can cause hypotension, the client is already on a vasopressor (norepinephrine) to manage this. The blood pressure, while low, is being treated and is an expected finding in post-arrest cardiogenic shock. It is not an absolute contraindication requiring the nurse to stop the medication without provider consultation."
+            },
+            {
+                "label": "Incorrect Highlight",
+                "content": "Troponin I: 15.2 ng/mL",
+                "isCorrect": false,
+                "justification": "A highly elevated troponin confirms the suspected diagnosis of a massive myocardial infarction. This is the reason for the cardiac arrest and the indication for antiarrhythmic therapy, not a contraindication to it."
+            },
+            {
+                "label": "Incorrect Highlight",
+                "content": "Norepinephrine infusion at 10 mcg/min",
+                "isCorrect": false,
+                "justification": "This is a life-sustaining infusion necessary to treat post-arrest shock and maintain organ perfusion. It is an appropriate intervention, not a finding that indicates a problem."
+            },
+            {
+                "label": "Incorrect Highlight",
+                "content": "Potassium Chloride 20 mEq IVPB over 1 hour",
+                "isCorrect": false,
+                "justification": "This medication is a critical and appropriate treatment for the client's hypokalemia. Administering potassium is essential to help stabilize the myocardium and reduce arrhythmia risk. It should be administered, not withheld."
+            }
+        ]
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyzing",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Reduction of Risk Potential",
+        "difficulty": "Level 5 - Highly Discriminating",
+        "topicTags": [
+            "Ventricular Fibrillation",
+            "Post-Cardiac Arrest Care",
+            "Pharmacology",
+            "Amiodarone",
+            "QT Prolongation",
+            "Torsades de Pointes",
+            "Medication Safety",
+            "Critical Care",
+            "Electrolyte Imbalance"
+        ]
+    }
+}

@@ -1,0 +1,84 @@
+{
+    "id": "NGN_Highlight_B300_1_1771344159879",
+    "version": 1,
+    "seed": "BATCH-300-1-1771344159879",
+    "type": "highlight",
+    "step": "take_actions",
+    "standalone": true,
+    "difficulty": 4,
+    "time": 75,
+    "client": {
+        "age": "68 years",
+        "gender": "Male",
+        "setting": "Surgical Intensive Care Unit (SICU)",
+        "background": "The client is 2 hours post-right lower lobectomy for lung cancer. He has a single chest tube to a closed drainage system. He is extubated and receiving oxygen via nasal cannula at 4 L/min.",
+        "vitals": {
+            "hr": "102 bpm",
+            "bp": "138/84 mmHg",
+            "rr": "22 breaths/min",
+            "temp": "37.4°C (99.3°F)",
+            "o2_sat": "94%"
+        },
+        "meds": [
+            "Morphine Sulfate 2 mg IV push every 2 hours PRN for pain",
+            "Cefazolin 1g IV every 8 hours"
+        ]
+    },
+    "stem": "The nurse is reviewing the care provided for a client who is 2 hours post-lobectomy. The nurse identifies actions that require immediate correction to ensure client safety. Click to highlight the findings in the note below that indicate a breach in safety standards requiring immediate intervention.",
+    "prompt": "The client is alert and oriented, rating pain at 6/10. Morphine 2 mg was administered IV. The client is positioned in semi-Fowler's. Encouraged use of incentive spirometer. The chest tube was briefly clamped to allow the patient to reposition higher in bed. The chest tube drainage system was placed on the bedside table to facilitate easier assessment. Chest tube dressing is clean, dry, and intact. Drainage in the collection chamber is 150 mL of serosanguinous fluid over the last 2 hours. Tidaling is present in the water seal chamber. No air leak noted.",
+    "options": [
+        "The chest tube was briefly clamped to allow the patient to reposition higher in bed.",
+        "Tidaling is present in the water seal chamber.",
+        "The client is positioned in semi-Fowler's.",
+        "Drainage in the collection chamber is 150 mL of serosanguinous fluid over the last 2 hours.",
+        "The chest tube drainage system was placed on the bedside table to facilitate easier assessment."
+    ],
+    "answer": [
+        "The chest tube was briefly clamped to allow the patient to reposition higher in bed.",
+        "The chest tube drainage system was placed on the bedside table to facilitate easier assessment."
+    ],
+    "answerBreakdown": {
+        "prompt": "The nurse must identify actions documented in the note that represent a significant risk to the client's respiratory status and violate established safety protocols for managing a chest drainage system.",
+        "options": [
+            {
+                "option": "The client is positioned in semi-Fowler's.",
+                "rationale": "This is a correct and therapeutic action. Positioning the client in semi-Fowler's or high-Fowler's position facilitates lung expansion, promotes effective breathing, and aids in chest drainage, which is appropriate for a post-thoracic surgery client.",
+                "isCorrect": false
+            },
+            {
+                "option": "The chest tube was briefly clamped to allow the patient to reposition higher in bed.",
+                "rationale": "This action requires immediate intervention. Clamping a chest tube is contraindicated and dangerous as it can obstruct the only exit for air leaving the pleural space. This can rapidly lead to a tension pneumothorax, a life-threatening condition where air accumulates, collapses the lung, and shifts mediastinal structures.",
+                "isCorrect": true
+            },
+            {
+                "option": "The chest tube drainage system was placed on the bedside table to facilitate easier assessment.",
+                "rationale": "This action requires immediate intervention. The chest tube drainage system must always be kept upright and below the level of the client's chest. Placing it on the bedside table (at or above chest level) allows fluid and air to flow back into the pleural space, which can cause the lung to re-collapse.",
+                "isCorrect": true
+            },
+            {
+                "option": "Drainage in the collection chamber is 150 mL of serosanguinous fluid over the last 2 hours.",
+                "rationale": "This is an expected finding that needs to be monitored but does not require immediate intervention. Drainage of up to 100-300 mL in the first few hours post-surgery is typical. The amount (75 mL/hr) is within the acceptable limit (generally <100 mL/hr). The nurse should continue to monitor for any sudden increase.",
+                "isCorrect": false
+            },
+            {
+                "option": "Tidaling is present in the water seal chamber.",
+                "rationale": "This is a normal and expected finding. Tidaling, the fluctuation of water in the water seal chamber with respiration, indicates that the chest tube is patent and functioning correctly. The absence of tidaling might suggest a kinked tube or full lung re-expansion.",
+                "isCorrect": false
+            }
+        ]
+    },
+    "scoring": {
+        "type": "partial_binary",
+        "max": 2,
+        "min": 0
+    },
+    "references": [],
+    "cognitive_domain": "Applying/Analyzing",
+    "keywords": [
+        "thoracic surgery",
+        "chest tube",
+        "lobectomy",
+        "patient safety",
+        "tension pneumothorax"
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "id": "sepsis_trend_v1",
+    "type": "trend",
+    "dataPoints": [
+        {
+            "time": "08:00",
+            "values": {
+                "HR": 92,
+                "BP": "118/74",
+                "Temp": 99.2,
+                "Lactate": 1.8
+            }
+        },
+        {
+            "time": "12:00",
+            "values": {
+                "HR": 110,
+                "BP": "104/62",
+                "Temp": 101.4,
+                "Lactate": 2.2
+            }
+        },
+        {
+            "time": "14:00",
+            "values": {
+                "HR": 128,
+                "BP": "88/46",
+                "Temp": 103.1,
+                "Lactate": 4.5
+            }
+        }
+    ],
+    "question": "Based on the client's laboratory and vital sign trends, which clinical condition is most likely developing?",
+    "options": [
+        {
+            "id": "a",
+            "text": "Hypovolemic shock due to dehydration"
+        },
+        {
+            "id": "b",
+            "text": "Septic shock progressing from systemic infection"
+        },
+        {
+            "id": "c",
+            "text": "Cardiogenic shock from acute myocardial infarction"
+        },
+        {
+            "id": "d",
+            "text": "Neurogenic shock following spinal anesthesia"
+        }
+    ],
+    "correctOptionId": "b",
+    "pedagogy": {
+        "bloomLevel": "analyze",
+        "cjmmStep": "analyzeCues",
+        "nclexCategory": "Physiological Adaptation",
+        "difficulty": 4,
+        "topicTags": [
+            "Sepsis",
+            "Shock",
+            "Trends"
+        ]
+    },
+    "rationale": {
+        "correct": "The trend shows increasing tachycardia (92->110->128), falling blood pressure (118->104->88), rising temperature (99->101->103), and rising lactate (1.8->2.2->4.5). This combination of SIRS criteria + hypotension + rising lactate is classic for septic shock.",
+        "incorrect": "Hypovolemic shock typically doesn't include high fever. Cardiogenic shock would likely have lung sound changes (not shown). Neurogenic shock usually presents with BRADYCARDIA, not tachycardia.",
+        "answerBreakdown": [],
+        "clinicalPearls": [
+            "Lactate rising while BP is falling is a critical 'red flag' trend."
+        ],
+        "questionTrap": {
+            "trap": "The 'Isolated Value' Trap",
+            "howToOvercome": "Don't just look at the 14:00 data; look at the RATE of change since 08:00 to see the trajectory."
+        },
+        "mnemonic": {
+            "title": "U-P-P-E-R",
+            "expansion": "Up HR, Pulse pressure narrow, Pressure (BP) down, Elevated lactate, Range of Temp."
+        },
+        "reviewUnits": [
+            {
+                "heading": "Shock Trends",
+                "body": "Monitoring trends allows for early intervention before irreversible organ damage.",
+                "source": "Critical Care 2026"
+            }
+        ]
+    },
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    }
+}
