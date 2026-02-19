@@ -42,63 +42,38 @@
         "topicTags": [
             "Digital Privacy",
             "Legal Issues",
-            "Patient Autonomy"
+            "Patient Autonomy",
+            "HIPAA"
         ]
     },
-    "rationale": {
-        "correct": "Digital security requires individualized access. (B) Credentials belong solely to the adult, oriented patient. (C) Proxy access is the legal mechanism for family involvement and requires formal authorization. (D) Proxy accounts allow the family to help while maintaining audit trails. (F) Password sharing is a security risk and usually explicitly prohibited to prevent unauthorized access and protect the integrity of the medical record.",
-        "incorrect": "(A) Providing credentials to anyone other than the patient is a direct HIPAA and security violation. (E) Verification of identity is part of the proxy setup process, but it does not permit the nurse to simply give away the patient's own login details.",
-        "answerBreakdown": [
-            {
-                "label": "A",
-                "content": "Choosing \"Provide the login ID and a temporary password to the daughter.\" represents a misinterpretation of the gathered cues or a failure to prioritize physiological needs.",
-                "isCorrect": false
-            },
-            {
-                "label": "B",
-                "content": "\"Remind the client and daughter that sharing passwords violates portal terms of use.\" represents a critical metric that must be monitored to evaluate the effectiveness of the current medical plan.",
-                "isCorrect": true
-            },
-            {
-                "label": "C",
-                "content": "The inclusion of \"Explain that the client must provide written authorization for proxy portal access.\" is necessary to address the underlying physiological instability identified during assessment.",
-                "isCorrect": true
-            },
-            {
-                "label": "D",
-                "content": "Selecting \"Verify the daughter's identity using a photo ID before providing access.\" might delay more critical interventions, as it does not address the immediate life-threatening risk.",
-                "isCorrect": false
-            },
-            {
-                "label": "E",
-                "content": "\"Offer to set up a separate proxy account for the daughter with the client's consent.\" represents a critical metric that must be monitored to evaluate the effectiveness of the current medical plan.",
-                "isCorrect": true
-            },
-            {
-                "label": "F",
-                "content": "Clinically, \"Inform the daughter that credentials can only be shared with the client directly.\" is the most appropriate finding pointing toward the suspected condition and requiring intervention.",
-                "isCorrect": true
-            }
-        ],
-        "clinicalPearls": [
-            "Proxy access allows the health system to track exactly who accessed which part of the record and when."
-        ],
-        "questionTrap": {
-            "trap": "The 'Helpful Family Member' Excuse",
-            "howToOvercome": "Convenience never trumps confidentiality. Even if the intent is helpful, the process must be legal and secure. Choose 'Proxy Access' as the answer for family involvement."
+    "answerBreakdown": {
+        "a": {
+            "correct": false,
+            "content": "This action is a direct violation of the Health Insurance Portability and Accountability Act (HIPAA) Security Rule. This rule mandates unique user identification (45 CFR § 164.312(a)(2)(i)) to ensure that all actions within an electronic health record can be traced to a specific, authorized individual. Providing the patient's credentials to the daughter destroys this audit trail, making it impossible to determine who accessed or modified the patient's Protected Health Information (ePHI). This creates significant legal liability for the nurse and the institution."
         },
-        "mnemonic": {
-            "title": "P-O-R-T-A-L",
-            "expansion": "Patient only, Official proxy, Registration needed, Terms of use, Authorization, Legal requirements."
+        "b": {
+            "correct": true,
+            "content": "This statement reinforces a foundational principle of digital security and patient privacy. The client's login credentials are the legal equivalent of their signature in the digital realm. Informing the daughter of this exclusivity is a critical boundary-setting action that protects the patient's PHI from unauthorized access. It directly addresses the daughter's request and clearly states the nurse's legal and ethical obligation to protect the patient's private information as mandated by HIPAA."
         },
-        "reviewUnits": [
-            {
-                "heading": "Electronic Health Information (EHI) Privacy",
-                "body": "Nurses must educate clients on the importance of portal security. Proxy access should be encouraged for care partners, but credentials should never be shared to ensure the security of the EHI.",
-                "source": "HIPAA Security Rule: 2026 Updates"
-            }
-        ]
+        "c": {
+            "correct": true,
+            "content": "This action accurately reflects the legal standard for granting access to another individual's health information. For an alert and oriented client, the principle of autonomy is paramount. Written authorization is the formal mechanism that documents the client's consent, specifies the scope of access for the designated individual (the 'proxy'), and fulfills the requirements of the HIPAA Privacy Rule regarding the disclosure of PHI. It creates a legally defensible record of the patient's wishes."
+        },
+        "d": {
+            "correct": true,
+            "content": "This is a proactive and legally compliant solution. Offering to facilitate proxy access respects the daughter's desire to help while adhering to security protocols. A proxy account is a separate, unique login for the daughter that is linked to the patient's record. This maintains a clear, untainted audit trail, as all of the daughter's activities are logged under her own credentials. The level of access (e.g., view-only, messaging, appointment scheduling) can often be customized by the patient, thereby upholding their autonomy."
+        },
+        "e": {
+            "correct": false,
+            "content": "While identity verification is a crucial step in the process of setting up *proxy* access, it is an incorrect and dangerous action in this context. Verifying the daughter's identity does not grant her the legal right to the *patient's* personal credentials. This action conflates two separate processes and creates a false sense of security. Providing the patient's login after this step would still constitute a major HIPAA violation, as the fundamental issue is the sharing of credentials, not the identity of the person receiving them."
+        },
+        "f": {
+            "correct": true,
+            "content": "This action correctly educates both the client and daughter on the legal and security framework of patient portals. Portal terms of use are legally binding agreements that explicitly prohibit credential sharing to maintain the principle of non-repudiation. This principle ensures that actions taken under a specific login are legally attributable to that individual. By explaining this, the nurse reinforces the patient's sole responsibility for their account and protects the integrity of the electronic health record."
+        }
     },
+    "questionTrap": "The primary trap is 'benevolent intent.' The daughter's request to 'help manage medications' sounds reasonable and caring, which can tempt the nurse to bypass strict security protocols to be 'helpful.' This emotional appeal distracts from the core legal principle that an alert and oriented patient's digital identity is their own and cannot be shared. A secondary trap is focusing on identity verification (Option E) as a sufficient safeguard; while necessary for setting up a proxy, it does not authorize the sharing of the patient's own login.",
+    "mnemonics": "Use the **PORTAL** mnemonic to navigate patient portal requests: **P**roxy access is the only way. **O**wnership of credentials is the patient's alone. **R**equires written consent from an oriented patient. **T**erms of use prohibit sharing. **A**udit trail integrity is mandatory. **L**egal duty (HIPAA) guides all actions.",
     "scoring": {
         "method": "polytomous",
         "maxPoints": 4
