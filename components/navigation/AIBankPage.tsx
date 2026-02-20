@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useCallback } from 'react';
 import { MasterItem } from '../../types/master';
 import { getStandaloneNGNItemsAsync } from '../../services/caseStudyLibrary';
 import { runBankQA, runItemQA, repairBank, runDeepAIRepair, QABankReport, QAItemReport, QADimension, QASeverity } from '../../validation/itemBankQA';
+import { upsertItemToCloud, deleteItemFromCloud } from '../../services/supabaseService';
 
 interface AIBankPageProps {
     onSelectItem: (itemId: string) => void;
@@ -215,10 +216,23 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
         else setSelectedItems(sortedItems.map(i => i.id));
     };
 
-    const handleDeleteSelected = () => {
-        if (!window.confirm(`Are you sure you want to delete ${selectedItems.length} items?`)) return;
-        setItems(prev => prev.filter(item => !selectedItems.includes(item.id)));
-        setSelectedItems([]);
+    const handleDeleteSelected = async () => {
+        if (!window.confirm(`Are you sure you want to delete ${selectedItems.length} items from the cloud vault?`)) return;
+
+        setIsScanning(true);
+        try {
+            for (const id of selectedItems) {
+                await deleteItemFromCloud(id);
+            }
+            setItems(prev => prev.filter(item => !selectedItems.includes(item.id)));
+            setSelectedItems([]);
+            alert(`${selectedItems.length} items deleted successfully from cloud.`);
+        } catch (err) {
+            console.error("Bulk delete failed:", err);
+            alert("Some items could not be deleted from cloud.");
+        } finally {
+            setIsScanning(false);
+        }
     };
 
     const handleAIChatFix = () => {
@@ -236,30 +250,56 @@ Warned: ${report.warned}
 Failed: ${report.failed}`);
     };
 
-    const handleBulkRepair = () => {
+    const handleBulkRepair = async () => {
         const subset = items.filter(i => selectedItems.includes(i.id));
-        if (!window.confirm(`Attempt Auto-Repair for ${subset.length} items?`)) return;
+        if (!window.confirm(`Attempt Auto-Repair and CLOUD SYNC for ${subset.length} items?`)) return;
 
+        setIsScanning(true);
         const { repairedItems, totalChanges } = repairBank(subset);
 
-        // Update local state
-        const updatedItems = items.map(orig => {
-            const found = repairedItems.find(r => r.id === orig.id);
-            return found || orig;
-        });
+        try {
+            // Persist each repaired item
+            for (const item of repairedItems) {
+                await upsertItemToCloud(item);
+            }
 
-        setItems(updatedItems);
-        alert(`Auto-Repair complete! ${totalChanges} structural issues healed.`);
-        runFullScan(); // Re-scan to update scores
+            // Update local state
+            const updatedItems = items.map(orig => {
+                const found = repairedItems.find(r => r.id === orig.id);
+                return found || orig;
+            });
+
+            setItems(updatedItems);
+            alert(`Auto-Repair complete! ${totalChanges} structural issues healed and synced to cloud.`);
+            runFullScan(); // Re-scan to update scores
+        } catch (err) {
+            console.error("Bulk repair sync failed:", err);
+            alert("Repair locally completed, but cloud sync failed.");
+        } finally {
+            setIsScanning(false);
+        }
     };
 
-    const handleRepairAll = () => {
-        if (!window.confirm(`Initiate Global Bank Repair for all ${items.length} items? This will fix deterministic structural errors.`)) return;
+    const handleRepairAll = async () => {
+        if (!window.confirm(`Initiate Global Bank Repair and CLOUD SYNC for all ${items.length} items? This will fix deterministic structural errors.`)) return;
 
+        setIsScanning(true);
         const { repairedItems, totalChanges } = repairBank(items);
-        setItems(repairedItems);
-        alert(`Global Repair Finished! Total ${totalChanges} issues corrected across the entire bank.`);
-        runFullScan();
+
+        try {
+            // Batch upsert could be better, but we do one by one for simplicity/reliability
+            for (const item of repairedItems) {
+                await upsertItemToCloud(item);
+            }
+            setItems(repairedItems);
+            alert(`Global Repair Finished! Total ${totalChanges} issues corrected and synced to cloud.`);
+            runFullScan();
+        } catch (err) {
+            console.error("Global repair sync failed:", err);
+            alert("Global repair finished locally, but cloud sync failed.");
+        } finally {
+            setIsScanning(false);
+        }
     };
 
     const handleDeepAIFix = async (item: MasterItem) => {
@@ -271,8 +311,9 @@ Failed: ${report.failed}`);
         setIsScanning(true);
         try {
             const { repaired, changes } = await runDeepAIRepair(item, key);
+            await upsertItemToCloud(repaired);
             setItems(prev => prev.map(i => i.id === item.id ? repaired : i));
-            alert(`Deep Repair Complete!\n\nChanges Made:\n${changes.join('\n')}`);
+            alert(`Deep Repair & Cloud Sync Complete!\n\nChanges Made:\n${changes.join('\n')}`);
             runFullScan();
         } catch (err: any) {
             console.error("AI Fix Failed:", err);
@@ -298,13 +339,14 @@ Failed: ${report.failed}`);
             for (const orig of subset) {
                 const k = getNextKey() || key;
                 const { repaired, changes } = await runDeepAIRepair(orig, k);
+                await upsertItemToCloud(repaired);
                 const idx = updatedItems.findIndex(i => i.id === orig.id);
                 if (idx !== -1) updatedItems[idx] = repaired;
                 completed++;
                 totalChanges += changes.length;
             }
             setItems(updatedItems);
-            alert(`Bulk Deep Fix Complete! ${completed} items healed with ${totalChanges} clinical optimizations.`);
+            alert(`Bulk Deep Fix & Cloud Sync Complete! ${completed} items healed with ${totalChanges} clinical optimizations.`);
             runFullScan();
         } catch (err: any) {
             console.error("Bulk AI Fix Failed:", err);
@@ -557,9 +599,15 @@ Failed: ${report.failed}`);
                                                     onClick={(e) => { e.stopPropagation(); runSingleItemQA(item); }}
                                                     title="Run QA Check"
                                                 >🛡️</button>
-                                                <button className="row-action delete" onClick={() => {
-                                                    if (window.confirm('Delete this item?')) {
-                                                        setItems(prev => prev.filter(i => i.id !== item.id));
+                                                <button className="row-action delete" onClick={async () => {
+                                                    if (window.confirm('Delete this item from CLOUD?')) {
+                                                        setIsScanning(true);
+                                                        try {
+                                                            await deleteItemFromCloud(item.id);
+                                                            setItems(prev => prev.filter(i => i.id !== item.id));
+                                                        } finally {
+                                                            setIsScanning(false);
+                                                        }
                                                     }
                                                 }} title="Delete">🗑️</button>
                                             </div>

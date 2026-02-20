@@ -71,3 +71,42 @@ export async function fetchVaultFromCloud() {
         return raw;
     });
 }
+
+/**
+ * Persists an item to the Supabase cloud vault.
+ */
+export async function upsertItemToCloud(item: any) {
+    const client = getSupabase();
+    if (!client) return { error: 'Supabase not configured' };
+
+    const { error } = await client
+        .from('clinical_vault')
+        .upsert({
+            id: item.id,
+            item_data: item,
+            updated_at: new Date().toISOString()
+        }, { onConflict: 'id' });
+
+    if (error) {
+        console.error("Cloud upsert error:", error);
+    }
+    return { error };
+}
+
+/**
+ * Removes an item from the cloud vault.
+ */
+export async function deleteItemFromCloud(itemId: string) {
+    const client = getSupabase();
+    if (!client) return { error: 'Supabase not configured' };
+
+    const { error } = await client
+        .from('clinical_vault')
+        .delete()
+        .eq('id', itemId);
+
+    if (error) {
+        console.error("Cloud delete error:", error);
+    }
+    return { error };
+}
