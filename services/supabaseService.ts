@@ -1,17 +1,38 @@
 
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const supabaseUrl = (import.meta as any).env.VITE_SUPABASE_URL;
-const supabaseAnonKey = (import.meta as any).env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = (import.meta as any).env.VITE_SUPABASE_URL || '';
+const supabaseAnonKey = (import.meta as any).env.VITE_SUPABASE_ANON_KEY || '';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-    console.warn("Supabase credentials missing. Falling back to local vault.");
+/**
+ * Lazy-initialize the Supabase client.
+ * We do NOT call createClient at module-load time because
+ * it throws "supabaseUrl is required" when env vars are missing
+ * (e.g. during some Vercel builds) and crashes the entire app.
+ */
+let _supabase: SupabaseClient | null = null;
+
+function getSupabase(): SupabaseClient | null {
+    if (_supabase) return _supabase;
+    if (!supabaseUrl || !supabaseAnonKey) {
+        console.warn("Supabase credentials missing. Cloud vault unavailable.");
+        return null;
+    }
+    _supabase = createClient(supabaseUrl, supabaseAnonKey);
+    return _supabase;
 }
 
-export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '');
+// Backward-compatible export — may be null if no credentials
+export const supabase = null as unknown as SupabaseClient;
 
 export async function fetchVaultFromCloud() {
-    const { data, error } = await supabase
+    const client = getSupabase();
+    if (!client) {
+        console.warn("[Supabase] No credentials — returning null.");
+        return null;
+    }
+
+    const { data, error } = await client
         .from('clinical_vault')
         .select('item_data');
 
