@@ -16,6 +16,7 @@ import AIBankPage from './components/navigation/AIBankPage';
 import { getCaseStudyLibrary, getStandaloneNGNItemsAsync, wrapStandalone } from './services/caseStudyLibrary';
 import { MasterItem } from './types/master';
 import AnalyticsDashboard from './components/dashboard/AnalyticsDashboard';
+import SentinelQAPage from './components/navigation/SentinelQAPage';
 
 /**
  * NCLEX-RN NGN Clinical Simulator — Professional Console
@@ -175,7 +176,7 @@ export default function App() {
     }
   }, []);
 
-  const [view, setView] = useState<'portal' | 'simulator' | 'analytics' | 'library' | 'mode-selection' | 'ai-bank'>('portal');
+  const [view, setView] = useState<'portal' | 'simulator' | 'analytics' | 'library' | 'mode-selection' | 'ai-bank' | 'sentinel-qa'>('portal');
   const [viewStack, setViewStack] = useState<string[]>(['portal']);
   const [selectedCaseId, setSelectedCaseId] = useState<string | null>(null);
   const [history, setHistory] = useState<any[]>(() => {
@@ -266,6 +267,7 @@ export default function App() {
   const handleStartMode = (mode: string) => {
     if (mode === 'case-library') navigateTo('library');
     else if (mode === 'analytics') navigateTo('analytics');
+    else if (mode === 'sentinel-qa') navigateTo('sentinel-qa');
     else if (mode === 'cat') {
       const randomCase = LIBRARY[Math.floor(Math.random() * LIBRARY.length)];
       setSelectedCaseId(randomCase.id);
@@ -372,6 +374,16 @@ export default function App() {
           }}
           theme={theme}
           onToggleTheme={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
+        />
+      ) : view === 'sentinel-qa' ? (
+        <SentinelQAPage
+          items={vault}
+          onExit={goBack}
+          theme={theme}
+          onSelectItem={(id) => {
+            setSelectedCaseId(`standalone:${id}`);
+            navigateTo('simulator');
+          }}
         />
       ) : (
         <Simulator

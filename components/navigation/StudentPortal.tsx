@@ -126,6 +126,13 @@ export default function StudentPortal({ library, history, onStartMode, onViewAna
                             <p>Custom roadmap based on your exam date.</p>
                             <button className="mode-btn secondary">Open Schedule</button>
                         </div>
+
+                        <div className="mode-card" onClick={() => onStartMode('sentinel-qa')}>
+                            <div className="mode-icon">🛡️</div>
+                            <h3>SentinelQA</h3>
+                            <p>Scan item bank for integrity, scoring accuracy & quality assurance.</p>
+                            <button className="mode-btn secondary">Run QA Scan</button>
+                        </div>
                     </div>
                 </section>
 
