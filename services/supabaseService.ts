@@ -20,5 +20,14 @@ export async function fetchVaultFromCloud() {
         return null;
     }
 
-    return data.map(row => row.item_data);
+    // item_data may be stored as a JSON string (text column) rather than JSONB.
+    // Parse it if needed so the frontend gets usable objects.
+    return data.map(row => {
+        const raw = row.item_data;
+        if (typeof raw === 'string') {
+            try { return JSON.parse(raw); }
+            catch { return raw; }
+        }
+        return raw;
+    });
 }
