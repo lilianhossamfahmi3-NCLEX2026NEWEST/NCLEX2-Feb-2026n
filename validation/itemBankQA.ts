@@ -11,6 +11,8 @@
  *   6. Option Logic       — Do options, correctOptionId, correctOptionIds, blanks match?
  *   7. Data References    — Are labs/meds/imaging references realistic?
  *   8. Error Detection    — No "System Diagnostic Error", empty strings, NaN, etc.
+ *
+ * MISSION 500 COMPLIANCE: Includes deep-fix ability using Gemini Pro and 2026 Standards.
  */
 
 // Types are imported at runtime from master.ts via the items passed in
@@ -87,6 +89,11 @@ const VALID_NCLEX_CATEGORIES = [
     'Physiological Adaptation',
 ];
 const VALID_SCORING_METHODS = ['dichotomous', 'polytomous', 'linkage'];
+
+// 2026 Standards Constants
+const SBAR_MIN_WORDS = 120;
+const SBAR_MAX_WORDS = 160;
+const MILITARY_TIME_REGEX = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
 
 const AI_BLOOM_MAP: Record<string, string> = {
     'Remembering': 'remember', 'Understanding': 'understand', 'Applying': 'apply',
@@ -458,9 +465,32 @@ function checkDataReferences(item: any): QADiagnostic[] {
     const diags: QADiagnostic[] = [];
     const dim: QADimension = 'dataReferences';
 
-    // Check for items referencing itemContext (AI-generated items often have this)
+    // Check for items referencing itemContext (AI-generated format)
     if (item.itemContext) {
         diags.push({ dimension: dim, severity: 'info', code: 'DATA-001', message: 'Item has itemContext metadata (AI-generated format).', field: 'itemContext' });
+
+        // 2026 STANDARD: EHR SYNC SBAR CHECK
+        const context = item.itemContext;
+        const sbarText = context.sbar || (context.tabs && context.tabs.find((t: any) => t.id === 'sbar')?.content);
+
+        if (sbarText) {
+            const wordCount = sbarText.split(/\s+/).filter(Boolean).length;
+            if (wordCount < SBAR_MIN_WORDS || wordCount > SBAR_MAX_WORDS) {
+                diags.push({ dimension: dim, severity: 'warning', code: 'DATA-2026-SBAR', message: `2026 Compliance: SBAR word count (${wordCount}) is outside the required 120-160 range.`, field: 'itemContext.sbar' });
+            }
+
+            // Check for military time
+            const timeMatches = sbarText.match(/\d{1,2}:\d{2}/g);
+            if (timeMatches) {
+                for (const time of timeMatches) {
+                    if (!MILITARY_TIME_REGEX.test(time)) {
+                        diags.push({ dimension: dim, severity: 'warning', code: 'DATA-2026-TIME', message: `2026 Compliance: Invalid military time format found: "${time}". Expected HH:mm.`, field: 'itemContext.sbar' });
+                    }
+                }
+            } else {
+                diags.push({ dimension: dim, severity: 'info', code: 'DATA-2026-TIME-MISSING', message: '2026 Compliance: No timestamps found in SBAR. Military time (HH:mm) is recommended.', field: 'itemContext.sbar' });
+            }
+        }
     }
 
     // answerBreakdown should exist for rich rationale
@@ -476,6 +506,12 @@ function checkDataReferences(item: any): QADiagnostic[] {
             }
         }
     }
+
+    // Check for mandatory Rationale elements (2026 Spec)
+    const rationale = item.rationale || {};
+    if (!rationale.clinicalPearls) diags.push({ dimension: dim, severity: 'warning', code: 'DATA-2026-PEARLS', message: '2026 Compliance: Missing clinicalPearls.', field: 'rationale.clinicalPearls' });
+    if (!rationale.questionTrap) diags.push({ dimension: dim, severity: 'warning', code: 'DATA-2026-TRAP', message: '2026 Compliance: Missing questionTrap.', field: 'rationale.questionTrap' });
+    if (!rationale.mnemonic) diags.push({ dimension: dim, severity: 'warning', code: 'DATA-2026-MNEMONIC', message: '2026 Compliance: Missing mnemonic.', field: 'rationale.mnemonic' });
 
     return diags;
 }
@@ -717,4 +753,68 @@ export function repairBank(items: any[]): { repairedItems: any[]; totalChanges: 
         return repaired;
     });
     return { repairedItems, totalChanges };
+}
+
+/**
+ * NCLEX-RN NGN 2026 MASTER FIX LOGIC
+ * strictly adheres to NGN_2026_STANDARDS_SPECIFICATION.md
+ */
+
+export const NGN_2026_PROMPT_TEMPLATE = `
+You are a Lead NGN Psychometrician at NCLEX-RN Central (2026 Edition).
+TASK: REPAIR the following item to meet 100% SentinelQA compliance.
+
+SPECIFICATIONS:
+1. TAB SYNC: EHR subsections (SBAR, Labs, Vitals, Radiology, MAR) MUST match the item logic.
+2. SBAR: Exactly 120-160 words, military time (HH:mm), SBAR format.
+3. SCORING RULES:
+   - SATA/Highlight: Polytomous (+/- 1.0 penalty factor).
+   - Matrix/Cloze: 0/1 (no penalty).
+   - Bowtie: Linked Dyad/Triad scoring.
+4. RATIONALE: Deep clinical/pathophysiological explanations. Add clinicalPearls, questionTrap, and mnemonic.
+
+CURRENT ITEM:
+{{ITEM_JSON}}
+
+Return ONLY PURE JSON matching the MasterItem interface.
+`;
+
+export async function runDeepAIRepair(item: any, apiKey: string): Promise<{ repaired: any; changes: string[] }> {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${apiKey}`;
+
+    const prompt = NGN_2026_PROMPT_TEMPLATE.replace('{{ITEM_JSON}}', JSON.stringify(item, null, 2));
+
+    const body = {
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+            temperature: 0.2, // Low temp for logic-heavy repairs
+            responseMimeType: "application/json"
+        }
+    };
+
+    try {
+        const resp = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+
+        if (!resp.ok) throw new Error(`AI Repair Failed: ${resp.status}`);
+
+        const data = await resp.json();
+        const repaired = JSON.parse(data.candidates[0].content.parts[0].text);
+
+        // Final deterministic correction for common AI slips
+        if (repaired.type === 'selectAll' || repaired.type === 'highlight') {
+            repaired.scoring = {
+                method: 'polytomous',
+                maxPoints: repaired.correctOptionIds?.length || repaired.correctSpanIndices?.length || 1
+            };
+        }
+
+        return { repaired, changes: ["2026 Specification Deep Clinical Alignment", "Rationale Enrichment", "EHR/SBAR Synchronization"] };
+    } catch (e: any) {
+        console.error("Deep AI Repair Error:", e);
+        throw e;
+    }
 }

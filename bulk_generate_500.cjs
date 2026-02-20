@@ -1,45 +1,55 @@
+/**
+ * NCLEX-RN NGN 2026 Master Bulk Generator - MISSION 500
+ * Strictly adheres to NGN_2026_STANDARDS_SPECIFICATION.md
+ */
+
 const fs = require('fs');
 const path = require('path');
+const dotenv = require('dotenv');
 
-const KEYS = [
-    'AIzaSyCGBsatIVorw0mlj-c2mNl7n4iUarLQbLU',
-    'AIzaSyDxfULa7oK-3dxmHMcKmQL3rNjFhyBOMF0',
-    'AIzaSyBbN5d9Cpz3O__l9H5lQydqGtrAZlATut0',
-    'AIzaSyBeVY1qKlAljfGPkESHabNxtXDk24YK5X8',
-    'AIzaSyAdHhHYugOXZT55hDvFWxODaMujBcQ96Ts',
-    'AIzaSyB-2ZrAXzeLJgqvs52vImSkNzCTJNUeZ4A',
-    'AIzaSyBCkx-5OPtyKYw9tJNi_BgIMfUE_-IO3rw',
-    'AIzaSyDN6hn3iRdbvmuDaQ8PAh6tpVpLTvarHzc',
-    'AIzaSyBZsMEpJnohvU_TYFUFHq4v3wKMRQS5yS4',
-    'AIzaSyBm7tNmXPD8z4YqZm9VZE0fCdAM935OH8A'
-];
+// Load .env
+dotenv.config();
 
-let currentKey = 0;
+// 1. Initialize API Key Rotator (Full 14-Key Spectrum)
+const KEYS = [];
+for (let i = 1; i <= 14; i++) {
+    const key = process.env[`GEMINI_API_KEY_${i}`];
+    if (key) KEYS.push(key);
+}
+
+if (KEYS.length === 0) {
+    console.error('CRITICAL: No GEMINI_API_KEYs found in .env');
+    process.exit(1);
+}
+
+let keyIndex = 0;
 function getNextKey() {
-    const key = KEYS[currentKey];
-    currentKey = (currentKey + 1) % KEYS.length;
+    const key = KEYS[keyIndex];
+    keyIndex = (keyIndex + 1) % KEYS.length;
     return key;
 }
 
+// 2. Clinical Domains & Item Types per 2026 Spec
 const TOPICS = [
-    'Acute Heart Failure Decompensation', 'Cardiogenic Shock', 'Ventricular Fibrillation', 'Atrial Fibrillation with RVR',
-    'Pulmonary Embolism', 'Septic Shock Bundle', 'Acute Respiratory Distress Syndrome (ARDS)', 'Chest Tube Tension Pneumothorax',
-    'Ischemic Stroke (tPA window)', 'Increased Intracranial Pressure (Cushing Traid)', 'Diabetic Ketoacidosis (DKA)',
-    'Hyperosmolar Hyperglycemic State (HHS)', 'Adrenal Crisis (Addisonian)', 'Thyroid Storm', 'Hyperkalemia Emergency',
-    'Acute Kidney Injury (AKI)', 'Dialysis Complications', 'Tension Pneumothorax', 'Preeclampsia with HELLP',
-    'Autonomic Dysreflexia', 'Serotonin Syndrome', 'Neuroleptic Malignant Syndrome', 'Lithium Toxicity',
-    'Anaphylactic Shock', 'Burn Resuscitation (Parkland Formula)', 'Compartment Syndrome', 'Fat Embolism Syndrome',
-    'Abdominal Aortic Aneurysm Rupture', 'Placenta Abruption', 'Epiglottitis (Pediatric Priority)', 'Hyperkalemia with EKG changes',
-    'Digoxin Toxicity & Electrolytes', 'Warfarin/Heparin Bridge Safety', 'tPA Contraindications Audit', 'Chest Tube Continuous Bubbling'
+    'Acute Coronary Syndrome / MI', 'Sepsic Shock & MODS', 'DKA/HHS Management',
+    'Increased ICP / Cushing Triad', 'Acute Respiratory Distress Syndrome (ARDS)',
+    'Mechanical Ventilation Safety', 'Heparin/Warfarin Anticoagulation Safety',
+    'Renal Failure & Hyperkalemia', 'Preeclampsia/Eclampsia (HELLP)',
+    'Psychiatric Crises / Suicide Risk', 'Burn Resuscitation (Parkland)',
+    'Post-Op Compartment Syndrome', 'Tension Pneumothorax / Chest Tubes',
+    'Advanced Hemodynamics (Arterial Line/CVP)', 'Digital Privacy & Ethics',
+    'Health Equity / SDOH in Discharge Planning'
 ];
 
-const TYPES = [
-    'multipleChoice', 'selectAll', 'clozeDropdown', 'bowtie',
-    'matrixMatch', 'orderedResponse', 'highlight', 'trend',
-    'priorityAction', 'selectN'
+const VAULT_CATEGORIES = [
+    'highlight', 'multipleChoice', 'selectAll', 'orderedResponse',
+    'matrixMatch', 'clozeDropdown', 'dragAndDropCloze', 'bowtie',
+    'trend', 'priorityAction', 'hotspot', 'graphic',
+    'audioVideo', 'chartExhibit'
 ];
 
-function shuffleArray(array) {
+// 3. Post-Processing Utilities
+function shuffle(array) {
     if (!array) return;
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -47,37 +57,40 @@ function shuffleArray(array) {
     }
 }
 
-async function promptAI(topic, type, iteration) {
+// 4. AI Generation Logic
+async function generateNGNItem(topic, category, index) {
     const key = getNextKey();
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${key}`;
+    const model = 'gemini-1.5-pro'; // Core engine
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
 
-    const uniquenessSalt = `Scenario Seed ID: MISSION-500-${iteration}-${Date.now()}`;
+    const prompt = `
+You are a Lead NGN Psychometrician at NCLEX-RN Central (2026 Edition).
+MISSION: Generate ONE Elite-Level Standalone NGN Item.
 
-    const prompt = `You are an Elite NCLEX-RN NGN Psychometrician & Content Scientist (Standard 2026).
-Generate ONE ultra-high-fidelity NGN standalone question.
-
-MISSION: Focus on "DON'T PROCEED" / "SAFETY STOP" clinical logic. 
-Scenario where the student MUST recognize a contraindication, an error, or a life-threatening change that requires IMMEDIATE independent nursing action or withholding a treatment.
+SPECIFICATIONS (NCLEX-RN 2026):
+1. TAB SYNC: Populated EHR subsections in 'itemContext' (SBAR, Labs, Vitals, Radiology, MAR) MUST sync with the item stem.
+2. SBAR: Exactly 120-160 words, military time (HH:mm), SBAR format.
+3. SCORING RULES:
+   - SATA/Highlight: Polytomous (+/- 1.0 penalty).
+   - Matrix/Cloze: 0/1 (no penalty).
+   - Bowtie: Linked Dyad/Triad scoring.
+4. RATIONALE: Deep clinical/pathophysiological explanations. No "Opt X is wrong" generic filler.
+5. EXTRAS: Mandatory 'clinicalPearls', 'questionTrap' (strategy), and 'mnemonic'.
 
 TOPIC: ${topic}
-TYPE: ${type}
-DIFFICULTY: Level 4-5 (Highly Discriminating)
+CATEGORY: ${category}
+DIFFICULTY: 4-5
+SEED: NCLEX-2026-MISSION-500-${index}-${Date.now()}
 
-CRITICAL REQUIREMENTS:
-1. INTERNAL LOGIC SYNCHRONIZATION: There must be 100% data accuracy and biological plausibility between the EHR tabs (Notes), the Vital Signs Trend, and the Lab/Radiology findings. 
-   - If the patient has Sepsis, the labs MUST show elevated Lactate/WBC and the Vitals MUST show Tachycardia/Hypotension.
-   - The question and rationales MUST link back to these specific cues.
-2. DUPLICATE PREVENTION: Use this unique seed: ${uniquenessSalt}. 
-3. SAFETY STOP LOGIC: Focus on "DON'T PROCEED" clinical logic.
-4. POINT-TO-POINT RATIONALE: Provide a specific clinical justification for EVERY option in 'answerBreakdown'.
-5. 2026 STANDARDS: Integrate Health Equity or SDOH cues if relevant.
-6. STRUCTURE: Output pure JSON matching the MasterItem interface. Ensure NO GAPS in the data.
-
-Return ONLY PURE JSON.`;
+Return ONLY PURE JSON matching the MasterItem interface.
+`;
 
     const body = {
         contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { responseMimeType: "application/json", temperature: 0.95 }
+        generationConfig: {
+            temperature: 0.9,
+            responseMimeType: "application/json"
+        }
     };
 
     const resp = await fetch(url, {
@@ -86,54 +99,57 @@ Return ONLY PURE JSON.`;
         body: JSON.stringify(body)
     });
 
-    if (!resp.ok) throw new Error(await resp.text());
+    if (!resp.ok) throw new Error(`${resp.status}: ${await resp.text()}`);
+
     const data = await resp.json();
     let item = JSON.parse(data.candidates[0].content.parts[0].text);
 
-    // POST-PROCESSING: Seeded Randomization for JSON content
-    if (item.options) shuffleArray(item.options);
-    if (item.actions) shuffleArray(item.actions);
-    if (item.parameters) shuffleArray(item.parameters);
-    if (item.potentialConditions) shuffleArray(item.potentialConditions);
+    // Dynamic Normalization
+    if (item.options) shuffle(item.options);
+    if (!item.id) item.id = `${category}_elite_${Date.now()}_${index}`;
 
     return item;
 }
 
-async function mission_500() {
-    console.log(`--- INITIATING MISSION 500: ELITE NGN GENERATION ---`);
-    console.log(`Focus: Safety "Don't Proceed" Logic | Model: Gemini 2.5 Pro`);
+// 5. Main Execution Loop
+async function runMission500() {
+    console.log(`--- INITIATING MISSION 500: NGN 2026 ELITE GENERATION ---`);
+    console.log(`Active Keys: ${KEYS.length} | Target: 500 Items`);
 
-    const outputDir = path.join(__dirname, 'data', 'ai-generated', 'vault', 'mission_500_v1');
-    if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+    const rootDir = path.join(__dirname, 'data', 'ai-generated', 'vault');
 
-    const totalCount = 500;
-    for (let i = 1; i <= totalCount; i++) {
+    for (let i = 1; i <= 500; i++) {
         const topic = TOPICS[Math.floor(Math.random() * TOPICS.length)];
-        const type = TYPES[Math.floor(Math.random() * TYPES.length)];
+        const category = VAULT_CATEGORIES[Math.floor(Math.random() * VAULT_CATEGORIES.length)];
 
         try {
-            console.log(`[${i}/${totalCount}] Generating high-acuity ${type} on ${topic}...`);
-            const item = await promptAI(topic, type, i);
-            const safeTopic = topic.replace(/[\s\/\\]+/g, '_').toLowerCase();
-            const fileName = `${type}_v3_elite_${safeTopic}_${Date.now()}_${i}.json`;
-            fs.writeFileSync(path.join(outputDir, fileName), JSON.stringify(item, null, 4));
+            console.log(`[${i}/500] [Key ${keyIndex + 1}] Generating ${category} on ${topic}...`);
+            const item = await generateNGNItem(topic, category, i);
+
+            const categoryDir = path.join(rootDir, category);
+            if (!fs.existsSync(categoryDir)) fs.mkdirSync(categoryDir, { recursive: true });
+
+            const filename = `${topic.replace(/[\s\/]/g, '_').toLowerCase()}_${category}_v26_${i}.json`;
+            fs.writeFileSync(path.join(categoryDir, filename), JSON.stringify(item, null, 4));
+
         } catch (e) {
-            console.error(`ERROR at iteration ${i}:`, e.message);
-            await new Promise(r => setTimeout(r, 10000));
+            console.error(`ERROR at [${i}/500]:`, e.message);
+            await new Promise(r => setTimeout(r, 10000)); // Cool down
             i--; // Retry
         }
 
-        // Taking a "breath" between generations to prevent hallucinations and AI exhaustion
+        // 6s Pace to respect rate limits & systemic integrity
         await new Promise(r => setTimeout(r, 6000));
     }
 
-    console.log('--- GENERATION COMPLETE. SYNCING MASTER ARCHIVES ---');
+    console.log('--- MISSION 500 COMPLETE: REGENERATING INDEX ---');
     try {
         const { execSync } = require('child_process');
         execSync('node regen_vault_index.cjs');
-    } catch (err) {
-        console.error('Final Index Sync Failed.');
+        console.log('Manifest synchronized.');
+    } catch (e) {
+        console.error('Manifest sync failed.');
     }
 }
 
-mission_500();
+runMission500();

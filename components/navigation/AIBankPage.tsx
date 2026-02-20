@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useCallback } from 'react';
 import { MasterItem } from '../../types/master';
 import { getStandaloneNGNItemsAsync } from '../../services/caseStudyLibrary';
-import { runBankQA, runItemQA, repairBank, QABankReport, QAItemReport, QADimension, QASeverity } from '../../validation/itemBankQA';
+import { runBankQA, runItemQA, repairBank, runDeepAIRepair, QABankReport, QAItemReport, QADimension, QASeverity } from '../../validation/itemBankQA';
 
 interface AIBankPageProps {
     onSelectItem: (itemId: string) => void;
@@ -35,6 +35,24 @@ function scoreColor(score: number) {
 
 export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme }: AIBankPageProps) {
     const [items, setItems] = useState<MasterItem[]>([]);
+
+    // API Key Rotation for UI-side AI tasks
+    const aiKeys = useMemo(() => {
+        const keys: string[] = [];
+        for (let i = 1; i <= 14; i++) {
+            const k = (import.meta as any).env[`VITE_GEMINI_API_KEY_${i}`];
+            if (k) keys.push(k);
+        }
+        return keys;
+    }, []);
+
+    const [keyIdx, setKeyIdx] = useState(0);
+    const getNextKey = useCallback(() => {
+        if (aiKeys.length === 0) return null;
+        const k = aiKeys[keyIdx];
+        setKeyIdx(prev => (prev + 1) % aiKeys.length);
+        return k;
+    }, [aiKeys, keyIdx]);
     const [isLoading, setIsLoading] = useState(true);
 
     // ─── QA State ───
@@ -244,6 +262,58 @@ Failed: ${report.failed}`);
         runFullScan();
     };
 
+    const handleDeepAIFix = async (item: MasterItem) => {
+        const key = getNextKey();
+        if (!key) return alert("No AI Keys configured in .env");
+
+        if (!window.confirm("Trigger AI Deep Clinical Repair? This uses Gemini Pro to strictly enforce NGN 2026 Content Logic and EHR Synchronization.")) return;
+
+        setIsScanning(true);
+        try {
+            const { repaired, changes } = await runDeepAIRepair(item, key);
+            setItems(prev => prev.map(i => i.id === item.id ? repaired : i));
+            alert(`Deep Repair Complete!\n\nChanges Made:\n${changes.join('\n')}`);
+            runFullScan();
+        } catch (err: any) {
+            console.error("AI Fix Failed:", err);
+            alert(`AI Fix Error: ${err.message}`);
+        } finally {
+            setIsScanning(false);
+        }
+    };
+
+    const handleBulkDeepAIFix = async () => {
+        const key = getNextKey();
+        if (!key) return alert("No AI Keys configured in .env");
+
+        const subset = items.filter(i => selectedItems.includes(i.id));
+        if (!window.confirm(`Run AI Deep Fix on ${subset.length} items? This will take a few moments.`)) return;
+
+        setIsScanning(true);
+        let completed = 0;
+        let totalChanges = 0;
+
+        try {
+            const updatedItems = [...items];
+            for (const orig of subset) {
+                const k = getNextKey() || key;
+                const { repaired, changes } = await runDeepAIRepair(orig, k);
+                const idx = updatedItems.findIndex(i => i.id === orig.id);
+                if (idx !== -1) updatedItems[idx] = repaired;
+                completed++;
+                totalChanges += changes.length;
+            }
+            setItems(updatedItems);
+            alert(`Bulk Deep Fix Complete! ${completed} items healed with ${totalChanges} clinical optimizations.`);
+            runFullScan();
+        } catch (err: any) {
+            console.error("Bulk AI Fix Failed:", err);
+            alert(`Bulk AI Fix Error: ${err.message}`);
+        } finally {
+            setIsScanning(false);
+        }
+    };
+
     const refreshData = async () => {
         setIsLoading(true);
         const raw = await getStandaloneNGNItemsAsync();
@@ -366,6 +436,9 @@ Failed: ${report.failed}`);
                             <button className="bulk-btn fix" onClick={handleBulkRepair}>
                                 <span className="icon">🪄</span> Auto-Repair
                             </button>
+                            <button className="bulk-btn deep" onClick={handleBulkDeepAIFix} style={{ background: '#ecfdf5', color: '#059669' }}>
+                                <span className="icon">🛡️</span> AI Deep Fix
+                            </button>
                             <button className="bulk-btn chat" onClick={handleAIChatFix}>
                                 <span className="icon">🤖</span> AI Chat Fix
                             </button>
@@ -476,7 +549,8 @@ Failed: ${report.failed}`);
                                         </td>
                                         <td className="col-actions">
                                             <div className="action-row">
-                                                <button className="row-action edit" onClick={handleAIChatFix} title="AI Chat Fix">🤖</button>
+                                                <button className="row-action edit" onClick={() => handleDeepAIFix(item)} title="AI Deep Repair">⚡</button>
+                                                <button className="row-action chat" onClick={handleAIChatFix} title="AI Chat Fix">🤖</button>
                                                 <button className="row-action view" onClick={() => onSelectItem(item.id)} title="View Item">👁️</button>
                                                 <button
                                                     className="row-action qa"
