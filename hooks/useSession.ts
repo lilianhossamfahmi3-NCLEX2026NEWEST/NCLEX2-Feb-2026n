@@ -74,21 +74,23 @@ function sessionReducer(state: SessionState, action: SessionAction): SessionStat
             const newAnswers = { ...state.answers, [action.itemId]: action.answer };
             const newScores = { ...state.scores, [action.itemId]: result.earned };
 
-            // Update CJMM profile
+            // Update CJMM profile (safely — items from cloud may lack pedagogy)
             const newProfile = { ...state.cjmmProfile };
-            const step = item.pedagogy.cjmmStep;
-            const stepItems = state.caseStudy.items.filter(i => i.pedagogy.cjmmStep === step);
-            const stepScores = stepItems
-                .map(i => newScores[i.id])
-                .filter((s): s is number => s !== undefined);
-            const stepMaxes = stepItems
-                .filter(i => newScores[i.id] !== undefined)
-                .map(i => i.scoring.maxPoints);
+            const step = item.pedagogy?.cjmmStep;
+            if (step) {
+                const stepItems = state.caseStudy.items.filter(i => i.pedagogy?.cjmmStep === step);
+                const stepScores = stepItems
+                    .map(i => newScores[i.id])
+                    .filter((s): s is number => s !== undefined);
+                const stepMaxes = stepItems
+                    .filter(i => newScores[i.id] !== undefined)
+                    .map(i => (i.scoring?.maxPoints ?? 1));
 
-            if (stepScores.length > 0) {
-                const totalEarned = stepScores.reduce((a, b) => a + b, 0);
-                const totalMax = stepMaxes.reduce((a, b) => a + b, 0);
-                newProfile[step] = totalMax > 0 ? totalEarned / totalMax : 0;
+                if (stepScores.length > 0) {
+                    const totalEarned = stepScores.reduce((a, b) => a + b, 0);
+                    const totalMax = stepMaxes.reduce((a, b) => a + b, 0);
+                    newProfile[step] = totalMax > 0 ? totalEarned / totalMax : 0;
+                }
             }
 
             return {
@@ -207,7 +209,7 @@ export function useSession(caseStudy: CaseStudy) {
         for (const item of caseStudy.items) {
             if (state.scores[item.id] !== undefined) {
                 scores.push(state.scores[item.id]);
-                totals.push(item.scoring.maxPoints);
+                totals.push(item.scoring?.maxPoints ?? 1);
             }
         }
         return calculateBayesianPassProbability(scores, totals);

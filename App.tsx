@@ -297,7 +297,8 @@ export default function App() {
 
       session.caseStudy.items.forEach((item: any) => {
         const itemScore = session.scores[item.id] || 0;
-        const isPerfect = itemScore >= item.scoring.maxPoints;
+        const maxPoints = item.scoring?.maxPoints ?? 1;
+        const isPerfect = itemScore >= maxPoints;
 
         if (!mastery[item.id]) mastery[item.id] = { correct: 0, total: 0, lastSeen: '' };
         mastery[item.id].total++;
