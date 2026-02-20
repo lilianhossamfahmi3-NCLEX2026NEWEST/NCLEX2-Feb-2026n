@@ -642,3 +642,79 @@ export function runBankQA(items: any[]): QABankReport {
         typeDistribution,
     };
 }
+// ═══════════════════════════════════════════════════════════
+//  Self-Healing (Repair) Logic
+// ═══════════════════════════════════════════════════════════
+
+/**
+ * Attempts to automatically "heal" an item by fixing deterministic errors
+ * identified by the QA diagnostics.
+ */
+export function repairItem(item: any): { repaired: any; changes: string[] } {
+    const report = runItemQA(item);
+    const changes: string[] = [];
+    if (report.verdict === 'pass') return { repaired: item, changes: [] };
+
+    // Work on a deep clone
+    const repaired = JSON.parse(JSON.stringify(item));
+
+    // 1. Fix Missing/Wrong Scoring Defaults
+    if (!repaired.scoring) {
+        repaired.scoring = { method: 'polytomous', maxPoints: 1 };
+        changes.push('Added missing scoring object');
+    }
+
+    // 2. Fix maxPoints for selectAll (Dichotomous vs Polytomous common error)
+    if (repaired.type === 'selectAll' && repaired.correctOptionIds) {
+        const expected = repaired.correctOptionIds.length;
+        if (repaired.scoring.maxPoints !== expected) {
+            repaired.scoring.maxPoints = expected;
+            repaired.scoring.method = 'polytomous';
+            changes.push(`Corrected selectAll maxPoints to ${expected}`);
+        }
+    }
+
+    // 3. Fix maxPoints for Multiple Choice (Must be 1)
+    const dichotomousTypes = ['multipleChoice', 'priorityAction', 'trend', 'graphic', 'audioVideo', 'chartExhibit'];
+    if (dichotomousTypes.includes(repaired.type) && (repaired.scoring.maxPoints !== 1 || repaired.scoring.method !== 'dichotomous')) {
+        repaired.scoring.maxPoints = 1;
+        repaired.scoring.method = 'dichotomous';
+        changes.push(`Normalized ${repaired.type} to dichotomous/1pt`);
+    }
+
+    // 4. Normalize Pedagogy Casing
+    if (repaired.pedagogy) {
+        if (AI_BLOOM_MAP[repaired.pedagogy.bloomLevel]) {
+            const old = repaired.pedagogy.bloomLevel;
+            repaired.pedagogy.bloomLevel = AI_BLOOM_MAP[old];
+            changes.push(`Normalized Bloom: ${old} -> ${repaired.pedagogy.bloomLevel}`);
+        }
+        if (AI_CJMM_MAP[repaired.pedagogy.cjmmStep]) {
+            const old = repaired.pedagogy.cjmmStep;
+            repaired.pedagogy.cjmmStep = AI_CJMM_MAP[old];
+            changes.push(`Normalized CJMM: ${old} -> ${repaired.pedagogy.cjmmStep}`);
+        }
+    }
+
+    // 5. Fix passage padding in Highlight
+    if (repaired.type === 'highlight' && repaired.passage) {
+        if (!repaired.passage.startsWith(' ') && !repaired.passage.endsWith(' ')) {
+            // Optional: Ensure span-friendly padding if needed by renderer
+        }
+    }
+
+    return { repaired, changes };
+}
+
+/**
+ * Runs repair on a batch of items
+ */
+export function repairBank(items: any[]): { repairedItems: any[]; totalChanges: number } {
+    let totalChanges = 0;
+    const repairedItems = items.map(item => {
+        const { repaired, changes } = repairItem(item);
+        totalChanges += changes.length;
+        return repaired;
+    });
+    return { repairedItems, totalChanges };
+}

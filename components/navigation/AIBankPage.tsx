@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useCallback } from 'react';
 import { MasterItem } from '../../types/master';
 import { getStandaloneNGNItemsAsync } from '../../services/caseStudyLibrary';
-import { runBankQA, runItemQA, QABankReport, QAItemReport, QADimension, QASeverity } from '../../validation/itemBankQA';
+import { runBankQA, runItemQA, repairBank, QABankReport, QAItemReport, QADimension, QASeverity } from '../../validation/itemBankQA';
 
 interface AIBankPageProps {
     onSelectItem: (itemId: string) => void;
@@ -207,6 +207,43 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
         alert(`AI Chat Fix initiated for ${selectedItems.length} items. Analyzing clinical logic...`);
     };
 
+    const handleBulkQA = () => {
+        const selectedCount = selectedItems.length;
+        const subset = items.filter(i => selectedItems.includes(i.id));
+        const report = runBankQA(subset);
+        alert(`Bulk QA for ${selectedCount} items:
+Score: ${report.overallScore}%
+Passed: ${report.passed}
+Warned: ${report.warned}
+Failed: ${report.failed}`);
+    };
+
+    const handleBulkRepair = () => {
+        const subset = items.filter(i => selectedItems.includes(i.id));
+        if (!window.confirm(`Attempt Auto-Repair for ${subset.length} items?`)) return;
+
+        const { repairedItems, totalChanges } = repairBank(subset);
+
+        // Update local state
+        const updatedItems = items.map(orig => {
+            const found = repairedItems.find(r => r.id === orig.id);
+            return found || orig;
+        });
+
+        setItems(updatedItems);
+        alert(`Auto-Repair complete! ${totalChanges} structural issues healed.`);
+        runFullScan(); // Re-scan to update scores
+    };
+
+    const handleRepairAll = () => {
+        if (!window.confirm(`Initiate Global Bank Repair for all ${items.length} items? This will fix deterministic structural errors.`)) return;
+
+        const { repairedItems, totalChanges } = repairBank(items);
+        setItems(repairedItems);
+        alert(`Global Repair Finished! Total ${totalChanges} issues corrected across the entire bank.`);
+        runFullScan();
+    };
+
     const refreshData = async () => {
         setIsLoading(true);
         const raw = await getStandaloneNGNItemsAsync();
@@ -285,7 +322,7 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                             >
                                 {isScanning ? '⏳ Scanning...' : '🛡️ Scan QA'}
                             </button>
-                            <button className="repair-btn">🪄 Repair All</button>
+                            <button className="repair-btn" onClick={handleRepairAll}>🪄 Repair All</button>
                             <button className="action-btn primary">+ New Item</button>
                         </div>
 
@@ -323,7 +360,13 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                     <div className="bulk-actions-bar">
                         <div className="selection-info">{selectedItems.length} items selected</div>
                         <div className="bulk-btns">
-                            <button className="bulk-btn fix" onClick={handleAIChatFix}>
+                            <button className="bulk-btn qa" onClick={handleBulkQA}>
+                                <span className="icon">🛡️</span> Run QA
+                            </button>
+                            <button className="bulk-btn fix" onClick={handleBulkRepair}>
+                                <span className="icon">🪄</span> Auto-Repair
+                            </button>
+                            <button className="bulk-btn chat" onClick={handleAIChatFix}>
                                 <span className="icon">🤖</span> AI Chat Fix
                             </button>
                             <button className="bulk-btn delete" onClick={handleDeleteSelected}>
