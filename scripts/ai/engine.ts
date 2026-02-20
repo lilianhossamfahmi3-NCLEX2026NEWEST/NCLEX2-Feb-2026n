@@ -3,18 +3,17 @@
  * Hand-tuned for the Provided Keys & CJMM Compliance
  */
 
-const KEYS = [
-    'AIzaSyCGBsatIVorw0mlj-c2mNl7n4iUarLQbLU',
-    'AIzaSyDxfULa7oK-3dxmHMcKmQL3rNjFhyBOMF0',
-    'AIzaSyBbN5d9Cpz3O__l9H5lQydqGtrAZlATut0',
-    'AIzaSyBeVY1qKlAljfGPkESHabNxtXDk24YK5X8',
-    'AIzaSyAdHhHYugOXZT55hDvFWxODaMujBcQ96Ts',
-    'AIzaSyB-2ZrAXzeLJgqvs52vImSkNzCTJNUeZ4A',
-    'AIzaSyBCkx-5OPtyKYw9tJNi_BgIMfUE_-IO3rw',
-    'AIzaSyDN6hn3iRdbvmuDaQ8PAh6tpVpLTvarHzc',
-    'AIzaSyBZsMEpJnohvU_TYFUFHq4v3wKMRQS5yS4',
-    'AIzaSyBm7tNmXPD8z4YqZm9VZE0fCdAM935OH8A'
-];
+import 'dotenv/config';
+
+const KEYS: string[] = [];
+for (let i = 1; i <= 10; i++) {
+    const key = process.env[`GEMINI_API_KEY_${i}`];
+    if (key) KEYS.push(key);
+}
+
+if (KEYS.length === 0) {
+    console.error('⚠️  No GEMINI_API_KEY_* environment variables found. Set GEMINI_API_KEY_1 through GEMINI_API_KEY_10 in .env');
+}
 
 class KeyRotator {
     private current = 0;
