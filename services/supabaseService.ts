@@ -32,18 +32,37 @@ export async function fetchVaultFromCloud() {
         return null;
     }
 
-    const { data, error } = await client
-        .from('clinical_vault')
-        .select('item_data');
+    // Supabase PostgREST returns max 1000 rows per request.
+    // Paginate in batches to fetch ALL items.
+    const PAGE_SIZE = 1000;
+    const allRows: any[] = [];
+    let from = 0;
 
-    if (error) {
-        console.error("Cloud fetch error:", error);
-        return null;
+    while (true) {
+        const { data, error } = await client
+            .from('clinical_vault')
+            .select('item_data')
+            .range(from, from + PAGE_SIZE - 1);
+
+        if (error) {
+            console.error("Cloud fetch error:", error);
+            if (allRows.length > 0) break; // return what we have
+            return null;
+        }
+
+        if (!data || data.length === 0) break;
+        allRows.push(...data);
+
+        // If we got fewer than PAGE_SIZE, we've reached the end
+        if (data.length < PAGE_SIZE) break;
+        from += PAGE_SIZE;
     }
+
+    console.log(`[Supabase] Fetched ${allRows.length} total rows.`);
 
     // item_data may be stored as a JSON string (text column) rather than JSONB.
     // Parse it if needed so the frontend gets usable objects.
-    return data.map(row => {
+    return allRows.map(row => {
         const raw = row.item_data;
         if (typeof raw === 'string') {
             try { return JSON.parse(raw); }
