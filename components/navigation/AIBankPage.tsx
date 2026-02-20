@@ -1,6 +1,7 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { MasterItem } from '../../types/master';
 import { getStandaloneNGNItemsAsync } from '../../services/caseStudyLibrary';
+import { runBankQA, runItemQA, QABankReport, QAItemReport, QADimension, QASeverity } from '../../validation/itemBankQA';
 
 interface AIBankPageProps {
     onSelectItem: (itemId: string) => void;
@@ -9,9 +10,38 @@ interface AIBankPageProps {
     onToggleTheme: () => void;
 }
 
+const DIMENSION_LABELS: Record<QADimension, { label: string; icon: string }> = {
+    completeness: { label: 'Completeness', icon: '📋' },
+    typeStructure: { label: 'Type Structure', icon: '🧩' },
+    scoringAccuracy: { label: 'Scoring Accuracy', icon: '🎯' },
+    pedagogy: { label: 'Pedagogy', icon: '🎓' },
+    rationaleQuality: { label: 'Rationale Quality', icon: '📝' },
+    optionLogic: { label: 'Option Logic', icon: '🔗' },
+    dataReferences: { label: 'Data References', icon: '🗂️' },
+    errorDetection: { label: 'Error Detection', icon: '🛡️' },
+};
+
+const SEVERITY_CONFIG: Record<QASeverity, { color: string; bg: string; label: string }> = {
+    critical: { color: '#EF4444', bg: 'rgba(239, 68, 68, 0.1)', label: 'CRITICAL' },
+    warning: { color: '#F59E0B', bg: 'rgba(245, 158, 11, 0.1)', label: 'WARNING' },
+    info: { color: '#3B82F6', bg: 'rgba(59, 130, 246, 0.1)', label: 'INFO' },
+};
+
+function scoreColor(score: number) {
+    if (score >= 90) return '#10B981';
+    if (score >= 70) return '#F59E0B';
+    return '#EF4444';
+}
+
 export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme }: AIBankPageProps) {
     const [items, setItems] = useState<MasterItem[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    // ─── QA State ───
+    const [bankReport, setBankReport] = useState<QABankReport | null>(null);
+    const [qaScoreMap, setQaScoreMap] = useState<Map<string, QAItemReport>>(new Map());
+    const [isScanning, setIsScanning] = useState(false);
+    const [qaDetailItem, setQaDetailItem] = useState<QAItemReport | null>(null);
 
     useEffect(() => {
         async function load() {
@@ -27,6 +57,33 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
             }
         }
         load();
+    }, []);
+
+    // ─── QA Scan ───
+    const runFullScan = useCallback(() => {
+        if (items.length === 0) return;
+        setIsScanning(true);
+        setTimeout(() => {
+            const report = runBankQA(items);
+            setBankReport(report);
+            const map = new Map<string, QAItemReport>();
+            report.itemReports.forEach(r => map.set(r.itemId, r));
+            setQaScoreMap(map);
+            setIsScanning(false);
+        }, 50);
+    }, [items]);
+
+    // Auto-scan when items load
+    useEffect(() => {
+        if (items.length > 0 && !bankReport) {
+            runFullScan();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [items.length]);
+
+    const runSingleItemQA = useCallback((item: MasterItem) => {
+        const report = runItemQA(item);
+        setQaDetailItem(report);
     }, []);
 
     const [search, setSearch] = useState('');
@@ -172,10 +229,23 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                     <div className="card-val">{isLoading ? 'SYNCING' : 'READY'}</div>
                     <div className="card-sub">{isLoading ? 'Awaiting data stream...' : 'Optimized & Segmented'}</div>
                 </div>
-                <div className="summary-card">
-                    <div className="card-lbl">Clinical Integrity <span className="icon">✅</span></div>
-                    <div className="card-val">100%</div>
-                    <div className="card-sub">All items verified</div>
+                <div className="summary-card qa-integrity-card">
+                    <div className="card-lbl">SentinelQA Score <span className="icon">🛡️</span></div>
+                    <div className="card-val" style={{ color: bankReport ? scoreColor(bankReport.overallScore) : undefined }}>
+                        {isScanning ? '...' : bankReport ? `${bankReport.overallScore}%` : '—'}
+                    </div>
+                    <div className="card-sub">
+                        {isScanning ? 'Scanning...' : bankReport
+                            ? `✓${bankReport.passed}  ⚠${bankReport.warned}  ✕${bankReport.failed}`
+                            : 'Click Scan QA to analyze'}
+                    </div>
+                    {bankReport && (
+                        <div className="qa-mini-bar">
+                            <div className="qa-mini-pass" style={{ width: `${(bankReport.passed / bankReport.totalItems) * 100}%` }} />
+                            <div className="qa-mini-warn" style={{ width: `${(bankReport.warned / bankReport.totalItems) * 100}%` }} />
+                            <div className="qa-mini-fail" style={{ width: `${(bankReport.failed / bankReport.totalItems) * 100}%` }} />
+                        </div>
+                    )}
                 </div>
                 <div className="summary-card">
                     <div className="card-lbl">Load Strategy <span className="icon">⚡</span></div>
@@ -207,6 +277,14 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                                 {theme === 'dark' ? '☀️ Day Mode' : '🌙 Night Mode'}
                             </button>
                             <button className="action-btn refresh" onClick={refreshData} title="Refresh Data">🔄</button>
+                            <button
+                                className="qa-scan-btn"
+                                onClick={runFullScan}
+                                disabled={isScanning || items.length === 0}
+                                title="Run SentinelQA Scan"
+                            >
+                                {isScanning ? '⏳ Scanning...' : '🛡️ Scan QA'}
+                            </button>
                             <button className="repair-btn">🪄 Repair All</button>
                             <button className="action-btn primary">+ New Item</button>
                         </div>
@@ -330,7 +408,23 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                                             <span className="date-text">{item.createdAt ? new Date(item.createdAt).toLocaleString() : '2/13/2026, 3:37 PM'}</span>
                                         </td>
                                         <td className="col-qi">
-                                            <span className="qi-val">{80 + (items.indexOf(item) % 20)}</span>
+                                            {(() => {
+                                                const itemReport = qaScoreMap.get(item.id);
+                                                if (!itemReport) return <span className="qi-val" style={{ opacity: 0.4 }}>—</span>;
+                                                return (
+                                                    <span
+                                                        className="qi-val qi-clickable"
+                                                        style={{ color: scoreColor(itemReport.score), cursor: 'pointer' }}
+                                                        onClick={(e) => { e.stopPropagation(); setQaDetailItem(itemReport); }}
+                                                        title={`${itemReport.verdict.toUpperCase()} — click for details`}
+                                                    >
+                                                        {itemReport.score}
+                                                        {itemReport.verdict === 'fail' && <span className="qi-verdict-dot fail">●</span>}
+                                                        {itemReport.verdict === 'warn' && <span className="qi-verdict-dot warn">●</span>}
+                                                        {itemReport.verdict === 'pass' && <span className="qi-verdict-dot pass">●</span>}
+                                                    </span>
+                                                );
+                                            })()}
                                         </td>
                                         <td className="col-status">
                                             <span className={`status-pill ${items.indexOf(item) % 3 === 0 ? 'draft' : 'live'}`}>
@@ -341,6 +435,11 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                                             <div className="action-row">
                                                 <button className="row-action edit" onClick={handleAIChatFix} title="AI Chat Fix">🤖</button>
                                                 <button className="row-action view" onClick={() => onSelectItem(item.id)} title="View Item">👁️</button>
+                                                <button
+                                                    className="row-action qa"
+                                                    onClick={(e) => { e.stopPropagation(); runSingleItemQA(item); }}
+                                                    title="Run QA Check"
+                                                >🛡️</button>
                                                 <button className="row-action delete" onClick={() => {
                                                     if (window.confirm('Delete this item?')) {
                                                         setItems(prev => prev.filter(i => i.id !== item.id));
@@ -355,6 +454,69 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                     )}
                 </div>
             </div>
+
+            {/* ═══ QA Detail Overlay ═══ */}
+            {qaDetailItem && (
+                <div className="qa-overlay" onClick={() => setQaDetailItem(null)}>
+                    <div className="qa-panel" onClick={e => e.stopPropagation()}>
+                        <div className="qa-panel-header">
+                            <div>
+                                <h2>{qaDetailItem.itemId}</h2>
+                                <div className="qa-panel-meta">
+                                    <span className="type-pill">{qaDetailItem.itemType}</span>
+                                    <span className={`qa-verdict-badge ${qaDetailItem.verdict}`}>
+                                        {qaDetailItem.verdict === 'pass' ? '✓ PASS' : qaDetailItem.verdict === 'warn' ? '⚠ WARN' : '✕ FAIL'}
+                                    </span>
+                                    <span className="qa-panel-score" style={{ color: scoreColor(qaDetailItem.score) }}>
+                                        Score: {qaDetailItem.score}/100
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="qa-panel-actions">
+                                <button className="qa-preview-btn" onClick={() => { onSelectItem(qaDetailItem.itemId); setQaDetailItem(null); }}>
+                                    ▶ Preview
+                                </button>
+                                <button className="qa-close-btn" onClick={() => setQaDetailItem(null)}>✕</button>
+                            </div>
+                        </div>
+
+                        <div className="qa-dim-list">
+                            {(Object.keys(DIMENSION_LABELS) as QADimension[]).map(dim => {
+                                const dimScore = qaDetailItem.dimensionScores[dim];
+                                const dimDiags = qaDetailItem.diagnostics.filter(d => d.dimension === dim);
+                                return (
+                                    <div key={dim} className="qa-dim-block">
+                                        <div className="qa-dim-row">
+                                            <span>{DIMENSION_LABELS[dim].icon} {DIMENSION_LABELS[dim].label}</span>
+                                            <span style={{ color: scoreColor(dimScore), fontWeight: 900 }}>{dimScore}%</span>
+                                        </div>
+                                        <div className="qa-dim-bar-bg">
+                                            <div className="qa-dim-bar-fill" style={{ width: `${dimScore}%`, background: scoreColor(dimScore) }} />
+                                        </div>
+                                        {dimDiags.length > 0 ? (
+                                            <div className="qa-diag-list">
+                                                {dimDiags.map((diag, i) => (
+                                                    <div key={i} className="qa-diag-item" style={{ borderLeftColor: SEVERITY_CONFIG[diag.severity].color }}>
+                                                        <span className="qa-diag-sev" style={{
+                                                            background: SEVERITY_CONFIG[diag.severity].bg,
+                                                            color: SEVERITY_CONFIG[diag.severity].color,
+                                                        }}>{SEVERITY_CONFIG[diag.severity].label}</span>
+                                                        <span className="qa-diag-code">{diag.code}</span>
+                                                        <span className="qa-diag-msg">{diag.message}</span>
+                                                        {diag.field && <span className="qa-diag-field">{diag.field}</span>}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ) : (
+                                            <div className="qa-dim-ok">✓ All checks passed</div>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <style>{`
                 .bank-container {
@@ -603,7 +765,13 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                 .proc-text { color: var(--muted-text); font-weight: 700; font-size: 0.8rem; }
                 .comp-text { color: var(--text); font-weight: 600; font-size: 0.8rem; opacity: 0.7; }
 
-                .qi-val { color: var(--success); font-weight: 900; font-family: 'JetBrains Mono', monospace; font-size: 1rem; }
+                .qi-val { font-weight: 900; font-family: 'JetBrains Mono', monospace; font-size: 1rem; position: relative; }
+                .qi-clickable { transition: all 0.2s; }
+                .qi-clickable:hover { transform: scale(1.15); filter: brightness(1.2); }
+                .qi-verdict-dot { font-size: 0.55rem; margin-left: 3px; vertical-align: super; }
+                .qi-verdict-dot.pass { color: #10B981; }
+                .qi-verdict-dot.warn { color: #F59E0B; }
+                .qi-verdict-dot.fail { color: #EF4444; }
 
                 .status-pill {
                     padding: 5px 14px;
@@ -616,7 +784,7 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                 .status-pill.draft { background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
                 .status-pill.live { background: rgba(var(--success-rgb), 0.1); color: var(--success); border: 1px solid rgba(var(--success-rgb), 0.2); }
 
-                .action-row { display: flex; gap: 10px; }
+                .action-row { display: flex; gap: 8px; }
                 .row-action {
                     width: 36px;
                     height: 36px;
@@ -631,7 +799,189 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                     transition: all 0.2s;
                 }
                 .row-action:hover { transform: translateY(-3px) scale(1.1); box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-color: var(--primary); }
+                .row-action.qa:hover { border-color: #8B5CF6; background: rgba(139,92,246,0.08); }
                 .row-action.delete:hover { border-color: #ef4444; background: #fee2e2; color: #dc2626; }
+
+                /* ─── QA Scan Button ─── */
+                .qa-scan-btn {
+                    padding: 10px 20px;
+                    background: linear-gradient(135deg, #2563EB, #8B5CF6);
+                    color: white;
+                    border: none;
+                    border-radius: 12px;
+                    font-weight: 800;
+                    font-size: 0.85rem;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    box-shadow: 0 4px 15px rgba(37,99,235,0.25);
+                }
+                .qa-scan-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.35); }
+                .qa-scan-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+                /* ─── QA Integrity Card Mini Bar ─── */
+                .qa-integrity-card { position: relative; overflow: hidden; }
+                .qa-mini-bar {
+                    display: flex;
+                    height: 4px;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    margin-top: 8px;
+                }
+                .qa-mini-pass { background: #10B981; transition: width 0.6s ease; }
+                .qa-mini-warn { background: #F59E0B; transition: width 0.6s ease; }
+                .qa-mini-fail { background: #EF4444; transition: width 0.6s ease; }
+
+                /* ─── QA Detail Overlay ─── */
+                .qa-overlay {
+                    position: fixed;
+                    inset: 0;
+                    background: rgba(0,0,0,0.55);
+                    backdrop-filter: blur(10px);
+                    z-index: 300;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 40px;
+                    animation: fadeIn 0.2s ease;
+                }
+                @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+                .qa-panel {
+                    background: var(--bg-card);
+                    border-radius: 24px;
+                    border: 1px solid var(--border);
+                    width: 100%;
+                    max-width: 800px;
+                    max-height: 85vh;
+                    overflow-y: auto;
+                    padding: 32px;
+                    box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+                    animation: slideUp 0.3s ease;
+                }
+                @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+                .qa-panel-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    margin-bottom: 24px;
+                    gap: 16px;
+                }
+                .qa-panel-header h2 {
+                    font-size: 1.1rem;
+                    font-weight: 900;
+                    margin: 0 0 8px;
+                    word-break: break-all;
+                }
+                .qa-panel-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+                .qa-verdict-badge {
+                    padding: 3px 10px;
+                    border-radius: 6px;
+                    font-size: 0.7rem;
+                    font-weight: 900;
+                    letter-spacing: 0.05em;
+                }
+                .qa-verdict-badge.pass { background: rgba(16,185,129,0.12); color: #10B981; }
+                .qa-verdict-badge.warn { background: rgba(245,158,11,0.12); color: #F59E0B; }
+                .qa-verdict-badge.fail { background: rgba(239,68,68,0.12); color: #EF4444; }
+                .qa-panel-score { font-size: 0.85rem; font-weight: 900; }
+                .qa-panel-actions { display: flex; gap: 8px; flex-shrink: 0; }
+                .qa-preview-btn {
+                    padding: 8px 16px;
+                    background: linear-gradient(135deg, #2563EB, #8B5CF6);
+                    color: white;
+                    border: none;
+                    border-radius: 10px;
+                    font-weight: 700;
+                    font-size: 0.75rem;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+                .qa-preview-btn:hover { transform: translateY(-2px); }
+                .qa-close-btn {
+                    width: 36px; height: 36px;
+                    border-radius: 10px;
+                    border: 1px solid var(--border);
+                    background: var(--bg);
+                    cursor: pointer;
+                    font-size: 1rem;
+                    color: var(--text);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .qa-close-btn:hover { background: var(--border); }
+
+                /* ─── Dimension Blocks ─── */
+                .qa-dim-list { display: flex; flex-direction: column; gap: 14px; }
+                .qa-dim-block {
+                    background: var(--bg);
+                    border: 1px solid var(--border);
+                    border-radius: 14px;
+                    padding: 16px;
+                }
+                .qa-dim-row {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 0.85rem;
+                    font-weight: 700;
+                    margin-bottom: 8px;
+                }
+                .qa-dim-bar-bg {
+                    width: 100%;
+                    height: 4px;
+                    background: var(--border);
+                    border-radius: 4px;
+                    overflow: hidden;
+                    margin-bottom: 8px;
+                }
+                .qa-dim-bar-fill {
+                    height: 100%;
+                    border-radius: 4px;
+                    transition: width 0.5s ease;
+                }
+                .qa-dim-ok { font-size: 0.75rem; color: #10B981; font-weight: 700; }
+                .qa-diag-list { display: flex; flex-direction: column; gap: 6px; }
+                .qa-diag-item {
+                    display: flex;
+                    gap: 8px;
+                    align-items: center;
+                    padding: 6px 10px;
+                    border-left: 3px solid;
+                    border-radius: 6px;
+                    background: var(--bg-card);
+                    flex-wrap: wrap;
+                }
+                .qa-diag-sev {
+                    padding: 2px 8px;
+                    border-radius: 4px;
+                    font-size: 0.6rem;
+                    font-weight: 900;
+                    letter-spacing: 0.04em;
+                    flex-shrink: 0;
+                }
+                .qa-diag-code {
+                    font-family: 'JetBrains Mono', monospace;
+                    font-size: 0.68rem;
+                    font-weight: 700;
+                    color: var(--muted-text);
+                    flex-shrink: 0;
+                }
+                .qa-diag-msg {
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    color: var(--text);
+                    flex: 1;
+                    min-width: 200px;
+                }
+                .qa-diag-field {
+                    font-family: 'JetBrains Mono', monospace;
+                    font-size: 0.62rem;
+                    color: var(--muted-text);
+                    background: var(--bg);
+                    padding: 2px 6px;
+                    border-radius: 4px;
+                }
 
                 .loading-overlay {
                     display: flex;
