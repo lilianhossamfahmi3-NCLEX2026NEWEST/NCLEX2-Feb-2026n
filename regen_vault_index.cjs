@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const VAULT_DIR = path.join(__dirname, 'data', 'ai-generated', 'vault');
-const OUTPUT_FILE = path.join(__dirname, 'data', 'vaultItems.ts');
+const OUTPUT_JSON = path.join(__dirname, 'public', 'data', 'vaultItems.json');
 
 function walk(dir, results = []) {
     const list = fs.readdirSync(dir);
@@ -34,12 +34,11 @@ const items = files.map((f, index) => {
     }
 }).flat();
 
-console.log(`Total items collected: ${items.length}. Generating ${OUTPUT_FILE}...`);
+console.log(`Total items collected: ${items.length}. Writing to ${OUTPUT_JSON}...`);
 
-const tsContent = `import { MasterItem } from '../types/master';
+// Ensure output directory exists
+fs.mkdirSync(path.dirname(OUTPUT_JSON), { recursive: true });
 
-export const VAULT_ITEMS: MasterItem[] = ${JSON.stringify(items, null, 4)};
-`;
-
-fs.writeFileSync(OUTPUT_FILE, tsContent, 'utf8');
-console.log('Successfully indexed ' + items.length + ' items.');
+// Output pure JSON — no TypeScript wrapper
+fs.writeFileSync(OUTPUT_JSON, JSON.stringify(items, null, 4), 'utf8');
+console.log('Successfully indexed ' + items.length + ' items to vaultItems.json');

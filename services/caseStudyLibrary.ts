@@ -1,4 +1,5 @@
 import { getVaultItems } from './vaultLoader';
+import { CaseStudy, Patient, ClinicalData, VitalSign, MasterItem } from '../types/master';
 
 // --- Case 1: CHF (Already in dataFactory, but we'll export it here too for the library) ---
 import { createSampleCaseStudy as createCHFCase } from './dataFactory';

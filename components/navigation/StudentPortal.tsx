@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react';
-import { CaseStudy, CJMMStep } from '../../types/master';
+import { useMemo } from 'react';
+import { CaseStudy } from '../../types/master';
 
 interface StudentPortalProps {
     library: CaseStudy[];
@@ -9,15 +9,6 @@ interface StudentPortalProps {
     theme: 'light' | 'dark';
     onToggleTheme: () => void;
 }
-
-const CJMM_LABELS: Record<CJMMStep, string> = {
-    recognizeCues: 'Recognize Cues',
-    analyzeCues: 'Analyze Cues',
-    prioritizeHypotheses: 'Prioritize Hypotheses',
-    generateSolutions: 'Generate Solutions',
-    takeAction: 'Take Action',
-    evaluateOutcomes: 'Evaluate Outcomes',
-};
 
 export default function StudentPortal({ library, history, onStartMode, onViewAnalytics, theme, onToggleTheme }: StudentPortalProps) {
     const stats = useMemo(() => {

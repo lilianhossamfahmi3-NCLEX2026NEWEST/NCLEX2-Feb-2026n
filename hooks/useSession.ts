@@ -5,7 +5,7 @@
 
 import { useReducer, useEffect, useMemo, useCallback } from 'react';
 import {
-    CaseStudy, SessionState, CJMMStep, StressState, MasterItem, ClinicalData, MedicationAdministration
+    CaseStudy, SessionState, CJMMStep, StressState, MasterItem, ClinicalData
 } from '../types/master';
 import { scoreItem, calculateBayesianPassProbability } from '../engine/scoringEngine';
 import { detectStress } from '../engine/stressEngine';

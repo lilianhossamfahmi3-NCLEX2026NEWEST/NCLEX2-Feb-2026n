@@ -5,6 +5,19 @@ let isLoading = false;
 const listeners: ((items: MasterItem[]) => void)[] = [];
 
 /**
+ * Loads the local vault JSON at runtime via fetch().
+ * This avoids importing the massive .ts file which crashes TypeScript.
+ */
+async function loadLocalVault(): Promise<MasterItem[]> {
+    const response = await fetch('/data/vaultItems.json');
+    if (!response.ok) {
+        throw new Error(`Failed to fetch local vault: ${response.status}`);
+    }
+    const items: MasterItem[] = await response.json();
+    return items;
+}
+
+/**
  * NCLEX-RN NGN Simulator — Lazy Vault Loader
  * Prevents main bundle bloat by loading the 11MB vault on demand.
  */
@@ -31,11 +44,10 @@ export async function getVaultItems(): Promise<MasterItem[]> {
             cachedVault = cloudItems as MasterItem[];
             console.log(`[VaultLoader] Successfully loaded ${cachedVault.length} items from Supabase Cloud.`);
         } else {
-            // 2. Fallback to local 11MB vault if cloud fails or is empty
-            console.warn("[VaultLoader] Cloud empty or failed. Falling back to local vaultItems.ts...");
-            const module = await import('../data/vaultItems');
-            cachedVault = module.VAULT_ITEMS;
-            console.log(`[VaultLoader] Successfully loaded ${cachedVault?.length} stand-alone items from Local Storage.`);
+            // 2. Fallback to local vault JSON if cloud fails or is empty
+            console.warn("[VaultLoader] Cloud empty or failed. Falling back to local vaultItems.json...");
+            cachedVault = await loadLocalVault();
+            console.log(`[VaultLoader] Successfully loaded ${cachedVault.length} stand-alone items from Local Storage.`);
         }
 
         // Notify any pending listeners
@@ -49,8 +61,7 @@ export async function getVaultItems(): Promise<MasterItem[]> {
 
         // Final desperate fallback if even the above fails
         try {
-            const module = await import('../data/vaultItems');
-            return module.VAULT_ITEMS;
+            return await loadLocalVault();
         } catch (e) {
             throw error;
         }

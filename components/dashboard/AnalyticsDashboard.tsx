@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { CJMMStep } from '../../types/master';
 
 interface AnalyticsDashboardProps {
@@ -53,14 +53,18 @@ export default function AnalyticsDashboard({ history, onExit, theme }: Analytics
     // Mastery Data
     const mastery = useMemo(() => {
         const saved = localStorage.getItem('nclex_mastery');
-        if (!saved) return { mastered: 0, inProgress: 0 };
-        const data = JSON.parse(saved);
-        const vals = Object.values(data) as any[];
-        return {
-            mastered: vals.filter(v => v.correct >= 2).length,
-            inProgress: vals.filter(v => v.correct < 2).length,
-            total: vals.length
-        };
+        if (!saved) return { mastered: 0, inProgress: 0, total: 0 };
+        try {
+            const data = JSON.parse(saved);
+            const vals = Object.values(data) as any[];
+            return {
+                mastered: vals.filter(v => v.correct >= 2).length,
+                inProgress: vals.filter(v => v.correct < 2).length,
+                total: vals.length
+            };
+        } catch (e) {
+            return { mastered: 0, inProgress: 0, total: 0 };
+        }
     }, []);
 
     return (
@@ -93,8 +97,8 @@ export default function AnalyticsDashboard({ history, onExit, theme }: Analytics
                         <h3>Item Mastery (Spaced Repetiton)</h3>
                         <div className="mastery-viz">
                             <div className="m-bar-container">
-                                <div className="m-bar-fill m-mastered" style={{ width: `${(mastery.mastered / mastery.total) * 100}%` }} />
-                                <div className="m-bar-fill m-progress" style={{ width: `${(mastery.inProgress / mastery.total) * 100}%`, left: `${(mastery.mastered / mastery.total) * 100}%` }} />
+                                <div className="m-bar-fill m-mastered" style={{ width: `${mastery.total > 0 ? (mastery.mastered / mastery.total) * 100 : 0}%` }} />
+                                <div className="m-bar-fill m-progress" style={{ width: `${mastery.total > 0 ? (mastery.inProgress / mastery.total) * 100 : 0}%`, left: `${mastery.total > 0 ? (mastery.mastered / mastery.total) * 100 : 0}%` }} />
                             </div>
                             <div className="m-legend">
                                 <span><i className="dot d-mastered" /> Mastered: {mastery.mastered}</span>
