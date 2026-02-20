@@ -6,7 +6,7 @@
 import 'dotenv/config';
 
 const KEYS: string[] = [];
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 20; i++) {
     const key = process.env[`GEMINI_API_KEY_${i}`];
     if (key) KEYS.push(key);
 }
