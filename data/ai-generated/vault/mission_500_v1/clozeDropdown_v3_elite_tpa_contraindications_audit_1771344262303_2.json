@@ -1,164 +1,172 @@
 {
-    "id": "MISSION500_2_1771344213459_CD",
-    "itemType": "clozeDropdown",
-    "difficulty": 5,
-    "theme": "Safe and Effective Care Environment",
-    "nclexClientNeed": "Reduction of Risk Potential",
-    "integratedProcess": "Clinical Judgment",
-    "cognitiveSkill": "Recognize Cues / Analyze Cues / Take Actions",
-    "caseId": null,
-    "kpis": [
-        "Identifies contraindications for pharmacological therapies.",
-        "Prioritizes nursing actions based on risk to client safety.",
-        "Intervenes to prevent medication administration errors."
-    ],
-    "stem": "The nurse in the emergency department is reviewing the electronic health record (EHR) for a 68-year-old client diagnosed with an acute ischemic stroke. The stroke team has placed an order for Alteplase (tPA). The nurse must perform a final safety audit before administration.",
-    "prompt": "Based on the client's data, complete the following sentences to articulate the priority nursing judgment.\n\nThe most critical finding that requires immediate re-evaluation of the treatment plan is the client's {{1}}. This data point represents an immediate and unacceptable risk for {{2}}. Therefore, the nurse's priority action is to {{3}}.",
-    "tabs": [
-        {
-            "id": "tab1",
-            "title": "Nurses' Notes",
-            "content": "<b>Time 08:00:</b> Client arrived via EMS with acute onset of left-sided facial droop, slurred speech, and left arm weakness. Last known normal 06:00. Client is anxious, reports a \"pounding headache.\" History of hypertension (HTN) and T2DM. Reports running out of lisinopril 2 weeks ago; \"couldn't get an appointment.\" Client also reports having a lumbar puncture (LP) 5 days ago as part of a workup for persistent headaches."
-        },
-        {
-            "id": "tab2",
-            "title": "Vital Signs Trend",
-            "content": "<ul><li><b>08:05:</b> BP: 208/116 mmHg, HR: 98, RR: 18, SpO2: 97% on room air, Temp: 37.1°C</li><li><b>08:20 (Post Labetalol 10 mg IV):</b> BP: 194/112 mmHg, HR: 92</li><li><b>08:35 (Post Labetalol 20 mg IV):</b> BP: 188/108 mmHg, HR: 88</li></ul>"
-        },
-        {
-            "id": "tab3",
-            "title": "Laboratory Results",
-            "content": "<ul><li>Platelet Count: 195,000/mm³</li><li>INR: 1.0</li><li>aPTT: 29 seconds</li><li>Blood Glucose (POC): 224 mg/dL</li></ul>"
-        },
-        {
-            "id": "tab4",
-            "title": "Diagnostic Findings",
-            "content": "<b>Non-Contrast Head CT (08:25):</b> No evidence of acute intracranial hemorrhage or mass effect. Subtle hypoattenuation noted in the right middle cerebral artery (MCA) territory, suggestive of early ischemia."
-        },
-        {
-            "id": "tab5",
-            "title": "MAR",
-            "content": "<ul><li>Labetalol 10 mg IV Push @ 08:15</li><li>Labetalol 20 mg IV Push @ 08:30</li><li>Alteplase 72 mg IV infusion (0.9 mg/kg) - PENDING, AWAITING NURSE VERIFICATION</li></ul>"
-        }
-    ],
-    "clozeOptions": [
-        {
-            "optionSetId": "1",
-            "options": [
-                {
-                    "id": "opt1_1",
-                    "text": "persistent severe hypertension"
-                },
-                {
-                    "id": "opt1_2",
-                    "text": "recent lumbar puncture"
-                },
-                {
-                    "id": "opt1_3",
-                    "text": "elevated blood glucose"
-                },
-                {
-                    "id": "opt1_4",
-                    "text": "early ischemic changes on CT"
-                }
-            ]
-        },
-        {
-            "optionSetId": "2",
-            "options": [
-                {
-                    "id": "opt2_1",
-                    "text": "intracerebral hemorrhage"
-                },
-                {
-                    "id": "opt2_2",
-                    "text": "allergic reaction to the contrast dye"
-                },
-                {
-                    "id": "opt2_3",
-                    "text": "hypertensive encephalopathy"
-                },
-                {
-                    "id": "opt2_4",
-                    "text": "worsening of ischemic penumbra"
-                }
-            ]
-        },
-        {
-            "optionSetId": "3",
-            "options": [
-                {
-                    "id": "opt3_1",
-                    "text": "administer the alteplase as ordered"
-                },
-                {
-                    "id": "opt3_2",
-                    "text": "withhold the alteplase and immediately notify the provider"
-                },
-                {
-                    "id": "opt3_3",
-                    "text": "request an order for a nicardipine infusion"
-                },
-                {
-                    "id": "opt3_4",
-                    "text": "prepare to administer subcutaneous insulin"
-                }
-            ]
-        }
-    ],
-    "answer": [
-        "opt1_1",
-        "opt2_1",
-        "opt3_2"
-    ],
-    "answerBreakdown": {
-        "opt1_1": {
-            "rationale": "Correct. The client's blood pressure remains 188/108 mmHg despite two doses of IV labetalol. Strict guidelines require a sustained blood pressure of less than 185/110 mmHg before and during tPA administration. This refractory hypertension is an absolute contraindication, as it dramatically increases the risk of hemorrhagic transformation.",
-            "points": 1
-        },
-        "opt1_2": {
-            "rationale": "Incorrect. A lumbar puncture within the last 7 days is a relative contraindication and warrants careful consideration. However, the persistent, severe hypertension is a more immediate and absolute contraindication that must be addressed first.",
-            "points": 0
-        },
-        "opt1_3": {
-            "rationale": "Incorrect. Hyperglycemia is common in acute stroke and should be managed, but it is not an absolute contraindication to tPA unless it is extremely severe (e.g., >400 mg/dL), and even then, management is prioritized alongside tPA.",
-            "points": 0
-        },
-        "opt1_4": {
-            "rationale": "Incorrect. The presence of early ischemic changes on a non-contrast head CT is the primary indication for administering tPA, not a contraindication. It confirms that the stroke is likely ischemic and not hemorrhagic.",
-            "points": 0
-        },
-        "opt2_1": {
-            "rationale": "Correct. The combination of fibrinolytic therapy (tPA) and severe hypertension creates immense pressure on cerebral blood vessels, making them highly susceptible to rupture. This leads to intracerebral hemorrhage, the most devastating complication of tPA therapy.",
-            "points": 1
-        },
-        "opt2_2": {
-            "rationale": "Incorrect. The diagnostic imaging was a non-contrast head CT, so no contrast dye was administered. This is not a relevant risk.",
-            "points": 0
-        },
-        "opt2_3": {
-            "rationale": "Incorrect. While the client's severe hypertension could lead to hypertensive encephalopathy, the specific risk related to administering tPA in this context is hemorrhage, not encephalopathy.",
-            "points": 0
-        },
-        "opt2_4": {
-            "rationale": "Incorrect. The goal of tPA is to salvage the ischemic penumbra (brain tissue at risk). The primary risk of administering tPA with severe hypertension is causing a bleed, not worsening the ischemia.",
-            "points": 0
-        },
-        "opt3_1": {
-            "rationale": "Incorrect. This is a dangerous action. Administering alteplase while the client's blood pressure is above the guideline threshold of 185/110 mmHg constitutes a serious medication error and places the client at high risk for a fatal intracranial bleed.",
-            "points": 0
-        },
-        "opt3_2": {
-            "rationale": "Correct. This is the critical 'SAFETY STOP' action. The nurse has identified an absolute contraindication. The immediate priority is to withhold the medication and communicate the finding to the provider. The provider must be informed that the blood pressure has not responded sufficiently to initial interventions and remains too high to safely proceed.",
-            "points": 1
-        },
-        "opt3_3": {
-            "rationale": "Incorrect. While a continuous infusion of an antihypertensive like nicardipine is a likely next step to manage the blood pressure, the nurse's first and most critical action is to halt the unsafe medication administration process and communicate the problem. Requesting the infusion is a subsequent collaborative action.",
-            "points": 0
-        },
-        "opt3_4": {
-            "rationale": "Incorrect. Managing the hyperglycemia is necessary but is not the priority over preventing a life-threatening intracerebral hemorrhage. The risk from the high blood pressure is immediate and catastrophic.",
-            "points": 0
-        }
+  "id": "MISSION500_2_1771344213459_CD",
+  "itemType": "clozeDropdown",
+  "difficulty": 5,
+  "theme": "Safe and Effective Care Environment",
+  "nclexClientNeed": "Reduction of Risk Potential",
+  "integratedProcess": "Clinical Judgment",
+  "cognitiveSkill": "Recognize Cues / Analyze Cues / Take Actions",
+  "caseId": null,
+  "kpis": [
+    "Identifies contraindications for pharmacological therapies.",
+    "Prioritizes nursing actions based on risk to client safety.",
+    "Intervenes to prevent medication administration errors."
+  ],
+  "stem": "The nurse in the emergency department is reviewing the electronic health record (EHR) for a 68-year-old client diagnosed with an acute ischemic stroke. The stroke team has placed an order for Alteplase (tPA). The nurse must perform a final safety audit before administration.",
+  "prompt": "Based on the client's data, complete the following sentences to articulate the priority nursing judgment.\n\nThe most critical finding that requires immediate re-evaluation of the treatment plan is the client's {{1}}. This data point represents an immediate and unacceptable risk for {{2}}. Therefore, the nurse's priority action is to {{3}}.",
+  "tabs": [
+    {
+      "id": "tab1",
+      "title": "Nurses' Notes",
+      "content": "<b>0800:</b> Client arrived via EMS with acute onset of left-sided facial droop, slurred speech, and left arm weakness. Last known normal 0600. Client is anxious, reports a \"pounding headache.\" History of hypertension (HTN) and T2DM. Reports running out of lisinopril 2 weeks ago; \"couldn't get an appointment.\" Client also reports having a lumbar puncture (LP) 5 days ago as part of a workup for persistent headaches."
+    },
+    {
+      "id": "tab2",
+      "title": "Vital Signs Trend",
+      "content": "<ul><li><b>0805:</b> BP: 208/116 mmHg, HR: 98, RR: 18, SpO2: 97% on room air, Temp: 37.1°C</li><li><b>0820 (Post Labetalol 10 mg IV):</b> BP: 194/112 mmHg, HR: 92</li><li><b>0835 (Post Labetalol 20 mg IV):</b> BP: 188/108 mmHg, HR: 88</li></ul>"
+    },
+    {
+      "id": "tab3",
+      "title": "Laboratory Results",
+      "content": "<ul><li>Platelet Count: 195,000/mm³</li><li>INR: 1.0</li><li>aPTT: 29 seconds</li><li>Blood Glucose (POC): 224 mg/dL</li></ul>"
+    },
+    {
+      "id": "tab4",
+      "title": "Diagnostic Findings",
+      "content": "<b>Non-Contrast Head CT (0825):</b> No evidence of acute intracranial hemorrhage or mass effect. Subtle hypoattenuation noted in the right middle cerebral artery (MCA) territory, suggestive of early ischemia."
+    },
+    {
+      "id": "tab5",
+      "title": "MAR",
+      "content": "<ul><li>Labetalol 10 mg IV Push @ 0815</li><li>Labetalol 20 mg IV Push @ 0830</li><li>Alteplase 72 mg IV infusion (0.9 mg/kg) - PENDING, AWAITING NURSE VERIFICATION</li></ul>"
     }
+  ],
+  "clozeOptions": [
+    {
+      "optionSetId": "1",
+      "options": [
+        {
+          "id": "opt1_1",
+          "text": "persistent severe hypertension"
+        },
+        {
+          "id": "opt1_2",
+          "text": "recent lumbar puncture"
+        },
+        {
+          "id": "opt1_3",
+          "text": "elevated blood glucose"
+        },
+        {
+          "id": "opt1_4",
+          "text": "early ischemic changes on CT"
+        }
+      ]
+    },
+    {
+      "optionSetId": "2",
+      "options": [
+        {
+          "id": "opt2_1",
+          "text": "intracerebral hemorrhage"
+        },
+        {
+          "id": "opt2_2",
+          "text": "allergic reaction to the contrast dye"
+        },
+        {
+          "id": "opt2_3",
+          "text": "hypertensive encephalopathy"
+        },
+        {
+          "id": "opt2_4",
+          "text": "worsening of ischemic penumbra"
+        }
+      ]
+    },
+    {
+      "optionSetId": "3",
+      "options": [
+        {
+          "id": "opt3_1",
+          "text": "administer the alteplase as ordered"
+        },
+        {
+          "id": "opt3_2",
+          "text": "withhold the alteplase and immediately notify the provider"
+        },
+        {
+          "id": "opt3_3",
+          "text": "request an order for a nicardipine infusion"
+        },
+        {
+          "id": "opt3_4",
+          "text": "prepare to administer subcutaneous insulin"
+        }
+      ]
+    }
+  ],
+  "answer": [
+    "opt1_1",
+    "opt2_1",
+    "opt3_2"
+  ],
+  "answerBreakdown": {
+    "opt1_1": {
+      "rationale": "Correct. The client's blood pressure remains elevated at 188/108 mmHg despite interventions. According to the American Heart Association/American Stroke Association (AHA/ASA) guidelines, a blood pressure consistently above 185/110 mmHg is an absolute contraindication to Alteplase (tPA) administration. Uncontrolled hypertension significantly increases the risk of hemorrhagic transformation following thrombolytic therapy.",
+      "points": 1
+    },
+    "opt1_2": {
+      "rationale": "Incorrect. A lumbar puncture within the past 7 days is a relative contraindication for tPA due to the potential for bleeding at the puncture site. However, uncontrolled hypertension poses a more immediate and life-threatening risk. Addressing the blood pressure is the priority.",
+      "points": 0
+    },
+    "opt1_3": {
+      "rationale": "Incorrect. While elevated blood glucose should be addressed, it is not an absolute contraindication to tPA administration. Hyperglycemia is common in acute stroke and managed concurrently with stroke treatment. The uncontrolled hypertension presents a greater immediate risk.",
+      "points": 0
+    },
+    "opt1_4": {
+      "rationale": "Incorrect. Early ischemic changes on CT are expected in acute ischemic stroke and support the use of tPA if no contraindications are present. These changes indicate the presence of potentially salvageable brain tissue.",
+      "points": 0
+    },
+    "opt2_1": {
+      "rationale": "Correct. Alteplase (tPA) is a thrombolytic agent that dissolves blood clots. In the setting of uncontrolled hypertension, the fragile blood vessels in the brain are at a significantly increased risk of rupture. The combination of thrombolysis and high blood pressure dramatically elevates the risk of intracerebral hemorrhage (ICH), a devastating complication that can lead to permanent disability or death.",
+      "points": 1
+    },
+    "opt2_2": {
+      "rationale": "Incorrect. The client received a non-contrast CT scan, so there was no exposure to contrast dye. Therefore, the risk of an allergic reaction to contrast is not applicable in this scenario.",
+      "points": 0
+    },
+    "opt2_3": {
+      "rationale": "Incorrect. Hypertensive encephalopathy is a potential complication of severe hypertension, characterized by cerebral edema and neurological dysfunction. While the client's blood pressure is concerning, the immediate risk associated with administering tPA in the setting of uncontrolled hypertension is intracerebral hemorrhage.",
+      "points": 0
+    },
+    "opt2_4": {
+      "rationale": "Incorrect. The goal of tPA is to reperfuse the ischemic penumbra (the area of potentially salvageable brain tissue surrounding the core infarct). While there are risks associated with tPA administration, the primary concern in the setting of uncontrolled hypertension is the increased risk of bleeding, not worsening ischemia.",
+      "points": 0
+    },
+    "opt3_1": {
+      "rationale": "Incorrect. Administering tPA with a blood pressure above 185/110 mmHg is contraindicated and constitutes a medication error. Doing so places the client at a significantly increased risk of intracerebral hemorrhage and neurological deterioration.",
+      "points": 0
+    },
+    "opt3_2": {
+      "rationale": "Correct. The nurse must withhold the tPA and immediately notify the provider of the uncontrolled hypertension. This is a critical safety measure to prevent a potentially fatal complication. The provider needs to be informed that the client's blood pressure is not within the acceptable range for tPA administration and requires further management.",
+      "points": 1
+    },
+    "opt3_3": {
+      "rationale": "Incorrect. While requesting an order for a continuous antihypertensive infusion (e.g., nicardipine) may be an appropriate intervention to manage the client's blood pressure, the priority action is to withhold the tPA and notify the provider. Initiating antihypertensive therapy is a collaborative intervention that follows the immediate safety measure of withholding the contraindicated medication.",
+      "points": 0
+    },
+    "opt3_4": {
+      "rationale": "Incorrect. While managing the client's blood glucose is important, it is not the priority in this situation. The uncontrolled hypertension poses a more immediate and life-threatening risk. Addressing the blood pressure is essential before considering tPA administration.",
+      "points": 0
+    }
+  },
+  "clinicalPearl": "Strict adherence to blood pressure guidelines is crucial before and during tPA administration for acute ischemic stroke. Uncontrolled hypertension is an absolute contraindication due to the increased risk of intracerebral hemorrhage. Always verify blood pressure parameters and other contraindications before administering tPA. The AHA/ASA guidelines provide specific recommendations for blood pressure management in acute stroke.",
+  "sbar": {
+    "situation": "68-year-old client in the ED being evaluated for acute ischemic stroke with an order for Alteplase (tPA).",
+    "background": "Client arrived with left-sided weakness, slurred speech, and headache. History of hypertension and T2DM. Lumbar puncture 5 days ago. Last known normal 0600.",
+    "assessment": "Client's blood pressure remains elevated at 188/108 mmHg despite two doses of IV labetalol at 0815 and 0830. Non-contrast CT shows no hemorrhage but indicates early ischemia.",
+    "recommendation": "Recommend withholding Alteplase (tPA) at this time due to uncontrolled hypertension, an absolute contraindication. Further blood pressure management is needed. Re-evaluate for tPA eligibility once blood pressure is below 185/110 mmHg per AHA/ASA guidelines."
+  },
+  "sentinelStatus": "healed_v2026_v8"
 }

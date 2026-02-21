@@ -1,185 +1,193 @@
 {
-    "id": "NCLEXRN_NGN_SA_001",
-    "itemType": "standalone_multipleChoice",
-    "version": "1.0",
-    "masterId": "psychometrician-ards-safety-stop-01",
-    "patient": {
-        "id": "MRN_789101",
-        "age": "58 years",
-        "gender": "Male",
-        "background": "Patient presents with sepsis secondary to community-acquired pneumonia. He was initially stabilized at a rural community hospital with limited ICU resources and transferred 12 hours ago for management of worsening hypoxemia. History of hypertension, controlled with lisinopril. No known allergies."
+  "id": "NCLEXRN_NGN_SA_001",
+  "itemType": "standalone_multipleChoice",
+  "version": "2026",
+  "masterId": "psychometrician-ards-safety-stop-01",
+  "patient": {
+    "id": "MRN_789101",
+    "age": "58 years",
+    "gender": "Male",
+    "background": "Patient presents with sepsis secondary to community-acquired pneumonia. He was initially stabilized at a rural community hospital with limited ICU resources and transferred 12 hours ago for management of worsening hypoxemia. History of hypertension, controlled with lisinopril. No known allergies."
+  },
+  "scenario": {
+    "leadIn": "The nurse is caring for a patient in the intensive care unit (ICU) who is intubated and mechanically ventilated for Acute Respiratory Distress Syndrome (ARDS). The nurse is reviewing the patient's data at 10:00 before adjusting a continuous infusion.",
+    "sbar": {
+      "situation": "1000: The patient is intubated and mechanically ventilated for ARDS, experiencing agitation and a high peak pressure alarm. Reviewing data before adjusting propofol infusion.",
+      "background": "Patient admitted 12 hours ago for worsening hypoxemia secondary to sepsis from community-acquired pneumonia. History of hypertension, controlled with lisinopril. No known allergies.",
+      "assessment": "1000: Agitated, high peak pressure alarm. Sudden decrease in BP (82/45) and increase in HR (145). Unilateral decreased breath sounds on the right compared to 0800 assessment. SpO2 84%. Provider paged.",
+      "recommendation": "Considering increasing propofol infusion per protocol for agitation, but concerned about hypotension and decreased breath sounds. Requesting evaluation for possible pneumothorax."
     },
-    "scenario": {
-        "leadIn": "The nurse is caring for a patient in the intensive care unit (ICU) who is intubated and mechanically ventilated for Acute Respiratory Distress Syndrome (ARDS). The nurse is reviewing the patient's data at 10:00 before adjusting a continuous infusion.",
-        "tabs": [
-            {
-                "id": "nursesNotes",
-                "label": "Nurses' Notes",
-                "content": "Date/Time: 10:00\nCalled to bedside for high peak pressure alarm on the ventilator. Patient is agitated. Noted sudden decrease in blood pressure and increase in heart rate. Unilateral decreased breath sounds noted on the right side compared to 08:00 assessment. Provider has been paged for evaluation.\n\nDate/Time: 08:00\nPatient sedated and comfortable on current ventilator settings. Breath sounds coarse bilaterally with scattered rhonchi. S1S2 audible. Abdomen soft. Peripheral pulses 2+."
-            },
-            {
-                "id": "vitalSigns",
-                "label": "Vital Signs",
-                "content": [
-                    {
-                        "Time": "08:00",
-                        "HR": "92",
-                        "BP": "128/76",
-                        "RR": "16 (Vent)",
-                        "SpO2": "92%",
-                        "Temp": "38.2 C"
-                    },
-                    {
-                        "Time": "09:00",
-                        "HR": "98",
-                        "BP": "122/70",
-                        "RR": "16 (Vent)",
-                        "SpO2": "91%",
-                        "Temp": "38.4 C"
-                    },
-                    {
-                        "Time": "10:00",
-                        "HR": "145",
-                        "BP": "82/45",
-                        "RR": "16 (Vent)",
-                        "SpO2": "84%",
-                        "Temp": "38.5 C"
-                    }
-                ],
-                "notes": "Ventilator Settings: Assist-Control, FiO2 80%, PEEP +12 cm H2O, Tidal Volume 380 mL"
-            },
-            {
-                "id": "labResults",
-                "label": "Laboratory Results",
-                "content": [
-                    {
-                        "Lab": "Arterial Blood Gas (07:00)",
-                        "Value": "pH 7.31, PaCO2 48, PaO2 62, HCO3 23"
-                    },
-                    {
-                        "Lab": "Lactate",
-                        "Value": "3.8 mmol/L",
-                        "Reference": "0.5-2.2 mmol/L"
-                    },
-                    {
-                        "Lab": "Potassium (K+)",
-                        "Value": "4.1 mEq/L",
-                        "Reference": "3.5-5.0 mEq/L"
-                    },
-                    {
-                        "Lab": "Troponin-I",
-                        "Value": "<0.03 ng/mL",
-                        "Reference": "<0.04 ng/mL"
-                    },
-                    {
-                        "Lab": "BUN/Creatinine",
-                        "Value": "35 / 1.6 mg/dL",
-                        "Reference": "7-20 / 0.6-1.2 mg/dL"
-                    }
-                ]
-            },
-            {
-                "id": "radiology",
-                "label": "Radiology",
-                "content": "Report Type: Chest X-Ray\nDate/Time: 04:00 (6 hours ago)\nFindings: Extensive, diffuse bilateral infiltrates and opacities. Heart size appears normal. No visualized pneumothorax on this film. Impression: Findings highly consistent with severe ARDS."
-            },
-            {
-                "id": "mar",
-                "label": "MAR",
-                "content": [
-                    {
-                        "Medication": "Propofol",
-                        "Dose": "30 mcg/kg/min",
-                        "Route": "IV",
-                        "Frequency": "Continuous Infusion",
-                        "Note": "Titrate to RASS -4. May increase by 5-10 mcg/kg/min every 5 min. Current rate: 30 mcg/kg/min."
-                    },
-                    {
-                        "Medication": "Norepinephrine",
-                        "Dose": "5 mcg/min",
-                        "Route": "IV",
-                        "Frequency": "Continuous Infusion",
-                        "Note": "Titrate to MAP > 65 mmHg."
-                    },
-                    {
-                        "Medication": "Vancomycin",
-                        "Dose": "1.5 g",
-                        "Route": "IV",
-                        "Frequency": "Every 12 hours"
-                    }
-                ]
-            }
+    "tabs": [
+      {
+        "id": "nursesNotes",
+        "label": "Nurses' Notes",
+        "content": "Date/Time: 1000\nCalled to bedside for high peak pressure alarm on the ventilator. Patient is agitated. Noted sudden decrease in blood pressure and increase in heart rate. Unilateral decreased breath sounds noted on the right side compared to 0800 assessment. Provider has been paged for evaluation.\n\nDate/Time: 0800\nPatient sedated and comfortable on current ventilator settings. Breath sounds coarse bilaterally with scattered rhonchi. S1S2 audible. Abdomen soft. Peripheral pulses 2+."
+      },
+      {
+        "id": "vitalSigns",
+        "label": "Vital Signs",
+        "content": [
+          {
+            "Time": "0800",
+            "HR": "92",
+            "BP": "128/76",
+            "RR": "16 (Vent)",
+            "SpO2": "92%",
+            "Temp": "38.2 C"
+          },
+          {
+            "Time": "0900",
+            "HR": "98",
+            "BP": "122/70",
+            "RR": "16 (Vent)",
+            "SpO2": "91%",
+            "Temp": "38.4 C"
+          },
+          {
+            "Time": "1000",
+            "HR": "145",
+            "BP": "82/45",
+            "RR": "16 (Vent)",
+            "SpO2": "84%",
+            "Temp": "38.5 C"
+          }
+        ],
+        "notes": "Ventilator Settings: Assist-Control, FiO2 80%, PEEP +12 cm H2O, Tidal Volume 380 mL"
+      },
+      {
+        "id": "labResults",
+        "label": "Laboratory Results",
+        "content": [
+          {
+            "Lab": "Arterial Blood Gas (0700)",
+            "Value": "pH 7.31, PaCO2 48, PaO2 62, HCO3 23"
+          },
+          {
+            "Lab": "Lactate",
+            "Value": "3.8 mmol/L",
+            "Reference": "0.5-2.2 mmol/L"
+          },
+          {
+            "Lab": "Potassium (K+)",
+            "Value": "4.1 mEq/L",
+            "Reference": "3.5-5.0 mEq/L"
+          },
+          {
+            "Lab": "Troponin-I",
+            "Value": "<0.03 ng/mL",
+            "Reference": "<0.04 ng/mL"
+          },
+          {
+            "Lab": "BUN/Creatinine",
+            "Value": "35 / 1.6 mg/dL",
+            "Reference": "7-20 / 0.6-1.2 mg/dL"
+          }
         ]
-    },
-    "question": {
-        "stem": "The nurse notes the patient's agitation and plans to increase the propofol infusion per protocol. Based on the most recent data, which action is most appropriate?",
-        "options": [
-            {
-                "id": "opt_A",
-                "label": "A",
-                "content": "Increase the norepinephrine infusion to correct the hypotension."
-            },
-            {
-                "id": "opt_B",
-                "label": "B",
-                "content": "Administer a 500 mL bolus of 0.9% sodium chloride."
-            },
-            {
-                "id": "opt_C",
-                "label": "C",
-                "content": "Increase the PEEP on the ventilator to improve oxygenation."
-            },
-            {
-                "id": "opt_D",
-                "label": "D",
-                "content": "Withhold the propofol increase and anticipate needle decompression."
-            }
+      },
+      {
+        "id": "radiology",
+        "label": "Radiology",
+        "content": "Report Type: Chest X-Ray\nDate/Time: 0400 (6 hours ago)\nFindings: Extensive, diffuse bilateral infiltrates and opacities. Heart size appears normal. No visualized pneumothorax on this film. Impression: Findings highly consistent with severe ARDS."
+      },
+      {
+        "id": "mar",
+        "label": "MAR",
+        "content": [
+          {
+            "Medication": "Propofol",
+            "Dose": "30 mcg/kg/min",
+            "Route": "IV",
+            "Frequency": "Continuous Infusion",
+            "Note": "Titrate to RASS -4. May increase by 5-10 mcg/kg/min every 5 min. Current rate: 30 mcg/kg/min."
+          },
+          {
+            "Medication": "Norepinephrine",
+            "Dose": "5 mcg/min",
+            "Route": "IV",
+            "Frequency": "Continuous Infusion",
+            "Note": "Titrate to MAP > 65 mmHg."
+          },
+          {
+            "Medication": "Vancomycin",
+            "Dose": "1.5 g",
+            "Route": "IV",
+            "Frequency": "Every 12 hours"
+          }
         ]
-    },
-    "correctAnswer": "opt_D",
-    "rationale": {
-        "correct": "The nurse must recognize the constellation of findings as a life-threatening tension pneumothorax, a known complication of high-pressure mechanical ventilation in ARDS. The key cues are the sudden onset of hypotension, tachycardia, decreased breath sounds on one side, and high peak pressure alarms. This is an obstructive shock state where air trapped in the pleural space compresses the heart and great vessels, preventing ventricular filling and causing cardiovascular collapse. Increasing propofol, a sedative with hypotensive effects, would be catastrophic. The priority is to recognize this emergency ('STOP' the planned action) and prepare for the immediate life-saving intervention, which is needle decompression followed by chest tube placement.",
-        "incorrect": "The incorrect options represent common interventions for shock or hypoxemia that are not only wrong but would actively harm a patient with a tension pneumothorax.",
-        "answerBreakdown": [
-            {
-                "label": "A",
-                "content": "Increase the norepinephrine infusion to correct the hypotension.",
-                "isCorrect": false,
-                "justification": "This is incorrect. While norepinephrine is used for septic or distributive shock, the patient's shock is obstructive. The primary problem is not vasodilation, but the physical compression of the heart. Vasopressors will be ineffective until the underlying mechanical problem is relieved and may delay the life-saving intervention."
-            },
-            {
-                "label": "B",
-                "content": "Administer a 500 mL bolus of 0.9% sodium chloride.",
-                "isCorrect": false,
-                "justification": "This is incorrect and dangerous. The patient's hypotension is due to obstructive shock, not hypovolemia. The heart cannot fill because it is being squeezed. Adding more fluid volume (increasing preload) will only further increase pressure on the right side of the heart against a fixed obstruction, potentially worsening the situation and providing no benefit."
-            },
-            {
-                "label": "C",
-                "content": "Increase the PEEP on the ventilator to improve oxygenation.",
-                "isCorrect": false,
-                "justification": "This is incorrect and potentially lethal. The tension pneumothorax is caused by air leaking from the lung into the pleural space. Increasing Positive End-Expiratory Pressure (PEEP) will increase intrathoracic pressure, force more air through the leak, worsen the tension physiology, and accelerate cardiovascular collapse and pulseless electrical activity (PEA)."
-            },
-            {
-                "label": "D",
-                "content": "Withhold the propofol increase and anticipate needle decompression.",
-                "isCorrect": true,
-                "justification": "This is the correct 'SAFETY STOP' action. The nurse correctly synthesizes the data (high pressure alarm, unilateral decreased breath sounds, sudden hypotension, and tachycardia) to identify a tension pneumothorax. The immediate priority is to withhold any intervention that could worsen hypotension (like propofol) and prepare for the emergency procedure to relieve the pressure (needle decompression), while ensuring the provider is aware of the life-threatening change."
-            }
-        ]
-    },
-    "pedagogy": {
-        "bloomLevel": "Analyzing",
-        "cjmmStep": "Take Actions",
-        "nclexCategory": "Physiological Adaptation",
-        "nclexSubcategory": "Pathophysiology and Medical Emergencies",
-        "difficulty": 5,
-        "topicTags": [
-            "ARDS",
-            "Mechanical Ventilation",
-            "Tension Pneumothorax",
-            "Critical Care",
-            "Patient Safety",
-            "Obstructive Shock"
-        ]
-    }
+      }
+    ]
+  },
+  "question": {
+    "stem": "The nurse notes the patient's agitation and plans to increase the propofol infusion per protocol. Based on the most recent data, which action is most appropriate?",
+    "options": [
+      {
+        "id": "opt_A",
+        "label": "A",
+        "content": "Increase the norepinephrine infusion to correct the hypotension."
+      },
+      {
+        "id": "opt_B",
+        "label": "B",
+        "content": "Administer a 500 mL bolus of 0.9% sodium chloride."
+      },
+      {
+        "id": "opt_C",
+        "label": "C",
+        "content": "Increase the PEEP on the ventilator to improve oxygenation."
+      },
+      {
+        "id": "opt_D",
+        "label": "D",
+        "content": "Withhold the propofol increase and anticipate needle decompression."
+      }
+    ]
+  },
+  "correctAnswer": "opt_D",
+  "rationale": {
+    "correct": "The nurse must recognize the constellation of findings (sudden hypotension, tachycardia, unilateral decreased breath sounds, high peak pressure alarm) as a life-threatening tension pneumothorax, a known complication of high-pressure mechanical ventilation in ARDS. In ARDS, barotrauma from mechanical ventilation can cause alveolar rupture, leading to air accumulation in the pleural space. This trapped air compresses the lung, mediastinum, and great vessels, obstructing venous return to the heart and causing obstructive shock. Increasing propofol, a sedative with hypotensive effects, would worsen the cardiovascular collapse. The priority is to recognize this emergency ('SAFETY STOP' the planned action) and prepare for the immediate life-saving intervention, which is needle decompression followed by chest tube placement to relieve the pressure and restore cardiac output.",
+    "incorrect": "The incorrect options represent common interventions for shock or hypoxemia that are not only wrong but would actively harm a patient with a tension pneumothorax.",
+    "answerBreakdown": [
+      {
+        "label": "A",
+        "content": "Increase the norepinephrine infusion to correct the hypotension.",
+        "isCorrect": false,
+        "justification": "Incorrect. While norepinephrine is a vasopressor used for distributive shock (e.g., sepsis), the patient's shock is obstructive, caused by physical compression of the heart and great vessels. Norepinephrine will be ineffective until the underlying mechanical problem is relieved and may delay the life-saving intervention. The pathophysiology of tension pneumothorax involves increased intrathoracic pressure, which impairs venous return and reduces cardiac output. Vasopressors alone cannot overcome this mechanical obstruction."
+      },
+      {
+        "label": "B",
+        "content": "Administer a 500 mL bolus of 0.9% sodium chloride.",
+        "isCorrect": false,
+        "justification": "Incorrect and dangerous. The patient's hypotension is due to obstructive shock, not hypovolemia. The heart cannot fill because it is being squeezed. Adding more fluid volume (increasing preload) will only further increase pressure on the right side of the heart against a fixed obstruction, potentially worsening the situation and providing no benefit. The increased intrathoracic pressure from the tension pneumothorax impairs right ventricular filling, and fluid boluses will exacerbate this issue."
+      },
+      {
+        "label": "C",
+        "content": "Increase the PEEP on the ventilator to improve oxygenation.",
+        "isCorrect": false,
+        "justification": "Incorrect and potentially lethal. The tension pneumothorax is caused by air leaking from the lung into the pleural space. Increasing Positive End-Expiratory Pressure (PEEP) will increase intrathoracic pressure, force more air through the leak, worsen the tension physiology, and accelerate cardiovascular collapse and pulseless electrical activity (PEA). PEEP increases alveolar pressure, which can exacerbate air leaks in patients with compromised lung tissue, such as those with ARDS."
+      },
+      {
+        "label": "D",
+        "content": "Withhold the propofol increase and anticipate needle decompression.",
+        "isCorrect": true,
+        "justification": "This is the correct 'SAFETY STOP' action. The nurse correctly synthesizes the data (high pressure alarm, unilateral decreased breath sounds, sudden hypotension, and tachycardia) to identify a tension pneumothorax. The immediate priority is to withhold any intervention that could worsen hypotension (like propofol) and prepare for the emergency procedure to relieve the pressure (needle decompression), while ensuring the provider is aware of the life-threatening change. Needle decompression converts the tension pneumothorax to a simple pneumothorax, allowing for improved venous return and cardiac output."
+      }
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "Analyzing",
+    "cjmmStep": "Take Actions",
+    "nclexCategory": "Physiological Adaptation",
+    "nclexSubcategory": "Pathophysiology and Medical Emergencies",
+    "difficulty": 5,
+    "topicTags": [
+      "ARDS",
+      "Mechanical Ventilation",
+      "Tension Pneumothorax",
+      "Critical Care",
+      "Patient Safety",
+      "Obstructive Shock"
+    ]
+  },
+  "clinicalPearl": "Tension pneumothorax is a life-threatening emergency requiring immediate recognition and intervention. Key signs include sudden hypotension, tachycardia, unilateral decreased breath sounds, and high peak airway pressures in a ventilated patient. Prompt needle decompression is crucial. Remember the 'PTX' mnemonic: P-Pleural pain, T-Tachycardia/Tachypnea, X-Absent breath sounds on affected side. Always consider tension pneumothorax in ventilated patients with sudden hemodynamic instability.",
+  "sentinelStatus": "healed_v2026_v8"
 }

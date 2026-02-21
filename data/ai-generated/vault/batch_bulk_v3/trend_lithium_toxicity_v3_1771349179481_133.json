@@ -1,83 +1,90 @@
 {
-    "id": "NGN_TREND_LITHIUMTOX_B300_133",
-    "seed": "BATCH-300-133-1771349151476",
-    "itemType": "standalone",
-    "standalone": {
-        "questionType": "trend",
-        "prompt": "The nurse is reviewing the electronic health record (EHR) for a 55-year-old male client with bipolar I disorder who presents to the emergency department (ED) with confusion, ataxia, and coarse hand tremors. The client's spouse reports the client has had nausea, vomiting, and diarrhea for the past 3 days. For each potential finding, click to specify if it indicates an improving, worsening, or unchanged client status.",
-        "cjmm": "Analyze Cues",
-        "tabs": [
-            {
-                "id": "tab1",
-                "title": "Nurses' Notes",
-                "content": "**3 Days Ago - Outpatient Clinic Visit**\nClient seen for routine follow-up. Reports stable mood. States they recently started a new 'heart-healthy' low-sodium diet. Reinforcement provided on maintaining consistent sodium and fluid intake while on lithium. Vital signs stable.\n\n**1 Day Ago - Telephone Triage**\nClient called clinic reporting nausea and 3 episodes of watery diarrhea since yesterday. Denied fever or confusion at that time. Advised to increase oral fluid intake, monitor for worsening symptoms, and go to the ED if symptoms do not resolve or if confusion or increased tremors develop.\n\n**Today - Emergency Department**\nClient brought to ED by spouse due to progressive confusion, stumbling gait (ataxia), and noticeable coarse hand tremors. Spouse reports client has been unable to keep fluids down for the past 24 hours. Client is lethargic but arousable. Skin turgor is poor."
-            },
-            {
-                "id": "tab2",
-                "title": "Diagnostic Results",
-                "content": "## Laboratory Results\n| Lab Test | 3 Days Ago | Today (ED) | Reference Range |\n|---|---|---|---|\n| Lithium (mEq/L) | 0.9 | 2.1 | 0.6-1.2 |\n| Sodium (mEq/L) | 140 | 131 | 135-145 |\n| Potassium (mEq/L) | 4.1 | 3.3 | 3.5-5.0 |\n| BUN (mg/dL) | 16 | 32 | 10-20 |\n| Creatinine (mg/dL)| 1.1 | 1.8 | 0.6-1.2 |\n\n## Vital Signs\n| Measurement | 3 Days Ago | Today (ED) | Reference Range |\n|---|---|---|---|\n| Blood Pressure | 124/78 | 92/58 | 100/60-120/80 |\n| Heart Rate | 74 | 118 | 60-100 |\n| Respiratory Rate | 16 | 22 | 12-20 |\n| Temperature (°F) | 98.6 | 99.1 | 97.8-99.1 |"
-            }
-        ],
-        "trendItems": [
-            {
-                "id": "t1",
-                "text": "Renal Function"
-            },
-            {
-                "id": "t2",
-                "text": "Neurological Status"
-            },
-            {
-                "id": "t3",
-                "text": "Fluid Volume Status"
-            },
-            {
-                "id": "t4",
-                "text": "Lithium Level"
-            }
-        ],
-        "trendOptions": [
-            {
-                "id": "o1",
-                "text": "Improving"
-            },
-            {
-                "id": "o2",
-                "text": "Worsening"
-            },
-            {
-                "id": "o3",
-                "text": "Unchanged"
-            }
-        ],
-        "correctAnswer": {
-            "t1": "o2",
-            "t2": "o2",
-            "t3": "o2",
-            "t4": "o2"
-        },
-        "answerBreakdown": {
-            "t1": {
-                "rationale": "The client's renal function is worsening. This is indicated by the rise in both BUN (from 16 to 32 mg/dL) and creatinine (from 1.1 to 1.8 mg/dL). Lithium is cleared by the kidneys, and dehydration from gastroenteritis has led to a pre-renal acute kidney injury, which significantly impairs the body's ability to excrete lithium, causing it to accumulate to toxic levels.",
-                "correct": "o2"
-            },
-            "t2": {
-                "rationale": "The client's neurological status is worsening. Three days ago, the client was at baseline. Today, the client presents with confusion, ataxia (stumbling gait), and coarse hand tremors. These are classic, severe signs of central nervous system toxicity from elevated lithium levels, representing a significant decline from their baseline mental status.",
-                "correct": "o2"
-            },
-            "t3": {
-                "rationale": "The client's fluid volume status is worsening. Three days ago, the client was stable. The subsequent vomiting and diarrhea, coupled with an inability to tolerate oral fluids, have led to significant dehydration. This is evidenced by hypotension (BP 92/58), tachycardia (HR 118), elevated BUN, and poor skin turgor noted in the ED.",
-                "correct": "o2"
-            },
-            "t4": {
-                "rationale": "The client's lithium level is worsening. It has risen from a therapeutic level of 0.9 mEq/L to a toxic level of 2.1 mEq/L. Levels above 1.5 mEq/L are generally considered toxic, and levels above 2.0 mEq/L are associated with severe, life-threatening symptoms. The accumulation is a direct result of decreased renal clearance from dehydration and hyponatremia.",
-                "correct": "o2"
-            }
-        },
-        "scoring": {
-            "type": "dichotomous",
-            "points": 1
-        },
-        "difficulty": 4
-    }
+  "id": "NGN_TREND_LITHIUMTOX_B300_133",
+  "seed": "BATCH-300-133-1771349151476",
+  "itemType": "standalone",
+  "standalone": {
+    "questionType": "trend",
+    "prompt": "The nurse is reviewing the electronic health record (EHR) for a 55-year-old male client with bipolar I disorder who presents to the emergency department (ED) at 1400 with confusion, ataxia, and coarse hand tremors. The client's spouse reports the client has had nausea, vomiting, and diarrhea for the past 3 days. For each potential finding, click to specify if it indicates an improving, worsening, or unchanged client status.",
+    "sbar": {
+      "situation": "55-year-old male with bipolar I disorder presenting to the ED with confusion, ataxia, and coarse hand tremors. Nausea, vomiting, and diarrhea for 3 days.",
+      "background": "Client has bipolar I disorder, previously stable on lithium (0.9 mEq/L three days ago). Started a low-sodium diet recently. Reported nausea and diarrhea to clinic yesterday and was advised to increase fluids.",
+      "assessment": "Client presents with confusion, ataxia, coarse hand tremors, lethargy, and poor skin turgor. BP 92/58, HR 118, RR 22, T 99.1°F. Lithium level 2.1 mEq/L, Sodium 131 mEq/L, Potassium 3.3 mEq/L, BUN 32 mg/dL, Creatinine 1.8 mg/dL.",
+      "recommendation": "Anticipate orders for IV fluids, cardiac monitoring, and possible dialysis if lithium toxicity worsens. Hold lithium dose. Frequent neuro checks. Monitor electrolytes and renal function. Consult nephrology if renal function does not improve with hydration."
+    },
+    "cjmm": "Analyze Cues",
+    "tabs": [
+      {
+        "id": "tab1",
+        "title": "Nurses' Notes",
+        "content": "**3 Days Ago - Outpatient Clinic Visit**\nClient seen at 1000 for routine follow-up. Reports stable mood. States they recently started a new 'heart-healthy' low-sodium diet. Reinforcement provided on maintaining consistent sodium and fluid intake while on lithium. Vital signs stable.\n\n**1 Day Ago - Telephone Triage**\nClient called clinic at 1600 reporting nausea and 3 episodes of watery diarrhea since yesterday. Denied fever or confusion at that time. Advised to increase oral fluid intake, monitor for worsening symptoms, and go to the ED if symptoms do not resolve or if confusion or increased tremors develop.\n\n**Today - Emergency Department**\nClient brought to ED at 1400 by spouse due to progressive confusion, stumbling gait (ataxia), and noticeable coarse hand tremors. Spouse reports client has been unable to keep fluids down for the past 24 hours. Client is lethargic but arousable. Skin turgor is poor."
+      },
+      {
+        "id": "tab2",
+        "title": "Diagnostic Results",
+        "content": "## Laboratory Results\n| Lab Test | 3 Days Ago | Today (ED) | Reference Range |\n|---|---|---|---|\n| Lithium (mEq/L) | 0.9 | 2.1 | 0.6-1.2 |\n| Sodium (mEq/L) | 140 | 131 | 135-145 |\n| Potassium (mEq/L) | 4.1 | 3.3 | 3.5-5.0 |\n| BUN (mg/dL) | 16 | 32 | 10-20 |\n| Creatinine (mg/dL)| 1.1 | 1.8 | 0.6-1.2 |\n\n## Vital Signs\n| Measurement | 3 Days Ago | Today (ED) | Reference Range |\n|---|---|---|---|\n| Blood Pressure | 124/78 | 92/58 | 100/60-120/80 |\n| Heart Rate | 74 | 118 | 60-100 |\n| Respiratory Rate | 16 | 22 | 12-20 |\n| Temperature (°F) | 98.6 | 99.1 | 97.8-99.1 |"
+      }
+    ],
+    "trendItems": [
+      {
+        "id": "t1",
+        "text": "Renal Function"
+      },
+      {
+        "id": "t2",
+        "text": "Neurological Status"
+      },
+      {
+        "id": "t3",
+        "text": "Fluid Volume Status"
+      },
+      {
+        "id": "t4",
+        "text": "Lithium Level"
+      }
+    ],
+    "trendOptions": [
+      {
+        "id": "o1",
+        "text": "Improving"
+      },
+      {
+        "id": "o2",
+        "text": "Worsening"
+      },
+      {
+        "id": "o3",
+        "text": "Unchanged"
+      }
+    ],
+    "correctAnswer": {
+      "t1": "o2",
+      "t2": "o2",
+      "t3": "o2",
+      "t4": "o2"
+    },
+    "answerBreakdown": {
+      "t1": {
+        "rationale": "The client's renal function is worsening, as evidenced by the elevated BUN (from 16 to 32 mg/dL) and creatinine (from 1.1 to 1.8 mg/dL). Lithium is primarily excreted by the kidneys. Dehydration secondary to gastroenteritis leads to decreased renal perfusion, triggering a pre-renal acute kidney injury. This impairs lithium excretion, causing its accumulation and subsequent toxicity. ClinicalPearl: Monitor BUN and creatinine closely in clients on lithium, especially during episodes of dehydration.",
+        "correct": "o2"
+      },
+      "t2": {
+        "rationale": "The client's neurological status is worsening. The client's baseline neurological status was stable three days ago. Now, the client exhibits confusion, ataxia (stumbling gait), and coarse hand tremors. These are indicative of lithium toxicity affecting the central nervous system. Elevated lithium levels disrupt neuronal function, leading to these neurological manifestations. ClinicalPearl: Neurological signs like tremors, confusion, and ataxia are key indicators of lithium toxicity and require immediate intervention.",
+        "correct": "o2"
+      },
+      "t3": {
+        "rationale": "The client's fluid volume status is worsening. The client was stable three days ago. The recent vomiting and diarrhea, coupled with an inability to tolerate oral fluids, have resulted in significant dehydration. This is supported by hypotension (BP 92/58), tachycardia (HR 118), elevated BUN, and poor skin turgor. Decreased fluid volume reduces blood pressure and triggers compensatory tachycardia. ClinicalPearl: Assess for dehydration in clients on lithium, as it can significantly impact lithium levels and increase the risk of toxicity.",
+        "correct": "o2"
+      },
+      "t4": {
+        "rationale": "The client's lithium level is worsening. It has increased from a therapeutic level of 0.9 mEq/L to a toxic level of 2.1 mEq/L. Lithium toxicity occurs when serum levels exceed 1.5 mEq/L, with severe symptoms typically appearing above 2.0 mEq/L. The elevated level is a direct consequence of decreased renal clearance due to dehydration and hyponatremia (sodium 131 mEq/L). Hyponatremia causes the kidneys to retain lithium, further exacerbating the toxicity. ClinicalPearl: Maintain consistent sodium intake in clients on lithium. Low sodium levels can lead to lithium retention and toxicity.",
+        "correct": "o2"
+      }
+    },
+    "scoring": {
+      "type": "dichotomous",
+      "points": 1
+    },
+    "difficulty": 4
+  },
+  "sentinelStatus": "healed_v2026_v8"
 }
