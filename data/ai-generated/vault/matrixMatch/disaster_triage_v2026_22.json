@@ -1,0 +1,106 @@
+{
+    "id": "matrixMatch_disaster_triage_v2026_22",
+    "type": "matrixMatch",
+    "matrixType": "multipleChoice",
+    "stem": "The disaster response nurse is triaging victims at the scene of a train derailment. Based on the documented 'RPM' parameters in the Triage Flowsheet, assign the correct START triage tag to each victim.",
+    "itemContext": {
+        "tabs": [
+            {
+                "id": "sbar",
+                "title": "Incident Overview",
+                "content": "22:00: Dispatch reports a high-speed passenger train derailment with at least 50 injuries. \n22:15: First responder nurse initiates START (Simple Triage and Rapid Treatment) protocol. \n22:30: Triage tags are being applied. Resources are prioritized for immediate life-threats."
+            },
+            {
+                "id": "triage",
+                "title": "Triage Flowsheet",
+                "content": "<table><thead><tr><th>Victim #</th><th>Respirations (R)</th><th>Perfusion (P) - Cap Refill</th><th>Mental Status (M)</th></tr></thead><tbody><tr><td>Victim 101</td><td>None (Even after airway opened)</td><td>No radial pulse</td><td>Unresponsive</td></tr><tr><td>Victim 102</td><td>34/min</td><td>1.5 seconds</td><td>Follows simple commands</td></tr><tr><td>Victim 103</td><td>20/min</td><td>4.0 seconds</td><td>Confused / Disoriented</td></tr><tr><td>Victim 104</td><td>22/min</td><td>1.8 seconds</td><td>Alert / Walking to safe zone</td></tr></tbody></table>"
+            },
+            {
+                "id": "exam",
+                "title": "Injury Severity",
+                "content": "Victim 101: Massive crush injury to pelvis; no signs of life. \nVictim 102: Severe abdominal pain; 20% burns to legs. \nVictim 103: Large scalp laceration with significant active bleeding. \nVictim 104: Superficial abrasions; reports 'arm pain'."
+            }
+        ]
+    },
+    "rows": [
+        {
+            "id": "r1",
+            "text": "Victim 101: No respirations, No pulses"
+        },
+        {
+            "id": "r2",
+            "text": "Victim 102: RR 34, Cap Refill 1.5s"
+        },
+        {
+            "id": "r3",
+            "text": "Victim 103: RR 20, Cap Refill 4.0s"
+        },
+        {
+            "id": "r4",
+            "text": "Victim 104: RR 22, Cap Refill 1.8s, Walking"
+        }
+    ],
+    "columns": [
+        {
+            "id": "c1",
+            "text": "Black (Deceased/Expectant)"
+        },
+        {
+            "id": "c2",
+            "text": "Red (Immediate)"
+        },
+        {
+            "id": "c3",
+            "text": "Yellow (Delayed)"
+        },
+        {
+            "id": "c4",
+            "text": "Green (Minor)"
+        }
+    ],
+    "correctAnswers": {
+        "r1": [
+            "c1"
+        ],
+        "r2": [
+            "c2"
+        ],
+        "r3": [
+            "c2"
+        ],
+        "r4": [
+            "c4"
+        ]
+    },
+    "pedagogy": {
+        "bloomLevel": "analyze",
+        "cjmmStep": "analyzeCues",
+        "nclexCategory": "Management of Care",
+        "difficulty": 4,
+        "topicTags": [
+            "Triage",
+            "Disaster Management"
+        ]
+    },
+    "rationale": {
+        "correct": "Victim 101 is **Black** because there are no respirations after the airway is cleared. Victim 102 is **Red** because RR > 30. Victim 103 is **Red** because Capillary Refill > 2 seconds (indicates shock). Victim 104 is **Green** because they were able to 'walk to the safe zone' (Walking Wounded).",
+        "clinicalPearls": [
+            "The START algorithm order is: 1. Can they walk? 2. Breathe? 3. Perfusion? 4. Mental Status?",
+            "If they can walk, they are GREEN. If they don't breathe after airway tilt, they are BLACK.",
+            "If they FAIL any of the RPM (30-2-Can Do), they are RED."
+        ],
+        "questionTrap": {
+            "trap": "Coding Victim 103 as Yellow because their RR is normal (20).",
+            "howToOvercome": "Always check all three RPM points. Since their Capillary Refill is 4 seconds (P), they are an immediate priority (Red)."
+        },
+        "mnemonic": {
+            "title": "30 - 2 - Can Do",
+            "expansion": "R: RR > 30? P: Cap Refill > 2? M: Can't do commands? Any 'YES' = RED."
+        }
+    },
+    "scoring": {
+        "method": "polytomous",
+        "maxPoints": 4
+    },
+    "sentinelStatus": "healed_v2026_v9"
+}
