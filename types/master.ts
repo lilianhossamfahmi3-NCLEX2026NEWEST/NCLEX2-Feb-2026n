@@ -219,6 +219,8 @@ export interface ItemBase {
     pedagogy: Pedagogy;
     rationale: Rationale;
     scoring: ScoringRule;
+    status?: 'draft' | 'live';
+    qaiScore?: number;
     createdAt?: string;
     updatedAt?: string;
 }

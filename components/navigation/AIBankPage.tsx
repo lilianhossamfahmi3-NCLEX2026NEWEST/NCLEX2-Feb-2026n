@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { MasterItem } from '../../types/master';
 import { getStandaloneNGNItemsAsync } from '../../services/caseStudyLibrary';
 import { runBankQA, runItemQA, repairBank, runDeepAIRepair, QABankReport, QAItemReport, QADimension, QASeverity } from '../../validation/itemBankQA';
@@ -127,12 +127,54 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
     const [filterBloom, setFilterBloom] = useState('All');
     const [filterCJMM, setFilterCJMM] = useState('All');
     const [filterCategory, setFilterCategory] = useState('All');
+    const [columnWidths, setColumnWidths] = useState<Record<string, number>>({
+        check: 60,
+        id: 140,
+        type: 120,
+        topic: 200,
+        lvl: 80,
+        cog: 180,
+        proc: 180,
+        comp: 220,
+        date: 200,
+        qi: 80,
+        status: 100,
+        actions: 200
+    });
+
+    const resizingRef = useRef<{ key: string, startX: number, startWidth: number } | null>(null);
+
+    const startResizing = (key: string, e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        resizingRef.current = { key, startX: e.pageX, startWidth: columnWidths[key] };
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+        if (!resizingRef.current) return;
+        const { key, startX, startWidth } = resizingRef.current;
+        const delta = e.pageX - startX;
+        const newWidth = Math.max(50, startWidth + delta);
+        setColumnWidths(prev => ({ ...prev, [key]: newWidth }));
+    };
+
+    const onMouseUp = () => {
+        resizingRef.current = null;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+    };
 
     // Debug active filters
     console.log('Active Filter Type:', filterType);
 
     // Simplified Filters - Strict Equality to prevent casing mismatches
-    const itemTypes = useMemo(() => ['All', ...Array.from(new Set(items.map(i => i?.type).filter(Boolean))) as string[]].sort(), [items]);
+    // Simplified Filters - Robust normalization
+    const itemTypes = useMemo(() => {
+        const types = items.map(i => i?.type).filter(Boolean);
+        return ['All', ...Array.from(new Set(types)) as string[]].sort();
+    }, [items]);
     const difficulties = useMemo(() => ['All', ...Array.from(new Set(items.map(i => i?.pedagogy?.difficulty?.toString()).filter(Boolean))) as string[]].sort(), [items]);
     const bloomLevels = useMemo(() => ['All', ...Array.from(new Set(items.map(i => i?.pedagogy?.bloomLevel).filter(Boolean))) as string[]].sort(), [items]);
     const cjmmSteps = useMemo(() => ['All', ...Array.from(new Set(items.map(i => i?.pedagogy?.cjmmStep).filter(Boolean))) as string[]].sort(), [items]);
@@ -149,34 +191,18 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
             const matchesSearch = safeId.toLowerCase().includes(searchLower) ||
                 (item.pedagogy?.topicTags || []).some(t => (t || '').toLowerCase().includes(searchLower));
 
-            // Strict Filter Logic
+            // Accurate Filter Comparisons
             const itemType = item.type || '';
-            let matchesType = filterType === 'All' || itemType === filterType;
-
-            // Hotfix: Check for potential casing issues if strict match fails but looks similar
-            if (!matchesType && filterType !== 'All' && itemType.toLowerCase() === filterType.toLowerCase()) {
-                matchesType = true;
-            }
-
-            // DEBUG: Force re-verify match
-            if (filterType !== 'All' && matchesType) {
-                const strictMatch = itemType === filterType;
-                const looseMatch = itemType.toLowerCase() === filterType.toLowerCase();
-
-                if (!strictMatch && !looseMatch) {
-                    console.error(`CRITICAL FILTER BUG: Item ${safeId} (Type: '${itemType}') passed filter '${filterType}' but SHOULD NOT HAVE.`);
-                    matchesType = false;
-                }
-            }
+            const matchesType = filterType === 'All' || itemType.toLowerCase() === filterType.toLowerCase();
 
             const matchesDifficulty = filterDifficulty === 'All' || item.pedagogy?.difficulty?.toString() === filterDifficulty;
 
-            const itemStatus = items.indexOf(item) % 3 === 0 ? 'draft' : 'live';
+            const itemStatus = item.status || (items.indexOf(item) % 3 === 0 ? 'draft' : 'live');
             const matchesStatus = filterStatus === 'All' || itemStatus === filterStatus;
 
-            const matchesBloom = filterBloom === 'All' || item.pedagogy?.bloomLevel === filterBloom;
-            const matchesCJMM = filterCJMM === 'All' || item.pedagogy?.cjmmStep === filterCJMM;
-            const matchesCategory = filterCategory === 'All' || item.pedagogy?.nclexCategory === filterCategory;
+            const matchesBloom = filterBloom === 'All' || (item.pedagogy?.bloomLevel || '').toLowerCase() === filterBloom.toLowerCase();
+            const matchesCJMM = filterCJMM === 'All' || (item.pedagogy?.cjmmStep || '').toLowerCase() === filterCJMM.toLowerCase();
+            const matchesCategory = filterCategory === 'All' || (item.pedagogy?.nclexCategory || '').toLowerCase() === filterCategory.toLowerCase();
 
             return matchesSearch && matchesType && matchesDifficulty && matchesStatus && matchesBloom && matchesCJMM && matchesCategory;
         });
@@ -196,8 +222,8 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                 case 'proc': valA = a.pedagogy?.cjmmStep || ''; valB = b.pedagogy?.cjmmStep || ''; break;
                 case 'comp': valA = a.pedagogy?.nclexCategory || ''; valB = b.pedagogy?.nclexCategory || ''; break;
                 case 'status':
-                    valA = items.indexOf(a) % 3 === 0 ? 'draft' : 'live';
-                    valB = items.indexOf(b) % 3 === 0 ? 'draft' : 'live';
+                    valA = a.status || (items.indexOf(a) % 3 === 0 ? 'draft' : 'live');
+                    valB = b.status || (items.indexOf(b) % 3 === 0 ? 'draft' : 'live');
                     break;
                 case 'date': valA = a.createdAt || ''; valB = b.createdAt || ''; break;
                 default: valA = ''; valB = '';
@@ -513,24 +539,58 @@ Failed: ${report.failed}`);
                         <table className="item-table">
                             <thead>
                                 <tr>
-                                    <th className="col-check">
+                                    <th className="col-check" style={{ width: columnWidths.check }}>
                                         <input
                                             type="checkbox"
                                             checked={selectedItems.length === sortedItems.length && sortedItems.length > 0}
                                             onChange={toggleSelectAll}
                                         />
+                                        <div className="resizer" onMouseDown={(e) => startResizing('check', e)} />
                                     </th>
-                                    <th className="col-id sortable" onClick={() => handleSort('id')}>ID {sortConfig?.key === 'id' && (sortConfig.direction === 'asc' ? '↑' : '↓')}</th>
-                                    <th className="col-type sortable" onClick={() => handleSort('type')}>TYPE {sortConfig?.key === 'type' && (sortConfig.direction === 'asc' ? '↑' : '↓')}</th>
-                                    <th className="col-topic sortable" onClick={() => handleSort('topic')}>TOPIC {sortConfig?.key === 'topic' && (sortConfig.direction === 'asc' ? '↑' : '↓')}</th>
-                                    <th className="col-lvl sortable" onClick={() => handleSort('lvl')}>LVL {sortConfig?.key === 'lvl' && (sortConfig.direction === 'asc' ? '↑' : '↓')}</th>
-                                    <th className="col-cog sortable" onClick={() => handleSort('cog')}>COGNITIVE DEPTH {sortConfig?.key === 'cog' && (sortConfig.direction === 'asc' ? '↑' : '↓')}</th>
-                                    <th className="col-proc sortable" onClick={() => handleSort('proc')}>CLINICAL PROCESS {sortConfig?.key === 'proc' && (sortConfig.direction === 'asc' ? '↑' : '↓')}</th>
-                                    <th className="col-comp sortable" onClick={() => handleSort('comp')}>PRIMARY COMPETENCY {sortConfig?.key === 'comp' && (sortConfig.direction === 'asc' ? '↑' : '↓')}</th>
-                                    <th className="col-date sortable" onClick={() => handleSort('date')}>ENTRY DATE {sortConfig?.key === 'date' && (sortConfig.direction === 'asc' ? '↑' : '↓')}</th>
-                                    <th className="col-qi">QI</th>
-                                    <th className="col-status sortable" onClick={() => handleSort('status')}>STATUS {sortConfig?.key === 'status' && (sortConfig.direction === 'asc' ? '↑' : '↓')}</th>
-                                    <th className="col-actions">ACTIONS</th>
+                                    <th className="col-id sortable" onClick={() => handleSort('id')} style={{ width: columnWidths.id }}>
+                                        ID {sortConfig?.key === 'id' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+                                        <div className="resizer" onMouseDown={(e) => startResizing('id', e)} />
+                                    </th>
+                                    <th className="col-type sortable" onClick={() => handleSort('type')} style={{ width: columnWidths.type }}>
+                                        TYPE {sortConfig?.key === 'type' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+                                        <div className="resizer" onMouseDown={(e) => startResizing('type', e)} />
+                                    </th>
+                                    <th className="col-topic sortable" onClick={() => handleSort('topic')} style={{ width: columnWidths.topic }}>
+                                        TOPIC {sortConfig?.key === 'topic' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+                                        <div className="resizer" onMouseDown={(e) => startResizing('topic', e)} />
+                                    </th>
+                                    <th className="col-lvl sortable" onClick={() => handleSort('lvl')} style={{ width: columnWidths.lvl }}>
+                                        LVL {sortConfig?.key === 'lvl' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+                                        <div className="resizer" onMouseDown={(e) => startResizing('lvl', e)} />
+                                    </th>
+                                    <th className="col-cog sortable" onClick={() => handleSort('cog')} style={{ width: columnWidths.cog }}>
+                                        COGNITIVE DEPTH {sortConfig?.key === 'cog' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+                                        <div className="resizer" onMouseDown={(e) => startResizing('cog', e)} />
+                                    </th>
+                                    <th className="col-proc sortable" onClick={() => handleSort('proc')} style={{ width: columnWidths.proc }}>
+                                        CLINICAL PROCESS {sortConfig?.key === 'proc' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+                                        <div className="resizer" onMouseDown={(e) => startResizing('proc', e)} />
+                                    </th>
+                                    <th className="col-comp sortable" onClick={() => handleSort('comp')} style={{ width: columnWidths.comp }}>
+                                        PRIMARY COMPETENCY {sortConfig?.key === 'comp' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+                                        <div className="resizer" onMouseDown={(e) => startResizing('comp', e)} />
+                                    </th>
+                                    <th className="col-date sortable" onClick={() => handleSort('date')} style={{ width: columnWidths.date }}>
+                                        ENTRY DATE {sortConfig?.key === 'date' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+                                        <div className="resizer" onMouseDown={(e) => startResizing('date', e)} />
+                                    </th>
+                                    <th className="col-qi" style={{ width: columnWidths.qi }}>
+                                        QI
+                                        <div className="resizer" onMouseDown={(e) => startResizing('qi', e)} />
+                                    </th>
+                                    <th className="col-status sortable" onClick={() => handleSort('status')} style={{ width: columnWidths.status }}>
+                                        STATUS {sortConfig?.key === 'status' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
+                                        <div className="resizer" onMouseDown={(e) => startResizing('status', e)} />
+                                    </th>
+                                    <th className="col-actions" style={{ width: columnWidths.actions }}>
+                                        ACTIONS
+                                        <div className="resizer" onMouseDown={(e) => startResizing('actions', e)} />
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -596,8 +656,8 @@ Failed: ${report.failed}`);
                                             })()}
                                         </td>
                                         <td className="col-status">
-                                            <span className={`status-pill ${items.indexOf(item) % 3 === 0 ? 'draft' : 'live'}`}>
-                                                {items.indexOf(item) % 3 === 0 ? 'draft' : 'live'}
+                                            <span className={`status-pill ${item.status || (items.indexOf(item) % 3 === 0 ? 'draft' : 'live')}`}>
+                                                {item.status || (items.indexOf(item) % 3 === 0 ? 'draft' : 'live')}
                                             </span>
                                         </td>
                                         <td className="col-actions">
@@ -882,10 +942,10 @@ Failed: ${report.failed}`);
                 }
 
                 .item-table {
-                    width: 100%;
+                    width: max-content;
                     border-collapse: collapse;
                     text-align: left;
-                    min-width: 1400px;
+                    table-layout: fixed;
                 }
                 .item-table th {
                     background: var(--panel-bg);
@@ -900,8 +960,22 @@ Failed: ${report.failed}`);
                     top: 0;
                     z-index: 10;
                 }
-                .item-table th.sortable { cursor: pointer; user-select: none; transition: background 0.2s; }
+                .item-table th.sortable { cursor: pointer; user-select: none; transition: background 0.2s; position: relative; }
                 .item-table th.sortable:hover { background: var(--border); color: var(--primary); }
+                .resizer {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 10px;
+                    cursor: col-resize;
+                    z-index: 1;
+                    background: transparent;
+                }
+                .resizer:hover {
+                    background: rgba(var(--primary-rgb), 0.2);
+                    border-right: 2px solid var(--primary);
+                }
 
                 .item-table td {
                     padding: 18px 16px;

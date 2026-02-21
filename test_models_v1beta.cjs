@@ -1,22 +1,19 @@
 const dotenv = require('dotenv');
-const fs = require('fs');
 dotenv.config();
 const key = process.env.VITE_GEMINI_API_KEY_1;
 
 async function test() {
-    console.log("Using Key:", key ? key.substring(0, 5) + "..." : "NONE");
     try {
-        const url = `https://generativelanguage.googleapis.com/v1/models?key=${key}`;
+        const url = `https://generativelanguage.googleapis.com/v1beta/models?key=${key}`;
         const resp = await fetch(url);
         const data = await resp.json();
-        console.log("Models found:", data.models ? data.models.length : "NONE");
         if (data.models) {
             data.models.forEach(m => console.log(m.name));
         } else {
             console.log(JSON.stringify(data, null, 2));
         }
     } catch (e) {
-        console.error("Fetch failed:", e);
+        console.error(e);
     }
 }
 test();
