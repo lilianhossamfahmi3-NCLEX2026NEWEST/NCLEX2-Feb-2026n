@@ -36,18 +36,35 @@ export async function getVaultItems(): Promise<MasterItem[]> {
     console.log("[VaultLoader] Initializing NGN vault load (Cloud Primary)...");
 
     try {
-        // 1. Try Supabase Cloud First
+        // 1. Load Local Vault First (Always consistent with Git codebase)
+        console.log("[VaultLoader] Loading local vaultItems.json...");
+        const localItems = await loadLocalVault();
+
+        // 2. Try Supabase Cloud Second (Layered data)
         const { fetchVaultFromCloud } = await import('./supabaseService');
         const cloudItems = await fetchVaultFromCloud();
 
         if (cloudItems && cloudItems.length > 0) {
-            cachedVault = cloudItems as MasterItem[];
-            console.log(`[VaultLoader] Successfully loaded ${cachedVault.length} items from Supabase Cloud.`);
+            // Merge logic: Start with local, add cloud items that don't conflict, 
+            // OR prefer cloud for existing IDs? 
+            // Usually, cloud is "more recent" edits, so cloud wins on ID collision.
+            const itemMap = new Map<string, MasterItem>();
+
+            // Local items (baseline)
+            localItems.forEach(item => {
+                if (item.id) itemMap.set(item.id, item);
+            });
+
+            // Cloud items (overwrites/additions)
+            cloudItems.forEach((item: any) => {
+                if (item.id) itemMap.set(item.id, item as MasterItem);
+            });
+
+            cachedVault = Array.from(itemMap.values());
+            console.log(`[VaultLoader] Successfully merged ${localItems.length} local items with ${cloudItems.length} cloud items. Total: ${cachedVault.length}`);
         } else {
-            // 2. Fallback to local vault JSON if cloud fails or is empty
-            console.warn("[VaultLoader] Cloud empty or failed. Falling back to local vaultItems.json...");
-            cachedVault = await loadLocalVault();
-            console.log(`[VaultLoader] Successfully loaded ${cachedVault.length} stand-alone items from Local Storage.`);
+            cachedVault = localItems;
+            console.log(`[VaultLoader] Successfully loaded ${cachedVault.length} stand-alone items from Local Storage only.`);
         }
 
         // Notify any pending listeners
