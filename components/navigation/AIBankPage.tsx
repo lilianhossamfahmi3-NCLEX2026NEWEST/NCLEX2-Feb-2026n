@@ -39,12 +39,23 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
 
     // API Key Rotation for UI-side AI tasks
     const aiKeys = useMemo(() => {
-        const keys: string[] = [];
-        for (let i = 1; i <= 14; i++) {
-            const k = (import.meta as any).env[`VITE_GEMINI_API_KEY_${i}`];
-            if (k) keys.push(k);
-        }
-        return keys;
+        const keys = [
+            (import.meta as any).env.VITE_GEMINI_API_KEY_1, (import.meta as any).env.GEMINI_API_KEY_1,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_2, (import.meta as any).env.GEMINI_API_KEY_2,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_3, (import.meta as any).env.GEMINI_API_KEY_3,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_4, (import.meta as any).env.GEMINI_API_KEY_4,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_5, (import.meta as any).env.GEMINI_API_KEY_5,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_6, (import.meta as any).env.GEMINI_API_KEY_6,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_7, (import.meta as any).env.GEMINI_API_KEY_7,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_8, (import.meta as any).env.GEMINI_API_KEY_8,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_9, (import.meta as any).env.GEMINI_API_KEY_9,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_10, (import.meta as any).env.GEMINI_API_KEY_10,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_11, (import.meta as any).env.GEMINI_API_KEY_11,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_12, (import.meta as any).env.GEMINI_API_KEY_12,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_13, (import.meta as any).env.GEMINI_API_KEY_13,
+            (import.meta as any).env.VITE_GEMINI_API_KEY_14, (import.meta as any).env.GEMINI_API_KEY_14
+        ].filter(Boolean);
+        return Array.from(new Set(keys)); // Remove duplicates if both are present
     }, []);
 
     const [keyIdx, setKeyIdx] = useState(0);

@@ -780,15 +780,15 @@ Return ONLY PURE JSON matching the MasterItem interface.
 `;
 
 export async function runDeepAIRepair(item: any, apiKey: string): Promise<{ repaired: any; changes: string[] }> {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
     const prompt = NGN_2026_PROMPT_TEMPLATE.replace('{{ITEM_JSON}}', JSON.stringify(item, null, 2));
 
     const body = {
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
-            temperature: 0.2, // Low temp for logic-heavy repairs
-            responseMimeType: "application/json"
+            temperature: 0.2,
+            response_mime_type: "application/json"
         }
     };
 

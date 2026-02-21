@@ -21,8 +21,8 @@ const NGN_2026_SPEC_SUMMARY = `
 `;
 
 export async function deepRepairItemWithAI(item: any, apiKey: string): Promise<RepairResult> {
-    const model = 'gemini-1.5-pro';
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    const model = 'gemini-2.0-flash';
+    const url = `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${apiKey}`;
 
     const prompt = `
 You are the "SentinelQA Deep-Health" Engine for an NCLEX-RN NGN Simulator.
