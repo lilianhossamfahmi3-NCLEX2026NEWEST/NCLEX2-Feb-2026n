@@ -205,13 +205,15 @@ function scoreDragCloze(item: DragAndDropClozeItem, answer: Record<string, strin
 }
 
 // NCSBN Bowtie: 0/1 per element across all wings (5 elements total: 2 actions, 1 condition, 2 parameters)
-function scoreBowtie(item: BowtieItem, answer: { actions?: string[]; condition?: string; parameters?: string[] }): ScoreResult {
-    const correctActions = new Set(item.correctActionIds);
-    const correctParams = new Set(item.correctParameterIds);
+function scoreBowtie(item: any, answer: { actions?: string[]; condition?: string; parameters?: string[] }): ScoreResult {
+    const correctActions = new Set(item.correctActionIds || item.correctAnswers?.actions || []);
+    const correctParams = new Set(item.correctParameterIds || item.correctAnswers?.parameters || []);
+    const condition = item.condition || item.correctAnswers?.condition || '';
+
     let correctCount = 0;
 
     // 1. Condition (Center)
-    if (answer?.condition === item.condition) {
+    if (answer?.condition === condition) {
         correctCount++;
     }
 

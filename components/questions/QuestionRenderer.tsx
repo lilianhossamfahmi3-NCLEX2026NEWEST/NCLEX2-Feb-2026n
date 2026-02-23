@@ -28,7 +28,7 @@ export default function QuestionRenderer({ item, onSubmit, isSubmitted, earnedSc
                 <p className="stem-text">{item.stem}</p>
             </div>
             <div className="question-body">
-                <ItemBody item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />
+                <ItemBody item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />
             </div>
 
             {isSubmitted && earnedScore !== undefined && (
@@ -566,37 +566,37 @@ function formatType(type: string): string {
 //  Item Body Router
 // ═══════════════════════════════════════════════════════════
 
-function ItemBody({ item, onSubmit, isSubmitted }: QuestionRendererProps) {
+function ItemBody({ item, onSubmit, isSubmitted, userAnswer }: QuestionRendererProps) {
     switch (item.type) {
         case 'multipleChoice':
         case 'priorityAction':
-            return <SingleSelect item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <SingleSelect item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'selectAll':
         case 'selectN':
-            return <MultiSelect item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <MultiSelect item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'orderedResponse':
-            return <OrderedResponse item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <OrderedResponse item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'matrixMatch':
-            return <MatrixMatch item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <MatrixMatch item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'clozeDropdown':
-            return <ClozeDropdown item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <ClozeDropdown item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'bowtie':
-            return <Bowtie item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <Bowtie item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'trend':
-            return <TrendQuestion item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <TrendQuestion item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'highlight':
-            return <HighlightQuestion item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <HighlightQuestion item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'dragAndDropCloze':
-            return <DragAndDropCloze item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <DragAndDropCloze item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'hotspot':
-            return <Hotspot item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <Hotspot item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'graphic':
         case 'audioVideo':
-            return <MediaItem item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <MediaItem item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         case 'chartExhibit':
-            return <ExhibitViewer item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <ExhibitViewer item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
         default:
-            return <SingleSelect item={item as any} onSubmit={onSubmit} isSubmitted={isSubmitted} />;
+            return <SingleSelect item={item as any} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />;
     }
 }
 
@@ -604,8 +604,8 @@ function ItemBody({ item, onSubmit, isSubmitted }: QuestionRendererProps) {
 //  Single Select (MC, Priority Action, Trend)
 // ═══════════════════════════════════════════════════════════
 
-function SingleSelect({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
-    const [selected, setSelected] = useState<string | null>(null);
+function SingleSelect({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
+    const [selected, setSelected] = useState<string | null>((userAnswer as string) || null);
     const correctId = item.correctOptionId;
 
     const shuffledOptions = useMemo(() => {
@@ -650,8 +650,8 @@ function SingleSelect({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (i
 //  Multi Select (SATA)
 // ═══════════════════════════════════════════════════════════
 
-function MultiSelect({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
-    const [selected, setSelected] = useState<Set<string>>(new Set());
+function MultiSelect({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
+    const [selected, setSelected] = useState<Set<string>>(new Set(userAnswer as string[] || []));
     const correctIds: string[] = item.correctOptionIds || [];
 
     const shuffledOptions = useMemo(() => {
@@ -715,8 +715,13 @@ function MultiSelect({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id
 //  Ordered Response (Drag/Reorder)
 // ═══════════════════════════════════════════════════════════
 
-function OrderedResponse({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
-    const [order, setOrder] = useState<{ id: string; text: string }[]>([...item.options]);
+function OrderedResponse({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
+    const [order, setOrder] = useState<{ id: string; text: string }[]>(() => {
+        if (userAnswer && Array.isArray(userAnswer)) {
+            return (userAnswer as string[]).map(id => item.options.find((o: any) => o.id === id)).filter(Boolean);
+        }
+        return [...item.options];
+    });
 
     const moveUp = (idx: number) => {
         if (idx === 0 || isSubmitted) return;
@@ -766,8 +771,8 @@ function OrderedResponse({ item, onSubmit, isSubmitted }: { item: any; onSubmit:
 //  Matrix Match
 // ═══════════════════════════════════════════════════════════
 
-function MatrixMatch({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
-    const [selections, setSelections] = useState<Record<string, string>>({});
+function MatrixMatch({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
+    const [selections, setSelections] = useState<Record<string, string>>(userAnswer || {});
 
     const handleSelect = (rowId: string, colId: string) => {
         if (isSubmitted) return;
@@ -824,8 +829,8 @@ function MatrixMatch({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id
 //  Cloze Dropdown
 // ═══════════════════════════════════════════════════════════
 
-function ClozeDropdown({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
-    const [selections, setSelections] = useState<Record<string, string>>({});
+function ClozeDropdown({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
+    const [selections, setSelections] = useState<Record<string, string>>(userAnswer || {});
 
     const handleChange = (blankId: string, value: string) => {
         if (isSubmitted) return;
@@ -891,13 +896,15 @@ function seededShuffle<T>(arr: T[], seed: string): T[] {
     return copy;
 }
 
-function Bowtie({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
-    const [actionSelections, setActionSelections] = useState<string[]>([]);
-    const [conditionSelection, setConditionSelection] = useState<string | null>(null);
-    const [parameterSelections, setParameterSelections] = useState<string[]>([]);
+function Bowtie({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
+    const [actionSelections, setActionSelections] = useState<string[]>(userAnswer?.actions || []);
+    const [conditionSelection, setConditionSelection] = useState<string | null>(userAnswer?.condition || null);
+    const [parameterSelections, setParameterSelections] = useState<string[]>(userAnswer?.parameters || []);
 
     // Safety checks
-    if (!item?.actions || !item?.parameters) {
+    const hasActions = item?.actions || item?.bowtieData?.actionOptions;
+    const hasParams = item?.parameters || item?.bowtieData?.parameterOptions;
+    if (!hasActions || !hasParams) {
         return <div className="p-8 text-indigo-600 bg-indigo-50 rounded-2xl border border-indigo-100">
             <h3 className="font-black uppercase tracking-tighter italic">Clinical Schematic Missing</h3>
             <p className="text-sm opacity-70">Regulatory bowtie layout for this clinical scenario is missing from the lab vault.</p>
@@ -905,17 +912,22 @@ function Bowtie({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: str
     }
 
     // Shuffle actions & parameters using item.id as seed — eliminates answer position bias
-    const shuffledActions = useMemo(() => seededShuffle(item.actions, item.id + '_actions'), [item.id, item.actions]);
-    const shuffledParameters = useMemo(() => seededShuffle(item.parameters, item.id + '_params'), [item.id, item.parameters]);
+    const actions = item.actions || item.bowtieData?.actionOptions || [];
+    const parameters = item.parameters || item.bowtieData?.parameterOptions || [];
+    const condition = item.condition || item.correctAnswers?.condition || '';
+
+    const shuffledActions = useMemo(() => seededShuffle(actions, item.id + '_actions'), [item.id, actions]);
+    const shuffledParameters = useMemo(() => seededShuffle(parameters, item.id + '_params'), [item.id, parameters]);
 
     // Use case-specific potentialConditions from data — no hardcoded fallbacks
     const potentialConditions = useMemo(() => {
-        if (item.potentialConditions && item.potentialConditions.length > 0) {
-            return seededShuffle(item.potentialConditions, item.id + '_conds');
+        const pc = item.potentialConditions || item.bowtieData?.conditionOptions?.map((o: any) => o.text) || [];
+        if (pc.length > 0) {
+            return seededShuffle(pc, item.id + '_conds');
         }
         // Ultimate fallback only if data is completely missing (should not happen after data fix)
-        return seededShuffle([item.condition, "Unrelated Condition A", "Unrelated Condition B", "Unrelated Condition C"], item.id + '_conds');
-    }, [item.id, item.potentialConditions, item.condition]);
+        return seededShuffle([condition, "Unrelated Condition A", "Unrelated Condition B", "Unrelated Condition C"], item.id + '_conds');
+    }, [item.id, item.potentialConditions, item.bowtieData, condition]);
 
     const toggleAction = (id: string) => {
         if (isSubmitted) return;
@@ -941,9 +953,13 @@ function Bowtie({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: str
     };
 
     const isCorrect = (type: 'action' | 'condition' | 'parameter', val: string) => {
-        if (type === 'action') return item.correctActionIds.includes(val);
-        if (type === 'parameter') return item.correctParameterIds.includes(val);
-        if (type === 'condition') return val === item.condition;
+        const correctActions = item.correctActionIds || item.correctAnswers?.actions || [];
+        const correctParams = item.correctParameterIds || item.correctAnswers?.parameters || [];
+        const correctCondition = item.condition || item.correctAnswers?.condition || '';
+
+        if (type === 'action') return correctActions.includes(val);
+        if (type === 'parameter') return correctParams.includes(val);
+        if (type === 'condition') return val === correctCondition;
         return false;
     };
 
@@ -971,7 +987,7 @@ function Bowtie({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: str
                 <div className="bowtie-wing">
                     {[0, 1].map(i => {
                         const selId = actionSelections[i];
-                        const selOpt = item.actions.find((a: any) => a.id === selId);
+                        const selOpt = actions.find((a: any) => a.id === selId);
                         return (
                             <div
                                 key={i}
@@ -1004,7 +1020,7 @@ function Bowtie({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: str
                 <div className="bowtie-wing">
                     {[0, 1].map(i => {
                         const selId = parameterSelections[i];
-                        const selOpt = item.parameters.find((p: any) => p.id === selId);
+                        const selOpt = parameters.find((p: any) => p.id === selId);
                         return (
                             <div
                                 key={i}
@@ -1089,8 +1105,8 @@ function Bowtie({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: str
 //  Trend
 // ═══════════════════════════════════════════════════════════
 
-function TrendQuestion({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
-    const [selected, setSelected] = useState<string | null>(null);
+function TrendQuestion({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
+    const [selected, setSelected] = useState<string | null>(userAnswer || null);
 
     // Safety checks
     const dataPoints = item?.dataPoints || item?.rationale?.dataPoints || [];
@@ -1167,8 +1183,8 @@ function TrendQuestion({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (
 //  Highlight
 // ═══════════════════════════════════════════════════════════
 
-function HighlightQuestion({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
-    const [selectedIndices, setSelectedIndices] = useState<Set<number>>(new Set());
+function HighlightQuestion({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
+    const [selectedIndices, setSelectedIndices] = useState<Set<number>>(new Set(userAnswer as number[] || []));
 
     // Split passage into sentences for selection
     const sentences = useMemo(() => {
@@ -1225,8 +1241,8 @@ function HighlightQuestion({ item, onSubmit, isSubmitted }: { item: any; onSubmi
 //  Drag and Drop Cloze
 // ═══════════════════════════════════════════════════════════
 
-function DragAndDropCloze({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
-    const [selections, setSelections] = useState<Record<string, string>>({});
+function DragAndDropCloze({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
+    const [selections, setSelections] = useState<Record<string, string>>(userAnswer || {});
     const [activeBlank, setActiveBlank] = useState<string | null>(null);
 
     // Robust template detection (handle both 'template' and 'content' schemas)
@@ -1318,7 +1334,7 @@ function DragAndDropCloze({ item, onSubmit, isSubmitted }: { item: any; onSubmit
 //  Hotspot Renderer
 // ═══════════════════════════════════════════════════════════
 
-function Hotspot({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
+function Hotspot({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
     const [point, setPoint] = useState<{ x: number; y: number } | null>(null);
 
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -1380,7 +1396,7 @@ function Hotspot({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: st
 //  Media Item (Graphic/Audio/Video)
 // ═══════════════════════════════════════════════════════════
 
-function MediaItem({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
+function MediaItem({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
     return (
         <div>
             <div className="media-stimulus">
@@ -1399,7 +1415,7 @@ function MediaItem({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: 
                 )}
             </div>
 
-            <SingleSelect item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />
+            <SingleSelect item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />
         </div>
     );
 }
@@ -1408,7 +1424,7 @@ function MediaItem({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: 
 //  Exhibit/Chart Viewer
 // ═══════════════════════════════════════════════════════════
 
-function ExhibitViewer({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean }) {
+function ExhibitViewer({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
     const [activeTab, setActiveTab] = useState(0);
 
     // Safety checks
@@ -1511,7 +1527,7 @@ function ExhibitViewer({ item, onSubmit, isSubmitted }: { item: any; onSubmit: (
                     <div className="h-1 w-12 bg-primary rounded-full" />
                     <p className="font-black text-xs uppercase tracking-[0.2em] text-slate-400">Clinical Evaluation Question</p>
                 </div>
-                <SingleSelect item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} />
+                <SingleSelect item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />
             </div>
         </div>
     );
