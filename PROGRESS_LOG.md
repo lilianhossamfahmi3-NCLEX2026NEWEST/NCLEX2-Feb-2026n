@@ -3,11 +3,25 @@
 This document tracks the development progress, feature implementations, and upcoming milestones for the NCLEX-RN NGN Clinical Simulator.
 
 ## 🕒 Current Status: Phase 4 — Clinical Deployment & Production Stabilization
-**Last Updated:** February 16, 2026
+**Last Updated:** February 23, 2026
 
 ---
 
 ## ✅ Completed Milestones
+
+### 🛡️ 15. Submit Button Resilience & Scoring Defense
+- **Silent Crash Prevention**: Implemented `try-catch` wrappers in the `sessionReducer` to prevent the entire simulation session from freezing if `scoreItem` encounters malformed vault data.
+- **Scoring Engine Null-Safety**: Added comprehensive guards to the scoring engine to handle missing `blanks`, `options`, and `correctOptionIds` gracefully, returning 0 points instead of throwing runtime errors.
+- **Item State Recovery**: Ensured the `isSubmitted` flag correctly updates even during scoring failure, allowing users to "Continue Evaluation" without getting stuck on a dead button.
+
+### 🧪 16. ClozeDropdown Expansion & Rationale 2.0
+- **Mass Generation**: Successfully generated and indexed 97 new high-fidelity `ClozeDropdown` items (Batch 2) covering 9 clinical pillars (Cardiac, Neuro, Maternal, etc.).
+- **Evidence Table Overhaul**: Enhanced `RationalePanel.tsx` to ensure 100% of the AI-generated "Answer Breakdown" (Correct vs Distractor reasons) is visualized in a structured clinical table.
+- **Unconsumed Rationale Logic**: Implemented a "Matched Tracking" sequence to append any detailed distractors from the research bank that don't map directly to surface labels, ensuring maximum transparency for student review.
+
+### ☁️ 17. Vercel Deployment Documentation
+- **Strategic Guide**: Authored `VERCEL_DEPLOYMENT_GUIDE.md` detailing the structural decoupling of the 11MB item vault to prevent OOM build crashes.
+- **Key Rotation**: Documented the round-robin 14-key API management strategy for maintaining high-volume Item Bank QA/Repair cycles in production.
 
 ### 🎨 1. Dynamic UI Theming (Wellness vs. Clinical)
 - **Extracted Color Palettes**: Defined two distinct mood-based themes:

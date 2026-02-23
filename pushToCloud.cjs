@@ -28,7 +28,13 @@ async function pushNewItems() {
         return results;
     }
 
-    const files = walk(vaultDir).filter(f => f.includes('v2026'));
+    const files = walk(vaultDir).filter(f =>
+        f.includes('v2026') ||
+        f.includes('v26') ||
+        f.includes('batch') ||
+        f.includes('chart') ||
+        f.includes('cloze')
+    );
     console.log(`Found ${files.length} candidate files to push.`);
 
     let successCount = 0;

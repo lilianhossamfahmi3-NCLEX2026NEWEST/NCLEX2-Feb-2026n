@@ -32,14 +32,19 @@ export interface ScoreResult {
 // ═══════════════════════════════════════════════════════════
 
 export function scoreItem(item: MasterItem, answer: unknown): ScoreResult {
+    // Safety: if no item or answer, bail gracefully
+    if (!item || answer === undefined || answer === null) {
+        return { earned: 0, max: item?.scoring?.maxPoints ?? 1, ratio: 0 };
+    }
+
     // 1. Handle Linkage scoring method first if defined
-    if ((item.scoring as ScoringRule).method === 'linkage') {
+    if ((item.scoring as ScoringRule)?.method === 'linkage') {
         return scoreLinkage(item, answer);
     }
 
     switch (item.type) {
         case 'highlight': return scoreHighlight(item, answer as number[]);
-        case 'multipleChoice': return scoreDichotomous(item.correctOptionId, answer as string);
+        case 'multipleChoice': return scoreDichotomous((item as any).correctOptionId, answer as string);
         case 'selectAll': return scoreSelectAll(item, answer as string[]);
         case 'selectN': return scoreSelectN(item, answer as string[]);
         case 'orderedResponse': return scoreOrdered(item, answer as string[]);
@@ -47,12 +52,12 @@ export function scoreItem(item: MasterItem, answer: unknown): ScoreResult {
         case 'clozeDropdown': return scoreClozeDropdown(item, answer as Record<string, string>);
         case 'dragAndDropCloze': return scoreDragCloze(item, answer as Record<string, string>);
         case 'bowtie': return scoreBowtie(item, answer as { causes: string[]; actions: string[]; parameters: string[] });
-        case 'trend': return scoreDichotomous(item.correctOptionId, answer as string);
-        case 'priorityAction': return scoreDichotomous(item.correctOptionId, answer as string);
+        case 'trend': return scoreDichotomous((item as any).correctOptionId, answer as string);
+        case 'priorityAction': return scoreDichotomous((item as any).correctOptionId, answer as string);
         case 'hotspot': return scoreHotspot(item, answer as string[]);
-        case 'graphic': return scoreDichotomous(item.correctOptionId, answer as string);
-        case 'audioVideo': return scoreDichotomous(item.correctOptionId, answer as string);
-        case 'chartExhibit': return scoreDichotomous(item.correctOptionId, answer as string);
+        case 'graphic': return scoreDichotomous((item as any).correctOptionId, answer as string);
+        case 'audioVideo': return scoreDichotomous((item as any).correctOptionId, answer as string);
+        case 'chartExhibit': return scoreDichotomous((item as any).correctOptionId, answer as string);
         default: return { earned: 0, max: 1, ratio: 0 };
     }
 }
@@ -87,7 +92,8 @@ function scoreLinkage(item: MasterItem, answer: any): ScoreResult {
 //  Dichotomous (0/1)
 // ═══════════════════════════════════════════════════════════
 
-function scoreDichotomous(correctId: string, answer: string): ScoreResult {
+function scoreDichotomous(correctId: string | undefined, answer: string | undefined): ScoreResult {
+    if (!correctId || !answer) return { earned: 0, max: 1, ratio: 0 };
     const earned = answer === correctId ? 1 : 0;
     return { earned, max: 1, ratio: earned };
 }
@@ -97,6 +103,9 @@ function scoreDichotomous(correctId: string, answer: string): ScoreResult {
 // ═══════════════════════════════════════════════════════════
 
 function scoreHighlight(item: HighlightItem, selectedIndices: number[]): ScoreResult {
+    if (!item.correctSpanIndices || !Array.isArray(selectedIndices)) {
+        return { earned: 0, max: item.scoring?.maxPoints ?? 1, ratio: 0 };
+    }
     const correctSet = new Set(item.correctSpanIndices);
     let correctCount = 0;
     let incorrectCount = 0;
@@ -109,11 +118,14 @@ function scoreHighlight(item: HighlightItem, selectedIndices: number[]): ScoreRe
     // NCSBN +/- model: +1 per correct, -1 per incorrect, floor at 0
     const earned = Math.max(0, correctCount - incorrectCount);
     // Max points is usually the total number of correct options in +/- items
-    const max = item.scoring.maxPoints || item.correctSpanIndices.length;
+    const max = item.scoring?.maxPoints || item.correctSpanIndices.length;
     return { earned, max, ratio: max > 0 ? earned / max : 0 };
 }
 
 function scoreSelectAll(item: SelectAllItem, selected: string[]): ScoreResult {
+    if (!item.correctOptionIds || !Array.isArray(selected)) {
+        return { earned: 0, max: item.scoring?.maxPoints ?? 1, ratio: 0 };
+    }
     const correctSet = new Set(item.correctOptionIds);
     let correctCount = 0;
     let incorrectCount = 0;
@@ -125,7 +137,7 @@ function scoreSelectAll(item: SelectAllItem, selected: string[]): ScoreResult {
 
     // NCSBN +/- model: +1 per correct, -1 per incorrect, floor at 0
     const earned = Math.max(0, correctCount - incorrectCount);
-    const max = item.scoring.maxPoints || item.correctOptionIds.length;
+    const max = item.scoring?.maxPoints || item.correctOptionIds.length;
     return { earned, max, ratio: max > 0 ? earned / max : 0 };
 }
 
@@ -164,25 +176,31 @@ function scoreMatrix(item: MatrixMatchItem, answer: Record<string, string>): Sco
 }
 
 function scoreClozeDropdown(item: ClozeDropdownItem, answer: Record<string, string>): ScoreResult {
+    if (!item.blanks || !Array.isArray(item.blanks) || !answer || typeof answer !== 'object') {
+        return { earned: 0, max: item.scoring?.maxPoints ?? 1, ratio: 0 };
+    }
     let correctCount = 0;
     // NCSBN Cloze is 0/1 per blank.
     for (const blank of item.blanks) {
-        if (answer[blank.id] === blank.correctOption) correctCount++;
+        if (blank && answer[blank.id] === blank.correctOption) correctCount++;
     }
-    const max = item.scoring.maxPoints;
+    const max = item.scoring?.maxPoints ?? item.blanks.length;
     return { earned: correctCount, max, ratio: max > 0 ? correctCount / max : 0 };
 }
 
 // NCSBN 0/1 model for Drag-Drop Cloze: +1 per correct blank, no penalty
 function scoreDragCloze(item: DragAndDropClozeItem, answer: Record<string, string>): ScoreResult {
+    if (!item.blanks || !Array.isArray(item.blanks) || !answer || typeof answer !== 'object') {
+        return { earned: 0, max: item.scoring?.maxPoints ?? 1, ratio: 0 };
+    }
     let correctCount = 0;
 
     // NCSBN Drag-Drop Cloze is 0/1 per blank.
     item.blanks.forEach(blank => {
-        if (answer[blank.id] === blank.correctOption) correctCount++;
+        if (blank && answer[blank.id] === blank.correctOption) correctCount++;
     });
 
-    const max = item.scoring.maxPoints;
+    const max = item.scoring?.maxPoints ?? item.blanks.length;
     return { earned: correctCount, max, ratio: max > 0 ? correctCount / max : 0 };
 }
 

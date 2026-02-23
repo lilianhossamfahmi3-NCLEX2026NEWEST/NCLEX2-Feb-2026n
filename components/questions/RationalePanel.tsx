@@ -299,14 +299,23 @@ interface EvidenceRow {
 function buildEvidenceRows(item: any, itemType: string, userAnswer: any, rationale: Rationale): EvidenceRow[] {
     const rows: EvidenceRow[] = [];
     if (!item) return fromBreakdown(rationale);
+
     const breakdown = rationale?.answerBreakdown || [];
+    const matchedBDIndices = new Set<number>();
 
     const getBD = (label: string, text?: string) => {
-        return breakdown.find(b =>
-            b.label?.toLowerCase() === label.toLowerCase() ||
-            (text && b.label?.toLowerCase() === text.toLowerCase()) ||
-            (text && b.content?.toLowerCase().includes(text.toLowerCase().substring(0, 20)))
+        const idx = breakdown.findIndex((b, i) =>
+            !matchedBDIndices.has(i) && (
+                b.label?.toLowerCase() === label.toLowerCase() ||
+                (text && b.label?.toLowerCase() === text.toLowerCase()) ||
+                (text && b.content?.toLowerCase().includes(text.toLowerCase().substring(0, 20)))
+            )
         );
+        if (idx !== -1) {
+            matchedBDIndices.add(idx);
+            return breakdown[idx];
+        }
+        return undefined;
     };
 
     // ─── MC / Priority / Trend / Graphic / AudioVideo / ChartExhibit ───
@@ -507,6 +516,19 @@ function buildEvidenceRows(item: any, itemType: string, userAnswer: any, rationa
             }
         });
     }
+
+    // ─── Append Unmatched Breakdown Items ───
+    breakdown.forEach((b, i) => {
+        if (!matchedBDIndices.has(i)) {
+            rows.push({
+                label: b.label || 'Note',
+                optionText: undefined,
+                rationale: b.content,
+                status: b.isCorrect === true ? 'correct' : b.isCorrect === false ? 'incorrect' : 'neutral',
+                wasSelected: false,
+            });
+        }
+    });
 
     if (rows.length === 0) return fromBreakdown(rationale);
     return rows;

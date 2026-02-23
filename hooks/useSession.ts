@@ -69,7 +69,19 @@ function sessionReducer(state: SessionState, action: SessionAction): SessionStat
             const item = state.caseStudy.items.find(i => i.id === action.itemId);
             if (!item) return state;
 
-            const result = scoreItem(item, action.answer);
+            // Guard: prevent double-submit (already scored)
+            if (state.scores[action.itemId] !== undefined) return state;
+
+            // Defensive scoring — vault items may have malformed data that causes
+            // scoreItem to throw (missing blanks, options, correctOptionId, etc.).
+            // If scoring fails, record 0 so the UI still transitions to "submitted".
+            let result: { earned: number; max: number; ratio: number };
+            try {
+                result = scoreItem(item, action.answer);
+            } catch (err) {
+                console.error(`[useSession] Scoring failed for item ${action.itemId}:`, err);
+                result = { earned: 0, max: item.scoring?.maxPoints ?? 1, ratio: 0 };
+            }
 
             const newAnswers = { ...state.answers, [action.itemId]: action.answer };
             const newScores = { ...state.scores, [action.itemId]: result.earned };
