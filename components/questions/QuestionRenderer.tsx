@@ -1111,8 +1111,9 @@ function TrendQuestion({ item, onSubmit, isSubmitted, userAnswer }: { item: any;
     // Safety checks
     const dataPoints = item?.dataPoints || item?.rationale?.dataPoints || [];
     const options = item?.options || [];
+    const fallbackTabs = item?.itemContext?.tabs || [];
 
-    if (dataPoints.length === 0 || options.length === 0) {
+    if (options.length === 0) {
         return <div className="p-8 text-rose-600 bg-rose-50 rounded-2xl border border-rose-100">
             <h3 className="font-black uppercase tracking-tighter italic">Trend Data Corruption</h3>
             <p className="text-sm opacity-70">The longitudinal clinical flowsheet for this patient could not be reconstructed from the archival data.</p>
@@ -1126,28 +1127,47 @@ function TrendQuestion({ item, onSubmit, isSubmitted, userAnswer }: { item: any;
                     <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
                     <h3>Automated Clinical Flowsheet (Longitudinal Trend)</h3>
                 </div>
-                {dataPoints.map((dp: { time: string; values: Record<string, number | string> }, i: number) => (
-                    <div key={i} className="trend-grid">
-                        <div className="trend-time-col">{dp.time}</div>
-                        <div className="trend-values-col">
-                            {dp.values && Object.entries(dp.values).map(([key, val]) => {
-                                // Dynamic abnormality detection
-                                const isAbnormal =
-                                    (key.toLowerCase().includes('creatinine') && parseFloat(val as string) > 1.2) ||
-                                    (key.toLowerCase().includes('hr') && (parseFloat(val as string) > 100 || parseFloat(val as string) < 60)) ||
-                                    (key.toLowerCase().includes('pulse') && (parseFloat(val as string) > 100 || parseFloat(val as string) < 60)) ||
-                                    (key.toLowerCase().includes('spo2') && parseFloat(val as string) < 94);
+                {dataPoints.length > 0 ? (
+                    dataPoints.map((dp: { time: string; values: Record<string, number | string> }, i: number) => (
+                        <div key={i} className="trend-grid">
+                            <div className="trend-time-col">{dp.time}</div>
+                            <div className="trend-values-col">
+                                {dp.values && Object.entries(dp.values).map(([key, val]) => {
+                                    // Dynamic abnormality detection
+                                    const isAbnormal =
+                                        (key.toLowerCase().includes('creatinine') && parseFloat(val as string) > 1.2) ||
+                                        (key.toLowerCase().includes('hr') && (parseFloat(val as string) > 100 || parseFloat(val as string) < 60)) ||
+                                        (key.toLowerCase().includes('pulse') && (parseFloat(val as string) > 100 || parseFloat(val as string) < 60)) ||
+                                        (key.toLowerCase().includes('spo2') && parseFloat(val as string) < 94);
 
-                                return (
-                                    <div key={key} className={`trend-metric ${isAbnormal ? 'trend-metric--abnormal' : ''}`}>
-                                        <span className="trend-metric-label">{key}</span>
-                                        <span className="trend-metric-value">{val}</span>
-                                    </div>
-                                );
-                            })}
+                                    return (
+                                        <div key={key} className={`trend-metric ${isAbnormal ? 'trend-metric--abnormal' : ''}`}>
+                                            <span className="trend-metric-label">{key}</span>
+                                            <span className="trend-metric-value">{val}</span>
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
+                    ))
+                ) : fallbackTabs.length > 0 ? (
+                    <div className="p-6 bg-slate-50 border-t border-slate-200">
+                        {fallbackTabs.map((tab: any, idx: number) => (
+                            <div key={idx} className="mb-6 last:mb-0">
+                                <h4 className="font-bold text-slate-700 uppercase text-[0.7rem] mb-3 tracking-widest">{tab.title || tab.id}</h4>
+                                <div
+                                    className="text-[0.9rem] text-slate-800 leading-relaxed space-y-2 html-content"
+                                    dangerouslySetInnerHTML={{ __html: tab.content || tab.text || '' }}
+                                />
+                            </div>
+                        ))}
                     </div>
-                ))}
+                ) : (
+                    <div className="p-8 text-rose-600 bg-rose-50 border border-rose-100 m-4 rounded-xl">
+                        <h3 className="font-black uppercase tracking-tighter italic">Trend Data Missing</h3>
+                        <p className="text-sm opacity-70">Cannot find any clinical flowsheets or EHR context for this item.</p>
+                    </div>
+                )}
             </div>
 
             <div className="p-10 bg-white rounded-[32px] border border-slate-200 shadow-xl shadow-slate-200/50">
