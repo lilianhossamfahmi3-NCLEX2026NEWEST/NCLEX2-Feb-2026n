@@ -387,6 +387,7 @@ export default function App() {
         />
       ) : (
         <Simulator
+          key={selectedCase.id}
           caseStudy={selectedCase}
           onExit={handleExit}
           theme={theme}
