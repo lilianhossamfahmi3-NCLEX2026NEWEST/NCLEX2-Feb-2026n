@@ -290,7 +290,19 @@ export function StudentDashboard({ session, passProbability, onExit }: StudentDa
 
 function QuestionReview({ item, earned }: { item: MasterItem; earned: number }) {
     const r = item.rationale;
-    const max = item.scoring.maxPoints;
+    const max = item.scoring?.maxPoints ?? 0;
+
+    if (!r) {
+        return (
+            <div className="sd-q-review">
+                <p className="sd-q-stem">{item.stem}</p>
+                <div className="sd-q-rat-block sd-rat--incorrect">
+                    <div className="sd-rat-heading">⚠️ Data Missing</div>
+                    <p>Rationale data is not available for this item.</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="sd-q-review">
