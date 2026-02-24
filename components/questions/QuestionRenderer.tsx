@@ -3,7 +3,7 @@
  * Routes each MasterItem.type to the appropriate renderer.
  */
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { MasterItem } from '../../types/master';
 import RationalePanel from './RationalePanel';
 
@@ -1336,6 +1336,17 @@ function DragAndDropCloze({ item, onSubmit, isSubmitted, userAnswer }: { item: a
 
 function Hotspot({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
     const [point, setPoint] = useState<{ x: number; y: number } | null>(null);
+
+    // Use userAnswer to restore click position for feedback
+    useEffect(() => {
+        if (userAnswer && Array.isArray(userAnswer) && userAnswer.length > 0) {
+            const firstId = userAnswer[0];
+            const h = item.hotspots?.find((hs: any) => hs.id === firstId);
+            if (h) {
+                setPoint({ x: h.x + (h.width / 2), y: h.y + (h.height / 2) });
+            }
+        }
+    }, [userAnswer, item.hotspots]);
 
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (isSubmitted) return;
