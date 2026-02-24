@@ -41,7 +41,7 @@ export default function StudyCompanion({ items, scores }: StudyCompanionProps) {
     const allPearls = useMemo(() => {
         const pearls: { itemIndex: number; pearl: string }[] = [];
         answeredItems.forEach((item, i) => {
-            item.rationale.clinicalPearls?.forEach(pearl => {
+            item.rationale?.clinicalPearls?.forEach(pearl => {
                 pearls.push({ itemIndex: i + 1, pearl });
             });
         });
@@ -50,21 +50,21 @@ export default function StudyCompanion({ items, scores }: StudyCompanionProps) {
 
     const allTraps = useMemo((): CollectedTrap[] => {
         return answeredItems
-            .filter(item => item.rationale.questionTrap)
+            .filter(item => item.rationale?.questionTrap)
             .map((item, i) => ({
                 itemIndex: i + 1,
                 stem: item.stem.substring(0, 80) + (item.stem.length > 80 ? '...' : ''),
-                trap: item.rationale.questionTrap!,
+                trap: item.rationale!.questionTrap!,
                 wasCorrect: scores[item.id] >= item.scoring.maxPoints,
             }));
     }, [answeredItems, scores]);
 
     const allMnemonics = useMemo((): CollectedMnemonic[] => {
         return answeredItems
-            .filter(item => item.rationale.mnemonic)
+            .filter(item => item.rationale?.mnemonic)
             .map((item, i) => ({
                 itemIndex: i + 1,
-                mnemonic: item.rationale.mnemonic!,
+                mnemonic: item.rationale!.mnemonic!,
                 flipped: false,
             }));
     }, [answeredItems]);
