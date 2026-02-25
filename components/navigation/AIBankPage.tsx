@@ -133,7 +133,7 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
     const [filterCategory, setFilterCategory] = useState('All');
     const [columnWidths, setColumnWidths] = useState<Record<string, number>>({
         check: 60,
-        id: 140,
+        id: 180, // Increased default width for full ID
         type: 120,
         topic: 200,
         lvl: 80,
@@ -176,37 +176,76 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
     // Simplified Filters - Strict Equality to prevent casing mismatches
     // Simplified Filters - Robust normalization
     const itemTypes = useMemo(() => {
-        const types = items.map(i => i?.type).filter(Boolean);
-        return ['All', ...Array.from(new Set(types)) as string[]].sort();
+        const raw = items.map(i => i?.type);
+        const hasBlank = raw.some(v => !v);
+        const unique = Array.from(new Set(raw.filter(Boolean))).sort();
+        return ['All', ...unique, ...(hasBlank ? ['Blank / ?'] : [])];
     }, [items]);
-    const difficulties = useMemo(() => ['All', ...Array.from(new Set(items.map(i => i?.pedagogy?.difficulty?.toString()).filter(Boolean))) as string[]].sort(), [items]);
-    const bloomLevels = useMemo(() => ['All', ...Array.from(new Set(items.map(i => i?.pedagogy?.bloomLevel).filter(Boolean))) as string[]].sort(), [items]);
-    const cjmmSteps = useMemo(() => ['All', ...Array.from(new Set(items.map(i => i?.pedagogy?.cjmmStep).filter(Boolean))) as string[]].sort(), [items]);
-    const categories = useMemo(() => ['All', ...Array.from(new Set(items.map(i => i?.pedagogy?.nclexCategory).filter(Boolean))) as string[]].sort(), [items]);
+
+    const difficulties = useMemo(() => {
+        const raw = items.map(i => i?.pedagogy?.difficulty?.toString());
+        const hasBlank = raw.some(v => !v);
+        const unique = Array.from(new Set(raw.filter(Boolean))).sort((a, b) => Number(a) - Number(b));
+        return ['All', ...unique, ...(hasBlank ? ['Blank / ?'] : [])];
+    }, [items]);
+
+    const bloomLevels = useMemo(() => {
+        const raw = items.map(i => i?.pedagogy?.bloomLevel);
+        const hasBlank = raw.some(v => !v);
+        const unique = Array.from(new Set(raw.filter(Boolean))).sort();
+        return ['All', ...unique, ...(hasBlank ? ['Blank / ?'] : [])];
+    }, [items]);
+
+    const cjmmSteps = useMemo(() => {
+        const raw = items.map(i => i?.pedagogy?.cjmmStep);
+        const hasBlank = raw.some(v => !v);
+        const unique = Array.from(new Set(raw.filter(Boolean))).sort();
+        return ['All', ...unique, ...(hasBlank ? ['Blank / ?'] : [])];
+    }, [items]);
+
+    const categories = useMemo(() => {
+        const raw = items.map(i => i?.pedagogy?.nclexCategory);
+        const hasBlank = raw.some(v => !v);
+        const unique = Array.from(new Set(raw.filter(Boolean))).sort();
+        return ['All', ...unique, ...(hasBlank ? ['Blank / ?'] : [])];
+    }, [items]);
 
     const sortedItems = useMemo(() => {
         const filtered = items.filter(item => {
             if (!item) return false;
 
-            const safeId = item.id || '';
             const searchLower = (search || '').toLowerCase();
+            const fullText = [
+                item.id || '',
+                item.type || '',
+                item.stem || '',
+                item.itemContext?.patient?.diagnosis || '',
+                ...(item.pedagogy?.topicTags || []),
+                item.rationale?.correct || '',
+                item.pedagogy?.nclexCategory || ''
+            ].join(' ').toLowerCase();
 
-            // Search Logic
-            const matchesSearch = safeId.toLowerCase().includes(searchLower) ||
-                (item.pedagogy?.topicTags || []).some(t => (t || '').toLowerCase().includes(searchLower));
+            // Robust Search
+            const matchesSearch = !searchLower || fullText.includes(searchLower);
 
-            // Accurate Filter Comparisons
-            const itemType = item.type || '';
-            const matchesType = filterType === 'All' || itemType.toLowerCase() === filterType.toLowerCase();
+            // Accurate Filter Comparisons with Blank Detection
+            const matchesType = filterType === 'All' ||
+                (filterType === 'Blank / ?' ? !item.type : item.type?.toLowerCase() === filterType.toLowerCase());
 
-            const matchesDifficulty = filterDifficulty === 'All' || item.pedagogy?.difficulty?.toString() === filterDifficulty;
+            const matchesDifficulty = filterDifficulty === 'All' ||
+                (filterDifficulty === 'Blank / ?' ? !item.pedagogy?.difficulty : item.pedagogy?.difficulty?.toString() === filterDifficulty);
 
             const itemStatus = item.status || (items.indexOf(item) % 3 === 0 ? 'draft' : 'live');
             const matchesStatus = filterStatus === 'All' || itemStatus === filterStatus;
 
-            const matchesBloom = filterBloom === 'All' || (item.pedagogy?.bloomLevel || '').toLowerCase() === filterBloom.toLowerCase();
-            const matchesCJMM = filterCJMM === 'All' || (item.pedagogy?.cjmmStep || '').toLowerCase() === filterCJMM.toLowerCase();
-            const matchesCategory = filterCategory === 'All' || (item.pedagogy?.nclexCategory || '').toLowerCase() === filterCategory.toLowerCase();
+            const matchesBloom = filterBloom === 'All' ||
+                (filterBloom === 'Blank / ?' ? !item.pedagogy?.bloomLevel : item.pedagogy?.bloomLevel?.toLowerCase() === filterBloom.toLowerCase());
+
+            const matchesCJMM = filterCJMM === 'All' ||
+                (filterCJMM === 'Blank / ?' ? !item.pedagogy?.cjmmStep : item.pedagogy?.cjmmStep?.toLowerCase() === filterCJMM.toLowerCase());
+
+            const matchesCategory = filterCategory === 'All' ||
+                (filterCategory === 'Blank / ?' ? !item.pedagogy?.nclexCategory : item.pedagogy?.nclexCategory?.toLowerCase() === filterCategory.toLowerCase());
 
             return matchesSearch && matchesType && matchesDifficulty && matchesStatus && matchesBloom && matchesCJMM && matchesCategory;
         });
@@ -406,6 +445,16 @@ Failed: ${report.failed}`);
         setIsLoading(false);
     };
 
+    const resetFilters = () => {
+        setSearch('');
+        setFilterType('All');
+        setFilterDifficulty('All');
+        setFilterStatus('All');
+        setFilterBloom('All');
+        setFilterCJMM('All');
+        setFilterCategory('All');
+    };
+
     return (
         <div className="bank-container">
             <div className="dashboard-summary">
@@ -450,60 +499,80 @@ Failed: ${report.failed}`);
                         <button className="back-btn" onClick={onExit}>←</button>
                         <h1>Item Bank <span style={{ fontSize: '0.8rem', opacity: 0.5, marginLeft: '10px', fontWeight: 'normal' }}>Filter: {filterType}</span></h1>
                     </div>
+                    <div className="command-center-box">
+                        <div className="command-header">
+                            <span className="command-icon">⚡</span>
+                            <div>
+                                <h3>SENTINEL v2.0 COMMAND CENTER</h3>
+                                <p>NGN 2026 Logic Enforcement & Cloud Sync</p>
+                            </div>
+                        </div>
+                        <div className="command-actions">
+                            <button
+                                className="qa-scan-btn highlight"
+                                onClick={runFullScan}
+                                disabled={isScanning || items.length === 0}
+                            >
+                                {isScanning ? '⏳ SCANNING...' : '🛡️ RUN QA SCAN (ALL)'}
+                            </button>
+                            <button className="command-btn repair" onClick={handleRepairAll}>
+                                🪄 GLOBAL AUTO-REPAIR
+                            </button>
+                            <button className="command-btn deep-action" onClick={handleBulkDeepAIFix}>
+                                🔬 AI DEEP CLINICAL HEAL
+                            </button>
+                        </div>
+                    </div>
+
                     <div className="bank-controls">
-                        <div className="search-box">
-                            <span className="search-icon">🔍</span>
-                            <input
-                                type="text"
-                                placeholder="Search items..."
-                                value={search}
-                                onChange={(e) => setSearch(e.target.value)}
-                            />
-                            {search && <button className="clear-search" onClick={() => setSearch('')}>✕</button>}
+                        <div className="search-group">
+                            <div className="search-box">
+                                <span className="search-icon">🔍</span>
+                                <input
+                                    type="text"
+                                    placeholder="Search by ID, Topic, Diagnosis, or Category..."
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                />
+                                {search && <button className="clear-search" onClick={() => setSearch('')}>✕</button>}
+                            </div>
+                            <button className="reset-btn" onClick={resetFilters} title="Reset all filters">↺ Reset</button>
                         </div>
 
                         <div className="header-actions">
-                            <button className="action-btn theme-toggle-btn" onClick={onToggleTheme} title="Toggle Day/Night Mode">
-                                {theme === 'dark' ? '☀️ Day Mode' : '🌙 Night Mode'}
+                            <button className="action-btn theme-toggle-btn" onClick={onToggleTheme}>
+                                {theme === 'dark' ? '☀️ Day' : '🌙 Night'}
                             </button>
-                            <button className="action-btn refresh" onClick={refreshData} title="Refresh Data">🔄</button>
-                            <button
-                                className="qa-scan-btn"
-                                onClick={runFullScan}
-                                disabled={isScanning || items.length === 0}
-                                title="Run SentinelQA Scan"
-                            >
-                                {isScanning ? '⏳ Scanning...' : '🛡️ Scan QA'}
-                            </button>
-                            <button className="repair-btn" onClick={handleRepairAll}>🪄 Repair All</button>
+                            <button className="action-btn refresh" onClick={refreshData}>🔄</button>
                             <button className="action-btn primary">+ New Item</button>
                         </div>
 
                         <div className="filter-group">
                             <select value={filterType} onChange={(e) => setFilterType(e.target.value)} className="bank-filter">
                                 <option value="All">All Types</option>
-                                {itemTypes.filter(t => t !== 'All').map(t => <option key={t} value={t}>{t}</option>)}
+                                {itemTypes.map(t => <option key={t} value={t}>{t}</option>)}
                             </select>
                             <select value={filterDifficulty} onChange={(e) => setFilterDifficulty(e.target.value)} className="bank-filter">
-                                <option value="All">All Levels</option>
-                                {difficulties.filter(d => d !== 'All').map(d => <option key={d} value={d}>Level {d}</option>)}
+                                <option value="All">All Difficulties</option>
+                                {difficulties.map(d => <option key={d} value={d}>{d === 'Blank / ?' ? d : `Level ${d}`}</option>)}
                             </select>
                             <select value={filterBloom} onChange={(e) => setFilterBloom(e.target.value)} className="bank-filter">
-                                <option value="All">All Cognitive Depths</option>
-                                {bloomLevels.filter(b => b !== 'All').map(b => <option key={b} value={b}>{b}</option>)}
+                                <option value="All">All Bloom Levels</option>
+                                {bloomLevels.map(b => <option key={b} value={b}>{b}</option>)}
                             </select>
                             <select value={filterCJMM} onChange={(e) => setFilterCJMM(e.target.value)} className="bank-filter">
-                                <option value="All">All Clinical Processes</option>
-                                {cjmmSteps.filter(s => s !== 'All').map(s => <option key={s} value={s}>{s}</option>)}
+                                <option value="All">All CJMM Steps</option>
+                                {cjmmSteps.map(s => <option key={s} value={s}>{s}</option>)}
                             </select>
                             <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)} className="bank-filter">
-                                <option value="All">All Competencies</option>
-                                {categories.filter(c => c !== 'All').map(c => <option key={c} value={c}>{c}</option>)}
+                                <option value="All">All NCLEX Categories</option>
+                                {categories.map(c => <option key={c} value={c}>{c}</option>)}
                             </select>
                             <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)} className="bank-filter">
                                 <option value="All">All Status</option>
                                 <option value="draft">Draft</option>
                                 <option value="live">Live</option>
+                                <option value="Blank / ?">Blank / ?</option>
                             </select>
                         </div>
                     </div>
@@ -611,6 +680,7 @@ Failed: ${report.failed}`);
                                             <a
                                                 href={`#/item/${item.id}`}
                                                 className="link-text"
+                                                style={{ fontSize: '0.68rem', wordBreak: 'break-all', display: 'block' }}
                                                 onClick={(e) => {
                                                     if (e.button === 0 && !e.ctrlKey && !e.metaKey) {
                                                         e.preventDefault();
@@ -618,7 +688,7 @@ Failed: ${report.failed}`);
                                                     }
                                                 }}
                                             >
-                                                {item.id.length > 15 ? item.id.substring(0, 12) + '...' : item.id}
+                                                {item.id}
                                             </a>
                                         </td>
                                         <td className="col-type">
@@ -825,11 +895,57 @@ Failed: ${report.failed}`);
 
                 .bank-controls { 
                     display: flex; 
-                    justify-content: space-between; 
-                    align-items: center; 
-                    gap: 20px;
-                    flex-wrap: wrap; 
+                    flex-direction: column;
+                    gap: 15px;
+                    margin-bottom: 25px;
                 }
+
+                .command-center-box {
+                    background: linear-gradient(135deg, #0f172a, #1e293b);
+                    border: 2px solid #334155;
+                    border-radius: 20px;
+                    padding: 24px;
+                    margin-bottom: 25px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    color: white;
+                    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+                }
+                .command-header { display: flex; align-items: center; gap: 15px; }
+                .command-icon { font-size: 2rem; }
+                .command-header h3 { margin: 0; font-size: 1.1rem; font-weight: 900; letter-spacing: 0.1em; color: #cbd5e1; }
+                .command-header p { margin: 0; font-size: 0.75rem; color: #94a3b8; font-weight: 600; }
+                
+                .command-actions { display: flex; gap: 12px; }
+                .command-btn {
+                    padding: 12px 24px;
+                    border-radius: 14px;
+                    font-weight: 900;
+                    font-size: 0.8rem;
+                    cursor: pointer;
+                    border: none;
+                    transition: all 0.23s cubic-bezier(0.4, 0, 0.2, 1);
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                }
+                .command-btn.repair { background: #3b82f6; color: white; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
+                .command-btn.deep-action { background: #10b981; color: white; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); }
+                .command-btn:hover { transform: translateY(-3px) scale(1.02); filter: brightness(1.15); }
+
+                .search-group { display: flex; gap: 12px; align-items: center; }
+                .reset-btn {
+                    padding: 10px 18px;
+                    background: var(--bg-card);
+                    border: 1.5px solid var(--border);
+                    color: var(--muted-text);
+                    border-radius: 12px;
+                    font-weight: 800;
+                    font-size: 0.85rem;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+                .reset-btn:hover { border-color: var(--primary); color: var(--primary); background: var(--panel-bg); }
                 
                 .search-box {
                     display: flex; align-items: center; gap: 10px;
