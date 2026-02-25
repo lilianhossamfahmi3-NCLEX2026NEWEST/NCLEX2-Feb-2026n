@@ -1,0 +1,147 @@
+[
+    {
+        "masterId": "NCLEX-2026-MISSION-500-26-1771957067669",
+        "itemType": "chartExhibit",
+        "category": "chartExhibit",
+        "topic": "Acute Respiratory Distress Syndrome (ARDS)",
+        "difficulty": "4-5",
+        "stem": "The healthcare team is evaluating the client's condition. Based on the provided information, determine which interventions are indicated and complete the statements.",
+        "clientData": {
+            "age": "62",
+            "gender": "Male",
+            "medicalHistory": [
+                "Hypertension",
+                "Type 2 Diabetes Mellitus",
+                "Pneumonia (resolved 3 weeks ago)"
+            ],
+            "currentMedications": [
+                "Metformin 500 mg PO BID",
+                "Lisinopril 20 mg PO daily"
+            ]
+        },
+        "itemContext": {
+            "SBAR": "14:00.\nSituation: Mr. Johnson, a 62-year-old male, is experiencing increased respiratory distress. He was admitted 24 hours ago for observation following a recent pneumonia diagnosis. \nBackground: Mr. Johnson has a history of hypertension and type 2 diabetes. He completed a course of antibiotics for pneumonia three weeks ago. He initially presented with a productive cough and shortness of breath, which seemed to resolve with treatment. \nAssessment: The patient is currently exhibiting labored breathing, with an increased respiratory rate of 32 breaths per minute. Oxygen saturation is 88% on 2L nasal cannula. Auscultation reveals diffuse crackles bilaterally. He is alert but anxious. Recent chest X-ray shows bilateral infiltrates. ABG: pH 7.30, PaCO2 55 mmHg, PaO2 55 mmHg, HCO3 24 mEq/L. \nRecommendation: I recommend immediate intervention, including increasing oxygen support and considering mechanical ventilation. Further evaluation for ARDS is warranted. Please assess and advise.",
+            "Labs": {
+                "ABG": {
+                    "pH": "7.30",
+                    "PaCO2": "55 mmHg",
+                    "PaO2": "55 mmHg",
+                    "HCO3": "24 mEq/L",
+                    "SaO2": "88%"
+                },
+                "CBC": {
+                    "WBC": "12,000/mm3",
+                    "Hemoglobin": "14 g/dL",
+                    "Platelets": "250,000/mm3"
+                },
+                "CMP": {
+                    "Glucose": "180 mg/dL",
+                    "Sodium": "140 mEq/L",
+                    "Potassium": "4.0 mEq/L"
+                }
+            },
+            "Vitals": {
+                "Heart Rate": "110 bpm",
+                "Respiratory Rate": "32 breaths/min",
+                "Blood Pressure": "150/90 mmHg",
+                "Temperature": "38.5°C (101.3°F)",
+                "SpO2": "88% on 2L nasal cannula"
+            },
+            "Radiology": {
+                "Chest X-Ray": "Bilateral infiltrates"
+            },
+            "MAR": [
+                "Metformin 500 mg PO BID",
+                "Lisinopril 20 mg PO daily",
+                "Oxygen 2L via nasal cannula"
+            ]
+        },
+        "interactions": [
+            {
+                "interactionType": "SATA",
+                "prompt": "Based on the client's condition, select all interventions that are indicated:",
+                "options": [
+                    {
+                        "id": "a",
+                        "text": "Administering a bolus of intravenous fluids.",
+                        "correct": false,
+                        "rationale": "While fluid balance is important, a bolus of intravenous fluids can worsen pulmonary edema in ARDS by increasing hydrostatic pressure in the pulmonary capillaries, potentially exacerbating fluid leakage into the alveoli. This can lead to further impairment of gas exchange."
+                    },
+                    {
+                        "id": "b",
+                        "text": "Initiating mechanical ventilation.",
+                        "correct": true,
+                        "rationale": "The client's ABG results (pH 7.30, PaCO2 55 mmHg, PaO2 55 mmHg) indicate respiratory acidosis and hypoxemia, suggesting the client is unable to maintain adequate gas exchange spontaneously. Mechanical ventilation is often necessary to support oxygenation and ventilation in ARDS."
+                    },
+                    {
+                        "id": "c",
+                        "text": "Administering furosemide intravenously.",
+                        "correct": false,
+                        "rationale": "Furosemide is a diuretic and would primarily be used for fluid overload. Although pulmonary edema may be present in ARDS, the underlying issue is increased permeability of the alveolar-capillary membrane. Diuretics are not the primary treatment."
+                    },
+                    {
+                        "id": "d",
+                        "text": "Repositioning the client in the prone position.",
+                        "correct": true,
+                        "rationale": "Prone positioning has been shown to improve oxygenation in ARDS by redistributing lung perfusion and ventilation, reducing compression of the dorsal lung regions, and improving alveolar recruitment. This can lead to improved gas exchange and reduced intrapulmonary shunting."
+                    },
+                    {
+                        "id": "e",
+                        "text": "Increasing oxygen flow rate to 6L via nasal cannula.",
+                        "correct": false,
+                        "rationale": "Increasing the oxygen flow rate via nasal cannula may not be sufficient to correct the client's hypoxemia. The client's SpO2 is only 88% on 2L, and ARDS often requires higher levels of oxygen support than can be delivered via nasal cannula. Furthermore, high flow nasal cannula can also be considered as an alternative before intubation.",
+                        "distractorRationale": "While increasing oxygen delivery is important, a nasal cannula is unlikely to provide adequate support to correct the hypoxemia."
+                    },
+                    {
+                        "id": "f",
+                        "text": "Preparing for endotracheal intubation.",
+                        "correct": true,
+                        "rationale": "Given the client's deteriorating respiratory status, as evidenced by the ABG results and SpO2, endotracheal intubation may be necessary to provide adequate respiratory support. Intubation allows for precise control of ventilation and oxygenation, facilitating lung protective strategies."
+                    }
+                ],
+                "scoringRule": "polytomous"
+            },
+            {
+                "interactionType": "bowtie",
+                "prompt": "Identify the client's primary condition, two actions the nurse should take, and two potential complications.",
+                "predefinedConditions": [
+                    "Pneumonia",
+                    "COPD Exacerbation",
+                    "Acute Respiratory Distress Syndrome (ARDS)",
+                    "Pulmonary Embolism",
+                    "Pneumothorax"
+                ],
+                "predefinedActions": [
+                    "Administer bronchodilators",
+                    "Increase oxygen delivery",
+                    "Prepare for intubation",
+                    "Administer antibiotics",
+                    "Reposition patient",
+                    "Monitor fluid balance",
+                    "Initiate prone positioning"
+                ],
+                "predefinedComplications": [
+                    "Sepsis",
+                    "Pneumonia",
+                    "Hypotension",
+                    "Barotrauma",
+                    "Ventilator-associated pneumonia (VAP)",
+                    "Multi-organ failure",
+                    "Pulmonary fibrosis"
+                ],
+                "correctPath": {
+                    "condition": "Acute Respiratory Distress Syndrome (ARDS)",
+                    "action1": "Prepare for intubation",
+                    "action2": "Initiate prone positioning",
+                    "complication1": "Barotrauma",
+                    "complication2": "Ventilator-associated pneumonia (VAP)"
+                },
+                "scoringRule": "linkedDyadTriad"
+            }
+        ],
+        "rationale": "The client's presentation, including bilateral infiltrates on chest X-ray, hypoxemia unresponsive to supplemental oxygen, and the presence of risk factors such as recent pneumonia, is highly suggestive of ARDS.  Mechanical ventilation is indicated to support oxygenation and ventilation. Prone positioning is implemented to improve oxygenation. Potential complications of ARDS and its treatment include barotrauma from mechanical ventilation and ventilator-associated pneumonia.",
+        "clinicalPearls": "ARDS is characterized by non-cardiogenic pulmonary edema and refractory hypoxemia. Early recognition and intervention, including lung-protective ventilation strategies, are crucial for improving outcomes. Prone positioning, neuromuscular blockade, and careful fluid management are important adjuncts to mechanical ventilation.",
+        "questionTrap": "Many students might be tempted to select 'Administer a bolus of intravenous fluids' thinking it will help with perfusion, but this can worsen pulmonary edema in ARDS. Recognizing the underlying pathophysiology of increased alveolar-capillary permeability is key.",
+        "mnemonic": "ARDS: Alveolar damage, Refractory hypoxemia, Decreased lung compliance, Severe inflammatory response."
+    }
+]

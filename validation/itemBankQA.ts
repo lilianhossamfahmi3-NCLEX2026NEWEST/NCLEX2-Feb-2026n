@@ -1,18 +1,22 @@
 /**
  * NCLEX-RN NGN Clinical Simulator — Item Bank Quality Assurance Engine
- * "SentinelQA" — Automated Item Integrity Verification System
+ * "SentinelQA v2.0" — Automated Item Integrity Verification System
  *
- * Validates every item in the vault across 8 QA dimensions:
- *   1. Completeness       — Are all required fields present?
- *   2. Type Structure     — Does the item match its declared type schema?
- *   3. Scoring Accuracy   — Are scoring rules correct & maxPoints consistent?
- *   4. Pedagogy           — Are bloom/CJMM/NCLEX category/difficulty valid?
- *   5. Rationale Quality  — Are correct/incorrect rationale & review units present?
- *   6. Option Logic       — Do options, correctOptionId, correctOptionIds, blanks match?
- *   7. Data References    — Are labs/meds/imaging references realistic?
- *   8. Error Detection    — No "System Diagnostic Error", empty strings, NaN, etc.
+ * Validates every item in the vault across 12 QA dimensions:
+ *   1. Completeness        — Are all required fields present?
+ *   2. Type Structure      — Does the item match its declared type schema?
+ *   3. Scoring Accuracy    — Are scoring rules correct & maxPoints consistent?
+ *   4. Pedagogy            — Are bloom/CJMM/NCLEX category/difficulty valid?
+ *   5. Rationale Quality   — Are correct/incorrect rationale deep & specific? (anti-filler)
+ *   6. Option Logic        — Do options, correctOptionId, correctOptionIds, blanks match?
+ *   7. Data References     — Are labs/meds/imaging references realistic?
+ *   8. Error Detection     — No "System Diagnostic Error", empty strings, NaN, etc.
+ *   9. Isolation & Allergy — Isolation type matches diagnosis, allergy vs MAR cross-ref.
+ *  10. SBAR Specificity    — No generic nurses' notes; all content must be patient-specific.
+ *  11. EHR Sync            — Stem references (labs/meds/vitals) must appear in EHR tabs.
+ *  12. Study Companion     — clinicalPearls, questionTrap, mnemonic, answerBreakdown present & quality.
  *
- * MISSION 500 COMPLIANCE: Includes deep-fix ability using Gemini Pro and 2026 Standards.
+ * This system REPLACES all previous QA systems.
  */
 
 // Types are imported at runtime from master.ts via the items passed in
@@ -39,7 +43,11 @@ export type QADimension =
     | 'rationaleQuality'
     | 'optionLogic'
     | 'dataReferences'
-    | 'errorDetection';
+    | 'errorDetection'
+    | 'isolationAllergy'
+    | 'sbarSpecificity'
+    | 'ehrSync'
+    | 'studyCompanion';
 
 export type QAVerdict = 'pass' | 'warn' | 'fail';
 
@@ -571,6 +579,262 @@ function checkErrorDetection(item: any): QADiagnostic[] {
 }
 
 // ═══════════════════════════════════════════════════════════
+//  Dimension 9: Isolation & Allergy Cross-Reference
+// ═══════════════════════════════════════════════════════════
+
+const AIRBORNE_CONDITIONS = ['tuberculosis', 'tb', 'measles', 'varicella', 'chickenpox', 'disseminated zoster', 'disseminated herpes zoster', 'smallpox', 'sars', 'covid'];
+const CONTACT_CONDITIONS = ['mrsa', 'c. diff', 'c.diff', 'clostridium difficile', 'clostridioides difficile', 'vre', 'scabies', 'rsv', 'rotavirus', 'impetigo', 'lice', 'cdiff'];
+const DROPLET_CONDITIONS = ['influenza', 'flu', 'meningococcal', 'pertussis', 'whooping cough', 'mumps', 'rubella', 'pneumonic plague', 'adenovirus', 'rhinovirus', 'streptococcal pharyngitis'];
+
+const PENICILLIN_FAMILY = ['penicillin', 'amoxicillin', 'ampicillin', 'piperacillin', 'nafcillin', 'oxacillin', 'dicloxacillin', 'augmentin', 'unasyn', 'zosyn'];
+const SULFA_FAMILY = ['sulfamethoxazole', 'sulfasalazine', 'bactrim', 'septra', 'trimethoprim-sulfamethoxazole'];
+const CEPHALOSPORIN_FAMILY = ['cephalexin', 'ceftriaxone', 'cefazolin', 'cefepime', 'ceftazidime', 'cefdinir', 'cefuroxime', 'keflex', 'rocephin', 'ancef'];
+const NSAID_FAMILY = ['ibuprofen', 'naproxen', 'ketorolac', 'aspirin', 'indomethacin', 'diclofenac', 'celecoxib', 'meloxicam', 'motrin', 'advil', 'aleve', 'toradol'];
+
+function checkIsolationAllergy(item: any): QADiagnostic[] {
+    const diags: QADiagnostic[] = [];
+    const dim: QADimension = 'isolationAllergy';
+
+    // Gather all text from item for keyword scanning
+    const allText = [
+        item.stem || '',
+        item.rationale?.correct || '',
+        item.rationale?.incorrect || '',
+        ...(item.itemContext?.tabs?.map((t: any) => t.content || t.text || '') || []),
+        item.itemContext?.sbar || '',
+    ].join(' ').toLowerCase();
+
+    // === ISOLATION CHECK ===
+    const isAirborne = AIRBORNE_CONDITIONS.some(c => allText.includes(c));
+    const isContact = CONTACT_CONDITIONS.some(c => allText.includes(c));
+    const isDroplet = DROPLET_CONDITIONS.some(c => allText.includes(c));
+
+    if (isAirborne || isContact || isDroplet) {
+        // Item involves an infectious condition — check if isolation is set
+        const itemIso = (item.itemContext?.patient?.iso || item.clinicalData?.patient?.iso || '').toLowerCase();
+        const expectedIso = isAirborne ? 'airborne' : isContact ? 'contact' : 'droplet';
+
+        if (!itemIso || itemIso === 'standard' || itemIso === 'none') {
+            diags.push({
+                dimension: dim,
+                severity: 'warning',
+                code: 'ISO-001',
+                message: `Infectious condition detected (${expectedIso} precautions needed) but isolation is not set or set to Standard.`,
+                field: 'patient.iso'
+            });
+        } else if (!itemIso.includes(expectedIso)) {
+            diags.push({
+                dimension: dim,
+                severity: 'warning',
+                code: 'ISO-002',
+                message: `Expected ${expectedIso} isolation but found "${itemIso}".`,
+                field: 'patient.iso'
+            });
+        }
+    }
+
+    // === ALLERGY CROSS-REFERENCE ===
+    const allergies = item.itemContext?.patient?.allergies || item.clinicalData?.patient?.allergies || [];
+    const allergyText = (Array.isArray(allergies) ? allergies.join(' ') : String(allergies)).toLowerCase();
+
+    // Gather medications from stem, MAR, itemContext
+    const medText = [
+        item.stem || '',
+        ...(item.itemContext?.tabs?.filter((t: any) => t.id === 'mar' || t.id === 'medications')?.map((t: any) => t.content || t.text || '') || []),
+    ].join(' ').toLowerCase();
+
+    // Cross-reference allergy families
+    if (allergyText.includes('penicillin') && PENICILLIN_FAMILY.some(m => medText.includes(m))) {
+        diags.push({ dimension: dim, severity: 'critical', code: 'ALLERGY-001', message: 'CRITICAL: Penicillin allergy documented but penicillin-family drug found in MAR/stem.', field: 'allergies' });
+    }
+    if (allergyText.includes('sulfa') && SULFA_FAMILY.some(m => medText.includes(m))) {
+        diags.push({ dimension: dim, severity: 'critical', code: 'ALLERGY-002', message: 'CRITICAL: Sulfa allergy documented but sulfa drug found in MAR/stem.', field: 'allergies' });
+    }
+    if ((allergyText.includes('nsaid') || allergyText.includes('ibuprofen') || allergyText.includes('aspirin')) && NSAID_FAMILY.some(m => medText.includes(m))) {
+        diags.push({ dimension: dim, severity: 'critical', code: 'ALLERGY-003', message: 'CRITICAL: NSAID allergy documented but NSAID found in MAR/stem.', field: 'allergies' });
+    }
+    if (allergyText.includes('cephalosporin') && CEPHALOSPORIN_FAMILY.some(m => medText.includes(m))) {
+        diags.push({ dimension: dim, severity: 'warning', code: 'ALLERGY-004', message: 'Cephalosporin allergy documented and cephalosporin found in MAR/stem. Consider cross-reactivity.', field: 'allergies' });
+    }
+
+    return diags;
+}
+
+// ═══════════════════════════════════════════════════════════
+//  Dimension 10: SBAR Specificity (Anti-Generic)
+// ═══════════════════════════════════════════════════════════
+
+const GENERIC_SBAR_PHRASES = [
+    'hx of priority clinical concerns relevant to current admission',
+    'initial assessment confirms findings described in question stem',
+    'monitor vitals and response to interventions',
+    'patient evaluated for acute status changes',
+    'continue to monitor and reassess',
+    'continue current treatment',
+    'patient tolerated procedure well',
+    'no acute changes noted',
+    'findings consistent with diagnosis',
+    'assessment findings as expected',
+    'continue to assess and manage appropriately',
+    'patient resting comfortably',
+    'nursing interventions initiated per protocol',
+    'recommendation: continue plan of care',
+];
+
+function checkSbarSpecificity(item: any): QADiagnostic[] {
+    const diags: QADiagnostic[] = [];
+    const dim: QADimension = 'sbarSpecificity';
+
+    // Gather SBAR content
+    const sbarSources = [
+        item.itemContext?.sbar,
+        ...(item.itemContext?.tabs?.filter((t: any) => t.id === 'sbar' || t.id === 'notes' || (t.title && t.title.toLowerCase().includes('nurse')))?.map((t: any) => t.content || t.text || '') || []),
+    ].filter(Boolean);
+
+    if (sbarSources.length === 0) return diags; // No SBAR to check
+
+    const sbarText = sbarSources.join(' ').toLowerCase();
+
+    // Check for generic phrases
+    for (const phrase of GENERIC_SBAR_PHRASES) {
+        if (sbarText.includes(phrase)) {
+            diags.push({
+                dimension: dim,
+                severity: 'warning',
+                code: 'SBAR-GENERIC',
+                message: `Generic SBAR content detected: "${phrase.substring(0, 50)}...". Must be replaced with clinically specific data.`,
+                field: 'itemContext.sbar'
+            });
+        }
+    }
+
+    // Check for specific clinical values (numbers, vital signs, lab values)
+    const hasSpecificData = /\d{2,3}\/\d{2,3}|\d+\.\d+|\d+ ?mg|\d+ ?mEq|\d+%|HR \d+|BP \d+|SpO2|pH \d/.test(sbarText);
+    if (!hasSpecificData && sbarText.length > 50) {
+        diags.push({
+            dimension: dim,
+            severity: 'info',
+            code: 'SBAR-NO-VALUES',
+            message: 'SBAR notes contain no specific clinical values (vitals, labs, doses). Consider adding concrete numbers.',
+            field: 'itemContext.sbar'
+        });
+    }
+
+    return diags;
+}
+
+// ═══════════════════════════════════════════════════════════
+//  Dimension 11: EHR Clinical Data Synchronization
+// ═══════════════════════════════════════════════════════════
+
+const LAB_KEYWORDS = ['potassium', 'sodium', 'creatinine', 'bun', 'glucose', 'hemoglobin', 'hgb', 'wbc', 'platelets', 'troponin', 'bnp', 'lactate', 'magnesium', 'calcium', 'inr', 'ptt', 'hba1c', 'd-dimer', 'ph', 'paco2', 'pao2', 'bicarbonate', 'hco3', 'albumin', 'bilirubin', 'ast', 'alt', 'ammonia'];
+const MED_KEYWORDS = ['heparin', 'warfarin', 'insulin', 'metformin', 'lisinopril', 'metoprolol', 'furosemide', 'lasix', 'morphine', 'hydromorphone', 'lorazepam', 'digoxin', 'amiodarone', 'dopamine', 'norepinephrine', 'vasopressin', 'nitroglycerin', 'epinephrine', 'atropine', 'naloxone', 'flumazenil', 'vancomycin', 'levothyroxine', 'prednisone', 'dexamethasone'];
+
+function checkEhrSync(item: any): QADiagnostic[] {
+    const diags: QADiagnostic[] = [];
+    const dim: QADimension = 'ehrSync';
+
+    const stemAndOptions = [
+        item.stem || '',
+        ...(item.options?.map((o: any) => o.text || '') || []),
+    ].join(' ').toLowerCase();
+
+    // Get tab IDs that exist
+    const tabIds = new Set(
+        (item.itemContext?.tabs?.map((t: any) => (t.id || t.title || '').toLowerCase()) || [])
+    );
+    const allTabContent = (item.itemContext?.tabs?.map((t: any) => (t.content || t.text || '').toLowerCase()) || []).join(' ');
+
+    // Check: Lab values mentioned in stem but no labs tab
+    const mentionedLabs = LAB_KEYWORDS.filter(kw => stemAndOptions.includes(kw));
+    if (mentionedLabs.length > 0 && !tabIds.has('labs') && !tabIds.has('lab diagnostics') && !tabIds.has('laboratory')) {
+        // Check if labs appear in any tab content
+        const labsInContent = mentionedLabs.some(l => allTabContent.includes(l));
+        if (!labsInContent) {
+            diags.push({
+                dimension: dim,
+                severity: 'warning',
+                code: 'EHR-LAB-MISS',
+                message: `Stem references labs (${mentionedLabs.slice(0, 3).join(', ')}) but no Labs data found in EHR tabs.`,
+                field: 'itemContext.tabs'
+            });
+        }
+    }
+
+    // Check: Medications mentioned in stem but no MAR tab
+    const mentionedMeds = MED_KEYWORDS.filter(kw => stemAndOptions.includes(kw));
+    if (mentionedMeds.length > 0 && !tabIds.has('mar') && !tabIds.has('medications') && !tabIds.has('mar console')) {
+        const medsInContent = mentionedMeds.some(m => allTabContent.includes(m));
+        if (!medsInContent) {
+            diags.push({
+                dimension: dim,
+                severity: 'warning',
+                code: 'EHR-MED-MISS',
+                message: `Stem references medications (${mentionedMeds.slice(0, 3).join(', ')}) but no MAR data found in EHR tabs.`,
+                field: 'itemContext.tabs'
+            });
+        }
+    }
+
+    return diags;
+}
+
+// ═══════════════════════════════════════════════════════════
+//  Dimension 12: Study Companion Completeness
+// ═══════════════════════════════════════════════════════════
+
+function checkStudyCompanion(item: any): QADiagnostic[] {
+    const diags: QADiagnostic[] = [];
+    const dim: QADimension = 'studyCompanion';
+    const r = item.rationale || {};
+
+    // clinicalPearls
+    if (!r.clinicalPearls || !Array.isArray(r.clinicalPearls) || r.clinicalPearls.length === 0) {
+        diags.push({ dimension: dim, severity: 'warning', code: 'SC-001', message: 'Missing clinicalPearls — Study Companion will be empty.', field: 'rationale.clinicalPearls' });
+    } else {
+        const shortPearls = r.clinicalPearls.filter((p: string) => typeof p === 'string' && p.length < 30);
+        if (shortPearls.length > 0) {
+            diags.push({ dimension: dim, severity: 'info', code: 'SC-002', message: `${shortPearls.length} clinical pearl(s) are too short (<30 chars). Should be specific and actionable.`, field: 'rationale.clinicalPearls' });
+        }
+    }
+
+    // questionTrap
+    if (!r.questionTrap) {
+        diags.push({ dimension: dim, severity: 'warning', code: 'SC-010', message: 'Missing questionTrap — students won\'t see common pitfalls.', field: 'rationale.questionTrap' });
+    } else {
+        if (!r.questionTrap.trap || r.questionTrap.trap.length < 15) {
+            diags.push({ dimension: dim, severity: 'info', code: 'SC-011', message: 'questionTrap.trap is too vague or short.', field: 'rationale.questionTrap.trap' });
+        }
+        if (!r.questionTrap.howToOvercome || r.questionTrap.howToOvercome.length < 20) {
+            diags.push({ dimension: dim, severity: 'info', code: 'SC-012', message: 'questionTrap.howToOvercome is too vague or short.', field: 'rationale.questionTrap.howToOvercome' });
+        }
+    }
+
+    // mnemonic
+    if (!r.mnemonic) {
+        diags.push({ dimension: dim, severity: 'warning', code: 'SC-020', message: 'Missing mnemonic — students lose a memory aid.', field: 'rationale.mnemonic' });
+    } else if (!r.mnemonic.title || !r.mnemonic.expansion) {
+        diags.push({ dimension: dim, severity: 'info', code: 'SC-021', message: 'Mnemonic is incomplete (missing title or expansion).', field: 'rationale.mnemonic' });
+    }
+
+    // answerBreakdown
+    if (!r.answerBreakdown || !Array.isArray(r.answerBreakdown) || r.answerBreakdown.length === 0) {
+        diags.push({ dimension: dim, severity: 'warning', code: 'SC-030', message: 'Missing answerBreakdown — rationale panel will have no per-option evidence table.', field: 'rationale.answerBreakdown' });
+    } else if (item.options && Array.isArray(item.options)) {
+        if (r.answerBreakdown.length < item.options.length) {
+            diags.push({ dimension: dim, severity: 'info', code: 'SC-031', message: `answerBreakdown has ${r.answerBreakdown.length} entries but item has ${item.options.length} options.`, field: 'rationale.answerBreakdown' });
+        }
+    }
+
+    // reviewUnits
+    if (!r.reviewUnits || !Array.isArray(r.reviewUnits) || r.reviewUnits.length === 0) {
+        diags.push({ dimension: dim, severity: 'info', code: 'SC-040', message: 'Missing reviewUnits — no educational deep-dive content.', field: 'rationale.reviewUnits' });
+    }
+
+    return diags;
+}
+
+// ═══════════════════════════════════════════════════════════
 //  Main QA Runner
 // ═══════════════════════════════════════════════════════════
 
@@ -584,12 +848,17 @@ export function runItemQA(item: any): QAItemReport {
         ...checkOptionLogic(item),
         ...checkDataReferences(item),
         ...checkErrorDetection(item),
+        ...checkIsolationAllergy(item),
+        ...checkSbarSpecificity(item),
+        ...checkEhrSync(item),
+        ...checkStudyCompanion(item),
     ];
 
     // Calculate per-dimension scores
     const dimensions: QADimension[] = [
         'completeness', 'typeStructure', 'scoringAccuracy', 'pedagogy',
         'rationaleQuality', 'optionLogic', 'dataReferences', 'errorDetection',
+        'isolationAllergy', 'sbarSpecificity', 'ehrSync', 'studyCompanion',
     ];
 
     const dimensionScores: Record<QADimension, number> = {} as any;
@@ -607,14 +876,18 @@ export function runItemQA(item: any): QAItemReport {
 
     // Overall score (weighted average)
     const weights: Record<QADimension, number> = {
-        completeness: 20,
-        typeStructure: 20,
-        scoringAccuracy: 20,
-        pedagogy: 10,
+        completeness: 15,
+        typeStructure: 15,
+        scoringAccuracy: 15,
+        pedagogy: 8,
         rationaleQuality: 10,
-        optionLogic: 10,
+        optionLogic: 8,
         dataReferences: 5,
-        errorDetection: 5,
+        errorDetection: 4,
+        isolationAllergy: 5,
+        sbarSpecificity: 5,
+        ehrSync: 5,
+        studyCompanion: 5,
     };
     const totalWeight = Object.values(weights).reduce((a, b) => a + b, 0);
     const overallScore = dimensions.reduce((sum, d) => sum + dimensionScores[d] * weights[d], 0) / totalWeight;
@@ -650,6 +923,7 @@ export function runBankQA(items: any[]): QABankReport {
     const dimensions: QADimension[] = [
         'completeness', 'typeStructure', 'scoringAccuracy', 'pedagogy',
         'rationaleQuality', 'optionLogic', 'dataReferences', 'errorDetection',
+        'isolationAllergy', 'sbarSpecificity', 'ehrSync', 'studyCompanion',
     ];
     const dimensionSummary: Record<QADimension, { passed: number; warned: number; failed: number }> = {} as any;
     for (const d of dimensions) {

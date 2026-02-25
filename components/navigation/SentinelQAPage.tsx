@@ -19,10 +19,14 @@ const DIMENSION_LABELS: Record<QADimension, { label: string; icon: string; desc:
     typeStructure: { label: 'Type Structure', icon: '🧩', desc: 'Schema matches item type' },
     scoringAccuracy: { label: 'Scoring Accuracy', icon: '🎯', desc: 'Scoring rules & maxPoints consistent' },
     pedagogy: { label: 'Pedagogy', icon: '🎓', desc: 'Bloom, CJMM, NCLEX metadata valid' },
-    rationaleQuality: { label: 'Rationale Quality', icon: '📝', desc: 'Explanations present & non-generic' },
+    rationaleQuality: { label: 'Rationale Quality', icon: '📝', desc: 'Deep pathophysiology, no generic filler' },
     optionLogic: { label: 'Option Logic', icon: '🔗', desc: 'Options, IDs, blanks are coherent' },
-    dataReferences: { label: 'Data References', icon: '🗂️', desc: 'Clinical data availability' },
+    dataReferences: { label: 'Data References', icon: '🗂️', desc: 'Clinical data & 2026 compliance' },
     errorDetection: { label: 'Error Detection', icon: '🛡️', desc: 'No error patterns or artifacts' },
+    isolationAllergy: { label: 'Isolation & Allergy', icon: '⚠️', desc: 'Isolation type per diagnosis, allergy vs MAR' },
+    sbarSpecificity: { label: 'SBAR Specificity', icon: '🏥', desc: 'No generic nurses\' notes — all specific' },
+    ehrSync: { label: 'EHR Sync', icon: '🔄', desc: 'Stem references match EHR tab data' },
+    studyCompanion: { label: 'Study Companion', icon: '📚', desc: 'Pearls, traps, mnemonics, breakdowns' },
 };
 
 const SEVERITY_CONFIG: Record<QASeverity, { color: string; bg: string; label: string }> = {
@@ -133,8 +137,8 @@ export default function SentinelQAPage({ items, onExit, theme: _theme, onSelectI
             {isRunning && (
                 <div className="qa-loading">
                     <div className="qa-spinner" />
-                    <h2>Scanning {items.length} items across 8 quality dimensions...</h2>
-                    <p>Analyzing completeness, type structure, scoring accuracy, pedagogy, rationale quality, option logic, data references, and error patterns.</p>
+                    <h2>Scanning {items.length} items across 12 quality dimensions...</h2>
+                    <p>Analyzing completeness, type structure, scoring, pedagogy, rationale depth, option logic, data references, error patterns, isolation/allergy, SBAR specificity, EHR sync, and Study Companion readiness.</p>
                 </div>
             )}
 

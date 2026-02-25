@@ -1,478 +1,440 @@
-# 🔬 NCLEX-RN NGN 2026 — AI Quality Assurance Rotator Service
+# 🔬 NCLEX-RN NGN 2026 — SENTINEL QA Rotator Service v2.0
 
-> **Codename: SENTINEL**
-> *14-Key Multi-Role Deep Audit Engine for World-Class Item Bank Integrity*
+> **Codename: SENTINEL v2.0**
+> *14-Key Multi-Role Deep Audit, Screening, Repair & Enrichment Engine*
+> *This system REPLACES all previous QA systems and is the SOLE source of truth for item quality.*
 
 ---
 
 ## 🎯 Mission Statement
 
-This service deploys **14 AI agents** — each with a distinct **clinical psychometrician role** — in a rotating pipeline against the **live Supabase-hosted item vault**. Every item is subjected to a **7-pass deep audit** that catches what no single-pass check can: logic inconsistencies, scoring model violations, generic rationale filler, missing Study Companion data, and clinical inaccuracies that would disqualify an item from a real NCLEX exam.
+SENTINEL v2.0 is a **one-button** deep audit system accessible from the Vercel-deployed Item Bank.
+It uses **14 Gemini API keys** — each assigned a permanent clinical psychometrician role — to:
+
+1. **SCREEN** every item across 12+ quality dimensions
+2. **FIX** all structural, clinical, and content defects automatically
+3. **REFILL** missing data with clinically specific, non-generic content
+4. **ENRICH** items with isolation logic, allergy cross-referencing, and EHR synchronization
+5. **REPORT** a comprehensive quality dashboard with per-item diagnostics and recommendations
+
+**Zero tolerance for generic filler. Zero tolerance for orphaned clinical references.**
 
 ---
 
 ## ⚡ Architecture Overview
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    SENTINEL ENGINE                       │
-│                                                         │
-│  ┌──────────┐   ┌──────────┐   ┌──────────┐            │
-│  │  KEY  1  │   │  KEY  2  │   │  KEY  3  │  ...×14    │
-│  │ ROLE: A  │   │ ROLE: B  │   │ ROLE: C  │            │
-│  └────┬─────┘   └────┬─────┘   └────┬─────┘            │
-│       │              │              │                   │
-│       ▼              ▼              ▼                   │
-│  ┌──────────────────────────────────────────┐           │
-│  │         ITEM QUEUE (from Supabase)       │           │
-│  │  fetch → audit → verdict → heal → push  │           │
-│  └──────────────────────────────────────────┘           │
-│       │                                                 │
-│       ▼                                                 │
-│  ┌──────────────────────────────────────────┐           │
-│  │       SENTINEL REPORT (JSON + Console)   │           │
-│  │   per-item verdicts, auto-healed count,  │           │
-│  │   quarantined items, compliance score    │           │
-│  └──────────────────────────────────────────┘           │
-└─────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│  VERCEL LIVE DEPLOYMENT                                       │
+│  ┌──────────────────────────────────────┐                     │
+│  │  Item Bank Page → [🛡️ Run SENTINEL] │  ← One-Button       │
+│  └────────────┬─────────────────────────┘                     │
+│               ▼                                               │
+│  ┌──────────────────────────────────────────────────────────┐ │
+│  │              SENTINEL v2.0 ENGINE                        │ │
+│  │                                                          │ │
+│  │  PHASE 1: STRUCTURAL PASS (No AI — instant)              │ │
+│  │    → Schema, fields, scoring model, type rules            │ │
+│  │                                                          │ │
+│  │  PHASE 2: DEEP AI AUDIT (14 Keys × Specialist Roles)     │ │
+│  │    → Stem clarity, rationale depth, clinical accuracy     │ │
+│  │    → EHR sync, isolation/allergy, Study Companion         │ │
+│  │    → SBAR format, option plausibility, pedagogy           │ │
+│  │                                                          │ │
+│  │  PHASE 3: AUTO-HEAL & REFILL                             │ │
+│  │    → Replace generic → specific clinical content          │ │
+│  │    → Add missing pearls/traps/mnemonics/breakdowns        │ │
+│  │    → Sync EHR tabs with question stem                     │ │
+│  │    → Set isolation/allergy per clinical context            │ │
+│  │                                                          │ │
+│  │  PHASE 4: PUSH & REPORT                                  │ │
+│  │    → Upsert healed items to Supabase                      │ │
+│  │    → Generate SENTINEL Report with recommendations        │ │
+│  └──────────────────────────────────────────────────────────┘ │
+└──────────────────────────────────────────────────────────────┘
 ```
-
-**Execution Mode**: Sequential items, parallel passes per item.
-**Speed Target**: ~500 items audited in < 90 minutes using 14 keys at 4s pacing.
 
 ---
 
-## 🧬 The 14 Specialist Roles (Key → Role Mapping)
+## 🧬 The 14 Specialist Roles
 
-Each of the 14 API keys is assigned a **permanent clinical psychometrician persona**. When an item enters the audit pipeline, the relevant roles are invoked based on the item type. This prevents "generic AI" answers and forces domain-expert depth.
-
-| Key # | Role Codename | Specialist Title | Primary Audit Domain |
+| Key | Role | Audit Domain | Specific Focus |
 |:---:|:---|:---|:---|
-| 1 | **STRUCT-VALIDATOR** | Schema & Structure Analyst | JSON schema, required fields, TypeScript interface compliance |
-| 2 | **STEM-SURGEON** | Question Stem Psychometrician | Stem clarity, word count (≤50), single-construct focus, no window dressing |
-| 3 | **OPTION-ARCHITECT** | Answer Option Strategist | Option count, word count (≤25/opt), distractor plausibility, no "All of the above" |
-| 4 | **SCORE-AUDITOR** | Scoring Model Compliance Officer | Correct scoring method per type, maxPoints validation, penalty model accuracy |
-| 5 | **RATIONALE-PATHOLOGIST** | Deep Rationale & Pathophysiology Reviewer | No generic filler, pathophysiology depth, incorrect rationale specificity |
-| 6 | **PEARL-TRAP-MNEMONIC** | Study Companion Completeness Inspector | clinicalPearls presence & depth, questionTrap actionability, mnemonic accuracy |
-| 7 | **SBAR-COMPLIANCE** | Clinical Documentation Specialist | SBAR format, 120–160 word count, military time, terminology synchronization |
-| 8 | **EHR-SYNC** | Clinical Data Synchronization Auditor | Tab exhaustion, lab/vital/med sync with stem, no orphaned references |
-| 9 | **PEDAGOGY-MAPPER** | Educational Taxonomy Validator | Bloom level accuracy, CJMM step alignment, NCLEX category correctness, difficulty calibration |
-| 10 | **ITEM-TYPE-LOGIC** | NGN Type-Specific Logic Enforcer | Type-specific rule enforcement (highlight spans, matrix rows, bowtie wings, trend dataPoints) |
-| 11 | **CLINICAL-ACCURACY** | Board-Certified Clinical Content Expert | Medical/nursing accuracy, drug dosages, lab reference ranges, pathophysiology correctness |
-| 12 | **EQUITY-ETHICS** | Health Equity & Unbiased Care Reviewer | SDOH integration, inclusive language, cultural competency, digital privacy compliance |
-| 13 | **ANSWER-BREAKDOWN** | Evidence Table & Breakdown Auditor | answerBreakdown completeness, per-option rationale, correct/incorrect labeling accuracy |
-| 14 | **HEALER** | Auto-Repair & Remediation Agent | Takes all flagged defects and generates a corrected version of the item |
+| 1 | **STRUCT-VALIDATOR** | Schema & Structure | JSON fields, TypeScript interface compliance, id naming |
+| 2 | **STEM-SURGEON** | Question Stem Quality | ≤50 words, single-construct, no window dressing, clarity improvement |
+| 3 | **OPTION-ARCHITECT** | Answer Options | Count per type, ≤25 words/opt, distractor plausibility, no "All of the above" |
+| 4 | **SCORE-AUDITOR** | Scoring Model | Method matches type, maxPoints, penalty model per 2026 spec |
+| 5 | **RATIONALE-PATHOLOGIST** | Rationale Depth | No generic filler, pathophysiology basis, per-option explanations |
+| 6 | **PEARL-TRAP-MNEMONIC** | Study Companion | clinicalPearls actionability, questionTrap specificity, mnemonic accuracy |
+| 7 | **SBAR-COMPLIANCE** | Clinical Documentation | SBAR format, 120–160 words, military time, terminology sync with stem |
+| 8 | **EHR-SYNC** | Clinical Data Sync | Labs/Vitals/Meds/Imaging in EHR must match stem references |
+| 9 | **PEDAGOGY-MAPPER** | Educational Taxonomy | Bloom level, CJMM step, NCLEX category, difficulty calibration |
+| 10 | **ITEM-TYPE-LOGIC** | Type-Specific Rules | Highlight spans, matrix rows, bowtie wings, trend dataPoints, etc. |
+| 11 | **CLINICAL-ACCURACY** | Medical Correctness | Drug dosages, lab ranges, pathophysiology, intervention scope |
+| 12 | **ISOLATION-ALLERGY** | Safety Protocols | Isolation type per diagnosis, allergy cross-ref with MAR meds |
+| 13 | **REFILLER** | Data Enrichment | Replace ALL generic content with clinically specific data |
+| 14 | **HEALER** | Auto-Repair | Takes all defects and produces a fully corrected item |
 
 ---
 
-## 🔍 The 7-Pass Deep Audit Pipeline
+## 🔍 The 12 Quality Dimensions
 
-Every item goes through **7 sequential audit passes**. Each pass uses a **different key/role combination** to prevent blind spots.
-
-### Pass 1: Structural Integrity (Keys 1 + 4)
-> **STRUCT-VALIDATOR** + **SCORE-AUDITOR**
-
-**Checks (deterministic — no AI needed):**
+### Dimension 1: Structural Integrity (Key 1 — No AI)
 ```
-□ item.id exists and follows naming convention
-□ item.type is one of the 14 valid NGN types
-□ item.stem exists and is non-empty
-□ item.pedagogy exists with all 5 required fields:
-    □ bloomLevel ∈ {remember, understand, apply, analyze, evaluate, create}
-    □ cjmmStep ∈ {recognizeCues, analyzeCues, prioritizeHypotheses, generateSolutions, takeAction, evaluateOutcomes}
-    □ nclexCategory ∈ {8 valid categories}
-    □ difficulty ∈ {1, 2, 3, 4, 5}
-    □ topicTags is array with length ≥ 1
-□ item.rationale exists with:
-    □ rationale.correct is string, length ≥ 80 chars
-    □ rationale.incorrect is string or array, length ≥ 80 chars
-    □ rationale.reviewUnits is array with length ≥ 1
-    □ rationale.clinicalPearls is array with length ≥ 1
-    □ rationale.questionTrap exists with {trap, howToOvercome}
-    □ rationale.mnemonic exists with {title, expansion}
-    □ rationale.answerBreakdown is array with length ≥ 1
-□ item.scoring exists with:
-    □ scoring.method ∈ {dichotomous, polytomous, linkage}
-    □ scoring.maxPoints is number ≥ 1
-□ SCORING MODEL matches item type:
-    □ multipleChoice/trend/priorityAction/graphic/audioVideo/chartExhibit → dichotomous, maxPoints: 1
-    □ highlight/selectAll → polytomous, +/- 1.0 penalty
-    □ selectN → polytomous, 0/1 no penalty
-    □ matrixMatch → polytomous, 0/1 per row
-    □ clozeDropdown/dragAndDropCloze → polytomous, 0/1 per blank
-    □ bowtie → linkage
-    □ orderedResponse → dichotomous
+□ item.id exists and follows naming convention [topic]_[type]_v[version]
+□ item.type ∈ 14 valid NGN types
+□ item.stem exists, non-empty
+□ item.pedagogy present with all 5 fields (bloomLevel, cjmmStep, nclexCategory, difficulty, topicTags)
+□ item.rationale present with correct/incorrect/reviewUnits/clinicalPearls/questionTrap/mnemonic/answerBreakdown
+□ item.scoring present with method + maxPoints
+□ Scoring method matches item type per 2026 spec
 ```
 
-**Verdict**: `PASS` | `FAIL` with list of missing/invalid fields.
-
----
-
-### Pass 2: Stem & Option Quality (Keys 2 + 3)
-> **STEM-SURGEON** + **OPTION-ARCHITECT**
-
-**AI Prompt (Key 2):**
+### Dimension 2: Question Stem Quality (Key 2)
 ```
-You are an NCLEX-RN 2026 Question Stem Psychometrician.
-
-Analyze this item stem for compliance with NCSBN 2026 standards:
-- Is the stem ≤ 50 words? (Count exactly)
-- Does it focus on ONE clinical judgment construct?
-- Is there any "window dressing" (irrelevant information)?
-- Does it use clear, direct language appropriate for a licensing exam?
-- Is the clinical scenario clinically accurate?
-
-ITEM: {item JSON}
-
-Return JSON: {
-  "wordCount": number,
-  "singleConstruct": boolean,
-  "windowDressing": string[] | null,
-  "clarity": "excellent" | "acceptable" | "poor",
-  "issues": string[]
-}
+□ Word count ≤ 50
+□ Single clinical judgment construct
+□ No "window dressing" (irrelevant info)
+□ Clear, direct, actionable language
+□ If unclear → AI rewrites to be more precise while preserving clinical intent
 ```
 
-**AI Prompt (Key 3):**
+### Dimension 3: Answer Option Logic (Key 3)
 ```
-You are an NCLEX-RN 2026 Answer Option Strategist.
-
-Audit the answer options of this NGN item:
-- Correct option count per type? (MC=4, SATA=5-10, SelectN=5-8, etc.)
-- Each option ≤ 25 words?
-- Are distractors clinically plausible (not obviously wrong)?
-- Any "All of the above" / "None of the above" violations?
-- Is the correct answer defensible with evidence-based nursing practice?
-- Are options mutually exclusive where required?
-- Is option ordering randomized (no pattern like "longest is correct")?
-
-ITEM: {item JSON}
-
-Return JSON: {
-  "optionCount": number,
-  "expectedCount": number,
-  "maxOptionWordCount": number,
-  "plausibilityScore": 1-10,
-  "issues": string[]
-}
+□ Correct option count: MC=4, SATA=5-10, SelectN=5-8, Matrix=3-5 rows
+□ Each option ≤ 25 words
+□ Distractors are clinically plausible (not obviously wrong)
+□ No "All of the above" / "None of the above"
+□ Correct answer is defensible with evidence-based practice
+□ Options are mutually exclusive where required
 ```
 
----
-
-### Pass 3: Rationale Depth & Anti-Filler (Key 5)
-> **RATIONALE-PATHOLOGIST**
-
-**AI Prompt:**
+### Dimension 4: Scoring Model Accuracy (Key 4)
 ```
-You are a Board-Certified Critical Care Nurse Educator reviewing rationale quality.
-
-ZERO TOLERANCE for generic rationale. Analyze this item's rationale:
-
-1. CORRECT RATIONALE: Does it explain the pathophysiology or safety/legal basis? 
-   Or does it just restate the answer? (e.g., "This is correct because it is the right answer" = FAIL)
-2. INCORRECT RATIONALE: Does each distractor get a SPECIFIC explanation of why it's wrong 
-   in THIS clinical context? Or is it generic? (e.g., "This is not the priority" without explaining WHY = FAIL)
-3. CLINICAL PEARLS: Are they actionable nursing insights? Or generic textbook summaries?
-   (e.g., "Monitor vitals" = FAIL. "In DKA, potassium shifts intracellularly as pH normalizes — 
-   monitor K+ q2h even if initially hyperkalemic" = PASS)
-4. QUESTION TRAP: Does it identify a specific, realistic test-taking error? 
-   Does "howToOvercome" give a concrete strategy?
-5. MNEMONIC: Is it relevant to the topic? Is the expansion accurate?
-6. ANSWER BREAKDOWN: Does every option have a labeled breakdown entry?
-
-ITEM: {item JSON}
-
-Return JSON: {
-  "correctRationaleDepth": "pathophysiological" | "surface" | "generic",
-  "incorrectRationaleDepth": "specific" | "semi-specific" | "generic",
-  "pearlQuality": "actionable" | "textbook" | "missing",
-  "trapQuality": "specific" | "vague" | "missing",
-  "mnemonicAccuracy": "accurate" | "inaccurate" | "missing",
-  "breakdownComplete": boolean,
-  "overallGrade": "A" | "B" | "C" | "D" | "F",
-  "issues": string[],
-  "suggestedFixes": string[]
-}
+□ multipleChoice/trend/priorityAction/graphic/audioVideo/chartExhibit → dichotomous, maxPoints: 1
+□ highlight/selectAll → polytomous, +/- 1.0 penalty
+□ selectN → polytomous, 0/1 no penalty
+□ matrixMatch → polytomous, 0/1 per row
+□ clozeDropdown/dragAndDropCloze → polytomous, 0/1 per blank
+□ bowtie → linkage scoring
+□ orderedResponse → dichotomous
+□ maxPoints calculated correctly based on item structure
 ```
 
----
-
-### Pass 4: Study Companion & Instructional Completeness (Key 6)
-> **PEARL-TRAP-MNEMONIC**
-
-**AI Prompt:**
+### Dimension 5: Rationale Depth — ZERO GENERIC TOLERANCE (Key 5)
 ```
-You are the Study Companion QA Lead for the NCLEX-RN 2026 Simulator.
+FAIL CONDITIONS (automatic):
+  ✗ "This is correct because it is the right answer"
+  ✗ "Option X is not the priority"
+  ✗ "This is incorrect" (without WHY)
+  ✗ "Monitor the patient" (without WHAT to monitor and WHY)
+  ✗ Any rationale < 80 characters
 
-The Study Companion sidebar aggregates clinicalPearls, questionTraps, and mnemonics 
-from answered items. If ANY of these are missing or low-quality, the student gets 
-an empty or useless study notebook.
-
-Audit this item for Study Companion readiness:
-
-1. clinicalPearls: Array of ≥1 entries. Each entry must be:
-   - Specific to this clinical scenario (not generic nursing advice)
-   - Actionable (tells the nurse WHAT to do or WHY)
-   - ≥ 30 characters each
-   
-2. questionTrap: Object with {trap, howToOvercome}. Must be:
-   - trap: Names the specific cognitive error students make (≥ 20 chars)
-   - howToOvercome: Provides concrete strategy (≥ 30 chars)
-   
-3. mnemonic: Object with {title, expansion}. Must be:
-   - title: A real, recognized mnemonic (e.g., "MONA", "SBAR", "FAST")
-   - expansion: Accurate letter-by-letter expansion
-   
-4. reviewUnits: Array of ≥1 entries. Each entry must have:
-   - heading: Topic title
-   - body: Educational content (≥ 50 chars)
-   - source: Citation or textbook reference
-   
-5. answerBreakdown: Array matching option count. Each entry must have:
-   - label: Option identifier (A, B, C, etc.)
-   - content: Explanation (≥ 30 chars)
-   - isCorrect: boolean
-
-ITEM: {item JSON}
-
-Return JSON: {
-  "pearlsPresent": boolean,
-  "pearlsCount": number,
-  "pearlsActionable": boolean,
-  "trapPresent": boolean,
-  "trapSpecific": boolean,
-  "mnemonicPresent": boolean,
-  "mnemonicAccurate": boolean,
-  "reviewUnitsPresent": boolean,
-  "breakdownComplete": boolean,
-  "companionReadiness": "ready" | "partial" | "empty",
-  "issues": string[]
-}
+PASS CONDITIONS (required):
+  ✓ Correct rationale explains pathophysiology or legal/safety basis
+  ✓ Each incorrect option gets a SPECIFIC explanation in THIS clinical context
+  ✓ Mentions the mechanism of action, not just the outcome
+  ✓ References specific lab values, vital signs, or assessment findings
 ```
 
----
-
-### Pass 5: Clinical Accuracy & EHR Synchronization (Keys 8 + 11)
-> **EHR-SYNC** + **CLINICAL-ACCURACY**
-
-**AI Prompt (Key 11):**
+### Dimension 6: Study Companion Completeness (Key 6)
 ```
-You are a Board-Certified Advanced Practice Nurse reviewing clinical accuracy.
-
-Verify this NCLEX item for medical/nursing accuracy:
-1. Are drug dosages within safe therapeutic ranges?
-2. Are lab reference ranges correct per standard US adult values?
-3. Is the pathophysiology description accurate?
-4. Are nursing interventions evidence-based and within RN scope?
-5. Are vital sign values physiologically consistent with the diagnosis?
-6. Is the correct answer truly the BEST answer per current evidence-based practice?
-
-ITEM: {item JSON}
-
-Return JSON: {
-  "clinicallyAccurate": boolean,
-  "drugSafety": "safe" | "borderline" | "unsafe" | "n/a",
-  "labAccuracy": "accurate" | "inaccurate" | "n/a",
-  "pathophysiology": "accurate" | "partially" | "inaccurate",
-  "interventionScope": "within_RN" | "outside_RN" | "n/a",
-  "bestAnswer": "defensible" | "arguable" | "incorrect",
-  "issues": string[]
-}
+□ clinicalPearls: Array ≥ 1 entry. Each must be:
+  - Specific to THIS clinical scenario (not generic textbook advice)
+  - Actionable: tells the nurse WHAT to do or WHAT to monitor
+  - ≥ 30 characters each
+□ questionTrap: {trap, howToOvercome} both present and specific
+  - trap: Names the exact cognitive error (≥ 20 chars)
+  - howToOvercome: Concrete strategy with clinical reasoning (≥ 30 chars)
+□ mnemonic: {title, expansion} present
+  - Must be a real, recognized mnemonic relevant to the topic
+  - Expansion must be accurate
+□ answerBreakdown: Array matching option count
+  - Each entry: {label, content, isCorrect}
+  - label: Option identifier
+  - content: Specific explanation (≥ 30 chars)
+  - isCorrect: boolean
+□ reviewUnits: Array ≥ 1 entry
+  - {heading, body, source} all present
+  - body ≥ 50 characters of educational content
 ```
 
-**AI Prompt (Key 8):**
+### Dimension 7: SBAR & Nurses' Notes Specificity (Key 7)
 ```
-You are an EHR Clinical Data Synchronization Auditor.
+□ SBAR format: Situation, Background, Assessment, Recommendation all present
+□ Word count: 120–160 words total
+□ Military time (HH:mm format) in all timestamps
+□ Terminology EXACTLY matches the item stem
+  (e.g., if stem says "adult child" → notes say "adult child", NOT "daughter")
+□ Notes must reflect SPECIFIC clinical findings, NOT generic templates
+  ✗ "Patient evaluated for acute status changes" = FAIL (generic)
+  ✓ "Patient evaluated for acute respiratory distress. SpO2 dropped from 96% to 88% over 2 hours" = PASS
+□ Background must include relevant PMH, medications, and reason for admission
+□ Assessment must include specific objective findings (vitals, labs, physical exam)
+□ Recommendation must include specific interventions (not "Monitor vitals")
+```
 
-Check if the item's clinical context (itemContext/tabs) is synchronized with the stem:
-1. If stem mentions a lab value → is it in the Labs tab with correct value?
-2. If stem mentions a medication → is it in the MAR tab?
-3. If stem mentions vitals → are they in the Vitals tab?
-4. If stem references imaging → is it in the Radiology tab?
-5. Are there ≥ 3 time-points for trending data?
-6. Is the SBAR note 120–160 words in SBAR format with military time?
+### Dimension 8: EHR Clinical Data Synchronization (Key 8)
+```
+RULE: Any clinical value referenced in the stem, options, or rationale MUST appear 
+in the corresponding EHR tab. Orphaned references = CRITICAL failure.
 
-ITEM: {item JSON}
+□ If stem mentions a lab value → Lab tab must contain it with correct value
+□ If stem mentions a medication → MAR tab must contain it with dose/route/frequency
+□ If stem mentions vital signs → Vitals tab must have matching values
+□ If stem mentions imaging → Radiology tab must have impression
+□ If stem mentions a physical finding → Physical Exam tab must reflect it
+□ If question involves intervention → Orders tab must have corresponding order
+□ Vitals must have ≥ 3 time-points for acute scenarios (trending)
+□ All EHR subsections that are relevant to the question MUST be populated
+  ✗ Empty Labs tab when the question is about potassium levels = CRITICAL FAIL
+```
 
-Return JSON: {
-  "labSync": "synced" | "missing" | "n/a",
-  "medSync": "synced" | "missing" | "n/a",
-  "vitalSync": "synced" | "missing" | "n/a",
-  "imagingSync": "synced" | "missing" | "n/a",
-  "trendingPoints": number,
-  "sbarWordCount": number,
-  "sbarFormat": boolean,
-  "militaryTime": boolean,
-  "issues": string[]
-}
+### Dimension 9: Pedagogy & Taxonomy (Key 9)
+```
+□ bloomLevel ∈ {remember, understand, apply, analyze, evaluate, create}
+  - Must match the cognitive demand of the question
+  - "Which is the FIRST action?" = analyze or evaluate, NOT remember
+□ cjmmStep alignment:
+  - recognizeCues = identifying abnormal findings
+  - analyzeCues = explaining WHY findings are abnormal
+  - prioritizeHypotheses = ranking most likely/urgent conditions
+  - generateSolutions = identifying appropriate interventions
+  - takeAction = selecting the BEST/FIRST action
+  - evaluateOutcomes = determining if interventions worked
+□ nclexCategory ∈ 8 valid NCLEX categories
+□ difficulty 1-5 calibrated to clinical complexity
+□ topicTags: at least 1, relevant to the clinical scenario
+```
+
+### Dimension 10: Item-Type-Specific Logic (Key 10)
+```
+highlight: ≥6 spans, ≥2 distractors, correctSpanIndices valid, passage exists
+multipleChoice: exactly 4 options, correctOptionId matches one option
+selectAll: 5-10 options, correctOptionIds ≥ 2 entries
+orderedResponse: correctOrder matches all option IDs, used exactly once
+matrixMatch: 3-5 rows, columns array, correctMatches covers all rows
+clozeDropdown: 1-3 blanks, each with options and correctOption
+dragAndDropCloze: template with blanks, options, correctOption per blank
+bowtie: actions(≥4), conditions(≥3), parameters(≥4), correct selections
+trend: dataPoints ≥3 entries OR itemContext.tabs fallback, options array
+priorityAction: exactly 4 options, correctOptionId, "first action" focus
+hotspot: imageUrl, hotspots with coordinates
+graphic: imageUrl or graphical context
+audioVideo: mediaUrl, standard MC structure
+chartExhibit: exhibits/itemContext.tabs with ≥2 data sources
+```
+
+### Dimension 11: Clinical Accuracy (Key 11)
+```
+□ Drug dosages within safe therapeutic ranges
+□ Lab reference ranges correct per standard US adult values
+□ Pathophysiology descriptions medically accurate
+□ Nursing interventions within RN scope of practice
+□ Vital signs physiologically consistent with diagnosis
+□ Correct answer truly the BEST answer per evidence-based practice
+□ No outdated or debunked clinical practices
+```
+
+### Dimension 12: Isolation & Allergy Cross-Reference (Key 12) — NEW
+```
+ISOLATION LOGIC:
+  If stem/diagnosis involves:
+  ✓ TB, Measles, Varicella, Disseminated Zoster → iso: "Airborne"
+  ✓ MRSA, C. diff, VRE, Scabies, RSV → iso: "Contact"
+  ✓ Influenza, Meningococcal, Pertussis, Mumps → iso: "Droplet"
+  ✓ Chicken Pox → iso: "Airborne + Contact"
+  ✓ No infectious component → iso: "Standard"
+  
+  The patient.iso field in the CaseStudy wrapper MUST match.
+  If the item has an infectious disease topic but iso is "Standard" → FAIL
+
+ALLERGY LOGIC:
+  If MAR medications are present, cross-reference with patient.allergies:
+  ✓ Penicillin allergy + Amoxicillin in MAR → CRITICAL FAIL (contraindicated)
+  ✓ Sulfa allergy + Sulfamethoxazole → CRITICAL FAIL
+  ✓ NSAID allergy + Ibuprofen/Ketorolac → CRITICAL FAIL
+  ✓ Latex allergy should be noted when relevant
+  
+  Allergy cross-families to check:
+  - Penicillin: amoxicillin, ampicillin, piperacillin, nafcillin
+  - Sulfa: sulfamethoxazole, sulfasalazine, furosemide (weak), thiazides
+  - Cephalosporin: cephalexin, ceftriaxone, cefazolin (cross with penicillin ~1-2%)
+  - NSAID: ibuprofen, naproxen, ketorolac, aspirin
+  
+  If allergies array is empty or ["None"] when medications are involved:
+  → Flag as WARNING (realistic patients often have allergies)
+  → HEALER should add a clinically appropriate allergy that does NOT conflict with ordered meds
 ```
 
 ---
 
-### Pass 6: Item-Type-Specific Logic (Key 10)
-> **ITEM-TYPE-LOGIC**
+## 🔧 The REFILLER Role (Key 13) — Comprehensive Data Enrichment
 
-**Rules Engine (deterministic + AI):**
+The REFILLER's job is to transform ALL generic/placeholder content into clinically specific data.
 
-| Item Type | Specific Checks |
+### What Gets Refilled:
+
+| Generic Content (FAIL) | Specific Replacement (PASS) |
 |:---|:---|
-| `highlight` | ≥6 spans, ≥2 distractors, `correctSpanIndices` array valid, `passage` exists |
-| `multipleChoice` | Exactly 4 options, `correctOptionId` matches an option id |
-| `selectAll` | 5–10 options, `correctOptionIds` array with ≥2 entries |
-| `selectN` | 5–8 options, stem contains "Select [N]", `requiredCount` matches N |
-| `orderedResponse` | `correctOrder` array matches `options` ids, all options used once |
-| `matrixMatch` | 3–5 rows, `columns` array, `correctMatches` object covers all rows |
-| `clozeDropdown` | 1–3 `blanks`, each blank has `options` array and `correctOption` |
-| `dragAndDropCloze` | `template` with blanks, `options` array, `blanks` with `correctOption` |
-| `bowtie` | `actions` (≥4 options), `conditions` (≥3), `parameters` (≥4), `correctActionIds` (2), `correctParameterIds` (2), `condition` string |
-| `trend` | `dataPoints` array with ≥3 entries OR `itemContext.tabs` fallback, `options` array |
-| `priorityAction` | Exactly 4 options, `correctOptionId`, focus on "first action" |
-| `hotspot` | `imageUrl` exists, `hotspots` array with coordinates |
-| `graphic` | `imageUrl` or graphical context, standard MC structure |
-| `audioVideo` | `mediaUrl` exists, standard MC structure |
-| `chartExhibit` | `exhibits` or `itemContext.tabs` with ≥2 data sources |
+| "Hx of priority clinical concerns relevant to current admission" | "Hx of Type 2 DM × 15 years, HTN, and Stage 3 CKD. Admitted for acute exacerbation of heart failure" |
+| "Initial assessment confirms findings described in question stem" | "Initial assessment reveals bibasilar crackles, JVD, 3+ pitting edema bilateral LE, SpO2 88% on RA" |
+| "Monitor vitals and response to interventions" | "Recommend continuous telemetry, strict I&O, daily weights, BMP q6h, furosemide 40mg IV now" |
+| "Patient evaluated for acute status changes" | "Patient evaluated for acute hypoxia secondary to pulmonary edema. ABG shows pH 7.31, PaCO2 48, PaO2 62" |
+| Empty Labs tab when question involves potassium | Add: K+ 5.8 mEq/L (H), Na 138, BUN 42 (H), Cr 2.1 (H) |
+| Empty MAR when question involves medication safety | Add: Full medication list with dose, route, frequency, last admin time |
+| Empty Radiology when question involves chest findings | Add: "CXR: Bilateral pleural effusions, cardiomegaly, pulmonary vascular congestion" |
+| Empty Physical Exam when question involves assessment | Add: System-specific findings matching the clinical scenario |
+| iso: "Standard" when patient has TB | Change to: iso: "Airborne" |
+| allergies: [] when medications are ordered | Add: Clinically appropriate allergy (e.g., "Codeine" if no opioids ordered) |
 
----
-
-### Pass 7: Auto-Heal & Remediation (Key 14)
-> **HEALER**
-
-Items that fail **any** of Passes 1–6 are sent to the HEALER for automatic repair.
-
-**AI Prompt:**
+### REFILLER AI Prompt Template:
 ```
-You are the NCLEX-RN 2026 Item Remediation Specialist.
+You are a 20-year NCLEX Psychometrician and Clinical Content Specialist.
 
-This item FAILED quality assurance with the following defects:
-{defect_list}
-
-Your mission: Fix ALL defects while preserving the clinical intent.
+This item has GENERIC or MISSING clinical data. Your mission is to REPLACE all generic 
+content with clinically SPECIFIC, patient-appropriate data.
 
 RULES:
-1. Do NOT change the correct answer or core clinical scenario
-2. ADD missing fields (clinicalPearls, questionTrap, mnemonic, answerBreakdown, reviewUnits)
-3. REWRITE generic rationale with pathophysiology-based explanations
-4. FIX scoring model if incorrect
-5. ENSURE answerBreakdown has one entry per option with {label, content, isCorrect}
-6. ENSURE clinicalPearls are actionable, not textbook summaries
-7. ENSURE questionTrap names a specific cognitive error
-8. ENSURE mnemonic is real and accurately expanded
+1. Every SBAR field must contain specific clinical details (vitals, labs, timing, findings)
+2. If the question mentions labs/meds/vitals, the EHR tabs MUST contain matching data
+3. Background must include specific PMH with durations ("Type 2 DM × 15 years")
+4. Assessment must include objective findings with numerical values
+5. Recommendation must include specific medications with doses and monitoring parameters
+6. Isolation type must match the infectious disease (if any)
+7. Allergies must be realistic and NOT conflict with ordered medications
+8. All nurses' notes must read like a real clinical chart, NOT a template
+9. Physical exam findings must be objective ("3+ pitting edema") not subjective ("swollen")
 
-ORIGINAL ITEM: {item JSON}
-DEFECTS: {defect_list}
+CURRENT ITEM: {{ITEM_JSON}}
 
-Return the COMPLETE corrected item as pure JSON.
+Return the COMPLETE item with ALL generic content replaced by specific clinical data.
+Return ONLY pure JSON.
 ```
 
 ---
 
 ## 🚀 Execution Workflow
 
-### Quick-Start Command
-```bash
-node sentinel_qa_rotator.cjs
-```
+### One-Button Trigger (Vercel UI)
 
-### Step-by-Step Pipeline
+The **SentinelQA** page in the Item Bank has a `[🛡️ Run SENTINEL]` button that triggers:
 
 ```
-STEP 1: FETCH
-  └── Pull all items from Supabase cloud vault (paginated, 1000/page)
-  └── Also scan local data/vaultItems.json for any items not yet in cloud
-  └── Deduplicate by item.id → create master audit queue
+PHASE 1: STRUCTURAL SCAN (Instant — No AI)
+├── Check all 14 type-specific schemas
+├── Validate scoring models
+├── Flag missing required fields
+├── Flag generic SBAR content patterns
+├── Cross-reference isolation/allergy vs. stem topics
+└── Output: Structural Report
 
-STEP 2: TRIAGE (No AI — Pure Code)
-  └── Run Pass 1 (Structural Integrity) on ALL items
-  └── Classify: PASS → continue | FAIL → flag for healing
-  └── Generate structural compliance report
+PHASE 2: DEEP AI AUDIT (14 Keys in rotation, 4s pacing)
+├── For each item:
+│   ├── Key 2: Stem quality check → improve if unclear
+│   ├── Key 3: Option logic check
+│   ├── Key 5: Rationale depth (anti-filler enforcement)
+│   ├── Key 6: Study Companion completeness
+│   ├── Key 7: SBAR specificity check
+│   ├── Key 8: EHR synchronization audit
+│   ├── Key 9: Pedagogy/taxonomy validation
+│   ├── Key 11: Clinical accuracy review
+│   └── Key 12: Isolation & allergy cross-reference
+└── Output: Per-item AI Audit Results
 
-STEP 3: DEEP AUDIT (AI Passes 2–6)
-  └── For each item in queue:
-      ├── Pass 2: Stem & Options (Keys 2, 3) — parallel
-      ├── Pass 3: Rationale Depth (Key 5)
-      ├── Pass 4: Study Companion (Key 6)
-      ├── Pass 5: Clinical + EHR Sync (Keys 8, 11) — parallel
-      └── Pass 6: Type-Specific Logic (Key 10)
-  └── Compile per-item verdicts into AuditResult[]
+PHASE 3: AUTO-HEAL & REFILL
+├── Items with severity ≥ MEDIUM → sent to REFILLER (Key 13) + HEALER (Key 14)
+├── REFILLER: Replaces generic → specific clinical data
+├── HEALER: Fixes structural/scoring/option defects
+├── Re-validate healed items through Phase 1
+│   └── If still failing → QUARANTINE (do not push)
+└── Output: Healed Items + Change Log
 
-STEP 4: HEAL
-  └── Filter items with severity ≥ MEDIUM
-  └── Send to HEALER (Key 14) with defect list
-  └── Validate healed item passes Pass 1 again
-  └── If still failing → QUARANTINE (do not push)
-
-STEP 5: PUSH
-  └── Upsert healed items back to Supabase
-  └── Add "sentinelStatus": "healed_v2026_v{run}" to each item
-  └── Regenerate local vaultItems.json
-  └── Print final SENTINEL REPORT
-```
-
----
-
-## 📊 SENTINEL Report Format
-
-```
-═══════════════════════════════════════════════════════════
-  SENTINEL QA REPORT — Run #8 — 2026-02-24T19:00:00Z
-═══════════════════════════════════════════════════════════
-
-  Total Items Audited:     1,480
-  Passed All 7 Checks:    1,203  (81.3%)
-  Auto-Healed:              241  (16.3%)
-  Quarantined (unfixable):   36  (2.4%)
-
-  ── Defect Breakdown ──────────────────────────────────
-  Missing clinicalPearls:           89
-  Missing questionTrap:            112
-  Missing mnemonic:                 74
-  Missing answerBreakdown:         198
-  Generic rationale (filler):      143
-  Scoring model mismatch:           23
-  Stem > 50 words:                  41
-  Option count violation:           18
-  EHR/Stem desynchronization:       67
-  Missing pedagogy fields:          31
-
-  ── Type Distribution ─────────────────────────────────
-  highlight:       120  |  multipleChoice: 280
-  selectAll:       150  |  orderedResponse:  60
-  matrixMatch:      80  |  clozeDropdown:   110
-  dragAndDropCloze:  70  |  bowtie:          90
-  trend:            60  |  priorityAction:   80
-  hotspot:          40  |  graphic:          50
-  audioVideo:       30  |  chartExhibit:     60
-
-═══════════════════════════════════════════════════════════
+PHASE 4: PUSH & REPORT
+├── Upsert healed items to Supabase
+├── Add sentinelStatus: "sentinel_v2_{timestamp}" to each processed item
+├── Generate SENTINEL Report:
+│   ├── Global health score
+│   ├── Per-dimension pass rates
+│   ├── Per-type distribution
+│   ├── Per-item diagnostics (expandable)
+│   ├── Top recommendations
+│   └── Quarantined items list
+└── Display report in the SentinelQA dashboard
 ```
 
 ---
 
-## ⚙️ Key Rotation Strategy
+## 📊 SENTINEL Report & Recommendations
+
+The report displayed in the Vercel UI includes:
+
+### 1. Global Health Score (0-100)
+A single ring chart showing overall vault quality.
+
+### 2. Dimension Heatmap
+8 dimension cards with pass/warn/fail counts and clickable filters.
+
+### 3. Per-Item Table
+Sortable, filterable table with:
+- Status badge (PASS/WARN/FAIL)
+- Item ID
+- Item Type
+- QA Score
+- Issue count by severity
+- Expandable detail panel
+
+### 4. Recommendations Section
+```
+🔴 CRITICAL: [count] items have clinically inaccurate content → must review manually
+🟠 HIGH: [count] items had generic rationale → auto-healed with pathophysiology
+🟡 MEDIUM: [count] items missing Study Companion data → auto-filled
+🟢 LOW: [count] items had minor style issues → auto-corrected
+📋 NEXT STEPS: 
+  1. Review quarantined items manually
+  2. Run SENTINEL again after manual fixes
+  3. Focus item generation on under-represented types: [list]
+```
+
+---
+
+## 🛡️ Severity Classification
+
+| Severity | Description | Action |
+|:---|:---|:---|
+| 🔴 **CRITICAL** | Clinically inaccurate, wrong correct answer, medication-allergy conflict, wrong scoring | **QUARANTINE** |
+| 🟠 **HIGH** | Generic rationale, missing answerBreakdown, empty SBAR fields, EHR desync | **AUTO-HEAL** |
+| 🟡 **MEDIUM** | Missing pearls/trap/mnemonic, stem > 50 words, option count off, isolation mismatch | **AUTO-HEAL** |
+| 🟢 **LOW** | Suboptimal wording, minor style issues, weak distractor | **LOG** |
+
+---
+
+## ⚙️ Key Rotation & Rate Limiting
 
 ```javascript
-// 14-Key Rotation with Role Assignment
 const KEY_ROLES = {
-    1:  'STRUCT-VALIDATOR',
+    1:  'STRUCT-VALIDATOR',     // No AI needed
     2:  'STEM-SURGEON',
     3:  'OPTION-ARCHITECT',
-    4:  'SCORE-AUDITOR',
+    4:  'SCORE-AUDITOR',        // No AI needed
     5:  'RATIONALE-PATHOLOGIST',
     6:  'PEARL-TRAP-MNEMONIC',
     7:  'SBAR-COMPLIANCE',
     8:  'EHR-SYNC',
     9:  'PEDAGOGY-MAPPER',
-    10: 'ITEM-TYPE-LOGIC',
+    10: 'ITEM-TYPE-LOGIC',      // Mostly deterministic
     11: 'CLINICAL-ACCURACY',
-    12: 'EQUITY-ETHICS',
-    13: 'ANSWER-BREAKDOWN',
+    12: 'ISOLATION-ALLERGY',
+    13: 'REFILLER',
     14: 'HEALER'
 };
 
-// Pacing: 4 seconds between API calls to respect rate limits
+// Pacing: 4 seconds between API calls
 // Parallelism: 2 concurrent calls max (different keys)
-// Retry: 3 attempts with exponential backoff (4s → 8s → 16s)
-// Cooldown: 60s pause after 429 (rate limit) errors
+// Temperature: 0.1 for audit (strict), 0.7 for healing (creative fixes)
+// responseMimeType: "application/json" (always)
+// Retry: 3 attempts, exponential backoff (4s → 8s → 16s)
+// Cooldown: 60s after 429 errors
 ```
 
 ---
@@ -481,25 +443,16 @@ const KEY_ROLES = {
 
 | Metric | Target | Description |
 |:---|:---:|:---|
-| **Structural Pass Rate** | ≥ 99% | All items have required JSON fields |
-| **Rationale Depth Score** | ≥ A-grade (90%) | No generic filler in any rationale |
-| **Study Companion Readiness** | 100% | Every item has Pearls + Trap + Mnemonic |
-| **Answer Breakdown Coverage** | 100% | Every option has a labeled breakdown entry |
-| **Scoring Model Accuracy** | 100% | Scoring method matches item type per spec |
-| **EHR Synchronization** | ≥ 95% | Stem references match EHR tab data |
-| **Clinical Accuracy** | 100% | Zero medically inaccurate items in production |
-| **Equity & Inclusion** | ≥ 90% | SDOH/Equity items properly integrated |
-
----
-
-## 🛡️ Severity Classification
-
-| Severity | Description | Action |
-|:---|:---|:---|
-| 🔴 **CRITICAL** | Clinically inaccurate, wrong correct answer, scoring model incorrect | **QUARANTINE** — remove from vault |
-| 🟠 **HIGH** | Missing rationale, generic filler, no answerBreakdown | **AUTO-HEAL** — mandatory repair |
-| 🟡 **MEDIUM** | Missing pearls/trap/mnemonic, stem > 50 words, option count off | **AUTO-HEAL** — best-effort repair |
-| 🟢 **LOW** | Minor style issues, suboptimal wording, could be improved | **LOG** — report only, no action |
+| Structural Pass Rate | ≥ 99% | All items have required JSON fields |
+| Rationale Depth | ≥ 90% A-grade | No generic filler in any rationale |
+| Study Companion Readiness | 100% | Every item has Pearls + Trap + Mnemonic + Breakdown |
+| Answer Breakdown Coverage | 100% | Every option has a labeled breakdown entry |
+| Scoring Model Accuracy | 100% | Scoring method matches item type |
+| EHR Synchronization | ≥ 95% | Stem references match EHR tab data |
+| Clinical Accuracy | 100% | Zero medically inaccurate items |
+| SBAR Specificity | ≥ 95% | No generic nurses' notes |
+| Isolation Compliance | 100% | Isolation type matches diagnosis |
+| Allergy Safety | 100% | No medication-allergy conflicts |
 
 ---
 
@@ -508,41 +461,39 @@ const KEY_ROLES = {
 ```
 Senior NCLEX/
 ├── sentinel_qa_rotator.cjs          ← Main execution script
-├── QA_ROTATOR_SERVICE.md            ← This specification (you are here)
+├── QA_ROTATOR_SERVICE.md            ← This specification
+├── validation/
+│   └── itemBankQA.ts                ← Deterministic QA engine (Phase 1)
+├── components/navigation/
+│   └── SentinelQAPage.tsx           ← Vercel UI dashboard
 ├── data/
 │   ├── sentinel-reports/            ← Historical audit reports
-│   │   ├── sentinel_run_001.json
-│   │   ├── sentinel_run_002.json
-│   │   └── ...
 │   └── quarantine/                  ← Items too broken to auto-heal
-│       └── quarantined_items.json
 └── .env                             ← GEMINI_API_KEY_1 through _14
 ```
 
 ---
 
-## 🔄 Recommended Run Schedule
+## 💡 Expert-Level Design Principles (20+ Years Experience)
 
-| Frequency | Trigger | Scope |
-|:---|:---|:---|
-| **After every bulk generation** | Manual | Audit only new items (delta) |
-| **Weekly (Sunday 02:00)** | Scheduled | Full vault re-audit |
-| **Before any Vercel deploy** | CI/CD hook | Quick structural pass only |
-| **On-demand** | `node sentinel_qa_rotator.cjs --item-id=<id>` | Single item deep audit |
+1. **Deterministic first, AI second** — Run structural checks instantly. Only call AI for semantic analysis. This saves 40% of API calls.
 
----
+2. **Never trust AI blindly** — After the HEALER fixes an item, re-run it through Phase 1 structural validation. If it still fails → quarantine, never push.
 
-## 💡 Pro Tips for Maximum Speed & Accuracy
+3. **Context is everything** — The REFILLER doesn't just "add data." It reads the item stem, understands the clinical scenario, and generates data that would logically appear in a real patient chart for that specific diagnosis.
 
-1. **Run structural pass first** — it's instant (no AI) and catches 40% of defects
-2. **Batch AI calls** — send 2 items per prompt when doing shallow checks (Pass 2)
-3. **Cache verdicts** — skip items with `sentinelStatus: healed_v2026_v{latest}` 
-4. **Use `responseMimeType: "application/json"`** — forces clean JSON output, no markdown pollution
-5. **Temperature 0.1** for audit, **0.7** for healing — low temp = strict judgment, higher temp = more creative fixes
-6. **Log everything** — every API call, every verdict, every heal. Forensic trail is non-negotiable
-7. **Quarantine > Bad Data** — never push a broken item to production. An empty vault slot is better than a wrong one
+4. **Isolation is not optional** — A student practicing for NCLEX who sees "Standard" isolation on a TB patient will develop wrong clinical habits. Every infectious disease question MUST have the correct isolation type.
+
+5. **Allergies tell a story** — An empty allergy list is unrealistic. Real patients have allergies. Adding a non-conflicting allergy (like "Codeine" when no opioids are ordered) adds realism without creating a drug interaction trap question.
+
+6. **The Study Companion is not a sidebar feature — it's a learning engine** — If clinical pearls say "Monitor vitals," the student learns nothing. If they say "In DKA, potassium shifts intracellularly as pH normalizes — monitor K+ q2h even if initially hyperkalemic," the student gains a clinical edge.
+
+7. **Log everything** — Every API call, every verdict, every heal operation. This forensic trail validates your item bank for accreditation reviews.
+
+8. **Quarantine > Bad Data** — An empty slot in the vault is infinitely better than a wrong item. Never push a broken item to production.
 
 ---
 
-*SENTINEL v1.0 — Built for the 2026 NCLEX-RN NGN Standard*
-*"No item graduates without a 7-pass audit."*
+*SENTINEL v2.0 — Built for the 2026 NCLEX-RN NGN Standard*
+*"No item graduates without a 12-dimension audit."*
+*This system replaces ALL previous QA systems.*

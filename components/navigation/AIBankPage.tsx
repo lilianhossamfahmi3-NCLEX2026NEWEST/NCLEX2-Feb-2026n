@@ -13,13 +13,17 @@ interface AIBankPageProps {
 
 const DIMENSION_LABELS: Record<QADimension, { label: string; icon: string }> = {
     completeness: { label: 'Completeness', icon: '📋' },
-    typeStructure: { label: 'Type Structure', icon: '🧩' },
-    scoringAccuracy: { label: 'Scoring Accuracy', icon: '🎯' },
+    typeStructure: { label: 'Structure', icon: '🧩' },
+    scoringAccuracy: { label: 'Scoring', icon: '🎯' },
     pedagogy: { label: 'Pedagogy', icon: '🎓' },
-    rationaleQuality: { label: 'Rationale Quality', icon: '📝' },
-    optionLogic: { label: 'Option Logic', icon: '🔗' },
-    dataReferences: { label: 'Data References', icon: '🗂️' },
-    errorDetection: { label: 'Error Detection', icon: '🛡️' },
+    rationaleQuality: { label: 'Rationale', icon: '📝' },
+    optionLogic: { label: 'Logic', icon: '🔗' },
+    dataReferences: { label: 'Data', icon: '🗂️' },
+    errorDetection: { label: 'Errors', icon: '🛡️' },
+    isolationAllergy: { label: 'Safety', icon: '⚠️' },
+    sbarSpecificity: { label: 'SBAR', icon: '🏥' },
+    ehrSync: { label: 'EHR Sync', icon: '🔄' },
+    studyCompanion: { label: 'Companion', icon: '📚' },
 };
 
 const SEVERITY_CONFIG: Record<QASeverity, { color: string; bg: string; label: string }> = {
