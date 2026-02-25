@@ -219,7 +219,7 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                 item.id || '',
                 item.type || '',
                 item.stem || '',
-                item.itemContext?.patient?.diagnosis || '',
+                (item as any).itemContext?.patient?.diagnosis || '',
                 ...(item.pedagogy?.topicTags || []),
                 item.rationale?.correct || '',
                 item.pedagogy?.nclexCategory || ''

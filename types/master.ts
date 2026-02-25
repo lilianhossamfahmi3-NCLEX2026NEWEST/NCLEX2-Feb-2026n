@@ -219,6 +219,7 @@ export interface ItemBase {
     pedagogy: Pedagogy;
     rationale: Rationale;
     scoring: ScoringRule;
+    itemContext?: any; // Standalone EHR/Clinical context
     status?: 'draft' | 'live';
     qaiScore?: number;
     createdAt?: string;
