@@ -94,26 +94,61 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
     }, []);
 
     // ─── QA Scan ───
+    const [scanProgress, setScanProgress] = useState({ current: 0, total: 0 });
+
     const runFullScan = useCallback(() => {
         if (items.length === 0) return;
         setIsScanning(true);
-        setTimeout(() => {
-            const report = runBankQA(items);
-            setBankReport(report);
-            const map = new Map<string, QAItemReport>();
-            report.itemReports.forEach(r => map.set(r.itemId, r));
-            setQaScoreMap(map);
-            setIsScanning(false);
-        }, 50);
+        setBankReport(null);
+        setScanProgress({ current: 0, total: items.length });
+
+        let chunkIdx = 0;
+        const chunkSize = 150;
+        const allItemReports: QAItemReport[] = [];
+        const newScoreMap = new Map<string, QAItemReport>();
+
+        const processNextChunk = async () => {
+            if (chunkIdx >= items.length) {
+                const finalReport: QABankReport = {
+                    totalItems: items.length,
+                    passed: allItemReports.filter(r => r.verdict === 'pass').length,
+                    warned: allItemReports.filter(r => r.verdict === 'warn').length,
+                    failed: allItemReports.filter(r => r.verdict === 'fail').length,
+                    overallScore: Math.round(allItemReports.reduce((sum, r) => sum + r.score, 0) / Math.max(1, items.length)),
+                    itemReports: allItemReports,
+                    checkedAt: new Date().toISOString(),
+                    dimensionSummary: {} as any,
+                    typeDistribution: {} as any
+                };
+                setBankReport(finalReport);
+                setIsScanning(false);
+                return;
+            }
+
+            const chunk = items.slice(chunkIdx, chunkIdx + chunkSize);
+            const reportChunk = runBankQA(chunk);
+
+            reportChunk.itemReports.forEach(r => {
+                allItemReports.push(r);
+                newScoreMap.set(r.itemId, r);
+            });
+
+            setQaScoreMap(new Map(newScoreMap));
+            chunkIdx += chunkSize;
+            setScanProgress({ current: Math.min(chunkIdx, items.length), total: items.length });
+
+            requestAnimationFrame(() => setTimeout(processNextChunk, 10));
+        };
+
+        requestAnimationFrame(() => setTimeout(processNextChunk, 10));
     }, [items]);
 
     // Auto-scan when items load
     useEffect(() => {
-        if (items.length > 0 && !bankReport) {
+        if (items.length > 0 && !bankReport && !isScanning && scanProgress.total === 0) {
             runFullScan();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [items.length]);
+    }, [items.length, bankReport, isScanning, scanProgress.total, runFullScan]);
 
     const runSingleItemQA = useCallback((item: MasterItem) => {
         const report = runItemQA(item);
@@ -131,6 +166,7 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
     const [filterBloom, setFilterBloom] = useState('All');
     const [filterCJMM, setFilterCJMM] = useState('All');
     const [filterCategory, setFilterCategory] = useState('All');
+    const [filterQI, setFilterQI] = useState('All');
     const [columnWidths, setColumnWidths] = useState<Record<string, number>>({
         check: 60,
         id: 180, // Increased default width for full ID
@@ -247,7 +283,14 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
             const matchesCategory = filterCategory === 'All' ||
                 (filterCategory === 'Blank / ?' ? !item.pedagogy?.nclexCategory : item.pedagogy?.nclexCategory?.toLowerCase() === filterCategory.toLowerCase());
 
-            return matchesSearch && matchesType && matchesDifficulty && matchesStatus && matchesBloom && matchesCJMM && matchesCategory;
+            const score = qaScoreMap.get(item.id)?.score ?? 0;
+            const qiMatch = filterQI === 'All' ||
+                (filterQI === 'Perfect (100)' && score === 100) ||
+                (filterQI === 'Pass (70-99)' && score >= 70 && score < 100) ||
+                (filterQI === 'Warn (50-69)' && score >= 50 && score < 70) ||
+                (filterQI === 'Fail (<50)' && score < 50);
+
+            return matchesSearch && matchesType && matchesDifficulty && matchesStatus && matchesBloom && matchesCJMM && matchesCategory && qiMatch;
         });
 
         if (!sortConfig) return filtered;
@@ -264,6 +307,7 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                 case 'cog': valA = a.pedagogy?.bloomLevel || ''; valB = b.pedagogy?.bloomLevel || ''; break;
                 case 'proc': valA = a.pedagogy?.cjmmStep || ''; valB = b.pedagogy?.cjmmStep || ''; break;
                 case 'comp': valA = a.pedagogy?.nclexCategory || ''; valB = b.pedagogy?.nclexCategory || ''; break;
+                case 'qi': valA = qaScoreMap.get(a.id)?.score || 0; valB = qaScoreMap.get(b.id)?.score || 0; break;
                 case 'status':
                     valA = a.status || (items.indexOf(a) % 3 === 0 ? 'draft' : 'live');
                     valB = b.status || (items.indexOf(b) % 3 === 0 ? 'draft' : 'live');
@@ -453,6 +497,25 @@ Failed: ${report.failed}`);
         setFilterBloom('All');
         setFilterCJMM('All');
         setFilterCategory('All');
+        setFilterQI('All');
+    };
+
+    const handleDownloadReport = () => {
+        if (!bankReport) return;
+        const csvRows = [
+            ['ID', 'Type', 'QI Score', 'Verdict', 'Diagnostics Count'].join(',')
+        ];
+        bankReport.itemReports.forEach(r => {
+            csvRows.push([r.itemId, r.itemType, r.score, r.verdict, r.diagnostics.length].join(','));
+        });
+        const header = `SENTINEL QA SCAN REPORT\nDate:, ${new Date().toISOString()}\nTotal Items:, ${bankReport.totalItems}\nOverall Score:, ${bankReport.overallScore}%\n\n`;
+        const blob = new Blob([header + csvRows.join('\n')], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `Sentinel-QA-Report-${new Date().getTime()}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
     };
 
     return (
@@ -513,8 +576,13 @@ Failed: ${report.failed}`);
                                 onClick={runFullScan}
                                 disabled={isScanning || items.length === 0}
                             >
-                                {isScanning ? '⏳ SCANNING...' : '🛡️ RUN QA SCAN (ALL)'}
+                                {isScanning ? `⏳ SCANNING (${scanProgress.current}/${scanProgress.total})...` : '🛡️ RUN QA SCAN (ALL)'}
                             </button>
+                            {bankReport && (
+                                <button className="command-btn" onClick={handleDownloadReport} style={{ background: '#4b5563', color: 'white', boxShadow: '0 4px 15px rgba(75, 85, 99, 0.4)' }}>
+                                    📥 EXPORT LOG
+                                </button>
+                            )}
                             <button className="command-btn repair" onClick={handleRepairAll}>
                                 🪄 GLOBAL AUTO-REPAIR
                             </button>
@@ -567,6 +635,13 @@ Failed: ${report.failed}`);
                             <select value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)} className="bank-filter">
                                 <option value="All">All NCLEX Categories</option>
                                 {categories.map(c => <option key={c} value={c}>{c}</option>)}
+                            </select>
+                            <select value={filterQI} onChange={(e) => setFilterQI(e.target.value)} className="bank-filter">
+                                <option value="All">All QI Scores</option>
+                                <option value="Perfect (100)">Perfect (100)</option>
+                                <option value="Pass (70-99)">Pass (70-99)</option>
+                                <option value="Warn (50-69)">Warn (50-69)</option>
+                                <option value="Fail (<50)">Fail (&lt;50)</option>
                             </select>
                             <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)} className="bank-filter">
                                 <option value="All">All Status</option>
@@ -652,8 +727,8 @@ Failed: ${report.failed}`);
                                         ENTRY DATE {sortConfig?.key === 'date' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
                                         <div className="resizer" onMouseDown={(e) => startResizing('date', e)} />
                                     </th>
-                                    <th className="col-qi" style={{ width: columnWidths.qi }}>
-                                        QI
+                                    <th className="col-qi sortable" onClick={() => handleSort('qi')} style={{ width: columnWidths.qi }}>
+                                        QI {sortConfig?.key === 'qi' && (sortConfig.direction === 'asc' ? '↑' : '↓')}
                                         <div className="resizer" onMouseDown={(e) => startResizing('qi', e)} />
                                     </th>
                                     <th className="col-status sortable" onClick={() => handleSort('status')} style={{ width: columnWidths.status }}>
