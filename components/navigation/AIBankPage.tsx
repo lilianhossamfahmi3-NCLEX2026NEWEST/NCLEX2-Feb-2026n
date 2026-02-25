@@ -62,13 +62,28 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
         return Array.from(new Set(keys)); // Remove duplicates if both are present
     }, []);
 
+    const [fallbackKeys, setFallbackKeys] = useState<string[]>(() => {
+        const stored = localStorage.getItem('SENTINEL_AI_KEYS');
+        return stored ? JSON.parse(stored) : [];
+    });
+
     const [keyIdx, setKeyIdx] = useState(0);
     const getNextKey = useCallback(() => {
-        if (aiKeys.length === 0) return null;
-        const k = aiKeys[keyIdx];
-        setKeyIdx(prev => (prev + 1) % aiKeys.length);
+        const allKeys = Array.from(new Set([...aiKeys, ...fallbackKeys]));
+        if (allKeys.length === 0) {
+            const key = prompt("No AI Keys configured in .env.\nPlease enter a valid Gemini API Key to use AI features (it will be saved locally):");
+            if (key) {
+                const newKeys = [key];
+                setFallbackKeys(newKeys);
+                localStorage.setItem('SENTINEL_AI_KEYS', JSON.stringify(newKeys));
+                return key;
+            }
+            return null;
+        }
+        const k = allKeys[keyIdx % allKeys.length];
+        setKeyIdx(prev => (prev + 1) % allKeys.length);
         return k;
-    }, [aiKeys, keyIdx]);
+    }, [aiKeys, fallbackKeys, keyIdx]);
     const [isLoading, setIsLoading] = useState(true);
 
     // ─── QA State ───
@@ -125,13 +140,27 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
                 return;
             }
 
-            const chunk = items.slice(chunkIdx, chunkIdx + chunkSize);
-            const reportChunk = runBankQA(chunk);
+            try {
+                const chunk = items.slice(chunkIdx, chunkIdx + chunkSize);
+                const reportChunk = runBankQA(chunk);
 
-            reportChunk.itemReports.forEach(r => {
-                allItemReports.push(r);
-                newScoreMap.set(r.itemId, r);
-            });
+                reportChunk.itemReports.forEach(r => {
+                    allItemReports.push(r);
+                    newScoreMap.set(r.itemId, r);
+                });
+            } catch (err) {
+                console.error("Scan chunk error at index", chunkIdx, err);
+                const chunk = items.slice(chunkIdx, chunkIdx + chunkSize);
+                chunk.forEach(item => {
+                    const fallback: QAItemReport = {
+                        itemId: item.id, itemType: item.type, verdict: 'fail',
+                        diagnostics: [{ dimension: 'errorDetection', severity: 'critical', code: 'CRASH', message: 'Failed QA scan for this chunk' }],
+                        checkedAt: new Date().toISOString(), score: 0, dimensionScores: {} as any
+                    };
+                    allItemReports.push(fallback);
+                    newScoreMap.set(item.id, fallback);
+                });
+            }
 
             setQaScoreMap(new Map(newScoreMap));
             chunkIdx += chunkSize;
@@ -404,26 +433,40 @@ Failed: ${report.failed}`);
         }
     };
 
+    const [repairProgress, setRepairProgress] = useState({ current: 0, total: 0, active: false });
+
     const handleRepairAll = async () => {
         if (!window.confirm(`Initiate Global Bank Repair and CLOUD SYNC for all ${items.length} items? This will fix deterministic structural errors.`)) return;
 
-        setIsScanning(true);
-        const { repairedItems, totalChanges } = repairBank(items);
+        setRepairProgress({ current: 0, total: items.length, active: true });
 
-        try {
-            // Batch upsert could be better, but we do one by one for simplicity/reliability
-            for (const item of repairedItems) {
-                await upsertItemToCloud(item);
+        let totalChanges = 0;
+        const updatedItems = [...items];
+
+        for (let i = 0; i < items.length; i++) {
+            try {
+                const { repairedItems, totalChanges: tc } = repairBank([items[i]]);
+                if (tc > 0) {
+                    await upsertItemToCloud(repairedItems[0]);
+                    updatedItems[i] = repairedItems[0];
+                    totalChanges += tc;
+                }
+            } catch (err) {
+                console.error("Failed to repair item", items[i].id, err);
             }
-            setItems(repairedItems);
-            alert(`Global Repair Finished! Total ${totalChanges} issues corrected and synced to cloud.`);
-            runFullScan();
-        } catch (err) {
-            console.error("Global repair sync failed:", err);
-            alert("Global repair finished locally, but cloud sync failed.");
-        } finally {
-            setIsScanning(false);
+
+            setRepairProgress({ current: i + 1, total: items.length, active: true });
+
+            // Yield to main thread every 10 items
+            if (i % 10 === 0) {
+                await new Promise(r => setTimeout(r, 10));
+            }
         }
+
+        setItems(updatedItems);
+        alert(`Global Repair Finished! Total ${totalChanges} issues corrected and synced to cloud.`);
+        setRepairProgress({ current: 0, total: 0, active: false });
+        runFullScan();
     };
 
     const handleDeepAIFix = async (item: MasterItem) => {
@@ -583,8 +626,8 @@ Failed: ${report.failed}`);
                                     📥 EXPORT LOG
                                 </button>
                             )}
-                            <button className="command-btn repair" onClick={handleRepairAll}>
-                                🪄 GLOBAL AUTO-REPAIR
+                            <button className="command-btn repair" onClick={handleRepairAll} disabled={repairProgress.active}>
+                                {repairProgress.active ? `⏳ REPAIRING (${repairProgress.current}/${repairProgress.total})...` : '🪄 GLOBAL AUTO-REPAIR'}
                             </button>
                             <button className="command-btn deep-action" onClick={handleBulkDeepAIFix}>
                                 🔬 AI DEEP CLINICAL HEAL
