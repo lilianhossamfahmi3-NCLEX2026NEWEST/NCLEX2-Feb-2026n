@@ -968,6 +968,56 @@ export function repairItem(item: any): { repaired: any; changes: string[] } {
     // Work on a deep clone
     const repaired = JSON.parse(JSON.stringify(item));
 
+    // 0. AI Schema Migration (Fixing "Flat" generated items)
+    if (repaired.itemType && !repaired.type) {
+        repaired.type = repaired.itemType;
+        changes.push('Migrated itemType to type');
+    }
+
+    if (!repaired.pedagogy && (repaired.cognitiveLevel || repaired.clientNeed)) {
+        repaired.pedagogy = {
+            bloomLevel: repaired.cognitiveLevel?.toLowerCase() || 'apply',
+            cjmmStep: repaired.clinicalProcess || 'analyzeCues',
+            nclexCategory: repaired.clientNeed || 'Physiological Adaptation',
+            topicTags: repaired.contentArea ? [repaired.contentArea] : ['Uncategorized'],
+            difficulty: parseInt(repaired.difficulty) || 3
+        };
+        changes.push('Migrated flat clinical fields to pedagogy object');
+    }
+
+    if (typeof repaired.rationale === 'string') {
+        const strRationale = repaired.rationale;
+        repaired.rationale = {
+            correct: strRationale,
+            incorrect: '',
+            clinicalPearls: repaired.clinicalPearls ? [repaired.clinicalPearls] : [],
+            questionTrap: repaired.questionTrap ? { trap: 'Focus Area', howToOvercome: repaired.questionTrap } : undefined,
+            mnemonic: repaired.mnemonic ? { title: 'HINT', expansion: repaired.mnemonic } : undefined,
+            answerBreakdown: [],
+            reviewUnits: []
+        };
+        changes.push('Migrated string rationale to standardized Rationale object');
+    }
+
+    if (repaired.options && Array.isArray(repaired.options)) {
+        const correctOpts = repaired.options.filter(o => o.isCorrect === true);
+        if (correctOpts.length > 0) {
+            if (repaired.type === 'multipleChoice' && !repaired.correctOptionId) {
+                repaired.correctOptionId = correctOpts[0].id;
+                changes.push('Extracted correctOptionId from flat isCorrect flag');
+            }
+            if (repaired.type === 'selectAll' && !repaired.correctOptionIds) {
+                repaired.correctOptionIds = correctOpts.map(o => o.id);
+                changes.push('Extracted correctOptionIds from flat isCorrect flags');
+            }
+            if (repaired.type === 'highlight' && !repaired.correctSpanIndices) {
+                repaired.correctSpanIndices = correctOpts.map((o, idx) => idx);
+                repaired.passage = repaired.passage || repaired.options.map((o: any) => o.text).join(' ');
+                changes.push('Adapted flat highlight options into passage and span indices');
+            }
+        }
+    }
+
     // 1. Fix Missing/Wrong Scoring Defaults
     if (!repaired.scoring) {
         repaired.scoring = { method: 'polytomous', maxPoints: 1 };
@@ -991,6 +1041,7 @@ export function repairItem(item: any): { repaired: any; changes: string[] } {
         repaired.scoring.method = 'dichotomous';
         changes.push(`Normalized ${repaired.type} to dichotomous/1pt`);
     }
+
 
     // 4. Normalize Pedagogy Casing
     if (repaired.pedagogy) {
