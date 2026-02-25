@@ -559,7 +559,7 @@ export default function QuestionRenderer({ item, onSubmit, isSubmitted, earnedSc
 }
 
 function formatType(type: string): string {
-    return type.replace(/([A-Z])/g, ' $1').trim();
+    return (type || 'Unknown').replace(/([A-Z])/g, ' $1').trim();
 }
 
 // ═══════════════════════════════════════════════════════════

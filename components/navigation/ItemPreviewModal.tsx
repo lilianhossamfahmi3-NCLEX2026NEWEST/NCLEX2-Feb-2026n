@@ -22,7 +22,7 @@ export function ItemPreviewModal({ items, onClose, theme }: ItemPreviewModalProp
                         <div key={item.id} className="preview-card">
                             <div className="p-card-header">
                                 <span className="p-idx">NODE_{idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
-                                <span className="p-type">{item.type.replace(/([A-Z])/g, ' $1').trim()}</span>
+                                <span className="p-type">{(item.type || 'unknown').replace(/([A-Z])/g, ' $1').trim()}</span>
                                 <span className="p-step">{item.pedagogy?.cjmmStep || 'General'}</span>
                             </div>
                             <div className="p-stem">{item.stem}</div>
