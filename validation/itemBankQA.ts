@@ -1000,18 +1000,18 @@ export function repairItem(item: any): { repaired: any; changes: string[] } {
     }
 
     if (repaired.options && Array.isArray(repaired.options)) {
-        const correctOpts = repaired.options.filter(o => o.isCorrect === true);
+        const correctOpts = repaired.options.filter((o: any) => o.isCorrect === true);
         if (correctOpts.length > 0) {
             if (repaired.type === 'multipleChoice' && !repaired.correctOptionId) {
                 repaired.correctOptionId = correctOpts[0].id;
                 changes.push('Extracted correctOptionId from flat isCorrect flag');
             }
             if (repaired.type === 'selectAll' && !repaired.correctOptionIds) {
-                repaired.correctOptionIds = correctOpts.map(o => o.id);
+                repaired.correctOptionIds = correctOpts.map((o: any) => o.id);
                 changes.push('Extracted correctOptionIds from flat isCorrect flags');
             }
             if (repaired.type === 'highlight' && !repaired.correctSpanIndices) {
-                repaired.correctSpanIndices = correctOpts.map((o, idx) => idx);
+                repaired.correctSpanIndices = correctOpts.map((_: any, idx: number) => idx);
                 repaired.passage = repaired.passage || repaired.options.map((o: any) => o.text).join(' ');
                 changes.push('Adapted flat highlight options into passage and span indices');
             }
