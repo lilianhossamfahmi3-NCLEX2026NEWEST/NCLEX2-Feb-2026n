@@ -87,7 +87,7 @@ export async function upsertItemToCloud(item: any) {
             item_data: item,
             topic_tags: item.pedagogy?.topicTags || [],
             nclex_category: item.pedagogy?.nclexCategory || null,
-            difficulty: item.pedagogy?.difficulty || 3
+            difficulty: typeof item.pedagogy?.difficulty === 'number' ? item.pedagogy.difficulty : (parseInt(item.pedagogy?.difficulty) || 3)
         }, { onConflict: 'id' });
 
     if (error) {
