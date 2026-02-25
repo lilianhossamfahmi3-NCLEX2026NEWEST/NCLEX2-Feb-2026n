@@ -83,8 +83,11 @@ export async function upsertItemToCloud(item: any) {
         .from('clinical_vault')
         .upsert({
             id: item.id,
+            type: item.type || 'unknown',
             item_data: item,
-            updated_at: new Date().toISOString()
+            topic_tags: item.pedagogy?.topicTags || [],
+            nclex_category: item.pedagogy?.nclexCategory || null,
+            difficulty: item.pedagogy?.difficulty || 3
         }, { onConflict: 'id' });
 
     if (error) {
