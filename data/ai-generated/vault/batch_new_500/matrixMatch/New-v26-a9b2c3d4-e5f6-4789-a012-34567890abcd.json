@@ -1,136 +1,95 @@
 {
   "id": "New-v26-a9b2c3d4-e5f6-4789-a012-34567890abcd",
   "type": "matrixMatch",
-  "stem": "The nurse is preparing to administer medications to Mr. Jones. Based on the provided information, determine if each medication order is safe and requires intervention.",
+  "stem": "The patient is exhibiting signs and symptoms of hypovolemic shock. Based on the provided information, determine which clinical manifestations are consistent with this condition and which interventions are appropriate.",
   "scoring": {
     "method": "dichotomous",
-    "maxPoints": 4
+    "maxPoints": 6
   },
   "itemContext": {
     "patient": {
-      "name": "Robert Jones",
-      "age": 72,
+      "name": "Jameson Riley",
+      "age": 68,
       "gender": "Male",
-      "iso": "Medical Unit 4B",
+      "iso": "ICU",
       "allergies": [
         "Penicillin"
-      ]
+      ],
+      "isolation": "Droplet"
     },
-    "sbar": "S: Robert Jones, 72-year-old male, admitted for CHF exacerbation. O: At 07:00, patient reports increased shortness of breath. Current vital signs: BP 160/90 mmHg, HR 110 bpm, RR 28, SpO2 90% on 2L nasal cannula. Crackles auscultated bilaterally. Labs show elevated BNP. He has a history of hypertension and type 2 diabetes. B: Admitted yesterday evening. Home medications include lisinopril 20mg daily, metformin 500mg BID, and aspirin 81mg daily. A: CHF exacerbation. Currently on oxygen. New orders received at 07:30 include furosemide 40mg IV push STAT, digoxin 0.25mg IV push STAT, potassium chloride 20mEq PO BID, and insulin aspart 4 units subcutaneous now. R: Please assess medication orders and administer as appropriate. Re-evaluate respiratory status after furosemide administration. Contact provider if BP remains elevated or HR exceeds 120.",
+    "sbar": "Situation: Jameson Riley, a 68-year-old male, admitted to the ICU post-op at 02:00 following a ruptured abdominal aortic aneurysm repair. Background: The surgery lasted 6 hours, with significant blood loss estimated at 3 liters. Mr. Riley has a history of hypertension and hyperlipidemia. Assessment: At 06:00, his BP is 80/50 mmHg, HR is 120 bpm, RR is 28, and SpO2 is 90% on 4L NC. Urine output since surgery is only 50 mL. He is cool, clammy, and increasingly lethargic. Lab results show Hgb 8.2 g/dL, Hct 25%, and Lactate 4.5 mmol/L. Recommendation: I am highly concerned about hypovolemic shock given the patient's presentation and lab values. I strongly recommend immediate fluid resuscitation with crystalloids, and I've already ordered a blood transfusion. Please consider vasopressors such as norepinephrine if the fluid resuscitation is not sufficient to maintain adequate blood pressure. Continuous monitoring of vital signs, urine output, and mental status is crucial. Please initiate droplet precautions.",
     "tabs": [
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "05:00: BP 90/60, HR 110, RR 24, SpO2 94% on 2L NC\n05:30: BP 85/55, HR 115, RR 26, SpO2 92% on 3L NC\n06:00: BP 80/50, HR 120, RR 28, SpO2 90% on 4L NC\nUrine Output (since 02:00): 50 mL"
+      },
       {
         "id": "labs",
         "title": "Labs",
-        "content": "Potassium: 3.2 mEq/L, Sodium: 138 mEq/L, Creatinine: 1.8 mg/dL, BUN: 35 mg/dL, BNP: 800 pg/mL, Glucose: 180 mg/dL"
+        "content": "Hgb: 8.2 g/dL\nHct: 25%\nNa: 140 mEq/L\nK: 4.1 mEq/L\nCl: 100 mEq/L\nBUN: 25 mg/dL\nCreatinine: 1.5 mg/dL\nLactate: 4.5 mmol/L"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "Lisinopril 20mg PO daily (09:00), Metformin 500mg PO BID (08:00, 20:00), Aspirin 81mg PO daily (09:00). No known drug allergies."
-      },
-      {
-        "id": "vitals",
-        "title": "Vitals",
-        "content": "06:00: BP 150/85 mmHg, HR 98 bpm, RR 24, SpO2 92% on room air. 07:00: BP 160/90 mmHg, HR 110 bpm, RR 28, SpO2 90% on 2L nasal cannula."
+        "content": "02:30: Cefazolin 2g IV\n02:30: Ondansetron 4mg IV\n03:00: Packed RBCs 1 unit (started)"
       }
     ]
   },
   "pedagogy": {
-    "bloomLevel": "Apply",
-    "cjmmStep": "Analyze Cues",
-    "nclexCategory": "Safe and Effective Care Environment",
+    "bloomLevel": "Analyze",
+    "cjmmStep": "Evaluate",
+    "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "Safety: Medication Calculation & High-Alert Drugs"
+      "Cardiovascular: Shock & Hemodynamics"
     ]
   },
-  "rationale": {
-    "correct": "Furosemide is appropriate for fluid overload, but potassium level of 3.2 mEq/L warrants holding the digoxin until potassium is repleted due to increased risk of digoxin toxicity. The potassium supplement is appropriate. Aspart insulin is also appropriate given the elevated blood glucose. The digoxin dose should be held and the provider notified of the patient's hypokalemia.",
-    "incorrect": "Administering digoxin to a patient with hypokalemia increases the risk of digoxin toxicity, which can lead to serious cardiac arrhythmias. Not addressing the potassium level puts the patient at significant risk. Insulin can be safely administered to address the elevated blood sugar. Furosemide helps reduce fluid overload, but it will further deplete potassium, making the hypokalemia even more dangerous in the context of digoxin administration.",
-    "clinicalPearls": [
-      "Hypokalemia increases the risk of digoxin toxicity.",
-      "Furosemide is a loop diuretic that can cause potassium loss.",
-      "Always check potassium levels before administering digoxin."
-    ],
-    "questionTrap": {
-      "trap": "The question trap is to assume that all medications ordered are safe without critically evaluating the patient's current electrolyte imbalances and how those imbalances could interact with the medications.",
-      "howToOvercome": "Carefully review all lab values, especially electrolytes, and consider how each medication will affect those values and interact with other medications. Prioritize safety over blindly following orders."
-    },
-    "mnemonic": {
-      "title": "DIG for Digoxin",
-      "expansion": "D: Determine Potassium level, I: Investigate Digoxin level if applicable, G: Guard against hypokalemia."
-    }
-  },
-  "matrix": {
+  "stemTable": {
     "rows": [
-      {
-        "id": "furosemide",
-        "label": "Furosemide 40mg IV push STAT"
-      },
-      {
-        "id": "digoxin",
-        "label": "Digoxin 0.25mg IV push STAT"
-      },
-      {
-        "id": "potassium",
-        "label": "Potassium Chloride 20mEq PO BID"
-      },
-      {
-        "id": "insulin",
-        "label": "Insulin Aspart 4 units subcutaneous now"
-      }
+      "Tachycardia",
+      "Increased Urine Output",
+      "Hypotension",
+      "Cool, Clammy Skin",
+      "Administering a Bolus of Normal Saline",
+      "Elevating the Head of the Bed"
     ],
     "columns": [
-      {
-        "id": "safe",
-        "label": "Safe"
-      },
-      {
-        "id": "intervention",
-        "label": "Requires Intervention"
-      }
+      "Consistent with Hypovolemic Shock",
+      "Appropriate Intervention"
     ]
   },
-  "response": [
-    {
-      "row": "furosemide",
-      "column": "safe",
-      "correct": true
+  "answerKey": {
+    "Tachycardia": [
+      "Consistent with Hypovolemic Shock"
+    ],
+    "Increased Urine Output": [],
+    "Hypotension": [
+      "Consistent with Hypovolemic Shock"
+    ],
+    "Cool, Clammy Skin": [
+      "Consistent with Hypovolemic Shock"
+    ],
+    "Administering a Bolus of Normal Saline": [
+      "Appropriate Intervention"
+    ],
+    "Elevating the Head of the Bed": []
+  },
+  "rationale": {
+    "correct": "Tachycardia, hypotension, and cool, clammy skin are all clinical manifestations of hypovolemic shock. The body attempts to compensate for decreased circulating volume by increasing heart rate to maintain cardiac output. Hypotension results from the decreased circulating volume. Cool, clammy skin occurs due to vasoconstriction as the body shunts blood to vital organs. Administering a bolus of normal saline is an appropriate intervention to increase circulating volume.",
+    "incorrect": "Increased urine output is not consistent with hypovolemic shock; oliguria or anuria is more likely. Elevating the head of the bed is generally contraindicated in hypovolemic shock, as it can exacerbate hypotension by further decreasing venous return to the heart. It is preferable to keep the patient supine or in a modified Trendelenburg position (if not contraindicated) to promote venous return.",
+    "clinicalPearls": [
+      "Early recognition of shock is crucial. Subtle changes in vital signs and mental status can be early indicators.",
+      "Fluid resuscitation should be initiated promptly in hypovolemic shock. Monitor the patient closely for signs of fluid overload.",
+      "Vasopressors may be necessary if fluid resuscitation alone is insufficient to maintain adequate blood pressure."
+    ],
+    "questionTrap": {
+      "trap": "The question includes both signs/symptoms and interventions, potentially causing confusion about what is being asked. Some might focus solely on the shock symptoms and ignore the intervention options.",
+      "howToOvercome": "Carefully read the stem and understand that you're asked to identify BOTH the clinical manifestations of hypovolemic shock AND appropriate interventions for that condition. Consider each option independently and evaluate its relevance to both aspects."
     },
-    {
-      "row": "furosemide",
-      "column": "intervention",
-      "correct": false
-    },
-    {
-      "row": "digoxin",
-      "column": "safe",
-      "correct": false
-    },
-    {
-      "row": "digoxin",
-      "column": "intervention",
-      "correct": true
-    },
-    {
-      "row": "potassium",
-      "column": "safe",
-      "correct": true
-    },
-    {
-      "row": "potassium",
-      "column": "intervention",
-      "correct": false
-    },
-    {
-      "row": "insulin",
-      "column": "safe",
-      "correct": true
-    },
-    {
-      "row": "insulin",
-      "column": "intervention",
-      "correct": false
+    "mnemonic": {
+      "title": "STOP the SHOCK",
+      "expansion": "S - Seek the cause (hypovolemia, cardiogenic, etc.); T - Trendelenburg position (modified, if appropriate); O - Oxygen administration; P - Pharmaceuticals (vasopressors, fluids); SH - Support hemodynamics; O - Observe vital signs; C - Consider central line; K - Keep warm."
     }
-  ]
+  }
 }
