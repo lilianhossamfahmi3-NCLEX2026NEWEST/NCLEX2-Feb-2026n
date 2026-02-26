@@ -133,7 +133,7 @@ async function main() {
             if (!fs.existsSync(typeDir)) fs.mkdirSync(typeDir, { recursive: true });
             fs.writeFileSync(path.join(typeDir, `${item.id}.json`), JSON.stringify(item, null, 2));
 
-            await supabase.from('clinical_vault').upsert({ id: item.id, item_data: item, type: item.type }).catch(() => { });
+            await supabase.from('clinical_vault').upsert({ id: item.id, item_data: item, type: item.type }, { onConflict: 'id' });
             saved++;
             process.stdout.write(`\rProgress: ${saved}/${TARGET}`);
         }
