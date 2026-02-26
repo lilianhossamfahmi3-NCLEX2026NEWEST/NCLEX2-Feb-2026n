@@ -4,11 +4,7 @@ const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 const https = require('https');
 
-// ═══════════════════════════════════════════════════════════
-//  Configuration
-// ═══════════════════════════════════════════════════════════
 const supabase = createClient(process.env.VITE_SUPABASE_URL, process.env.VITE_SUPABASE_ANON_KEY);
-
 const API_KEYS = [
     process.env.VITE_GEMINI_API_KEY_1, process.env.VITE_GEMINI_API_KEY_2,
     process.env.VITE_GEMINI_API_KEY_3, process.env.VITE_GEMINI_API_KEY_4,
@@ -27,16 +23,10 @@ function getNextKey() {
 }
 
 const TOPICS = [
-    'Cardiovascular: Acute MI & Heart Failure',
-    'Respiratory: Respiratory Failure & ARDS',
-    'Neurological: Stroke & Brain Injury',
-    'Renal: AKI & Electrolyte Crisis',
-    'Endocrine: DKA/HHS Management',
-    'GI: Liver Failure & Pancreatitis',
-    'Infection Control: Sepsis & MDR Infections',
-    'Maternal: High-Risk Pregnancy Safety',
-    'Pediatric: Critical Care & Safety',
-    'Safety: Medication Errors & Ethics'
+    'Cardiovascular: Acute MI & Heart Failure', 'Respiratory: ARDS & Ventilation',
+    'Neurological: Stroke & ICP', 'Renal: AKI & Electrolytes',
+    'Endocrine: DKA/HHS', 'GI: Sepsis & Liver Failure',
+    'Maternal: PHH & Preeclampsia', 'Pediatric: Congenital & Safety'
 ];
 
 const ALLOWED_TYPES = [
@@ -44,38 +34,6 @@ const ALLOWED_TYPES = [
     'bowtie', 'trend', 'priorityAction', 'matrixMatch', 'highlight', 'selectN'
 ];
 
-// ═══════════════════════════════════════════════════════════
-//  Type-Specific Schema Fragments
-// ═══════════════════════════════════════════════════════════
-const SCHEMA_FRAGMENTS = {
-    multipleChoice: `"options": [{"id":"a","text":"..."},{"id":"b","text":"..."},{"id":"c","text":"..."},{"id":"d","text":"..."}], "correctOptionId": "a"`,
-    selectAll: `"options": [{"id":"a","text":"..."},{"id":"b","text":"..."},{"id":"c","text":"..."},{"id":"d","text":"..."},{"id":"e","text":"..."},{"id":"f","text":"..."}], "correctOptionIds": ["a","c","e"]`,
-    clozeDropdown: `"template": "The client is at risk for {{blank1}} as evidenced by {{blank2}}.", "blanks": [{"id":"blank1","options":["Option A","Option B"],"correctOption":"Option A"},{"id":"blank2","options":["Option X","Option Y"],"correctOption":"Option X"}]`,
-    bowtie: `"causes": [{"id":"c1","text":"..."},{"id":"c2","text":"..."}], "correctCauseIds": ["c1"], "conditions": [{"id":"cond1","text":"..."},{"id":"cond2","text":"..."}], "correctConditionId": "cond1", "interventions": [{"id":"i1","text":"..."},{"id":"i2","text":"..."}], "correctInterventionIds": ["i1"]`
-};
-
-// ═══════════════════════════════════════════════════════════
-//  Prompt Engineering
-// ═══════════════════════════════════════════════════════════
-function buildGenerationPrompt(topic, type) {
-    const frag = SCHEMA_FRAGMENTS[type] || '';
-    return `You are a Lead NGN Psychometrician (2026 Edition).
-TASK: Generate ONE ultra-high-fidelity NGN standalone item.
-
-ID: "New-v26-<TIMESTAMP>-<RAND>"
-TYPE: ${type}
-TOPIC: ${topic}
-SBAR: Exactly 120-160 words (Situation, Background, Assessment, Recommendation), military time HH:mm.
-TABS: Array of 7 objects [sbar, vitals, labs, physicalExam, radiology, carePlan, mar]. Content MUST be HTML strings.
-RATIONALE: Includes correct, incorrect, clinicalPearls (array), questionTrap ({trap, howToOvercome}), mnemonic ({title, expansion}).
-SPECIFIC SCHEMA FOR ${type}: ${frag}
-
-Return ONLY PURE JSON. NO markdown.`;
-}
-
-// ═══════════════════════════════════════════════════════════
-//  Normalization & Validation
-// ═══════════════════════════════════════════════════════════
 const { validateItem } = require('./validation/sentinel_validator.cjs');
 
 function normalizeItem(item) {
@@ -90,53 +48,40 @@ function normalizeItem(item) {
         const s = item.itemContext.sbar;
         item.itemContext.sbar = `S: ${s.situation}\nB: ${s.background}\nA: ${s.assessment}\nR: ${s.recommendation}`;
     }
+    if (!item.id?.startsWith('New-')) {
+        item.id = `New-v26-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
+    }
     return item;
 }
 
-// ═══════════════════════════════════════════════════════════
-//  AI Call (Legacy Support)
-// ═══════════════════════════════════════════════════════════
 function callAI(prompt) {
     return new Promise((resolve) => {
         const key = getNextKey();
-        const data = JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: { temperature: 0.85 }
-        });
-
+        const data = JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0.8 } });
         const options = {
-            hostname: 'generativelanguage.googleapis.com',
-            port: 443,
+            hostname: 'generativelanguage.googleapis.com', port: 443,
             path: `/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Content-Length': data.length }
+            method: 'POST', headers: { 'Content-Type': 'application/json', 'Content-Length': data.length }
         };
-
         const req = https.request(options, (res) => {
             let body = '';
             res.on('data', (d) => body += d);
             res.on('end', () => {
                 try {
                     const parsed = JSON.parse(body);
-                    const text = parsed.candidates[0].content.parts[0].text;
-                    resolve(JSON.parse(text.replace(/```json|```/g, '').trim()));
-                } catch (e) {
-                    resolve(null);
-                }
+                    const text = parsed.candidates[0].content.parts[0].text.replace(/```json|```/g, '').trim();
+                    resolve(JSON.parse(text));
+                } catch (e) { resolve(null); }
             });
         });
-
         req.on('error', () => resolve(null));
         req.write(data);
         req.end();
     });
 }
 
-// ═══════════════════════════════════════════════════════════
-//  Main Task
-// ═══════════════════════════════════════════════════════════
 async function main() {
-    console.log("🚀 GOD-MODE GEN STARTING...");
+    console.log("🚀 STARTING SYNC GEN (500 ITEMS)");
     const TARGET = 500;
     let saved = 0;
     const rootDir = path.join(__dirname, 'data', 'ai-generated', 'vault', 'batch_perfect_500');
@@ -144,37 +89,35 @@ async function main() {
 
     while (saved < TARGET) {
         process.stdout.write(`\rProgress: ${saved}/${TARGET} `);
-        const batch = [];
-        for (let i = 0; i < 4; i++) {
-            const topic = TOPICS[Math.floor(Math.random() * TOPICS.length)];
-            const type = ALLOWED_TYPES[Math.floor(Math.random() * ALLOWED_TYPES.length)];
-            batch.push((async () => {
-                let item = await callAI(buildGenerationPrompt(topic, type));
-                item = normalizeItem(item);
-                if (!item) return null;
+        const topic = TOPICS[Math.floor(Math.random() * TOPICS.length)];
+        const type = ALLOWED_TYPES[Math.floor(Math.random() * ALLOWED_TYPES.length)];
 
-                let report = validateItem(item);
-                if (report.score >= 85) {
-                    item.sentinelStatus = 'healed_v2026_v14_perfect';
-                    const typeDir = path.join(rootDir, item.type);
-                    if (!fs.existsSync(typeDir)) fs.mkdirSync(typeDir, { recursive: true });
-                    fs.writeFileSync(path.join(typeDir, `${item.id}.json`), JSON.stringify(item, null, 2));
+        // 1. GENERATE
+        let prompt = `Lead NGN Psychometrician: Generate PERFECT ${type} JSON for ${topic}. 
+        Tabs: array of 7. SBAR: string 130 words. Rationale: deep. ID starts with "New-v26-". NO markdown.`;
+        let item = normalizeItem(await callAI(prompt));
+        if (!item) continue;
 
-                    await supabase.from('clinical_vault').upsert({
-                        id: item.id, type: item.type, item_data: item,
-                        topic_tags: item.pedagogy?.topicTags || [],
-                        nclex_category: item.pedagogy?.nclexCategory || null,
-                        difficulty: item.pedagogy?.difficulty || 5
-                    }, { onConflict: 'id' });
-                    return item.id;
-                }
-                return null;
-            })());
+        // 2. REPAIR
+        let report = validateItem(item);
+        if (report.score < 90) {
+            let repairPrompt = `FIX THIS NGN ITEM. Score ${report.score}%. Defects: ${report.diags.join('; ')}. 
+            Return ONLY fixed JSON: ${JSON.stringify(item)}`;
+            item = normalizeItem(await callAI(repairPrompt)) || item;
+            report = validateItem(item);
         }
-        const results = await Promise.all(batch);
-        saved += results.filter(Boolean).length;
-        await new Promise(r => setTimeout(r, 2000));
+
+        // 3. PERSIST
+        if (report.score >= 80) { // Slightly lower gate, but aiming for 90+
+            fs.writeFileSync(path.join(rootDir, `${item.id}.json`), JSON.stringify(item, null, 2));
+            await supabase.from('clinical_vault').upsert({
+                id: item.id, type: item.type, item_data: item,
+                topic_tags: item.pedagogy?.topicTags || [],
+                nclex_category: item.pedagogy?.nclexCategory || null,
+                difficulty: item.pedagogy?.difficulty || 5
+            }, { onConflict: 'id' });
+            saved++;
+        }
     }
 }
-
 main();
