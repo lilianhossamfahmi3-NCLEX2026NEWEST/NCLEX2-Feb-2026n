@@ -1,72 +1,72 @@
 {
-  "id": "New-v26-a7b8c9d0-e3f2-4a1b-9c8d-5e6f7a8b9c01",
-  "type": "priorityAction",
-  "stem": "The nurse is preparing to administer medications to a patient with multiple comorbidities. Based on the patient's EHR, prioritize the nurse's actions.",
-  "scoring": {
-    "method": "linkage",
-    "maxPoints": 5
-  },
-  "itemContext": {
-    "patient": {
-      "name": "Ricardo Ramirez",
-      "age": 78,
-      "gender": "Male",
-      "iso": "Telemetry Unit, Room 302",
-      "allergies": [
-        "Sulfa drugs"
-      ],
-      "conditions": [
-        "Tuberculosis"
-      ]
+    "id": "New-v26-a7b8c9d0-e3f2-4a1b-9c8d-5e6f7a8b9c01",
+    "type": "priorityAction",
+    "stem": "The nurse is preparing to administer medications to a patient with multiple comorbidities. Based on the patient's EHR, prioritize the nurse's actions.",
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sbar": "S: Ricardo Ramirez, 78-year-old male, admitted for CHF exacerbation and atrial fibrillation. History of HTN, DM type II, CKD stage 3, and recently diagnosed pulmonary tuberculosis. O: 06:00: Patient reports increased SOB and lower extremity edema. A: Current orders include furosemide 40mg IV BID, digoxin 0.125mg PO daily, potassium chloride 20mEq PO BID, and warfarin 5mg PO daily. INR this morning is 1.3. BP 100/60, HR 110 irregular, RR 24, SpO2 92% on 2L NC. Last dose of furosemide was given at 18:00 yesterday. Sputum sample sent for AFB smear and culture. A: Worsening CHF, risk for digoxin toxicity, subtherapeutic INR, and active tuberculosis requiring airborne precautions. R: Please evaluate and adjust medications as needed, particularly digoxin and warfarin. Consider holding digoxin and notifying physician of INR. Assess potassium level before administering potassium chloride at 08:00. Monitor BP closely after furosemide administration. Initiate airborne isolation precautions due to active TB and pending AFB results.",
-    "tabs": [
-      {
-        "id": "labs",
-        "title": "Labs",
-        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>100 mEq/L</td><td>95-105 mEq/L</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Digoxin</td><td>2.1 ng/mL</td><td>0.5-2.0 ng/mL</td></tr><tr><td>INR</td><td>1.3</td><td>2.0-3.0 (therapeutic range for warfarin)</td></tr></tbody></table>"
-      },
-      {
-        "id": "mar",
-        "title": "MAR",
-        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>BID</td><td>18:00</td></tr><tr><td>Digoxin</td><td>0.125 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>PO</td><td>BID</td><td>18:00</td></tr><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr></tbody></table>"
-      },
-      {
-        "id": "vitals",
-        "title": "Vitals",
-        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>06:00</td><td>100/60</td><td>110 (irregular)</td><td>24</td><td>92% (2L NC)</td></tr><tr><td>04:00</td><td>110/70</td><td>100 (irregular)</td><td>22</td><td>94% (2L NC)</td></tr><tr><td>02:00</td><td>115/75</td><td>95 (irregular)</td><td>20</td><td>95% (2L NC)</td></tr></tbody></table>"
-      }
-    ]
-  },
-  "pedagogy": {
-    "bloomLevel": "Apply",
-    "cjmmStep": "Assess",
-    "nclexCategory": "Safe and Effective Care Environment",
-    "difficulty": 5,
-    "topicTags": [
-      "Safety: Medication Calculation & High-Alert Drugs",
-      "Infection Control"
-    ]
-  },
-  "rationale": {
-    "correct": "The patient's elevated digoxin level (2.1 ng/mL), coupled with hypokalemia (3.2 mEq/L) and bradycardia relative to the patient's baseline, indicates a high risk of digoxin toxicity. Holding the digoxin and notifying the physician is crucial to prevent further complications. Initiating airborne precautions is essential given the diagnosis of active tuberculosis and the risk of airborne transmission. Administering potassium is vital to correct the hypokalemia, which predisposes to digoxin toxicity and arrhythmias. Evaluating renal function (BUN and creatinine) is important due to the patient's CKD and its impact on drug excretion. Lastly, monitoring BP after furosemide administration is essential to detect hypotension, which can be exacerbated by diuretic use, especially given the already low BP.",
-    "incorrect": "Administering furosemide without addressing the hypokalemia and potential digoxin toxicity could worsen the patient's condition and precipitate arrhythmias. Continuing warfarin without addressing the subtherapeutic INR (1.3) increases the risk of thromboembolic events, but is lower priority compared to digoxin toxicity and the immediate need for airborne precautions. Withholding potassium without addressing the hypokalemia can worsen the patient's cardiac function. Delaying notification of the physician about the digoxin level and INR will delay necessary interventions. Ignoring the active tuberculosis diagnosis and failing to initiate airborne precautions puts healthcare workers and other patients at risk.",
-    "clinicalPearls": [
-      "Hypokalemia increases the risk of digoxin toxicity.",
-      "Digoxin toxicity can manifest as bradycardia, nausea, vomiting, and visual disturbances.",
-      "Furosemide can exacerbate hypokalemia.",
-      "Patients with CKD are at higher risk of drug toxicity due to impaired renal excretion.",
-      "High alert medications such as digoxin, warfarin, and furosemide require careful monitoring.",
-      "Pulmonary Tuberculosis requires airborne isolation precautions to prevent the spread of the infection."
-    ],
-    "questionTrap": {
-      "trap": "Many students focus solely on the low INR and prioritize adjusting the warfarin dose. While the INR is important, the immediate threat of digoxin toxicity is more critical. Additionally, the presence of active TB requires immediate isolation.",
-      "howToOvercome": "Carefully review all lab values and vital signs in conjunction with the medication list and patient diagnoses to identify the most pressing issue. Prioritize actions based on the immediate risk to the patient and public health."
+    "itemContext": {
+        "patient": {
+            "name": "Ricardo Ramirez",
+            "age": 78,
+            "gender": "Male",
+            "iso": "Telemetry Unit, Room 302",
+            "allergies": [
+                "Sulfa drugs"
+            ],
+            "conditions": [
+                "Tuberculosis"
+            ]
+        },
+        "sbar": "S: Ricardo Ramirez, 78-year-old male, admitted for CHF exacerbation and atrial fibrillation. History of HTN, DM type II, CKD stage 3, and recently diagnosed pulmonary tuberculosis. O: 06:00: Patient reports increased SOB and lower extremity edema. A: Current orders include furosemide 40mg IV BID, digoxin 0.125mg PO daily, potassium chloride 20mEq PO BID, and warfarin 5mg PO daily. INR this morning is 1.3. BP 100/60, HR 110 irregular, RR 24, SpO2 92% on 2L NC. Last dose of furosemide was given at 18:00 yesterday. Sputum sample sent for AFB smear and culture. A: Worsening CHF, risk for digoxin toxicity, subtherapeutic INR, and active tuberculosis requiring airborne precautions. R: Please evaluate and adjust medications as needed, particularly digoxin and warfarin. Consider holding digoxin and notifying physician of INR. Assess potassium level before administering potassium chloride at 08:00. Monitor BP closely after furosemide administration. Initiate airborne isolation precautions due to active TB and pending AFB results.",
+        "tabs": [
+            {
+                "id": "labs",
+                "title": "Labs",
+                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>100 mEq/L</td><td>95-105 mEq/L</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Digoxin</td><td>2.1 ng/mL</td><td>0.5-2.0 ng/mL</td></tr><tr><td>INR</td><td>1.3</td><td>2.0-3.0 (therapeutic range for warfarin)</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>BID</td><td>18:00</td></tr><tr><td>Digoxin</td><td>0.125 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>PO</td><td>BID</td><td>18:00</td></tr><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr></tbody></table>"
+            },
+            {
+                "id": "vitals",
+                "title": "Vitals",
+                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>06:00</td><td>100/60</td><td>110 (irregular)</td><td>24</td><td>92% (2L NC)</td></tr><tr><td>04:00</td><td>110/70</td><td>100 (irregular)</td><td>22</td><td>94% (2L NC)</td></tr><tr><td>02:00</td><td>115/75</td><td>95 (irregular)</td><td>20</td><td>95% (2L NC)</td></tr></tbody></table>"
+            }
+        ]
     },
-    "mnemonic": {
-      "title": "D.I.G. & A.I.R.",
-      "expansion": "Drugs (high alert), Interactions, Geriatrics (renal decline) & Airborne Isolation Required"
-    }
-  },
-  "isolationType": "airborne"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Assess",
+        "nclexCategory": "Safe and Effective Care Environment",
+        "difficulty": 5,
+        "topicTags": [
+            "Safety: Medication Calculation & High-Alert Drugs",
+            "Infection Control"
+        ]
+    },
+    "rationale": {
+        "correct": "The patient's elevated digoxin level (2.1 ng/mL), coupled with hypokalemia (3.2 mEq/L) and bradycardia relative to the patient's baseline, indicates a high risk of digoxin toxicity. Holding the digoxin and notifying the physician is crucial to prevent further complications. Initiating airborne precautions is essential given the diagnosis of active tuberculosis and the risk of airborne transmission. Administering potassium is vital to correct the hypokalemia, which predisposes to digoxin toxicity and arrhythmias. Evaluating renal function (BUN and creatinine) is important due to the patient's CKD and its impact on drug excretion. Lastly, monitoring BP after furosemide administration is essential to detect hypotension, which can be exacerbated by diuretic use, especially given the already low BP.",
+        "incorrect": "Administering furosemide without addressing the hypokalemia and potential digoxin toxicity could worsen the patient's condition and precipitate arrhythmias. Continuing warfarin without addressing the subtherapeutic INR (1.3) increases the risk of thromboembolic events, but is lower priority compared to digoxin toxicity and the immediate need for airborne precautions. Withholding potassium without addressing the hypokalemia can worsen the patient's cardiac function. Delaying notification of the physician about the digoxin level and INR will delay necessary interventions. Ignoring the active tuberculosis diagnosis and failing to initiate airborne precautions puts healthcare workers and other patients at risk.",
+        "clinicalPearls": [
+            "Hypokalemia increases the risk of digoxin toxicity.",
+            "Digoxin toxicity can manifest as bradycardia, nausea, vomiting, and visual disturbances.",
+            "Furosemide can exacerbate hypokalemia.",
+            "Patients with CKD are at higher risk of drug toxicity due to impaired renal excretion.",
+            "High alert medications such as digoxin, warfarin, and furosemide require careful monitoring.",
+            "Pulmonary Tuberculosis requires airborne isolation precautions to prevent the spread of the infection."
+        ],
+        "questionTrap": {
+            "trap": "Many students focus solely on the low INR and prioritize adjusting the warfarin dose. While the INR is important, the immediate threat of digoxin toxicity is more critical. Additionally, the presence of active TB requires immediate isolation.",
+            "howToOvercome": "Carefully review all lab values and vital signs in conjunction with the medication list and patient diagnoses to identify the most pressing issue. Prioritize actions based on the immediate risk to the patient and public health."
+        },
+        "mnemonic": {
+            "title": "D.I.G. & A.I.R.",
+            "expansion": "Drugs (high alert), Interactions, Geriatrics (renal decline) & Airborne Isolation Required"
+        }
+    },
+    "isolationType": "airborne"
 }

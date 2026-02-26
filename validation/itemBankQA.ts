@@ -481,7 +481,7 @@ function checkDataReferences(item: any): QADiagnostic[] {
         const context = item.itemContext;
         const sbarText = context.sbar || (context.tabs && context.tabs.find((t: any) => t.id === 'sbar')?.content);
 
-        if (sbarText) {
+        if (typeof sbarText === 'string') {
             const wordCount = sbarText.split(/\s+/).filter(Boolean).length;
             if (wordCount < SBAR_MIN_WORDS || wordCount > SBAR_MAX_WORDS) {
                 diags.push({ dimension: dim, severity: 'warning', code: 'DATA-2026-SBAR', message: `2026 Compliance: SBAR word count (${wordCount}) is outside the required 120-160 range.`, field: 'itemContext.sbar' });
@@ -736,14 +736,17 @@ function checkEhrSync(item: any): QADiagnostic[] {
 
     const stemAndOptions = [
         item.stem || '',
-        ...(item.options?.map((o: any) => o.text || '') || []),
+        ...(Array.isArray(item.options) ? item.options.map((o: any) => o.text || '') : []),
     ].join(' ').toLowerCase();
 
     // Get tab IDs that exist
     const tabIds = new Set(
-        (item.itemContext?.tabs?.map((t: any) => (t.id || t.title || '').toLowerCase()) || [])
+        (Array.isArray(item.itemContext?.tabs) ? item.itemContext.tabs.map((t: any) => (t.id || t.title || '').toLowerCase()) : [])
     );
-    const allTabContent = (item.itemContext?.tabs?.map((t: any) => (t.content || t.text || '').toLowerCase()) || []).join(' ');
+    const allTabContent = (Array.isArray(item.itemContext?.tabs) ? item.itemContext.tabs.map((t: any) => {
+        const c = t.content || t.text || '';
+        return (typeof c === 'string' ? c : JSON.stringify(c)).toLowerCase();
+    }) : []).join(' ');
 
     // Check: Lab values mentioned in stem but no labs tab
     const mentionedLabs = LAB_KEYWORDS.filter(kw => stemAndOptions.includes(kw));
@@ -997,6 +1000,101 @@ export function repairItem(item: any): { repaired: any; changes: string[] } {
             reviewUnits: []
         };
         changes.push('Migrated string rationale to standardized Rationale object');
+    }
+
+    // 0.5. Standalone Study Companion & SBAR Migration
+    // Moves misplaced top-level fields into the standardized rationale/itemContext structure.
+
+    if (!repaired.rationale || typeof repaired.rationale === 'string') {
+        const existingRationaleString = typeof repaired.rationale === 'string' ? repaired.rationale : '';
+        repaired.rationale = {
+            correct: repaired.correctRationale || existingRationaleString || 'Assessment results indicate the selected finding.',
+            incorrect: repaired.incorrectRationale || 'Refer to clinical pearls for physiological differentiation.',
+            reviewUnits: []
+        };
+        changes.push('Initialized standardized Rationale object');
+    }
+
+    const r = repaired.rationale;
+
+    // Move clinicalPearls
+    if (repaired.clinicalPearls && Array.isArray(repaired.clinicalPearls)) {
+        r.clinicalPearls = [...(r.clinicalPearls || []), ...repaired.clinicalPearls];
+        delete repaired.clinicalPearls;
+        changes.push('Migrated top-level clinicalPearls to rationale');
+    } else if (repaired.clinicalPearl && typeof repaired.clinicalPearl === 'string') {
+        r.clinicalPearls = [...(r.clinicalPearls || []), repaired.clinicalPearl];
+        delete repaired.clinicalPearl;
+        changes.push('Migrated top-level clinicalPearl to rationale');
+    }
+
+    // Move questionTrap
+    if (repaired.questionTrap) {
+        if (typeof repaired.questionTrap === 'string' && !r.questionTrap) {
+            r.questionTrap = { trap: 'Focus Area', howToOvercome: repaired.questionTrap };
+            changes.push('Migrated string questionTrap to rationale object');
+        } else if (typeof repaired.questionTrap === 'object' && !r.questionTrap) {
+            // Handle { title, content } or { trap, howToOvercome }
+            const trap = repaired.questionTrap.trap || repaired.questionTrap.title || 'Focus Area';
+            const how = repaired.questionTrap.howToOvercome || repaired.questionTrap.content || 'Review the clinical cues carefully.';
+            r.questionTrap = { trap, howToOvercome: how };
+            changes.push('Migrated top-level questionTrap object to rationale');
+        }
+        delete repaired.questionTrap;
+    }
+
+    // Move mnemonic
+    const topMnemonic = repaired.mnemonic || repaired.mnemonics;
+    if (topMnemonic && !r.mnemonic) {
+        if (typeof topMnemonic === 'string') {
+            r.mnemonic = { title: 'HINT', expansion: topMnemonic };
+        } else if (typeof topMnemonic === 'object') {
+            const title = topMnemonic.title || 'STUDY TIP';
+            const expansion = topMnemonic.expansion || topMnemonic.content || 'Review the clinical sequence.';
+            r.mnemonic = { title, expansion };
+        }
+        delete repaired.mnemonic;
+        delete repaired.mnemonics;
+        changes.push('Migrated top-level mnemonic to rationale');
+    }
+
+    // Move answerBreakdown
+    if (repaired.answerBreakdown && !r.answerBreakdown) {
+        if (Array.isArray(repaired.answerBreakdown)) {
+            r.answerBreakdown = repaired.answerBreakdown;
+        } else if (typeof repaired.answerBreakdown === 'object') {
+            // Convert object Map format { a: { content, isCorrect } } to Array format [{ label, content, isCorrect }]
+            r.answerBreakdown = Object.entries(repaired.answerBreakdown).map(([key, val]: [string, any]) => ({
+                label: key.toUpperCase(),
+                content: val.content || val.explanation || '',
+                isCorrect: val.isCorrect
+            }));
+        }
+        delete repaired.answerBreakdown;
+        changes.push('Migrated top-level answerBreakdown to rationale');
+    }
+
+    // Move reviewUnits
+    if (repaired.reviewUnits && Array.isArray(repaired.reviewUnits)) {
+        r.reviewUnits = [...(r.reviewUnits || []), ...repaired.reviewUnits];
+        delete repaired.reviewUnits;
+        changes.push('Migrated top-level reviewUnits to rationale');
+    }
+
+    // Move SBAR
+    if (repaired.sbar && !repaired.itemContext?.sbar) {
+        if (!repaired.itemContext) repaired.itemContext = {};
+        if (typeof repaired.sbar === 'string') {
+            repaired.itemContext.sbar = repaired.sbar;
+        } else if (typeof repaired.sbar === 'object') {
+            // If it's the structured SBAR object, we might want to flatten or preserve?
+            // Usually itemContext.sbar is a string for raw display, or tabs for EHR.
+            // Let's create a string if it's the {situation, background...} object.
+            const s = repaired.sbar;
+            repaired.itemContext.sbar = `Situation: ${s.situation}\nBackground: ${s.background}\nAssessment: ${s.assessment}\nRecommendation: ${s.recommendation}`;
+        }
+        delete repaired.sbar;
+        changes.push('Migrated top-level sbar to itemContext');
     }
 
     if (repaired.options && Array.isArray(repaired.options)) {
