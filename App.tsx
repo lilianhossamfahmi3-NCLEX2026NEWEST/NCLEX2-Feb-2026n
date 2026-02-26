@@ -192,28 +192,51 @@ export default function App() {
   });
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [vault, setVault] = useState<MasterItem[]>([]);
+  // Pending standalone item ID — holds the item we WANT to navigate to,
+  // but haven't yet because the vault may not be loaded.
+  const [pendingStandaloneId, setPendingStandaloneId] = useState<string | null>(null);
 
-  // Load vault when needed (Bank or Deep Link)
+  // ── Vault Loader ──────────────────────────────────────────────
+  // Eagerly preload vault at mount so it's ready before any user interaction.
+  // This is the core fix: vault starts loading IMMEDIATELY, not lazily.
   const preloadVault = useCallback(async () => {
     if (vault.length > 0) return;
     const items = await getStandaloneNGNItemsAsync();
     setVault(items);
   }, [vault.length]);
 
+  // Start loading vault the moment App mounts — before user can click anything
   useEffect(() => {
-    if (view === 'ai-bank' || view === 'library' || (selectedCaseId && selectedCaseId.startsWith('standalone:'))) {
-      preloadVault();
-    }
-  }, [view, selectedCaseId, preloadVault]);
+    preloadVault();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  // Deep linking via Hash
+  // ── Deferred Standalone Navigation ────────────────────────────
+  // When a standalone item is requested (via click OR deep link), we store
+  // its ID in `pendingStandaloneId`. This effect watches for the vault to
+  // become available and ONLY THEN navigates to the simulator.
+  // This eliminates the race condition entirely — the Simulator never
+  // renders until the correct standalone CaseStudy is ready.
+  useEffect(() => {
+    if (!pendingStandaloneId || vault.length === 0) return;
+    const item = vault.find(i => i.id === pendingStandaloneId);
+    if (item) {
+      setSelectedCaseId(`standalone:${pendingStandaloneId}`);
+      setPendingStandaloneId(null);
+      setViewStack(prev => [...prev, 'simulator']);
+      setView('simulator');
+    }
+  }, [pendingStandaloneId, vault]);
+
+  // ── Deep linking via Hash ─────────────────────────────────────
+  // Deep links now use the deferred navigation pattern too — they set
+  // pendingStandaloneId instead of immediately navigating to 'simulator'.
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash;
       if (hash.startsWith('#/item/')) {
         const itemId = hash.replace('#/item/', '');
-        setSelectedCaseId(`standalone:${itemId}`);
-        setView('simulator');
+        setPendingStandaloneId(itemId);
       } else if (hash === '#/bank') {
         setView('ai-bank');
       }
@@ -246,6 +269,9 @@ export default function App() {
     setSelectedCaseId(null);
   }, []);
 
+  // selectedCase is now GUARANTEED to resolve correctly for standalone items
+  // because the deferred navigation pattern ensures vault is loaded and the
+  // item exists BEFORE view ever becomes 'simulator'.
   const selectedCase = useMemo(() => {
     if (selectedCaseId?.startsWith('standalone:')) {
       const itemId = selectedCaseId.replace('standalone:', '');
@@ -258,6 +284,11 @@ export default function App() {
   const startCase = (id: string) => {
     if (id === 'ai-bank-view') {
       navigateTo('ai-bank');
+      return;
+    }
+    // Standalone items use deferred navigation — vault must confirm item exists first
+    if (id.startsWith('standalone:')) {
+      setPendingStandaloneId(id.replace('standalone:', ''));
       return;
     }
     setSelectedCaseId(id);
@@ -369,8 +400,9 @@ export default function App() {
         <AIBankPage
           onExit={goBack}
           onSelectItem={(id) => {
-            setSelectedCaseId(`standalone:${id}`);
-            navigateTo('simulator');
+            // Deferred navigation: vault is loaded (AIBankPage rendered items from it),
+            // so the pending effect will resolve immediately on next tick.
+            setPendingStandaloneId(id);
           }}
           theme={theme}
           onToggleTheme={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
@@ -381,8 +413,7 @@ export default function App() {
           onExit={goBack}
           theme={theme}
           onSelectItem={(id) => {
-            setSelectedCaseId(`standalone:${id}`);
-            navigateTo('simulator');
+            setPendingStandaloneId(id);
           }}
         />
       ) : (

@@ -349,7 +349,7 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
             if (valA > valB) return sortConfig.direction === 'asc' ? 1 : -1;
             return 0;
         });
-    }, [items, search, filterType, filterDifficulty, filterStatus, filterBloom, filterCJMM, filterCategory, sortConfig]);
+    }, [items, search, filterType, filterDifficulty, filterStatus, filterBloom, filterCJMM, filterCategory, filterQI, qaScoreMap, sortConfig]);
 
     const handleSort = (key: string) => {
         setSortConfig(prev => {
