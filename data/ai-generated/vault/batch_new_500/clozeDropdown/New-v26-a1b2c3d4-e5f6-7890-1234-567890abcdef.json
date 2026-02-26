@@ -1,93 +1,89 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "clozeDropdown",
-  "stem": "The nurse is reviewing the ventilator settings for Mr. Jones. Based on the provided information, select the most appropriate actions to address the identified issues.\n\nIf the patient's PaCO2 is 55 mmHg, the nurse should select [ventilation_action].\n\nIf the peak inspiratory pressure (PIP) is consistently above 35 cm H2O, the nurse should select [pressure_action].\n\nIf the patient is showing signs of increased work of breathing (WOB), the nurse should select [wob_action].",
+  "stem": "Infant Leo is at increased risk for complications post-operative VSD repair. Select the most appropriate action for each potential problem:\n\nMaintaining Cardiac Output: Administer [{1: medication to increase contractility}] as prescribed and monitor for signs of [{2: decreased cardiac output}], such as poor perfusion and hypotension.\n\nPreventing Infection: Adhere to strict aseptic technique during all procedures and monitor for signs of infection, including [{3: elevated temperature}] and redness at the incision site.\n\nManaging Fluid Balance: Monitor intake and output closely, and administer [{4: diuretics}] as needed to prevent fluid overload, which can strain the repaired heart.",
   "scoring": {
     "method": "dichotomous",
-    "maxPoints": 3
+    "maxPoints": 4
   },
   "itemContext": {
     "patient": {
-      "name": "John Jones",
-      "age": 68,
+      "name": "Leo Maxwell",
+      "age": 3,
       "gender": "Male",
-      "iso": "Contact & Droplet",
+      "iso": "ICU",
       "allergies": [
-        "Penicillin"
+        "NKDA"
       ]
     },
-    "sbar": "Situation: John Jones, a 68-year-old male with a history of COPD, was admitted for pneumonia and subsequently intubated due to respiratory failure at 07:00 this morning. He is currently mechanically ventilated. Background: Mr. Jones has a significant history of COPD, which contributes to his baseline respiratory compromise. Assessment: At 10:00, current ventilator settings are: FiO2 40%, Tidal Volume (TV) 450 mL, Respiratory Rate (RR) 16 breaths/min, and PEEP 5 cm H2O. An arterial blood gas (ABG) obtained at 10:00 reveals: pH 7.30, PaCO2 55 mmHg, PaO2 88 mmHg, HCO3 24 mEq/L, and SaO2 95%. The Peak Inspiratory Pressure (PIP) is trending upwards and is currently at 36 cm H2O. The patient is exhibiting noticeable accessory muscle use, indicating increased work of breathing. Auscultation of lung sounds reveals scattered rhonchi. Recommendation: I recommend a thorough evaluation of the current ventilator settings with adjustments as needed to improve ventilation, optimize oxygenation, and reduce the patient's work of breathing. Consider the elevated PIP and hypercapnia when making adjustments. Closely monitor for potential complications such as barotrauma, ventilator-associated pneumonia (VAP), and auto-PEEP. The last suctioning was performed at 09:30. Please also consider a possible chest x-ray to evaluate for any changes in his pneumonia.",
+    "sbar": "S: Leo Maxwell, 3-month-old male, post-op day 1 VSD repair. Received report from night shift. B: Born with a large ventricular septal defect (VSD). Underwent surgical repair yesterday at 10:00. A: Currently, vital signs are stable: HR 140, RR 40, SpO2 96% on 30% FiO2 via nasal cannula. BP 70/40. Urine output 5 mL/kg/hr. Slight edema noted in extremities. Cries intermittently, consolable with pacifier. 06:00 Labs pending. 06:15: New order for Digoxin 8 mcg IV q12h. Noted slight increase in work of breathing and nasal flaring. Auscultation reveals mild crackles bilaterally. C: Continue monitoring vital signs, administer medications as ordered, assess incision site for infection, manage fluid balance, and monitor respiratory status closely. Report increased work of breathing or changes in lung sounds. Anticipate potential need for increased respiratory support or diuresis. Obtain a chest X-ray if respiratory distress worsens.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "Arterial Blood Gas (ABG) - 10:00:\npH: 7.30\nPaCO2: 55 mmHg\nPaO2: 88 mmHg\nHCO3: 24 mEq/L\nSaO2: 95%"
+        "content": "Na: 138 mEq/L, K: 4.1 mEq/L, Cl: 100 mEq/L, BUN: 8 mg/dL, Creatinine: 0.4 mg/dL, WBC: 15,000/mm3 (elevated), Hgb: 12 g/dL, Hct: 36%"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "Scheduled Medications:\n-Albuterol/Ipratropium Nebulizer: Every 6 hours PRN wheezing\n-Ceftriaxone 1g IVPB: Every 24 hours\nPRN Medications:\n-Morphine 2mg IVP: PRN pain (Last dose: Not Administered)"
+        "content": "Digoxin 8 mcg IV q12h (scheduled for 08:00), Furosemide 1 mg IV PRN edema (last dose 04:00), Acetaminophen 15 mg PO PRN pain/fever (last dose 02:00)"
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "Vitals - 10:00:\nHR: 110 bpm\nRR: 16 (Ventilator)\nSpO2: 95%\nBP: 140/90 mmHg\nTemp: 38.2°C (100.8°F)"
+        "content": "HR: 140 bpm, RR: 40 bpm, SpO2: 96% on 30% FiO2, BP: 70/40 mmHg, Temp: 38.2°C (100.8°F)"
       }
     ]
   },
   "pedagogy": {
     "bloomLevel": "Analyze",
     "cjmmStep": "Evaluate",
-    "nclexCategory": "Respiratory",
+    "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "Respiratory: Mechanical Ventilation Safety"
+      "Pediatric: Congenital Heart Defects & Safety"
     ]
   },
   "rationale": {
-    "correct": "For a PaCO2 of 55 mmHg (respiratory acidosis), increasing the minute ventilation (either by increasing the respiratory rate or tidal volume) is the appropriate action to help eliminate CO2. For a PIP consistently above 35 cm H2O, reducing the tidal volume is indicated to prevent barotrauma or further lung injury due to excessive pressure. For increased work of breathing, increasing the PEEP can improve oxygenation, recruit more alveoli, and reduce the effort needed for each breath.",
-    "incorrect": "Decreasing the respiratory rate would worsen hypercapnia, leading to further CO2 retention. Increasing the tidal volume without addressing the elevated PIP could cause lung injury or barotrauma. Increasing FiO2 will address hypoxemia but not hypercapnia or increased WOB; the patient's PaO2 is acceptable. Decreasing the PEEP would likely worsen the patient's work of breathing and oxygenation by causing alveolar collapse. While suctioning is important for airway management, the provided information does not definitively indicate it is the MOST appropriate action, as the last suctioning was relatively recent. Administering bronchodilators might be helpful for bronchospasm, but the primary issues are hypercapnia and elevated PIP. Sedation may decrease WOB but does not address the underlying ventilation and oxygenation issues.",
+    "correct": "Administering medications to increase contractility (like Digoxin) supports cardiac output post-VSD repair. Monitoring for decreased cardiac output allows for early intervention. Strict aseptic technique minimizes the risk of infection. Monitoring for elevated temperature and incision redness helps detect early signs of infection. Diuretics help manage fluid balance and prevent overload, reducing strain on the repaired heart.",
+    "incorrect": "Failing to administer contractility medications or recognizing signs of decreased cardiac output can lead to hemodynamic instability. Neglecting aseptic technique or missing early signs of infection can result in serious complications. Ignoring fluid balance or failing to administer diuretics when indicated can cause fluid overload and heart failure.",
     "clinicalPearls": [
-      "Always assess the patient holistically, considering ABGs, ventilator settings, and physical exam findings to guide ventilator management decisions.",
-      "High PIP can indicate airway obstruction, decreased lung compliance (e.g., from pneumonia or ARDS), or increased airway resistance (e.g., bronchospasm).",
-      "PEEP helps to keep alveoli open, improving gas exchange and reducing the work of breathing; however, excessive PEEP can cause barotrauma or decreased cardiac output.",
-      "In patients with COPD, be cautious with increasing tidal volume due to the risk of barotrauma. Small adjustments are often preferable.",
-      "Monitor closely for signs of auto-PEEP, especially in patients with COPD and high respiratory rates."
+      "Post-VSD repair, infants are at risk for decreased cardiac output due to myocardial stunning and increased pulmonary blood flow.",
+      "Early recognition and treatment of infection are crucial to prevent sepsis in post-operative pediatric patients.",
+      "Careful fluid management is essential to prevent both dehydration and fluid overload, either of which can compromise cardiac function."
     ],
     "questionTrap": {
-      "trap": "Many students might focus solely on the ABG results and choose to increase FiO2, overlooking the elevated PIP and work of breathing, which require different interventions. Another common mistake is to only consider suctioning for the rhonchi, not recognizing the need for adjustments to the ventilator settings.",
-      "howToOvercome": "Carefully consider all data points (ABGs, vital signs, physical assessment) and prioritize interventions based on the overall clinical picture. Remember that mechanical ventilation management involves balancing oxygenation, ventilation, and minimizing lung injury. Address the most critical issues first, considering the potential risks and benefits of each intervention. Always consider the patient's underlying condition (COPD in this case) when making ventilator adjustments."
+      "trap": "Students might focus solely on respiratory distress and overlook the subtle signs of decreased cardiac output or early infection in a post-operative infant.",
+      "howToOvercome": "Emphasize the importance of a comprehensive assessment, including cardiovascular, respiratory, and integumentary systems, in post-operative pediatric patients. Encourage students to consider the interplay of these systems and potential complications associated with VSD repair."
     },
     "mnemonic": {
-      "title": "VT PEEP",
-      "expansion": "Ventilation Trouble? Adjust Tidal Volume (TV) or Respiratory Rate (RR). Pressure Problem? Evaluate PIP. Expiratory Issue? Consider Positive End-Expiratory Pressure (PEEP)."
+      "title": "HEART",
+      "expansion": "<b>H</b>emodynamics (monitor closely), <b>E</b>arly detection of infection, <b>A</b>septic technique, <b>R</b>espiratory support, <b>T</b>ight fluid balance."
     }
   },
-  "validation": {
-    "validResponse": {
-      "ventilation_action": "Increase respiratory rate",
-      "pressure_action": "Reduce tidal volume",
-      "wob_action": "Increase PEEP"
-    },
-    "options": {
-      "ventilation_action": [
-        "Increase respiratory rate",
-        "Decrease respiratory rate",
-        "Increase FiO2",
-        "Suction the patient"
-      ],
-      "pressure_action": [
-        "Reduce tidal volume",
-        "Increase tidal volume",
-        "Increase FiO2",
-        "Administer bronchodilators"
-      ],
-      "wob_action": [
-        "Increase PEEP",
-        "Decrease PEEP",
-        "Decrease FiO2",
-        "Administer sedation"
-      ]
-    }
+  "responseOptions": {
+    "1": [
+      "medication to increase contractility",
+      "vasodilators",
+      "antipyretics"
+    ],
+    "2": [
+      "decreased cardiac output",
+      "increased appetite",
+      "improved sleep patterns"
+    ],
+    "3": [
+      "elevated temperature",
+      "decreased appetite",
+      "increased activity level"
+    ],
+    "4": [
+      "diuretics",
+      "antidiarrheals",
+      "stool softeners"
+    ]
+  },
+  "intervention": {
+    "isolation": "droplet"
   }
 }

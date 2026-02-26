@@ -1,95 +1,96 @@
 {
   "id": "New-v26-a9b2c3d4-e5f6-4789-a012-34567890abcd",
   "type": "matrixMatch",
-  "stem": "The patient is exhibiting signs and symptoms of hypovolemic shock. Based on the provided information, determine which clinical manifestations are consistent with this condition and which interventions are appropriate.",
+  "stem": "The patient is exhibiting signs and symptoms related to increased intracranial pressure (ICP) and potential complications following an ischemic stroke. For each assessment finding, determine whether it indicates improvement, decline, or no change in the patient's condition.",
   "scoring": {
     "method": "dichotomous",
-    "maxPoints": 6
+    "maxPoints": 5
   },
   "itemContext": {
     "patient": {
-      "name": "Jameson Riley",
-      "age": 68,
+      "name": "John Smith",
+      "age": 72,
       "gender": "Male",
-      "iso": "ICU",
+      "iso": "Medical-Surgical Unit",
       "allergies": [
-        "Penicillin"
-      ],
-      "isolation": "Droplet"
+        "NKDA"
+      ]
     },
-    "sbar": "Situation: Jameson Riley, a 68-year-old male, admitted to the ICU post-op at 02:00 following a ruptured abdominal aortic aneurysm repair. Background: The surgery lasted 6 hours, with significant blood loss estimated at 3 liters. Mr. Riley has a history of hypertension and hyperlipidemia. Assessment: At 06:00, his BP is 80/50 mmHg, HR is 120 bpm, RR is 28, and SpO2 is 90% on 4L NC. Urine output since surgery is only 50 mL. He is cool, clammy, and increasingly lethargic. Lab results show Hgb 8.2 g/dL, Hct 25%, and Lactate 4.5 mmol/L. Recommendation: I am highly concerned about hypovolemic shock given the patient's presentation and lab values. I strongly recommend immediate fluid resuscitation with crystalloids, and I've already ordered a blood transfusion. Please consider vasopressors such as norepinephrine if the fluid resuscitation is not sufficient to maintain adequate blood pressure. Continuous monitoring of vital signs, urine output, and mental status is crucial. Please initiate droplet precautions.",
+    "sbar": "S: John Smith, 72-year-old male, admitted 3 days ago for an acute ischemic stroke, right-sided weakness. B: History of hypertension and hyperlipidemia. Initial NIHSS score was 12. Recent CT scan showed no signs of hemorrhage, but some edema around the infarcted area. A: At 0700, patient’s GCS is 13 (E3, V4, M6). Right-sided weakness persists. BP 180/100 mmHg, HR 90 bpm, RR 22, SpO2 94% on 2L nasal cannula. Noted new onset of nausea and vomiting at 0830. Pupils were equal and reactive at 0600, now left pupil is sluggishly reactive. R: I am concerned about increased intracranial pressure. Requesting orders for repeat neuro assessment, possible mannitol administration, and further evaluation of blood pressure control. Notify provider for any significant changes in neurological status.",
     "tabs": [
-      {
-        "id": "vitals",
-        "title": "Vitals",
-        "content": "05:00: BP 90/60, HR 110, RR 24, SpO2 94% on 2L NC\n05:30: BP 85/55, HR 115, RR 26, SpO2 92% on 3L NC\n06:00: BP 80/50, HR 120, RR 28, SpO2 90% on 4L NC\nUrine Output (since 02:00): 50 mL"
-      },
       {
         "id": "labs",
         "title": "Labs",
-        "content": "Hgb: 8.2 g/dL\nHct: 25%\nNa: 140 mEq/L\nK: 4.1 mEq/L\nCl: 100 mEq/L\nBUN: 25 mg/dL\nCreatinine: 1.5 mg/dL\nLactate: 4.5 mmol/L"
+        "content": "Na: 140 mEq/L, K: 4.2 mEq/L, Cl: 100 mEq/L, Glucose: 110 mg/dL, BUN: 20 mg/dL, Creatinine: 1.2 mg/dL, WBC: 8,000/mm3, Platelets: 250,000/mm3, PT/INR: Within normal limits."
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "02:30: Cefazolin 2g IV\n02:30: Ondansetron 4mg IV\n03:00: Packed RBCs 1 unit (started)"
+        "content": "Aspirin 81mg PO daily, Lisinopril 20mg PO daily, Stool Softener 100mg PO daily, Famotidine 20mg PO BID"
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "0600: BP 160/90, HR 80, RR 18, SpO2 96% on RA, GCS 14 (E4, V4, M6). 0800: BP 180/100, HR 90, RR 22, SpO2 94% on 2L NC, GCS 13 (E3, V4, M6)."
       }
     ]
   },
   "pedagogy": {
     "bloomLevel": "Analyze",
     "cjmmStep": "Evaluate",
-    "nclexCategory": "Physiological Integrity",
+    "nclexCategory": "Neurological",
     "difficulty": 5,
     "topicTags": [
-      "Cardiovascular: Shock & Hemodynamics"
+      "Neurological: Stroke & Increased ICP"
     ]
-  },
-  "stemTable": {
-    "rows": [
-      "Tachycardia",
-      "Increased Urine Output",
-      "Hypotension",
-      "Cool, Clammy Skin",
-      "Administering a Bolus of Normal Saline",
-      "Elevating the Head of the Bed"
-    ],
-    "columns": [
-      "Consistent with Hypovolemic Shock",
-      "Appropriate Intervention"
-    ]
-  },
-  "answerKey": {
-    "Tachycardia": [
-      "Consistent with Hypovolemic Shock"
-    ],
-    "Increased Urine Output": [],
-    "Hypotension": [
-      "Consistent with Hypovolemic Shock"
-    ],
-    "Cool, Clammy Skin": [
-      "Consistent with Hypovolemic Shock"
-    ],
-    "Administering a Bolus of Normal Saline": [
-      "Appropriate Intervention"
-    ],
-    "Elevating the Head of the Bed": []
   },
   "rationale": {
-    "correct": "Tachycardia, hypotension, and cool, clammy skin are all clinical manifestations of hypovolemic shock. The body attempts to compensate for decreased circulating volume by increasing heart rate to maintain cardiac output. Hypotension results from the decreased circulating volume. Cool, clammy skin occurs due to vasoconstriction as the body shunts blood to vital organs. Administering a bolus of normal saline is an appropriate intervention to increase circulating volume.",
-    "incorrect": "Increased urine output is not consistent with hypovolemic shock; oliguria or anuria is more likely. Elevating the head of the bed is generally contraindicated in hypovolemic shock, as it can exacerbate hypotension by further decreasing venous return to the heart. It is preferable to keep the patient supine or in a modified Trendelenburg position (if not contraindicated) to promote venous return.",
+    "correct": "Increased intracranial pressure (ICP) is a dangerous complication post-stroke. Changes in vital signs and neurological status are key indicators. A rise in blood pressure, especially systolic, coupled with a decrease in heart rate and irregular respirations (Cushing's Triad) can signal worsening ICP. Declining GCS and sluggish pupil reactivity further confirm the decline. Nausea and vomiting are also common signs of increased ICP. The patient's labs are within acceptable limits and do not directly influence ICP changes. The stable medication administration also is not influencing the patient decline.",
+    "incorrect": "Assuming a stable condition when neurological changes are present after a stroke can lead to delayed intervention and poorer outcomes. Dismissing subtle changes in vital signs or pupil reactivity as insignificant can be dangerous. The absence of new lab abnormalities does not rule out the possibility of neurological deterioration. The patient's medications are for chronic management and do not influence the change in condition.",
     "clinicalPearls": [
-      "Early recognition of shock is crucial. Subtle changes in vital signs and mental status can be early indicators.",
-      "Fluid resuscitation should be initiated promptly in hypovolemic shock. Monitor the patient closely for signs of fluid overload.",
-      "Vasopressors may be necessary if fluid resuscitation alone is insufficient to maintain adequate blood pressure."
+      "Monitor for Cushing's Triad (bradycardia, hypertension, irregular respirations) as a late sign of increased ICP.",
+      "Changes in level of consciousness are often the earliest indicators of neurological deterioration.",
+      "Elevate the head of the bed to 30 degrees to promote venous drainage and reduce ICP."
     ],
     "questionTrap": {
-      "trap": "The question includes both signs/symptoms and interventions, potentially causing confusion about what is being asked. Some might focus solely on the shock symptoms and ignore the intervention options.",
-      "howToOvercome": "Carefully read the stem and understand that you're asked to identify BOTH the clinical manifestations of hypovolemic shock AND appropriate interventions for that condition. Consider each option independently and evaluate its relevance to both aspects."
+      "trap": "The patient's vital signs, although elevated, might seem acceptable at first glance, leading you to believe there's no significant change. The stable lab values might also mislead you into thinking the patient is stable.",
+      "howToOvercome": "Focus on the trends in vital signs and the neurological assessment findings. Compare the current assessment to previous assessments to identify subtle changes. Prioritize neurological findings over lab data in this specific scenario."
     },
     "mnemonic": {
-      "title": "STOP the SHOCK",
-      "expansion": "S - Seek the cause (hypovolemia, cardiogenic, etc.); T - Trendelenburg position (modified, if appropriate); O - Oxygen administration; P - Pharmaceuticals (vasopressors, fluids); SH - Support hemodynamics; O - Observe vital signs; C - Consider central line; K - Keep warm."
+      "title": "ICP Signs (BE FAST)",
+      "expansion": "B - Blood Pressure Increase (Systolic), E - Eyes (Pupil changes), F - Falling GCS, A - Altered Breathing, S - Seizures, T - Temperature Increase (late sign)"
     }
-  }
+  },
+  "matrixMatchOptions": [
+    "Improvement",
+    "Decline",
+    "No Change"
+  ],
+  "rows": [
+    {
+      "id": "row1",
+      "content": "Blood pressure increasing from 160/90 to 180/100 mmHg",
+      "correctOption": "Decline"
+    },
+    {
+      "id": "row2",
+      "content": "Glasgow Coma Scale (GCS) decreasing from 14 to 13",
+      "correctOption": "Decline"
+    },
+    {
+      "id": "row3",
+      "content": "New onset of nausea and vomiting",
+      "correctOption": "Decline"
+    },
+    {
+      "id": "row4",
+      "content": "Left pupil sluggishly reactive compared to previous assessment of equal and reactive pupils",
+      "correctOption": "Decline"
+    },
+    {
+      "id": "row5",
+      "content": "Stable lab values (Na, K, Cl, Glucose, BUN, Creatinine, CBC)",
+      "correctOption": "No Change"
+    }
+  ]
 }
