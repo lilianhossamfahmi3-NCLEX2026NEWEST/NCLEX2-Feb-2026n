@@ -1,93 +1,95 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "clozeDropdown",
-  "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the patient data, the priority nursing intervention is to address the potential for [ventSetting] by [intervention]. Furthermore, the nurse should immediately [assessment] to evaluate the effectiveness of the intervention.",
+  "stem": "The nurse is caring for Mr. Jones and reviews his ventilator settings and recent arterial blood gas (ABG) results. Based on the provided information, the nurse should prioritize addressing the patient's [ventParameter] by [intervention]. This intervention is crucial to prevent potential complications like [complication].",
   "scoring": {
     "method": "dichotomous",
     "maxPoints": 3
   },
   "itemContext": {
     "patient": {
-      "name": "Jameson Tyrell",
+      "name": "Jones, Michael",
       "age": 68,
       "gender": "Male",
-      "iso": "ICU",
+      "iso": "Room 304",
       "allergies": [
         "Penicillin"
+      ],
+      "conditions": [
+        "Pneumonia"
       ]
     },
-    "sbar": "S: Jameson Tyrell, a 68-year-old male with a history of COPD, HTN, and CAD, was admitted yesterday for a COPD exacerbation. He is currently in the ICU on mechanical ventilation. O2 saturation has been decreasing despite increases in FiO2. \n\nB: Upon admission, the patient's initial ventilator settings were: FiO2 0.5, PEEP 5 cm H2O, Respiratory Rate 12 breaths/min, and Tidal Volume 450 mL. He initially responded well to these settings.\n\nA: At 07:00, the patient became increasingly agitated and restless. At 07:30, his respiratory rate is 28 breaths/min, heart rate is 110 bpm, blood pressure is 160/90 mmHg, and SpO2 is 88% on the current ventilator settings. Recent ABG results (07:30) show: pH 7.28, PaCO2 65 mmHg, PaO2 55 mmHg, and HCO3 26 mEq/L. Peak inspiratory pressure (PIP) is elevated at 40 cm H2O. Auscultation reveals diminished breath sounds bilaterally.\n\nR: I am requesting orders for possible adjustments to the ventilator settings to address the patient's respiratory acidosis and hypoxemia. I am also considering the potential need for sedation to improve patient comfort and ventilator synchrony. Could we also consider further investigation into the cause of the elevated PIP, such as a chest X-ray or further respiratory assessment?",
+    "sbar": "1500: Situation: Mr. Michael Jones, DOB 03/15/1956, admitted 06/07/2026 for acute respiratory failure secondary to pneumonia. He is currently intubated and mechanically ventilated. Background: Patient's SpO2 has been fluctuating between 88-92% despite FiO2 of 60%. He is on Assist Control (AC) ventilation with a tidal volume of 450 mL, respiratory rate of 14 breaths/min, and PEEP of 5 cm H2O. He is receiving scheduled albuterol/ipratropium nebulizer treatments q4h. Assessment: Auscultation reveals coarse crackles bilaterally. He is alert but appears fatigued. Current pain level is 2/10. Recent ABG results are concerning. Recommendation: I recommend increasing his minute ventilation to address the elevated PaCO2 and improve his oxygenation. Consider adjusting ventilator settings and monitoring his response closely. We should also consider obtaining a sputum culture given his pneumonia diagnosis.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "ABG (07:30): pH 7.28, PaCO2 65 mmHg, PaO2 55 mmHg, HCO3 26 mEq/L. WBC 14,000/uL. Hemoglobin 14 g/dL. Hematocrit 42%"
+        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>pH</td><td>7.25</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>65 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>62 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>SpO2</td><td>89%</td><td>95-100%</td></tr><tr><td>WBC</td><td>14,000/µL</td><td>4,500-11,000/µL</td></tr></tbody></table>"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "Albuterol/Ipratropium nebulizer q4h PRN wheezing. Famotidine 20mg IV BID. Morphine 2mg IV q2h PRN pain. No current sedation orders."
+        "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Albuterol/Ipratropium</td><td>2.5mg/0.5mg</td><td>Nebulizer</td><td>q4h</td></tr><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td></tr><tr><td>Acetaminophen</td><td>650mg</td><td>PO</td><td>q4h PRN</td></tr></tbody></table>"
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "07:00: RR 22, HR 98, BP 140/80, SpO2 92% (FiO2 0.5, PEEP 5). 07:30: RR 28, HR 110, BP 160/90, SpO2 88% (FiO2 0.5, PEEP 5)"
+        "content": "<table><thead><tr><th>Vital Sign</th><th>Value</th></tr></thead><tbody><tr><td>HR</td><td>110 bpm</td></tr><tr><td>BP</td><td>130/80 mmHg</td></tr><tr><td>RR</td><td>14 breaths/min (Ventilator)</td></tr><tr><td>SpO2</td><td>89%</td></tr><tr><td>Temp</td><td>38.2°C (100.8°F)</td></tr></tbody></table>"
       }
     ]
   },
   "pedagogy": {
-    "bloomLevel": "Apply",
-    "cjmmStep": "Analyze Cues",
-    "nclexCategory": "Management of Care",
+    "bloomLevel": "Analyze",
+    "cjmmStep": "Evaluate",
+    "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
       "Respiratory: Mechanical Ventilation Safety"
     ]
   },
   "rationale": {
-    "correct": "The patient's ABG results (pH 7.28, PaCO2 65) indicate respiratory acidosis, likely due to inadequate ventilation (hypoventilation). The elevated PIP (40 cm H2O) suggests increased airway resistance or decreased lung compliance. Increasing the tidal volume or respiratory rate will help to blow off more CO2 and improve ventilation. Sedation can help to decrease oxygen consumption and allow the ventilator to better support the patient's respiratory needs. Reassessing ABGs is crucial to evaluate the effectiveness of the ventilation adjustments and to ensure that the patient's respiratory status is improving.",
-    "incorrect": "Failing to address the underlying cause of respiratory acidosis can lead to further deterioration. Simply increasing FiO2 without addressing ventilation will not correct the PaCO2 and may lead to oxygen toxicity. Administering a bronchodilator is important, but the immediate priority is to address the underlying hypercapnia with ventilation adjustments. Diuretics are not indicated without evidence of fluid overload; the primary problem is inadequate ventilation. Paralytics should be used with caution and only after sedation, as they can mask underlying issues and cause patient distress if the patient is conscious.",
+    "correct": "The patient's ABG results indicate respiratory acidosis (low pH, high PaCO2) and hypoxemia (low PaO2 and SpO2). The elevated PaCO2 of 65 mmHg is the most immediate concern. Increasing the minute ventilation (either by increasing the respiratory rate or tidal volume) is the priority intervention to blow off excess CO2 and improve the pH. Allowing the PaCO2 to remain elevated can lead to further acidemia, which can depress cardiac function and lead to dysrhythmias.",
+    "incorrect": "Addressing the PaO2 is important, but correcting the respiratory acidosis (PaCO2) takes precedence. While increasing PEEP might improve oxygenation, it won't directly address the elevated CO2. Suctioning may be necessary, but the primary problem is inadequate ventilation, not necessarily excessive secretions. Changing to pressure support may not be beneficial in this case since the underlying problem is not the patient's ability to breathe, but inadequate ventilation.",
     "clinicalPearls": [
-      "Always correlate ABG results with the patient's clinical presentation and ventilator settings.",
-      "High PIP can indicate a variety of problems, including increased airway resistance (e.g., bronchospasm, mucus plugging), decreased lung compliance (e.g., ARDS, pulmonary edema), or equipment issues (e.g., kinked tubing).",
-      "Sedation can be beneficial in mechanically ventilated patients by reducing anxiety, decreasing oxygen consumption, and improving ventilator synchrony."
+      "Always prioritize addressing acid-base imbalances based on the patient's clinical presentation and ABG results.",
+      "Minute ventilation (RR x Tidal Volume) is the primary determinant of PaCO2.",
+      "Hypoxemia can be caused by a variety of factors, including hypoventilation, V/Q mismatch, and diffusion impairment."
     ],
     "questionTrap": {
-      "trap": "Selecting interventions that only address oxygenation without addressing ventilation.",
-      "howToOvercome": "Focus on the ABG results, specifically the PaCO2, to identify the primary problem of inadequate ventilation. Prioritize interventions that will improve CO2 removal."
+      "trap": "Many students focus solely on the low SpO2 and PaO2, overlooking the more critical respiratory acidosis. The question is designed to distract test takers toward improving oxygenation at the expense of correcting ventilation.",
+      "howToOvercome": "Carefully analyze the ABG results as a whole, not just individual components. Remember that both oxygenation and ventilation are essential, but ventilation is often the priority in cases of respiratory acidosis."
     },
     "mnemonic": {
-      "title": "DOPE",
-      "expansion": "Dislodgement, Obstruction, Pneumothorax, Equipment failure. (Used for sudden respiratory distress in ventilated patients)"
+      "title": "ABCs - Ventilation First",
+      "expansion": "Airway, Breathing, Circulation. In respiratory failure, prioritize Breathing (Ventilation) to address CO2 issues before solely focusing on oxygenation."
     }
   },
-  "response": [
-    {
-      "id": "ventSetting",
-      "options": [
-        "hypoventilation",
-        "hyperventilation",
-        "oxygen toxicity"
-      ],
-      "correctResponse": "hypoventilation"
-    },
-    {
-      "id": "intervention",
-      "options": [
-        "increasing the tidal volume or respiratory rate and considering sedation",
-        "decreasing the FiO2",
-        "administering a bronchodilator"
-      ],
-      "correctResponse": "increasing the tidal volume or respiratory rate and considering sedation"
-    },
-    {
-      "id": "assessment",
-      "options": [
-        "reassess ABGs",
-        "administer a diuretic",
-        "administer a paralytic"
-      ],
-      "correctResponse": "reassess ABGs"
-    }
-  ]
+  "responseOptions": {
+    "ventParameter": [
+      "PaCO2",
+      "PaO2",
+      "pH",
+      "HCO3"
+    ],
+    "intervention": [
+      "increasing the minute ventilation",
+      "increasing the FiO2",
+      "increasing the PEEP",
+      "suctioning the patient"
+    ],
+    "complication": [
+      "cardiac dysrhythmias",
+      "pulmonary embolism",
+      "pneumothorax",
+      "hyperventilation"
+    ]
+  },
+  "correctResponse": {
+    "ventParameter": "PaCO2",
+    "intervention": "increasing the minute ventilation",
+    "complication": "cardiac dysrhythmias"
+  },
+  "itemLevelParameters": {
+    "isolation": "airborne"
+  }
 }

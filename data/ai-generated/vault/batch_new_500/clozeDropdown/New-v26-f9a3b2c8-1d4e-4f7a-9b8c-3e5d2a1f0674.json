@@ -1,0 +1,84 @@
+{
+  "id": "New-v26-f9a3b2c8-1d4e-4f7a-9b8c-3e5d2a1f0674",
+  "type": "clozeDropdown",
+  "stem": "The physician orders a continuous infusion of heparin sodium at 18 units/kg/hour for a patient weighing 176 lbs. The heparin is available as 25,000 units in 500 mL of D5W. Calculate the infusion rate in mL/hour. First, convert the patient's weight from pounds to kilograms. The patient weighs [weight_kg] kg. Next, calculate the units per hour needed: [units_per_hour] units/hour. Finally, determine the infusion rate in mL/hour: [infusion_rate] mL/hour. Round each answer to the nearest tenth.",
+  "scoring": {
+    "method": "dichotomous",
+    "maxPoints": 3
+  },
+  "itemContext": {
+    "patient": {
+      "name": "Eleanor Vance",
+      "age": 68,
+      "gender": "Female",
+      "iso": "ICU",
+      "allergies": [
+        "Sulfa Drugs"
+      ]
+    },
+    "sbar": "SBAR: Eleanor Vance is a 68-year-old female, admitted to the ICU at 06:00 today. She presents with a diagnosis of deep vein thrombosis (DVT) in her left leg, confirmed by ultrasound. Eleanor reports a history of atrial fibrillation, managed with medication, and hypertension, also well-controlled. At 07:30, her vital signs were: BP 160/92 mmHg, HR 110 bpm and irregular, RR 22 breaths/min, SpO2 94% on room air, and temperature 37.2°C. She is currently on telemetry monitoring. At 08:00, orders were received for a heparin infusion to address the DVT. Eleanor reports a pain level of 6/10 in her left leg, which she describes as a throbbing ache. She is alert and oriented x3. Please initiate the heparin infusion as soon as possible, following the prescribed protocol, and closely monitor for any signs of bleeding, including changes in vital signs or mental status. Document baseline neurological and lower extremity assessments prior to initiation of the infusion. Ensure aPTT is drawn per protocol. Notify physician for any concerns.",
+    "tabs": [
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": "Hgb: 12.8 g/dL, Hct: 38%, Platelets: 220,000/mcL, aPTT: 32 seconds, PT: 12 seconds, INR: 1.0"
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": "1. Acetaminophen 650mg PO q4h PRN for pain; 2. Metoprolol 25mg PO BID; 3. Heparin Sodium 25,000 units in 500mL D5W - Initiate at 18 units/kg/hour continuous IV infusion"
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "07:30 - BP: 160/92 mmHg, HR: 110 bpm (irregular), RR: 22 breaths/min, SpO2: 94% on room air, Temp: 37.2°C, Pain: 6/10 (left leg)"
+      }
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "Apply",
+    "cjmmStep": "Implement",
+    "nclexCategory": "Pharmacological and Parenteral Therapies",
+    "difficulty": 5,
+    "topicTags": [
+      "Safety: Medication Calculation & High-Alert Drugs"
+    ]
+  },
+  "rationale": {
+    "correct": "The patient's weight is 176 lbs / 2.2 lbs/kg = 80 kg. The required dose is 18 units/kg/hour * 80 kg = 1440 units/hour. The concentration of the heparin solution is 25,000 units / 500 mL = 50 units/mL. The infusion rate is 1440 units/hour / 50 units/mL = 28.8 mL/hour. Therefore, the answers are 80 kg, 1440 units/hour, and 28.8 mL/hour.",
+    "incorrect": "Incorrect calculations will result in the wrong infusion rate, which could lead to subtherapeutic or toxic heparin levels. Failing to convert weight correctly, miscalculating the hourly dose, or incorrectly determining the infusion rate will all lead to an incorrect answer. Double-check each step of the calculation process and ensure the correct units are used in each step.",
+    "clinicalPearls": [
+      "Heparin is a high-alert medication, requiring independent double-checks by two nurses before administration.",
+      "Monitor the patient closely for signs of bleeding, such as hematuria, melena, bruising, and changes in mental status.",
+      "Regularly monitor aPTT levels to ensure the patient is within the therapeutic range (typically 1.5-2.5 times the control value)."
+    ],
+    "questionTrap": {
+      "trap": "Students often forget to convert pounds to kilograms, leading to a significantly incorrect dose. They may also miscalculate the units per hour if they do not account for the patient's weight.",
+      "howToOvercome": "Always convert patient weight to kilograms before calculating medication dosages. Double-check each step of the calculation and ensure that the units are consistent throughout the process."
+    },
+    "mnemonic": {
+      "title": "DVT Nursing Care",
+      "expansion": "D: Doppler (assess pulses), V: Vital Signs (monitor for changes), T: Thrombosis monitoring (bleeding precautions, aPTT), N: Neuro checks (LOC changes), U: Understanding (patient education), R: Risk reduction (mobility), S: Support (pain management), I: IV heparin (as prescribed), N: No crossing legs, G: Graduated compression stockings, C: Call provider for changes in condition, A: Assess for complications, R: Reassure patient and family, E: Evaluate effectiveness of treatment."
+    }
+  },
+  "responseOptions": {
+    "weight_kg": [
+      "70.0",
+      "75.0",
+      "80.0",
+      "85.0"
+    ],
+    "units_per_hour": [
+      "1200",
+      "1340",
+      "1440",
+      "1540"
+    ],
+    "infusion_rate": [
+      "24.0",
+      "26.8",
+      "28.8",
+      "30.0"
+    ]
+  }
+}
