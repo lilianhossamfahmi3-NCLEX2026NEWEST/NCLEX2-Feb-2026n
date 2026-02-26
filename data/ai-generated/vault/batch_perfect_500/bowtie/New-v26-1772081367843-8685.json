@@ -1,0 +1,188 @@
+{
+  "stem": "The nurse is caring for a patient admitted with acute decompensated heart failure (ADHF). Based on the following assessments, select the findings that indicate the patient's condition is worsening or improving. Each finding can be used once, more than once, or not at all.",
+  "itemContext": {
+    "patient": {
+      "age": 72,
+      "gender": "Male",
+      "medicalHistory": [
+        "Hypertension",
+        "Type 2 Diabetes",
+        "Chronic Kidney Disease (Stage 3)",
+        "Atrial Fibrillation"
+      ],
+      "currentMedications": [
+        "Lisinopril 20mg daily",
+        "Metoprolol 50mg twice daily",
+        "Furosemide 40mg daily",
+        "Digoxin 0.125mg daily",
+        "Warfarin 5mg daily (INR goal 2.0-3.0)"
+      ]
+    },
+    "sbar": "Patient is a 72-year-old male admitted yesterday with ADHF, reporting increased shortness of breath and lower extremity edema. He is currently on oxygen at 2L via nasal cannula. We are monitoring his fluid balance and response to diuretic therapy.",
+    "tabs": [
+      {
+        "id": "sbar",
+        "title": "Sbar",
+        "content": "<p>No significant findings at this time.</p>"
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "<p>No significant findings at this time.</p>"
+      },
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": "<p>No significant findings at this time.</p>"
+      },
+      {
+        "id": "physicalExam",
+        "title": "PhysicalExam",
+        "content": "<p>No significant findings at this time.</p>"
+      },
+      {
+        "id": "radiology",
+        "title": "Radiology",
+        "content": "<p>No significant findings at this time.</p>"
+      },
+      {
+        "id": "carePlan",
+        "title": "CarePlan",
+        "content": "<p>No significant findings at this time.</p>"
+      },
+      {
+        "id": "mar",
+        "title": "Mar",
+        "content": "<p>No significant findings at this time.</p>"
+      }
+    ]
+  },
+  "rationale": {
+    "correct": {
+      "worsening": "Increased crackles in the lungs, Increased edema, Elevated BNP, Increased respiratory rate, Increased heart rate, Increased blood pressure, Decreased oxygen saturation.",
+      "improving": "Decreased crackles in the lungs, Decreased edema, Decreased respiratory rate, Decreased heart rate, Decreased blood pressure, Increased oxygen saturation, Decreased jugular venous distention."
+    },
+    "incorrect": {
+      "worsening": "Falsely identifying improving findings as worsening indicates a lack of understanding of the expected response to treatment for ADHF.",
+      "improving": "Falsely identifying worsening findings as improving indicates a lack of understanding of the signs and symptoms of ADHF and the expected response to treatment."
+    },
+    "clinicalPearls": [
+      "Monitoring fluid balance is crucial in ADHF management. Pay close attention to trends in vital signs, lung sounds, edema, and daily weights.",
+      "BNP is a key indicator of heart failure severity. A decreasing BNP suggests improving cardiac function.",
+      "Jugular venous distention is a visual sign of increased central venous pressure and right-sided heart failure."
+    ],
+    "questionTrap": {
+      "timeDependency": "Pay attention to the time stamps on the assessments to identify trends and changes in the patient's condition.",
+      "normalizationBias": "Do not assume that values within normal ranges are necessarily 'good' if they represent a change from the patient's baseline or if they are not consistent with other assessment findings.",
+      "singleDataPointError": "Avoid relying on a single data point. Consider the overall clinical picture and trends in multiple assessments."
+    },
+    "mnemonic": {
+      "LMNOP": "A helpful mnemonic for ADHF treatment is LMNOP: Lasix (Furosemide), Morphine (for anxiety/pain, use cautiously), Nitrates (vasodilators), Oxygen, Position (high Fowler's)."
+    }
+  },
+  "scoring": {
+    "method": "partialCredit",
+    "maxPoints": 14
+  },
+  "responseOptions": [
+    {
+      "id": "rr_w_1",
+      "text": "Respiratory Rate 28 breaths/min",
+      "target": "worsening"
+    },
+    {
+      "id": "rr_i_1",
+      "text": "Respiratory Rate 20 breaths/min",
+      "target": "improving"
+    },
+    {
+      "id": "hr_w_1",
+      "text": "Heart Rate 110 bpm",
+      "target": "worsening"
+    },
+    {
+      "id": "hr_i_1",
+      "text": "Heart Rate 86 bpm",
+      "target": "improving"
+    },
+    {
+      "id": "bp_w_1",
+      "text": "Blood Pressure 160/90 mmHg",
+      "target": "worsening"
+    },
+    {
+      "id": "bp_i_1",
+      "text": "Blood Pressure 130/70 mmHg",
+      "target": "improving"
+    },
+    {
+      "id": "os_w_1",
+      "text": "Oxygen Saturation 90% on 2L NC",
+      "target": "worsening"
+    },
+    {
+      "id": "os_i_1",
+      "text": "Oxygen Saturation 96% on 2L NC",
+      "target": "improving"
+    },
+    {
+      "id": "crackles_w_1",
+      "text": "Crackles auscultated bilaterally in lower lobes",
+      "target": "worsening"
+    },
+    {
+      "id": "crackles_i_1",
+      "text": "Clear lung sounds auscultated bilaterally",
+      "target": "improving"
+    },
+    {
+      "id": "edema_w_1",
+      "text": "3+ pitting edema in bilateral lower extremities",
+      "target": "worsening"
+    },
+    {
+      "id": "edema_i_1",
+      "text": "1+ pitting edema in bilateral lower extremities",
+      "target": "improving"
+    },
+    {
+      "id": "jvd_w_1",
+      "text": "Jugular venous distention present",
+      "target": "worsening"
+    },
+    {
+      "id": "jvd_i_1",
+      "text": "No jugular venous distention noted",
+      "target": "improving"
+    },
+    {
+      "id": "bnp_elevated",
+      "text": "BNP 1200 pg/mL",
+      "target": "worsening"
+    }
+  ],
+  "rubric": {
+    "worsening": [
+      "rr_w_1",
+      "hr_w_1",
+      "bp_w_1",
+      "os_w_1",
+      "crackles_w_1",
+      "edema_w_1",
+      "jvd_w_1",
+      "bnp_elevated"
+    ],
+    "improving": [
+      "rr_i_1",
+      "hr_i_1",
+      "bp_i_1",
+      "os_i_1",
+      "crackles_i_1",
+      "edema_i_1",
+      "jvd_i_1"
+    ]
+  },
+  "type": "bowtie",
+  "id": "New-v26-1772081367843-8685",
+  "sentinelStatus": "healed_v2026_v17_qi100"
+}
