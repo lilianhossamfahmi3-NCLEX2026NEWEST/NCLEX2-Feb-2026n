@@ -1,0 +1,136 @@
+{
+  "id": "New-v26-a9b2c3d4-e5f6-4789-a012-34567890abcd",
+  "type": "matrixMatch",
+  "stem": "The nurse is preparing to administer medications to Mr. Jones. Based on the provided information, determine if each medication order is safe and requires intervention.",
+  "scoring": {
+    "method": "dichotomous",
+    "maxPoints": 4
+  },
+  "itemContext": {
+    "patient": {
+      "name": "Robert Jones",
+      "age": 72,
+      "gender": "Male",
+      "iso": "Medical Unit 4B",
+      "allergies": [
+        "Penicillin"
+      ]
+    },
+    "sbar": "S: Robert Jones, 72-year-old male, admitted for CHF exacerbation. O: At 07:00, patient reports increased shortness of breath. Current vital signs: BP 160/90 mmHg, HR 110 bpm, RR 28, SpO2 90% on 2L nasal cannula. Crackles auscultated bilaterally. Labs show elevated BNP. He has a history of hypertension and type 2 diabetes. B: Admitted yesterday evening. Home medications include lisinopril 20mg daily, metformin 500mg BID, and aspirin 81mg daily. A: CHF exacerbation. Currently on oxygen. New orders received at 07:30 include furosemide 40mg IV push STAT, digoxin 0.25mg IV push STAT, potassium chloride 20mEq PO BID, and insulin aspart 4 units subcutaneous now. R: Please assess medication orders and administer as appropriate. Re-evaluate respiratory status after furosemide administration. Contact provider if BP remains elevated or HR exceeds 120.",
+    "tabs": [
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": "Potassium: 3.2 mEq/L, Sodium: 138 mEq/L, Creatinine: 1.8 mg/dL, BUN: 35 mg/dL, BNP: 800 pg/mL, Glucose: 180 mg/dL"
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": "Lisinopril 20mg PO daily (09:00), Metformin 500mg PO BID (08:00, 20:00), Aspirin 81mg PO daily (09:00). No known drug allergies."
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "06:00: BP 150/85 mmHg, HR 98 bpm, RR 24, SpO2 92% on room air. 07:00: BP 160/90 mmHg, HR 110 bpm, RR 28, SpO2 90% on 2L nasal cannula."
+      }
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "Apply",
+    "cjmmStep": "Analyze Cues",
+    "nclexCategory": "Safe and Effective Care Environment",
+    "difficulty": 5,
+    "topicTags": [
+      "Safety: Medication Calculation & High-Alert Drugs"
+    ]
+  },
+  "rationale": {
+    "correct": "Furosemide is appropriate for fluid overload, but potassium level of 3.2 mEq/L warrants holding the digoxin until potassium is repleted due to increased risk of digoxin toxicity. The potassium supplement is appropriate. Aspart insulin is also appropriate given the elevated blood glucose. The digoxin dose should be held and the provider notified of the patient's hypokalemia.",
+    "incorrect": "Administering digoxin to a patient with hypokalemia increases the risk of digoxin toxicity, which can lead to serious cardiac arrhythmias. Not addressing the potassium level puts the patient at significant risk. Insulin can be safely administered to address the elevated blood sugar. Furosemide helps reduce fluid overload, but it will further deplete potassium, making the hypokalemia even more dangerous in the context of digoxin administration.",
+    "clinicalPearls": [
+      "Hypokalemia increases the risk of digoxin toxicity.",
+      "Furosemide is a loop diuretic that can cause potassium loss.",
+      "Always check potassium levels before administering digoxin."
+    ],
+    "questionTrap": {
+      "trap": "The question trap is to assume that all medications ordered are safe without critically evaluating the patient's current electrolyte imbalances and how those imbalances could interact with the medications.",
+      "howToOvercome": "Carefully review all lab values, especially electrolytes, and consider how each medication will affect those values and interact with other medications. Prioritize safety over blindly following orders."
+    },
+    "mnemonic": {
+      "title": "DIG for Digoxin",
+      "expansion": "D: Determine Potassium level, I: Investigate Digoxin level if applicable, G: Guard against hypokalemia."
+    }
+  },
+  "matrix": {
+    "rows": [
+      {
+        "id": "furosemide",
+        "label": "Furosemide 40mg IV push STAT"
+      },
+      {
+        "id": "digoxin",
+        "label": "Digoxin 0.25mg IV push STAT"
+      },
+      {
+        "id": "potassium",
+        "label": "Potassium Chloride 20mEq PO BID"
+      },
+      {
+        "id": "insulin",
+        "label": "Insulin Aspart 4 units subcutaneous now"
+      }
+    ],
+    "columns": [
+      {
+        "id": "safe",
+        "label": "Safe"
+      },
+      {
+        "id": "intervention",
+        "label": "Requires Intervention"
+      }
+    ]
+  },
+  "response": [
+    {
+      "row": "furosemide",
+      "column": "safe",
+      "correct": true
+    },
+    {
+      "row": "furosemide",
+      "column": "intervention",
+      "correct": false
+    },
+    {
+      "row": "digoxin",
+      "column": "safe",
+      "correct": false
+    },
+    {
+      "row": "digoxin",
+      "column": "intervention",
+      "correct": true
+    },
+    {
+      "row": "potassium",
+      "column": "safe",
+      "correct": true
+    },
+    {
+      "row": "potassium",
+      "column": "intervention",
+      "correct": false
+    },
+    {
+      "row": "insulin",
+      "column": "safe",
+      "correct": true
+    },
+    {
+      "row": "insulin",
+      "column": "intervention",
+      "correct": false
+    }
+  ]
+}

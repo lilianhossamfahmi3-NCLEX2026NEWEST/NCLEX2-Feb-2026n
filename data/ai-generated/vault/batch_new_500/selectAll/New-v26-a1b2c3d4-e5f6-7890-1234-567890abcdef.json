@@ -1,7 +1,7 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "selectAll",
-  "stem": "The healthcare provider is evaluating the client's lab results and current condition. Based on the available information, which of the following findings are consistent with Acute Respiratory Distress Syndrome (ARDS)? Select all that apply.",
+  "stem": "The nurse is caring for a 68-year-old male patient admitted for acute decompensated heart failure. Based on the EHR data, which of the following nursing interventions are most appropriate to implement at this time? Select all that apply.",
   "scoring": {
     "method": "polytomous",
     "maxPoints": 5
@@ -9,56 +9,98 @@
   "itemContext": {
     "patient": {
       "name": "John Smith",
-      "age": 62,
+      "age": 68,
       "gender": "Male",
-      "iso": "Airborne Contact Droplet",
+      "iso": "ICU",
+      "airborne": false,
       "allergies": [
         "Penicillin"
       ]
     },
-    "sbar": "S: John Smith, a 62-year-old male with a history of COPD and hypertension, admitted 3 days ago with sepsis secondary to pneumonia. He is currently intubated and mechanically ventilated. B: The patient has been intubated and mechanically ventilated since admission. His past medical history includes COPD and hypertension, and he is currently being treated with Vancomycin and Cefepime for sepsis-related pneumonia. A: Over the last 24 hours, Mr. Smith's respiratory status has progressively worsened despite increased ventilator support. A 07:00 assessment revealed increased work of breathing, decreased SpO2 levels, and diffuse crackles auscultated bilaterally throughout the lung fields. Current ventilator settings include FiO2 70%, PEEP 12 cm H2O, and a Tidal Volume of 450 mL. An arterial blood gas (ABG) was drawn at 07:15 to assess his current respiratory status. R: I am concerned about the development of Acute Respiratory Distress Syndrome (ARDS) given his worsening respiratory status, ABG results, and clinical findings. I request an evaluation of his current condition and potential adjustments to ventilator settings. We also need orders for a repeat chest x-ray to assess for pulmonary changes and consideration for prone positioning to improve oxygenation. Please advise on further management strategies.",
+    "sbar": "S: Dr. Lee, this is Nurse Jones calling from ICU at 08:00. I'm calling about John Smith, 68-year-old male, admitted at 02:00 with acute decompensated heart failure. B: Patient has a history of hypertension, hyperlipidemia, and a prior MI three years ago. He presented with severe dyspnea and orthopnea. A: Currently, his vital signs are: BP 170/100 mmHg, HR 110 bpm, RR 28, SpO2 88% on 2L nasal cannula. He's restless and coughing up pink, frothy sputum. Labs show elevated BNP (1500 pg/mL) and troponin (0.8 ng/mL). EKG shows sinus tachycardia with ST-segment depression in leads V4-V6. He received furosemide 40mg IV push at 07:00 with minimal urine output. R: I'm concerned about his worsening respiratory status and persistent hypertension. I recommend increasing oxygen to a non-rebreather mask, considering a continuous positive airway pressure (CPAP) trial, and further evaluation for afterload reduction strategies. I will continue to monitor his vital signs and urine output closely.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>PaO2</td><td>58 mmHg</td><td>80-100 mmHg</td></tr><tr><td>PaCO2</td><td>52 mmHg</td><td>35-45 mmHg</td></tr><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>SaO2</td><td>88%</td><td>95-100%</td></tr><tr><td>WBC</td><td>18,000/mm3</td><td>4,500-11,000/mm3</td></tr><tr><td>Platelets</td><td>150,000/mm3</td><td>150,000-400,000/mm3</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>136 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>100 mEq/L</td><td>95-105 mEq/L</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BNP</td><td>1500 pg/mL</td><td>< 100 pg/mL</td></tr><tr><td>Troponin</td><td>0.8 ng/mL</td><td>< 0.04 ng/mL</td></tr><tr><td>Glucose</td><td>110 mg/dL</td><td>70-110 mg/dL</td></tr></tbody></table>"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Vancomycin</td><td>1 gram</td><td>IV</td><td>q12h</td></tr><tr><td>Cefepime</td><td>2 grams</td><td>IV</td><td>q8h</td></tr><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td></tr><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1h PRN Pain</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>Daily</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV Push</td><td>STAT</td><td>07:00</td></tr><tr><td>Oxygen</td><td>2 L</td><td>Nasal Cannula</td><td>Continuous</td><td>-</td></tr><tr><td>Aspirin</td><td>325 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Metoprolol</td><td>50 mg</td><td>PO</td><td>BID</td><td>06:00</td></tr></tbody></table>"
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>110</td><td>130/80</td><td>28</td><td>92%</td><td>38.5°C</td></tr><tr><td>06:30</td><td>115</td><td>125/75</td><td>30</td><td>90%</td><td>38.6°C</td></tr><tr><td>07:00</td><td>120</td><td>120/70</td><td>32</td><td>88%</td><td>38.7°C</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>02:00</td><td>160/90</td><td>100</td><td>24</td><td>92% on RA</td></tr><tr><td>04:00</td><td>165/95</td><td>105</td><td>26</td><td>90% on 2L NC</td></tr><tr><td>06:00</td><td>168/98</td><td>108</td><td>27</td><td>89% on 2L NC</td></tr><tr><td>08:00</td><td>170/100</td><td>110</td><td>28</td><td>88% on 2L NC</td></tr></tbody></table>"
       }
     ]
   },
   "pedagogy": {
-    "bloomLevel": "Analyze",
-    "cjmmStep": "Recognize Cues",
-    "nclexCategory": "Physiological Integrity",
+    "bloomLevel": "Apply",
+    "cjmmStep": "Implement",
+    "nclexCategory": "Pharmacological and Parenteral Therapies",
     "difficulty": 5,
     "topicTags": [
-      "Respiratory: Respiratory Failure & ARDS"
+      "Cardiovascular: Acute MI & Heart Failure"
     ]
   },
   "rationale": {
-    "correct": "Decreased PaO2 (58 mmHg): ARDS is characterized by severe hypoxemia that is refractory to oxygen therapy due to intrapulmonary shunting and ventilation-perfusion mismatch. A PaO2 below 60 mmHg is a key diagnostic criterion. Increased PaCO2 (52 mmHg): While not always present initially, hypercapnia can develop in ARDS due to increased dead space ventilation and respiratory muscle fatigue. It indicates the patient is unable to effectively remove carbon dioxide. pH of 7.30: Acidemia is present due to the elevated PaCO2. This respiratory acidosis is a common finding in ARDS as the lungs fail to properly exchange gases. SaO2 of 88%: This indicates inadequate oxygen saturation despite supplemental oxygen, reflecting the impaired gas exchange in ARDS. Increased RR (32): Tachypnea is a compensatory mechanism to improve oxygenation and ventilation, but it often leads to respiratory muscle fatigue in ARDS.",
-    "incorrect": "WBC of 18,000/mm3: While an elevated WBC count suggests infection or inflammation, it's not a direct diagnostic criterion for ARDS itself. The underlying cause of ARDS could be sepsis, which is reflected in the elevated WBC. Normal HCO3 (24 mEq/L): A normal bicarbonate level suggests that the respiratory acidosis is acute. In chronic respiratory conditions, the kidneys would compensate by retaining bicarbonate. Platelets of 150,000/mm3: A normal platelet count does not directly indicate ARDS. Although thrombocytopenia can occur in severe cases of sepsis, it is not a primary feature of ARDS itself. Normal BP (120/70): While hypotension may occur in severe cases of ARDS, it is not a direct diagnostic criterion for ARDS itself. BP will vary based on patient's condition and medications.",
+    "correct": "Initiating continuous positive airway pressure (CPAP) can improve oxygenation and reduce the work of breathing by providing positive pressure to keep alveoli open. Administering morphine sulfate can help reduce anxiety, decrease preload, and improve breathing in patients with acute heart failure, but requires careful monitoring for respiratory depression and hypotension. Elevating the head of the bed promotes lung expansion and reduces venous return, decreasing preload. Preparing for the administration of IV nitroglycerin can help reduce afterload and improve cardiac output by dilating blood vessels. Monitoring hourly urine output is essential to assess the effectiveness of diuretic therapy and fluid status.",
+    "incorrect": "Administering a bolus of 0.9% sodium chloride is contraindicated in heart failure as it can worsen fluid overload and exacerbate pulmonary edema. Encouraging ambulation is not appropriate at this time due to the patient's respiratory distress and instability. Restricting oral fluids is not a routine intervention in heart failure and should be guided by specific clinical indicators and physician orders.",
     "clinicalPearls": [
-      "ARDS diagnosis requires ruling out cardiogenic pulmonary edema. Assess BNP and echocardiogram.",
-      "Monitor for complications such as ventilator-associated pneumonia (VAP) and barotrauma.",
-      "Proning can improve oxygenation by redistributing lung perfusion and ventilation."
+      "In acute decompensated heart failure, rapid assessment and intervention are crucial to improve oxygenation and cardiac function.",
+      "Morphine should be used cautiously in heart failure due to the risk of respiratory depression and hypotension."
     ],
     "questionTrap": {
-      "trap": "Many students focus solely on oxygen saturation and overlook the importance of PaCO2 and pH in assessing the acid-base balance in ARDS. They might select only the hypoxemia findings, missing the developing respiratory acidosis.",
-      "howToOvercome": "Carefully analyze all the lab values, not just the SpO2. Consider the patient's respiratory rate, work of breathing, and underlying conditions to interpret the ABGs accurately. Remember that ARDS often involves both hypoxemia and hypercapnia."
+      "trap": "Students may select interventions that are generally helpful for heart failure but are contraindicated in the acute phase due to the patient's unstable condition (e.g., fluid bolus, ambulation).",
+      "howToOvercome": "Carefully assess the patient's current status and prioritize interventions that address immediate life-threatening issues such as respiratory distress and hypertension. Consider contraindications of each intervention."
     },
     "mnemonic": {
-      "title": "ARDS Criteria",
-      "expansion": "A: Acute onset; R: Respiratory distress; D: Diffuse bilateral infiltrates on CXR; S: Severe hypoxemia (PaO2/FiO2 ≤ 300)"
+      "title": "MADDOG (Heart Failure Management)",
+      "expansion": "Morphine, Airway (Oxygen/CPAP), Digitalis, Diuretics, Oxygen, Gases (ABGs)"
     }
-  }
+  },
+  "options": [
+    {
+      "id": "optionA",
+      "text": "Initiate continuous positive airway pressure (CPAP).",
+      "correct": true
+    },
+    {
+      "id": "optionB",
+      "text": "Administer a bolus of 0.9% sodium chloride.",
+      "correct": false
+    },
+    {
+      "id": "optionC",
+      "text": "Administer morphine sulfate 2-4 mg IV.",
+      "correct": true
+    },
+    {
+      "id": "optionD",
+      "text": "Elevate the head of the bed.",
+      "correct": true
+    },
+    {
+      "id": "optionE",
+      "text": "Encourage ambulation as tolerated.",
+      "correct": false
+    },
+    {
+      "id": "optionF",
+      "text": "Restrict oral fluids to 1000 mL per day.",
+      "correct": false
+    },
+    {
+      "id": "optionG",
+      "text": "Prepare for the administration of IV nitroglycerin.",
+      "correct": true
+    },
+    {
+      "id": "optionH",
+      "text": "Monitor hourly urine output.",
+      "correct": true
+    }
+  ]
 }

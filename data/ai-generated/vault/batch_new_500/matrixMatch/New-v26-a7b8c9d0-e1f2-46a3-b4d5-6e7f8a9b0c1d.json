@@ -1,0 +1,97 @@
+{
+  "id": "New-v26-a7b8c9d0-e1f2-46a3-b4d5-6e7f8a9b0c1d",
+  "type": "matrixMatch",
+  "stem": "The nurse is preparing to administer medications to Mr. Jones. Based on the provided information, determine if each medication order is safe, unsafe, or requires further clarification before administration. Consider the patient's current status, lab values, and medication history.",
+  "scoring": {
+    "method": "dichotomous",
+    "maxPoints": 4
+  },
+  "itemContext": {
+    "patient": {
+      "name": "Robert Jones",
+      "age": 72,
+      "gender": "Male",
+      "iso": "Medical Unit",
+      "isolation": "Droplet",
+      "allergies": [
+        "Sulfa drugs"
+      ]
+    },
+    "sbar": "S: Mr. Jones is a 72-year-old male admitted for heart failure exacerbation. He has a history of hypertension, diabetes, and chronic kidney disease (CKD). O: At 06:00, the patient reported increased shortness of breath and lower extremity edema. His vital signs are concerning: BP 160/90 mmHg, HR 110 bpm, RR 28 breaths/min, and SpO2 90% on 2L NC. Labs are pending but initial results are available. He weighs 80kg. A: The patient is experiencing a heart failure exacerbation, likely with fluid overload, complicated by his underlying CKD. The hypoxemia is also a concern. B: At 06:15, the physician was notified of the patient's condition and new orders were received. The current orders due now are Furosemide 40mg IVP, Lisinopril 10mg PO, Metoprolol 25mg PO, and Digoxin 0.125mg PO. The patient is currently alert and oriented but appears distressed due to his breathing difficulties. The patient is on droplet isolation precautions due to a recent respiratory infection.",
+    "tabs": [
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": "Na: 132 mEq/L, K: 3.2 mEq/L, Cl: 98 mEq/L, BUN: 45 mg/dL, Creatinine: 2.5 mg/dL, Glucose: 180 mg/dL, Digoxin level: 0.6 ng/mL"
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": "Furosemide 40mg IVP daily, Lisinopril 10mg PO daily, Metoprolol 25mg PO BID, Digoxin 0.125mg PO daily, Potassium Chloride 20mEq PO BID (last dose given 00:00)"
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "04:00: BP 150/85, HR 98, RR 24, SpO2 92% on RA. 05:00: BP 155/88, HR 104, RR 26, SpO2 91% on 2L NC. 06:00: BP 160/90, HR 110, RR 28, SpO2 90% on 2L NC. Temp: 37.2 C"
+      }
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "Analyze",
+    "cjmmStep": "Evaluate",
+    "nclexCategory": "Safe and Effective Care Environment",
+    "difficulty": 5,
+    "topicTags": [
+      "Safety: Medication Calculation & High-Alert Drugs"
+    ]
+  },
+  "rationale": {
+    "correct": "Furosemide is unsafe due to the patient's low potassium (3.2 mEq/L). Administering furosemide, a loop diuretic, will further deplete potassium levels, potentially leading to cardiac arrhythmias, especially in a patient also taking Digoxin. Lisinopril is unsafe because the patient's elevated creatinine (2.5 mg/dL) indicates impaired kidney function. ACE inhibitors like Lisinopril can worsen kidney function, leading to further complications. Metoprolol is safe because the patient's heart rate, although elevated, is not critically low, and the medication is indicated for heart failure management in the setting of heart failure, although the physician should be notified of the elevated heart rate. Digoxin requires clarification because the patient's digoxin level (0.6 ng/mL) is within the therapeutic range (0.5-2 ng/mL), but the patient's hypokalemia increases the risk of digoxin toxicity. The physician should be consulted regarding the administration of digoxin in the presence of hypokalemia.",
+    "incorrect": "Incorrect responses demonstrate a lack of understanding of the patient's electrolyte imbalances, kidney function, and the potential adverse effects of the medications. Failing to recognize the risks associated with administering furosemide with low potassium or lisinopril with elevated creatinine indicates a gap in knowledge regarding medication safety and patient-specific considerations. Incorrectly assessing metoprolol or digoxin shows misunderstanding of their indications and potential interactions with other conditions and medications.",
+    "clinicalPearls": [
+      "Always check potassium levels before administering loop diuretics like furosemide.",
+      "Monitor kidney function (BUN and creatinine) before and during ACE inhibitor therapy.",
+      "Hypokalemia increases the risk of digoxin toxicity.",
+      "Consider the patient's overall clinical picture, including vital signs, lab values, and medication history, before administering any medication."
+    ],
+    "questionTrap": {
+      "trap": "The question trap is the tendency to focus solely on individual vital signs (e.g., elevated heart rate) without considering the broader clinical context (e.g., electrolyte imbalances, kidney function).",
+      "howToOvercome": "To overcome this trap, systematically analyze all available data (SBAR, labs, MAR, vitals) to identify potential interactions and contraindications before making a decision about medication administration. Prioritize patient safety by addressing electrolyte imbalances and kidney function issues before administering medications that could exacerbate these problems."
+    },
+    "mnemonic": {
+      "title": "REAL Medication Safety",
+      "expansion": "Review allergies, Evaluate labs, Assess vitals, Listen to the patient."
+    }
+  },
+  "matrix": {
+    "rows": [
+      "Furosemide 40mg IVP",
+      "Lisinopril 10mg PO",
+      "Metoprolol 25mg PO",
+      "Digoxin 0.125mg PO"
+    ],
+    "columns": [
+      "Safe",
+      "Unsafe",
+      "Requires Clarification"
+    ]
+  },
+  "answerKey": [
+    {
+      "row": "Furosemide 40mg IVP",
+      "column": "Unsafe"
+    },
+    {
+      "row": "Lisinopril 10mg PO",
+      "column": "Unsafe"
+    },
+    {
+      "row": "Metoprolol 25mg PO",
+      "column": "Safe"
+    },
+    {
+      "row": "Digoxin 0.125mg PO",
+      "column": "Requires Clarification"
+    }
+  ]
+}
