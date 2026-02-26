@@ -1,100 +1,93 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "clozeDropdown",
-  "stem": "The patient is at risk for complications. Based on the assessment findings, select the most likely condition from the first dropdown, and then select the two most appropriate interventions from the subsequent dropdowns to address the underlying pathophysiology. \n\nMost Likely Condition: [condition]\n\nIntervention 1: [intervention1]\n\nIntervention 2: [intervention2]",
+  "stem": "The nurse is reviewing the ventilator settings for Mr. Jones. Based on the provided information, select the most appropriate actions to address the identified issues.\n\nIf the patient's PaCO2 is 55 mmHg, the nurse should select [ventilation_action].\n\nIf the peak inspiratory pressure (PIP) is consistently above 35 cm H2O, the nurse should select [pressure_action].\n\nIf the patient is showing signs of increased work of breathing (WOB), the nurse should select [wob_action].",
   "scoring": {
     "method": "dichotomous",
     "maxPoints": 3
   },
   "itemContext": {
     "patient": {
-      "name": "John Smith",
-      "age": 48,
+      "name": "John Jones",
+      "age": 68,
       "gender": "Male",
-      "iso": "Medical ICU",
+      "iso": "Contact & Droplet",
       "allergies": [
         "Penicillin"
       ]
     },
-    "sbar": "Situation: John Smith, a 48-year-old male with a history of Type 2 Diabetes, was admitted three days ago for pneumonia and is now exhibiting altered mental status and rapid, deep breathing. Background: The patient has a history of non-compliance with his prescribed Metformin. Assessment: At 07:00, the patient is unresponsive to verbal stimuli and displaying Kussmaul respirations with a noticeable fruity odor on his breath. His vital signs are BP 90/60 mmHg, HR 130 bpm, RR 36 breaths/min, Temp 38.9°C (102°F), and SpO2 92% on 2L NC. Pending lab results, but bedside glucose is 650 mg/dL. Nursing interventions initiated include a 1000mL NS bolus started at 07:15, followed by an order for a continuous insulin infusion at 07:30. Review of the electronic health record shows a history of poor glycemic control. His current medications include Insulin Lispro 5 units TID AC and Metformin 500mg BID, which he reports not taking regularly. Recommendation: Anticipate orders for electrolyte replacement based on pending lab results, with close monitoring of acid-base balance. An arterial blood gas (ABG) should be considered to evaluate for metabolic acidosis. Further assess for signs of infection and evaluate the effectiveness of the current antibiotic regimen for pneumonia. Continue to monitor vital signs and neurological status closely.",
+    "sbar": "Situation: John Jones, a 68-year-old male with a history of COPD, was admitted for pneumonia and subsequently intubated due to respiratory failure at 07:00 this morning. He is currently mechanically ventilated. Background: Mr. Jones has a significant history of COPD, which contributes to his baseline respiratory compromise. Assessment: At 10:00, current ventilator settings are: FiO2 40%, Tidal Volume (TV) 450 mL, Respiratory Rate (RR) 16 breaths/min, and PEEP 5 cm H2O. An arterial blood gas (ABG) obtained at 10:00 reveals: pH 7.30, PaCO2 55 mmHg, PaO2 88 mmHg, HCO3 24 mEq/L, and SaO2 95%. The Peak Inspiratory Pressure (PIP) is trending upwards and is currently at 36 cm H2O. The patient is exhibiting noticeable accessory muscle use, indicating increased work of breathing. Auscultation of lung sounds reveals scattered rhonchi. Recommendation: I recommend a thorough evaluation of the current ventilator settings with adjustments as needed to improve ventilation, optimize oxygenation, and reduce the patient's work of breathing. Consider the elevated PIP and hypercapnia when making adjustments. Closely monitor for potential complications such as barotrauma, ventilator-associated pneumonia (VAP), and auto-PEEP. The last suctioning was performed at 09:30. Please also consider a possible chest x-ray to evaluate for any changes in his pneumonia.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "Na: 130 mEq/L, K: 5.8 mEq/L, Cl: 95 mEq/L, HCO3: 10 mEq/L, BUN: 40 mg/dL, Creatinine: 2.0 mg/dL, Glucose: 650 mg/dL, pH: 7.25, pCO2: 28 mmHg, pO2: 95 mmHg"
+        "content": "Arterial Blood Gas (ABG) - 10:00:\npH: 7.30\nPaCO2: 55 mmHg\nPaO2: 88 mmHg\nHCO3: 24 mEq/L\nSaO2: 95%"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "Scheduled Medications: Insulin Lispro 5 units TID AC, Metformin 500mg BID (patient reports non-compliance). PRN Medications: Acetaminophen 650mg PO q4h PRN for fever, Ondansetron 4mg IV q6h PRN for nausea."
+        "content": "Scheduled Medications:\n-Albuterol/Ipratropium Nebulizer: Every 6 hours PRN wheezing\n-Ceftriaxone 1g IVPB: Every 24 hours\nPRN Medications:\n-Morphine 2mg IVP: PRN pain (Last dose: Not Administered)"
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "06:00: BP 110/70, HR 100, RR 24, Temp 38.0°C, SpO2 95% on RA. 07:00: BP 90/60, HR 130, RR 36, Temp 38.9°C, SpO2 92% on 2L NC."
+        "content": "Vitals - 10:00:\nHR: 110 bpm\nRR: 16 (Ventilator)\nSpO2: 95%\nBP: 140/90 mmHg\nTemp: 38.2°C (100.8°F)"
       }
     ]
   },
   "pedagogy": {
     "bloomLevel": "Analyze",
-    "cjmmStep": "Analyze Cues",
-    "nclexCategory": "Physiological Integrity",
+    "cjmmStep": "Evaluate",
+    "nclexCategory": "Respiratory",
     "difficulty": 5,
     "topicTags": [
-      "Endocrine: DKA/HHS & Thyroid Storm"
+      "Respiratory: Mechanical Ventilation Safety"
     ]
   },
   "rationale": {
-    "correct": "The patient's presentation – hyperglycemia, altered mental status, Kussmaul respirations, and lab values indicating metabolic acidosis – strongly suggests Diabetic Ketoacidosis (DKA). Administering intravenous fluids is crucial to address dehydration caused by osmotic diuresis secondary to hyperglycemia. An insulin infusion is vital to correct the hyperglycemia and reverse the ketogenesis process by allowing glucose to enter the cells. Electrolyte monitoring and replacement, especially potassium, is essential because insulin administration shifts potassium intracellularly, potentially leading to hypokalemia and cardiac arrhythmias.",
-    "incorrect": "Hyperosmolar Hyperglycemic State (HHS) is less likely given the presence of metabolic acidosis. While fluid replacement is important in HHS, the primary intervention is still focused on reducing hyperglycemia, but typically occurs more gradually than in DKA. Thyroid storm is unlikely given the patient's history of diabetes and the absence of specific thyroid-related symptoms like goiter or exophthalmos. While antipyretics can reduce fever, they do not address the underlying cause of the patient's condition. Administering antiemetics might be helpful if nausea is present, but it doesn't address the life-threatening metabolic derangement. Administering supplemental oxygen may be necessary, but it does not address the underlying cause of the patient's condition.",
+    "correct": "For a PaCO2 of 55 mmHg (respiratory acidosis), increasing the minute ventilation (either by increasing the respiratory rate or tidal volume) is the appropriate action to help eliminate CO2. For a PIP consistently above 35 cm H2O, reducing the tidal volume is indicated to prevent barotrauma or further lung injury due to excessive pressure. For increased work of breathing, increasing the PEEP can improve oxygenation, recruit more alveoli, and reduce the effort needed for each breath.",
+    "incorrect": "Decreasing the respiratory rate would worsen hypercapnia, leading to further CO2 retention. Increasing the tidal volume without addressing the elevated PIP could cause lung injury or barotrauma. Increasing FiO2 will address hypoxemia but not hypercapnia or increased WOB; the patient's PaO2 is acceptable. Decreasing the PEEP would likely worsen the patient's work of breathing and oxygenation by causing alveolar collapse. While suctioning is important for airway management, the provided information does not definitively indicate it is the MOST appropriate action, as the last suctioning was relatively recent. Administering bronchodilators might be helpful for bronchospasm, but the primary issues are hypercapnia and elevated PIP. Sedation may decrease WOB but does not address the underlying ventilation and oxygenation issues.",
     "clinicalPearls": [
-      "Always assess for signs of DKA or HHS in diabetic patients presenting with altered mental status or acute illness.",
-      "Potassium levels can drop rapidly during insulin therapy in DKA; monitor closely and replace as needed."
+      "Always assess the patient holistically, considering ABGs, ventilator settings, and physical exam findings to guide ventilator management decisions.",
+      "High PIP can indicate airway obstruction, decreased lung compliance (e.g., from pneumonia or ARDS), or increased airway resistance (e.g., bronchospasm).",
+      "PEEP helps to keep alveoli open, improving gas exchange and reducing the work of breathing; however, excessive PEEP can cause barotrauma or decreased cardiac output.",
+      "In patients with COPD, be cautious with increasing tidal volume due to the risk of barotrauma. Small adjustments are often preferable.",
+      "Monitor closely for signs of auto-PEEP, especially in patients with COPD and high respiratory rates."
     ],
     "questionTrap": {
-      "trap": "Selecting only one intervention might seem adequate, but DKA requires a multi-pronged approach for effective management.",
-      "howToOvercome": "Remember the core components of DKA management: fluids, insulin, and electrolyte replacement. Consider how each intervention directly impacts the underlying pathophysiology."
+      "trap": "Many students might focus solely on the ABG results and choose to increase FiO2, overlooking the elevated PIP and work of breathing, which require different interventions. Another common mistake is to only consider suctioning for the rhonchi, not recognizing the need for adjustments to the ventilator settings.",
+      "howToOvercome": "Carefully consider all data points (ABGs, vital signs, physical assessment) and prioritize interventions based on the overall clinical picture. Remember that mechanical ventilation management involves balancing oxygenation, ventilation, and minimizing lung injury. Address the most critical issues first, considering the potential risks and benefits of each intervention. Always consider the patient's underlying condition (COPD in this case) when making ventilator adjustments."
     },
     "mnemonic": {
-      "title": "DKA Treatment",
-      "expansion": "Fluids, Insulin, Potassium (FIK)"
+      "title": "VT PEEP",
+      "expansion": "Ventilation Trouble? Adjust Tidal Volume (TV) or Respiratory Rate (RR). Pressure Problem? Evaluate PIP. Expiratory Issue? Consider Positive End-Expiratory Pressure (PEEP)."
     }
   },
-  "response": [
-    {
-      "id": "condition",
-      "type": "dropdown",
-      "options": [
-        "Diabetic Ketoacidosis (DKA)",
-        "Hyperosmolar Hyperglycemic State (HHS)",
-        "Thyroid Storm"
-      ],
-      "correctResponse": "Diabetic Ketoacidosis (DKA)"
+  "validation": {
+    "validResponse": {
+      "ventilation_action": "Increase respiratory rate",
+      "pressure_action": "Reduce tidal volume",
+      "wob_action": "Increase PEEP"
     },
-    {
-      "id": "intervention1",
-      "type": "dropdown",
-      "options": [
-        "Administer intravenous fluids",
-        "Administer an antipyretic",
-        "Administer an antiemetic",
-        "Administer supplemental oxygen",
-        "Administer a bolus of dextrose"
+    "options": {
+      "ventilation_action": [
+        "Increase respiratory rate",
+        "Decrease respiratory rate",
+        "Increase FiO2",
+        "Suction the patient"
       ],
-      "correctResponse": "Administer intravenous fluids"
-    },
-    {
-      "id": "intervention2",
-      "type": "dropdown",
-      "options": [
-        "Initiate continuous insulin infusion",
-        "Monitor and replace electrolytes",
-        "Administer an antipyretic",
-        "Administer an antiemetic",
-        "Administer supplemental oxygen",
-        "Administer a bolus of dextrose"
+      "pressure_action": [
+        "Reduce tidal volume",
+        "Increase tidal volume",
+        "Increase FiO2",
+        "Administer bronchodilators"
       ],
-      "correctResponse": "Initiate continuous insulin infusion"
+      "wob_action": [
+        "Increase PEEP",
+        "Decrease PEEP",
+        "Decrease FiO2",
+        "Administer sedation"
+      ]
     }
-  ]
+  }
 }
