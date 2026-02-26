@@ -1,10 +1,10 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "trend",
-  "stem": "The patient is at risk for increased intracranial pressure (ICP). Based on the information provided in the patient's record, indicate whether each intervention is indicated, contraindicated, or neutral in this patient's care. Drag and drop each intervention to the appropriate category.",
+  "stem": "The nurse is caring for a patient receiving mechanical ventilation. Review the patient's EHR. Based on the data provided, identify three findings that require immediate intervention and two actions the nurse should take. Use clinical judgment to determine the MOST appropriate response to the changing patient condition over the past hour.",
   "scoring": {
-    "method": "linkage",
-    "maxPoints": 6
+    "method": "polytomous",
+    "maxPoints": 5
   },
   "itemContext": {
     "patient": {
@@ -12,54 +12,55 @@
       "age": 68,
       "gender": "Male",
       "iso": "ICU",
-      "airborne": false,
       "allergies": [
         "Penicillin"
       ]
     },
-    "sbar": "S: This is Nurse Jones calling from ICU. I'm calling about John Smith, a 68-year-old male admitted at 03:00 following a hemorrhagic stroke. B: Patient has a history of hypertension and atrial fibrillation. He presented with left-sided weakness and slurred speech. Initial NIHSS score was 18. A: At 07:00, patient's GCS is 9 (E2, V2, M5). Right pupil is 3mm and reactive, left pupil is 5mm and sluggish. BP is 180/100 mmHg. Heart rate is 92 bpm, regular. Respiratory rate is 12 and shallow. Oxygen saturation is 94% on 2L nasal cannula. The physician was notified at 07:15. Current orders include mannitol 0.25 g/kg IV, continuous EEG monitoring, and frequent neurological assessments. His last dose of warfarin was 2 days ago. INR is elevated. R: I am concerned about increased ICP. I recommend repeating the CT scan and considering interventions to reduce ICP, such as elevating the head of the bed and adjusting the ventilator settings. I will continue to monitor closely.",
+    "sbar": "S: Mr. Smith is a 68-year-old male admitted for acute respiratory failure secondary to pneumonia. He was intubated and placed on mechanical ventilation at 14:00. Current vent settings: FiO2 50%, TV 450 mL, RR 16, PEEP 5 cm H2O. \nB: History of COPD and hypertension. He was started on vancomycin and azithromycin. \nA: At 15:00, his SpO2 has dropped from 94% to 88%. End-tidal CO2 is trending upward. Peak inspiratory pressure (PIP) has increased from 25 cm H2O to 35 cm H2O. Auscultation reveals diminished breath sounds on the left. The patient appears increasingly agitated and is attempting to pull at the endotracheal tube. \nR: I'm concerned about possible pneumothorax or tube obstruction. I recommend stat chest x-ray and assessment for the need for increased sedation or paralysis.",
     "tabs": [
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>EtCO2</th></tr></thead><tbody><tr><td>14:00</td><td>92</td><td>140/80</td><td>16 (Vent)</td><td>94%</td><td>35</td></tr><tr><td>14:15</td><td>95</td><td>145/82</td><td>16 (Vent)</td><td>93%</td><td>36</td></tr><tr><td>14:30</td><td>98</td><td>150/85</td><td>16 (Vent)</td><td>92%</td><td>38</td></tr><tr><td>14:45</td><td>102</td><td>155/88</td><td>16 (Vent)</td><td>90%</td><td>40</td></tr><tr><td>15:00</td><td>108</td><td>160/90</td><td>16 (Vent)</td><td>88%</td><td>42</td></tr></tbody></table>"
+      },
       {
         "id": "labs",
         "title": "Labs",
-        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>102 mEq/L</td><td>98-106 mEq/L</td></tr><tr><td>Bicarbonate</td><td>24 mEq/L</td><td>22-28 mEq/L</td></tr><tr><td>BUN</td><td>20 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.0 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Glucose</td><td>110 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>INR</td><td>2.8</td><td>0.8-1.2</td></tr><tr><td>Platelets</td><td>150,000/uL</td><td>150,000-400,000/uL</td></tr><tr><td>WBC</td><td>9,000/uL</td><td>4,500-11,000/uL</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>WBC</td><td>14,000</td><td>4,500-11,000</td></tr><tr><td>Hemoglobin</td><td>14.0</td><td>13.5-17.5</td></tr><tr><td>PaCO2</td><td>55</td><td>35-45</td></tr><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr></tbody></table>"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Mannitol</td><td>0.25 g/kg</td><td>IV</td><td>q6h PRN</td><td>07:30</td></tr><tr><td>Labetalol</td><td>10 mg</td><td>IV</td><td>q1h PRN SBP > 180</td><td>07:15</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>Daily</td><td>06:00</td></tr><tr><td>Normal Saline</td><td>250 mL</td><td>IV</td><td>Continuous at 20 mL/hr</td><td>Ongoing</td></tr></tbody></table>"
-      },
-      {
-        "id": "vitals",
-        "title": "Vitals",
-        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th><th>GCS</th><th>Pupils</th></tr></thead><tbody><tr><td>06:00</td><td>170/90 mmHg</td><td>88 bpm</td><td>14</td><td>95% on 2L NC</td><td>37.0°C</td><td>11 (E3, V3, M5)</td><td>R 3mm reactive, L 4mm sluggish</td></tr><tr><td>06:30</td><td>175/95 mmHg</td><td>90 bpm</td><td>13</td><td>94% on 2L NC</td><td>37.1°C</td><td>10 (E2, V3, M5)</td><td>R 3mm reactive, L 5mm sluggish</td></tr><tr><td>07:00</td><td>180/100 mmHg</td><td>92 bpm</td><td>12</td><td>94% on 2L NC</td><td>37.2°C</td><td>9 (E2, V2, M5)</td><td>R 3mm reactive, L 5mm sluggish</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Vancomycin</td><td>1g</td><td>IV</td><td>q12h</td><td>13:00</td></tr><tr><td>Azithromycin</td><td>500mg</td><td>IV</td><td>q24h</td><td>13:00</td></tr><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1h PRN</td><td>14:00</td></tr></tbody></table>"
       }
     ]
   },
   "pedagogy": {
     "bloomLevel": "Analyze",
     "cjmmStep": "Evaluate",
-    "nclexCategory": "Physiological Integrity",
+    "nclexCategory": "Management of Care",
     "difficulty": 5,
     "topicTags": [
-      "Neurological: Stroke & Increased ICP"
+      "Respiratory: Mechanical Ventilation Safety"
     ]
   },
   "rationale": {
-    "correct": "Maintaining the head of the bed (HOB) at 30 degrees promotes venous drainage from the brain, reducing ICP. Administering stool softeners prevents straining during bowel movements, which can increase ICP. Maintaining a calm environment reduces stimulation that can exacerbate ICP. Administering prescribed antihypertensives to control blood pressure is crucial, as hypertension can worsen cerebral edema and ICP. Hyperventilation, while sometimes used, is a critical intervention that requires precise control of PaCO2; it is not routinely indicated and can be harmful if PaCO2 is driven too low, causing cerebral vasoconstriction and ischemia. Close neurological monitoring is vital for early detection of changes indicating worsening ICP.",
-    "incorrect": "Lowering the head of the bed increases venous pressure in the brain, exacerbating ICP. Encouraging coughing can acutely raise ICP. Clustering nursing activities provides uninterrupted rest but involves multiple stimuli that can increase ICP. Administering hypotonic IV fluids (e.g., 0.45% NaCl) can cause fluid to shift into brain cells, increasing cerebral edema and ICP. Normal saline is acceptable, but must be cautiously administered to avoid fluid overload. Routine hyperventilation can cause cerebral vasoconstriction and ischemia, which is detrimental to the patient. It is only used in specific, controlled circumstances.",
+    "correct": "The decreasing SpO2, increasing EtCO2, elevated PIP, and diminished breath sounds suggest a serious respiratory compromise. Potential causes include pneumothorax, endotracheal tube obstruction (mucus plug, kinking), or worsening pneumonia. The patient's agitation may be due to hypoxia or discomfort. A stat chest x-ray is crucial to rule out pneumothorax. Suctioning the endotracheal tube is essential to clear any potential obstruction. Increasing sedation may be necessary to reduce the patient's anxiety and prevent self-extubation, but only after addressing the underlying respiratory issues. The ABG values confirm respiratory acidosis, further supporting the need for immediate intervention.",
+    "incorrect": "While increasing the FiO2 might seem like a logical step to improve oxygenation, it's essential to first identify and address the underlying cause of the desaturation. Increasing FiO2 without addressing the primary issue could lead to oxygen toxicity. Paralysis should only be considered after other interventions have been attempted and the patient's agitation persists. While monitoring blood pressure is important, it's not the priority in this acute respiratory distress situation. Documenting the findings is always important, but immediate interventions take priority.",
     "clinicalPearls": [
-      "Early recognition and management of increased ICP are critical to prevent secondary brain injury and improve patient outcomes.",
-      "Small changes in neurological status can indicate significant changes in ICP. Frequent and thorough assessments are essential.",
-      "Hyperventilation is a double-edged sword. While it can rapidly decrease ICP, it can also cause cerebral ischemia if not carefully managed."
+      "Always assess breath sounds bilaterally in ventilated patients to identify unilateral issues like pneumothorax or tube migration.",
+      "Increased PIP on a ventilator can indicate increased airway resistance or decreased lung compliance.",
+      "EtCO2 provides a real-time assessment of ventilation effectiveness."
     ],
     "questionTrap": {
-      "trap": "The question requires differentiating between interventions that are generally beneficial for stroke patients and those specifically indicated or contraindicated in the context of increased ICP. The trap lies in assuming that all interventions commonly used for stroke are appropriate regardless of ICP status.",
-      "howToOvercome": "Focus on the specific pathophysiology of increased ICP and how each intervention affects intracranial pressure. Consider the potential risks and benefits of each intervention in the context of this patient's condition."
+      "trap": "Selecting 'Increase FiO2' as the primary intervention. While it may seem intuitive, it doesn't address the underlying cause of the hypoxemia.",
+      "howToOvercome": "Focus on identifying the root cause of the respiratory distress before simply increasing oxygen delivery. Consider the possibility of a pneumothorax or tube obstruction."
     },
     "mnemonic": {
-      "title": "ICP Management (HEAD)",
-      "expansion": "HOB elevated, Evaluate neuro status, Avoid straining, Drugs (mannitol, antihypertensives)"
+      "title": "DOPE",
+      "expansion": "Displacement, Obstruction, Pneumothorax, Equipment failure. This mnemonic helps remember common causes of acute respiratory distress in intubated patients."
     }
-  }
+  },
+  "airborne": true,
+  "isolation": "airborne"
 }
