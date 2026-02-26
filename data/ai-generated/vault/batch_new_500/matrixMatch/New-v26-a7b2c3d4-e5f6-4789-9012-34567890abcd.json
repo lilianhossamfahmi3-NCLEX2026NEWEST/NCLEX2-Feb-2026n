@@ -1,37 +1,37 @@
 {
   "id": "New-v26-a7b2c3d4-e5f6-4789-9012-34567890abcd",
   "type": "matrixMatch",
-  "stem": "The patient is exhibiting signs and symptoms related to their congenital heart defect. Based on the provided information, match each assessment finding to the most likely underlying physiological process.",
+  "stem": "The nurse is caring for Mr. Jones. Based on the assessment findings and available data, indicate whether each finding is consistent with Acute Kidney Injury (AKI) or Chronic Kidney Disease (CKD).",
   "scoring": {
     "method": "dichotomous",
-    "maxPoints": 4
+    "maxPoints": 5
   },
   "itemContext": {
     "patient": {
-      "name": "Liam Miller",
-      "age": 6,
+      "name": "Jones, Michael",
+      "age": 68,
       "gender": "Male",
-      "iso": "Pediatric ICU",
+      "iso": "Medical Surgical Unit",
       "allergies": [
-        "NKDA"
+        "Penicillin"
       ]
     },
-    "sbar": "S: Liam Miller, 6-year-old male with Tetralogy of Fallot, admitted at 07:00 for increased cyanosis and respiratory distress. O2 sat is 78% on room air. Parents report increased fatigue and difficulty keeping up with peers. B: Diagnosed with TOF at 3 months. Had Blalock-Taussig shunt placed at 6 months. Scheduled for complete repair at age 3 but surgery was postponed due to recurrent respiratory infections. A: Currently experiencing a 'Tet spell'. RR 36, HR 140, BP 90/60. Cyanotic. Increased work of breathing. Temp 37.2°C. Administered morphine sulfate 0.1mg/kg IV at 07:15. R: Please evaluate and implement orders for management of hypercyanotic spell. Monitor vital signs and oxygen saturation continuously. Consider escalating oxygen support if needed. Notify cardiology if no improvement in oxygen saturation within 15 minutes.",
+    "sbar": "Situation: Mr. Jones is a 68-year-old male admitted three days ago for pneumonia. Background: He has a history of hypertension and type 2 diabetes, poorly controlled. Assessment: At 06:00, the patient reports increased fatigue and generalized weakness. Urine output over the past 12 hours has been 350 mL. He is edematous in lower extremities bilaterally, +3 pitting. His blood pressure is 170/98 mmHg, heart rate is 92 bpm, and respiratory rate is 24 breaths/min. Labs from 04:00 show a creatinine of 4.2 mg/dL (baseline 1.1 mg/dL three days ago) and potassium of 6.8 mEq/L. Recommendation: I am concerned about acute kidney injury superimposed on possible chronic kidney disease exacerbation and hyperkalemia. I recommend stat EKG, continuous cardiac monitoring, and nephrology consult.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>18.5 g/dL</td><td>11.5-15.5 g/dL</td></tr><tr><td>Hematocrit</td><td>55%</td><td>35-45%</td></tr><tr><td>RBC</td><td>6.5 million/uL</td><td>4.0-5.2 million/uL</td></tr><tr><td>PaO2</td><td>50 mmHg</td><td>80-100 mmHg</td></tr><tr><td>PaCO2</td><td>38 mmHg</td><td>35-45 mmHg</td></tr><tr><td>pH</td><td>7.32</td><td>7.35-7.45</td></tr></tbody></table>"
+        "content": "Na: 132 mEq/L, K: 6.8 mEq/L, Cl: 98 mEq/L, HCO3: 20 mEq/L, BUN: 45 mg/dL, Creatinine: 4.2 mg/dL, Glucose: 210 mg/dL, Hemoglobin: 10.5 g/dL, Hematocrit: 31.5%, GFR (estimated): 18 mL/min/1.73 m2"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Morphine Sulfate</td><td>6 mg</td><td>IV</td><td>PRN for pain/agitation</td><td>07:15</td></tr><tr><td>Oxygen</td><td>As needed</td><td>Nasal Cannula/Face Mask</td><td>Continuous</td><td>-</td></tr></tbody></table>"
+        "content": "Insulin Lispro 5 units SubQ AC, Metoprolol 25 mg PO BID, Furosemide 40 mg PO Daily, Sevelamer 800mg PO TID with meals"
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "<table><thead><tr><th>Time</th><th>HR</th><th>RR</th><th>BP</th><th>O2 Sat</th><th>Temp</th></tr></thead><tbody><tr><td>07:00</td><td>140</td><td>36</td><td>90/60</td><td>78%</td><td>37.2°C</td></tr><tr><td>07:15</td><td>130</td><td>32</td><td>95/65</td><td>82%</td><td>37.2°C</td></tr><tr><td>07:30</td><td>120</td><td>28</td><td>100/70</td><td>85%</td><td>37.2°C</td></tr></tbody></table>"
+        "content": "06:00: BP: 170/98 mmHg, HR: 92 bpm, RR: 24 breaths/min, SpO2: 94% on 2L NC, Temp: 99.8°F (37.7°C), Urine Output (past 12 hrs): 350 mL"
       }
     ]
   },
@@ -41,44 +41,66 @@
     "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "Pediatric: Congenital Heart Defects & Safety"
+      "Renal: AKI vs CKD & Electrolyte Emergencies"
     ]
   },
   "rationale": {
-    "correct": "<b>Increased Hemoglobin/Hematocrit:</b> Chronic hypoxemia stimulates erythropoietin production, leading to polycythemia to compensate for low oxygen levels. <b>Decreased PaO2:</b> Right-to-left shunting of deoxygenated blood bypasses the lungs, causing a lower partial pressure of oxygen in the arterial blood. <b>Cyanosis:</b> Deoxygenated hemoglobin in the arterial circulation leads to a bluish discoloration of the skin and mucous membranes. <b>Tachypnea:</b> The body attempts to compensate for the low oxygen saturation by increasing the respiratory rate.",
-    "incorrect": "Incorrectly associating findings to processes indicates a misunderstanding of the pathophysiology of Tetralogy of Fallot and the body's compensatory mechanisms during a hypercyanotic spell. For example, attributing increased hemoglobin to increased pulmonary blood flow would be incorrect because TOF involves decreased pulmonary blood flow due to pulmonary stenosis. Confusing tachypnea with improved oxygenation would also be an error.",
+    "correct": "Elevated creatinine from baseline with decreased urine output and edema suggests AKI, but the low GFR, anemia, and history of poorly controlled diabetes point towards underlying CKD. Hyperkalemia is a common complication in both conditions. The rapid rise in creatinine and decreased urine output occurring over three days is more indicative of AKI superimposed on CKD. Anemia is a chronic finding in CKD due to decreased erythropoietin production by the kidneys.",
+    "incorrect": "Attributing all findings solely to AKI or CKD ignores the interplay between the two conditions. While the acute rise in creatinine suggests AKI, the low GFR and anemia indicate a pre-existing chronic condition. Focusing only on the elevated potassium without considering the underlying renal dysfunction is also incorrect.",
     "clinicalPearls": [
-      "The knee-chest position helps to increase systemic vascular resistance, reducing the right-to-left shunt and improving oxygen saturation during a Tet spell.",
-      "Morphine can help to decrease infundibular spasm, improving pulmonary blood flow.",
-      "Careful monitoring of fluid status is essential to prevent dehydration, which can exacerbate polycythemia and increase the risk of thromboembolic events."
+      "Differentiating between AKI and CKD involves assessing the timeline of changes, pre-existing conditions, and lab trends.",
+      "Anemia is a common finding in CKD due to decreased erythropoietin production.",
+      "Hyperkalemia is a life-threatening complication of both AKI and CKD, requiring prompt intervention."
     ],
     "questionTrap": {
-      "trap": "Students may focus on isolated vital signs without considering the overall clinical picture and the underlying pathophysiology of Tetralogy of Fallot. The increased hemoglobin and hematocrit might be misinterpreted as a positive finding without understanding the compensatory mechanism.",
-      "howToOvercome": "Consider the patient's history of Tetralogy of Fallot and the typical manifestations of a hypercyanotic spell. Analyze the lab values in conjunction with the vital signs and clinical presentation to identify the underlying physiological processes."
+      "trap": "Students may focus solely on the elevated creatinine and assume AKI without considering the patient's history and other lab values indicative of CKD.",
+      "howToOvercome": "Carefully analyze all available data, including the patient's history, lab trends, and assessment findings, to differentiate between acute and chronic kidney disease processes."
     },
     "mnemonic": {
-      "title": "TOF Mnemonic: PROV",
-      "expansion": "<b>P</b>ulmonary Stenosis, Right Ventricular Hypertrophy, <b>O</b>verriding Aorta, <b>V</b>entricular Septal Defect"
+      "title": "AEIOU (Indications for Dialysis)",
+      "expansion": "Acidosis, Electrolyte imbalance (Hyperkalemia), Intoxication, Overload (Fluid), Uremia"
     }
   },
-  "matrixMatch": {
-    "rows": [
-      "Increased Hemoglobin/Hematocrit",
-      "Decreased PaO2",
-      "Cyanosis",
-      "Tachypnea"
-    ],
-    "columns": [
-      "Increased Pulmonary Blood Flow",
-      "Right-to-Left Shunting",
-      "Compensation for Hypoxemia",
-      "Increased Systemic Vascular Resistance"
-    ],
-    "matches": {
-      "Increased Hemoglobin/Hematocrit": "Compensation for Hypoxemia",
-      "Decreased PaO2": "Right-to-Left Shunting",
-      "Cyanosis": "Right-to-Left Shunting",
-      "Tachypnea": "Compensation for Hypoxemia"
+  "matrixMatchOptions": [
+    "Acute Kidney Injury (AKI)",
+    "Chronic Kidney Disease (CKD)"
+  ],
+  "rows": [
+    {
+      "rowId": "row1",
+      "content": "Creatinine of 4.2 mg/dL (baseline 1.1 mg/dL three days ago)",
+      "matches": [
+        "Acute Kidney Injury (AKI)"
+      ]
+    },
+    {
+      "rowId": "row2",
+      "content": "GFR (estimated) of 18 mL/min/1.73 m2",
+      "matches": [
+        "Chronic Kidney Disease (CKD)"
+      ]
+    },
+    {
+      "rowId": "row3",
+      "content": "Hemoglobin of 10.5 g/dL",
+      "matches": [
+        "Chronic Kidney Disease (CKD)"
+      ]
+    },
+    {
+      "rowId": "row4",
+      "content": "Urine output of 350 mL in the past 12 hours",
+      "matches": [
+        "Acute Kidney Injury (AKI)"
+      ]
+    },
+    {
+      "rowId": "row5",
+      "content": "Potassium of 6.8 mEq/L",
+      "matches": [
+        "Acute Kidney Injury (AKI)",
+        "Chronic Kidney Disease (CKD)"
+      ]
     }
-  }
+  ]
 }

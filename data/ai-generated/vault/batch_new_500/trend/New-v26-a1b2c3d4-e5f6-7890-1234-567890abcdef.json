@@ -1,66 +1,66 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "trend",
-  "stem": "The nurse is caring for a patient with acute liver failure secondary to acetaminophen overdose. Based on the EHR data, identify the findings that require immediate intervention by clicking on the respective values. Then, using the provided options, select the most likely underlying cause for each selected finding. Finally, determine the appropriate nursing intervention for each underlying cause.",
+  "stem": "The nurse is caring for a 6-month-old infant with Tetralogy of Fallot. Based on the data presented in the electronic health record (EHR), identify four findings that require immediate intervention. Next, indicate the most likely condition the infant is experiencing. Finally, select the two most appropriate nursing interventions for this infant.",
   "scoring": {
-    "method": "linked",
-    "maxPoints": 9
+    "method": "polytomous",
+    "maxPoints": 7
   },
   "itemContext": {
     "patient": {
-      "name": "John Smith",
-      "age": 58,
+      "name": "Liam O'Connell",
+      "age": 0.5,
       "gender": "Male",
-      "iso": "Medical Surgical Unit",
-      "isolation": "Standard",
+      "iso": "Pediatric ICU",
       "allergies": [
-        "Penicillin"
-      ]
+        "Latex"
+      ],
+      "isolation": "Airborne"
     },
-    "sbar": "S: John Smith, 58-year-old male, admitted at 03:00 today with acetaminophen overdose. He reports taking 20 grams of acetaminophen over the past 24 hours due to chronic back pain. \nB: Patient has a history of chronic back pain and occasional alcohol use. No known liver disease prior to admission. \nA: Patient is currently lethargic but arousable to voice. Vital signs: BP 90/60, HR 110, RR 24, SpO2 94% on room air. Abdomen is distended and tender to palpation. Skin is jaundiced. Currently on continuous cardiac monitoring. \nR: Labs are pending but initial acetaminophen level was highly elevated. Anticipate orders for N-acetylcysteine (NAC) administration. Monitor vital signs closely, assess neurological status frequently, and maintain strict intake and output. Be prepared for potential complications such as encephalopathy and bleeding. Notify provider of any significant changes. Last dose of NAC given at 11:00. Review updated labs stat.",
+    "sbar": "SITUATION: This is Liam O'Connell, a 6-month-old male with Tetralogy of Fallot, admitted at 06:00 for increasing cyanosis and respiratory distress. He may have been exposed to RSV in the waiting room. BACKGROUND: Liam had a hypercyanotic spell three weeks ago, managed at home with knee-chest positioning and oxygen. He is scheduled for surgical repair next month. ASSESSMENT: At 07:00, his vital signs are: HR 180, RR 70, SpO2 78% on room air, Temp 37.5°C. He's irritable and has circumoral cyanosis. 07:15: SpO2 dropped to 70%. 07:30: SpO2 is now 65%, with increased work of breathing. 07:45: SpO2 at 60%, lethargic, and mottled skin noted. Parents are anxious. Hemoglobin 18 g/dL, Hematocrit 54%. Current medications: Propranolol 1 mg PO Q8H, PRN morphine sulfate available for IV administration. Given the potential RSV exposure, airborne precautions have been initiated. The care team is monitoring for any signs of respiratory infection or complications related to both the cardiac condition and potential viral exposure.",
     "tabs": [
-      {
-        "id": "vitals",
-        "title": "Vitals",
-        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp (°C)</th></tr></thead><tbody><tr><td>03:00</td><td>100/70</td><td>98</td><td>20</td><td>97%</td><td>37.2</td></tr><tr><td>07:00</td><td>95/65</td><td>105</td><td>22</td><td>95%</td><td>37.5</td></tr><tr><td>11:00</td><td>90/60</td><td>110</td><td>24</td><td>94%</td><td>37.8</td></tr><tr><td>15:00</td><td>85/55</td><td>115</td><td>26</td><td>92%</td><td>38.1</td></tr></tbody></table>"
-      },
       {
         "id": "labs",
         "title": "Labs",
-        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>AST</td><td>2500 U/L</td><td>10-40 U/L</td></tr><tr><td>ALT</td><td>3000 U/L</td><td>7-56 U/L</td></tr><tr><td>Total Bilirubin</td><td>8.0 mg/dL</td><td>0.3-1.0 mg/dL</td></tr><tr><td>INR</td><td>2.5</td><td>0.8-1.2</td></tr><tr><td>Ammonia</td><td>150 mcg/dL</td><td>10-80 mcg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Acetaminophen</td><td>50 mcg/mL</td><td>Therapeutic: 10-20 mcg/mL</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>18 g/dL</td><td>11-14 g/dL</td></tr><tr><td>Hematocrit</td><td>54%</td><td>33-42%</td></tr><tr><td>WBC</td><td>12,000/μL</td><td>5,000-10,000/μL</td></tr><tr><td>Platelets</td><td>300,000/μL</td><td>150,000-400,000/μL</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Glucose</td><td>90 mg/dL</td><td>70-110 mg/dL</td></tr></tbody></table>"
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "<table><thead><tr><th>Time</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp (°C)</th><th>BP</th></tr></thead><tbody><tr><td>07:00</td><td>180</td><td>70</td><td>78% (RA)</td><td>37.5</td><td>90/60</td></tr><tr><td>07:15</td><td>185</td><td>72</td><td>70% (RA)</td><td>37.5</td><td>88/58</td></tr><tr><td>07:30</td><td>190</td><td>75</td><td>65% (RA)</td><td>37.6</td><td>85/55</td></tr><tr><td>07:45</td><td>170</td><td>60</td><td>60% (RA)</td><td>37.4</td><td>70/45</td></tr></tbody></table>"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>N-acetylcysteine (NAC)</td><td>150 mg/kg IV loading dose, then 50 mg/kg IV over 4 hours, then 100 mg/kg IV over 16 hours</td><td>IV</td><td>Continuous Infusion</td><td>11:00</td></tr><tr><td>Lactulose</td><td>30 mL</td><td>PO</td><td>Every 6 hours PRN</td><td>07:00</td></tr><tr><td>Normal Saline</td><td>1000 mL</td><td>IV</td><td>Continuous Infusion at 100 mL/hr</td><td>14:00</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IV</td><td>Every 6 hours PRN</td><td>13:00</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propranolol</td><td>1 mg</td><td>PO</td><td>Q8H</td><td>06:00</td></tr><tr><td>Morphine Sulfate</td><td>PRN</td><td>IV</td><td>PRN for pain/agitation</td><td>N/A</td></tr></tbody></table>"
       }
-    ]
+    ],
+    "isolation": "Airborne"
   },
   "pedagogy": {
     "bloomLevel": "Analyze",
-    "cjmmStep": "Evaluate",
-    "nclexCategory": "Pharmacology and Parenteral Therapies",
+    "cjmmStep": "Recognize Cues, Prioritize Hypotheses, Generate Solutions, Take Action, Evaluate Outcomes",
+    "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "GI/Hepatic: Liver Failure & Pancreatitis"
+      "Pediatric: Congenital Heart Defects & Safety"
     ]
   },
   "rationale": {
-    "correct": "The elevated AST and ALT levels (2500 U/L and 3000 U/L, respectively) indicate significant hepatocellular damage, a direct result of the acetaminophen overdose. The appropriate intervention is to continue and potentially increase the N-acetylcysteine (NAC) infusion, the antidote for acetaminophen toxicity. The elevated Total Bilirubin (8.0 mg/dL) indicates impaired bilirubin metabolism due to liver dysfunction. Monitoring for jaundice and pruritus is crucial. The elevated INR (2.5) suggests impaired synthesis of clotting factors by the liver, increasing the risk of bleeding. The appropriate intervention is to monitor for signs of bleeding and implement bleeding precautions. The elevated Ammonia level (150 mcg/dL) indicates impaired ammonia detoxification by the liver, leading to potential hepatic encephalopathy. Lactulose administration helps reduce ammonia levels by promoting its excretion.",
-    "incorrect": "While the patient's creatinine level is elevated (1.8 mg/dL), indicating possible renal impairment, it is not the most immediate concern compared to the liver dysfunction and associated complications. The primary focus should be on addressing the liver failure and its direct consequences. Treating nausea with ondansetron is appropriate but secondary to the other interventions. Increasing IV fluids may be warranted but only after addressing the priority issues of liver damage, bleeding risk, and ammonia levels. Monitoring vital signs is essential, but it is not an intervention in itself.",
+    "correct": "The infant is experiencing a hypercyanotic spell (Tet spell) evidenced by the rapidly decreasing SpO2, increased respiratory rate, and changes in level of consciousness. The elevated hemoglobin and hematocrit indicate polycythemia, a compensatory response to chronic hypoxemia. The interventions of placing the infant in knee-chest position, administering oxygen, preparing to administer morphine sulfate, and notifying the provider are all appropriate. The elevated heart rate and respiratory rate, and decreasing oxygen saturation indicate decompensation and the need for immediate intervention.",
+    "incorrect": "Failing to recognize the constellation of symptoms indicating a hypercyanotic spell can lead to delayed or inappropriate interventions. Normal WBC is not the priority at this time. Waiting to see if the SpO2 improves on its own risks further decompensation. While fluid bolus is appropriate if hypovolemia is suspected, it's not the immediate priority in a tet spell. Preparing for intubation may be needed if the spell doesn't resolve, but initial interventions should focus on reversing the hypercyanosis.",
     "clinicalPearls": [
-      "Acetaminophen overdose is a common cause of acute liver failure.",
-      "N-acetylcysteine (NAC) is the antidote for acetaminophen toxicity and should be administered as soon as possible.",
-      "Elevated ammonia levels can lead to hepatic encephalopathy, requiring interventions like lactulose.",
-      "Liver failure can impair the synthesis of clotting factors, increasing the risk of bleeding."
+      "Hypercyanotic spells (Tet spells) are characterized by a sudden decrease in oxygen saturation, increased cyanosis, hyperpnea, and irritability in infants with Tetralogy of Fallot.",
+      "Knee-chest positioning increases systemic vascular resistance, reducing the right-to-left shunting of blood and improving pulmonary blood flow.",
+      "Polycythemia is a common compensatory mechanism in chronic hypoxemia, increasing the oxygen-carrying capacity of the blood."
     ],
     "questionTrap": {
-      "trap": "The question requires the integration of multiple data points from different tabs (Vitals, Labs, MAR) to identify the most critical findings requiring immediate intervention. Students might focus solely on one lab value or vital sign without considering the overall clinical picture.",
-      "howToOvercome": "Emphasize the importance of holistic assessment and data integration. Encourage students to review all available data, prioritize findings based on potential consequences, and consider the patient's history and current medications."
+      "trap": "The question might trick you into focusing on isolated vital sign changes or lab values instead of recognizing the overall clinical picture of a hypercyanotic spell.",
+      "howToOvercome": "Focus on the trend of the vital signs, the infant's clinical presentation (cyanosis, irritability, work of breathing), and relevant lab values (hemoglobin, hematocrit) to identify the emergent situation."
     },
     "mnemonic": {
-      "title": "HEPATIC",
-      "expansion": "Hepatic Encephalopathy? Protect airway. Evaluate labs: AST/ALT. Prevent Bleeding: Monitor INR. Administer NAC. Treat elevated ammonia. Initiate fluids carefully. Consult specialist."
+      "title": "TETRALOGY",
+      "expansion": "T - Troublesome spells (cyanotic), E - Elevated hematocrit, T - Thick right ventricle (hypertrophy), R - Rough pulmonary artery (stenosis), A - Aorta is displaced (overriding), L - Loud murmur, O - Oxygen low, G - Growth retardation, Y - You need surgery!"
     }
   }
 }
