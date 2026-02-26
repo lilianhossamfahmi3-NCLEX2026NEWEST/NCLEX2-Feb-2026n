@@ -1,95 +1,100 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "clozeDropdown",
-  "stem": "The nurse is caring for Mr. Jones and reviews his ventilator settings and recent arterial blood gas (ABG) results. Based on the provided information, the nurse should prioritize addressing the patient's [ventParameter] by [intervention]. This intervention is crucial to prevent potential complications like [complication].",
+  "stem": "The patient is at risk for complications. Based on the assessment findings, select the most likely condition from the first dropdown, and then select the two most appropriate interventions from the subsequent dropdowns to address the underlying pathophysiology. \n\nMost Likely Condition: [condition]\n\nIntervention 1: [intervention1]\n\nIntervention 2: [intervention2]",
   "scoring": {
     "method": "dichotomous",
     "maxPoints": 3
   },
   "itemContext": {
     "patient": {
-      "name": "Jones, Michael",
-      "age": 68,
+      "name": "John Smith",
+      "age": 48,
       "gender": "Male",
-      "iso": "Room 304",
+      "iso": "Medical ICU",
       "allergies": [
         "Penicillin"
-      ],
-      "conditions": [
-        "Pneumonia"
       ]
     },
-    "sbar": "1500: Situation: Mr. Michael Jones, DOB 03/15/1956, admitted 06/07/2026 for acute respiratory failure secondary to pneumonia. He is currently intubated and mechanically ventilated. Background: Patient's SpO2 has been fluctuating between 88-92% despite FiO2 of 60%. He is on Assist Control (AC) ventilation with a tidal volume of 450 mL, respiratory rate of 14 breaths/min, and PEEP of 5 cm H2O. He is receiving scheduled albuterol/ipratropium nebulizer treatments q4h. Assessment: Auscultation reveals coarse crackles bilaterally. He is alert but appears fatigued. Current pain level is 2/10. Recent ABG results are concerning. Recommendation: I recommend increasing his minute ventilation to address the elevated PaCO2 and improve his oxygenation. Consider adjusting ventilator settings and monitoring his response closely. We should also consider obtaining a sputum culture given his pneumonia diagnosis.",
+    "sbar": "Situation: John Smith, a 48-year-old male with a history of Type 2 Diabetes, was admitted three days ago for pneumonia and is now exhibiting altered mental status and rapid, deep breathing. Background: The patient has a history of non-compliance with his prescribed Metformin. Assessment: At 07:00, the patient is unresponsive to verbal stimuli and displaying Kussmaul respirations with a noticeable fruity odor on his breath. His vital signs are BP 90/60 mmHg, HR 130 bpm, RR 36 breaths/min, Temp 38.9°C (102°F), and SpO2 92% on 2L NC. Pending lab results, but bedside glucose is 650 mg/dL. Nursing interventions initiated include a 1000mL NS bolus started at 07:15, followed by an order for a continuous insulin infusion at 07:30. Review of the electronic health record shows a history of poor glycemic control. His current medications include Insulin Lispro 5 units TID AC and Metformin 500mg BID, which he reports not taking regularly. Recommendation: Anticipate orders for electrolyte replacement based on pending lab results, with close monitoring of acid-base balance. An arterial blood gas (ABG) should be considered to evaluate for metabolic acidosis. Further assess for signs of infection and evaluate the effectiveness of the current antibiotic regimen for pneumonia. Continue to monitor vital signs and neurological status closely.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>pH</td><td>7.25</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>65 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>62 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>SpO2</td><td>89%</td><td>95-100%</td></tr><tr><td>WBC</td><td>14,000/µL</td><td>4,500-11,000/µL</td></tr></tbody></table>"
+        "content": "Na: 130 mEq/L, K: 5.8 mEq/L, Cl: 95 mEq/L, HCO3: 10 mEq/L, BUN: 40 mg/dL, Creatinine: 2.0 mg/dL, Glucose: 650 mg/dL, pH: 7.25, pCO2: 28 mmHg, pO2: 95 mmHg"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Albuterol/Ipratropium</td><td>2.5mg/0.5mg</td><td>Nebulizer</td><td>q4h</td></tr><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td></tr><tr><td>Acetaminophen</td><td>650mg</td><td>PO</td><td>q4h PRN</td></tr></tbody></table>"
+        "content": "Scheduled Medications: Insulin Lispro 5 units TID AC, Metformin 500mg BID (patient reports non-compliance). PRN Medications: Acetaminophen 650mg PO q4h PRN for fever, Ondansetron 4mg IV q6h PRN for nausea."
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "<table><thead><tr><th>Vital Sign</th><th>Value</th></tr></thead><tbody><tr><td>HR</td><td>110 bpm</td></tr><tr><td>BP</td><td>130/80 mmHg</td></tr><tr><td>RR</td><td>14 breaths/min (Ventilator)</td></tr><tr><td>SpO2</td><td>89%</td></tr><tr><td>Temp</td><td>38.2°C (100.8°F)</td></tr></tbody></table>"
+        "content": "06:00: BP 110/70, HR 100, RR 24, Temp 38.0°C, SpO2 95% on RA. 07:00: BP 90/60, HR 130, RR 36, Temp 38.9°C, SpO2 92% on 2L NC."
       }
     ]
   },
   "pedagogy": {
     "bloomLevel": "Analyze",
-    "cjmmStep": "Evaluate",
+    "cjmmStep": "Analyze Cues",
     "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "Respiratory: Mechanical Ventilation Safety"
+      "Endocrine: DKA/HHS & Thyroid Storm"
     ]
   },
   "rationale": {
-    "correct": "The patient's ABG results indicate respiratory acidosis (low pH, high PaCO2) and hypoxemia (low PaO2 and SpO2). The elevated PaCO2 of 65 mmHg is the most immediate concern. Increasing the minute ventilation (either by increasing the respiratory rate or tidal volume) is the priority intervention to blow off excess CO2 and improve the pH. Allowing the PaCO2 to remain elevated can lead to further acidemia, which can depress cardiac function and lead to dysrhythmias.",
-    "incorrect": "Addressing the PaO2 is important, but correcting the respiratory acidosis (PaCO2) takes precedence. While increasing PEEP might improve oxygenation, it won't directly address the elevated CO2. Suctioning may be necessary, but the primary problem is inadequate ventilation, not necessarily excessive secretions. Changing to pressure support may not be beneficial in this case since the underlying problem is not the patient's ability to breathe, but inadequate ventilation.",
+    "correct": "The patient's presentation – hyperglycemia, altered mental status, Kussmaul respirations, and lab values indicating metabolic acidosis – strongly suggests Diabetic Ketoacidosis (DKA). Administering intravenous fluids is crucial to address dehydration caused by osmotic diuresis secondary to hyperglycemia. An insulin infusion is vital to correct the hyperglycemia and reverse the ketogenesis process by allowing glucose to enter the cells. Electrolyte monitoring and replacement, especially potassium, is essential because insulin administration shifts potassium intracellularly, potentially leading to hypokalemia and cardiac arrhythmias.",
+    "incorrect": "Hyperosmolar Hyperglycemic State (HHS) is less likely given the presence of metabolic acidosis. While fluid replacement is important in HHS, the primary intervention is still focused on reducing hyperglycemia, but typically occurs more gradually than in DKA. Thyroid storm is unlikely given the patient's history of diabetes and the absence of specific thyroid-related symptoms like goiter or exophthalmos. While antipyretics can reduce fever, they do not address the underlying cause of the patient's condition. Administering antiemetics might be helpful if nausea is present, but it doesn't address the life-threatening metabolic derangement. Administering supplemental oxygen may be necessary, but it does not address the underlying cause of the patient's condition.",
     "clinicalPearls": [
-      "Always prioritize addressing acid-base imbalances based on the patient's clinical presentation and ABG results.",
-      "Minute ventilation (RR x Tidal Volume) is the primary determinant of PaCO2.",
-      "Hypoxemia can be caused by a variety of factors, including hypoventilation, V/Q mismatch, and diffusion impairment."
+      "Always assess for signs of DKA or HHS in diabetic patients presenting with altered mental status or acute illness.",
+      "Potassium levels can drop rapidly during insulin therapy in DKA; monitor closely and replace as needed."
     ],
     "questionTrap": {
-      "trap": "Many students focus solely on the low SpO2 and PaO2, overlooking the more critical respiratory acidosis. The question is designed to distract test takers toward improving oxygenation at the expense of correcting ventilation.",
-      "howToOvercome": "Carefully analyze the ABG results as a whole, not just individual components. Remember that both oxygenation and ventilation are essential, but ventilation is often the priority in cases of respiratory acidosis."
+      "trap": "Selecting only one intervention might seem adequate, but DKA requires a multi-pronged approach for effective management.",
+      "howToOvercome": "Remember the core components of DKA management: fluids, insulin, and electrolyte replacement. Consider how each intervention directly impacts the underlying pathophysiology."
     },
     "mnemonic": {
-      "title": "ABCs - Ventilation First",
-      "expansion": "Airway, Breathing, Circulation. In respiratory failure, prioritize Breathing (Ventilation) to address CO2 issues before solely focusing on oxygenation."
+      "title": "DKA Treatment",
+      "expansion": "Fluids, Insulin, Potassium (FIK)"
     }
   },
-  "responseOptions": {
-    "ventParameter": [
-      "PaCO2",
-      "PaO2",
-      "pH",
-      "HCO3"
-    ],
-    "intervention": [
-      "increasing the minute ventilation",
-      "increasing the FiO2",
-      "increasing the PEEP",
-      "suctioning the patient"
-    ],
-    "complication": [
-      "cardiac dysrhythmias",
-      "pulmonary embolism",
-      "pneumothorax",
-      "hyperventilation"
-    ]
-  },
-  "correctResponse": {
-    "ventParameter": "PaCO2",
-    "intervention": "increasing the minute ventilation",
-    "complication": "cardiac dysrhythmias"
-  },
-  "itemLevelParameters": {
-    "isolation": "airborne"
-  }
+  "response": [
+    {
+      "id": "condition",
+      "type": "dropdown",
+      "options": [
+        "Diabetic Ketoacidosis (DKA)",
+        "Hyperosmolar Hyperglycemic State (HHS)",
+        "Thyroid Storm"
+      ],
+      "correctResponse": "Diabetic Ketoacidosis (DKA)"
+    },
+    {
+      "id": "intervention1",
+      "type": "dropdown",
+      "options": [
+        "Administer intravenous fluids",
+        "Administer an antipyretic",
+        "Administer an antiemetic",
+        "Administer supplemental oxygen",
+        "Administer a bolus of dextrose"
+      ],
+      "correctResponse": "Administer intravenous fluids"
+    },
+    {
+      "id": "intervention2",
+      "type": "dropdown",
+      "options": [
+        "Initiate continuous insulin infusion",
+        "Monitor and replace electrolytes",
+        "Administer an antipyretic",
+        "Administer an antiemetic",
+        "Administer supplemental oxygen",
+        "Administer a bolus of dextrose"
+      ],
+      "correctResponse": "Initiate continuous insulin infusion"
+    }
+  ]
 }

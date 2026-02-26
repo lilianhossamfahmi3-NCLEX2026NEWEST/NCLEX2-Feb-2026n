@@ -1,7 +1,7 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "matrixMatch",
-  "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the patient's current status and ventilator settings, indicate whether each intervention is indicated, contraindicated, or neutral.",
+  "stem": "The patient is exhibiting signs and symptoms related to their acute stroke and increased intracranial pressure (ICP). For each assessment finding, determine if the finding indicates improvement, decline, or no change in the patient's condition compared to their baseline. Select one option in each row.",
   "scoring": {
     "method": "dichotomous",
     "maxPoints": 5
@@ -9,96 +9,80 @@
   "itemContext": {
     "patient": {
       "name": "John Smith",
-      "age": 68,
+      "age": 72,
       "gender": "Male",
-      "iso": "Contact and Droplet",
+      "iso": "Medical Unit",
       "allergies": [
-        "Penicillin"
+        "NKDA"
+      ],
+      "condition": [
+        "Airborne Precautions due to potential aspiration pneumonia"
       ]
     },
-    "sbar": "S: John Smith is a 68-year-old male admitted for pneumonia. He has a history of COPD and is currently intubated and mechanically ventilated. He has been on the ventilator for 24 hours. A: The patient has a history of COPD, complicated by pneumonia. He is currently experiencing acute respiratory distress. R: At 07:00, the patient's SpO2 is 88%, respiratory rate is 28 breaths per minute (assisted), heart rate is 110 bpm, and blood pressure is 100/60 mmHg. Current ventilator settings are: FiO2 60%, PEEP 5 cm H2O, Tidal Volume 450 mL, and Rate 16 breaths per minute. An arterial blood gas (ABG) drawn at 06:30 shows: pH 7.30, PaCO2 55 mmHg, PaO2 65 mmHg, and HCO3 24 mEq/L. Peak inspiratory pressure (PIP) is 35 cm H2O. The patient exhibits increased work of breathing and coarse crackles are auscultated bilaterally. The last dose of albuterol was administered at 06:00. B: I am concerned about the patient's persistent hypoxemia and hypercapnia despite current ventilator settings and bronchodilator treatment. Possible causes include worsening pneumonia, mucus plugging, or pneumothorax. Please evaluate the patient for these possibilities. I recommend considering adjustments to ventilator settings, such as increasing PEEP and/or tidal volume, and potentially administering additional medications or ordering further diagnostic tests such as a chest x-ray. Continuous monitoring of respiratory status, including SpO2, respiratory rate, and work of breathing, is crucial. Please page respiratory therapy for ventilator management assistance.",
+    "sbar": "S: John Smith, 72-year-old male, admitted at 03:00 for acute ischemic stroke, right middle cerebral artery (MCA) occlusion. NIHSS score on admission was 18. He is at risk for aspiration. B: History of hypertension, atrial fibrillation (on warfarin). Last dose of warfarin was 20:00 last night. A: At 07:00, patient’s GCS is 11 (Eyes 2, Verbal 4, Motor 5). Right-sided weakness persists. BP is 180/100 mmHg. Heart rate is 90 bpm, irregular. RR is 14 and regular. O2 saturation is 96% on 2L nasal cannula. The patient is receiving IV fluids at 75 mL/hr. INR is 2.8. A new assessment at 08:00 reveals changes that require evaluation. R: Please assess the following findings and determine if they indicate improvement, decline, or no change. Be prepared to administer labetalol if blood pressure remains elevated despite initial dose. Monitor neurological status closely and notify the physician of any further decline. Consider a swallow evaluation due to aspiration risk.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "06:30: ABG: pH 7.30, PaCO2 55 mmHg, PaO2 65 mmHg, HCO3 24 mEq/L, SaO2 88%. WBC: 14,000/mm3. Hemoglobin: 14 g/dL. Hematocrit: 42%."
+        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>1.0 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>INR</td><td>2.8</td><td>0.8-1.2 (Therapeutic: 2.0-3.0 on Warfarin)</td></tr><tr><td>Glucose</td><td>110 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>Platelets</td><td>250,000/uL</td><td>150,000-400,000/uL</td></tr></tbody></table>"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "Albuterol 2.5 mg nebulizer q4h PRN wheezing (Last dose: 06:00).\nCeftriaxone 1g IV q24h (Next dose: 10:00).\nPantoprazole 40mg IV daily (Next dose: 08:00)."
+        "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td><td>20:00 Yesterday</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>PRN for SBP > 180</td><td>07:15 Today</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>PRN for Temp > 100.4 F</td><td>N/A</td></tr><tr><td>Normal Saline</td><td>75 mL/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr></tbody></table>"
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "07:00: BP 100/60 mmHg, HR 110 bpm, RR 28 breaths/min (assisted), SpO2 88%, Temp 38.5°C (101.3°F). Auscultation: Coarse crackles bilaterally."
+        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>O2 Sat</th><th>Temp</th><th>GCS</th></tr></thead><tbody><tr><td>07:00</td><td>180/100</td><td>90 (Irregular)</td><td>14</td><td>96% (2L NC)</td><td>98.6 F</td><td>11 (E2, V4, M5)</td></tr><tr><td>08:00</td><td>190/110</td><td>80 (Irregular)</td><td>12</td><td>94% (2L NC)</td><td>98.8 F</td><td>9 (E1, V3, M5)</td></tr></tbody></table>"
       }
     ]
   },
   "pedagogy": {
     "bloomLevel": "Analyze",
-    "cjmmStep": "Evaluate",
-    "nclexCategory": "Management of Care",
+    "cjmmStep": "Recognizing Cues",
+    "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "Respiratory: Mechanical Ventilation Safety"
+      "Neurological: Stroke & Increased ICP"
     ]
   },
   "rationale": {
-    "correct": "Increasing the PEEP can improve oxygenation by preventing alveolar collapse at the end of expiration, thereby increasing the surface area available for gas exchange. Given the patient's low PaO2 and SpO2, increasing PEEP is indicated. Administering a bronchodilator, such as albuterol, can help open up the airways and improve airflow, which is indicated by the patient's coarse crackles and increased work of breathing. Increasing the tidal volume can help to reduce the PaCO2, as it directly impacts alveolar ventilation. A higher tidal volume allows for more CO2 removal. Prone positioning can help improve oxygenation in patients with ARDS or significant lung injury by redistributing lung perfusion and ventilation, but based on the current information, it is a reasonable intervention to consider. Evaluating for endotracheal tube displacement is crucial as sudden hypoxemia could be caused by the ET tube moving out of the trachea.",
-    "incorrect": "Decreasing the FiO2 when the patient's SpO2 is already low (88%) and PaO2 is inadequate (65 mmHg) is contraindicated as it would further compromise oxygenation. While suctioning may be necessary if there is excessive mucus plugging, there is no specific indication for suctioning in this scenario; the crackles could be due to fluid or airway constriction. Blindly suctioning without assessment is not recommended. Decreasing the tidal volume would likely worsen the hypercapnia as it reduces the amount of CO2 being exhaled. Increasing the respiratory rate might seem logical to blow off CO2; however, with a compromised lung (Pneumonia, COPD), increasing the rate will cause breath stacking and auto-PEEP. Paralytics are not indicated in this case as the patient is not fighting the ventilator; they are merely showing signs of airway constriction and hypoxemia. Paralytics are typically reserved for patients with severe ARDS or those who are asynchronous with the ventilator despite other interventions.",
+    "correct": "Increased blood pressure indicates a decline as hypertension exacerbates cerebral edema and increases ICP following a stroke. Decreased Glasgow Coma Scale (GCS) indicates a decline in neurological function and level of consciousness, a key sign of worsening ICP. Decreased respiratory rate can indicate a decline as it may lead to CO2 retention, which further increases ICP. Decreased oxygen saturation indicates a decline, potentially due to hypoventilation related to increased ICP affecting the respiratory center. Decreased heart rate in the context of hypertension and declining GCS indicates a decline (Cushing's Triad).",
+    "incorrect": "Improvement would be indicated by decreased blood pressure, increased GCS, increased respiratory rate, increased oxygen saturation, or increased heart rate (although bradycardia with hypertension can indicate Cushing's Triad). No change would be indicated if the vitals and GCS remained stable from the previous assessment.",
     "clinicalPearls": [
-      "Always assess the patient before making changes to ventilator settings. Consider the patient's underlying condition and current status.",
-      "ABGs provide valuable information about the patient's respiratory status and should be used to guide ventilator management.",
-      "PEEP improves oxygenation by preventing alveolar collapse.",
-      "Sudden changes in oxygenation warrants assessment for endotracheal tube displacement."
+      "Maintain strict blood pressure control in stroke patients to prevent further neurological damage. However, avoid overly aggressive reduction as it can reduce cerebral perfusion.",
+      "Monitor neurological status closely using the Glasgow Coma Scale (GCS) to identify early signs of increased ICP.",
+      "Elevate the head of the bed to 30 degrees to promote venous drainage and reduce ICP, unless contraindicated."
     ],
     "questionTrap": {
-      "trap": "A common mistake is to focus solely on one aspect of the ABG (e.g., PaCO2) without considering the overall clinical picture and the patient's oxygenation status.",
-      "howToOvercome": "Carefully analyze all components of the ABG and correlate them with the patient's clinical presentation. Prioritize oxygenation before focusing solely on CO2 removal."
+      "trap": "Students may incorrectly assume that a slightly elevated blood pressure is acceptable in a stroke patient, or that a small change in GCS is insignificant. They may also misinterpret the decreased heart rate as a positive finding if they do not recognize it as part of Cushing's Triad.",
+      "howToOvercome": "Emphasize the importance of recognizing subtle changes in neurological status and understanding the significance of Cushing's Triad (bradycardia, hypertension, and irregular respirations) as late signs of increased ICP. Review the specific GCS criteria and the implications of even minor changes."
     },
     "mnemonic": {
-      "title": "DOPE",
-      "expansion": "D: Displacement of the endotracheal tube\nO: Obstruction (e.g., mucus plug)\nP: Pneumothorax\nE: Equipment failure"
+      "title": "ICP Signs",
+      "expansion": "Increased ICP signs: Irregular respirations, Cushing's Triad, Projectile vomiting, Pupils changes (unequal, dilated, nonreactive), Decreased LOC"
     }
   },
-  "matrixMatchOptions": [
-    "Indicated",
-    "Contraindicated",
-    "Neutral"
-  ],
-  "matrixMatchInteractions": [
-    {
-      "row": "Increase PEEP to 8 cm H2O.",
-      "column": "Indicated",
-      "response": true
-    },
-    {
-      "row": "Decrease FiO2 to 50%.",
-      "column": "Contraindicated",
-      "response": true
-    },
-    {
-      "row": "Administer albuterol 2.5 mg via nebulizer.",
-      "column": "Indicated",
-      "response": true
-    },
-    {
-      "row": "Increase tidal volume to 500 mL.",
-      "column": "Indicated",
-      "response": true
-    },
-    {
-      "row": "Evaluate for endotracheal tube displacement.",
-      "column": "Indicated",
-      "response": true
-    }
-  ],
+  "matrixMatchOptions": {
+    "rows": [
+      "Blood Pressure 190/110 mmHg",
+      "Glasgow Coma Scale (GCS) 9",
+      "Respiratory Rate 12 breaths/min",
+      "Oxygen Saturation 94% on 2L NC",
+      "Heart Rate 80 bpm (irregular)"
+    ],
+    "columns": [
+      "Improvement",
+      "Decline",
+      "No Change"
+    ]
+  },
   "correctResponse": {
-    "Increase PEEP to 8 cm H2O.": "Indicated",
-    "Decrease FiO2 to 50%.": "Contraindicated",
-    "Administer albuterol 2.5 mg via nebulizer.": "Indicated",
-    "Increase tidal volume to 500 mL.": "Indicated",
-    "Evaluate for endotracheal tube displacement.": "Indicated"
+    "Blood Pressure 190/110 mmHg": "Decline",
+    "Glasgow Coma Scale (GCS) 9": "Decline",
+    "Respiratory Rate 12 breaths/min": "Decline",
+    "Oxygen Saturation 94% on 2L NC": "Decline",
+    "Heart Rate 80 bpm (irregular)": "Decline"
   }
 }

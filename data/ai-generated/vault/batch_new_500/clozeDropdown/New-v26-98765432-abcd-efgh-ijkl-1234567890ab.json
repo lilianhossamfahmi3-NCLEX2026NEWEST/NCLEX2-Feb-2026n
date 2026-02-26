@@ -1,0 +1,129 @@
+{
+  "id": "New-v26-98765432-abcd-efgh-ijkl-1234567890ab",
+  "type": "clozeDropdown",
+  "stem": "Based on the patient's presentation and available data, the patient is MOST likely experiencing {0} shock. The initial compensatory mechanism failing is MOST likely {1}. The MOST appropriate intervention to address this condition is {2}.",
+  "scoring": {
+    "method": "dichotomous",
+    "maxPoints": 3
+  },
+  "itemContext": {
+    "patient": {
+      "name": "John Smith",
+      "age": 68,
+      "gender": "Male",
+      "iso": "ICU",
+      "allergies": [
+        "Penicillin"
+      ],
+      "precautions": [
+        "Droplet"
+      ]
+    },
+    "sbar": "S: John Smith, 68-year-old male with a history of hypertension and type 2 diabetes, admitted for pneumonia. He's now exhibiting signs of shock. BP is 88/52, HR 122, RR 28 and labored, SpO2 90% on 4L nasal cannula. Urine output is 20 mL/hr. Lactic acid is 4.2 mmol/L. Patient reports dizziness and weakness.\nB: Patient was transferred to the ICU at 06:00. At 07:00, his BP trended down despite a 1L normal saline bolus. Oxygen saturation decreased from 94% to 90%. The patient is increasingly lethargic.\nA: Pneumonia, possible sepsis, leading to septic shock. Elevated WBC, lactate, and procalcitonin support this assessment. He is hypotensive and tachycardic, requiring close monitoring and intervention.\nR: Physician is aware of the situation. Orders received for norepinephrine initiation if systolic BP remains below 90 mmHg. Repeat labs have been ordered. Current IV fluids are infusing at 75 mL/hr. Last dose of Ceftriaxone was given at 05:00.",
+    "tabs": [
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": "WBC: 18,000/mm3, Hemoglobin: 13.5 g/dL, Platelets: 150,000/mm3, Na: 140 mEq/L, K: 3.2 mEq/L, Cl: 100 mEq/L, HCO3: 22 mEq/L, BUN: 30 mg/dL, Creatinine: 1.8 mg/dL, Glucose: 210 mg/dL, Lactic Acid: 4.2 mmol/L, Procalcitonin: 8 ng/mL"
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": "Ceftriaxone 1g IV q24h (Last dose 05:00), Acetaminophen 650mg PO q4h PRN pain (Last dose 04:00), Insulin sliding scale per glucose q6h, NS bolus 1000mL (Completed 06:30)"
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "06:00: BP 100/60, HR 100, RR 20, SpO2 94% on 2L NC, Temp 38.5C\n06:30: BP 95/55, HR 110, RR 24, SpO2 92% on 4L NC\n07:00: BP 88/52, HR 122, RR 28, SpO2 90% on 4L NC, Temp 38.7C"
+      }
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "Analyze",
+    "cjmmStep": "Evaluate",
+    "nclexCategory": "Physiological Integrity",
+    "difficulty": 5,
+    "topicTags": [
+      "Cardiovascular: Shock & Hemodynamics",
+      "Infection"
+    ]
+  },
+  "rationale": {
+    "correct": "The patient exhibits signs of septic shock, indicated by elevated WBC, lactate, procalcitonin, fever, hypotension, and tachycardia. The initial compensatory mechanism failing is likely vasoconstriction, leading to decreased blood pressure despite increased heart rate. Initiating vasopressors, specifically norepinephrine, is the most appropriate intervention to increase blood pressure and improve tissue perfusion in septic shock.  The patient's pneumonia is the most likely source of the infection leading to sepsis.",
+    "incorrect": "Cardiogenic shock would be indicated by signs of heart failure such as JVD, edema, and abnormal heart sounds, which are not present. Hypovolemic shock would be more likely with significant fluid loss, which is not indicated here; the patient received a fluid bolus. Neurogenic shock is usually associated with spinal cord injury. Compensatory mechanisms include increased heart rate and vasoconstriction. Fluid resuscitation alone is often insufficient in septic shock; vasopressors are needed to counteract vasodilation. Diuretics would worsen hypotension. Antipyretics address fever but do not treat the underlying shock.",
+    "clinicalPearls": [
+      "Early recognition and aggressive management of septic shock are crucial to improving patient outcomes.",
+      "Vasopressors are often necessary in septic shock to maintain adequate blood pressure and tissue perfusion.",
+      "Lactate levels are a key indicator of tissue hypoxia and can be used to guide treatment."
+    ],
+    "questionTrap": {
+      "trap": "Selecting 'hypovolemic shock' due to the low blood pressure, overlooking the signs of infection.",
+      "howToOvercome": "Carefully assess all available data, including lab values and vital signs, to differentiate between different types of shock. Consider the patient's history and presenting symptoms to determine the underlying cause."
+    },
+    "mnemonic": {
+      "title": "I WATCH DEATH",
+      "expansion": "Infection, Withdrawal, Acute Pancreatitis, Trauma, CNS Injury, Hypovolemia, Drug Overdose, Endocrine, Acute Respiratory Distress Syndrome, Toxins, Hemorrhage (Common causes of shock)"
+    }
+  },
+  "responseOptions": [
+    [
+      {
+        "label": "Septic",
+        "value": "septic"
+      },
+      {
+        "label": "Cardiogenic",
+        "value": "cardiogenic"
+      },
+      {
+        "label": "Hypovolemic",
+        "value": "hypovolemic"
+      },
+      {
+        "label": "Neurogenic",
+        "value": "neurogenic"
+      }
+    ],
+    [
+      {
+        "label": "Increased cardiac output",
+        "value": "increased_co"
+      },
+      {
+        "label": "Vasoconstriction",
+        "value": "vasoconstriction"
+      },
+      {
+        "label": "Decreased heart rate",
+        "value": "decreased_hr"
+      },
+      {
+        "label": "Increased respiratory rate",
+        "value": "increased_rr"
+      }
+    ],
+    [
+      {
+        "label": "Administering a diuretic",
+        "value": "diuretic"
+      },
+      {
+        "label": "Initiating vasopressors",
+        "value": "vasopressors"
+      },
+      {
+        "label": "Continuing fluid resuscitation",
+        "value": "fluid_resuscitation"
+      },
+      {
+        "label": "Administering an antipyretic",
+        "value": "antipyretic"
+      }
+    ]
+  ],
+  "correctResponse": [
+    "septic",
+    "vasoconstriction",
+    "vasopressors"
+  ]
+}
