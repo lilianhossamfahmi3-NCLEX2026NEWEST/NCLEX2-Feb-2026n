@@ -26,19 +26,16 @@ function getNextKey() {
 }
 
 const TOPICS = [
-    'Cardiovascular: Acute MI/ACS Management',
-    'Cardiovascular: Cardiogenic Shock & Intra-aortic Balloon Pump',
-    'Respiratory: Mechanical Ventilation & Ventilator-Associated Pneumonia (VAP)',
-    'Respiratory: ARDS Progression & Prone Positioning',
-    'Neurological: Transient Ischemic Attack (TIA) vs. Stroke Management',
-    'Neurological: Traumatic Brain Injury & ICP Monitoring',
-    'Renal/Urinary: Acute Kidney Injury (AKI) & Continuous Renal Replacement Therapy (CRRT)',
-    'Endocrine: Hypoglycemic Emergencies vs DKA/HHS',
-    'Infection Control: Sepsis 1-Hour Bundle & Septic Shock',
-    'Safety: High-Alert Medication Administration & Sentinel Events',
-    'Psychiatric: Severe Depression & Suicide Precaution Protocols',
-    'Maternal-Newborn: Placenta Previa vs. Abruptio Placentae',
-    'Pediatrics: Sickle Cell Vaso-occlusive Crisis & Epiglottitis Management'
+    'Cardiovascular: Acute MI & Heart Failure',
+    'Respiratory: Respiratory Failure & ARDS',
+    'Neurological: Stroke & Brain Injury',
+    'Renal: AKI & Electrolyte Crisis',
+    'Endocrine: DKA/HHS Management',
+    'GI: Liver Failure & Pancreatitis',
+    'Infection Control: Sepsis & MDR Infections',
+    'Maternal: High-Risk Pregnancy Safety',
+    'Pediatric: Critical Care & Safety',
+    'Safety: Medication Errors & Ethics'
 ];
 
 const ALLOWED_TYPES = [
@@ -47,157 +44,174 @@ const ALLOWED_TYPES = [
 ];
 
 // ═══════════════════════════════════════════════════════════
-//  Type-Specific Schema Fragments
-// ═══════════════════════════════════════════════════════════
-const SCHEMA_FRAGMENTS = {
-    multipleChoice: `"options": [{"id":"a","text":"..."},{"id":"b","text":"..."},{"id":"c","text":"..."},{"id":"d","text":"..."}], "correctOptionId": "a"`,
-    selectAll: `"options": [{"id":"a","text":"..."},{"id":"b","text":"..."},{"id":"c","text":"..."},{"id":"d","text":"..."},{"id":"e","text":"..."},{"id":"f","text":"..."}], "correctOptionIds": ["a","c","e"]`,
-    clozeDropdown: `"template": "The client is at risk for {{blank1}} as evidenced by {{blank2}}.", "blanks": [{"id":"blank1","options":["Option A","Option B"],"correctOption":"Option A"},{"id":"blank2","options":["Option X","Option Y"],"correctOption":"Option X"}]`,
-    bowtie: `"causes": [{"id":"c1","text":"..."},{"id":"c2","text":"..."}], "correctCauseIds": ["c1"], "conditions": [{"id":"cond1","text":"..."},{"id":"cond2","text":"..."}], "correctConditionId": "cond1", "interventions": [{"id":"i1","text":"..."},{"id":"i2","text":"..."}], "correctInterventionIds": ["i1"]`,
-    trend: `"timePoints": ["Baseline","2 Hours Later","4 Hours Later"], "rows": [{"id":"r1","text":"Vital Signs/Finding"}], "options": ["Improving","Stable","Declining"], "correctMatrix": {"r1-Baseline":"Stable", "r1-2 Hours Later":"Declining"}`,
-    matrixMatch: `"rows": [{"id":"r1","text":"Finding 1"}], "columns": [{"id":"c1","text":"Category A"},{"id":"c2","text":"Category B"}], "correctMatches": {"r1":"c1"}`
-};
-
-// ═══════════════════════════════════════════════════════════
-//  Prompt Engineering
+//  Prompt Engineering (NGN 2026 "God Mode")
 // ═══════════════════════════════════════════════════════════
 function buildGenerationPrompt(topic, type) {
-    const fragment = SCHEMA_FRAGMENTS[type] || '';
     return `You are a Lead NGN Psychometrician at NCLEX-RN Central (2026 Edition).
-TASK: Generate ONE high-fidelity, standalone NGN assessment item.
+TASK: Generate ONE ultra-high-fidelity NGN standalone item.
 
-SPECIFICATIONS:
-1. ID: MUST be "New-v26-<TIMESTAMP>-<RANDOM>".
+STRICT STANDARDS (NGN_2026_SPEC):
+1. ID: "New-v26-<TIMESTAMP>-<RAND>"
 2. TYPE: ${type}
 3. TOPIC: ${topic}
-4. DIFFICULTY: Level 4 (Analyze) or 5 (Evaluate/Synthesize).
-5. SBAR: 120-160 words. Strict military time (HH:mm). Include patient history, current vitals, and nurse's assessment.
-6. EHR TABS: Mandatory "labs", "vitals", "mar". Labs must use tables. Vitals must have time-series trends.
-7. RATIONALE: Deep clinical explanation (>60 words). Must include "correct", "incorrect", "clinicalPearls" (array), "questionTrap" (object), and "mnemonic" (object).
-8. QI TARGET: 100/Pass. No generic filler. Use specific medical values (e.g., pH 7.28, K+ 5.8).
+4. SBAR: Exactly 120-160 words. Structure: Situation, Background, Assessment, Recommendation. Use military time (HH:mm).
+5. TABS: MUST include 7 specific tabs: [sbar, vitals, labs, physicalExam, radiology, carePlan, mar].
+   - "content" in each tab MUST be an HTML string (tables for labs/vitals).
+   - "vitals" must have 3+ time-points.
+   - "labs" must have Result | Unit | Reference Range.
+6. RATIONALE: Deep clinical analysis. sub-fields: correct, incorrect, clinicalPearls (array), questionTrap ({trap, howToOvercome}), mnemonic ({title, expansion}).
+7. OPTIONS: JSON format matching ${type} schema.
 
-SCHEMA REQUIREMENTS:
-Include all standard MasterItem fields: id, type, stem, scoring (method/maxPoints), itemContext (patient/sbar/tabs), pedagogy (bloomLevel/cjmmStep/nclexCategory/difficulty/topicTags), rationale (...).
-Failsafe: For type "${type}", you MUST include: ${fragment}
+EXAMPLE SCHEMA (Partial):
+{
+  "id": "...", "type": "${type}", "stem": "...",
+  "itemContext": {
+    "patient": { "name": "...", "age": 0, "gender": "...", "allergies": [] },
+    "sbar": "...",
+    "tabs": [
+      { "id": "labs", "title": "Lab Diagnostics", "content": "<table>...</table>" },
+      { "id": "vitals", "title": "Vital Signs", "content": "<table>...</table>" }
+    ]
+  },
+  "pedagogy": { "bloomLevel": "analyze", "cjmmStep": "takeAction", "nclexCategory": "...", "difficulty": 5, "topicTags": ["${topic}"] },
+  "rationale": { ... }
+}
 
-Return ONLY PURE JSON. NO markdown blocks.`;
+Failsafe Logic for ${type}:
+${getFailsafe(type)}
+
+Return ONLY PURE JSON. NO markdown. NO explanations.`;
+}
+
+function getFailsafe(type) {
+    switch (type) {
+        case 'clozeDropdown': return 'Include "template" (string with {{blank1}}) and "blanks" (array of {id, options, correctOption}).';
+        case 'bowtie': return 'Include "causes" (4-6), "correctCauseIds" (2), "conditions" (3-5), "correctConditionId" (1), "interventions" (4-6), "correctInterventionIds" (2).';
+        case 'trend': return 'Include "timePoints" (array), "rows" (array), "options" (array), "correctMatrix" (object mapping row-time to option).';
+        case 'matrixMatch': return 'Include "rows", "columns", "correctMatches" (object mapping row id to column id).';
+        case 'highlight': return 'Include "passage" and "correctSpanIndices".';
+        default: return '';
+    }
 }
 
 // ═══════════════════════════════════════════════════════════
-//  Helper Functions
+//  Normalization & Validation
 // ═══════════════════════════════════════════════════════════
-async function callAI(prompt, targetType) {
-    const key = getNextKey();
-    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=${key}`;
-    const body = {
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.8 }
-    };
+function normalizeItem(item) {
+    if (!item || typeof item !== 'object') return null;
 
-    try {
-        const resp = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body)
-        });
-        if (!resp.ok) throw new Error(`API ${resp.status}`);
-        const data = await resp.json();
-        let text = data.candidates[0].content.parts[0].text;
-        text = text.replace(/```json|```/g, '').trim();
-
-        // Final JSON Polish
-        const item = JSON.parse(text);
-        item.type = targetType; // Force type safety
-        item.sentinelStatus = 'healed_v2026_v12_perfect';
-        if (!item.id?.startsWith('New-')) {
-            item.id = `New-v26-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
+    // Fix tabs if they are an object instead of an array
+    if (item.itemContext && item.itemContext.tabs && !Array.isArray(item.itemContext.tabs)) {
+        const tabsObj = item.itemContext.tabs;
+        const tabsArr = [];
+        for (const [id, data] of Object.entries(tabsObj)) {
+            tabsArr.push({
+                id,
+                title: id.charAt(0).toUpperCase() + id.slice(1),
+                content: typeof data === 'string' ? data : (data.content || JSON.stringify(data))
+            });
         }
-        return item;
-    } catch (e) {
-        console.error("  AI/JSON Error:", e.message);
-        return null;
+        item.itemContext.tabs = tabsArr;
     }
+
+    // Ensure SBAR is a string
+    if (item.itemContext && item.itemContext.sbar && typeof item.itemContext.sbar === 'object') {
+        const s = item.itemContext.sbar;
+        item.itemContext.sbar = `S: ${s.situation}\nB: ${s.background}\nA: ${s.assessment}\nR: ${s.recommendation}`;
+    }
+
+    // Force numeric difficulty
+    if (item.pedagogy) {
+        item.pedagogy.difficulty = parseInt(item.pedagogy.difficulty) || 4;
+    }
+
+    return item;
 }
 
 const { validateItem } = require('./validation/sentinel_validator.cjs');
 
 // ═══════════════════════════════════════════════════════════
-//  Main Execution
+//  AI Call
+// ═══════════════════════════════════════════════════════════
+async function callAI(prompt) {
+    const key = getNextKey();
+    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=${key}`;
+    const body = {
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.85 }
+    };
+
+    try {
+        const resp = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (!resp.ok) return null;
+        const data = await resp.json();
+        let text = data.candidates[0].content.parts[0].text;
+        return JSON.parse(text.replace(/```json|```/g, '').trim());
+    } catch (e) {
+        return null;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════
+//  Main Batch Loop
 // ═══════════════════════════════════════════════════════════
 async function main() {
-    console.log("🚀 STARTING ULTIMATE NGN GEN (500 ITEMS)");
-    const TOTAL_TARGET = 500;
-    const BATCH_SIZE = 4; // Slightly smaller for better stability
-
-    let successCount = 0;
-    const rootDir = path.join(__dirname, 'data', 'ai-generated', 'vault', 'batch_perfect_500');
+    console.log("🚀 STARTING GOD-MODE GEN (500 ITEMS)");
+    const TARGET = 500;
+    let saved = 0;
+    const rootDir = path.join(__dirname, 'data', 'ai-generated', 'vault', 'batch_v2026_perfect');
     if (!fs.existsSync(rootDir)) fs.mkdirSync(rootDir, { recursive: true });
 
-    while (successCount < TOTAL_TARGET) {
-        process.stdout.write(`\rProgress: [${successCount}/${TOTAL_TARGET}] `);
-        const promises = [];
-
-        for (let i = 0; i < BATCH_SIZE; i++) {
+    while (saved < TARGET) {
+        console.log(`\n📦 Batch Progress: ${saved} / ${TARGET}`);
+        const tasks = [];
+        for (let i = 0; i < 4; i++) {
             const topic = TOPICS[Math.floor(Math.random() * TOPICS.length)];
             const type = ALLOWED_TYPES[Math.floor(Math.random() * ALLOWED_TYPES.length)];
 
-            promises.push((async () => {
-                let item = await callAI(buildGenerationPrompt(topic, type), type);
+            tasks.push((async () => {
+                let raw = await callAI(buildGenerationPrompt(topic, type));
+                let item = normalizeItem(raw);
                 if (!item) return null;
 
-                // Stricter QA Level
                 let report = validateItem(item);
 
-                // Active Healing Loop (Max 2 attempts)
-                let attempts = 0;
-                while (report.score < 95 && attempts < 1) {
-                    const healPrompt = `CRITICAL FAILURE (Score: ${report.score}%). FIX THIS ITEM IMMEDIATELY.
-                    DEFECTS: ${report.diags.join('; ')}
-                    Return the PERFECTED JSON object for this ${type} item:
-                    ${JSON.stringify(item)}`;
-
-                    const healed = await callAI(healPrompt, type);
-                    if (healed) {
-                        item = healed;
+                // Active Repair Pass
+                if (report.score < 95) {
+                    const repairPrompt = `NGN REPAIR: SCORE ${report.score}%. ERRORS: ${report.diags.join(', ')}. 
+                    Fix and return PERFECT ${type} JSON: ${JSON.stringify(item)}`;
+                    let healedRaw = await callAI(repairPrompt);
+                    if (healedRaw) {
+                        item = normalizeItem(healedRaw);
                         report = validateItem(item);
                     }
-                    attempts++;
                 }
 
                 if (report.score >= 90) {
-                    // Save Local
-                    const typeDir = path.join(rootDir, item.type || 'misc');
+                    item.sentinelStatus = 'healed_v2026_v13_qi100';
+                    const typeDir = path.join(rootDir, item.type);
                     if (!fs.existsSync(typeDir)) fs.mkdirSync(typeDir, { recursive: true });
-                    const filename = `${item.id}.json`;
-                    fs.writeFileSync(path.join(typeDir, filename), JSON.stringify(item, null, 2));
+                    fs.writeFileSync(path.join(typeDir, `${item.id}.json`), JSON.stringify(item, null, 2));
 
-                    // Sync Cloud
+                    // Cloud Upsert
                     try {
                         await supabase.from('clinical_vault').upsert({
-                            id: item.id,
-                            type: item.type || 'unknown',
-                            item_data: item,
+                            id: item.id, type: item.type, item_data: item,
                             topic_tags: item.pedagogy?.topicTags || [],
                             nclex_category: item.pedagogy?.nclexCategory || null,
-                            difficulty: item.pedagogy?.difficulty || 3
+                            difficulty: item.pedagogy?.difficulty || 5
                         }, { onConflict: 'id' });
                     } catch (e) { }
-
                     return item.id;
-                } else {
-                    return null;
                 }
+                return null;
             })());
         }
 
-        const results = await Promise.all(promises);
-        successCount += results.filter(Boolean).length;
-
-        // Adaptive Delay to prevent rate limits
-        await new Promise(r => setTimeout(r, 3000));
+        const results = await Promise.all(tasks);
+        saved += results.filter(Boolean).length;
+        await new Promise(r => setTimeout(r, 2000));
     }
-
-    console.log(`\n✅ GENERATION COMPLETE. 500 ITEMS SYNCED.`);
 }
 
 main();
