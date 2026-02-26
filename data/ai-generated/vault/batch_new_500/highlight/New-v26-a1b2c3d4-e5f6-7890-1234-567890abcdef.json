@@ -1,10 +1,10 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "highlight",
-  "stem": "The nurse is caring for a 68-year-old male patient admitted for acute decompensated heart failure (ADHF). Review the patient information and identify the findings that indicate the patient is experiencing ineffective tissue perfusion. Click on those findings.",
+  "stem": "The nurse is reviewing the electronic health record of a 68-year-old male patient admitted with acute decompensated heart failure. Based on the information provided in the patient's chart, highlight the findings that are MOST indicative of fluid overload and impaired cardiac function requiring immediate intervention.",
   "scoring": {
     "method": "polytomous",
-    "maxPoints": 5
+    "maxPoints": 4
   },
   "itemContext": {
     "patient": {
@@ -14,24 +14,25 @@
       "iso": "ICU",
       "allergies": [
         "Penicillin"
-      ]
+      ],
+      "airborne": false
     },
-    "sbar": "Situation: John Smith, 68-year-old male, admitted for ADHF. Background: History of hypertension, CAD, and prior MI. Presented to ED at 03:00 with severe dyspnea, orthopnea, and lower extremity edema. Assessment: At 07:00, patient reports continued shortness of breath. He is on oxygen at 4L via nasal cannula. Vital signs: BP 90/60 mmHg, HR 110 bpm, RR 28, SpO2 91%, Temp 37.1°C. Noted crackles bilaterally in the lungs and 2+ pitting edema in lower extremities. Urine output has been 30 mL/hr for the last two hours. He is receiving furosemide 40mg IV push every 6 hours. Pt alert and oriented to person, place and time, but anxious. Request: Continue furosemide as ordered. Monitor vital signs and urine output closely. Assess response to oxygen therapy. Please evaluate for potential need for vasopressors.",
+    "sbar": "S: Dr. Lee, this is Nurse Jones in the ICU. I'm calling about John Smith, 68-year-old male, admitted at 04:00 with acute decompensated heart failure. B: Patient has a history of hypertension, CAD, and prior MI. He presented with severe shortness of breath and chest pain. A: At 07:00, his vital signs are: BP 170/100 mmHg, HR 110 bpm, RR 32, SpO2 88% on 6L NC. He has audible crackles bilaterally, 3+ pitting edema in lower extremities, and JVD is present. He's restless and anxious. Current medications include furosemide 40mg IVP q12h (last dose given at 05:00), morphine 2mg IVP q4h PRN pain, and oxygen. His most recent BNP is 1200 pg/mL. He is producing minimal urine output. R: I'm concerned about his worsening respiratory distress and fluid overload. I recommend increasing the furosemide dose and considering an arterial blood gas to assess for respiratory failure. I also recommend continuous cardiac monitoring.",
     "tabs": [
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>04:00</td><td>160/90</td><td>100</td><td>28</td><td>92% on 4L NC</td></tr><tr><td>05:00</td><td>165/95</td><td>105</td><td>30</td><td>90% on 5L NC</td></tr><tr><td>06:00</td><td>168/98</td><td>108</td><td>31</td><td>89% on 6L NC</td></tr><tr><td>07:00</td><td><mark>170/100</mark></td><td><mark>110</mark></td><td><mark>32</mark></td><td><mark>88% on 6L NC</mark></td></tr></tbody></table>"
+      },
       {
         "id": "labs",
         "title": "Labs",
-        "content": "Na: 132 mEq/L, K: 4.8 mEq/L, Cl: 98 mEq/L, BUN: 35 mg/dL, Creatinine: 1.8 mg/dL, Glucose: 110 mg/dL, BNP: 1500 pg/mL, Troponin I: 0.04 ng/mL, Hemoglobin: 13.5 g/dL, Hematocrit: 40%, WBC: 9000/mm3"
+        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Na</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>K</td><td>4.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BNP</td><td><mark>1200 pg/mL</mark></td><td>< 100 pg/mL</td></tr></tbody></table>"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "Furosemide 40mg IVP q6h PRN, Oxygen 4L NC, Aspirin 81mg PO daily, Lisinopril 10mg PO daily, Metoprolol 25mg PO BID"
-      },
-      {
-        "id": "vitals",
-        "title": "Vitals",
-        "content": "05:00: BP 94/62, HR 105, RR 26, SpO2 90%, Temp 37.0°C; 06:00: BP 92/61, HR 108, RR 27, SpO2 91%, Temp 37.1°C; 07:00: BP 90/60, HR 110, RR 28, SpO2 91%, Temp 37.1°C"
+        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Given</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IVP</td><td>q12h</td><td>05:00</td></tr><tr><td>Morphine</td><td>2 mg</td><td>IVP</td><td>q4h PRN Pain</td><td>06:00</td></tr><tr><td>Oxygen</td><td>6 L</td><td>NC</td><td>Continuous</td><td>-</td></tr></tbody></table>"
       }
     ]
   },
@@ -45,20 +46,20 @@
     ]
   },
   "rationale": {
-    "correct": "The findings indicating ineffective tissue perfusion are: BP 90/60 mmHg (hypotension reduces blood flow to vital organs), HR 110 bpm (tachycardia is a compensatory mechanism to maintain cardiac output but increases myocardial oxygen demand), Urine output 30 mL/hr (decreased renal perfusion), SpO2 91% (indicates hypoxemia despite oxygen therapy), and elevated BUN & Creatinine (indicates kidney injury due to poor perfusion).",
-    "incorrect": "Incorrect options include temperature of 37.1°C, which is within normal limits and does not directly indicate ineffective tissue perfusion. The respiratory rate of 28, although elevated, is primarily related to the pulmonary congestion from heart failure and while contributing to overall patient distress, does not in itself indicate the primary issue of tissue perfusion. The normal WBC count, potassium and glucose levels do not indicate ineffective tissue perfusion.",
+    "correct": "Elevated blood pressure (170/100 mmHg) indicates increased afterload and cardiac workload, worsening heart failure. Tachycardia (110 bpm) is a compensatory mechanism to maintain cardiac output but increases myocardial oxygen demand. Tachypnea (32 breaths/min) and decreased oxygen saturation (88% on 6L NC) suggest pulmonary edema and impaired gas exchange. An elevated BNP (1200 pg/mL) confirms the presence and severity of heart failure.",
+    "incorrect": "Normal sodium and potassium levels do not directly indicate fluid overload or impaired cardiac function in this scenario. While elevated BUN and creatinine can be associated with heart failure and kidney dysfunction, they are not the most immediate indicators of fluid overload requiring intervention. The current medications listed are standard treatments for heart failure and pain management and do not, on their own, indicate worsening condition.",
     "clinicalPearls": [
-      "Hypotension in the setting of heart failure is a critical finding that often necessitates intervention with vasopressors or inotropes.",
-      "Decreased urine output is a sensitive indicator of inadequate renal perfusion and overall cardiac output.",
-      "Tachycardia is often a compensatory mechanism but can worsen myocardial ischemia in patients with underlying coronary artery disease."
+      "BNP is a key indicator of heart failure severity and response to treatment.",
+      "Monitor oxygen saturation and respiratory effort closely in patients with acute heart failure.",
+      "Assess for signs and symptoms of fluid overload, such as edema, JVD, and crackles."
     ],
     "questionTrap": {
-      "trap": "Students may focus solely on the respiratory distress and overlook the subtle signs of inadequate systemic perfusion indicated by the blood pressure and urine output.",
-      "howToOvercome": "Encourage students to systematically assess all vital signs and lab values in conjunction with the patient's presenting symptoms to identify the root cause of the patient's distress and prioritize interventions accordingly."
+      "trap": "Focusing solely on one abnormal vital sign without considering the whole clinical picture.",
+      "howToOvercome": "Integrate all available data (vitals, labs, SBAR) to identify patterns and prioritize interventions based on the most significant findings."
     },
     "mnemonic": {
-      "title": "B-HUGS",
-      "expansion": "Hypoperfusion Signs: **B**P Low, **H**eart Rate High, **U**rine Output Low, **G**radual Decline in SpO2, **S**eriously Elevated BUN/Creatinine"
+      "title": "BAD BNP",
+      "expansion": "B-Breathing difficulty, A-Assess edema, D-Distended neck veins, BNP-Brain Natriuretic Peptide (elevated in heart failure)"
     }
   }
 }

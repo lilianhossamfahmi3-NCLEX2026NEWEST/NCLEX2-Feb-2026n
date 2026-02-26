@@ -1,0 +1,100 @@
+{
+  "id": "New-v26-9a2b3c4d-5e6f-4789-a012-34567890abcd",
+  "type": "clozeDropdown",
+  "stem": "The provider orders a continuous infusion of heparin at 18 units/kg/hour for DVT prophylaxis. The patient weighs 220 lbs. Available is heparin 25,000 units in 250 mL of 0.9% NaCl. First, calculate the patient's weight in kilograms: <cloze id='cloze1'/> kg. Next, calculate the units per hour to administer: <cloze id='cloze2'/> units/hour. Finally, calculate the infusion rate in mL/hour: <cloze id='cloze3'/> mL/hour. Round all answers to the nearest whole number.",
+  "scoring": {
+    "method": "dichotomous",
+    "maxPoints": 3
+  },
+  "itemContext": {
+    "patient": {
+      "name": "John Smith",
+      "age": 68,
+      "gender": "Male",
+      "iso": "ICU",
+      "allergies": [
+        "NKDA"
+      ]
+    },
+    "sbar": "Situation: John Smith, a 68-year-old male, was admitted to the ICU at 03:00 today due to shortness of breath and left leg pain. Background: Mr. Smith has a history of hypertension and underwent a total knee replacement surgery three weeks ago. He has been mostly sedentary since. Assessment: Patient reports leg pain as 8/10. Vital signs at 07:00 are: BP 160/90 mmHg, HR 110 bpm, RR 24 breaths/min, SpO2 92% on 2L nasal cannula, and Temp 37.2°C. A lower extremity ultrasound confirmed a deep vein thrombosis (DVT) in the left calf. Current home medications include lisinopril 20mg daily. Recommendation: The provider was notified at 07:15 regarding the patient's condition and has ordered a continuous heparin infusion at 18 units/kg/hour for DVT prophylaxis. STAT lab draws have been ordered. Please initiate the heparin infusion as prescribed. Ensure new orders for lab draws are completed, and titrate the heparin infusion per protocol once lab results are available.",
+    "tabs": [
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>PTT</td><td>28 seconds</td><td>25-35 seconds</td></tr><tr><td>Platelets</td><td>250,000/μL</td><td>150,000-450,000/μL</td></tr><tr><td>Hemoglobin</td><td>14 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Hematocrit</td><td>42%</td><td>39-50%</td></tr></tbody></table>"
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Heparin</td><td>18 units/kg/hour</td><td>IV</td><td>Continuous Infusion</td><td>Not Yet Administered</td></tr></tbody></table>"
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>03:00</td><td>150/85</td><td>98</td><td>20</td><td>94% on RA</td><td>37.0°C</td></tr><tr><td>07:00</td><td>160/90</td><td>110</td><td>24</td><td>92% on 2L NC</td><td>37.2°C</td></tr></tbody></table>"
+      }
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "Applying",
+    "cjmmStep": "Analyze",
+    "nclexCategory": "Pharmacological and Parenteral Therapies",
+    "difficulty": 5,
+    "topicTags": [
+      "Safety: Medication Calculation & High-Alert Drugs"
+    ]
+  },
+  "rationale": {
+    "correct": "First, convert the patient's weight from pounds to kilograms by dividing by 2.2: 220 lbs / 2.2 = 100 kg. Next, calculate the total units of heparin to administer per hour by multiplying the weight in kg by the ordered dose: 100 kg * 18 units/kg/hour = 1800 units/hour. Finally, calculate the infusion rate in mL/hour using the available concentration. The concentration is 25,000 units in 250 mL, which simplifies to 100 units/mL. Divide the required units per hour by the concentration: 1800 units/hour / 100 units/mL = 18 mL/hour.",
+    "incorrect": "Incorrect calculations indicate a lack of understanding of unit conversions or medication concentration calculations. This can lead to significant dosing errors with high-alert medications like heparin. Re-review weight conversions, dosage calculations, and concentration calculations. Double check each step of your calculation.",
+    "clinicalPearls": [
+      "Always double-check medication calculations, especially for high-alert medications like heparin.",
+      "Use a standardized approach to medication calculations to minimize errors.",
+      "Ensure you understand the concentration of the medication available before calculating the infusion rate.",
+      "Weight-based dosing requires accurate weight measurements."
+    ],
+    "questionTrap": {
+      "trap": "Many students struggle with converting pounds to kilograms or misinterpret the medication concentration.",
+      "howToOvercome": "Practice unit conversions and pay close attention to the units involved in each step of the calculation. Use dimensional analysis to ensure your units cancel out correctly."
+    },
+    "mnemonic": {
+      "title": "Desired Over Have",
+      "expansion": "DOH: Desired dose / On hand amount * Quantity. This is a basic formula for dosage calculations, but ALWAYS verify your answer is appropriate and safe."
+    }
+  },
+  "response": [
+    {
+      "id": "cloze1",
+      "type": "dropdown",
+      "options": [
+        "80",
+        "90",
+        "100",
+        "110"
+      ],
+      "correctResponse": "100"
+    },
+    {
+      "id": "cloze2",
+      "type": "dropdown",
+      "options": [
+        "1600",
+        "1700",
+        "1800",
+        "1900"
+      ],
+      "correctResponse": "1800"
+    },
+    {
+      "id": "cloze3",
+      "type": "dropdown",
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
+      "correctResponse": "18"
+    }
+  ]
+}
