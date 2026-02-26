@@ -1,7 +1,7 @@
 {
   "id": "New-v26-98765432-abcd-efgh-ijkl-1234567890ab",
   "type": "clozeDropdown",
-  "stem": "Based on the patient's presentation and available data, the patient is MOST likely experiencing {0} shock. The initial compensatory mechanism failing is MOST likely {1}. The MOST appropriate intervention to address this condition is {2}.",
+  "stem": "The patient's clinical presentation suggests increased intracranial pressure (ICP) secondary to the stroke. Based on the provided data, select the most appropriate intervention for each category below:\n\nMaintain head position:\n* {0}\n\nAdminister medication:\n* {1}\n\nMonitor neurological status:\n* {2}",
   "scoring": {
     "method": "dichotomous",
     "maxPoints": 3
@@ -9,121 +9,72 @@
   "itemContext": {
     "patient": {
       "name": "John Smith",
-      "age": 68,
+      "age": 72,
       "gender": "Male",
       "iso": "ICU",
       "allergies": [
-        "Penicillin"
-      ],
-      "precautions": [
-        "Droplet"
+        "Sulfa Drugs"
       ]
     },
-    "sbar": "S: John Smith, 68-year-old male with a history of hypertension and type 2 diabetes, admitted for pneumonia. He's now exhibiting signs of shock. BP is 88/52, HR 122, RR 28 and labored, SpO2 90% on 4L nasal cannula. Urine output is 20 mL/hr. Lactic acid is 4.2 mmol/L. Patient reports dizziness and weakness.\nB: Patient was transferred to the ICU at 06:00. At 07:00, his BP trended down despite a 1L normal saline bolus. Oxygen saturation decreased from 94% to 90%. The patient is increasingly lethargic.\nA: Pneumonia, possible sepsis, leading to septic shock. Elevated WBC, lactate, and procalcitonin support this assessment. He is hypotensive and tachycardic, requiring close monitoring and intervention.\nR: Physician is aware of the situation. Orders received for norepinephrine initiation if systolic BP remains below 90 mmHg. Repeat labs have been ordered. Current IV fluids are infusing at 75 mL/hr. Last dose of Ceftriaxone was given at 05:00.",
+    "sbar": "S: John Smith, 72-year-old male, admitted at 07:00 today with right-sided weakness and slurred speech. Found down at home by his daughter. Last known well was yesterday at 22:00. \nB: History of hypertension, hyperlipidemia, and atrial fibrillation. Currently on warfarin, lisinopril, and atorvastatin. \nA: At 09:00, patient is drowsy but arousable to verbal stimuli. Right-sided hemiparesis present. GCS is 13 (E3, V4, M6). BP 180/100, HR 92, RR 22, SpO2 94% on room air. Temperature 37.5°C. CT scan showed a left middle cerebral artery (MCA) ischemic stroke with some surrounding edema. Neurosurgeon consulted. \nR: Continue to monitor neurological status closely. Manage blood pressure per stroke protocol (maintain SBP <160). Administer prescribed medications. Elevate head of bed to 30 degrees. Prepare for possible interventions to manage ICP.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "WBC: 18,000/mm3, Hemoglobin: 13.5 g/dL, Platelets: 150,000/mm3, Na: 140 mEq/L, K: 3.2 mEq/L, Cl: 100 mEq/L, HCO3: 22 mEq/L, BUN: 30 mg/dL, Creatinine: 1.8 mg/dL, Glucose: 210 mg/dL, Lactic Acid: 4.2 mmol/L, Procalcitonin: 8 ng/mL"
+        "content": "Na: 140 mEq/L, K: 4.1 mEq/L, Cl: 100 mEq/L, HCO3: 24 mEq/L, BUN: 20 mg/dL, Creatinine: 1.2 mg/dL, Glucose: 110 mg/dL, INR: 2.5, Platelets: 180,000/uL, WBC: 9,000/uL"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "Ceftriaxone 1g IV q24h (Last dose 05:00), Acetaminophen 650mg PO q4h PRN pain (Last dose 04:00), Insulin sliding scale per glucose q6h, NS bolus 1000mL (Completed 06:30)"
+        "content": "Warfarin 5mg PO daily, Lisinopril 10mg PO daily, Atorvastatin 40mg PO daily, Acetaminophen 650mg PO q4h PRN for headache, Hydralazine 10mg IV PRN for SBP >180, Mannitol 25g IV q6h PRN for increased ICP (MD order to initiate if signs of increased ICP are present)"
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "06:00: BP 100/60, HR 100, RR 20, SpO2 94% on 2L NC, Temp 38.5C\n06:30: BP 95/55, HR 110, RR 24, SpO2 92% on 4L NC\n07:00: BP 88/52, HR 122, RR 28, SpO2 90% on 4L NC, Temp 38.7C"
+        "content": "07:00: BP 190/110, HR 95, RR 20, SpO2 93%, Temp 37.2°C, GCS 14\n08:00: BP 185/105, HR 90, RR 22, SpO2 94%, Temp 37.4°C, GCS 14\n09:00: BP 180/100, HR 92, RR 22, SpO2 94%, Temp 37.5°C, GCS 13"
       }
     ]
   },
   "pedagogy": {
-    "bloomLevel": "Analyze",
-    "cjmmStep": "Evaluate",
+    "bloomLevel": "Apply",
+    "cjmmStep": "Implement",
     "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "Cardiovascular: Shock & Hemodynamics",
-      "Infection"
+      "Neurological: Stroke & Increased ICP"
     ]
   },
   "rationale": {
-    "correct": "The patient exhibits signs of septic shock, indicated by elevated WBC, lactate, procalcitonin, fever, hypotension, and tachycardia. The initial compensatory mechanism failing is likely vasoconstriction, leading to decreased blood pressure despite increased heart rate. Initiating vasopressors, specifically norepinephrine, is the most appropriate intervention to increase blood pressure and improve tissue perfusion in septic shock.  The patient's pneumonia is the most likely source of the infection leading to sepsis.",
-    "incorrect": "Cardiogenic shock would be indicated by signs of heart failure such as JVD, edema, and abnormal heart sounds, which are not present. Hypovolemic shock would be more likely with significant fluid loss, which is not indicated here; the patient received a fluid bolus. Neurogenic shock is usually associated with spinal cord injury. Compensatory mechanisms include increased heart rate and vasoconstriction. Fluid resuscitation alone is often insufficient in septic shock; vasopressors are needed to counteract vasodilation. Diuretics would worsen hypotension. Antipyretics address fever but do not treat the underlying shock.",
+    "correct": "Maintaining the head of the bed (HOB) at 30 degrees promotes venous drainage from the brain, reducing ICP. Administering Mannitol, an osmotic diuretic, helps to reduce cerebral edema and ICP. Frequent neurological assessments, including GCS and pupillary response, are essential to monitor for changes in ICP and guide further interventions. Assessing motor strength is also crucial in determining the progression of stroke and any further deterioration.",
+    "incorrect": "Lowering the HOB would increase ICP. While stool softeners can prevent straining, they do not directly address ICP. Normal saline bolus could worsen cerebral edema. Vital signs alone are not sufficient for a complete neurological assessment; GCS and pupillary response are vital. Waiting to assess motor strength could delay necessary interventions.",
     "clinicalPearls": [
-      "Early recognition and aggressive management of septic shock are crucial to improving patient outcomes.",
-      "Vasopressors are often necessary in septic shock to maintain adequate blood pressure and tissue perfusion.",
-      "Lactate levels are a key indicator of tissue hypoxia and can be used to guide treatment."
+      "Early recognition and management of increased ICP in stroke patients are crucial for preventing secondary brain injury.",
+      "Always consider the patient's underlying medical conditions and current medications when planning interventions."
     ],
     "questionTrap": {
-      "trap": "Selecting 'hypovolemic shock' due to the low blood pressure, overlooking the signs of infection.",
-      "howToOvercome": "Carefully assess all available data, including lab values and vital signs, to differentiate between different types of shock. Consider the patient's history and presenting symptoms to determine the underlying cause."
+      "trap": "The question focuses on immediate interventions for increased ICP, tempting test-takers to select options that address other aspects of stroke care or are less direct interventions for ICP.",
+      "howToOvercome": "Carefully evaluate each option and prioritize interventions that directly reduce ICP based on the patient's current clinical status and the provided data."
     },
     "mnemonic": {
-      "title": "I WATCH DEATH",
-      "expansion": "Infection, Withdrawal, Acute Pancreatitis, Trauma, CNS Injury, Hypovolemia, Drug Overdose, Endocrine, Acute Respiratory Distress Syndrome, Toxins, Hemorrhage (Common causes of shock)"
+      "title": "ICP Management",
+      "expansion": "ELEVATE (Elevate HOB, Limit fluids, Evaluate neuro status, Ventilate/oxygenate, Avoid straining, Treat fever, Ensure BP control)"
     }
   },
-  "responseOptions": [
+  "options": [
     [
-      {
-        "label": "Septic",
-        "value": "septic"
-      },
-      {
-        "label": "Cardiogenic",
-        "value": "cardiogenic"
-      },
-      {
-        "label": "Hypovolemic",
-        "value": "hypovolemic"
-      },
-      {
-        "label": "Neurogenic",
-        "value": "neurogenic"
-      }
+      "Maintain head of bed at 30 degrees",
+      "Lower head of bed",
+      "Maintain flat supine position"
     ],
     [
-      {
-        "label": "Increased cardiac output",
-        "value": "increased_co"
-      },
-      {
-        "label": "Vasoconstriction",
-        "value": "vasoconstriction"
-      },
-      {
-        "label": "Decreased heart rate",
-        "value": "decreased_hr"
-      },
-      {
-        "label": "Increased respiratory rate",
-        "value": "increased_rr"
-      }
+      "Administer Mannitol 25g IV",
+      "Administer Normal Saline bolus",
+      "Administer stool softener"
     ],
     [
-      {
-        "label": "Administering a diuretic",
-        "value": "diuretic"
-      },
-      {
-        "label": "Initiating vasopressors",
-        "value": "vasopressors"
-      },
-      {
-        "label": "Continuing fluid resuscitation",
-        "value": "fluid_resuscitation"
-      },
-      {
-        "label": "Administering an antipyretic",
-        "value": "antipyretic"
-      }
+      "Assess GCS and pupillary response q1h",
+      "Assess vital signs q4h",
+      "Wait to assess motor strength until next shift"
     ]
-  ],
-  "correctResponse": [
-    "septic",
-    "vasoconstriction",
-    "vasopressors"
   ]
 }
