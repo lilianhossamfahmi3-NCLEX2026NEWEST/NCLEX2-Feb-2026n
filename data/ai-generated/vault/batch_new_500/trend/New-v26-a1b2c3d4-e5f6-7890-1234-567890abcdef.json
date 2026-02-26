@@ -1,66 +1,66 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "trend",
-  "stem": "The nurse is caring for a patient receiving mechanical ventilation. Review the patient's EHR. Based on the data provided, identify three findings that require immediate intervention and two actions the nurse should take. Use clinical judgment to determine the MOST appropriate response to the changing patient condition over the past hour.",
+  "stem": "The nurse is caring for a patient with acute liver failure secondary to acetaminophen overdose. Based on the EHR data, identify the findings that require immediate intervention by clicking on the respective values. Then, using the provided options, select the most likely underlying cause for each selected finding. Finally, determine the appropriate nursing intervention for each underlying cause.",
   "scoring": {
-    "method": "polytomous",
-    "maxPoints": 5
+    "method": "linked",
+    "maxPoints": 9
   },
   "itemContext": {
     "patient": {
       "name": "John Smith",
-      "age": 68,
+      "age": 58,
       "gender": "Male",
-      "iso": "ICU",
+      "iso": "Medical Surgical Unit",
+      "isolation": "Standard",
       "allergies": [
         "Penicillin"
       ]
     },
-    "sbar": "S: Mr. Smith is a 68-year-old male admitted for acute respiratory failure secondary to pneumonia. He was intubated and placed on mechanical ventilation at 14:00. Current vent settings: FiO2 50%, TV 450 mL, RR 16, PEEP 5 cm H2O. \nB: History of COPD and hypertension. He was started on vancomycin and azithromycin. \nA: At 15:00, his SpO2 has dropped from 94% to 88%. End-tidal CO2 is trending upward. Peak inspiratory pressure (PIP) has increased from 25 cm H2O to 35 cm H2O. Auscultation reveals diminished breath sounds on the left. The patient appears increasingly agitated and is attempting to pull at the endotracheal tube. \nR: I'm concerned about possible pneumothorax or tube obstruction. I recommend stat chest x-ray and assessment for the need for increased sedation or paralysis.",
+    "sbar": "S: John Smith, 58-year-old male, admitted at 03:00 today with acetaminophen overdose. He reports taking 20 grams of acetaminophen over the past 24 hours due to chronic back pain. \nB: Patient has a history of chronic back pain and occasional alcohol use. No known liver disease prior to admission. \nA: Patient is currently lethargic but arousable to voice. Vital signs: BP 90/60, HR 110, RR 24, SpO2 94% on room air. Abdomen is distended and tender to palpation. Skin is jaundiced. Currently on continuous cardiac monitoring. \nR: Labs are pending but initial acetaminophen level was highly elevated. Anticipate orders for N-acetylcysteine (NAC) administration. Monitor vital signs closely, assess neurological status frequently, and maintain strict intake and output. Be prepared for potential complications such as encephalopathy and bleeding. Notify provider of any significant changes. Last dose of NAC given at 11:00. Review updated labs stat.",
     "tabs": [
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>EtCO2</th></tr></thead><tbody><tr><td>14:00</td><td>92</td><td>140/80</td><td>16 (Vent)</td><td>94%</td><td>35</td></tr><tr><td>14:15</td><td>95</td><td>145/82</td><td>16 (Vent)</td><td>93%</td><td>36</td></tr><tr><td>14:30</td><td>98</td><td>150/85</td><td>16 (Vent)</td><td>92%</td><td>38</td></tr><tr><td>14:45</td><td>102</td><td>155/88</td><td>16 (Vent)</td><td>90%</td><td>40</td></tr><tr><td>15:00</td><td>108</td><td>160/90</td><td>16 (Vent)</td><td>88%</td><td>42</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp (°C)</th></tr></thead><tbody><tr><td>03:00</td><td>100/70</td><td>98</td><td>20</td><td>97%</td><td>37.2</td></tr><tr><td>07:00</td><td>95/65</td><td>105</td><td>22</td><td>95%</td><td>37.5</td></tr><tr><td>11:00</td><td>90/60</td><td>110</td><td>24</td><td>94%</td><td>37.8</td></tr><tr><td>15:00</td><td>85/55</td><td>115</td><td>26</td><td>92%</td><td>38.1</td></tr></tbody></table>"
       },
       {
         "id": "labs",
         "title": "Labs",
-        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>WBC</td><td>14,000</td><td>4,500-11,000</td></tr><tr><td>Hemoglobin</td><td>14.0</td><td>13.5-17.5</td></tr><tr><td>PaCO2</td><td>55</td><td>35-45</td></tr><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>AST</td><td>2500 U/L</td><td>10-40 U/L</td></tr><tr><td>ALT</td><td>3000 U/L</td><td>7-56 U/L</td></tr><tr><td>Total Bilirubin</td><td>8.0 mg/dL</td><td>0.3-1.0 mg/dL</td></tr><tr><td>INR</td><td>2.5</td><td>0.8-1.2</td></tr><tr><td>Ammonia</td><td>150 mcg/dL</td><td>10-80 mcg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Acetaminophen</td><td>50 mcg/mL</td><td>Therapeutic: 10-20 mcg/mL</td></tr></tbody></table>"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Vancomycin</td><td>1g</td><td>IV</td><td>q12h</td><td>13:00</td></tr><tr><td>Azithromycin</td><td>500mg</td><td>IV</td><td>q24h</td><td>13:00</td></tr><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1h PRN</td><td>14:00</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>N-acetylcysteine (NAC)</td><td>150 mg/kg IV loading dose, then 50 mg/kg IV over 4 hours, then 100 mg/kg IV over 16 hours</td><td>IV</td><td>Continuous Infusion</td><td>11:00</td></tr><tr><td>Lactulose</td><td>30 mL</td><td>PO</td><td>Every 6 hours PRN</td><td>07:00</td></tr><tr><td>Normal Saline</td><td>1000 mL</td><td>IV</td><td>Continuous Infusion at 100 mL/hr</td><td>14:00</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IV</td><td>Every 6 hours PRN</td><td>13:00</td></tr></tbody></table>"
       }
     ]
   },
   "pedagogy": {
     "bloomLevel": "Analyze",
     "cjmmStep": "Evaluate",
-    "nclexCategory": "Management of Care",
+    "nclexCategory": "Pharmacology and Parenteral Therapies",
     "difficulty": 5,
     "topicTags": [
-      "Respiratory: Mechanical Ventilation Safety"
+      "GI/Hepatic: Liver Failure & Pancreatitis"
     ]
   },
   "rationale": {
-    "correct": "The decreasing SpO2, increasing EtCO2, elevated PIP, and diminished breath sounds suggest a serious respiratory compromise. Potential causes include pneumothorax, endotracheal tube obstruction (mucus plug, kinking), or worsening pneumonia. The patient's agitation may be due to hypoxia or discomfort. A stat chest x-ray is crucial to rule out pneumothorax. Suctioning the endotracheal tube is essential to clear any potential obstruction. Increasing sedation may be necessary to reduce the patient's anxiety and prevent self-extubation, but only after addressing the underlying respiratory issues. The ABG values confirm respiratory acidosis, further supporting the need for immediate intervention.",
-    "incorrect": "While increasing the FiO2 might seem like a logical step to improve oxygenation, it's essential to first identify and address the underlying cause of the desaturation. Increasing FiO2 without addressing the primary issue could lead to oxygen toxicity. Paralysis should only be considered after other interventions have been attempted and the patient's agitation persists. While monitoring blood pressure is important, it's not the priority in this acute respiratory distress situation. Documenting the findings is always important, but immediate interventions take priority.",
+    "correct": "The elevated AST and ALT levels (2500 U/L and 3000 U/L, respectively) indicate significant hepatocellular damage, a direct result of the acetaminophen overdose. The appropriate intervention is to continue and potentially increase the N-acetylcysteine (NAC) infusion, the antidote for acetaminophen toxicity. The elevated Total Bilirubin (8.0 mg/dL) indicates impaired bilirubin metabolism due to liver dysfunction. Monitoring for jaundice and pruritus is crucial. The elevated INR (2.5) suggests impaired synthesis of clotting factors by the liver, increasing the risk of bleeding. The appropriate intervention is to monitor for signs of bleeding and implement bleeding precautions. The elevated Ammonia level (150 mcg/dL) indicates impaired ammonia detoxification by the liver, leading to potential hepatic encephalopathy. Lactulose administration helps reduce ammonia levels by promoting its excretion.",
+    "incorrect": "While the patient's creatinine level is elevated (1.8 mg/dL), indicating possible renal impairment, it is not the most immediate concern compared to the liver dysfunction and associated complications. The primary focus should be on addressing the liver failure and its direct consequences. Treating nausea with ondansetron is appropriate but secondary to the other interventions. Increasing IV fluids may be warranted but only after addressing the priority issues of liver damage, bleeding risk, and ammonia levels. Monitoring vital signs is essential, but it is not an intervention in itself.",
     "clinicalPearls": [
-      "Always assess breath sounds bilaterally in ventilated patients to identify unilateral issues like pneumothorax or tube migration.",
-      "Increased PIP on a ventilator can indicate increased airway resistance or decreased lung compliance.",
-      "EtCO2 provides a real-time assessment of ventilation effectiveness."
+      "Acetaminophen overdose is a common cause of acute liver failure.",
+      "N-acetylcysteine (NAC) is the antidote for acetaminophen toxicity and should be administered as soon as possible.",
+      "Elevated ammonia levels can lead to hepatic encephalopathy, requiring interventions like lactulose.",
+      "Liver failure can impair the synthesis of clotting factors, increasing the risk of bleeding."
     ],
     "questionTrap": {
-      "trap": "Selecting 'Increase FiO2' as the primary intervention. While it may seem intuitive, it doesn't address the underlying cause of the hypoxemia.",
-      "howToOvercome": "Focus on identifying the root cause of the respiratory distress before simply increasing oxygen delivery. Consider the possibility of a pneumothorax or tube obstruction."
+      "trap": "The question requires the integration of multiple data points from different tabs (Vitals, Labs, MAR) to identify the most critical findings requiring immediate intervention. Students might focus solely on one lab value or vital sign without considering the overall clinical picture.",
+      "howToOvercome": "Emphasize the importance of holistic assessment and data integration. Encourage students to review all available data, prioritize findings based on potential consequences, and consider the patient's history and current medications."
     },
     "mnemonic": {
-      "title": "DOPE",
-      "expansion": "Displacement, Obstruction, Pneumothorax, Equipment failure. This mnemonic helps remember common causes of acute respiratory distress in intubated patients."
+      "title": "HEPATIC",
+      "expansion": "Hepatic Encephalopathy? Protect airway. Evaluate labs: AST/ALT. Prevent Bleeding: Monitor INR. Administer NAC. Treat elevated ammonia. Initiate fluids carefully. Consult specialist."
     }
-  },
-  "airborne": true,
-  "isolation": "airborne"
+  }
 }
