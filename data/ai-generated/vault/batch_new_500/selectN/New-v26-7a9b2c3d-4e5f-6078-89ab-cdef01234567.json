@@ -1,0 +1,109 @@
+{
+  "id": "New-v26-7a9b2c3d-4e5f-6078-89ab-cdef01234567",
+  "type": "selectN",
+  "stem": "The healthcare provider is reviewing the patient's EHR and current condition. Based on the information presented, which of the following findings are MOST concerning and require immediate intervention?",
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 3
+  },
+  "itemContext": {
+    "patient": {
+      "name": "John Smith",
+      "age": 72,
+      "gender": "Male",
+      "iso": "Medical Surgical Unit",
+      "airborne": false,
+      "isolation": "Contact",
+      "allergies": [
+        "Penicillin"
+      ]
+    },
+    "sbar": "S: John Smith, 72-year-old male, admitted 3 days ago for pneumonia. He has a history of hypertension and type 2 diabetes. R: Patient's creatinine has been steadily increasing. Urine output has decreased significantly over the past 12 hours. At 06:00 today, it was 30 mL/hr. A: Patient is currently alert and oriented, but increasingly restless. Vitals: BP 160/90 mmHg, HR 110 bpm, RR 24, SpO2 92% on 2L NC. Current medications include IV antibiotics, insulin, and oral antihypertensives. Labs from 07:00 show K+ 6.8 mEq/L, BUN 65 mg/dL, Creatinine 3.8 mg/dL, and Glucose 250 mg/dL. EKG shows peaked T waves. Bicarbonate is 18 mEq/L. I am concerned about possible acute kidney injury (AKI) and hyperkalemia. I recommend immediate intervention to address the hyperkalemia and decreased urine output. Please evaluate and advise on further management.",
+    "tabs": [
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Normal Range</th></tr></thead><tbody><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>6.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>102 mEq/L</td><td>95-105 mEq/L</td></tr><tr><td>Bicarbonate</td><td>18 mEq/L</td><td>22-29 mEq/L</td></tr><tr><td>BUN</td><td>65 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Creatinine</td><td>3.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Glucose</td><td>250 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>WBC</td><td>14,000/uL</td><td>4,500-11,000/uL</td></tr><tr><td>Hemoglobin</td><td>13.5 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Platelets</td><td>250,000/uL</td><td>150,000-400,000/uL</td></tbody></table>"
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td></tr><tr><td>Insulin Aspart</td><td>Sliding Scale</td><td>Subcutaneous</td><td>AC & HS</td></tr><tr><td>Metoprolol</td><td>25mg</td><td>PO</td><td>BID</td></tr><tr><td>Lisinopril</td><td>10mg</td><td>PO</td><td>Daily</td></tr><tr><td>Furosemide</td><td>20mg</td><td>IV</td><td>PRN (Urine Output <30mL/hr)</td></tr></tbody></table>"
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Urine Output (mL/hr)</th></tr></thead><tbody><tr><td>04:00</td><td>150/85</td><td>100</td><td>22</td><td>94% on 2L NC</td><td>40</td></tr><tr><td>05:00</td><td>155/88</td><td>105</td><td>23</td><td>93% on 2L NC</td><td>35</td></tr><tr><td>06:00</td><td>160/90</td><td>110</td><td>24</td><td>92% on 2L NC</td><td>30</td></tr><tr><td>07:00</td><td>162/92</td><td>112</td><td>24</td><td>91% on 2L NC</td><td>25</td></tbody></table>"
+      },
+      {
+        "id": "ekg",
+        "title": "EKG",
+        "content": "EKG shows peaked T waves."
+      }
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "Analyze",
+    "cjmmStep": "Evaluate",
+    "nclexCategory": "Physiological Integrity",
+    "difficulty": 5,
+    "topicTags": [
+      "Renal: AKI vs CKD & Electrolyte Emergencies"
+    ]
+  },
+  "rationale": {
+    "correct": "Elevated potassium (6.8 mEq/L) with EKG changes (peaked T waves) indicates hyperkalemia, which can lead to life-threatening arrhythmias. Decreased urine output (25 mL/hr) signals worsening kidney function and fluid retention. Elevated BUN (65 mg/dL) and creatinine (3.8 mg/dL) confirm renal impairment, indicating AKI. While elevated glucose needs management, hyperkalemia and AKI are the immediate life-threatening concerns. Increased WBC is expected due to the pneumonia and may need further investigation, but is not the priority now.",
+    "incorrect": "Elevated WBC is expected due to the pneumonia, but is not the priority now compared to the electrolyte imbalance and renal dysfunction. Elevated glucose requires management but is less immediately life-threatening than hyperkalemia. Stable sodium level does not require immediate intervention. The current antibiotic, while important for the pneumonia, does not address the immediate electrolyte and renal issues.",
+    "clinicalPearls": [
+      "Peaked T waves on EKG are a classic sign of hyperkalemia.",
+      "Oliguria (urine output < 400 mL/day or < 0.5 mL/kg/hr) is a key indicator of acute kidney injury.",
+      "Rapidly rising creatinine and BUN levels are indicative of AKI, distinguishing it from CKD where changes are more gradual."
+    ],
+    "questionTrap": {
+      "trap": "The question trap is selecting the elevated WBC or glucose first, as those values are high. Candidates may get distracted by treating the infection or blood sugar and overlook the emergent kidney issues.",
+      "howToOvercome": "Focus on the presenting problems and the immediate threat to the patient's life. Prioritize interventions based on the ABCs (Airway, Breathing, Circulation) and electrolyte imbalances."
+    },
+    "mnemonic": {
+      "title": "HIGH-K",
+      "expansion": "Hyperkalemia: Insulin, Glucose, Hydration, Kayexalate (or dialysis)"
+    }
+  },
+  "options": [
+    {
+      "id": "optionA",
+      "text": "Potassium 6.8 mEq/L with peaked T waves on EKG.",
+      "correct": true,
+      "feedback": "Correct. This indicates hyperkalemia, which can lead to life-threatening arrhythmias and requires immediate intervention."
+    },
+    {
+      "id": "optionB",
+      "text": "Urine output of 25 mL/hr.",
+      "correct": true,
+      "feedback": "Correct. This indicates oliguria and worsening kidney function, requiring immediate intervention."
+    },
+    {
+      "id": "optionC",
+      "text": "BUN 65 mg/dL and Creatinine 3.8 mg/dL.",
+      "correct": true,
+      "feedback": "Correct. These elevated levels confirm renal impairment and indicate acute kidney injury (AKI), requiring immediate attention."
+    },
+    {
+      "id": "optionD",
+      "text": "WBC 14,000/uL.",
+      "correct": false,
+      "feedback": "Incorrect. While elevated, this is likely related to the patient's pneumonia and is not the priority compared to the electrolyte imbalance and renal dysfunction."
+    },
+    {
+      "id": "optionE",
+      "text": "Glucose 250 mg/dL.",
+      "correct": false,
+      "feedback": "Incorrect. Although elevated, this is less immediately life-threatening than hyperkalemia and AKI. It needs to be addressed but not as the top priority."
+    },
+    {
+      "id": "optionF",
+      "text": "Sodium 140 mEq/L.",
+      "correct": false,
+      "feedback": "Incorrect. This value is within the normal range and does not require immediate intervention."
+    }
+  ]
+}
