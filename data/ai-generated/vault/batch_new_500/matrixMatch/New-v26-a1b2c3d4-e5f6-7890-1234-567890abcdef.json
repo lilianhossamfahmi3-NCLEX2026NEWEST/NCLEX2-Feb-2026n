@@ -1,76 +1,95 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "matrixMatch",
-  "stem": "The patient is exhibiting signs of worsening respiratory distress. Based on the information presented in the patient's chart, indicate whether each of the following findings is consistent with ARDS or a different respiratory condition.",
+  "stem": "The nurse is preparing to administer medications to Mr. Jones. Based on the provided information, determine if the following actions are indicated or contraindicated for each medication order.",
   "scoring": {
     "method": "dichotomous",
-    "maxPoints": 5
+    "maxPoints": 6
   },
   "itemContext": {
     "patient": {
-      "name": "John Smith",
+      "name": "Ricardo Jones",
       "age": 68,
       "gender": "Male",
-      "iso": "ICU",
-      "condition": "Airborne Precautions",
+      "iso": "Medical-Surgical Unit",
       "allergies": [
         "Penicillin"
       ]
     },
-    "sbar": "S: John Smith, 68-year-old male, admitted 3 days ago with pneumonia. B: Patient has a history of COPD and presented with a productive cough, fever, and shortness of breath. He was initially started on antibiotics and supplemental oxygen. A: At 0600, the patient's SpO2 dropped to 88% despite increasing the FiO2 to 60%. Respiratory rate is 32 and shallow with coarse crackles auscultated bilaterally. Arterial blood gas (ABG) results at 0615 reveal: pH 7.30, PaCO2 55 mmHg, PaO2 58 mmHg, and HCO3 26 mEq/L. The patient is increasingly agitated and confused. Current ventilator settings are: FiO2 60%, PEEP 5 cm H2O. The last dose of morphine 2mg IV was administered at 0400. R: I am requesting orders for further management of acute respiratory failure. I am considering escalation of respiratory support, including increasing PEEP and potentially paralysis if the patient continues to decompensate. Please notify the attending physician of this significant status change immediately. The next antibiotic dose is due at 1000.",
+    "sbar": "Situation: Ricardo Jones, a 68-year-old male with a history of hypertension, type 2 diabetes, and COPD, was admitted yesterday for an acute exacerbation of Congestive Heart Failure (CHF). Background: Mr. Jones has a history of hypertension, type 2 diabetes, and COPD, all managed with outpatient medications. He presented with increasing dyspnea and peripheral edema. Assessment: At 07:00, Mr. Jones reports a significant increase in shortness of breath. Auscultation reveals bilateral crackles in all lung fields. His current vital signs are: blood pressure 160/90 mmHg, heart rate 110 bpm, respiratory rate 28 breaths per minute, and SpO2 89% on 2L nasal cannula. His weight is 90 kg. Current medication orders include furosemide 40mg IVP BID, lisinopril 20mg PO daily, and digoxin 0.125mg PO daily. At 07:30, recent laboratory results are available for review. Recommendation: Please carefully review the provided lab results and medication orders. Mr. Jones requires a thorough assessment and potential adjustments to his medication regimen. The furosemide is due at 08:00. Immediate intervention may be required to address his respiratory distress.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>55 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>58 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>26 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>18,000/mm3</td><td>4,500-11,000/mm3</td></tr><tr><td>Lactate</td><td>2.8 mmol/L</td><td>0.5-2.2 mmol/L</td></tr></tbody></table>"
+        "content": "Sodium: 130 mEq/L, Potassium: 3.2 mEq/L, Chloride: 98 mEq/L, BUN: 35 mg/dL, Creatinine: 1.8 mg/dL, Glucose: 180 mg/dL, Digoxin Level: 0.6 ng/mL"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Given</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q12h</td><td>0000</td></tr><tr><td>Morphine</td><td>2mg</td><td>IV</td><td>q4h PRN</td><td>0400</td></tr><tr><td>Albuterol/Ipratropium</td><td>Nebulizer</td><td>Inhalation</td><td>q4h PRN</td><td>0500</td></tr><tr><td>Pantoprazole</td><td>40mg</td><td>IV</td><td>Daily</td><td>0200</td></tr></tbody></table>"
+        "content": "08:00: Furosemide 40mg IVP, 09:00: Lisinopril 20mg PO, 10:00: Digoxin 0.125mg PO"
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>0200</td><td>98</td><td>130/80</td><td>24</td><td>94% on 2L NC</td><td>38.5°C</td></tr><tr><td>0400</td><td>105</td><td>125/75</td><td>28</td><td>92% on 4L NC</td><td>38.2°C</td></tr><tr><td>0600</td><td>115</td><td>110/65</td><td>32</td><td>88% on 60% FiO2</td><td>37.9°C</td></tr></tbody></table>"
+        "content": "07:00: BP 160/90, HR 110, RR 28, SpO2 89%, Temp 37.2°C (99.0°F)"
       }
     ]
   },
   "pedagogy": {
     "bloomLevel": "Analyze",
-    "cjmmStep": "Evaluate",
-    "nclexCategory": "Physiological Integrity",
+    "cjmmStep": "Analyze Cues",
+    "nclexCategory": "Safe and Effective Care Environment",
     "difficulty": 5,
     "topicTags": [
-      "Respiratory: Respiratory Failure & ARDS"
+      "Safety: Medication Calculation & High-Alert Drugs"
     ]
   },
   "rationale": {
-    "correct": "ARDS is characterized by acute onset, bilateral infiltrates on chest imaging (assumed based on the description of bilateral crackles and pneumonia), and severe hypoxemia that is refractory to oxygen therapy (PaO2/FiO2 ratio ≤ 300; in this case, 58/0.6 = 97). The patient's ABGs demonstrate hypoxemia (PaO2 58 mmHg) and hypercapnia (PaCO2 55 mmHg), indicating acute respiratory failure. The SBAR describes an increasing FiO2 requirement to maintain acceptable SpO2 levels, suggesting the patient meets the hypoxemia criteria for ARDS. Elevated WBC and lactate could be related to underlying infection but do not rule out ARDS. The patient's history of COPD could contribute to respiratory failure but the rapid decline is more consistent with ARDS pathophysiology.",
-    "incorrect": "While some findings may be present in other respiratory conditions, the constellation of hypoxemia refractory to oxygen, hypercapnia, and bilateral infiltrates strongly suggests ARDS. COPD exacerbation can cause hypoxemia and hypercapnia, but not usually to this degree so quickly, especially with increasing oxygen administration, and does not fully explain the acute deterioration. Pneumonia alone, while present initially, cannot explain the continued decline despite antibiotic administration and increasing oxygen. Pulmonary embolism (PE) can cause acute respiratory distress, but is not supported by the current data. CHF could contribute to respiratory distress but the ABG values and rapid deterioration more strongly point to ARDS.",
+    "correct": "Administering furosemide is indicated because the patient exhibits signs of fluid overload, including crackles, edema, and CHF exacerbation. Administering lisinopril is contraindicated due to the patient's elevated heart rate and borderline hypotension, as lisinopril could further lower blood pressure. Administering digoxin is indicated as the patient's digoxin level is within the therapeutic range, but the low potassium level (3.2 mEq/L) increases the risk of digoxin toxicity. The hypokalemia needs to be addressed before digoxin administration.",
+    "incorrect": "Incorrect answers demonstrate a lack of understanding of the potential synergistic effects of medications, contraindications based on lab values, and the patient's current physiological state. Failure to recognize the interaction between low potassium levels and digoxin is a critical error. Incorrect assessment of the patient’s fluid status, blood pressure, and electrolyte balance leads to inappropriate medication administration decisions. Overlooking the potential risks associated with administering medications without considering lab values and vital signs is a dangerous practice.",
     "clinicalPearls": [
-      "ARDS is a syndrome of acute respiratory failure caused by diffuse alveolar damage, leading to increased permeability of the alveolar-capillary membrane.",
-      "Key diagnostic criteria for ARDS include: acute onset, bilateral lung infiltrates, and PaO2/FiO2 ≤ 300.",
-      "Management of ARDS focuses on optimizing oxygenation and ventilation, often requiring mechanical ventilation with low tidal volumes and PEEP."
+      "Always check potassium levels before administering digoxin or loop diuretics, as hypokalemia can potentiate digoxin toxicity and increase the risk of arrhythmias.",
+      "Monitor blood pressure closely when administering antihypertensives, especially in patients with CHF, to avoid precipitous drops in blood pressure.",
+      "Assess for signs and symptoms of fluid overload and electrolyte imbalances when managing patients with CHF."
     ],
     "questionTrap": {
-      "trap": "Students may focus on the patient's COPD history and attribute the respiratory distress solely to a COPD exacerbation.",
-      "howToOvercome": "Carefully evaluate the ABGs and the patient's response to oxygen therapy. Refractory hypoxemia despite increased FiO2 is a hallmark of ARDS, distinguishing it from a typical COPD exacerbation."
+      "trap": "Many students may focus solely on the CHF exacerbation and administer all medications without considering the patient's lab values, blood pressure, or potential drug interactions. Students might also assume that because the patient is hypertensive, the lisinopril is automatically indicated.",
+      "howToOvercome": "Thoroughly assess all available data, including lab values and vital signs, before making medication administration decisions. Understand the potential interactions and contraindications of each medication. Consider the overall clinical picture and potential risks before administering any medication. Prioritize addressing electrolyte imbalances before administering medications that can be affected by these imbalances."
     },
     "mnemonic": {
-      "title": "ARDS Criteria (Berlin Definition)",
-      "expansion": "A - Acute onset (within 1 week of known clinical insult), R - Respiratory failure not fully explained by cardiac failure or fluid overload, D - Diffuse bilateral infiltrates, S - Severe hypoxemia (PaO2/FiO2 ≤ 300)"
+      "title": "K Digs Deep",
+      "expansion": "Low Potassium (K) potentiates Digoxin (Digs) toxicity. Always check potassium levels before administering digoxin. Remember to also check BP before Lisinopril."
     }
   },
-  "matrixMatchOptions": [
-    "Consistent with ARDS",
-    "Consistent with a Different Respiratory Condition"
-  ],
-  "matrixMatchAnswers": {
-    "Acute hypoxemia refractory to oxygen therapy": "Consistent with ARDS",
-    "Elevated PaCO2": "Consistent with ARDS",
-    "Elevated WBC count": "Consistent with a Different Respiratory Condition",
-    "History of COPD": "Consistent with a Different Respiratory Condition",
-    "Rapid deterioration despite treatment": "Consistent with ARDS"
+  "matrixMatchOptions": {
+    "rows": [
+      {
+        "id": "furosemide",
+        "label": "Furosemide 40mg IVP"
+      },
+      {
+        "id": "lisinopril",
+        "label": "Lisinopril 20mg PO"
+      },
+      {
+        "id": "digoxin",
+        "label": "Digoxin 0.125mg PO"
+      }
+    ],
+    "columns": [
+      {
+        "id": "indicated",
+        "label": "Indicated"
+      },
+      {
+        "id": "contraindicated",
+        "label": "Contraindicated"
+      }
+    ]
+  },
+  "answerKey": {
+    "furosemide": "indicated",
+    "lisinopril": "contraindicated",
+    "digoxin": "indicated"
   }
 }

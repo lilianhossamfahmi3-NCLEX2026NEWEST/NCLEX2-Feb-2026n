@@ -1,0 +1,85 @@
+{
+  "id": "New-v26-MM42987",
+  "type": "matrixMatch",
+  "stem": "The patient is receiving a heparin infusion. Based on the provided information, indicate whether each of the following physician orders is appropriate or inappropriate.",
+  "scoring": {
+    "method": "dichotomous",
+    "maxPoints": 4
+  },
+  "itemContext": {
+    "patient": {
+      "name": "John Smith",
+      "age": 68,
+      "gender": "Male",
+      "iso": "Medical Surgical Unit",
+      "allergies": [
+        "Penicillin"
+      ],
+      "conditions": [
+        "Airborne Precautions"
+      ]
+    },
+    "sbar": "S: John Smith, 68-year-old male, admitted for DVT. History includes hypertension and Type 2 diabetes mellitus. R: Patient is currently on a continuous heparin infusion. The 07:00 aPTT result is 92 seconds, significantly above the therapeutic range. B: Heparin infusion is running per protocol. At 07:30, the patient reported a mild nosebleed. There are no current orders for airborne isolation. A: I am concerned about possible heparin-induced bleeding due to the elevated aPTT and recent nosebleed. Vital signs are currently stable: BP 138/82, HR 78, RR 18, SpO2 98% on room air. The current heparin infusion rate is 1400 units/hour. The last heparin bolus was administered 2 hours ago. The patient denies any new pain or neurological deficits. I have already notified the attending physician. I recommend holding the heparin and rechecking the aPTT. Please review the orders and advise on further management.",
+    "tabs": [
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>aPTT</td><td>92 seconds</td><td>25-35 seconds</td></tr><tr><td>Platelets</td><td>180,000/μL</td><td>150,000-450,000/μL</td></tr><tr><td>Hemoglobin</td><td>12.5 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Hematocrit</td><td>37.5%</td><td>41-53%</td></tr></tbody></table>"
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Scheduled Time</th></tr></thead><tbody><tr><td>Heparin</td><td>1400 units/hour</td><td>IV Infusion</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Insulin Aspart</td><td>Varies per sliding scale</td><td>Subcutaneous</td><td>Before meals</td><td>08:00, 12:00, 18:00</td></tr><tr><td>Metoprolol</td><td>50 mg</td><td>Oral</td><td>Twice Daily</td><td>09:00, 21:00</td></tr></tbody></table>"
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "<table><thead><tr><th>Vital Sign</th><th>Result</th><th>Time</th></tr></thead><tbody><tr><td>BP</td><td>138/82 mmHg</td><td>07:30</td></tr><tr><td>HR</td><td>78 bpm</td><td>07:30</td></tr><tr><td>RR</td><td>18 breaths/min</td><td>07:30</td></tr><tr><td>SpO2</td><td>98%</td><td>07:30</td></tr><tr><td>Temperature</td><td>37.0 °C</td><td>07:30</td></tr></tbody></table>"
+      }
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "Apply",
+    "cjmmStep": "Analyze Cues",
+    "nclexCategory": "Safe and Effective Care Environment",
+    "difficulty": 5,
+    "topicTags": [
+      "Safety: Medication Calculation & High-Alert Drugs"
+    ]
+  },
+  "rationale": {
+    "correct": "The patient's aPTT is significantly elevated (92 seconds, normal 25-35 seconds), indicating excessive anticoagulation and an increased risk of bleeding. Reducing or holding the heparin infusion is crucial to prevent further complications. Protamine sulfate is the antidote for heparin and should be readily available. Monitoring for signs of bleeding (gums, urine, stool) is essential. Repeating the aPTT in one hour is appropriate to assess the effect of the dose reduction or hold.",
+    "incorrect": "Continuing the heparin infusion at the same rate is dangerous due to the elevated aPTT and nosebleed, increasing the risk of a serious hemorrhagic event. Administering a heparin bolus would further elevate the aPTT and exacerbate the bleeding risk. Increasing the heparin infusion rate would dangerously increase the anticoagulation, increasing bleeding risks. Delaying the aPTT would delay necessary treatment adjustments.",
+    "clinicalPearls": [
+      "Always double-check heparin dosages and infusion rates with another nurse.",
+      "Monitor patients receiving heparin closely for signs of bleeding, including changes in vital signs, bruising, and blood in urine or stool.",
+      "Ensure protamine sulfate, the antidote for heparin, is readily available."
+    ],
+    "questionTrap": {
+      "trap": "The question trap lies in the subtle presentation of stable vital signs, which might mislead the test-taker into thinking the patient is not in immediate danger. The nosebleed could be misinterpreted as a minor event.",
+      "howToOvercome": "Focus on the significantly elevated aPTT value, which is the primary indicator of a critical safety concern, and recognize the nosebleed as a clinical manifestation of excessive anticoagulation."
+    },
+    "mnemonic": {
+      "title": "HEPARIN",
+      "expansion": "Heparin prevents clots; Evaluate PTT and platelets; Protect from injury; Administer IV or SubQ; Risks: Bleeding; Instruct: Soft toothbrush; No razors."
+    }
+  },
+  "matrixMatchOptions": {
+    "rows": [
+      "Continue heparin infusion at 1400 units/hour",
+      "Hold heparin infusion",
+      "Administer heparin bolus",
+      "Repeat aPTT in one hour"
+    ],
+    "columns": [
+      "Appropriate",
+      "Inappropriate"
+    ],
+    "answers": {
+      "Continue heparin infusion at 1400 units/hour": "Inappropriate",
+      "Hold heparin infusion": "Appropriate",
+      "Administer heparin bolus": "Inappropriate",
+      "Repeat aPTT in one hour": "Appropriate"
+    }
+  }
+}
