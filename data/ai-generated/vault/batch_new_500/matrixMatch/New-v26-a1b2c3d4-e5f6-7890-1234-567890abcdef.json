@@ -1,7 +1,7 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "matrixMatch",
-  "stem": "The patient is exhibiting signs and symptoms related to their acute stroke and increased intracranial pressure (ICP). For each assessment finding, determine if the finding indicates improvement, decline, or no change in the patient's condition compared to their baseline. Select one option in each row.",
+  "stem": "The patient is exhibiting signs of worsening respiratory distress. Based on the information presented in the patient's chart, indicate whether each of the following findings is consistent with ARDS or a different respiratory condition.",
   "scoring": {
     "method": "dichotomous",
     "maxPoints": 5
@@ -9,80 +9,68 @@
   "itemContext": {
     "patient": {
       "name": "John Smith",
-      "age": 72,
+      "age": 68,
       "gender": "Male",
-      "iso": "Medical Unit",
+      "iso": "ICU",
+      "condition": "Airborne Precautions",
       "allergies": [
-        "NKDA"
-      ],
-      "condition": [
-        "Airborne Precautions due to potential aspiration pneumonia"
+        "Penicillin"
       ]
     },
-    "sbar": "S: John Smith, 72-year-old male, admitted at 03:00 for acute ischemic stroke, right middle cerebral artery (MCA) occlusion. NIHSS score on admission was 18. He is at risk for aspiration. B: History of hypertension, atrial fibrillation (on warfarin). Last dose of warfarin was 20:00 last night. A: At 07:00, patient’s GCS is 11 (Eyes 2, Verbal 4, Motor 5). Right-sided weakness persists. BP is 180/100 mmHg. Heart rate is 90 bpm, irregular. RR is 14 and regular. O2 saturation is 96% on 2L nasal cannula. The patient is receiving IV fluids at 75 mL/hr. INR is 2.8. A new assessment at 08:00 reveals changes that require evaluation. R: Please assess the following findings and determine if they indicate improvement, decline, or no change. Be prepared to administer labetalol if blood pressure remains elevated despite initial dose. Monitor neurological status closely and notify the physician of any further decline. Consider a swallow evaluation due to aspiration risk.",
+    "sbar": "S: John Smith, 68-year-old male, admitted 3 days ago with pneumonia. B: Patient has a history of COPD and presented with a productive cough, fever, and shortness of breath. He was initially started on antibiotics and supplemental oxygen. A: At 0600, the patient's SpO2 dropped to 88% despite increasing the FiO2 to 60%. Respiratory rate is 32 and shallow with coarse crackles auscultated bilaterally. Arterial blood gas (ABG) results at 0615 reveal: pH 7.30, PaCO2 55 mmHg, PaO2 58 mmHg, and HCO3 26 mEq/L. The patient is increasingly agitated and confused. Current ventilator settings are: FiO2 60%, PEEP 5 cm H2O. The last dose of morphine 2mg IV was administered at 0400. R: I am requesting orders for further management of acute respiratory failure. I am considering escalation of respiratory support, including increasing PEEP and potentially paralysis if the patient continues to decompensate. Please notify the attending physician of this significant status change immediately. The next antibiotic dose is due at 1000.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>1.0 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>INR</td><td>2.8</td><td>0.8-1.2 (Therapeutic: 2.0-3.0 on Warfarin)</td></tr><tr><td>Glucose</td><td>110 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>Platelets</td><td>250,000/uL</td><td>150,000-400,000/uL</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>55 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>58 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>26 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>18,000/mm3</td><td>4,500-11,000/mm3</td></tr><tr><td>Lactate</td><td>2.8 mmol/L</td><td>0.5-2.2 mmol/L</td></tr></tbody></table>"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td><td>20:00 Yesterday</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>PRN for SBP > 180</td><td>07:15 Today</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>PRN for Temp > 100.4 F</td><td>N/A</td></tr><tr><td>Normal Saline</td><td>75 mL/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Given</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q12h</td><td>0000</td></tr><tr><td>Morphine</td><td>2mg</td><td>IV</td><td>q4h PRN</td><td>0400</td></tr><tr><td>Albuterol/Ipratropium</td><td>Nebulizer</td><td>Inhalation</td><td>q4h PRN</td><td>0500</td></tr><tr><td>Pantoprazole</td><td>40mg</td><td>IV</td><td>Daily</td><td>0200</td></tr></tbody></table>"
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>O2 Sat</th><th>Temp</th><th>GCS</th></tr></thead><tbody><tr><td>07:00</td><td>180/100</td><td>90 (Irregular)</td><td>14</td><td>96% (2L NC)</td><td>98.6 F</td><td>11 (E2, V4, M5)</td></tr><tr><td>08:00</td><td>190/110</td><td>80 (Irregular)</td><td>12</td><td>94% (2L NC)</td><td>98.8 F</td><td>9 (E1, V3, M5)</td></tr></tbody></table>"
+        "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>0200</td><td>98</td><td>130/80</td><td>24</td><td>94% on 2L NC</td><td>38.5°C</td></tr><tr><td>0400</td><td>105</td><td>125/75</td><td>28</td><td>92% on 4L NC</td><td>38.2°C</td></tr><tr><td>0600</td><td>115</td><td>110/65</td><td>32</td><td>88% on 60% FiO2</td><td>37.9°C</td></tr></tbody></table>"
       }
     ]
   },
   "pedagogy": {
     "bloomLevel": "Analyze",
-    "cjmmStep": "Recognizing Cues",
+    "cjmmStep": "Evaluate",
     "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "Neurological: Stroke & Increased ICP"
+      "Respiratory: Respiratory Failure & ARDS"
     ]
   },
   "rationale": {
-    "correct": "Increased blood pressure indicates a decline as hypertension exacerbates cerebral edema and increases ICP following a stroke. Decreased Glasgow Coma Scale (GCS) indicates a decline in neurological function and level of consciousness, a key sign of worsening ICP. Decreased respiratory rate can indicate a decline as it may lead to CO2 retention, which further increases ICP. Decreased oxygen saturation indicates a decline, potentially due to hypoventilation related to increased ICP affecting the respiratory center. Decreased heart rate in the context of hypertension and declining GCS indicates a decline (Cushing's Triad).",
-    "incorrect": "Improvement would be indicated by decreased blood pressure, increased GCS, increased respiratory rate, increased oxygen saturation, or increased heart rate (although bradycardia with hypertension can indicate Cushing's Triad). No change would be indicated if the vitals and GCS remained stable from the previous assessment.",
+    "correct": "ARDS is characterized by acute onset, bilateral infiltrates on chest imaging (assumed based on the description of bilateral crackles and pneumonia), and severe hypoxemia that is refractory to oxygen therapy (PaO2/FiO2 ratio ≤ 300; in this case, 58/0.6 = 97). The patient's ABGs demonstrate hypoxemia (PaO2 58 mmHg) and hypercapnia (PaCO2 55 mmHg), indicating acute respiratory failure. The SBAR describes an increasing FiO2 requirement to maintain acceptable SpO2 levels, suggesting the patient meets the hypoxemia criteria for ARDS. Elevated WBC and lactate could be related to underlying infection but do not rule out ARDS. The patient's history of COPD could contribute to respiratory failure but the rapid decline is more consistent with ARDS pathophysiology.",
+    "incorrect": "While some findings may be present in other respiratory conditions, the constellation of hypoxemia refractory to oxygen, hypercapnia, and bilateral infiltrates strongly suggests ARDS. COPD exacerbation can cause hypoxemia and hypercapnia, but not usually to this degree so quickly, especially with increasing oxygen administration, and does not fully explain the acute deterioration. Pneumonia alone, while present initially, cannot explain the continued decline despite antibiotic administration and increasing oxygen. Pulmonary embolism (PE) can cause acute respiratory distress, but is not supported by the current data. CHF could contribute to respiratory distress but the ABG values and rapid deterioration more strongly point to ARDS.",
     "clinicalPearls": [
-      "Maintain strict blood pressure control in stroke patients to prevent further neurological damage. However, avoid overly aggressive reduction as it can reduce cerebral perfusion.",
-      "Monitor neurological status closely using the Glasgow Coma Scale (GCS) to identify early signs of increased ICP.",
-      "Elevate the head of the bed to 30 degrees to promote venous drainage and reduce ICP, unless contraindicated."
+      "ARDS is a syndrome of acute respiratory failure caused by diffuse alveolar damage, leading to increased permeability of the alveolar-capillary membrane.",
+      "Key diagnostic criteria for ARDS include: acute onset, bilateral lung infiltrates, and PaO2/FiO2 ≤ 300.",
+      "Management of ARDS focuses on optimizing oxygenation and ventilation, often requiring mechanical ventilation with low tidal volumes and PEEP."
     ],
     "questionTrap": {
-      "trap": "Students may incorrectly assume that a slightly elevated blood pressure is acceptable in a stroke patient, or that a small change in GCS is insignificant. They may also misinterpret the decreased heart rate as a positive finding if they do not recognize it as part of Cushing's Triad.",
-      "howToOvercome": "Emphasize the importance of recognizing subtle changes in neurological status and understanding the significance of Cushing's Triad (bradycardia, hypertension, and irregular respirations) as late signs of increased ICP. Review the specific GCS criteria and the implications of even minor changes."
+      "trap": "Students may focus on the patient's COPD history and attribute the respiratory distress solely to a COPD exacerbation.",
+      "howToOvercome": "Carefully evaluate the ABGs and the patient's response to oxygen therapy. Refractory hypoxemia despite increased FiO2 is a hallmark of ARDS, distinguishing it from a typical COPD exacerbation."
     },
     "mnemonic": {
-      "title": "ICP Signs",
-      "expansion": "Increased ICP signs: Irregular respirations, Cushing's Triad, Projectile vomiting, Pupils changes (unequal, dilated, nonreactive), Decreased LOC"
+      "title": "ARDS Criteria (Berlin Definition)",
+      "expansion": "A - Acute onset (within 1 week of known clinical insult), R - Respiratory failure not fully explained by cardiac failure or fluid overload, D - Diffuse bilateral infiltrates, S - Severe hypoxemia (PaO2/FiO2 ≤ 300)"
     }
   },
-  "matrixMatchOptions": {
-    "rows": [
-      "Blood Pressure 190/110 mmHg",
-      "Glasgow Coma Scale (GCS) 9",
-      "Respiratory Rate 12 breaths/min",
-      "Oxygen Saturation 94% on 2L NC",
-      "Heart Rate 80 bpm (irregular)"
-    ],
-    "columns": [
-      "Improvement",
-      "Decline",
-      "No Change"
-    ]
-  },
-  "correctResponse": {
-    "Blood Pressure 190/110 mmHg": "Decline",
-    "Glasgow Coma Scale (GCS) 9": "Decline",
-    "Respiratory Rate 12 breaths/min": "Decline",
-    "Oxygen Saturation 94% on 2L NC": "Decline",
-    "Heart Rate 80 bpm (irregular)": "Decline"
+  "matrixMatchOptions": [
+    "Consistent with ARDS",
+    "Consistent with a Different Respiratory Condition"
+  ],
+  "matrixMatchAnswers": {
+    "Acute hypoxemia refractory to oxygen therapy": "Consistent with ARDS",
+    "Elevated PaCO2": "Consistent with ARDS",
+    "Elevated WBC count": "Consistent with a Different Respiratory Condition",
+    "History of COPD": "Consistent with a Different Respiratory Condition",
+    "Rapid deterioration despite treatment": "Consistent with ARDS"
   }
 }
