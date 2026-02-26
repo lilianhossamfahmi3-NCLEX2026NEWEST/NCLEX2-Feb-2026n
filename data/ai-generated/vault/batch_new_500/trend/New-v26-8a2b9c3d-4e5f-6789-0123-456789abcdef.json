@@ -1,0 +1,64 @@
+{
+  "id": "New-v26-8a2b9c3d-4e5f-6789-0123-456789abcdef",
+  "type": "trend",
+  "stem": "The patient's condition is trending. Based on the data provided in the EHR, complete the table below to evaluate the interventions and their effectiveness. For each intervention, indicate if it was appropriate and whether it was effective in improving the patient's condition. Base your decision on the trends observed in the patient's vital signs and lab results.",
+  "scoring": {
+    "method": "dichotomous",
+    "maxPoints": 6
+  },
+  "itemContext": {
+    "patient": {
+      "name": "James Miller",
+      "age": 68,
+      "gender": "Male",
+      "iso": "ICU",
+      "allergies": [
+        "Penicillin"
+      ]
+    },
+    "sbar": "S: James Miller, 68-year-old male, admitted 2 days ago with septic shock secondary to pneumonia. R: Developed hypotension unresponsive to initial fluid resuscitation. Started on norepinephrine at 06:00. B: History of hypertension and hyperlipidemia. Current vitals: BP 88/52 mmHg, HR 118 bpm, RR 26, SpO2 92% on 4L NC, Temp 38.8°C. Recent lactate 4.8 mmol/L at 07:00. UOP has been declining. A: 08:00: Increased norepinephrine to 8 mcg/min. 09:00: Administered 500 mL crystalloid bolus. 10:00: Initiated broad-spectrum antibiotics. 11:00: Placed arterial line for continuous BP monitoring. Currently, BP 94/58 mmHg, HR 110 bpm, RR 24, SpO2 94% on 4L NC, Temp 38.5°C. Lactate remains elevated at 4.2 mmol/L at 11:00. I am concerned about persistent hypotension and elevated lactate despite interventions.",
+    "tabs": [
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "<table><thead><tr><th>Time</th><th>BP (mmHg)</th><th>HR (bpm)</th><th>RR (bpm)</th><th>SpO2 (%)</th><th>Temp (°C)</th></tr></thead><tbody><tr><td>06:00</td><td>82/48</td><td>122</td><td>28</td><td>90</td><td>39.0</td></tr><tr><td>07:00</td><td>85/50</td><td>120</td><td>27</td><td>91</td><td>38.9</td></tr><tr><td>08:00</td><td>88/52</td><td>118</td><td>26</td><td>92</td><td>38.8</td></tr><tr><td>09:00</td><td>90/55</td><td>115</td><td>25</td><td>93</td><td>38.7</td></tr><tr><td>10:00</td><td>92/57</td><td>112</td><td>24</td><td>94</td><td>38.6</td></tr><tr><td>11:00</td><td>94/58</td><td>110</td><td>24</td><td>94</td><td>38.5</td></tr></tbody></table>"
+      },
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": "<table><thead><tr><th>Lab</th><th>07:00</th><th>11:00</th></tr></thead><tbody><tr><td>Lactate (mmol/L)</td><td>4.8</td><td>4.2</td></tr><tr><td>WBC (x10^9/L)</td><td>18</td><td>17</td></tr><tr><td>Creatinine (mg/dL)</td><td>1.5</td><td>1.6</td></tr></tbody></table>"
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": "<table><thead><tr><th>Time</th><th>Medication</th><th>Dose</th><th>Route</th></tr></thead><tbody><tr><td>06:00</td><td>Norepinephrine</td><td>2 mcg/min</td><td>IV</td></tr><tr><td>08:00</td><td>Norepinephrine</td><td>8 mcg/min</td><td>IV</td></tr><tr><td>09:00</td><td>Crystalloid (LR)</td><td>500 mL</td><td>IV Bolus</td></tr><tr><td>10:00</td><td>Ceftriaxone</td><td>2 g</td><td>IV</td></tr></tbody></table>"
+      }
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "Analyze",
+    "cjmmStep": "Evaluate",
+    "nclexCategory": "Physiological Integrity",
+    "difficulty": 5,
+    "topicTags": [
+      "Cardiovascular: Shock & Hemodynamics"
+    ]
+  },
+  "rationale": {
+    "correct": "Increasing norepinephrine was appropriate as the patient was hypotensive despite initial fluid resuscitation, indicating a need for vasopressors to improve blood pressure. The trend of increasing blood pressure suggests it was effective, though the target BP has not been achieved. Administering a crystalloid bolus was appropriate to address potential hypovolemia contributing to hypotension. The slight increase in BP suggests some effectiveness, but further assessment is needed. Initiating broad-spectrum antibiotics was appropriate given the septic shock diagnosis secondary to pneumonia. While WBC counts are only slightly decreased, it's too early to determine definitive effectiveness; monitoring trends is crucial. Placing an arterial line for continuous BP monitoring was appropriate to closely monitor BP changes in a critically ill patient receiving vasopressors. This facilitates timely adjustments to therapy based on real-time data, improving patient safety and outcomes.",
+    "incorrect": "Failing to recognize the appropriateness of norepinephrine administration, fluid bolus, antibiotics, or arterial line placement indicates a lack of understanding of septic shock management and the rationale behind these interventions. Incorrectly assessing the effectiveness of these interventions may stem from a misunderstanding of the expected timelines for improvement and the significance of subtle changes in vital signs and lab results.",
+    "clinicalPearls": [
+      "In septic shock, early initiation of vasopressors and antibiotics is crucial for improving patient outcomes.",
+      "Continuous BP monitoring via arterial line allows for precise titration of vasopressors.",
+      "Lactate trends are important indicators of tissue perfusion and response to treatment in septic shock."
+    ],
+    "questionTrap": {
+      "trap": "Students may focus solely on one data point instead of analyzing the overall trend, leading to inaccurate conclusions about the effectiveness of interventions.",
+      "howToOvercome": "Encourage students to look at the changes in vital signs and lab values over time rather than individual data points. Emphasize the importance of considering the clinical context and expected timelines for intervention effects."
+    },
+    "mnemonic": {
+      "title": "VIP",
+      "expansion": "V - Vasopressors (Norepinephrine), I - IV Fluids (Crystalloid Bolus), P - Pressors (Arterial line for BP monitoring)"
+    }
+  }
+}
