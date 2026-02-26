@@ -16,6 +16,28 @@
       "responseId": "monitorElectrolyteLevels"
     }
   ],
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "partialCredit",
     "maxPoints": 3
@@ -29,6 +51,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": "Administer IV fluids: IV fluids help to improve renal perfusion and can help flush out toxins, especially in cases of AKI secondary to dehydration. Restrict potassium intake: Hyperkalemia is a common and dangerous complication of AKI. Restricting potassium intake helps to prevent or manage hyperkalemia. Monitor electrolyte levels: Electrolyte imbalances are common in AKI and can lead to serious complications. Frequent monitoring allows for timely intervention.",
     "mnemonic": {
@@ -45,6 +68,28 @@
       "Hyperkalemia is a life-threatening complication of AKI and requires prompt treatment."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "Patient is a 68-year-old male admitted with AKI, likely secondary to dehydration and recent NSAID use.  Urine output has been minimal for the past 24 hours.  Labs are pending but initial creatinine is elevated. Patient is reporting fatigue and nausea. Vital signs are stable but trending towards hypotension.",
     "tabs": [
@@ -96,7 +141,7 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "responseOptions": [
     {
       "id": "administerIVFluids",
@@ -128,5 +173,19 @@
       "text": "Provide sodium polystyrene sulfonate (Kayexalate)",
       "correct": false
     }
+  ],
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
   ]
 }

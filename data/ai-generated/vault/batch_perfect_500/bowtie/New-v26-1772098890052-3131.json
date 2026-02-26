@@ -3,6 +3,28 @@
   "stem": "A 6-year-old child with a history of asthma is brought to the emergency department. The child is wheezing, has a respiratory rate of 36, and an oxygen saturation of 88% on room air. The nurse is preparing to administer medications. Identify the appropriate actions and contraindications related to the child's condition.",
   "type": "bowtie",
   "NGNtype": "action",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "options": [
     {
       "id": "albuterol",
@@ -69,6 +91,7 @@
     "nclexCategory": "Pharmacological and Parenteral Therapies"
   },
   "NGNformat": "interactive",
+  "condition": "Pediatric",
   "rationale": {
     "correct": "Albuterol is a beta-2 agonist that causes bronchodilation, relieving wheezing and improving airflow. Oxygen administration is crucial to address hypoxemia. Ipratropium bromide is an anticholinergic that can further reduce bronchospasm. Monitoring heart rate is important because albuterol can cause tachycardia.",
     "mnemonic": "A-Airway, B-Breathing, C-Circulation (for initial assessment); Albuterol Opens Airways (for medication)",
@@ -93,6 +116,28 @@
     {
       "id": "patientProblem",
       "label": "Patient Problem"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
     }
   ],
   "itemContext": {
@@ -141,7 +186,11 @@
       "diagnosis": "Asthma exacerbation"
     }
   },
-  "sentinelStatus": "healed_v2026_v18_qi100",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
   "correctResponses": {
     "intervention": [
       "albuterol",
@@ -158,5 +207,15 @@
       "antihistamine",
       "supine"
     ]
-  }
+  },
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Pediatric",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

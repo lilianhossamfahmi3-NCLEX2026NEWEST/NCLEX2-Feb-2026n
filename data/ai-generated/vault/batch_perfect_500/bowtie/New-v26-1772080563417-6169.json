@@ -54,6 +54,28 @@
       "response": "Provide large meals."
     }
   ],
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "partialCredit",
     "maxPoints": 6
@@ -67,6 +89,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": "Oxygen administration improves myocardial oxygen supply. ECG monitoring allows for early detection of arrhythmias or re-infarction. Administering morphine reduces pain and anxiety, decreasing myocardial workload. Placing the patient on bed rest minimizes myocardial oxygen demand. Starting a clear liquid diet minimizes the risk of aspiration should the patient become nauseated or vomit. Assessing bowel sounds would rule out ileus related to the MI.",
     "mnemonic": {
@@ -84,6 +107,28 @@
       "Oxygen therapy is indicated even if SpO2 is >90% in the initial stages of MI to maximize myocardial oxygen delivery."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "Patient admitted 2 hours ago following acute onset of chest pain. ECG showed ST-segment elevation in leads V1-V4. Received aspirin and nitroglycerin in the ED. Currently reporting mild chest discomfort (2/10).",
     "tabs": [
@@ -131,7 +176,7 @@
       "relevantHistory": "Hypertension, Hyperlipidemia, Smoker (quit 5 years ago)"
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "responseOptions": [
     {
       "text": "Administer oxygen via nasal cannula.",
@@ -173,5 +218,19 @@
       "text": "Provide large meals.",
       "correctAnswer": "Contraindicated"
     }
+  ],
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
   ]
 }

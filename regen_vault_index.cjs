@@ -29,16 +29,12 @@ const items = files.map((f, index) => {
         if (Array.isArray(content)) return content;
         return [content];
     } catch (e) {
-        console.error(`Error reading ${f}:`, e.message);
         return [];
     }
-}).flat();
+}).flat().filter(i => i && i.id); // Filter out invalid items!
 
-console.log(`Total items collected: ${items.length}. Writing to ${OUTPUT_JSON}...`);
+console.log(`Total VALID items collected: ${items.length}. Writing to ${OUTPUT_JSON}...`);
 
-// Ensure output directory exists
 fs.mkdirSync(path.dirname(OUTPUT_JSON), { recursive: true });
-
-// Output pure JSON — no TypeScript wrapper
 fs.writeFileSync(OUTPUT_JSON, JSON.stringify(items, null, 4), 'utf8');
 console.log('Successfully indexed ' + items.length + ' items to vaultItems.json');

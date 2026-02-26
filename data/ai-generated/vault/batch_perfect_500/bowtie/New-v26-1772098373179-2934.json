@@ -2,6 +2,28 @@
   "id": "New-v26-1772098373179-2934",
   "stem": "A 68-year-old male is admitted to the cardiac unit with a diagnosis of acute myocardial infarction (MI). He reports chest pain, shortness of breath, and nausea. His vital signs are: BP 90/60 mmHg, HR 110 bpm, RR 28, SpO2 90% on room air. The ECG shows ST-segment elevation in the anterior leads. The patient is diaphoretic and anxious. Based on the information provided, determine which actions are indicated, contraindicated, or irrelevant for this patient.",
   "type": "bowtie",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "polytomous",
     "maxPoints": 6
@@ -17,6 +39,7 @@
     "difficulty": 4,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "Cardiovascular",
   "rationale": {
     "correct": "Administering oxygen is indicated to improve oxygen saturation. Administering aspirin is indicated as it is an antiplatelet and helps prevent further clot formation. Administering nitroglycerin is indicated to dilate coronary arteries and improve blood flow. ECG monitoring is indicated to assess for changes in cardiac rhythm. Morphine is indicated for pain management and vasodilation. Elevating the head of the bed helps improve breathing. Monitoring vital signs is crucial to assess the patient's response to interventions.",
     "mnemonic": "MONA (Morphine, Oxygen, Nitroglycerin, Aspirin) - a common mnemonic for initial MI management.",
@@ -28,6 +51,28 @@
       "Morphine can help reduce pain and anxiety in patients with MI."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "S: Patient reports chest pain, shortness of breath, and nausea. O: BP 90/60, HR 110, RR 28, SpO2 90% on room air, ST-segment elevation in anterior leads, diaphoretic, anxious. A: Acute MI. R: Implement interventions to improve oxygenation and cardiac output.",
     "tabs": [
@@ -74,7 +119,7 @@
       "diagnosis": "Acute Myocardial Infarction (MI)"
     }
   },
-  "sentinelStatus": "healed_v2026_v18_qi100",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "responseOptions": [
     {
       "text": "Administer oxygen via nasal cannula to maintain SpO2 > 92%",
@@ -173,5 +218,19 @@
         "Pain and anxiety"
       ]
     }
-  }
+  },
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Cardiovascular",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

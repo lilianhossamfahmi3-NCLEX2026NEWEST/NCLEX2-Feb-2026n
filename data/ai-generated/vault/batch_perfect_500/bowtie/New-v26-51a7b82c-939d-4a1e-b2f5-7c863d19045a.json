@@ -114,6 +114,28 @@
       ]
     }
   ],
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "linkage",
     "maxPoints": 5
@@ -127,6 +149,7 @@
     "difficulty": 5,
     "nclexCategory": "Psychosocial Integrity"
   },
+  "condition": "Mental Health: Suicide Risk & Crisis Management",
   "rationale": {
     "correct": "The correct sequence of actions prioritizes patient safety and comprehensive assessment. Initially, implementing suicide precautions is paramount to ensure the patient's immediate safety. Next, contacting the attending psychiatrist allows for collaborative care and potential medication adjustments or further interventions. Following this, providing emotional support and reassurance can help alleviate the patient's distress and foster a therapeutic relationship. Then, completing a thorough suicide risk assessment is necessary to understand the patient's current level of risk and inform ongoing care. Finally, documenting the interventions and findings ensures clear communication among the healthcare team and provides a record of the patient's progress and treatment.",
     "mnemonic": {
@@ -144,6 +167,28 @@
       "Collaborate with the interdisciplinary team for comprehensive care."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "S: John Doe, 28-year-old male, admitted at 14:30 today after a suicide attempt (overdose of prescribed sertraline). Found by his roommate. B: History of PTSD and major depressive disorder, diagnosed 3 years ago following military service. Currently unemployed and reports difficulty adjusting to civilian life. Takes sertraline 100mg daily. A: Anxious, tearful, expresses feelings of hopelessness and worthlessness. States, \"I'm better off dead.\" Exhibits psychomotor agitation. Vitals stable: BP 130/80, HR 92, RR 20, SpO2 98% on room air. Denies current suicidal ideation but admits to passive suicidal thoughts. Recent increase in alcohol consumption. R: Patient requires close monitoring for suicide risk. Recommend initiating suicide precautions, contacting the attending psychiatrist for further orders, and providing emotional support and reassurance. Continue to monitor vital signs and mental status closely.",
     "tabs": [
@@ -193,12 +238,26 @@
       "isolation": "standard"
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "correctResponse": {
     "fifthActionChoice": "documentInterventions",
     "firstActionChoice": "implementSuicidePrecautions",
     "thirdActionChoice": "provideEmotionalSupport",
     "fourthActionChoice": "performRiskAssessment",
     "secondActionChoice": "contactPsychiatrist"
-  }
+  },
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Mental Health: Suicide Risk & Crisis Management",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

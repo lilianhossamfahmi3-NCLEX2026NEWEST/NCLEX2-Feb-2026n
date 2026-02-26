@@ -2,6 +2,28 @@
   "id": "New-v26-a9b2c3d4-e5f6-4789-9012-3a4bc5d6e7f8",
   "stem": "The nurse is caring for a 68-year-old male patient admitted with an acute myocardial infarction (MI). Based on the assessment data, diagnostic findings, and physician orders, determine the MOST appropriate actions, the underlying reason for those actions, and the potential complications if the actions are not taken.",
   "type": "bowtie",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "linkage",
     "maxPoints": 5
@@ -15,6 +37,7 @@
     "difficulty": 5,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "Cardiovascular: Acute MI & Heart Failure",
   "isolation": "standard",
   "rationale": {
     "correct": "The patient is hypotensive and showing signs of heart failure (crackles, elevated BNP). Administering metoprolol would further decrease his blood pressure and is contraindicated with current vital signs. Titrating the nitroglycerin drip as ordered, after fluid resuscitation, would improve myocardial oxygen supply and decrease preload. Administering a fluid bolus is important to increase preload and improve blood pressure, which is essential to avoid further compromising cardiac output. Monitoring for signs of worsening heart failure is crucial as the patient already has bibasilar crackles and hypotension, indicating possible cardiogenic shock. Contacting the physician to report the hypotension and discuss further management, especially the metoprolol order, is a priority.",
@@ -33,6 +56,28 @@
       "Always reassess vital signs after administering medications, especially those that affect blood pressure and heart rate."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "SBAR: Mr. Johnson, 68-year-old male, admitted at 03:00 today with acute MI. He reports chest pain radiating to his left arm. Pain is currently rated 6/10. He received morphine 4mg IV at 03:15. 07:00 vital signs: BP 90/60, HR 110, RR 24, SpO2 92% on 2L NC. ECG shows ST elevation in leads II, III, and aVF. Troponin I is elevated at 8.5 ng/mL. The physician ordered oxygen to maintain SpO2 > 92%, continuous ECG monitoring, aspirin 325mg PO, metoprolol 5mg IV every 5 minutes x 3 doses if SBP > 100, and nitroglycerin IV drip starting at 5 mcg/min titrated to effect. He has a history of hypertension and hyperlipidemia. He appears anxious and diaphoretic. Lungs have bibasilar crackles.",
     "tabs": [
@@ -105,7 +150,7 @@
       "Delayed or inappropriate treatment"
     ]
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "correctResponse": {
     "action": [
       "action2",
@@ -193,5 +238,19 @@
         "content": "Delayed or inappropriate treatment"
       }
     ]
-  }
+  },
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Cardiovascular: Acute MI & Heart Failure",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

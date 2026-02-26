@@ -2,6 +2,28 @@
   "id": "New-v26-234987asdf0987",
   "stem": "A 72-year-old male patient, Mr. Jones, is admitted for acute decompensated heart failure. He has a history of hypertension, type 2 diabetes, and chronic kidney disease (CKD). His current medications include lisinopril 20mg daily, metformin 500mg twice daily, and furosemide 40mg daily. The physician orders an intravenous (IV) infusion of dobutamine at 5 mcg/kg/min to improve cardiac output. The pharmacy provides a dobutamine solution of 500 mg in 250 mL of 0.9% sodium chloride. Mr. Jones weighs 200 lbs. Use the bowtie format to address the following aspects of Mr. Jones' care regarding the dobutamine infusion.",
   "type": "bowtie",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "linkage",
     "maxPoints": 4
@@ -15,6 +37,7 @@
     "difficulty": 5,
     "nclexCategory": "Management of Care"
   },
+  "condition": "Safety: Medication Calculation & High-Alert Drugs",
   "rationale": {
     "correct": "The correct answers address the patient's deteriorating condition, which includes increasing blood pressure, heart rate, and respiratory rate. The initial action should be to slow or stop the infusion. Calculating the correct infusion rate is essential for patient safety. The physician needs to be notified promptly about the patient's status change and the actions taken. Continuously monitoring the patient's vital signs is critical to assess the response to the changes in the infusion rate and other interventions. Lastly, documenting the patient's status, the interventions performed, and the patient's response is crucial for maintaining a clear and accurate record of care. An elevated potassium level should also be addressed but it is not the priority.",
     "mnemonic": {
@@ -32,6 +55,28 @@
       "Prompt recognition and management of adverse drug reactions are crucial for preventing further complications."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "S: Mr. Jones, 72-year-old male, admitted for acute decompensated heart failure. He is currently receiving a dobutamine infusion at 5 mcg/kg/min. At 06:00, patient reports increased shortness of breath and palpitations. BP 160/90 at 05:00, now 170/100. HR increased from 110 to 120, RR from 24 to 28. SpO2 decreased from 92% to 90% on 2L NC. Crackles auscultated bilaterally. B: History of HTN, DM2, CKD. Meds: lisinopril, metformin, furosemide. A: Receiving furosemide IV and dobutamine 5 mcg/kg/min. Patient exhibiting signs of worsening heart failure, possibly related to the dobutamine infusion and/or fluid overload. Weight 200 lbs. Labs show elevated potassium (5.8 mEq/L) and creatinine (2.5 mg/dL). R: I need guidance on managing the dobutamine infusion and addressing the patient's worsening condition. Consider adjusting the infusion rate, obtaining further orders, and addressing the elevated potassium level.",
     "tabs": [
@@ -81,5 +126,19 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final"
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Safety: Medication Calculation & High-Alert Drugs",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

@@ -2,6 +2,28 @@
   "id": "New-v26-1772080270809-8227",
   "stem": "The nurse is caring for a patient with acute exacerbation of COPD. Which of the following findings require immediate intervention?",
   "type": "bowtie",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "0/1",
     "maxPoints": 1
@@ -15,6 +37,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": "A pH of 7.30 and PaCO2 of 60 mmHg indicate acute respiratory acidosis, requiring immediate intervention to improve ventilation.  An SpO2 of 88% on 2L NC, while not ideal, is within the acceptable range for COPD patients, but a sudden drop would be concerning. Respiratory rate of 32 indicates respiratory distress and work of breathing. Accessory muscle use also indicates the increased work of breathing.",
     "mnemonic": {
@@ -33,6 +56,28 @@
       "Respiratory acidosis is a critical finding in COPD exacerbations, requiring prompt intervention such as non-invasive ventilation (NIV) or, in severe cases, intubation."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "Patient admitted for COPD exacerbation. Currently on oxygen 2L/min via nasal cannula. Complaining of increased shortness of breath. Wheezing noted on auscultation.",
     "tabs": [
@@ -79,7 +124,7 @@
       "relevantHistory": "Smoker (50 pack-years), history of pneumonia, uses home oxygen at 2L/min."
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "responseOptions": [
     {
       "text": "pH 7.30 and PaCO2 60 mmHg",
@@ -107,10 +152,24 @@
       "optionId": "E"
     }
   ],
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
   "distractorRationale": {
     "B": "Tachycardia is expected given the respiratory distress and therefore does not require immediate intervention.",
     "C": "Tachypnea is expected with the COPD exacerbation and compensatory mechanism to low oxygen saturation.",
     "D": "SpO2 of 88% is target level for COPD patient.",
     "E": "Accessory muscle use indicates an increase in the work of breathing, but does not require immediate intervention"
-  }
+  },
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

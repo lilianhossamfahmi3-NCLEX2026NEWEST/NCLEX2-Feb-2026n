@@ -32,6 +32,28 @@
       "isCorrect": true
     }
   },
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "partialCredit",
     "maxPoints": 5
@@ -45,6 +67,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": "Administering IV fluids helps to improve renal perfusion and potentially reverse AKI caused by dehydration. Monitoring potassium levels is crucial in AKI patients due to the risk of hyperkalemia. Restricting fluids is essential to prevent fluid overload, especially with decreased urine output and pulmonary congestion. Administering sodium polystyrene sulfonate (Kayexalate) helps to lower elevated potassium levels. Assessing daily weights helps to monitor fluid balance and response to treatment.",
     "mnemonic": {
@@ -62,6 +85,28 @@
       "Fluid management is critical in AKI patients to prevent both dehydration and fluid overload."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "Patient is a 68-year-old male admitted 2 days ago with AKI secondary to dehydration. Initial creatinine was 2.5 mg/dL and is now 3.8 mg/dL. Urine output has decreased significantly over the last 12 hours. Patient is complaining of fatigue and mild nausea.",
     "tabs": [
@@ -115,7 +160,7 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "responseOptions": [
     {
       "text": "Administer intravenous fluids.",
@@ -146,11 +191,25 @@
       "optionId": "G"
     }
   ],
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
   "correctResponses": [
     "A",
     "C",
     "E",
     "F",
     "G"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
   ]
 }

@@ -69,6 +69,28 @@
       "Obtain a CT scan of the head"
     ]
   },
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "partialCredit",
     "maxPoints": 6
@@ -82,6 +104,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": "The patient's presentation is highly suggestive of an acute ischemic stroke due to the sudden onset of focal neurological deficits. Rapid blood pressure reduction is crucial to minimize further brain injury and prevent hemorrhagic transformation. Activating the stroke team is paramount for timely assessment, diagnosis, and potential intervention (e.g., thrombolysis).",
     "mnemonic": {
@@ -100,6 +123,28 @@
       "Prompt recognition and activation of the stroke team are essential for optimal outcomes."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "72-year-old male, sudden onset right-sided weakness and slurred speech, possible stroke. BP 180/100, HR 88, RR 18, SpO2 98%. History of HTN and A-fib. Symptoms started 2 hours ago.",
     "tabs": [
@@ -146,5 +191,19 @@
       "chiefComplaint": "Sudden onset right-sided weakness and slurred speech"
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final"
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

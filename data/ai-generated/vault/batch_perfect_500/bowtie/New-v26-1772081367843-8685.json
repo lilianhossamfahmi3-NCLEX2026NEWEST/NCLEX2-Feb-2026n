@@ -23,6 +23,28 @@
       "bnp_elevated"
     ]
   },
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "partialCredit",
     "maxPoints": 14
@@ -36,6 +58,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": {
       "improving": "Decreased crackles in the lungs, Decreased edema, Decreased respiratory rate, Decreased heart rate, Decreased blood pressure, Increased oxygen saturation, Decreased jugular venous distention.",
@@ -59,6 +82,28 @@
       "Jugular venous distention is a visual sign of increased central venous pressure and right-sided heart failure."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "Patient is a 72-year-old male admitted yesterday with ADHF, reporting increased shortness of breath and lower extremity edema. He is currently on oxygen at 2L via nasal cannula. We are monitoring his fluid balance and response to diuretic therapy.",
     "tabs": [
@@ -116,7 +161,7 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "responseOptions": [
     {
       "id": "rr_w_1",
@@ -193,5 +238,19 @@
       "text": "BNP 1200 pg/mL",
       "target": "worsening"
     }
+  ],
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
   ]
 }

@@ -43,6 +43,28 @@
       "Perform chest physiotherapy."
     ]
   },
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "dichotomous",
     "maxPoints": 5
@@ -57,6 +79,7 @@
     "difficulty": 4,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "Respiratory",
   "rationale": {
     "correct": "Administering oxygen to maintain SpO2 between 88-92% is crucial in COPD patients to avoid suppressing the hypoxic drive. Assisting with effective coughing helps clear secretions and improve ventilation. Elevating the head of the bed promotes lung expansion and eases breathing. Assessing lung sounds helps monitor the effectiveness of interventions and detect any changes in respiratory status. Encouraging pursed-lip breathing helps slow the respiratory rate and increase alveolar ventilation.",
     "mnemonic": "OXYGEN: Observe, X-pectorate, Y-elevate, G-assess, E-ncourage, N-o sedatives",
@@ -67,6 +90,28 @@
       "Effective coughing techniques and proper positioning can significantly improve ventilation in COPD exacerbations."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "John Smith, 68-year-old male with COPD, admitted for exacerbation. Increased dyspnea and productive cough. O2 sat 88% on room air.",
     "tabs": [
@@ -113,5 +158,19 @@
       "diagnosis": "COPD exacerbation"
     }
   },
-  "sentinelStatus": "healed_v2026_v18_qi100"
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Respiratory",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

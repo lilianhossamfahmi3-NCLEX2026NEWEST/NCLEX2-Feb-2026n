@@ -44,6 +44,28 @@
       "End-tidal CO2 (ETCO2)"
     ]
   },
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "linkage",
     "maxPoints": 6
@@ -57,6 +79,7 @@
     "difficulty": 5,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "Respiratory: Mechanical Ventilation Safety",
   "rationale": {
     "correct": "Increased PIP, decreased SpO2, and coarse crackles indicate a need to address potential airway issues. Suctioning is crucial to remove secretions. Increasing FiO2 addresses hypoxemia. Assessing breath sounds helps determine the effectiveness of interventions. Monitoring ABGs provides information about ventilation and oxygenation. Notifying the physician is essential for further evaluation and management.",
     "mnemonic": {
@@ -74,6 +97,28 @@
       "Thick secretions can significantly impair gas exchange."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "S: Robert Miller, 68-year-old male, post-op day 1 from a coronary artery bypass graft (CABG). He's currently intubated and mechanically ventilated.\nB: History of COPD and hypertension. Admitted for unstable angina. CABG performed successfully. Initial post-op course was stable.\nA: At 06:00, patient's SpO2 decreased to 88% despite FiO2 of 50%. Auscultation reveals coarse crackles bilaterally. Peak inspiratory pressure (PIP) has increased from 25 cm H2O to 35 cm H2O. ABG at 06:30: pH 7.30, PaCO2 55 mmHg, PaO2 60 mmHg, HCO3- 24 mEq/L. The patient is restless and attempting to cough against the ventilator. Current ventilator settings: Assist-Control, Rate 12, Tidal Volume 450 mL, FiO2 50%, PEEP 5 cm H2O. 06:45: Suctioned moderate amount of thick, white secretions.\nR: I recommend assessing for possible causes of increased airway resistance or decreased lung compliance, such as retained secretions, atelectasis, or pneumothorax. Consider adjusting ventilator settings to improve oxygenation and ventilation. Obtain a chest x-ray if indicated. Notify the physician.",
     "tabs": [
@@ -124,5 +169,19 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final"
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Respiratory: Mechanical Ventilation Safety",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

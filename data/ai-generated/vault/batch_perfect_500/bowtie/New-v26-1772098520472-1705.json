@@ -29,6 +29,28 @@
     }
   ],
   "NGNtype": "extendedMatching",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "dichotomous",
     "maxPoints": 1
@@ -45,6 +67,7 @@
     "nclexCategory": "Pharmacological and Parenteral Therapies"
   },
   "taskType": "recognizeCues",
+  "condition": "Endocrine",
   "rationale": {
     "correct": "The patient's symptoms suggest inadequate thyroid hormone replacement. The levothyroxine dosage may need adjustment based on TSH levels. Further investigation is needed to rule out other causes of fatigue and constipation.",
     "mnemonic": "FATIGUE: Fatigue, Appetite increase (weight gain), Thinning hair, Intolerance to cold, Goiter, Unexplained constipation, Emotional changes",
@@ -56,6 +79,28 @@
       "Patient education on medication adherence and symptom monitoring is essential."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "Patient reports increased fatigue, weight gain, and constipation despite levothyroxine. Vital signs stable but temperature low.",
     "tabs": [
@@ -134,5 +179,19 @@
       "isCorrect": false
     }
   ],
-  "sentinelStatus": "healed_v2026_v18_qi100"
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Endocrine",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

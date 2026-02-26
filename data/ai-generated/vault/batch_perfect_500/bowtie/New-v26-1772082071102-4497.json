@@ -17,6 +17,28 @@
       ]
     }
   ],
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "partialCredit",
     "maxPoints": 4
@@ -30,6 +52,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": "Elevated potassium (hyperkalemia) can lead to life-threatening arrhythmias and requires immediate intervention such as administering calcium gluconate or sodium polystyrene sulfonate (Kayexalate). High blood pressure (hypertensive crisis) increases afterload and exacerbates heart failure, necessitating immediate treatment with antihypertensive medications. Oxygen saturation of 90% indicates hypoxemia and requires immediate intervention to improve oxygenation, such as increasing oxygen delivery or considering non-invasive ventilation. Respiratory rate of 28 indicates tachypnea which could be indicative of worsening heart failure.",
     "mnemonic": {
@@ -48,6 +71,28 @@
       "Loop diuretics, such as furosemide, will help lower blood pressure and reduce fluid volume."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "Patient is a 72-year-old male admitted with ADHF, reporting increased shortness of breath and lower extremity edema. He has a history of hypertension, type 2 diabetes, and stage 3 chronic kidney disease. Initial assessment reveals elevated blood pressure and crackles in both lungs. Current medications include lisinopril, metformin, and furosemide (last dose given 6 hours ago). Patient is on oxygen at 2L via nasal cannula.",
     "tabs": [
@@ -100,7 +145,7 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "responseOptions": [
     {
       "id": "a",
@@ -137,5 +182,19 @@
       "target": "underlyingCondition",
       "content": "Heart rate 118 bpm"
     }
+  ],
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
   ]
 }

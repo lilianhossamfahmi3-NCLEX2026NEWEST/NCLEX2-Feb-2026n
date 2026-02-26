@@ -2,6 +2,28 @@
   "id": "New-v26-1772079013529-1370",
   "stem": "For each finding below, click to specify if it supports a diagnosis of acute heart failure (AHF) or hypovolemic shock.",
   "type": "bowtie",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "partialCredit",
     "maxPoints": 5
@@ -15,6 +37,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": "AHF is characterized by fluid overload, leading to symptoms like shortness of breath, edema, and elevated BNP. Hypovolemic shock results from inadequate circulating volume, presenting with hypotension and tachycardia, but typically without signs of fluid overload.",
     "mnemonic": {
@@ -30,6 +53,28 @@
       "Hypovolemic shock often presents with decreased urine output and dry mucous membranes."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "Patient is a 78-year-old male presenting with acute shortness of breath and lower extremity edema. He reports increasing dyspnea on exertion over the past week, culminating in difficulty breathing at rest today. He also notes significant swelling in his ankles and feet. Patient denies chest pain. History of hypertension, diabetes, and chronic kidney disease. Currently on lisinopril, metformin, and aspirin.",
     "tabs": [
@@ -87,7 +132,7 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "correctResponse": {
     "jvd": "AHF",
     "crackles": "AHF",
@@ -117,5 +162,19 @@
       "id": "elevatedBnp",
       "content": "Elevated BNP (1500)"
     }
+  ],
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
   ]
 }

@@ -85,6 +85,28 @@
   },
   "stem": "A 68-year-old female, Ms. Eleanor Vance, is admitted to the ICU at 03:30 after presenting to the ED with altered mental status and severe dehydration. Her daughter reports a history of type 2 diabetes, managed with oral medications (Metformin 500mg BID and Glipizide 5mg daily), and recent symptoms of increased thirst, frequent urination, and blurred vision. Based on the initial assessment and provided data, select the THREE most likely conditions Ms. Vance is experiencing. Next, identify TWO actions the nurse should take IMMEDIATELY. Finally, select THREE orders the nurse should anticipate.",
   "type": "bowtie",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "linked",
     "maxPoints": 6
@@ -98,6 +120,7 @@
     "difficulty": 5,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "Endocrine: DKA/HHS & Thyroid Storm",
   "rationale": {
     "correct": "The patient is experiencing Diabetic Ketoacidosis (DKA) due to the elevated glucose, positive serum ketones, acidosis (pH 7.28), and increased anion gap. Hyperosmolarity is evident from the elevated sodium (150 mEq/L) and glucose (680 mg/dL), contributing to Hyperosmolar Hyperglycemic State (HHS). Severe dehydration is indicated by the elevated BUN and creatinine levels, as well as the patient's history of polyuria and polydipsia. Immediate actions include initiating intravenous fluid resuscitation to address the dehydration and administering intravenous insulin to lower the blood glucose and correct the metabolic acidosis. Anticipated orders include continuous cardiac monitoring due to the risk of electrolyte imbalances (specifically hypokalemia) and cardiac arrhythmias, frequent blood glucose monitoring (every 1-2 hours) to assess the response to insulin therapy, and potassium replacement therapy to correct the hypokalemia which can be exacerbated by insulin administration.",
     "mnemonic": {
@@ -115,6 +138,28 @@
       "Anion gap calculation is crucial in differentiating DKA from other metabolic acidoses. An elevated anion gap (>16 mEq/L) strongly suggests DKA."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "S: Ms. Vance is a 68-year-old female admitted at 03:30 with altered mental status and dehydration. Daughter reports increased thirst, urination, and blurred vision for the past week. Pt. has a hx of T2DM managed with Metformin and Glipizide.\nB: Pt. found at home by her daughter unable to answer questions appropriately. EMS reported a glucose reading of >600 mg/dL. No other significant medical history reported.\nA: On arrival: GCS 10 (E2V2M6), BP 90/60 mmHg, HR 120 bpm, RR 32 and deep, SpO2 92% on room air, Temp 38.5°C (101.3°F). Skin is warm and dry. Mucous membranes are dry. ECG shows sinus tachycardia. Initial labs are pending.\nR: I am concerned about possible Hyperosmolar Hyperglycemic State (HHS) or Diabetic Ketoacidosis (DKA). I recommend STAT labs including CBC, CMP, ABG, and serum ketones. Pt. needs immediate fluid resuscitation and insulin therapy per protocol.",
     "tabs": [
@@ -164,7 +209,11 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
   "itemLevelRationale": {
     "orders": {
       "order1": "Continuous cardiac monitoring is crucial due to the risk of electrolyte imbalances (specifically hypokalemia) and cardiac arrhythmias associated with insulin therapy and fluid shifts.",
@@ -187,5 +236,15 @@
       "condition4": "The patient's glucose level is significantly elevated, ruling out hypoglycemia.",
       "condition5": "There is no indication of thyroid storm in the patient's presentation or lab results."
     }
-  }
+  },
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Endocrine: DKA/HHS & Thyroid Storm",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

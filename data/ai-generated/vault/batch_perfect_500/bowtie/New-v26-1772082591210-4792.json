@@ -115,6 +115,28 @@
       "response": []
     }
   ],
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "partialCredit",
     "maxPoints": 4
@@ -128,6 +150,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": "Fluid restriction is crucial to prevent fluid overload in AKI due to the kidneys' reduced ability to excrete fluids. Monitoring potassium levels is essential because AKI can lead to hyperkalemia, which is life-threatening. Administering prescribed diuretics helps manage fluid overload and potentially stimulate urine output. Strict intake and output (I&O) monitoring allows for precise assessment of fluid balance and response to treatment.",
     "mnemonic": {
@@ -145,6 +168,28 @@
       "Nephrotoxic medications should be avoided or used with extreme caution in patients with AKI."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "Patient admitted yesterday with AKI.  Creatinine is elevated at 3.2 mg/dL.  Urine output remains low despite initial fluid bolus.  Monitoring electrolytes and fluid balance closely.",
     "tabs": [
@@ -192,7 +237,7 @@
       "relevantHistory": "History of hypertension and type 2 diabetes. Admitted with decreased urine output and elevated creatinine."
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "responseOptions": [
     {
       "id": "a",
@@ -234,5 +279,19 @@
       "text": "Routine saline boluses",
       "correct": false
     }
+  ],
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
   ]
 }

@@ -2,6 +2,28 @@
   "id": "New-v26-9f8f0b2a-5b3c-4a1e-9f7a-3f9d2e1a4b6c",
   "stem": "A 72-year-old male is admitted to the ICU following a hemorrhagic stroke. Based on the assessment findings and provided data, prioritize the interventions and potential conditions for this patient.",
   "type": "bowtie",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "linked",
     "maxPoints": 6
@@ -15,6 +37,7 @@
     "difficulty": 5,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "Neurological: Stroke & Increased ICP",
   "rationale": {
     "correct": "Interventions:\n-Administer stool softener: Prevents straining, which increases ICP.\n-Elevate head of bed to 30 degrees: Promotes venous drainage and reduces ICP.\n-Monitor serum sodium levels: Hypernatremia can result from mannitol administration and needs correction.\nPotential Conditions:\n-Cerebral edema: A common complication following hemorrhagic stroke, contributing to increased ICP.\n-SIADH: Syndrome of Inappropriate Antidiuretic Hormone secretion can occur following brain injury, leading to fluid retention and hyponatremia (less likely given the hypernatremia but still a consideration if sodium trends down). \n-Increased Intracranial Pressure (ICP): The primary concern given the patient's presentation and diagnosis, driving many interventions.",
     "mnemonic": {
@@ -32,6 +55,28 @@
       "Mannitol is an osmotic diuretic used to reduce ICP, but it can cause dehydration and electrolyte imbalances, necessitating close monitoring."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "S: Robert Miller, 72-year-old male, admitted at 03:00 today after being found unresponsive at home. Last known well was 18:00 yesterday. Wife reports a history of hypertension and atrial fibrillation.\nB: CT scan confirmed a right-sided hemorrhagic stroke with midline shift. Patient intubated in the ED for airway protection. NIHSS score of 22 on arrival.\nA: Currently on mechanical ventilation, propofol and fentanyl drips for sedation. Pupils are unequal (right dilated and sluggish). GCS 6 (E1, V1, M4). BP 180/100 mmHg. HR 55 bpm. Temperature 37.8°C. Mannitol 25g IV given at 04:00. Urine output minimal since admission.\nR: Anticipate further interventions to manage increased ICP and prevent secondary brain injury. Monitor neurological status closely. Contact neurosurgery for possible intervention discussion.",
     "tabs": [
@@ -82,5 +127,19 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final"
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Neurological: Stroke & Increased ICP",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

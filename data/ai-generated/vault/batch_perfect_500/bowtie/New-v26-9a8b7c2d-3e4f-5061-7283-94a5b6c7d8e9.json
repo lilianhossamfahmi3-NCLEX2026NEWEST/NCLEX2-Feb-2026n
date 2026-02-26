@@ -2,6 +2,28 @@
   "id": "New-v26-9a8b7c2d-3e4f-5061-7283-94a5b6c7d8e9",
   "stem": "A 72-year-old male is admitted to the ICU with a confirmed right-sided ischemic stroke. He is receiving tissue plasminogen activator (tPA). Based on the assessment data, prioritize the following interventions in the order of their importance to manage the patient's condition effectively.",
   "type": "bowtie",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "linked",
     "maxPoints": 6
@@ -41,6 +63,7 @@
     "Fourth": "Implement aspiration precautions",
     "Second": "Elevate the head of the bed"
   },
+  "condition": "Neurological: Stroke & Increased ICP",
   "rationale": {
     "correct": "1. **Administer antihypertensive medication:** The patient's blood pressure is elevated (180/100 mmHg) and needs to be controlled per stroke protocol to prevent further neurological damage and hemorrhagic conversion. Rapid reduction of BP is crucial. 2. **Elevate the head of the bed:** Elevating the head of the bed promotes venous drainage from the brain, which can help reduce intracranial pressure (ICP) and improve cerebral perfusion. This is a standard intervention for patients with neurological compromise. 3. **Monitor neurological status closely:** Continuous neurological assessment is essential to detect any changes in the patient's condition, such as worsening GCS or new neurological deficits. Early detection allows for timely intervention. 4. **Implement aspiration precautions:** The patient's emesis and decreased GCS increase the risk of aspiration. Implementing aspiration precautions, such as positioning and suctioning, is crucial to prevent pneumonia. 5. **Prepare for potential intubation:** A GCS of 11 indicates a significant alteration in the patient's level of consciousness and airway protection. Preparing for intubation ensures that the patient's airway can be secured if their condition deteriorates further. 6. **Notify the physician of changes in condition:** While important, this is typically the final step after initiating immediate interventions. The priority is to stabilize the patient first.",
     "mnemonic": {
@@ -58,6 +81,28 @@
       "Changes in GCS require immediate attention and may indicate increasing ICP or worsening neurological status."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "S: Robert Miller, a 72-year-old male, was admitted to the ICU at 08:00 today with new onset right-sided weakness and slurred speech. His family noted the onset of symptoms around 06:30 this morning. His initial NIHSS score upon arrival was 18, indicating a moderate to severe stroke. The patient is currently receiving tPA as per our established stroke protocol, initiated at 08:30. B: Mr. Miller has a past medical history significant for hypertension and hyperlipidemia, both managed with oral medications at home. He has no known drug allergies. A: At 09:15, a neurological assessment reveals a Glasgow Coma Scale (GCS) score of 11 (Eyes 3, Verbal 3, Motor 5). The right-sided weakness persists. His current vital signs are: BP 180/100 mmHg, HR 92 bpm, RR 22 breaths/min, and SpO2 94% on 2L nasal cannula. His temperature is 37.2°C. He experienced a new episode of emesis at 09:10. P: I recommend close and continuous monitoring of his neurological status. We need to aggressively manage his blood pressure per stroke protocol, aiming for a target SBP <180 mmHg. Strict aspiration precautions should be implemented immediately, given his GCS and recent emesis. We should also prepare for potential intubation and mechanical ventilation if his GCS declines further or if he demonstrates signs of respiratory distress. A STAT neurosurgery consult has already been called to evaluate the patient.",
     "tabs": [
@@ -107,5 +152,19 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final"
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Neurological: Stroke & Increased ICP",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

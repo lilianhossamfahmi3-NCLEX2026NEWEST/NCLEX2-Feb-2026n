@@ -2,6 +2,28 @@
   "id": "New-v26-4a9b2c3d-5e6f-4789-9012-34567890abcd",
   "stem": "A 72-year-old male patient is admitted to the ICU with suspected septic shock. Based on the patient's presentation and provided data, prioritize the interventions and potential complications. The patient is suspected of having a respiratory infection requiring airborne isolation.",
   "type": "bowtie",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "linked",
     "maxPoints": 6
@@ -17,6 +39,7 @@
     "difficulty": 5,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "Cardiovascular: Shock & Hemodynamics",
   "rationale": {
     "correct": "Administering vasopressors is crucial in septic shock when fluid resuscitation alone is insufficient to maintain adequate blood pressure and compromised perfusion. Monitoring urine output is essential for assessing renal perfusion and response to treatment, indicative of end-organ damage. Preparing for mechanical ventilation is necessary if the patient's respiratory status deteriorates despite oxygen therapy, potentially leading to respiratory failure. Starting airborne isolation is crucial to prevent the spread of potentially infectious respiratory illness. The elevated lactate level, creatinine, and BUN, along with minimal urine output, suggest possible acute kidney injury and hypoperfusion. Vasopressors will help increase MAP and improve perfusion to vital organs. Mechanical ventilation will support respiratory function if the patient becomes fatigued or develops ARDS. Airborne isolation will prevent the spread of infection if the patient has a respiratory illness such as TB or influenza.",
     "mnemonic": {
@@ -35,6 +58,28 @@
       "Always consider isolation precautions when a patient presents with signs of a potentially infectious disease."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "S: John Smith, 72-year-old male, admitted at 04:00 with suspected septic shock and possible respiratory infection. Patient became hypotensive on the floor and is now in ICU. B: History of COPD and hypertension. Patient has a productive cough with green sputum. Initial vitals: Temperature 39.5°C, HR 120 bpm, RR 28, BP 80/50 mmHg, SpO2 90% on 2L NC. A: Started on broad-spectrum antibiotics (vancomycin and cefepime) per protocol at 04:15. Lactate is 4.2 mmol/L. Urine output minimal since admission, less than 30 ml/hr. CVP line placed at 04:30. Chest X-ray ordered to rule out pneumonia. R: Continue aggressive fluid resuscitation with crystalloids, monitor vital signs closely every 15 minutes, and prepare for possible vasopressor administration if hypotension persists despite fluid boluses. Monitor for signs of end-organ damage, especially renal function. Notify provider of any deterioration in respiratory status or vital signs. Repeat lactate and blood cultures in 2 hours. Initiate airborne isolation precautions immediately due to suspected respiratory infection.",
     "tabs": [
@@ -108,9 +153,23 @@
       "Risk of infection spread"
     ]
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
   "responseContainer": {
     "column1": [],
     "column2": []
-  }
+  },
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "Cardiovascular: Shock & Hemodynamics",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
+  ]
 }

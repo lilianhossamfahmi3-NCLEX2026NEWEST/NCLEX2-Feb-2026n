@@ -52,6 +52,28 @@
       "optionId": "monitorHypokalemia"
     }
   ],
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "plus-minus",
     "maxPoints": 6
@@ -65,6 +87,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": "Administer oxygen to maintain SpO2 > 92%: The patient's current SpO2 is 90% on room air, indicating hypoxia. Oxygen administration is a priority to improve oxygenation.\nAdminister nebulized albuterol: Albuterol is a bronchodilator that helps to relieve bronchospasm and improve airflow. The patient has received one dose with minimal improvement, so continued administration is indicated.\nAdminister IV corticosteroids: Corticosteroids reduce airway inflammation, which is a key component of asthma exacerbations. IV administration is appropriate for a patient with significant respiratory distress.\nAssess respiratory status continuously: Frequent assessment of respiratory status is crucial to monitor the patient's response to treatment and identify any deterioration.\nElevate head of bed: Elevating the head of bed promotes lung expansion and improves breathing.\nMonitor for signs of hypokalemia: Frequent albuterol administration can cause hypokalemia due to intracellular potassium shift, necessitating monitoring of potassium levels.",
     "mnemonic": {
@@ -88,6 +111,28 @@
     "Basic Care and Comfort",
     "Respiratory",
     "Pediatrics"
+  ],
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
   ],
   "itemContext": {
     "sbar": "Patient is a 4-year-old male admitted with acute asthma exacerbation. Presents with audible wheezing, increased work of breathing, and a productive cough. Oxygen saturation is currently 90% on room air. Has received one nebulized albuterol treatment with minimal improvement.",
@@ -136,7 +181,7 @@
       "codeStatus": "Full Code"
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "responseOptions": [
     {
       "id": "administerOxygen",
@@ -198,5 +243,19 @@
       "text": "Monitor for signs of hypokalemia",
       "correct": true
     }
+  ],
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
   ]
 }

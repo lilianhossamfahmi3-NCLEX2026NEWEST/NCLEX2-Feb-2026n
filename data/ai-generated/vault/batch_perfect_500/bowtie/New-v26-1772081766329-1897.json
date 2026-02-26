@@ -2,6 +2,28 @@
   "id": "New-v26-1772081766329-1897",
   "stem": "For each finding, click to specify if it indicates improvement, decline, or no change in the patient's respiratory status.",
   "type": "bowtie",
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Administer Oxygen"
+    },
+    {
+      "id": "a2",
+      "text": "Start IV Fluids"
+    },
+    {
+      "id": "a3",
+      "text": "Notify Provider"
+    },
+    {
+      "id": "a4",
+      "text": "Prepare for Intubation"
+    },
+    {
+      "id": "a5",
+      "text": "Administer Analgesia"
+    }
+  ],
   "scoring": {
     "method": "partialCredit",
     "maxPoints": 4
@@ -15,6 +37,7 @@
     "difficulty": 3,
     "nclexCategory": "Physiological Adaptation"
   },
+  "condition": "General",
   "rationale": {
     "correct": "Increased infiltrates on chest X-ray indicate worsening of the pneumonia. Elevated PaCO2 indicates worsening respiratory acidosis. Increased work of breathing indicates respiratory distress. Decreased SpO2 indicates worsening hypoxemia.",
     "mnemonic": {
@@ -31,6 +54,28 @@
       "Chest X-rays help identify underlying causes of respiratory distress such as pneumonia."
     ]
   },
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Vital Signs"
+    },
+    {
+      "id": "p2",
+      "text": "Oxygen Saturation"
+    },
+    {
+      "id": "p3",
+      "text": "Urine Output"
+    },
+    {
+      "id": "p4",
+      "text": "Pain Level"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory Rate"
+    }
+  ],
   "itemContext": {
     "sbar": "Patient is a 68-year-old male with COPD admitted 3 days ago for an exacerbation. He was started on oxygen via nasal cannula at 2L/min and IV antibiotics. He is currently complaining of increased shortness of breath despite being on oxygen.",
     "tabs": [
@@ -80,7 +125,7 @@
       ]
     }
   },
-  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
   "responseOptions": [
     {
       "id": "infiltrates",
@@ -126,5 +171,19 @@
       ],
       "correctOption": "Decline"
     }
+  ],
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "General",
+    "Pneumonia",
+    "Acute Myocardial Infarction",
+    "Pulmonary Embolism"
   ]
 }
