@@ -1,64 +1,64 @@
 {
   "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
   "type": "priorityAction",
-  "stem": "The patient is experiencing acute decompensated heart failure and potential cardiogenic shock following an acute myocardial infarction. Based on the available information, select the FIVE most appropriate nursing actions, placing them in order of priority, with the FIRST action being the MOST important.",
+  "stem": "The nurse is caring for a patient diagnosed with severe preeclampsia who delivered a healthy newborn 12 hours ago. Based on the EHR data, prioritize the following nursing actions from FIRST to LAST.",
   "scoring": {
-    "method": "bowtie",
+    "method": "linkage",
     "maxPoints": 5
   },
   "itemContext": {
     "patient": {
-      "name": "Jameson Tyrell",
-      "age": 68,
-      "gender": "Male",
-      "iso": "ICU",
+      "name": "Maria Rodriguez",
+      "age": 32,
+      "gender": "Female",
+      "iso": "Postpartum Unit",
       "allergies": [
-        "Penicillin"
+        "Sulfa Drugs"
       ]
     },
-    "sbar": "SITUATION: Jameson Tyrell, 68-year-old male, admitted 08:00 today with acute anterior wall MI. BACKGROUND: History of hypertension, hyperlipidemia. Received thrombolytics in the ED at 08:30. ASSESSMENT: At 10:00, patient reports increasing shortness of breath, chest pain radiating to the left arm. BP 88/52 mmHg, HR 118 bpm, RR 32, SpO2 88% on 2L nasal cannula. Crackles auscultated bilaterally. Patient is anxious and diaphoretic. ECG shows ST-segment elevation in leads V1-V4. Urine output 20 mL/hr. Current medications: Aspirin, Metoprolol, Atorvastatin. New order for morphine 2mg IV PRN for chest pain. The patient is receiving oxygen via nasal cannula at 2L/min. He is restless and increasingly anxious. RECOMMENDATION: I am concerned about potential cardiogenic shock and request immediate intervention. Should we prepare for intubation and vasopressor support?",
+    "sbar": "Situation: Maria Rodriguez, 32-year-old G2P2, delivered a healthy baby girl vaginally at 06:00. She has a history of chronic hypertension and was diagnosed with severe preeclampsia during this pregnancy. Background: She received magnesium sulfate during labor and delivery. Assessment: At 18:00, her BP is 168/102 mmHg, HR 92 bpm, RR 18, O2 sat 98% on room air. Deep tendon reflexes are 3+ with 2 beats of clonus. Urine output was 30 mL/hr over the last 2 hours. She reports a headache and blurred vision. Fundus is firm and at the umbilicus. Lochia rubra is moderate. Recommendation: I'm concerned about worsening preeclampsia and potential postpartum hemorrhage. I recommend continuing close monitoring of vital signs, magnesium sulfate infusion, and assessing for signs of HELLP syndrome.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "Troponin I: 12.5 ng/mL (High), CK-MB: 35 U/L (High), BNP: 850 pg/mL (High), Potassium: 3.8 mEq/L, Sodium: 138 mEq/L, Creatinine: 1.8 mg/dL (High), BUN: 30 mg/dL (High), Hemoglobin: 14.5 g/dL, Hematocrit: 43%"
+        "content": "<table><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr><tr><td>Hemoglobin</td><td>10.5 g/dL</td><td>12-16 g/dL</td></tr><tr><td>Platelets</td><td>90,000/mcL</td><td>150,000-400,000/mcL</td></tr><tr><td>AST</td><td>250 U/L</td><td>10-40 U/L</td></tr><tr><td>ALT</td><td>300 U/L</td><td>7-56 U/L</td></tr><tr><td>Creatinine</td><td>1.5 mg/dL</td><td>0.5-1.1 mg/dL</td></tr><tr><td>Uric Acid</td><td>8.2 mg/dL</td><td>2.4-6.0 mg/dL</td></tr></table>"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "Aspirin 81mg PO Daily, Metoprolol 25mg PO BID, Atorvastatin 40mg PO Daily, Morphine 2mg IV PRN Chest Pain (Last dose: None), Oxygen 2L/min via Nasal Cannula"
+        "content": "<table><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr><tr><td>Magnesium Sulfate</td><td>2 g/hr</td><td>IV</td><td>Continuous Infusion</td><td>17:55</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>q 20 min PRN SBP > 160 mmHg</td><td>17:30</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q 4 hr PRN Headache</td><td>14:00</td></tr><tr><td>Oxycodone</td><td>5 mg</td><td>PO</td><td>q 4 hr PRN Pain</td><td>14:00</td></tr></table>"
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "10:00: BP 88/52 mmHg, HR 118 bpm, RR 32, SpO2 88% on 2L NC, Temp 37.2°C (99.0°F), Urine Output 20mL/hr. 09:00: BP 110/70 mmHg, HR 92 bpm, RR 24, SpO2 94% on 2L NC."
+        "content": "<table><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>O2 Sat</th></tr><tr><td>16:00</td><td>162/98</td><td>88</td><td>16</td><td>98%</td></tr><tr><td>17:00</td><td>166/100</td><td>90</td><td>17</td><td>98%</td></tr><tr><td>18:00</td><td>168/102</td><td>92</td><td>18</td><td>98%</td></tr></table>"
       }
     ]
   },
   "pedagogy": {
-    "bloomLevel": "Applying",
-    "cjmmStep": "Analyze Cues",
+    "bloomLevel": "Analyze",
+    "cjmmStep": "Evaluate",
     "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "Cardiovascular: Acute MI & Heart Failure"
+      "Maternal: Preeclampsia & Postpartum Hemorrhage"
     ]
   },
   "rationale": {
-    "correct": "The priority is to improve oxygenation and perfusion. 1. Increase oxygen delivery: The patient's SpO2 is low (88%). Increasing oxygen delivery is crucial. 2. Elevate the head of the bed: This promotes lung expansion and eases breathing. 3. Administer prescribed morphine: Addresses pain, reduces anxiety, and decreases myocardial oxygen demand. 4. Prepare for possible intubation: The patient's RR is high, and SpO2 is low, indicating potential respiratory failure. 5. Anticipate vasopressor administration: Given the low BP (88/52 mmHg) despite fluid challenge (assuming this was initiated), vasopressors may be needed to maintain adequate perfusion.",
-    "incorrect": "1. Administer furosemide: Furosemide is a diuretic and is contraindicated in this scenario due to the patient's already low blood pressure. It will further decrease preload, worsening hypotension and potentially leading to cardiogenic shock. 2. Encourage the patient to cough and deep breathe: While this is generally a good intervention for respiratory issues, the patient's primary problem is not retained secretions but rather pulmonary edema and hypoperfusion. It is not a priority action. 3. Insert a Foley catheter: Insertion of a Foley catheter is important for monitoring urine output, which is essential for assessing renal perfusion. However, it is not the highest priority when the patient is experiencing acute respiratory distress and hemodynamic instability. 4. Obtain a 12-lead ECG: A 12-lead ECG has already been obtained as indicated in the SBAR. Repeating it immediately is not the priority. 5. Initiate a fluid bolus: In the context of cardiogenic shock after an MI, a fluid bolus could worsen pulmonary edema. The SBAR provides no information about any recent fluid challenge. Cautious fluid administration may be considered, but only under strict hemodynamic monitoring (e.g., via a pulmonary artery catheter) and after ruling out fluid overload.",
+    "correct": "The patient's elevated blood pressure, headache, blurred vision, hyperreflexia with clonus, decreased platelets, and elevated liver enzymes indicate worsening preeclampsia and possible HELLP syndrome, placing her at high risk for seizures, stroke, and postpartum hemorrhage. Administering labetalol is crucial to rapidly lower the blood pressure to prevent these complications. Notifying the physician promptly facilitates further orders and potential interventions. Preparing for the administration of magnesium sulfate bolus, if ordered, is important in seizure prophylaxis. Monitoring for signs of postpartum hemorrhage is important given the history of preeclampsia. Assessing the fundus and lochia is essential, but less immediate than controlling the blood pressure and notifying the provider.",
+    "incorrect": "Delaying the administration of antihypertensive medication and failing to notify the physician first could lead to serious complications such as stroke or seizure. While monitoring for postpartum hemorrhage is important, it is secondary to addressing the immediate threat of uncontrolled hypertension and HELLP syndrome. Assessing fundus and lochia are routine postpartum assessments, but are not the priority given the constellation of patient's symptoms and lab values.",
     "clinicalPearls": [
-      "In cardiogenic shock, prioritize oxygenation, pain management, and hemodynamic support.",
-      "Avoid aggressive fluid administration in cardiogenic shock unless carefully monitored.",
-      "Early intubation and vasopressor support may be necessary to maintain adequate perfusion."
+      "Preeclampsia can worsen postpartum, requiring continued monitoring and treatment.",
+      "HELLP syndrome (Hemolysis, Elevated Liver enzymes, Low Platelets) is a severe complication of preeclampsia.",
+      "Magnesium sulfate is used for seizure prophylaxis in preeclampsia, not primarily for blood pressure control."
     ],
     "questionTrap": {
-      "trap": "Choosing furosemide seems logical for a patient with crackles, but in the setting of cardiogenic shock and hypotension, it will worsen the patient's condition.",
-      "howToOvercome": "Consider the overall clinical picture, including the patient's blood pressure and perfusion status. Prioritize interventions that will improve cardiac output and oxygen delivery without further compromising hemodynamics."
+      "trap": "The question tempts the examinee to focus on routine postpartum assessments instead of recognizing the emergent signs of worsening preeclampsia.",
+      "howToOvercome": "Focus on the abnormal assessment findings and prioritize interventions based on ABCs (Airway, Breathing, Circulation) and potential for rapid deterioration."
     },
     "mnemonic": {
-      "title": "OXYGEN",
-      "expansion": "Optimize Oxygenation, Gauge Hemodynamics, Yield Expert Assistance, Evaluate Etiology, Never Forget Vitals, Enhance Comfort, Normalize Perfusion"
+      "title": "HELLP",
+      "expansion": "Hemolysis, Elevated Liver enzymes, Low Platelets (Signs of HELLP syndrome)"
     }
   }
 }

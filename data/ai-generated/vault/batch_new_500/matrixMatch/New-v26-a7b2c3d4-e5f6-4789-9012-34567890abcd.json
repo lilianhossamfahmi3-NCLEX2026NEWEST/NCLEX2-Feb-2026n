@@ -1,37 +1,40 @@
 {
   "id": "New-v26-a7b2c3d4-e5f6-4789-9012-34567890abcd",
   "type": "matrixMatch",
-  "stem": "The nurse is caring for Mr. Jones. Based on the assessment findings and available data, indicate whether each finding is consistent with Acute Kidney Injury (AKI) or Chronic Kidney Disease (CKD).",
+  "stem": "The patient is experiencing autonomic dysreflexia. Based on the assessment findings in the EHR, indicate whether each intervention is indicated, contraindicated, or neutral at this time.",
   "scoring": {
     "method": "dichotomous",
     "maxPoints": 5
   },
   "itemContext": {
     "patient": {
-      "name": "Jones, Michael",
-      "age": 68,
+      "name": "John Smith",
+      "age": 52,
       "gender": "Male",
-      "iso": "Medical Surgical Unit",
+      "iso": "ICU",
       "allergies": [
         "Penicillin"
+      ],
+      "conditions": [
+        "Droplet"
       ]
     },
-    "sbar": "Situation: Mr. Jones is a 68-year-old male admitted three days ago for pneumonia. Background: He has a history of hypertension and type 2 diabetes, poorly controlled. Assessment: At 06:00, the patient reports increased fatigue and generalized weakness. Urine output over the past 12 hours has been 350 mL. He is edematous in lower extremities bilaterally, +3 pitting. His blood pressure is 170/98 mmHg, heart rate is 92 bpm, and respiratory rate is 24 breaths/min. Labs from 04:00 show a creatinine of 4.2 mg/dL (baseline 1.1 mg/dL three days ago) and potassium of 6.8 mEq/L. Recommendation: I am concerned about acute kidney injury superimposed on possible chronic kidney disease exacerbation and hyperkalemia. I recommend stat EKG, continuous cardiac monitoring, and nephrology consult.",
+    "sbar": "S: This is John Smith, a 52-year-old male with a T6 spinal cord injury admitted three days ago. I'm calling because he's exhibiting signs of autonomic dysreflexia. B: Patient had a T6 SCI 2 years ago in a motor vehicle accident. He has chronic neurogenic bowel and bladder. He typically self-catheterizes every 4 hours. A: At 07:00, his BP was 120/80 mmHg, HR 72 bpm. At 09:00, his BP is 210/110 mmHg, HR 50 bpm. He reports a pounding headache, blurred vision, and nasal congestion. Skin is flushed above the level of injury and pale below. I checked his catheter and it is patent. His last bowel movement was yesterday. Assess: The patient is experiencing autonomic dysreflexia. R: I recommend an immediate assessment for potential triggers, and administration of PRN hydralazine as prescribed and continued monitoring of vital signs.",
     "tabs": [
       {
         "id": "labs",
         "title": "Labs",
-        "content": "Na: 132 mEq/L, K: 6.8 mEq/L, Cl: 98 mEq/L, HCO3: 20 mEq/L, BUN: 45 mg/dL, Creatinine: 4.2 mg/dL, Glucose: 210 mg/dL, Hemoglobin: 10.5 g/dL, Hematocrit: 31.5%, GFR (estimated): 18 mL/min/1.73 m2"
+        "content": "Na: 140 mEq/L, K: 4.2 mEq/L, Creatinine: 1.0 mg/dL, WBC: 8.5 x 10^3/uL, Urine Analysis: Negative for UTI"
       },
       {
         "id": "mar",
         "title": "MAR",
-        "content": "Insulin Lispro 5 units SubQ AC, Metoprolol 25 mg PO BID, Furosemide 40 mg PO Daily, Sevelamer 800mg PO TID with meals"
+        "content": "Hydralazine 10mg IV PRN for SBP > 180 mmHg. Docusate 100mg PO daily. Polyethylene glycol 17g PO daily."
       },
       {
         "id": "vitals",
         "title": "Vitals",
-        "content": "06:00: BP: 170/98 mmHg, HR: 92 bpm, RR: 24 breaths/min, SpO2: 94% on 2L NC, Temp: 99.8°F (37.7°C), Urine Output (past 12 hrs): 350 mL"
+        "content": "07:00: BP 120/80 mmHg, HR 72 bpm, RR 16, SpO2 98%. 09:00: BP 210/110 mmHg, HR 50 bpm, RR 18, SpO2 99%"
       }
     ]
   },
@@ -41,66 +44,55 @@
     "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "Renal: AKI vs CKD & Electrolyte Emergencies"
+      "Neurological: Spinal Cord Injury & Autonomic Dysreflexia"
     ]
   },
   "rationale": {
-    "correct": "Elevated creatinine from baseline with decreased urine output and edema suggests AKI, but the low GFR, anemia, and history of poorly controlled diabetes point towards underlying CKD. Hyperkalemia is a common complication in both conditions. The rapid rise in creatinine and decreased urine output occurring over three days is more indicative of AKI superimposed on CKD. Anemia is a chronic finding in CKD due to decreased erythropoietin production by the kidneys.",
-    "incorrect": "Attributing all findings solely to AKI or CKD ignores the interplay between the two conditions. While the acute rise in creatinine suggests AKI, the low GFR and anemia indicate a pre-existing chronic condition. Focusing only on the elevated potassium without considering the underlying renal dysfunction is also incorrect.",
+    "correct": "Elevating the head of the bed helps to lower blood pressure by promoting venous pooling in the lower extremities. Assessing for bowel impaction is crucial as it is a common trigger. Administering antihypertensive medication (hydralazine) as prescribed is essential to lower the dangerously high blood pressure. Removing constrictive clothing can help improve circulation and reduce pressure. Checking for bladder distension, even with a patent catheter, is important as the catheter may not be draining effectively or there may be bladder spasms.",
+    "incorrect": "Administering a beta-blocker is contraindicated as it can worsen bradycardia, which is already present due to the autonomic dysreflexia. Lowering the head of the bed would increase blood pressure further, exacerbating the hypertensive crisis. Placing the patient in Trendelenburg position would significantly increase blood pressure and is absolutely contraindicated. Encouraging deep breathing exercises is not the priority in this acute situation as it does not directly address the hypertension. Massaging the legs is contraindicated as it could potentially dislodge a clot and increase venous return, further raising blood pressure.",
     "clinicalPearls": [
-      "Differentiating between AKI and CKD involves assessing the timeline of changes, pre-existing conditions, and lab trends.",
-      "Anemia is a common finding in CKD due to decreased erythropoietin production.",
-      "Hyperkalemia is a life-threatening complication of both AKI and CKD, requiring prompt intervention."
+      "Autonomic dysreflexia is a medical emergency requiring immediate intervention.",
+      "Always prioritize assessing and addressing the underlying cause of autonomic dysreflexia.",
+      "Elevate the head of the bed as the FIRST intervention to reduce BP."
     ],
     "questionTrap": {
-      "trap": "Students may focus solely on the elevated creatinine and assume AKI without considering the patient's history and other lab values indicative of CKD.",
-      "howToOvercome": "Carefully analyze all available data, including the patient's history, lab trends, and assessment findings, to differentiate between acute and chronic kidney disease processes."
+      "trap": "The question focuses on immediate interventions. Many students might fixate on bowel impaction as *the* cause and miss the need for immediate blood pressure management.",
+      "howToOvercome": "Prioritize interventions based on immediacy. Lowering blood pressure is paramount. Then, focus on identifying and addressing the trigger."
     },
     "mnemonic": {
-      "title": "AEIOU (Indications for Dialysis)",
-      "expansion": "Acidosis, Electrolyte imbalance (Hyperkalemia), Intoxication, Overload (Fluid), Uremia"
+      "title": "SIT UP",
+      "expansion": "S: Sit the patient up (elevate HOB). I: Investigate the cause (bladder, bowel, skin). T: Treat the blood pressure (antihypertensives). U: Undo constrictive clothing. P: Prevent further episodes (patient education)."
     }
   },
-  "matrixMatchOptions": [
-    "Acute Kidney Injury (AKI)",
-    "Chronic Kidney Disease (CKD)"
-  ],
-  "rows": [
-    {
-      "rowId": "row1",
-      "content": "Creatinine of 4.2 mg/dL (baseline 1.1 mg/dL three days ago)",
-      "matches": [
-        "Acute Kidney Injury (AKI)"
-      ]
-    },
-    {
-      "rowId": "row2",
-      "content": "GFR (estimated) of 18 mL/min/1.73 m2",
-      "matches": [
-        "Chronic Kidney Disease (CKD)"
-      ]
-    },
-    {
-      "rowId": "row3",
-      "content": "Hemoglobin of 10.5 g/dL",
-      "matches": [
-        "Chronic Kidney Disease (CKD)"
-      ]
-    },
-    {
-      "rowId": "row4",
-      "content": "Urine output of 350 mL in the past 12 hours",
-      "matches": [
-        "Acute Kidney Injury (AKI)"
-      ]
-    },
-    {
-      "rowId": "row5",
-      "content": "Potassium of 6.8 mEq/L",
-      "matches": [
-        "Acute Kidney Injury (AKI)",
-        "Chronic Kidney Disease (CKD)"
-      ]
+  "matrixMatch": {
+    "rows": [
+      "Elevate the head of the bed.",
+      "Administer a beta-blocker.",
+      "Assess for bowel impaction.",
+      "Administer hydralazine 10mg IV per MAR.",
+      "Lower the head of the bed.",
+      "Place patient in Trendelenburg position.",
+      "Encourage deep breathing exercises.",
+      "Remove constrictive clothing.",
+      "Check for bladder distension.",
+      "Massage the legs."
+    ],
+    "columns": [
+      "Indicated",
+      "Contraindicated",
+      "Neutral"
+    ],
+    "matches": {
+      "Elevate the head of the bed.": "Indicated",
+      "Administer a beta-blocker.": "Contraindicated",
+      "Assess for bowel impaction.": "Indicated",
+      "Administer hydralazine 10mg IV per MAR.": "Indicated",
+      "Lower the head of the bed.": "Contraindicated",
+      "Place patient in Trendelenburg position.": "Contraindicated",
+      "Encourage deep breathing exercises.": "Neutral",
+      "Remove constrictive clothing.": "Indicated",
+      "Check for bladder distension.": "Indicated",
+      "Massage the legs.": "Contraindicated"
     }
-  ]
+  }
 }

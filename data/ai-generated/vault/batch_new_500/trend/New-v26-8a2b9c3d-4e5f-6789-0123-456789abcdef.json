@@ -1,37 +1,39 @@
 {
   "id": "New-v26-8a2b9c3d-4e5f-6789-0123-456789abcdef",
   "type": "trend",
-  "stem": "The patient's condition is trending. Based on the data provided in the EHR, complete the table below to evaluate the interventions and their effectiveness. For each intervention, indicate if it was appropriate and whether it was effective in improving the patient's condition. Base your decision on the trends observed in the patient's vital signs and lab results.",
+  "stem": "The patient's nurse is reviewing the Electronic Health Record (EHR) and notes the following trends. Based on this data, determine the most likely condition the patient is experiencing, and then select the interventions that are MOST appropriate. Use the EHR tabs to inform your decisions.",
   "scoring": {
-    "method": "dichotomous",
-    "maxPoints": 6
+    "method": "linked",
+    "maxPoints": 5
   },
   "itemContext": {
     "patient": {
-      "name": "James Miller",
+      "name": "Evelyn Hayes",
       "age": 68,
-      "gender": "Male",
-      "iso": "ICU",
+      "gender": "Female",
+      "iso": "Medical Intensive Care Unit",
       "allergies": [
         "Penicillin"
-      ]
+      ],
+      "airborne": false,
+      "isolation": "Standard"
     },
-    "sbar": "S: James Miller, 68-year-old male, admitted 2 days ago with septic shock secondary to pneumonia. R: Developed hypotension unresponsive to initial fluid resuscitation. Started on norepinephrine at 06:00. B: History of hypertension and hyperlipidemia. Current vitals: BP 88/52 mmHg, HR 118 bpm, RR 26, SpO2 92% on 4L NC, Temp 38.8°C. Recent lactate 4.8 mmol/L at 07:00. UOP has been declining. A: 08:00: Increased norepinephrine to 8 mcg/min. 09:00: Administered 500 mL crystalloid bolus. 10:00: Initiated broad-spectrum antibiotics. 11:00: Placed arterial line for continuous BP monitoring. Currently, BP 94/58 mmHg, HR 110 bpm, RR 24, SpO2 94% on 4L NC, Temp 38.5°C. Lactate remains elevated at 4.2 mmol/L at 11:00. I am concerned about persistent hypotension and elevated lactate despite interventions.",
+    "sbar": "SBAR: Evelyn Hayes, 68-year-old female, admitted at 03:00 for altered mental status. PMH: Hyperthyroidism, hypertension, and anxiety. 07:00 report: Increasingly agitated, diaphoretic, and febrile (39.2°C). Blood glucose trending upwards despite sliding scale insulin. On continuous cardiac monitoring. BP: 170/95 mmHg, HR: 140 bpm, RR: 28 and labored. O2 saturation 92% on 4L nasal cannula. Patient received scheduled levothyroxine at 06:00. Background: Diagnosed with hyperthyroidism 5 years ago, compliant with medication until recently. Assessment: Possible thyroid storm exacerbated by non-compliance. Recommendation: Immediate intervention to stabilize vital signs and prevent further complications. STAT labs drawn. Notify attending physician immediately. Continuous monitoring of vital signs and mental status is essential. Assess for signs of heart failure. Consider beta-blockers to control heart rate. Prepare for possible transfer to higher level of care. Anticipate orders for propylthiouracil (PTU) or methimazole.",
     "tabs": [
       {
-        "id": "vitals",
-        "title": "Vitals",
-        "content": "<table><thead><tr><th>Time</th><th>BP (mmHg)</th><th>HR (bpm)</th><th>RR (bpm)</th><th>SpO2 (%)</th><th>Temp (°C)</th></tr></thead><tbody><tr><td>06:00</td><td>82/48</td><td>122</td><td>28</td><td>90</td><td>39.0</td></tr><tr><td>07:00</td><td>85/50</td><td>120</td><td>27</td><td>91</td><td>38.9</td></tr><tr><td>08:00</td><td>88/52</td><td>118</td><td>26</td><td>92</td><td>38.8</td></tr><tr><td>09:00</td><td>90/55</td><td>115</td><td>25</td><td>93</td><td>38.7</td></tr><tr><td>10:00</td><td>92/57</td><td>112</td><td>24</td><td>94</td><td>38.6</td></tr><tr><td>11:00</td><td>94/58</td><td>110</td><td>24</td><td>94</td><td>38.5</td></tr></tbody></table>"
-      },
-      {
         "id": "labs",
-        "title": "Labs",
-        "content": "<table><thead><tr><th>Lab</th><th>07:00</th><th>11:00</th></tr></thead><tbody><tr><td>Lactate (mmol/L)</td><td>4.8</td><td>4.2</td></tr><tr><td>WBC (x10^9/L)</td><td>18</td><td>17</td></tr><tr><td>Creatinine (mg/dL)</td><td>1.5</td><td>1.6</td></tr></tbody></table>"
+        "title": "Laboratory Results",
+        "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>148 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>105 mEq/L</td><td>98-106 mEq/L</td></tr><tr><td>Bicarbonate</td><td>22 mEq/L</td><td>22-29 mEq/L</td></tr><tr><td>Glucose</td><td>380 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>BUN</td><td>25 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.3 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>T3, Free</td><td>9.5 pg/mL</td><td>2.3-4.2 pg/mL</td></tr><tr><td>T4, Free</td><td>3.8 ng/dL</td><td>0.8-1.8 ng/dL</td></tr><tr><td>TSH</td><td><0.01 uIU/mL</td><td>0.4-4.0 uIU/mL</td></tr><tr><td>pH</td><td>7.36</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>38 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>88 mmHg</td><td>80-100 mmHg</td></tr></tbody></table>"
       },
       {
         "id": "mar",
-        "title": "MAR",
-        "content": "<table><thead><tr><th>Time</th><th>Medication</th><th>Dose</th><th>Route</th></tr></thead><tbody><tr><td>06:00</td><td>Norepinephrine</td><td>2 mcg/min</td><td>IV</td></tr><tr><td>08:00</td><td>Norepinephrine</td><td>8 mcg/min</td><td>IV</td></tr><tr><td>09:00</td><td>Crystalloid (LR)</td><td>500 mL</td><td>IV Bolus</td></tr><tr><td>10:00</td><td>Ceftriaxone</td><td>2 g</td><td>IV</td></tr></tbody></table>"
+        "title": "Medication Administration Record",
+        "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Levothyroxine</td><td>100 mcg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Insulin Aspart (sliding scale)</td><td>Varies</td><td>Subcutaneous</td><td>Q4H PRN</td><td>04:00 (4 units)</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>Q4H PRN for fever</td><td>Not administered</td></tr><tr><td>Metoprolol</td><td>25 mg</td><td>PO</td><td>BID</td><td>06:00</td></tr><tr><td>Lorazepam</td><td>1 mg</td><td>IV</td><td>Q6H PRN for anxiety</td><td>00:00</td></tr></tbody></table>"
+      },
+      {
+        "id": "vitals",
+        "title": "Vital Signs",
+        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO2</th></tr></thead><tbody><tr><td>03:00</td><td>150/85</td><td>110</td><td>22</td><td>37.8</td><td>95% RA</td></tr><tr><td>04:00</td><td>160/90</td><td>120</td><td>24</td><td>38.3</td><td>94% 4L NC</td></tr><tr><td>05:00</td><td>165/92</td><td>130</td><td>26</td><td>38.7</td><td>93% 4L NC</td></tr><tr><td>06:00</td><td>170/95</td><td>135</td><td>28</td><td>39.0</td><td>92% 4L NC</td></tr><tr><td>07:00</td><td>170/95</td><td>140</td><td>28</td><td>39.2</td><td>92% 4L NC</td></tr></tbody></table>"
       }
     ]
   },
@@ -41,24 +43,63 @@
     "nclexCategory": "Physiological Integrity",
     "difficulty": 5,
     "topicTags": [
-      "Cardiovascular: Shock & Hemodynamics"
+      "Endocrine: DKA/HHS & Thyroid Storm"
     ]
   },
   "rationale": {
-    "correct": "Increasing norepinephrine was appropriate as the patient was hypotensive despite initial fluid resuscitation, indicating a need for vasopressors to improve blood pressure. The trend of increasing blood pressure suggests it was effective, though the target BP has not been achieved. Administering a crystalloid bolus was appropriate to address potential hypovolemia contributing to hypotension. The slight increase in BP suggests some effectiveness, but further assessment is needed. Initiating broad-spectrum antibiotics was appropriate given the septic shock diagnosis secondary to pneumonia. While WBC counts are only slightly decreased, it's too early to determine definitive effectiveness; monitoring trends is crucial. Placing an arterial line for continuous BP monitoring was appropriate to closely monitor BP changes in a critically ill patient receiving vasopressors. This facilitates timely adjustments to therapy based on real-time data, improving patient safety and outcomes.",
-    "incorrect": "Failing to recognize the appropriateness of norepinephrine administration, fluid bolus, antibiotics, or arterial line placement indicates a lack of understanding of septic shock management and the rationale behind these interventions. Incorrectly assessing the effectiveness of these interventions may stem from a misunderstanding of the expected timelines for improvement and the significance of subtle changes in vital signs and lab results.",
+    "correct": "The patient's presentation – elevated temperature, tachycardia, hypertension, altered mental status, elevated free T3 and T4, suppressed TSH, and hyperglycemia – strongly suggests thyroid storm. The interventions aim to reduce thyroid hormone synthesis and release, block the effects of thyroid hormones on the body, control symptoms, and address precipitating factors. Administering PTU or methimazole blocks thyroid hormone synthesis. Administering beta-blockers like propranolol or esmolol helps control tachycardia, hypertension, and anxiety by blocking the effects of thyroid hormones on beta-adrenergic receptors. Administering IV fluids addresses dehydration and supports cardiovascular function. Applying cooling blankets helps reduce fever and metabolic demands. Monitoring cardiac rhythm is crucial to detect and manage arrhythmias, a common complication of thyroid storm.",
+    "incorrect": "Failure to recognize the constellation of symptoms indicative of thyroid storm leads to incorrect intervention choices. Administering insulin alone is insufficient as the primary issue is not uncontrolled hyperglycemia but rather hyperthyroidism. Intubation and mechanical ventilation might be required later if respiratory distress worsens, but are not the initial interventions. Administering potassium addresses hypokalemia but does not address the underlying thyroid storm. Restricting fluids would be contraindicated given the patient's dehydration status.",
     "clinicalPearls": [
-      "In septic shock, early initiation of vasopressors and antibiotics is crucial for improving patient outcomes.",
-      "Continuous BP monitoring via arterial line allows for precise titration of vasopressors.",
-      "Lactate trends are important indicators of tissue perfusion and response to treatment in septic shock."
+      "Thyroid storm is a life-threatening emergency requiring prompt recognition and treatment.",
+      "Beta-blockers are crucial in managing the adrenergic symptoms of thyroid storm.",
+      "Aggressive cooling measures are essential to reduce fever and metabolic rate."
     ],
     "questionTrap": {
-      "trap": "Students may focus solely on one data point instead of analyzing the overall trend, leading to inaccurate conclusions about the effectiveness of interventions.",
-      "howToOvercome": "Encourage students to look at the changes in vital signs and lab values over time rather than individual data points. Emphasize the importance of considering the clinical context and expected timelines for intervention effects."
+      "trap": "Focusing solely on the elevated glucose level might lead to a misdiagnosis of DKA/HHS, especially considering the patient's altered mental status. However, the significantly elevated T3/T4 levels and suppressed TSH are key indicators of thyroid storm.",
+      "howToOvercome": "Carefully analyze all available data, including lab results and vital signs, to identify the underlying cause of the patient's condition. Do not rely solely on one data point."
     },
     "mnemonic": {
-      "title": "VIP",
-      "expansion": "V - Vasopressors (Norepinephrine), I - IV Fluids (Crystalloid Bolus), P - Pressors (Arterial line for BP monitoring)"
+      "title": "THYROID STORM",
+      "expansion": "Temperature (high), Hypertension, ইয়ং tachycardia, Restlessness, Obtundation, Irregular pulse, Diaphoresis, Shock, Tremors, Organ failure, Rapid deterioration, Mortality high"
     }
-  }
+  },
+  "stemNB": [
+    {
+      "title": "Condition",
+      "type": "category",
+      "options": [
+        "Diabetic Ketoacidosis (DKA)",
+        "Hyperosmolar Hyperglycemic State (HHS)",
+        "Thyroid Storm",
+        "Myocardial Infarction"
+      ],
+      "correctResponses": [
+        "Thyroid Storm"
+      ],
+      "prompt": "Select the MOST likely condition the patient is experiencing based on the data provided."
+    },
+    {
+      "title": "Interventions",
+      "type": "checkbox",
+      "options": [
+        "Administer IV insulin bolus and start insulin infusion.",
+        "Administer propylthiouracil (PTU) or methimazole.",
+        "Administer beta-blockers (e.g., propranolol, esmolol).",
+        "Intubate and mechanically ventilate the patient.",
+        "Administer IV fluids.",
+        "Apply cooling blankets.",
+        "Administer potassium chloride IV.",
+        "Restrict fluids.",
+        "Monitor cardiac rhythm continuously."
+      ],
+      "correctResponses": [
+        "Administer propylthiouracil (PTU) or methimazole.",
+        "Administer beta-blockers (e.g., propranolol, esmolol).",
+        "Administer IV fluids.",
+        "Apply cooling blankets.",
+        "Monitor cardiac rhythm continuously."
+      ],
+      "prompt": "Select ALL interventions that are MOST appropriate for this patient's condition."
+    }
+  ]
 }
