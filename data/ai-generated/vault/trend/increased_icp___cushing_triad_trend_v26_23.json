@@ -3,8 +3,8 @@
   "type": "trend",
   "stem": "The nurse is caring for a client with a traumatic brain injury and is monitoring for signs of increasing intracranial pressure (ICP). Review the client's vital signs below. Based on the trends observed, indicate whether each vital sign is increasing, decreasing, or showing no change. Select the appropriate trend for each vital sign.",
   "scoring": {
-    "method": "dichotomous",
-    "maxPoints": 1
+    "method": "partialCredit",
+    "maxPoints": 4
   },
   "rationale": {
     "correct": "Cushing's triad is a classic but late sign of increased ICP and consists of hypertension with a widening pulse pressure, bradycardia, and irregular respirations. The body attempts to maintain cerebral perfusion by increasing blood pressure. The increased pressure stimulates the baroreceptors, leading to a reflex bradycardia. Changes in respiratory pattern occur as ICP affects the brainstem.",
@@ -88,5 +88,105 @@
       "text": "No Change"
     }
   ],
-  "correctOptionId": "a"
+  "rubric": [
+    {
+      "id": "hr",
+      "text": "Heart Rate",
+      "correctOptionId": "b",
+      "points": 1
+    },
+    {
+      "id": "bp",
+      "text": "Blood Pressure",
+      "correctOptionId": "a",
+      "points": 1
+    },
+    {
+      "id": "rr",
+      "text": "Respiratory Rate",
+      "correctOptionId": "b",
+      "points": 1
+    },
+    {
+      "id": "temp",
+      "text": "Temperature",
+      "correctOptionId": "a",
+      "points": 1
+    }
+  ],
+  "stimulus": [
+    {
+      "type": "table",
+      "content": [
+        {
+          "header": true,
+          "cells": [
+            "Vital Sign",
+            "Trend"
+          ]
+        },
+        {
+          "header": false,
+          "cells": [
+            "Heart Rate",
+            {
+              "type": "select",
+              "id": "hr",
+              "options": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          ]
+        },
+        {
+          "header": false,
+          "cells": [
+            "Blood Pressure",
+            {
+              "type": "select",
+              "id": "bp",
+              "options": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          ]
+        },
+        {
+          "header": false,
+          "cells": [
+            "Respiratory Rate",
+            {
+              "type": "select",
+              "id": "rr",
+              "options": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          ]
+        },
+        {
+          "header": false,
+          "cells": [
+            "Temperature",
+            {
+              "type": "select",
+              "id": "temp",
+              "options": [
+                "a",
+                "b",
+                "c"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sentinelStatus": "healed_v2026_v11"
 }

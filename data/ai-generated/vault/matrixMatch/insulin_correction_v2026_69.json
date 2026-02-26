@@ -1,107 +1,108 @@
 {
-    "id": "matrixMatch_insulin_correction_v2026_69",
-    "type": "matrixMatch",
-    "matrixType": "multipleChoice",
-    "stem": "The nurse is calculating the total pre-meal insulin dose for a client. Based on the documentation in the Glucose Sliding Scale Protocol and the current fingerstick result, match each insulin component to its correct dosage.",
-    "itemContext": {
-        "tabs": [
-            {
-                "id": "sbar",
-                "title": "Nurses' Notes",
-                "content": "Patient: (Mr. Henderson, 62y/o). History of Type 2 Diabetes. Scheduled for breakfast at 08:00. \nPhysician's Orders: 1. Fixed dose: 8 units of Insulin Aspart with meals. 2. Correction dose: Per Sliding Scale (Humalog/Aspart)."
-            },
-            {
-                "id": "scale",
-                "title": "Glucose Sliding Scale Protocol",
-                "content": "<table><thead><tr><th>Blood Glucose (mg/dL)</th><th>Correction Dose (Units)</th></tr></thead><tbody><tr><td>< 150</td><td>0</td></tr><tr><td>151–200</td><td>2</td></tr><tr><td>201–250</td><td>4</td></tr><tr><td>251–300</td><td>6</td></tr><tr><td>301–350</td><td>8</td></tr><tr><td>> 350</td><td>Call Provider</td></tr></tbody></table>"
-            },
-            {
-                "id": "labs",
-                "title": "BGM Result",
-                "content": "07:30: Pre-meal fingerstack glucose = 264 mg/dL."
-            }
-        ]
+  "id": "matrixMatch_insulin_correction_v2026_69",
+  "type": "matrixMatch",
+  "matrixType": "multipleChoice",
+  "stem": "The nurse is calculating the total pre-meal insulin dose for a client with type 2 diabetes. Based on the provided documentation, match each insulin component or action to its correct dosage or instruction.",
+  "itemContext": {
+    "tabs": [
+      {
+        "id": "sbar",
+        "title": "Nurses' Notes",
+        "content": "Patient: Mr. Henderson, 62 years old, with a history of type 2 diabetes. Scheduled for breakfast at 08:00.\nPhysician's Orders: 1. Fixed dose: 8 units of insulin aspart with meals. 2. Correction dose: Per Sliding Scale (Humalog/Aspart)."
+      },
+      {
+        "id": "scale",
+        "title": "Glucose Sliding Scale Protocol",
+        "content": "<table><thead><tr><th>Blood Glucose (mg/dL)</th><th>Correction Dose (Units)</th></tr></thead><tbody><tr><td>< 150</td><td>0</td></tr><tr><td>151–200</td><td>2</td></tr><tr><td>201–250</td><td>4</td></tr><tr><td>251–300</td><td>6</td></tr><tr><td>301–350</td><td>8</td></tr><tr><td>> 350</td><td>Call Provider</td></tr></tbody></table>"
+      },
+      {
+        "id": "labs",
+        "title": "BGM Result",
+        "content": "07:30: Pre-meal fingerstick glucose = 264 mg/dL."
+      }
+    ]
+  },
+  "rows": [
+    {
+      "id": "r1",
+      "text": "The patient's fixed (prandial) insulin dose"
     },
-    "rows": [
-        {
-            "id": "r1",
-            "text": "The patient's 'Fixed' (Prandial) dose"
-        },
-        {
-            "id": "r2",
-            "text": "The patient's 'Correction' (Sliding scale) dose"
-        },
-        {
-            "id": "r3",
-            "text": "The total amount of insulin to be administered at 08:00"
-        },
-        {
-            "id": "r4",
-            "text": "The action the nurse should take if glucose was 402 mg/dL"
-        }
+    {
+      "id": "r2",
+      "text": "The patient's correction (sliding scale) insulin dose"
+    },
+    {
+      "id": "r3",
+      "text": "The total amount of insulin to be administered at 08:00"
+    },
+    {
+      "id": "r4",
+      "text": "The action the nurse should take if the blood glucose was 402 mg/dL"
+    }
+  ],
+  "columns": [
+    {
+      "id": "c1",
+      "text": "6 Units"
+    },
+    {
+      "id": "c2",
+      "text": "8 Units"
+    },
+    {
+      "id": "c3",
+      "text": "14 Units"
+    },
+    {
+      "id": "c4",
+      "text": "Notify the healthcare provider immediately"
+    }
+  ],
+  "correctAnswers": {
+    "r1": [
+      "c2"
     ],
-    "columns": [
-        {
-            "id": "c1",
-            "text": "6 Units"
-        },
-        {
-            "id": "c2",
-            "text": "8 Units"
-        },
-        {
-            "id": "c3",
-            "text": "14 Units"
-        },
-        {
-            "id": "c4",
-            "text": "Notify the Healthcare Provider immediately"
-        }
+    "r2": [
+      "c1"
     ],
-    "correctAnswers": {
-        "r1": [
-            "c2"
-        ],
-        "r2": [
-            "c1"
-        ],
-        "r3": [
-            "c3"
-        ],
-        "r4": [
-            "c4"
-        ]
+    "r3": [
+      "c3"
+    ],
+    "r4": [
+      "c4"
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "apply",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Pharmacological and Parenteral Therapies",
+    "difficulty": 4,
+    "topicTags": [
+      "Insulin Management",
+      "Sliding Scale",
+      "Dosage Calculation"
+    ]
+  },
+  "rationale": {
+    "correct": "The fixed insulin dose is explicitly ordered as 8 units (r1/c2). According to the sliding scale protocol, a blood glucose of 264 mg/dL requires a correction dose of 6 units (r2/c1). The total insulin dose is calculated by adding the fixed dose and the correction dose: 8 units + 6 units = 14 units (r3/c3). The sliding scale protocol indicates that if the blood glucose is greater than 350 mg/dL, the healthcare provider should be notified immediately (r4/c4).",
+    "clinicalPearls": [
+      "Fixed insulin doses are designed to cover the carbohydrate intake associated with the upcoming meal.",
+      "Correction insulin doses are designed to address existing hyperglycemia.",
+      "Rapid-acting insulin analogs (e.g., aspart, lispro) are commonly used for correction doses.",
+      "Always verify the patient's blood glucose level immediately before administering insulin."
+    ],
+    "questionTrap": {
+      "trap": "Forgetting to add the fixed and correction doses together to determine the total insulin dose.",
+      "howToOvercome": "When calculating insulin doses, remember to combine the fixed (mealtime) dose with the correction dose based on the sliding scale. The total insulin dose is the sum of these two components."
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "takeAction",
-        "nclexCategory": "Pharmacological and Parenteral Therapies",
-        "difficulty": 4,
-        "topicTags": [
-            "Insulin Management",
-            "Sliding Scale",
-            "Dosage Calculation"
-        ]
-    },
-    "rationale": {
-        "correct": "The fixed dose is explicitly ordered as 8 units (r1/c2). For a blood glucose of 264, the sliding scale indicates a correction dose of 6 units (r2/c1). The total dose is 8 (fixed) + 6 (correction) = 14 units (r3/c3). If the glucose is over 350, the protocol requires calling the provider (r4/c4).",
-        "clinicalPearls": [
-            "Fixed doses cover the CARBS the patient is about to eat. Correction doses cover the glucose they ALREADY have.",
-            "Correction doses are usually given with Rapid-acting insulin (Aspart/Lispro).",
-            "Always check the glucose IMMEDIATELY before giving the dose."
-        ],
-        "questionTrap": {
-            "trap": "Forgetting to add the two doses together.",
-            "howToOvercome": "NCLEX often pairs a fixed meal dose with a correction dose. The total given is always S + F (Scale + Fixed)."
-        },
-        "mnemonic": {
-            "title": "Scale plus Meal",
-            "expansion": "S-Scale (Current sugar). F-Fixed (Future carbs). Total = S+F."
-        }
-    },
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 4
-    },
-    "sentinelStatus": "healed_v2026_v9"
+    "mnemonic": {
+      "title": "SF Total Insulin",
+      "expansion": "S = Sliding scale (correction dose based on current blood glucose). F = Fixed dose (mealtime insulin). Total insulin dose = S + F."
+    }
+  },
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 4
+  },
+  "sentinelStatus": "healed_v2026_v11"
 }
