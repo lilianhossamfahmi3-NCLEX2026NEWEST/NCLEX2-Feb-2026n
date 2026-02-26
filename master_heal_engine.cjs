@@ -35,21 +35,74 @@ Return ONLY PURE JSON matching the MasterItem interface.
 {{ITEM_JSON}}
 `;
 
-function repairItemLocally(item) {
-    const repaired = JSON.parse(JSON.stringify(item));
-    let changes = 0;
-    if (repaired.itemType && !repaired.type) { repaired.type = repaired.itemType; changes++; }
-    if (!repaired.pedagogy) {
-        repaired.pedagogy = {
-            bloomLevel: (repaired.cognitiveLevel || 'apply').toLowerCase(),
-            cjmmStep: repaired.clinicalProcess || 'analyzeCues',
-            nclexCategory: repaired.clientNeed || 'Physiological Adaptation',
-            topicTags: repaired.topicTags || ['Uncategorized'],
-            difficulty: parseInt(repaired.difficulty) || 3
-        };
-        changes++;
+function normalize(item) {
+    if (!item) return null;
+    const type = item.type || item.itemType || 'multipleChoice';
+    item.type = type;
+
+    // 1. Rationales (Must be strings)
+    if (item.rationale) {
+        ['correct', 'incorrect'].forEach(k => {
+            if (Array.isArray(item.rationale[k])) item.rationale[k] = item.rationale[k].join(' ');
+        });
     }
-    return { repaired, changesCount: changes };
+
+    // 2. Options Normalization
+    if (item.options && Array.isArray(item.options)) {
+        item.options = item.options.map((opt, i) => {
+            const id = String.fromCharCode(97 + i);
+            if (typeof opt === 'string') return { id, text: opt };
+            if (!opt.id) return { ...opt, id };
+            return opt;
+        });
+    }
+
+    // 3. Pedagogy Normalization (CRITICAL FIX)
+    if (!item.pedagogy) item.pedagogy = {};
+
+    const bloomMap = { 'Remember': 'remember', 'Understand': 'understand', 'Apply': 'apply', 'Analyze': 'analyze', 'Evaluate': 'evaluate', 'Create': 'create', 'Remembering': 'remember', 'Understanding': 'understand', 'Applying': 'apply', 'Analyzing': 'analyze', 'Evaluating': 'evaluate', 'Creating': 'create' };
+    item.pedagogy.bloomLevel = bloomMap[item.pedagogy.bloomLevel] || item.pedagogy.bloomLevel?.toLowerCase() || 'apply';
+
+    const cjmmMap = {
+        'Recognize Cues': 'recognizeCues', 'Analyze Cues': 'analyzeCues',
+        'Prioritize Hypotheses': 'prioritizeHypotheses', 'Generate Solutions': 'generateSolutions',
+        'Take Action': 'takeAction', 'Evaluate Outcomes': 'evaluateOutcomes',
+        'Analyze': 'analyzeCues', 'Action': 'takeAction', 'Recognize': 'recognizeCues'
+    };
+    item.pedagogy.cjmmStep = cjmmMap[item.pedagogy.cjmmStep] || item.pedagogy.cjmmStep || 'analyzeCues';
+
+    const catMap = {
+        'Safe and Effective Care Environment': 'Management of Care',
+        'Safety and Infection Control': 'Safety and Infection Prevention and Control',
+        'Health Promotion': 'Health Promotion and Maintenance',
+        'Psychosocial': 'Psychosocial Integrity',
+        'Basic Care': 'Basic Care and Comfort',
+        'Pharmacological': 'Pharmacological and Parenteral Therapies',
+        'Risk Potential': 'Reduction of Risk Potential',
+        'Physiological': 'Physiological Adaptation'
+    };
+    const validCats = [
+        'Management of Care', 'Safety and Infection Prevention and Control',
+        'Health Promotion and Maintenance', 'Psychosocial Integrity',
+        'Basic Care and Comfort', 'Pharmacological and Parenteral Therapies',
+        'Reduction of Risk Potential', 'Physiological Adaptation'
+    ];
+    if (!validCats.includes(item.pedagogy.nclexCategory)) {
+        item.pedagogy.nclexCategory = catMap[item.pedagogy.nclexCategory] || item.pedagogy.nclexCategory || 'Physiological Adaptation';
+    }
+
+    // 4. Tabs
+    const mandatoryIds = ['sbar', 'vitals', 'labs', 'physicalExam', 'radiology', 'carePlan', 'mar'];
+    const currentTabs = Array.isArray(item.itemContext?.tabs) ? item.itemContext.tabs : [];
+    const finalTabs = mandatoryIds.map(id => {
+        const existing = currentTabs.find(t => (t.id || t.title || '').toLowerCase() === id.toLowerCase());
+        if (existing) return { ...existing, id };
+        return { id, title: id.charAt(0).toUpperCase() + id.slice(1), content: '<p>No significant findings at this time.</p>' };
+    });
+    if (!item.itemContext) item.itemContext = {};
+    item.itemContext.tabs = finalTabs;
+
+    return item;
 }
 
 async function runDeepAIHeal(item) {
@@ -64,7 +117,7 @@ async function runDeepAIHeal(item) {
 
     try {
         const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 30000); // 30s timeout
+        const timeout = setTimeout(() => controller.abort(), 30000);
 
         const resp = await fetch(url, {
             method: 'POST',
@@ -78,8 +131,9 @@ async function runDeepAIHeal(item) {
 
         const data = await resp.json();
         const rawJson = data.candidates[0].content.parts[0].text.replace(/```json|```/g, '').trim();
-        const repaired = JSON.parse(rawJson);
-        repaired.sentinelStatus = 'healed_v2026_v11';
+        let repaired = JSON.parse(rawJson);
+        repaired = normalize(repaired);
+        repaired.sentinelStatus = 'healed_v2026_v18_master';
         return repaired;
     } catch (e) {
         return null;
@@ -87,10 +141,8 @@ async function runDeepAIHeal(item) {
 }
 
 async function main() {
-    console.log("🚀 STARTING HEAL...");
+    console.log("🚀 STARTING GLOBAL MASTER HEAL...");
     const vaultDir = path.join(__dirname, 'data', 'ai-generated', 'vault');
-
-    // Manual small walk
     const files = [];
     const dirs = [vaultDir];
     while (dirs.length > 0) {
@@ -108,10 +160,7 @@ async function main() {
     let aiCount = 0;
 
     for (const file of files) {
-        // Full process run requested by USER
-
-        const raw = fs.readFileSync(file, 'utf8');
-        let content = JSON.parse(raw);
+        let content = JSON.parse(fs.readFileSync(file, 'utf8'));
         let items = Array.isArray(content) ? content : [content];
         let fileChanged = false;
 
@@ -119,13 +168,11 @@ async function main() {
             const item = items[j];
             if (!item || !item.id) continue;
 
-            // Deterministic
-            const { repaired: detItem, changesCount } = repairItemLocally(item);
-            if (changesCount > 0) { items[j] = detItem; fileChanged = true; }
+            const normalized = normalize(item);
+            if (normalized) { items[j] = normalized; fileChanged = true; }
 
-            // AI
-            if (!item.sentinelStatus?.includes('healed_v2026_v11')) {
-                console.log(`Healing ${item.id}...`);
+            if (!item.sentinelStatus?.includes('healed_v2026_v18')) {
+                console.log(`Deep Healing ${item.id}...`);
                 const healed = await runDeepAIHeal(items[j]);
                 if (healed) { items[j] = healed; fileChanged = true; aiCount++; }
             }
@@ -133,7 +180,6 @@ async function main() {
 
         if (fileChanged) {
             fs.writeFileSync(file, JSON.stringify(Array.isArray(content) ? items : items[0], null, 2));
-            // Sync
             for (const it of items) {
                 await supabase.from('clinical_vault').upsert({
                     id: it.id, type: it.type || 'unknown', item_data: it,

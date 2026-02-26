@@ -1,23 +1,36 @@
 {
+  "id": "New-v26-1772079013529-1370",
   "stem": "For each finding below, click to specify if it supports a diagnosis of acute heart failure (AHF) or hypovolemic shock.",
-  "itemContext": {
-    "patient": {
-      "age": 78,
-      "gender": "Male",
-      "medicalHistory": [
-        "Hypertension",
-        "Type 2 Diabetes",
-        "Chronic Kidney Disease (Stage 3)"
-      ],
-      "allergies": [
-        "Penicillin"
-      ],
-      "medications": [
-        "Lisinopril 20mg daily",
-        "Metformin 500mg twice daily",
-        "Aspirin 81mg daily"
-      ]
+  "type": "bowtie",
+  "scoring": {
+    "method": "partialCredit",
+    "maxPoints": 5
+  },
+  "pedagogy": {
+    "cjmmStep": "analyzeCues",
+    "topicTags": [
+      "General"
+    ],
+    "bloomLevel": "apply",
+    "difficulty": 3,
+    "nclexCategory": "Physiological Adaptation"
+  },
+  "rationale": {
+    "correct": "AHF is characterized by fluid overload, leading to symptoms like shortness of breath, edema, and elevated BNP. Hypovolemic shock results from inadequate circulating volume, presenting with hypotension and tachycardia, but typically without signs of fluid overload.",
+    "mnemonic": {
+      "AHF": "Always Have Fluid: Think fluid overload symptoms."
     },
+    "incorrect": "Mistaking signs of fluid overload for dehydration (hypovolemia) or attributing elevated BNP solely to renal dysfunction. Failing to recognize the significance of S3 heart sound and JVD in AHF.",
+    "questionTrap": {
+      "avoid": "Assuming all hypotensive patients are hypovolemic. Assessing fluid status is crucial."
+    },
+    "clinicalPearls": [
+      "BNP is a helpful marker for heart failure, but can be elevated in renal insufficiency.",
+      "S3 heart sound is often associated with rapid ventricular filling in heart failure.",
+      "Hypovolemic shock often presents with decreased urine output and dry mucous membranes."
+    ]
+  },
+  "itemContext": {
     "sbar": "Patient is a 78-year-old male presenting with acute shortness of breath and lower extremity edema. He reports increasing dyspnea on exertion over the past week, culminating in difficulty breathing at rest today. He also notes significant swelling in his ankles and feet. Patient denies chest pain. History of hypertension, diabetes, and chronic kidney disease. Currently on lisinopril, metformin, and aspirin.",
     "tabs": [
       {
@@ -55,27 +68,34 @@
         "title": "Mar",
         "content": "<p>No significant findings at this time.</p>"
       }
-    ]
-  },
-  "rationale": {
-    "correct": "AHF is characterized by fluid overload, leading to symptoms like shortness of breath, edema, and elevated BNP. Hypovolemic shock results from inadequate circulating volume, presenting with hypotension and tachycardia, but typically without signs of fluid overload.",
-    "incorrect": "Mistaking signs of fluid overload for dehydration (hypovolemia) or attributing elevated BNP solely to renal dysfunction. Failing to recognize the significance of S3 heart sound and JVD in AHF.",
-    "clinicalPearls": [
-      "BNP is a helpful marker for heart failure, but can be elevated in renal insufficiency.",
-      "S3 heart sound is often associated with rapid ventricular filling in heart failure.",
-      "Hypovolemic shock often presents with decreased urine output and dry mucous membranes."
     ],
-    "questionTrap": {
-      "avoid": "Assuming all hypotensive patients are hypovolemic. Assessing fluid status is crucial."
-    },
-    "mnemonic": {
-      "AHF": "Always Have Fluid: Think fluid overload symptoms."
+    "patient": {
+      "age": 78,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "medications": [
+        "Lisinopril 20mg daily",
+        "Metformin 500mg twice daily",
+        "Aspirin 81mg daily"
+      ],
+      "medicalHistory": [
+        "Hypertension",
+        "Type 2 Diabetes",
+        "Chronic Kidney Disease (Stage 3)"
+      ]
     }
   },
-  "scoring": {
-    "method": "partialCredit",
-    "maxPoints": 5
+  "sentinelStatus": "healed_v2026_v20_qi_final",
+  "correctResponse": {
+    "jvd": "AHF",
+    "crackles": "AHF",
+    "elevatedBnp": "AHF",
+    "hypotension": "Hypovolemic Shock",
+    "tachycardia": "Hypovolemic Shock"
   },
+  "interactionType": "Categorization",
   "responseOptions": [
     {
       "id": "jvd",
@@ -97,16 +117,5 @@
       "id": "elevatedBnp",
       "content": "Elevated BNP (1500)"
     }
-  ],
-  "correctResponse": {
-    "jvd": "AHF",
-    "hypotension": "Hypovolemic Shock",
-    "tachycardia": "Hypovolemic Shock",
-    "crackles": "AHF",
-    "elevatedBnp": "AHF"
-  },
-  "interactionType": "Categorization",
-  "type": "bowtie",
-  "id": "New-v26-1772079013529-1370",
-  "sentinelStatus": "healed_v2026_v17_qi100"
+  ]
 }

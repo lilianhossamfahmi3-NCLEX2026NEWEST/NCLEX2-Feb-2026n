@@ -1,20 +1,39 @@
 {
+  "id": "New-v26-1772078203235-3483",
   "stem": "For each assessment finding, indicate if the finding supports a diagnosis of sepsis, SIRS, or neither.",
-  "itemContext": {
-    "patient": {
-      "age": 72,
-      "gender": "Male",
-      "medicalHistory": [
-        "Hypertension",
-        "Type 2 Diabetes",
-        "Chronic Kidney Disease (Stage 3)"
-      ],
-      "currentMedications": [
-        "Lisinopril 20mg daily",
-        "Metformin 1000mg twice daily",
-        "Aspirin 81mg daily"
-      ]
+  "type": "matrixMatch",
+  "scoring": {
+    "method": "all-or-nothing",
+    "maxPoints": 5
+  },
+  "pedagogy": {
+    "cjmmStep": "analyzeCues",
+    "topicTags": [
+      "General"
+    ],
+    "bloomLevel": "apply",
+    "difficulty": 3,
+    "nclexCategory": "Physiological Adaptation"
+  },
+  "rationale": {
+    "correct": "Sepsis is defined as life-threatening organ dysfunction caused by a dysregulated host response to infection.  This patient meets criteria for sepsis due to suspected infection (UTI), elevated lactate, altered mental status, and hypotension. SIRS requires two or more of the following: temperature >38°C or <36°C, heart rate >90 bpm, respiratory rate >20 breaths/min or PaCO2 <32 mmHg, WBC >12,000/mm3 or <4,000/mm3 or >10% bands. The patient meets SIRS criteria, but the evidence of end-organ damage (elevated lactate, altered mental status) indicates sepsis.",
+    "mnemonic": {
+      "name": "Sepsis Mnemonic",
+      "content": "Think 'TIME IS OF THE ESSENCE': Temperature instability, Infection suspected, Mental decline, Extremely ill, Sickness severity."
     },
+    "incorrect": "SIRS criteria alone, without evidence of organ dysfunction, does not indicate sepsis. Normal findings do not contribute to either diagnosis. Failing to recognize the signs of organ dysfunction (altered mental status, elevated lactate) can lead to delayed treatment and increased mortality.",
+    "questionTrap": {
+      "reasoning": "Students may incorrectly identify findings as SIRS when they actually indicate sepsis due to the presence of organ dysfunction.",
+      "commonMistake": "Confusing SIRS with sepsis. SIRS is a systemic inflammatory response, but sepsis requires documented or suspected infection AND organ dysfunction."
+    },
+    "clinicalPearls": [
+      "Early recognition and treatment of sepsis are crucial to improving patient outcomes.",
+      "Lactate is a marker of anaerobic metabolism and tissue hypoperfusion, often elevated in sepsis.",
+      "Altered mental status can be an early sign of sepsis, especially in older adults.",
+      "Hypotension unresponsive to initial fluid resuscitation is a key indicator of septic shock."
+    ]
+  },
+  "itemContext": {
     "sbar": "Patient is a 72-year-old male admitted from a skilled nursing facility with altered mental status and suspected urinary tract infection. He is febrile and hypotensive.  Urine culture pending.  Started on IV fluids and empiric antibiotics (Ceftriaxone).",
     "tabs": [
       {
@@ -52,37 +71,29 @@
         "title": "Mar",
         "content": "<p>No significant findings at this time.</p>"
       }
-    ]
-  },
-  "rationale": {
-    "correct": "Sepsis is defined as life-threatening organ dysfunction caused by a dysregulated host response to infection.  This patient meets criteria for sepsis due to suspected infection (UTI), elevated lactate, altered mental status, and hypotension. SIRS requires two or more of the following: temperature >38°C or <36°C, heart rate >90 bpm, respiratory rate >20 breaths/min or PaCO2 <32 mmHg, WBC >12,000/mm3 or <4,000/mm3 or >10% bands. The patient meets SIRS criteria, but the evidence of end-organ damage (elevated lactate, altered mental status) indicates sepsis.",
-    "incorrect": "SIRS criteria alone, without evidence of organ dysfunction, does not indicate sepsis. Normal findings do not contribute to either diagnosis. Failing to recognize the signs of organ dysfunction (altered mental status, elevated lactate) can lead to delayed treatment and increased mortality.",
-    "clinicalPearls": [
-      "Early recognition and treatment of sepsis are crucial to improving patient outcomes.",
-      "Lactate is a marker of anaerobic metabolism and tissue hypoperfusion, often elevated in sepsis.",
-      "Altered mental status can be an early sign of sepsis, especially in older adults.",
-      "Hypotension unresponsive to initial fluid resuscitation is a key indicator of septic shock."
     ],
-    "questionTrap": {
-      "commonMistake": "Confusing SIRS with sepsis. SIRS is a systemic inflammatory response, but sepsis requires documented or suspected infection AND organ dysfunction.",
-      "reasoning": "Students may incorrectly identify findings as SIRS when they actually indicate sepsis due to the presence of organ dysfunction."
-    },
-    "mnemonic": {
-      "name": "Sepsis Mnemonic",
-      "content": "Think 'TIME IS OF THE ESSENCE': Temperature instability, Infection suspected, Mental decline, Extremely ill, Sickness severity."
+    "patient": {
+      "age": 72,
+      "gender": "Male",
+      "medicalHistory": [
+        "Hypertension",
+        "Type 2 Diabetes",
+        "Chronic Kidney Disease (Stage 3)"
+      ],
+      "currentMedications": [
+        "Lisinopril 20mg daily",
+        "Metformin 1000mg twice daily",
+        "Aspirin 81mg daily"
+      ]
     }
-  },
-  "scoring": {
-    "method": "all-or-nothing",
-    "maxPoints": 5
   },
   "matrixMatch": [
     {
       "id": "temperature",
       "label": "Temperature 101.5°F (38.6°C)",
       "options": {
-        "sepsis": false,
         "sirs": true,
+        "sepsis": false,
         "neither": false
       }
     },
@@ -90,8 +101,8 @@
       "id": "heartRate",
       "label": "Heart Rate 115 bpm",
       "options": {
-        "sepsis": false,
         "sirs": true,
+        "sepsis": false,
         "neither": false
       }
     },
@@ -99,8 +110,8 @@
       "id": "respiratoryRate",
       "label": "Respiratory Rate 28 breaths/min",
       "options": {
-        "sepsis": false,
         "sirs": true,
+        "sepsis": false,
         "neither": false
       }
     },
@@ -108,8 +119,8 @@
       "id": "bloodPressure",
       "label": "Blood Pressure 88/52 mmHg",
       "options": {
-        "sepsis": true,
         "sirs": false,
+        "sepsis": true,
         "neither": false
       }
     },
@@ -117,13 +128,11 @@
       "id": "lactate",
       "label": "Lactate 3.5 mmol/L",
       "options": {
-        "sepsis": true,
         "sirs": false,
+        "sepsis": true,
         "neither": false
       }
     }
   ],
-  "type": "matrixMatch",
-  "id": "New-v26-1772078203235-3483",
-  "sentinelStatus": "healed_v2026_v17_qi100"
+  "sentinelStatus": "healed_v2026_v20_qi_final"
 }

@@ -1,0 +1,205 @@
+{
+  "id": "New-v26-9a7b8c6d-4321-4ef0-a987-654321fedcba",
+  "stem": "The patient is at increased risk of complications related to mechanical ventilation. Based on the data provided in the patient's chart, indicate which intervention is appropriate for each potential complication. Select one intervention per complication.",
+  "type": "matrixMatch",
+  "matrix": {
+    "rows": [
+      {
+        "id": "pneumothorax",
+        "label": "Possible Pneumothorax"
+      },
+      {
+        "id": "hypotension",
+        "label": "Hypotension"
+      },
+      {
+        "id": "restlessness",
+        "label": "Restlessness"
+      },
+      {
+        "id": "elevatedLactate",
+        "label": "Elevated Lactate"
+      }
+    ],
+    "columns": [
+      {
+        "id": "notifyProvider",
+        "label": "Notify Provider and Prepare for Chest Tube Insertion"
+      },
+      {
+        "id": "fluidBolus",
+        "label": "Administer a Fluid Bolus"
+      },
+      {
+        "id": "increasePropofol",
+        "label": "Increase Propofol Drip"
+      },
+      {
+        "id": "increaseFiO2",
+        "label": "Increase FiO2"
+      }
+    ]
+  },
+  "scoring": {
+    "method": "dichotomous",
+    "maxPoints": 4
+  },
+  "pedagogy": {
+    "cjmmStep": "analyzeCues",
+    "topicTags": [
+      "Respiratory: Mechanical Ventilation Safety"
+    ],
+    "bloomLevel": "analyze",
+    "difficulty": 5,
+    "nclexCategory": "Physiological Adaptation"
+  },
+  "response": [
+    {
+      "match": true,
+      "rowId": "pneumothorax",
+      "columnId": "notifyProvider"
+    },
+    {
+      "match": true,
+      "rowId": "hypotension",
+      "columnId": "fluidBolus"
+    },
+    {
+      "match": false,
+      "rowId": "restlessness",
+      "columnId": "notifyProvider"
+    },
+    {
+      "match": false,
+      "rowId": "restlessness",
+      "columnId": "fluidBolus"
+    },
+    {
+      "match": false,
+      "rowId": "restlessness",
+      "columnId": "increasePropofol"
+    },
+    {
+      "match": false,
+      "rowId": "restlessness",
+      "columnId": "increaseFiO2"
+    },
+    {
+      "match": true,
+      "rowId": "elevatedLactate",
+      "columnId": "increaseFiO2"
+    },
+    {
+      "match": false,
+      "rowId": "pneumothorax",
+      "columnId": "fluidBolus"
+    },
+    {
+      "match": false,
+      "rowId": "pneumothorax",
+      "columnId": "increasePropofol"
+    },
+    {
+      "match": false,
+      "rowId": "pneumothorax",
+      "columnId": "increaseFiO2"
+    },
+    {
+      "match": false,
+      "rowId": "hypotension",
+      "columnId": "notifyProvider"
+    },
+    {
+      "match": false,
+      "rowId": "hypotension",
+      "columnId": "increasePropofol"
+    },
+    {
+      "match": false,
+      "rowId": "hypotension",
+      "columnId": "increaseFiO2"
+    },
+    {
+      "match": false,
+      "rowId": "elevatedLactate",
+      "columnId": "notifyProvider"
+    },
+    {
+      "match": false,
+      "rowId": "elevatedLactate",
+      "columnId": "fluidBolus"
+    },
+    {
+      "match": false,
+      "rowId": "elevatedLactate",
+      "columnId": "increasePropofol"
+    }
+  ],
+  "rationale": {
+    "correct": "Diminished breath sounds on one side, coupled with increasing PIP and restlessness, strongly suggest a pneumothorax. Immediate notification of the provider for potential chest tube insertion is crucial. Hypotension in mechanically ventilated patients can be exacerbated by positive pressure ventilation decreasing venous return. A fluid bolus can help restore preload and increase blood pressure. While increasing sedation might seem appropriate for restlessness, the underlying cause of the restlessness (likely hypoxia or discomfort related to the pneumothorax or hypotension) must be addressed first. If the patient is hypotensive, the kidneys are not being perfused adequately. Increasing the propofol drip would further decrease blood pressure. Lastly, elevated lactate levels indicate tissue hypoxia. Increasing FiO2 may increase oxygen delivery to tissues to help correct the lactate.",
+    "mnemonic": {
+      "title": "DOPE",
+      "expansion": "Displacement, Obstruction, Pneumothorax, Equipment failure. Use this mnemonic to quickly assess potential causes of sudden respiratory distress in intubated patients."
+    },
+    "incorrect": "Notifying the provider and preparing for chest tube insertion is the correct intervention for a suspected pneumothorax. However, the other interventions are incorrect as they do not directly address the underlying physiological problems causing the complications. Increasing sedation without addressing the underlying cause can mask important clinical signs. Fluid bolus helps address hypotension, and increasing FiO2 may help address elevated lactate levels.",
+    "questionTrap": {
+      "trap": "The question trap lies in focusing on the restlessness and immediately considering increasing sedation, which could mask a serious underlying issue like a pneumothorax or hypotension.",
+      "howToOvercome": "Prioritize identifying the root cause of the patient's distress before administering sedatives. Evaluate breath sounds, vital signs, and lab values to rule out life-threatening complications."
+    },
+    "clinicalPearls": [
+      "Unilateral diminished breath sounds in a ventilated patient are a red flag for pneumothorax or endotracheal tube displacement.",
+      "Hypotension in ventilated patients can be caused by decreased venous return due to increased intrathoracic pressure.",
+      "Restlessness in intubated patients is often a sign of hypoxia, pain, or discomfort. Assess and address the underlying cause, rather than solely relying on sedation."
+    ]
+  },
+  "itemContext": {
+    "sbar": "S: John Smith, a 68-year-old male with a history of COPD and hypertension, was admitted for pneumonia. B: The patient was intubated and placed on mechanical ventilation at 04:00 due to increasing respiratory distress. Current ventilator settings are: FiO2 0.6, respiratory rate 16 breaths per minute, tidal volume 450 mL, and PEEP 5 cm H2O. A: At 07:00, assessment reveals the following: heart rate 110 beats per minute, blood pressure 90/60 mmHg, SpO2 90%, ETCO2 45 mmHg, and peak inspiratory pressure (PIP) 35 cm H2O. Auscultation reveals diminished breath sounds on the left side. Urine output has been minimal since intubation. Endotracheal tube depth at the lip is 23 cm. The patient is restless and appears uncomfortable. R: I am concerned about a possible pneumothorax, hypotension, and potential hypoxemia. Please evaluate the patient, consider obtaining an arterial blood gas (ABG) to evaluate ventilation status, and implement necessary interventions. Increase sedation as needed per protocol after addressing the underlying causes of distress.",
+    "tabs": [
+      {
+        "id": "sbar",
+        "title": "Sbar",
+        "content": "<p>No significant findings at this time.</p>"
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>SpO2</th><th>RR</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>100</td><td>110/70</td><td>94%</td><td>16 (Ventilated)</td><td>37.5°C</td></tr><tr><td>06:30</td><td>105</td><td>100/65</td><td>92%</td><td>16 (Ventilated)</td><td>37.5°C</td></tr><tr><td>07:00</td><td>110</td><td>90/60</td><td>90%</td><td>16 (Ventilated)</td><td>37.5°C</td></tr></tbody></table>"
+      },
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>WBC</td><td>14,000/uL</td><td>4,500-11,000/uL</td></tr><tr><td>Hemoglobin</td><td>14.0 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Platelets</td><td>250,000/uL</td><td>150,000-400,000/uL</td></tr><tr><td>Na</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>K</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Cl</td><td>100 mEq/L</td><td>98-106 mEq/L</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-28 mEq/L</td></tr><tr><td>BUN</td><td>25 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.5 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Lactate</td><td>2.5 mmol/L</td><td>0.5-2.2 mmol/L</td></tr></tbody></table>"
+      },
+      {
+        "id": "physicalExam",
+        "title": "PhysicalExam",
+        "content": "<p>No significant findings at this time.</p>"
+      },
+      {
+        "id": "radiology",
+        "title": "Radiology",
+        "content": "<p>No significant findings at this time.</p>"
+      },
+      {
+        "id": "carePlan",
+        "title": "CarePlan",
+        "content": "<p>No significant findings at this time.</p>"
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1hr PRN</td><td>06:30</td></tr><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>q24hr</td><td>05:00</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>q24hr</td><td>06:00</td></tr></tbody></table>"
+      }
+    ],
+    "patient": {
+      "age": 68,
+      "iso": "Airborne",
+      "name": "John Smith",
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ]
+    }
+  },
+  "sentinelStatus": "healed_v2026_v20_qi_final"
+}

@@ -1,19 +1,37 @@
 {
+  "id": "New-v26-1772078829986-3273",
   "stem": "For each finding, click to specify if the finding is consistent with Improvement, Decline, or No Change in the patient's respiratory status.",
-  "itemContext": {
-    "patient": {
-      "age": 68,
-      "gender": "Male",
-      "medicalHistory": [
-        "COPD",
-        "Hypertension",
-        "History of tobacco use (quit 5 years ago)"
-      ],
-      "allergies": [
-        "Penicillin"
-      ],
-      "codeStatus": "Full Code"
+  "type": "matrixMatch",
+  "scoring": {
+    "method": "Partial Credit",
+    "maxPoints": 6
+  },
+  "pedagogy": {
+    "cjmmStep": "analyzeCues",
+    "topicTags": [
+      "General"
+    ],
+    "bloomLevel": "apply",
+    "difficulty": 3,
+    "nclexCategory": "Physiological Adaptation"
+  },
+  "rationale": {
+    "correct": "Rationale for correctly categorizing the finding as indicative of Improvement, Decline, or No Change.",
+    "mnemonic": {
+      "AIR": "Assess, Intervene, Reassess (for respiratory distress)"
     },
+    "incorrect": "Rationale for why categorizing the finding incorrectly is wrong.",
+    "questionTrap": {
+      "distraction": "Findings can be misleading if considered in isolation without the context of the patient's overall condition and treatment plan.",
+      "cognitiveBias": "Availability heuristic - relying too heavily on recent data points without considering the overall trend."
+    },
+    "clinicalPearls": [
+      "Understanding the typical progression of COPD exacerbations is crucial.",
+      "Monitor trends in vital signs and ABGs, not just single values.",
+      "Consider the patient's baseline respiratory status when interpreting findings."
+    ]
+  },
+  "itemContext": {
     "sbar": "Patient is a 68-year-old male with COPD admitted 3 days ago for an exacerbation. He was initially placed on BiPAP and has been weaning to nasal cannula. He's complaining of increased shortness of breath this morning.",
     "tabs": [
       {
@@ -51,85 +69,76 @@
         "title": "Mar",
         "content": "<p>No significant findings at this time.</p>"
       }
-    ]
-  },
-  "rationale": {
-    "correct": "Rationale for correctly categorizing the finding as indicative of Improvement, Decline, or No Change.",
-    "incorrect": "Rationale for why categorizing the finding incorrectly is wrong.",
-    "clinicalPearls": [
-      "Understanding the typical progression of COPD exacerbations is crucial.",
-      "Monitor trends in vital signs and ABGs, not just single values.",
-      "Consider the patient's baseline respiratory status when interpreting findings."
     ],
-    "questionTrap": {
-      "distraction": "Findings can be misleading if considered in isolation without the context of the patient's overall condition and treatment plan.",
-      "cognitiveBias": "Availability heuristic - relying too heavily on recent data points without considering the overall trend."
-    },
-    "mnemonic": {
-      "AIR": "Assess, Intervene, Reassess (for respiratory distress)"
+    "patient": {
+      "age": 68,
+      "gender": "Male",
+      "allergies": [
+        "Penicillin"
+      ],
+      "codeStatus": "Full Code",
+      "medicalHistory": [
+        "COPD",
+        "Hypertension",
+        "History of tobacco use (quit 5 years ago)"
+      ]
     }
-  },
-  "scoring": {
-    "method": "Partial Credit",
-    "maxPoints": 6
   },
   "matrixMatch": [
     {
+      "decline": false,
       "finding": "Decreased wheezing on auscultation",
-      "improvement": true,
-      "decline": false,
       "noChange": false,
-      "rationaleImprovement": "Decreased wheezing suggests improved airflow and reduced bronchospasm, indicating improvement.",
+      "improvement": true,
       "rationaleDecline": "Wheezing typically indicates airway narrowing. An increase would suggest decline.",
-      "rationaleNoChange": "Wheezing remaining at the same level would indicate no change."
+      "rationaleNoChange": "Wheezing remaining at the same level would indicate no change.",
+      "rationaleImprovement": "Decreased wheezing suggests improved airflow and reduced bronchospasm, indicating improvement."
     },
     {
+      "decline": false,
       "finding": "SpO2 increasing from 88% to 92% on 2L nasal cannula",
+      "noChange": false,
       "improvement": true,
-      "decline": false,
-      "noChange": false,
-      "rationaleImprovement": "Increased SpO2 indicates better oxygenation, suggesting improvement.",
       "rationaleDecline": "A decreasing SpO2 would indicate worsening oxygenation.",
-      "rationaleNoChange": "Maintaining the same SpO2 level would indicate no change."
+      "rationaleNoChange": "Maintaining the same SpO2 level would indicate no change.",
+      "rationaleImprovement": "Increased SpO2 indicates better oxygenation, suggesting improvement."
     },
     {
+      "decline": true,
       "finding": "Increased use of accessory muscles",
-      "improvement": false,
-      "decline": true,
       "noChange": false,
-      "rationaleImprovement": "Decreased use of accessory muscles indicates improvement in respiratory effort.",
+      "improvement": false,
       "rationaleDecline": "Increased use of accessory muscles indicates increased work of breathing and respiratory distress.",
-      "rationaleNoChange": "Maintaining the same level of accessory muscle use would indicate no change."
+      "rationaleNoChange": "Maintaining the same level of accessory muscle use would indicate no change.",
+      "rationaleImprovement": "Decreased use of accessory muscles indicates improvement in respiratory effort."
     },
     {
+      "decline": true,
       "finding": "Patient reports feeling more short of breath",
-      "improvement": false,
-      "decline": true,
       "noChange": false,
-      "rationaleImprovement": "Patient reports feeling less short of breath indicates improvement.",
+      "improvement": false,
       "rationaleDecline": "Increased shortness of breath indicates worsening respiratory status.",
-      "rationaleNoChange": "Patient reporting the same level of shortness of breath indicates no change."
+      "rationaleNoChange": "Patient reporting the same level of shortness of breath indicates no change.",
+      "rationaleImprovement": "Patient reports feeling less short of breath indicates improvement."
     },
     {
-      "finding": "Respiratory rate remaining at 24 breaths/min",
-      "improvement": false,
       "decline": false,
+      "finding": "Respiratory rate remaining at 24 breaths/min",
       "noChange": true,
-      "rationaleImprovement": "Respiratory rate decreasing towards normal (12-20) indicates improvement.",
+      "improvement": false,
       "rationaleDecline": "Respiratory rate increasing further indicates worsening respiratory distress.",
-      "rationaleNoChange": "Respiratory rate remaining the same indicates no change."
+      "rationaleNoChange": "Respiratory rate remaining the same indicates no change.",
+      "rationaleImprovement": "Respiratory rate decreasing towards normal (12-20) indicates improvement."
     },
     {
-      "finding": "Decreased level of consciousness",
-      "improvement": false,
       "decline": true,
+      "finding": "Decreased level of consciousness",
       "noChange": false,
-      "rationaleImprovement": "Increased level of consciousness indicates improvement in oxygenation to the brain.",
+      "improvement": false,
       "rationaleDecline": "Decreased level of consciousness indicates worsening oxygenation to the brain and potentially increasing CO2 retention.",
-      "rationaleNoChange": "Maintaining the same level of consciousness would indicate no change."
+      "rationaleNoChange": "Maintaining the same level of consciousness would indicate no change.",
+      "rationaleImprovement": "Increased level of consciousness indicates improvement in oxygenation to the brain."
     }
   ],
-  "type": "matrixMatch",
-  "id": "New-v26-1772078829986-3273",
-  "sentinelStatus": "healed_v2026_v17_qi100"
+  "sentinelStatus": "healed_v2026_v20_qi_final"
 }
