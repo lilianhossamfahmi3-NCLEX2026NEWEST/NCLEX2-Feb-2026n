@@ -4,7 +4,7 @@
     "stem": "Review the nurse's notes in the EHR. Identify the findings that require immediate intervention. Click on those findings.",
     "scoring": {
         "method": "polytomous",
-        "maxPoints": 3
+        "maxPoints": 1
     },
     "itemContext": {
         "patient": {
@@ -16,7 +16,7 @@
                 "Penicillin"
             ]
         },
-        "sbar": "1500: Dr. Ramirez, this is Nurse Jones in ICU, reporting on John Smith, DOB 03/15/1956. He's post-op day 1 from a CABG. 1400: He was stable until about 30 minutes ago when his SpO2 dropped to 88% despite being on FiO2 60% and PEEP of 5 cm H2O. His chest tube output has been minimal, about 15 mL in the last hour. 1505: His current vital signs are HR 110, BP 90/60, RR 28 (assisted), and Temp 37.5°C. Breath sounds are diminished on the left side. I suspect possible atelectasis or pneumothorax. He's becoming increasingly agitated. He is currently on propofol and fentanyl drips. I need orders for further evaluation and management. I'm concerned about his declining respiratory status and hypotension.",
+        "sbar": "1500 hours: Dr. Ramirez, this is Nurse Jones in ICU, reporting on John Smith, DOB 03/15/1956. He is post-op day 1 from a CABG. 1400 hours: He was stable until about 30 minutes ago when his SpO2 dropped to 88% despite being on FiO2 60% and PEEP of 5 cm H2O. His chest tube output has been minimal, approximately 15 mL in the last hour. 1505 hours: Current vital signs are HR 110, BP 90/60 mmHg, RR 28 (assisted), and Temp 37.5°C. Breath sounds are diminished on the left side. I suspect possible atelectasis or pneumothorax. He's becoming increasingly agitated. He is currently on propofol at 20 mcg/kg/min and fentanyl at 50 mcg/hr. I need orders for further evaluation and management. I am concerned about his declining respiratory status and hypotension.",
         "tabs": [
             {
                 "id": "vitals",
@@ -36,7 +36,12 @@
             {
                 "id": "notes",
                 "title": "Nurse's Notes",
-                "content": "1400: Patient stable, tolerating mechanical ventilation well. Vital signs within acceptable limits. Chest tube draining serosanguinous fluid. 1430: Routine assessment performed. No significant changes noted. 1500: Sudden decrease in SpO2 to 88%. Increased respiratory rate and agitation noted. Breath sounds diminished on the left side. Blood pressure trending downwards. Requesting urgent physician evaluation. Patient is diaphoretic. "
+                "content": "1400: Patient stable, tolerating mechanical ventilation well. Vital signs within acceptable limits. Chest tube draining serosanguinous fluid. 1430: Routine assessment performed. No significant changes noted. 1500: Sudden decrease in SpO2 to 88%. Increased respiratory rate and agitation noted. Breath sounds diminished on the left side. Blood pressure trending downwards. Requesting urgent physician evaluation. Patient is diaphoretic."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "No radiology reports available."
             }
         ]
     },
@@ -50,19 +55,47 @@
         ]
     },
     "rationale": {
-        "correct": "The findings that require immediate intervention are: SpO2 of 88%, diminished breath sounds on the left side, and BP of 90/60. The low SpO2 indicates significant hypoxemia requiring immediate action. Diminished breath sounds on the left side suggest a possible pneumothorax or atelectasis, both of which compromise ventilation. The low blood pressure indicates hemodynamic instability, which can be exacerbated by the respiratory distress and requires prompt attention to ensure adequate perfusion of vital organs.",
-        "incorrect": "While elevated WBC, agitation, and increased respiratory rate are concerning, they are not the most immediate threats to the patient's life. Elevated WBC indicates potential infection, which should be addressed, but does not require immediate intervention in the same way as hypoxemia and hypotension. Agitation is a symptom and can be due to multiple causes including pain, anxiety, or hypoxemia, so treating the underlying cause takes priority. Increased respiratory rate is a compensatory mechanism for hypoxia, but addressing the oxygenation issue is the priority.",
+        "correct": "The findings that require immediate intervention are: SpO2 of 88%, diminished breath sounds on the left side, and BP of 90/60 mmHg. A SpO2 of 88% indicates significant hypoxemia, necessitating immediate action to improve oxygenation. Diminished breath sounds on the left side suggest a possible pneumothorax or atelectasis, both of which compromise ventilation. Hypotension (BP of 90/60 mmHg) indicates hemodynamic instability, which can be exacerbated by respiratory distress and requires prompt attention to ensure adequate perfusion of vital organs.",
+        "incorrect": "While an elevated WBC, agitation, and increased respiratory rate are concerning, they are not the most immediate threats to the patient's life. An elevated WBC count indicates potential infection, which should be addressed, but does not require immediate intervention in the same way as hypoxemia and hypotension. Agitation is a symptom and can be due to multiple causes, including pain, anxiety, or hypoxemia; therefore, treating the underlying cause takes priority. An increased respiratory rate is a compensatory mechanism for hypoxia, but addressing the oxygenation issue is the priority.",
         "clinicalPearls": [
-            "Sudden changes in respiratory status in mechanically ventilated patients warrant immediate investigation for causes such as pneumothorax, tube displacement, or equipment malfunction.",
-            "Hypotension in the setting of respiratory distress requires rapid assessment of preload, afterload, and contractility, and potential interventions to support blood pressure and cardiac output."
+            "Sudden changes in respiratory status in mechanically ventilated patients warrant immediate investigation for causes such as pneumothorax, tube displacement, or equipment malfunction. Use the mnemonic DOPE (Displacement, Obstruction, Pneumothorax, Equipment) to guide assessment.",
+            "Hypotension in the setting of respiratory distress requires rapid assessment of preload, afterload, and contractility, and potential interventions to support blood pressure and cardiac output. Consider fluid boluses, vasopressors, and inotropic support as indicated."
         ],
         "questionTrap": {
             "trap": "Focusing solely on the respiratory rate and agitation without recognizing the hypoxemia and hypotension as the primary threats.",
-            "howToOvercome": "Prioritize findings based on their immediate impact on the patient's physiological stability. ABCs (Airway, Breathing, Circulation) should always be the first consideration."
+            "howToOvercome": "Prioritize findings based on their immediate impact on the patient's physiological stability. Always consider the ABCs (Airway, Breathing, Circulation) first."
         },
         "mnemonic": {
             "title": "DOPE",
             "expansion": "Displacement, Obstruction, Pneumothorax, Equipment failure. This mnemonic aids in remembering common causes of sudden respiratory distress in intubated patients."
         }
-    }
+    },
+    "response": [
+        {
+            "id": "response1",
+            "text": "SpO2 of 88%",
+            "correct": true
+        },
+        {
+            "id": "response2",
+            "text": "diminished breath sounds on the left side",
+            "correct": true
+        },
+        {
+            "id": "response3",
+            "text": "BP of 90/60",
+            "correct": true
+        },
+        {
+            "id": "response4",
+            "text": "Increased respiratory rate",
+            "correct": false
+        },
+        {
+            "id": "response5",
+            "text": "Patient is diaphoretic",
+            "correct": false
+        }
+    ],
+    "sentinelStatus": "deep_healed_v2026"
 }

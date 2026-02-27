@@ -16,7 +16,7 @@
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, a 72-year-old male with a history of COPD and hypertension, was admitted at 03:00 today due to pneumonia. He initially presented with a productive cough and shortness of breath. R: This morning, the patient developed a fever and his cough worsened, producing purulent sputum. An initial dose of ceftriaxone was administered at 04:00. A: At 07:00, his vital signs were: Temp 102.5°F (39.2°C), HR 110 bpm, RR 28, BP 90/50 mmHg, and SpO2 91% on 2L NC. Labs were pending and urine output was 30 mL/hr. The patient was noted to be confused and restless. By 08:00, ceftriaxone administration was completed. Blood cultures returned positive for Gram-negative rods, WBC count was 18,000, and lactate level was 3.0 mmol/L. A: We suspect sepsis, possibly progressing to septic shock, given the patient's elevated temperature, tachycardia, hypotension, elevated lactate, and positive blood cultures. His blood pressure continues to decline. O: I anticipate orders for vasopressors to support blood pressure, repeat blood cultures to monitor the infection, and a potential change in antibiotic therapy to target the identified Gram-negative bacteria. Close monitoring of vital signs, urine output, and mental status is essential. We should also consider transferring the patient to the ICU for closer observation and potential escalation of care.",
+        "sbar": "S: John Smith, 72-year-old male with COPD and hypertension, admitted at 03:00 for pneumonia, presenting with productive cough and shortness of breath.\nR: This morning, fever developed, cough worsened with purulent sputum. Ceftriaxone 2g IV given at 04:00.\nA: At 07:00, vitals: Temp 102.5°F (39.2°C), HR 110 bpm, RR 28, BP 90/50 mmHg, SpO2 91% on 2L NC. Labs pending, urine output 30 mL/hr. Patient confused, restless. Ceftriaxone completed at 08:00. Blood cultures positive for Gram-negative rods, WBC 18,000/μL, lactate 3.0 mmol/L. Creatinine 1.8 mg/dL, BUN 30 mg/dL.\nA: Suspect sepsis progressing to septic shock due to elevated temperature, tachycardia, hypotension, elevated lactate, and positive blood cultures. BP declining. \nO: Anticipate vasopressors, repeat blood cultures, potential antibiotic change for Gram-negative bacteria. Monitor vitals, urine output, mental status closely. Consider ICU transfer.",
         "tabs": [
             {
                 "id": "labs",
@@ -24,14 +24,14 @@
                 "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>WBC</td><td>18,000/μL</td><td>4,500-11,000/μL</td></tr><tr><td>Lactate</td><td>3.0 mmol/L</td><td>0.5-2.2 mmol/L</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BUN</td><td>30 mg/dL</td><td>8-20 mg/dL</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>2 g</td><td>IV</td><td>q12h</td><td>07:00</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN</td><td>-</td></tr></tbody></table>"
-            },
-            {
                 "id": "vitals",
                 "title": "Vitals",
                 "content": "<table><thead><tr><th>Time</th><th>Temp (°F)</th><th>HR (bpm)</th><th>RR</th><th>BP (mmHg)</th><th>SpO2 (%)</th></tr></thead><tbody><tr><td>07:00</td><td>102.5</td><td>110</td><td>28</td><td>90/50</td><td>91</td></tr><tr><td>07:30</td><td>102.7</td><td>115</td><td>30</td><td>88/48</td><td>90</td></tr><tr><td>08:00</td><td>102.9</td><td>120</td><td>32</td><td>85/45</td><td>89</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR",
+                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>2 g</td><td>IV</td><td>q12h</td><td>07:00</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN</td><td>-</td></tr></tbody></table>"
             }
         ]
     },
@@ -45,20 +45,22 @@
         ]
     },
     "rationale": {
-        "correct": "The patient is exhibiting signs of worsening sepsis, likely progressing to septic shock. Increasing heart rate and respiratory rate are compensatory mechanisms for decreased oxygen delivery due to hypotension and possible acute respiratory distress. Decreasing blood pressure indicates worsening vasodilation and decreased cardiac output. Decreasing oxygen saturation reflects worsening gas exchange. The increasing temperature indicates the body's inflammatory response is continuing, even with antibiotic administration.",
-        "incorrect": "The vital sign trends indicate a worsening condition, not improvement. Stable or improving vital signs would suggest the patient is responding to treatment. The presence of gram-negative rods and elevated lactate levels are indicators of sepsis, which requires aggressive intervention. Assuming the patient is stable can lead to delayed treatment and potential patient harm.",
+        "correct": "The patient is exhibiting signs of worsening sepsis, likely progressing to septic shock. Increasing heart rate and respiratory rate are compensatory mechanisms for decreased oxygen delivery due to hypotension and possible acute respiratory distress. Decreasing blood pressure indicates worsening vasodilation and decreased cardiac output. Decreasing oxygen saturation reflects worsening gas exchange. The increasing temperature indicates the body's inflammatory response is continuing, even with antibiotic administration. Elevated creatinine and BUN levels suggest acute kidney injury secondary to hypoperfusion.",
+        "incorrect": "The vital sign trends indicate a worsening condition, not improvement. Stable or improving vital signs would suggest the patient is responding to treatment. The presence of gram-negative rods and elevated lactate levels are indicators of sepsis, which requires aggressive intervention. Assuming the patient is stable can lead to delayed treatment and potential patient harm. Normal creatinine and BUN levels would indicate adequate renal perfusion.",
         "clinicalPearls": [
             "Early recognition and aggressive treatment are crucial in sepsis management.",
             "Monitor trends in vital signs and laboratory values to assess the effectiveness of interventions.",
-            "Gram-negative sepsis is often associated with more severe outcomes."
+            "Gram-negative sepsis is often associated with more severe outcomes.",
+            "Acute Kidney Injury (AKI) is a common complication of sepsis and septic shock."
         ],
         "questionTrap": {
             "trap": "The rapid administration of ceftriaxone might mislead test-takers to assume the patient's condition is improving. Failing to recognize the worsening trends in vital signs despite antibiotic administration is a common error.",
-            "howToOvercome": "Focus on the overall clinical picture and trends, not just individual interventions. Pay close attention to the timeframe and how the patient's condition evolves over time."
+            "howToOvercome": "Focus on the overall clinical picture and trends, not just individual interventions. Pay close attention to the timeframe and how the patient's condition evolves over time. Consider the impact of sepsis on multiple organ systems."
         },
         "mnemonic": {
             "title": "Sepsis Six",
             "expansion": "Bundle of six interventions to implement within one hour of sepsis diagnosis: 1) Administer high-flow oxygen, 2) Obtain blood cultures, 3) Administer broad-spectrum antibiotics, 4) Administer IV fluids, 5) Measure serum lactate, 6) Monitor urine output."
         }
-    }
+    },
+    "sentinelStatus": "deep_healed_v2026"
 }

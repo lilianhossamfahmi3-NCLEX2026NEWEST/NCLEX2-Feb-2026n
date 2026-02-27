@@ -1081,20 +1081,19 @@ export function repairItem(item: any): { repaired: any; changes: string[] } {
         changes.push('Migrated top-level reviewUnits to rationale');
     }
 
-    // Move SBAR
-    if (repaired.sbar && !repaired.itemContext?.sbar) {
+    // Move SBAR (Handle top-level and accidentally nested in rationale)
+    const sbarSource = repaired.sbar || r?.sbar;
+    if (sbarSource && !repaired.itemContext?.sbar) {
         if (!repaired.itemContext) repaired.itemContext = {};
-        if (typeof repaired.sbar === 'string') {
-            repaired.itemContext.sbar = repaired.sbar;
-        } else if (typeof repaired.sbar === 'object') {
-            // If it's the structured SBAR object, we might want to flatten or preserve?
-            // Usually itemContext.sbar is a string for raw display, or tabs for EHR.
-            // Let's create a string if it's the {situation, background...} object.
-            const s = repaired.sbar;
+        if (typeof sbarSource === 'string') {
+            repaired.itemContext.sbar = sbarSource;
+        } else if (typeof sbarSource === 'object') {
+            const s = sbarSource;
             repaired.itemContext.sbar = `Situation: ${s.situation}\nBackground: ${s.background}\nAssessment: ${s.assessment}\nRecommendation: ${s.recommendation}`;
         }
         delete repaired.sbar;
-        changes.push('Migrated top-level sbar to itemContext');
+        if (r?.sbar) delete r.sbar;
+        changes.push('Migrated sbar to itemContext');
     }
 
     if (repaired.options && Array.isArray(repaired.options)) {
@@ -1203,7 +1202,7 @@ Return ONLY PURE JSON matching the MasterItem interface.
 `;
 
 export async function runDeepAIRepair(item: any, apiKey: string): Promise<{ repaired: any; changes: string[] }> {
-    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
     const prompt = NGN_2026_PROMPT_TEMPLATE.replace('{{ITEM_JSON}}', JSON.stringify(item, null, 2));
 

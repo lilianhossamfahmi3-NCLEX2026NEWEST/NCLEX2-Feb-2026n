@@ -1,87 +1,99 @@
-{
-  "id": "New-v26-9a7b8c6d-4e3f-4a2b-8c1d-5e6f7a8b9c01",
-  "type": "clozeDropdown",
-  "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the EHR data, the nurse should immediately report the following findings to the provider: A sustained increase in peak inspiratory pressure (PIP) above [dropdown1], a decrease in SpO2 to [dropdown2] despite an FiO2 of 60%, and the presence of [dropdown3] in the endotracheal tube aspirate.",
-  "scoring": {
-    "method": "dichotomous",
-    "maxPoints": 3
-  },
-  "itemContext": {
-    "patient": {
-      "name": "John Smith",
-      "age": 68,
-      "gender": "Male",
-      "iso": "ICU",
-      "allergies": [
-        "Penicillin"
-      ]
-    },
-    "sbar": "Situation: John Smith, a 68-year-old male, was admitted for pneumonia and has been intubated and mechanically ventilated since 04:00 this morning. Background: He has a history of COPD and hypertension, which complicates his respiratory status. His current ventilator settings are: FiO2 60%, Tidal Volume 450 mL, Respiratory Rate 16, and PEEP 5 cm H2O. Assessment: At 08:00, I noticed a concerning change in his respiratory parameters. His peak inspiratory pressure (PIP) has increased from 25 to 35 cm H2O, and his SpO2 has decreased from 94% to 89% despite the FiO2 of 60%. On auscultation, I hear coarse crackles bilaterally. The patient is also restless and appears uncomfortable. The last suctioning was performed at 07:30 and yielded thin, clear secretions. His vital signs at 08:00 are as follows: Heart Rate 110, Blood Pressure 160/90, Respiratory Rate (vent) 16, SpO2 89%, and Temperature 38.5°C. Recommendation: I am requesting orders to investigate the possible causes of the increased PIP and desaturation. I suggest considering immediate suctioning, administering bronchodilators, and obtaining a chest x-ray to rule out any acute changes such as pneumothorax or worsening pneumonia. Further evaluation of his ABGs may also be warranted.",
-    "tabs": [
-      {
-        "id": "labs",
-        "title": "Labs",
-        "content": "ABG (07:00): pH 7.32, PaCO2 55 mmHg, PaO2 70 mmHg, HCO3 26 mEq/L, SaO2 93%. WBC: 14,000/mm3."
-      },
-      {
-        "id": "mar",
-        "title": "MAR",
-        "content": "Ceftriaxone 1g IV q24h (scheduled), Albuterol 2.5mg via nebulizer q4h PRN wheezing (next due 10:00), Famotidine 20mg IV q12h (scheduled)."
-      },
-      {
-        "id": "vitals",
-        "title": "Vitals",
-        "content": "07:00: HR 98, BP 140/80, RR (vent) 16, SpO2 94%, Temp 38.0°C\n07:30: HR 102, BP 145/85, RR (vent) 16, SpO2 92%, Temp 38.2°C\n08:00: HR 110, BP 160/90, RR (vent) 16, SpO2 89%, Temp 38.5°C"
-      }
-    ]
-  },
-  "pedagogy": {
-    "bloomLevel": "Analyze",
-    "cjmmStep": "Evaluate",
-    "nclexCategory": "Management of Care",
-    "difficulty": 5,
-    "topicTags": [
-      "Respiratory: Mechanical Ventilation Safety"
-    ]
-  },
-  "rationale": {
-    "correct": "Increased PIP can indicate a variety of issues, including bronchospasm, increased secretions, or decreased lung compliance (e.g., pneumothorax). A sustained increase warrants immediate investigation to determine the underlying cause and implement appropriate interventions. A decrease in SpO2 below 90% is concerning and requires intervention, especially when the FiO2 is already high. This indicates inadequate oxygenation despite supplemental oxygen. The presence of purulent secretions suggests an infection, such as ventilator-associated pneumonia (VAP), which requires prompt treatment with antibiotics and further investigation. The patient's elevated WBC count supports this suspicion.",
-    "incorrect": "While small fluctuations in PIP and SpO2 are expected, a sustained increase and a significant drop in SpO2 are concerning and require immediate attention. Clear secretions are usually normal and expected in a mechanically ventilated patient. The normal range for PIP is dependent upon multiple factors, including lung compliance and tidal volume, but a significant increase from baseline is always a red flag. A stable SpO2 above 90% on a high FiO2 may be acceptable in certain situations, but not when there is a sudden decline and the patient exhibits other signs of respiratory distress. Clear secretions are expected; purulent secretions are not, indicating a potential infection.",
-    "clinicalPearls": [
-      "Always assess the patient first before adjusting ventilator settings based solely on alarms; consider the patient's clinical presentation.",
-      "Monitor trends in vital signs and ventilator parameters to identify subtle changes that may indicate developing problems and require intervention.",
-      "Elevated PIP can indicate issues with the patient (e.g., bronchospasm, secretions, pneumothorax) or the equipment (e.g., kinked tubing, obstruction). A systematic approach to troubleshooting is essential."
-    ],
-    "questionTrap": {
-      "trap": "Focusing solely on one isolated finding (e.g., the increased PIP) without considering the other clinical data (e.g., SpO2, secretions, WBC count) can lead to an incomplete assessment and delayed intervention.",
-      "howToOvercome": "Consider the entire clinical picture, including the patient's history, vital signs, ventilator parameters, physical assessment findings, and lab results, to prioritize the most critical interventions and determine the underlying cause of the patient's deterioration."
-    },
-    "mnemonic": {
-      "title": "DOPE (for Ventilator Troubleshooting)",
-      "expansion": "D - Dislodgement (of ETT), O - Obstruction (e.g., secretions, kinked tube), P - Pneumothorax, E - Equipment failure"
+[
+    {
+        "id": "New-v26-9a7b8c6d-4e3f-4a2b-8c1d-5e6f7a8b9c01",
+        "type": "clozeDropdown",
+        "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the EHR data, the nurse should immediately report the following findings to the provider: A sustained increase in peak inspiratory pressure (PIP) above [dropdown1], a decrease in SpO2 to [dropdown2] despite an FiO2 of 60%, and the presence of [dropdown3] in the endotracheal tube aspirate.",
+        "scoring": {
+            "method": "dichotomous",
+            "maxPoints": 3
+        },
+        "itemContext": {
+            "patient": {
+                "name": "John Smith",
+                "age": 68,
+                "gender": "Male",
+                "iso": "ICU",
+                "allergies": [
+                    "Penicillin"
+                ]
+            },
+            "sbar": "Situation: John Smith, a 68-year-old male, admitted for pneumonia, intubated and mechanically ventilated since 04:00 today. Background: COPD and hypertension complicate his respiratory status. Current vent settings: FiO2 60%, Tidal Volume 450 mL, Respiratory Rate 16, PEEP 5 cm H2O. Assessment: At 08:00, PIP increased from 25 to 35 cm H2O; SpO2 decreased from 94% to 89% (FiO2 60%). Coarse crackles bilaterally. Restless, uncomfortable. Last suction at 07:30 yielded thin, clear secretions. Vitals at 08:00: HR 110, BP 160/90, RR (vent) 16, SpO2 89%, Temp 38.5°C. Recommendation: Requesting orders to investigate increased PIP and desaturation. Consider immediate suctioning, bronchodilators, and chest x-ray to rule out pneumothorax or worsening pneumonia. Evaluate ABGs.",
+            "tabs": [
+                {
+                    "id": "sbar",
+                    "title": "SBAR",
+                    "content": "Situation: John Smith, a 68-year-old male, admitted for pneumonia, intubated and mechanically ventilated since 04:00 today. Background: COPD and hypertension complicate his respiratory status. Current vent settings: FiO2 60%, Tidal Volume 450 mL, Respiratory Rate 16, PEEP 5 cm H2O. Assessment: At 08:00, PIP increased from 25 to 35 cm H2O; SpO2 decreased from 94% to 89% (FiO2 60%). Coarse crackles bilaterally. Restless, uncomfortable. Last suction at 07:30 yielded thin, clear secretions. Vitals at 08:00: HR 110, BP 160/90, RR (vent) 16, SpO2 89%, Temp 38.5°C. Recommendation: Requesting orders to investigate increased PIP and desaturation. Consider immediate suctioning, bronchodilators, and chest x-ray to rule out pneumothorax or worsening pneumonia. Evaluate ABGs."
+                },
+                {
+                    "id": "labs",
+                    "title": "Labs",
+                    "content": "ABG (07:00): pH 7.32, PaCO2 55 mmHg, PaO2 70 mmHg, HCO3 26 mEq/L, SaO2 93%. WBC: 14,000/mm3."
+                },
+                {
+                    "id": "vitals",
+                    "title": "Vitals",
+                    "content": "07:00: HR 98, BP 140/80, RR (vent) 16, SpO2 94%, Temp 38.0°C\n07:30: HR 102, BP 145/85, RR (vent) 16, SpO2 92%, Temp 38.2°C\n08:00: HR 110, BP 160/90, RR (vent) 16, SpO2 89%, Temp 38.5°C"
+                },
+                {
+                    "id": "mar",
+                    "title": "MAR",
+                    "content": "Ceftriaxone 1g IV q24h (scheduled), Albuterol 2.5mg via nebulizer q4h PRN wheezing (next due 10:00), Famotidine 20mg IV q12h (scheduled)."
+                },
+                {
+                    "id": "radiology",
+                    "title": "Radiology",
+                    "content": "No recent radiology reports available."
+                }
+            ]
+        },
+        "pedagogy": {
+            "bloomLevel": "Analyze",
+            "cjmmStep": "Evaluate",
+            "nclexCategory": "Management of Care",
+            "difficulty": 5,
+            "topicTags": [
+                "Respiratory: Mechanical Ventilation Safety"
+            ]
+        },
+        "rationale": {
+            "correct": "Increased PIP can indicate bronchospasm, increased secretions, or decreased lung compliance (e.g., pneumothorax). A sustained increase warrants immediate investigation. SpO2 below 90% is concerning, especially with high FiO2, indicating inadequate oxygenation. Purulent secretions suggest infection, such as ventilator-associated pneumonia (VAP), requiring prompt treatment. Elevated WBC count supports this suspicion. ClinicalPearl: Always assess the patient first before adjusting ventilator settings based solely on alarms; consider the patient's clinical presentation. ClinicalPearl: Monitor trends in vital signs and ventilator parameters to identify subtle changes that may indicate developing problems and require intervention. ClinicalPearl: Elevated PIP can indicate issues with the patient (e.g., bronchospasm, secretions, pneumothorax) or the equipment (e.g., kinked tubing, obstruction). A systematic approach to troubleshooting is essential.",
+            "incorrect": "Small PIP and SpO2 fluctuations are expected, but sustained increases and significant SpO2 drops are concerning. Clear secretions are usually normal. Normal PIP range depends on lung compliance and tidal volume, but a significant increase from baseline is a red flag. Stable SpO2 above 90% on high FiO2 may be acceptable, but not with sudden decline and respiratory distress. Clear secretions are expected; purulent secretions indicate potential infection. QuestionTrap: Focusing solely on one isolated finding (e.g., the increased PIP) without considering the other clinical data (e.g., SpO2, secretions, WBC count) can lead to an incomplete assessment and delayed intervention. HowToOvercome: Consider the entire clinical picture, including the patient's history, vital signs, ventilator parameters, physical assessment findings, and lab results, to prioritize the most critical interventions and determine the underlying cause of the patient's deterioration.",
+            "clinicalPearls": [
+                "Always assess the patient first before adjusting ventilator settings based solely on alarms; consider the patient's clinical presentation.",
+                "Monitor trends in vital signs and ventilator parameters to identify subtle changes that may indicate developing problems and require intervention.",
+                "Elevated PIP can indicate issues with the patient (e.g., bronchospasm, secretions, pneumothorax) or the equipment (e.g., kinked tubing, obstruction). A systematic approach to troubleshooting is essential."
+            ],
+            "questionTrap": {
+                "trap": "Focusing solely on one isolated finding (e.g., the increased PIP) without considering the other clinical data (e.g., SpO2, secretions, WBC count) can lead to an incomplete assessment and delayed intervention.",
+                "howToOvercome": "Consider the entire clinical picture, including the patient's history, vital signs, ventilator parameters, physical assessment findings, and lab results, to prioritize the most critical interventions and determine the underlying cause of the patient's deterioration."
+            },
+            "mnemonic": {
+                "title": "DOPE (for Ventilator Troubleshooting)",
+                "expansion": "D - Dislodgement (of ETT), O - Obstruction (e.g., secretions, kinked tube), P - Pneumothorax, E - Equipment failure"
+            }
+        },
+        "responseOptions": {
+            "dropdown1": [
+                "30 cm H2O",
+                "40 cm H2O",
+                "50 cm H2O"
+            ],
+            "dropdown2": [
+                "95%",
+                "92%",
+                "90%",
+                "85%"
+            ],
+            "dropdown3": [
+                "thin, clear secretions",
+                "small amount of blood",
+                "purulent secretions"
+            ]
+        },
+        "correctResponse": {
+            "dropdown1": "40 cm H2O",
+            "dropdown2": "90%",
+            "dropdown3": "purulent secretions"
+        }
     }
-  },
-  "responseOptions": {
-    "dropdown1": [
-      "30 cm H2O",
-      "40 cm H2O",
-      "50 cm H2O"
-    ],
-    "dropdown2": [
-      "95%",
-      "92%",
-      "90%",
-      "85%"
-    ],
-    "dropdown3": [
-      "thin, clear secretions",
-      "small amount of blood",
-      "purulent secretions"
-    ]
-  },
-  "correctResponse": {
-    "dropdown1": "40 cm H2O",
-    "dropdown2": "90%",
-    "dropdown3": "purulent secretions"
-  }
-}
+]

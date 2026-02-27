@@ -1,199 +1,191 @@
 {
-  "id": "New-v26-1772083729933-6676",
-  "stem": "The nurse is caring for a patient with acute kidney injury (AKI). Based on the provided information, identify which actions are indicated and which are contraindicated for this patient.",
-  "type": "bowtie",
-  "actions": [
-    {
-      "id": "a1",
-      "text": "Administer Oxygen"
-    },
-    {
-      "id": "a2",
-      "text": "Start IV Fluids"
-    },
-    {
-      "id": "a3",
-      "text": "Notify Provider"
-    },
-    {
-      "id": "a4",
-      "text": "Prepare for Intubation"
-    },
-    {
-      "id": "a5",
-      "text": "Administer Analgesia"
-    }
-  ],
-  "scoring": {
-    "method": "partialCredit",
-    "maxPoints": 4
-  },
-  "pedagogy": {
-    "cjmmStep": "analyzeCues",
-    "topicTags": [
-      "General"
+    "id": "New-v26-1772083729933-6676",
+    "stem": "The nurse is caring for a patient with acute kidney injury (AKI). Based on the provided information, determine for each intervention whether it is indicated or contraindicated for this patient.",
+    "type": "bowtie",
+    "actions": [
+        {
+            "id": "a1",
+            "text": "Administer Oxygen"
+        },
+        {
+            "id": "a2",
+            "text": "Start IV Fluids"
+        },
+        {
+            "id": "a3",
+            "text": "Notify Provider"
+        },
+        {
+            "id": "a4",
+            "text": "Prepare for Intubation"
+        },
+        {
+            "id": "a5",
+            "text": "Administer Analgesia"
+        }
     ],
-    "bloomLevel": "apply",
-    "difficulty": 3,
-    "nclexCategory": "Physiological Adaptation"
-  },
-  "condition": "General",
-  "rationale": {
-    "correct": "Administering a loop diuretic (furosemide) can help manage fluid overload and potentially improve urine output in AKI.  Monitoring potassium levels is crucial because AKI can lead to hyperkalemia, which can cause cardiac arrhythmias. Holding lisinopril is important because ACE inhibitors can worsen AKI by reducing renal perfusion pressure. Restricting fluids helps prevent fluid overload, a common complication of AKI.",
-    "mnemonic": {
-      "AKI_CARE": "Assess, Kidney Function, Control Volume, Avoid Nephrotoxins, Regulate Electrolytes, Educate Patient"
+    "scoring": {
+        "method": "partialCredit",
+        "maxPoints": 4
     },
-    "incorrect": "Administering NSAIDs is contraindicated in AKI as they can further impair renal function. Continuing Metformin is contraindicated due to risk of lactic acidosis. Lisinopril can exacerbate AKI. Increasing fluid intake could lead to fluid overload, a complication of AKI.",
-    "questionTrap": {
-      "cognitiveLoad": "Requires integrating information from multiple tabs to make appropriate clinical decisions.",
-      "distractorFocus": "Focuses on interventions that are commonly used but potentially harmful in AKI"
+    "pedagogy": {
+        "cjmmStep": "analyzeCues",
+        "topicTags": [
+            "Acute Kidney Injury",
+            "Fluid and Electrolyte Imbalance"
+        ],
+        "bloomLevel": "apply",
+        "difficulty": 3,
+        "nclexCategory": "Physiological Adaptation"
     },
-    "clinicalPearls": [
-      "AKI is characterized by a sudden decline in kidney function.",
-      "Medication reconciliation is crucial in AKI to avoid nephrotoxic agents.",
-      "Hyperkalemia is a life-threatening complication of AKI that requires prompt management."
+    "condition": "Acute Kidney Injury",
+    "rationale": {
+        "correct": "Administering furosemide can help manage fluid overload and potentially improve urine output in AKI. Monitoring potassium levels is crucial because AKI can lead to hyperkalemia, which can cause cardiac arrhythmias. Holding lisinopril is important because ACE inhibitors can worsen AKI by reducing renal perfusion pressure. Restricting fluids helps prevent fluid overload, a common complication of AKI. Administering oxygen can help address hypoxemia, which may occur due to fluid overload or underlying respiratory issues. Starting IV fluids can help restore intravascular volume and improve renal perfusion, especially if dehydration is a contributing factor to AKI.",
+        "mnemonic": {
+            "AKI_CARE": "Assess, Kidney Function, Control Volume, Avoid Nephrotoxins, Regulate Electrolytes, Educate Patient"
+        },
+        "incorrect": "Administering NSAIDs is contraindicated in AKI as they can further impair renal function. Continuing Metformin is contraindicated due to risk of lactic acidosis. Lisinopril can exacerbate AKI. Increasing fluid intake could lead to fluid overload, a complication of AKI. Administering analgesia without careful consideration of renal function can lead to drug accumulation and adverse effects. Preparing for intubation may be premature and should be based on the patient's respiratory status and response to initial interventions.",
+        "questionTrap": {
+            "cognitiveLoad": "Requires integrating information from multiple tabs to make appropriate clinical decisions.",
+            "distractorFocus": "Focuses on interventions that are commonly used but potentially harmful in AKI if not carefully considered"
+        },
+        "clinicalPearls": [
+            "AKI is characterized by a sudden decline in kidney function.",
+            "Medication reconciliation is crucial in AKI to avoid nephrotoxic agents.",
+            "Hyperkalemia is a life-threatening complication of AKI that requires prompt management.",
+            "Fluid management in AKI requires careful assessment of fluid status and urine output."
+        ]
+    },
+    "taskModel": {
+        "stimuli": [
+            {
+                "id": "administerFurosemide",
+                "content": "Administer furosemide 20 mg IV PRN edema."
+            },
+            {
+                "id": "administerNSAIDs",
+                "content": "Administer NSAIDs for pain."
+            },
+            {
+                "id": "monitorPotassium",
+                "content": "Monitor potassium levels."
+            },
+            {
+                "id": "holdLisinopril",
+                "content": "Hold lisinopril."
+            },
+            {
+                "id": "continueMetformin",
+                "content": "Continue Metformin."
+            },
+            {
+                "id": "restrictFluids",
+                "content": "Restrict fluids."
+            },
+            {
+                "id": "increaseFluidIntake",
+                "content": "Increase fluid intake."
+            }
+        ],
+        "correctResponse": {
+            "holdLisinopril": "indicated",
+            "restrictFluids": "indicated",
+            "administerNSAIDs": "contraindicated",
+            "monitorPotassium": "indicated",
+            "continueMetformin": "contraindicated",
+            "increaseFluidIntake": "contraindicated",
+            "administerFurosemide": "indicated"
+        },
+        "responseCategories": [
+            {
+                "id": "indicated",
+                "description": "Actions that are appropriate for the patient's condition."
+            },
+            {
+                "id": "contraindicated",
+                "description": "Actions that are inappropriate for the patient's condition."
+            }
+        ]
+    },
+    "parameters": [
+        {
+            "id": "p1",
+            "text": "Vital Signs"
+        },
+        {
+            "id": "p2",
+            "text": "Oxygen Saturation"
+        },
+        {
+            "id": "p3",
+            "text": "Urine Output"
+        },
+        {
+            "id": "p4",
+            "text": "Pain Level"
+        },
+        {
+            "id": "p5",
+            "text": "Respiratory Rate"
+        }
+    ],
+    "itemContext": {
+        "sbar": "14:00, S: Patient is a 68-year-old male admitted for AKI, likely secondary to dehydration and recent NSAID use. Creatinine is trending upward. Urine output is decreased. Patient is complaining of fatigue and nausea. B: History of hypertension, type 2 diabetes, and heart failure. Current medications include lisinopril, metformin, and furosemide. A: Patient is currently oliguric with elevated creatinine. Assess for fluid overload and electrolyte imbalances. R: Recommend holding lisinopril and metformin. Monitor potassium levels closely. Consider fluid restriction and furosemide administration if fluid overloaded. Consult nephrology.",
+        "tabs": [
+            {
+                "id": "sbar",
+                "title": "SBAR",
+                "content": "14:00, S: Patient is a 68-year-old male admitted for AKI, likely secondary to dehydration and recent NSAID use. Creatinine is trending upward. Urine output is decreased. Patient is complaining of fatigue and nausea. B: History of hypertension, type 2 diabetes, and heart failure. Current medications include lisinopril, metformin, and furosemide. A: Patient is currently oliguric with elevated creatinine. Assess for fluid overload and electrolyte imbalances. R: Recommend holding lisinopril and metformin. Monitor potassium levels closely. Consider fluid restriction and furosemide administration if fluid overloaded. Consult nephrology."
+            },
+            {
+                "id": "vitals",
+                "title": "Vitals",
+                "content": "<table><thead><tr><th>Vital Sign</th><th>Value</th></tr></thead><tbody><tr><td>BP</td><td>150/90 mmHg</td></tr><tr><td>HR</td><td>90 bpm</td></tr><tr><td>RR</td><td>24 breaths/min</td></tr><tr><td>SpO2</td><td>92% on room air</td></tr><tr><td>Temp</td><td>37.5°C</td></tr></tbody></table>"
+            },
+            {
+                "id": "labs",
+                "title": "Labs",
+                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Creatinine</td><td>2.5 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BUN</td><td>40 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Potassium</td><td>5.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>GFR</td><td>30 mL/min</td><td>>60 mL/min</td></tr></tbody></table>"
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<p>Chest X-ray: No acute cardiopulmonary findings.</p>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR",
+                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td></tr><tr><td>Metformin</td><td>500 mg</td><td>PO</td><td>BID</td></tr><tr><td>Furosemide</td><td>20 mg</td><td>PO</td><td>Daily</td></tr></tbody></table>"
+            }
+        ],
+        "patient": {
+            "age": 68,
+            "gender": "Male",
+            "medicalHistory": [
+                "Hypertension",
+                "Type 2 Diabetes",
+                "Heart Failure (HF)"
+            ],
+            "currentMedications": [
+                "Lisinopril",
+                "Metformin",
+                "Furosemide"
+            ]
+        }
+    },
+    "sentinelStatus": "deep_healed_v2026",
+    "correctActionIds": [
+        "a1",
+        "a2"
+    ],
+    "correctParameterIds": [
+        "p1",
+        "p2"
+    ],
+    "potentialConditions": [
+        "General",
+        "Pneumonia",
+        "Acute Myocardial Infarction",
+        "Pulmonary Embolism"
     ]
-  },
-  "taskModel": {
-    "stimuli": [
-      {
-        "id": "administerFurosemide",
-        "content": "Administer furosemide 20 mg IV PRN edema."
-      },
-      {
-        "id": "administerNSAIDs",
-        "content": "Administer NSAIDs for pain."
-      },
-      {
-        "id": "monitorPotassium",
-        "content": "Monitor potassium levels."
-      },
-      {
-        "id": "holdLisinopril",
-        "content": "Hold lisinopril."
-      },
-      {
-        "id": "continueMetformin",
-        "content": "Continue Metformin."
-      },
-      {
-        "id": "restrictFluids",
-        "content": "Restrict fluids."
-      },
-      {
-        "id": "increaseFluidIntake",
-        "content": "Increase fluid intake."
-      }
-    ],
-    "correctResponse": {
-      "holdLisinopril": "indicated",
-      "restrictFluids": "indicated",
-      "administerNSAIDs": "contraindicated",
-      "monitorPotassium": "indicated",
-      "continueMetformin": "contraindicated",
-      "increaseFluidIntake": "contraindicated",
-      "administerFurosemide": "indicated"
-    },
-    "responseCategories": [
-      {
-        "id": "indicated",
-        "description": "Actions that are appropriate for the patient's condition."
-      },
-      {
-        "id": "contraindicated",
-        "description": "Actions that are inappropriate for the patient's condition."
-      }
-    ]
-  },
-  "parameters": [
-    {
-      "id": "p1",
-      "text": "Vital Signs"
-    },
-    {
-      "id": "p2",
-      "text": "Oxygen Saturation"
-    },
-    {
-      "id": "p3",
-      "text": "Urine Output"
-    },
-    {
-      "id": "p4",
-      "text": "Pain Level"
-    },
-    {
-      "id": "p5",
-      "text": "Respiratory Rate"
-    }
-  ],
-  "itemContext": {
-    "sbar": "Patient is a 68-year-old male admitted for AKI, likely secondary to dehydration and recent NSAID use. Creatinine is trending upward. Urine output is decreased. Patient is complaining of fatigue and nausea.",
-    "tabs": [
-      {
-        "id": "sbar",
-        "title": "Sbar",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "vitals",
-        "title": "Vitals",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "labs",
-        "title": "Labs",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "physicalExam",
-        "title": "PhysicalExam",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "radiology",
-        "title": "Radiology",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "carePlan",
-        "title": "CarePlan",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "mar",
-        "title": "Mar",
-        "content": "<p>No significant findings at this time.</p>"
-      }
-    ],
-    "patient": {
-      "age": 68,
-      "gender": "Male",
-      "medicalHistory": [
-        "Hypertension",
-        "Type 2 Diabetes",
-        "Heart Failure (HF)"
-      ],
-      "currentMedications": [
-        "Lisinopril",
-        "Metformin",
-        "Furosemide"
-      ]
-    }
-  },
-  "sentinelStatus": "healed_v2026_v23_bowtie_fix",
-  "correctActionIds": [
-    "a1",
-    "a2"
-  ],
-  "correctParameterIds": [
-    "p1",
-    "p2"
-  ],
-  "potentialConditions": [
-    "General",
-    "Pneumonia",
-    "Acute Myocardial Infarction",
-    "Pulmonary Embolism"
-  ]
 }

@@ -1,9 +1,9 @@
 {
     "id": "New-v26-78a9b2c3-d4e5-4f60-a1b7-8c9d0e2f1a3b",
-    "type": "trend",
+    "type": "highlight",
     "stem": "The nurse is caring for a patient at high risk for suicide. Based on the EHR data, indicate the nursing actions that are MOST appropriate at this time. Click to highlight the actions that should be taken.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "polytomous",
         "maxPoints": 1
     },
     "itemContext": {
@@ -16,22 +16,32 @@
                 "NKDA"
             ]
         },
-        "sbar": "S: James Miller, a 34-year-old male, was admitted to the Mental Health Unit at 09:00 today following a suicide attempt involving an acetaminophen overdose. B: Mr. Miller has a five-year history of major depressive disorder. Recent stressors include job loss and a relationship breakup. He also has a documented history of prior suicide ideation. O: At 14:00, Mr. Miller expressed feelings of hopelessness, stating, 'What's the point of going on?' He is tearful and exhibiting psychomotor retardation. His vital signs are stable: BP 120/80, HR 72, RR 16, SpO2 98% on room air. Acetaminophen levels are trending downwards, indicating the overdose is resolving physiologically. A: Mr. Miller is at high risk for suicide due to his current emotional state, recent stressors, and history. He requires close monitoring, therapeutic intervention, and immediate safety precautions. P: The plan of care includes continued suicide precautions, administration of scheduled medications as ordered, provision of supportive counseling and therapeutic communication, and a consult with the psychiatry team for further evaluation and potential adjustment of his medication regimen. We will also focus on creating a safe and supportive environment for Mr. Miller to express his feelings and work through his current crisis.",
+        "sbar": "S: James Miller, a 34-year-old male, was admitted to the Mental Health Unit at 09:00 today following a suicide attempt involving an acetaminophen overdose. B: Mr. Miller has a five-year history of major depressive disorder, complicated by recent job loss and a relationship breakup. He has a documented history of prior suicide ideation and attempts. O: At 14:00, Mr. Miller expressed feelings of hopelessness, stating, 'What's the point of going on?' He is tearful and exhibiting psychomotor retardation. Vitals: BP 120/80, HR 72, RR 16, SpO2 98% on room air. Acetaminophen levels are decreasing. A: Mr. Miller is at high risk for suicide due to his emotional state, recent stressors, and psychiatric history. He requires continuous monitoring and therapeutic intervention. P: The plan includes maintaining suicide precautions, administering scheduled medications, providing supportive counseling, and consulting with the psychiatry team for further evaluation and potential medication adjustments. Focus on creating a safe, supportive environment.",
         "tabs": [
             {
                 "id": "labs",
                 "title": "Labs",
-                "content": "Acetaminophen Level: 09:30: 250 mcg/mL; 12:00: 100 mcg/mL; 14:30: 50 mcg/mL\nCBC: WNL\nCMP: WNL\nUrine drug screen: Positive for acetaminophen only"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Scheduled Medications:\n- Sertraline 100mg PO daily at 08:00 (Administered)\n- Trazodone 50mg PO PRN for sleep (Not Administered)\nPRN Medications:\n- Lorazepam 1mg PO PRN for anxiety (Last administered: 10:00)"
+                "content": "Acetaminophen Level:\n- 09:30: 250 mcg/mL\n- 12:00: 100 mcg/mL\n- 14:30: 50 mcg/mL\nCBC: WNL\nCMP: WNL\nUrine drug screen: Positive for acetaminophen only"
             },
             {
                 "id": "vitals",
                 "title": "Vitals",
                 "content": "10:00: BP 122/82, HR 74, RR 18, SpO2 99%\n12:00: BP 118/78, HR 70, RR 16, SpO2 98%\n14:00: BP 120/80, HR 72, RR 16, SpO2 98%"
+            },
+            {
+                "id": "mar",
+                "title": "MAR",
+                "content": "Scheduled Medications:\n- Sertraline 100mg PO daily at 08:00 (Administered)\nTrazodone 50mg PO PRN for sleep (Not Administered)\nPRN Medications:\n- Lorazepam 1mg PO PRN for anxiety (Last administered: 10:00)"
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "No radiology orders or results available."
+            },
+            {
+                "id": "sbar",
+                "title": "SBAR",
+                "content": "See SBAR in main item context."
             }
         ]
     },
@@ -45,20 +55,20 @@
         ]
     },
     "rationale": {
-        "correct": "Initiating one-on-one observation provides continuous monitoring to prevent self-harm, ensuring the patient's safety. Contacting the psychiatrist facilitates timely evaluation and potential adjustments to the treatment plan based on the patient's current condition. Administering lorazepam as prescribed can help manage anxiety and agitation, which are contributing factors to suicidal ideation. Encouraging the patient to express feelings promotes therapeutic communication, allows for a deeper assessment of the patient's emotional state, and can help the patient feel heard and understood. Removing potentially harmful objects from the patient's environment mitigates the immediate risk of suicide by limiting access to means of self-harm.",
-        "incorrect": "Recommending group therapy might be a helpful intervention later in the patient's treatment, but it is not the priority in an acute suicidal crisis where immediate safety is paramount. Leaving the patient alone to rest is unsafe due to the high suicide risk and the need for continuous monitoring. Ignoring the patient's statements and hoping they will pass is negligent and potentially fatal; all expressions of suicidal ideation must be taken seriously and addressed. Documenting the patient's statements without further action is insufficient; documentation is important, but it must be accompanied by appropriate interventions. Delaying medication administration can exacerbate the patient's distress and potentially worsen their suicidal ideation; medications should be administered as prescribed and on time.",
+        "correct": "Initiating one-on-one observation ensures continuous monitoring to prevent self-harm. Contacting the psychiatrist facilitates timely evaluation and potential adjustments to the treatment plan. Administering lorazepam can manage anxiety and agitation, contributing factors to suicidal ideation. Encouraging the patient to express feelings promotes therapeutic communication and allows for a deeper assessment of the patient's emotional state. Removing potentially harmful objects mitigates the immediate risk of suicide. Sertraline is a scheduled medication and should be administered as prescribed to maintain therapeutic levels.",
+        "incorrect": "Recommending group therapy is not the priority in an acute suicidal crisis. Leaving the patient alone is unsafe due to the high suicide risk. Ignoring the patient's statements is negligent; all expressions of suicidal ideation must be addressed. Documenting without further action is insufficient; documentation must be accompanied by interventions. Delaying medication administration can exacerbate distress; medications should be administered as prescribed.",
         "clinicalPearls": [
-            "Suicide risk is dynamic and requires ongoing assessment and intervention.",
-            "Therapeutic communication, a safe environment, and close monitoring are crucial components of care for a patient at high risk for suicide.",
-            "Collaboration with the interdisciplinary team, including psychiatry, is essential for comprehensive assessment and treatment planning."
+            "Suicide risk is dynamic and requires ongoing assessment.",
+            "Therapeutic communication, a safe environment, and close monitoring are crucial.",
+            "Collaboration with the interdisciplinary team is essential for comprehensive assessment and treatment planning."
         ],
         "questionTrap": {
-            "trap": "The question trap lies in prioritizing routine tasks or interventions that are generally helpful but do not address the immediate safety concerns of a patient at high risk for suicide. Some options might seem helpful in general but fail to directly mitigate the acute risk of self-harm.",
-            "howToOvercome": "Focus on the patient's immediate safety and the actions that directly mitigate the risk of self-harm. Prioritize interventions that provide continuous monitoring, therapeutic support, and limit access to potential means of suicide."
+            "trap": "Prioritizing routine tasks that do not address the immediate safety concerns of a patient at high risk for suicide.",
+            "howToOvercome": "Focus on the patient's immediate safety and actions that directly mitigate the risk of self-harm. Prioritize continuous monitoring, therapeutic support, and limiting access to potential means of suicide."
         },
         "mnemonic": {
             "title": "IS PATH WARM",
-            "expansion": "Ideation, Substance abuse, Purposelessness, Anxiety, Trapped, Hopelessness, Withdrawal, Anger, Recklessness, Mood change. This mnemonic helps identify risk factors for suicide and guide assessment."
+            "expansion": "Ideation, Substance abuse, Purposelessness, Anxiety, Trapped, Hopelessness, Withdrawal, Anger, Recklessness, Mood change. This mnemonic helps identify risk factors for suicide."
         }
     },
     "response": [
@@ -112,5 +122,6 @@
             "content": "Remove potentially harmful objects from the patient's environment.",
             "correct": true
         }
-    ]
+    ],
+    "sentinelStatus": "deep_healed_v2026"
 }

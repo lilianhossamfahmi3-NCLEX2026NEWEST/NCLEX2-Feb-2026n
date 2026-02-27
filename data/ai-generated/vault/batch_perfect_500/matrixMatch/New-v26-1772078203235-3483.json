@@ -1,138 +1,133 @@
 {
-  "id": "New-v26-1772078203235-3483",
-  "stem": "For each assessment finding, indicate if the finding supports a diagnosis of sepsis, SIRS, or neither.",
-  "type": "matrixMatch",
-  "scoring": {
-    "method": "all-or-nothing",
-    "maxPoints": 5
-  },
-  "pedagogy": {
-    "cjmmStep": "analyzeCues",
-    "topicTags": [
-      "General"
+    "id": "New-v26-1772078203235-3483",
+    "stem": "For each assessment finding, indicate if the finding supports a diagnosis of sepsis, SIRS, or neither.",
+    "type": "matrixMatch",
+    "scoring": {
+        "method": "all-or-nothing",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "cjmmStep": "analyzeCues",
+        "topicTags": [
+            "General"
+        ],
+        "bloomLevel": "apply",
+        "difficulty": 3,
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "rationale": {
+        "correct": "Sepsis is defined as life-threatening organ dysfunction caused by a dysregulated host response to infection. This patient meets criteria for sepsis due to suspected infection (UTI), elevated lactate, altered mental status, and hypotension. SIRS requires two or more of the following: temperature >38°C or <36°C, heart rate >90 bpm, respiratory rate >20 breaths/min or PaCO2 <32 mmHg, WBC >12,000/mm3 or <4,000/mm3 or >10% bands. The patient meets SIRS criteria, but the evidence of end-organ damage (elevated lactate, altered mental status) indicates sepsis.",
+        "mnemonic": {
+            "name": "Sepsis Mnemonic",
+            "content": "Think 'TIME IS OF THE ESSENCE': Temperature instability, Infection suspected, Mental decline, Extremely ill, Sickness severity."
+        },
+        "incorrect": "SIRS criteria alone, without evidence of organ dysfunction, does not indicate sepsis. Normal findings do not contribute to either diagnosis. Failing to recognize the signs of organ dysfunction (altered mental status, elevated lactate) can lead to delayed treatment and increased mortality.",
+        "questionTrap": {
+            "reasoning": "Students may incorrectly identify findings as SIRS when they actually indicate sepsis due to the presence of organ dysfunction.",
+            "commonMistake": "Confusing SIRS with sepsis. SIRS is a systemic inflammatory response, but sepsis requires documented or suspected infection AND organ dysfunction."
+        },
+        "clinicalPearls": [
+            "Early recognition and treatment of sepsis are crucial to improving patient outcomes.",
+            "Lactate is a marker of anaerobic metabolism and tissue hypoperfusion, often elevated in sepsis.",
+            "Altered mental status can be an early sign of sepsis, especially in older adults.",
+            "Hypotension unresponsive to initial fluid resuscitation is a key indicator of septic shock."
+        ]
+    },
+    "itemContext": {
+        "sbar": "18:00, S: 72-year-old male admitted from a skilled nursing facility with altered mental status and suspected urinary tract infection. He is febrile and hypotensive. O: Patient is confused and lethargic. Vital signs: T 38.6°C, HR 115 bpm, RR 28 breaths/min, BP 88/52 mmHg, SpO2 92% on room air. A: Suspected sepsis secondary to UTI. Elevated lactate level of 3.5 mmol/L. Urine culture pending. R: Continue IV fluids, administer Ceftriaxone as ordered, monitor vital signs and mental status closely. Consider vasopressors if hypotension persists despite fluid resuscitation. Obtain repeat lactate level in 2 hours.",
+        "tabs": [
+            {
+                "id": "sbar",
+                "title": "SBAR",
+                "content": "18:00, S: 72-year-old male admitted from a skilled nursing facility with altered mental status and suspected urinary tract infection. He is febrile and hypotensive. O: Patient is confused and lethargic. Vital signs: T 38.6°C, HR 115 bpm, RR 28 breaths/min, BP 88/52 mmHg, SpO2 92% on room air. A: Suspected sepsis secondary to UTI. Elevated lactate level of 3.5 mmol/L. Urine culture pending. R: Continue IV fluids, administer Ceftriaxone as ordered, monitor vital signs and mental status closely. Consider vasopressors if hypotension persists despite fluid resuscitation. Obtain repeat lactate level in 2 hours."
+            },
+            {
+                "id": "vitals",
+                "title": "Vitals",
+                "content": "<b>17:55</b><br>Temperature: 101.5°F (38.6°C)<br>Heart Rate: 115 bpm<br>Respiratory Rate: 28 breaths/min<br>Blood Pressure: 88/52 mmHg<br>SpO2: 92% on room air"
+            },
+            {
+                "id": "labs",
+                "title": "Labs",
+                "content": "<b>17:50</b><br>Lactate: 3.5 mmol/L<br>WBC: 14,500/mm3<br>Creatinine: 2.1 mg/dL<br>BUN: 35 mg/dL<br>Urine Culture: Pending"
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": "<b>17:45</b><br>General: Appears confused and lethargic<br>Skin: Warm and flushed<br>Lungs: Clear to auscultation bilaterally<br>Cardiovascular: Tachycardic, weak peripheral pulses<br>Neurological: Altered mental status, oriented to person only"
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<b>17:40</b><br>Chest X-Ray: No acute infiltrates noted"
+            },
+            {
+                "id": "mar",
+                "title": "MAR",
+                "content": "<b>Current Medications:</b><br>Lisinopril 20mg daily<br>Metformin 1000mg twice daily<br>Aspirin 81mg daily<br><br><b>New Orders:</b><br>Ceftriaxone 1g IV every 24 hours<br>Normal Saline 1L IV bolus"
+            }
+        ],
+        "patient": {
+            "age": 72,
+            "gender": "Male",
+            "medicalHistory": [
+                "Hypertension",
+                "Type 2 Diabetes",
+                "Chronic Kidney Disease (Stage 3)"
+            ],
+            "currentMedications": [
+                "Lisinopril 20mg daily",
+                "Metformin 1000mg twice daily",
+                "Aspirin 81mg daily"
+            ]
+        }
+    },
+    "matrixMatch": [
+        {
+            "id": "temperature",
+            "label": "Temperature 101.5°F (38.6°C)",
+            "options": {
+                "sirs": true,
+                "sepsis": true,
+                "neither": false
+            }
+        },
+        {
+            "id": "heartRate",
+            "label": "Heart Rate 115 bpm",
+            "options": {
+                "sirs": true,
+                "sepsis": false,
+                "neither": false
+            }
+        },
+        {
+            "id": "respiratoryRate",
+            "label": "Respiratory Rate 28 breaths/min",
+            "options": {
+                "sirs": true,
+                "sepsis": false,
+                "neither": false
+            }
+        },
+        {
+            "id": "bloodPressure",
+            "label": "Blood Pressure 88/52 mmHg",
+            "options": {
+                "sirs": false,
+                "sepsis": true,
+                "neither": false
+            }
+        },
+        {
+            "id": "lactate",
+            "label": "Lactate 3.5 mmol/L",
+            "options": {
+                "sirs": false,
+                "sepsis": true,
+                "neither": false
+            }
+        }
     ],
-    "bloomLevel": "apply",
-    "difficulty": 3,
-    "nclexCategory": "Physiological Adaptation"
-  },
-  "rationale": {
-    "correct": "Sepsis is defined as life-threatening organ dysfunction caused by a dysregulated host response to infection.  This patient meets criteria for sepsis due to suspected infection (UTI), elevated lactate, altered mental status, and hypotension. SIRS requires two or more of the following: temperature >38°C or <36°C, heart rate >90 bpm, respiratory rate >20 breaths/min or PaCO2 <32 mmHg, WBC >12,000/mm3 or <4,000/mm3 or >10% bands. The patient meets SIRS criteria, but the evidence of end-organ damage (elevated lactate, altered mental status) indicates sepsis.",
-    "mnemonic": {
-      "name": "Sepsis Mnemonic",
-      "content": "Think 'TIME IS OF THE ESSENCE': Temperature instability, Infection suspected, Mental decline, Extremely ill, Sickness severity."
-    },
-    "incorrect": "SIRS criteria alone, without evidence of organ dysfunction, does not indicate sepsis. Normal findings do not contribute to either diagnosis. Failing to recognize the signs of organ dysfunction (altered mental status, elevated lactate) can lead to delayed treatment and increased mortality.",
-    "questionTrap": {
-      "reasoning": "Students may incorrectly identify findings as SIRS when they actually indicate sepsis due to the presence of organ dysfunction.",
-      "commonMistake": "Confusing SIRS with sepsis. SIRS is a systemic inflammatory response, but sepsis requires documented or suspected infection AND organ dysfunction."
-    },
-    "clinicalPearls": [
-      "Early recognition and treatment of sepsis are crucial to improving patient outcomes.",
-      "Lactate is a marker of anaerobic metabolism and tissue hypoperfusion, often elevated in sepsis.",
-      "Altered mental status can be an early sign of sepsis, especially in older adults.",
-      "Hypotension unresponsive to initial fluid resuscitation is a key indicator of septic shock."
-    ]
-  },
-  "itemContext": {
-    "sbar": "Patient is a 72-year-old male admitted from a skilled nursing facility with altered mental status and suspected urinary tract infection. He is febrile and hypotensive.  Urine culture pending.  Started on IV fluids and empiric antibiotics (Ceftriaxone).",
-    "tabs": [
-      {
-        "id": "sbar",
-        "title": "Sbar",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "vitals",
-        "title": "Vitals",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "labs",
-        "title": "Labs",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "physicalExam",
-        "title": "PhysicalExam",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "radiology",
-        "title": "Radiology",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "carePlan",
-        "title": "CarePlan",
-        "content": "<p>No significant findings at this time.</p>"
-      },
-      {
-        "id": "mar",
-        "title": "Mar",
-        "content": "<p>No significant findings at this time.</p>"
-      }
-    ],
-    "patient": {
-      "age": 72,
-      "gender": "Male",
-      "medicalHistory": [
-        "Hypertension",
-        "Type 2 Diabetes",
-        "Chronic Kidney Disease (Stage 3)"
-      ],
-      "currentMedications": [
-        "Lisinopril 20mg daily",
-        "Metformin 1000mg twice daily",
-        "Aspirin 81mg daily"
-      ]
-    }
-  },
-  "matrixMatch": [
-    {
-      "id": "temperature",
-      "label": "Temperature 101.5°F (38.6°C)",
-      "options": {
-        "sirs": true,
-        "sepsis": false,
-        "neither": false
-      }
-    },
-    {
-      "id": "heartRate",
-      "label": "Heart Rate 115 bpm",
-      "options": {
-        "sirs": true,
-        "sepsis": false,
-        "neither": false
-      }
-    },
-    {
-      "id": "respiratoryRate",
-      "label": "Respiratory Rate 28 breaths/min",
-      "options": {
-        "sirs": true,
-        "sepsis": false,
-        "neither": false
-      }
-    },
-    {
-      "id": "bloodPressure",
-      "label": "Blood Pressure 88/52 mmHg",
-      "options": {
-        "sirs": false,
-        "sepsis": true,
-        "neither": false
-      }
-    },
-    {
-      "id": "lactate",
-      "label": "Lactate 3.5 mmol/L",
-      "options": {
-        "sirs": false,
-        "sepsis": true,
-        "neither": false
-      }
-    }
-  ],
-  "sentinelStatus": "healed_v2026_v20_qi_final"
+    "sentinelStatus": "deep_healed_v2026"
 }

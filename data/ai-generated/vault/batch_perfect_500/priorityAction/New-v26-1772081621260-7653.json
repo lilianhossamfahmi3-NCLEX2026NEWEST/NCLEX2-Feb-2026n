@@ -1,72 +1,87 @@
-{
-    "stem": "The patient is a 68-year-old male presenting with acute chest pain. Based on the provided information, which of the following actions is the MOST appropriate FIRST step?",
-    "itemContext": {
-        "patient": {
-            "age": 68,
-            "gender": "Male",
-            "chiefComplaint": "Acute chest pain"
+[
+    {
+        "stem": "A 68-year-old male presents to the emergency department reporting acute chest pain. Based on the information provided, what is the MOST appropriate FIRST action?",
+        "itemContext": {
+            "patient": {
+                "age": 68,
+                "gender": "Male",
+                "chiefComplaint": "Acute chest pain"
+            },
+            "sbar": "07:30, S: Patient reports sudden onset of substernal chest pain radiating to the left arm, which started approximately 30 minutes ago. The pain is described as crushing and is rated 8/10. The patient also reports shortness of breath and nausea.\n07:32, B: Patient has a history of hypertension and hyperlipidemia. He takes lisinopril and atorvastatin daily. No known allergies.\n07:34, A: Patient is anxious and diaphoretic. Initial assessment reveals the following: BP 160/90 mmHg, HR 110 bpm, RR 24, SpO2 92% on room air. ECG shows ST-segment elevation in leads II, III, and aVF.\n07:36, R: Possible acute myocardial infarction. Recommend immediate oxygen administration, cardiac monitoring, and notification of the cardiology team. Obtain stat labs, including troponin levels. Prepare for potential percutaneous coronary intervention (PCI).",
+            "tabs": [
+                {
+                    "id": "sbar",
+                    "title": "SBAR",
+                    "content": "07:30, S: Patient reports sudden onset of substernal chest pain radiating to the left arm, which started approximately 30 minutes ago. The pain is described as crushing and is rated 8/10. The patient also reports shortness of breath and nausea.\n07:32, B: Patient has a history of hypertension and hyperlipidemia. He takes lisinopril and atorvastatin daily. No known allergies.\n07:34, A: Patient is anxious and diaphoretic. Initial assessment reveals the following: BP 160/90 mmHg, HR 110 bpm, RR 24, SpO2 92% on room air. ECG shows ST-segment elevation in leads II, III, and aVF.\n07:36, R: Possible acute myocardial infarction. Recommend immediate oxygen administration, cardiac monitoring, and notification of the cardiology team. Obtain stat labs, including troponin levels. Prepare for potential percutaneous coronary intervention (PCI)."
+                },
+                {
+                    "id": "vitals",
+                    "title": "Vitals",
+                    "content": "BP: 160/90 mmHg\nHR: 110 bpm\nRR: 24 breaths/min\nSpO2: 92% on room air\nTemperature: 37.0°C (98.6°F)"
+                },
+                {
+                    "id": "labs",
+                    "title": "Labs",
+                    "content": "Troponin I: Pending\nCBC: Within normal limits\nCMP: Within normal limits\nCoagulation studies: Within normal limits"
+                },
+                {
+                    "id": "radiology",
+                    "title": "Radiology",
+                    "content": "Chest X-ray: No acute abnormalities noted."
+                },
+                {
+                    "id": "mar",
+                    "title": "MAR",
+                    "content": "Lisinopril 20 mg PO daily\nAtorvastatin 80 mg PO daily"
+                }
+            ]
         },
-        "sbar": "Patient reports sudden onset of substernal chest pain radiating to the left arm. Pain is described as crushing and is rated 8/10. Patient is diaphoretic and anxious.",
-        "tabs": [
+        "options": [
             {
-                "id": "sbar",
-                "title": "Sbar",
-                "content": "<p>No significant findings at this time.</p>"
+                "id": "option1",
+                "text": "Administer oxygen to maintain SpO2 > 92%.",
+                "isCorrect": true
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<p>No significant findings at this time.</p>"
+                "id": "option2",
+                "text": "Start an IV infusion of normal saline at 100 mL/hr.",
+                "isCorrect": false
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<p>No significant findings at this time.</p>"
+                "id": "option3",
+                "text": "Administer sublingual nitroglycerin 0.4 mg.",
+                "isCorrect": false
             },
             {
-                "id": "physicalExam",
-                "title": "PhysicalExam",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "radiology",
-                "title": "Radiology",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "carePlan",
-                "title": "CarePlan",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "mar",
-                "title": "Mar",
-                "content": "<p>No significant findings at this time.</p>"
+                "id": "option4",
+                "text": "Obtain a 12-lead ECG.",
+                "isCorrect": false
             }
-        ]
-    },
-    "rationale": {
-        "correct": "Administer oxygen to maintain SpO2 > 92%. The patient is hypoxic (SpO2 92% on room air) and experiencing chest pain, suggestive of myocardial ischemia. Improving oxygenation is a priority to minimize cardiac damage.",
-        "incorrect": "Start an IV infusion of normal saline. While IV access is important, addressing the patient's hypoxia is the immediate priority. Fluid bolus without clear indication could also worsen pulmonary edema if present.",
-        "clinicalPearls": [
-            "In acute chest pain, remember the 'MONA' (Morphine, Oxygen, Nitroglycerin, Aspirin) approach, but prioritize based on patient presentation.",
-            "Hypoxia is always a priority. Address it before other interventions.",
-            "Hypotension is a relative contraindication for nitroglycerin."
         ],
-        "questionTrap": {
-            "description": "The distractor options represent important interventions in managing chest pain, but they are not the MOST immediate priority in this specific scenario where the patient is hypoxic.",
-            "reason": "Students may be tempted to jump to other interventions without first addressing the patient's oxygenation status."
+        "rationale": {
+            "correct": "Administering oxygen is the priority because the patient's SpO2 is 92% on room air, indicating hypoxia. Hypoxia in the setting of acute chest pain, especially with suspected myocardial ischemia, can worsen cardiac damage. Supplemental oxygen aims to improve oxygen delivery to the myocardium and reduce ischemic injury. ClinicalPearl: Titrate oxygen to maintain SpO2 > 92% but avoid excessive oxygenation, which can be harmful.",
+            "incorrect": "Starting an IV infusion of normal saline is not the immediate priority. While IV access is important for medication administration, addressing the patient's hypoxia takes precedence. Fluid bolus without clear indication could also worsen pulmonary edema if present. QuestionTrap: Students may choose this option because IV access is a common intervention, but it's not the MOST immediate need. Administering sublingual nitroglycerin is indicated for chest pain, but it should be administered after ensuring adequate oxygenation and assessing blood pressure. Hypotension is a contraindication for nitroglycerin. Obtaining a 12-lead ECG is crucial for diagnosing the cause of chest pain, but it should be done concurrently with or immediately after initiating oxygen therapy. The ECG findings will guide further management, such as thrombolytics or PCI. ClinicalPearl: Remember to check BP before administering nitroglycerin.",
+            "clinicalPearls": [
+                "In acute chest pain, remember the 'MONA' (Morphine, Oxygen, Nitroglycerin, Aspirin) approach, but prioritize based on patient presentation and ABCs.",
+                "Hypoxia is always a priority. Address it before other interventions.",
+                "Hypotension is a relative contraindication for nitroglycerin.",
+                "Obtain a 12-lead ECG as soon as possible to evaluate for ST-segment elevation or depression."
+            ],
+            "questionTrap": {
+                "description": "The distractor options represent important interventions in managing chest pain, but they are not the MOST immediate priority in this specific scenario where the patient is hypoxic.",
+                "reason": "Students may be tempted to jump to other interventions without first addressing the patient's oxygenation status. They might also forget to check contraindications before administering medications like nitroglycerin."
+            },
+            "mnemonic": {
+                "acronym": "OXYGEN",
+                "meaning": "Observe, X-ray (Chest), Give Oxygen, Evaluate ECG, Nitroglycerin (if BP stable), Ensure Aspirin"
+            }
         },
-        "mnemonic": {
-            "acronym": "ABCs",
-            "meaning": "Airway, Breathing, Circulation - Always prioritize the airway and breathing before other interventions."
-        }
-    },
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
-    "type": "priorityAction",
-    "id": "New-v26-1772081621260-7653",
-    "sentinelStatus": "healed_v2026_v17_qi100"
-}
+        "scoring": {
+            "method": "dichotomous",
+            "maxPoints": 1
+        },
+        "type": "priorityAction",
+        "id": "New-v26-1772081621260-7653",
+        "sentinelStatus": "healed_v2026_v17_qi100"
+    }
+]

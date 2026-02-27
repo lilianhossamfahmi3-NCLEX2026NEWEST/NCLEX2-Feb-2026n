@@ -1,66 +1,116 @@
-{
-    "id": "New-v26-9f8a1b2c-3d4e-5f6g-7h8i-9j0k1l2m3n4o",
-    "type": "trend",
-    "stem": "The patient is being monitored for increased intracranial pressure (ICP) following an acute ischemic stroke. Review the patient information and identify the findings that require immediate intervention. Select all findings that apply.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
-    "itemContext": {
-        "patient": {
-            "name": "John Smith",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical ICU",
-            "allergies": [
-                "NKDA"
-            ],
-            "airborne": false,
-            "isolation": "Standard"
+[
+    {
+        "id": "New-v26-9f8a1b2c-3d4e-5f6g-7h8i-9j0k1l2m3n4o",
+        "type": "trend",
+        "stem": "The patient is being monitored for increased intracranial pressure (ICP) following an acute ischemic stroke. Review the patient information and identify the findings that require immediate intervention. Select all findings that apply.",
+        "scoring": {
+            "method": "polytomous",
+            "penalty": 1,
+            "maxPoints": 4
         },
-        "sbar": "SBAR: I am calling about John Smith, 72-year-old male, admitted at 08:00 today with acute ischemic stroke, confirmed via CT scan. NIHSS score on admission was 18. He received tPA at 09:00. Blood pressure has been labile. \n\nBackground: PMH includes hypertension and atrial fibrillation. He is on telemetry. \n\nAssessment: At 14:00, patient's GCS is fluctuating between 10 and 12. Right-sided weakness is still present. Pupils are now sluggishly reactive to light. Current BP is 180/100 mmHg, HR 60 bpm, RR 12, SpO2 96% on 2L NC. Temperature is 37.2°C. Recent lab results are pending. I am concerned about increasing ICP. \n\nRecommendation: I recommend STAT repeat neurological assessment, including pupillary checks, and possible order for mannitol. Please also consider further BP management.",
-        "tabs": [
+        "itemContext": {
+            "patient": {
+                "name": "John Smith",
+                "age": 72,
+                "gender": "Male",
+                "iso": "Medical ICU",
+                "allergies": [
+                    "NKDA"
+                ],
+                "airborne": false,
+                "isolation": "Standard"
+            },
+            "sbar": "14:00 SBAR for John Smith, a 72-year-old male admitted at 08:00 for acute ischemic stroke confirmed by CT. Initial NIHSS was 18. tPA administered at 09:00. PMH: Hypertension and atrial fibrillation; telemetry monitoring.\n\nAssessment: GCS fluctuating between 10-12. Right-sided weakness persists. Pupils sluggishly reactive. BP 180/100 mmHg, HR 60 bpm, RR 12, SpO2 96% on 2L NC. Temp 37.2°C. Labs pending. Concerns for increasing ICP.\n\nRecommendation: STAT neuro assessment including pupillary checks. Consider mannitol order and further BP management. Please provide guidance.",
+            "tabs": [
+                {
+                    "id": "vitals",
+                    "title": "Vitals",
+                    "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp (°C)</th><th>GCS</th></tr></thead><tbody><tr><td>08:00</td><td>160/90</td><td>80</td><td>16</td><td>98%</td><td>37.0</td><td>15</td></tr><tr><td>09:00</td><td>150/85</td><td>75</td><td>18</td><td>99%</td><td>37.1</td><td>15</td></tr><tr><td>10:00</td><td>170/95</td><td>70</td><td>14</td><td>97%</td><td>37.1</td><td>14</td></tr><tr><td>11:00</td><td>175/98</td><td>65</td><td>13</td><td>96%</td><td>37.2</td><td>13</td></tr><tr><td>12:00</td><td>180/100</td><td>60</td><td>12</td><td>96%</td><td>37.2</td><td>12</td></tr><tr><td>13:00</td><td>182/102</td><td>58</td><td>12</td><td>95%</td><td>37.2</td><td>11</td></tr><tr><td>14:00</td><td>180/100</td><td>60</td><td>12</td><td>96%</td><td>37.2</td><td>10</td></tbody></table>"
+                },
+                {
+                    "id": "labs",
+                    "title": "Labs",
+                    "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.0 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>1.0 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Glucose</td><td>120 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>INR</td><td>1.1</td><td>0.8-1.2</td></tr><tr><td>PTT</td><td>30 sec</td><td>25-35 sec</td></tr><tr><td>Platelets</td><td>200,000/µL</td><td>150,000-400,000/µL</td></tr></tbody></table>"
+                },
+                {
+                    "id": "mar",
+                    "title": "MAR",
+                    "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>tPA</td><td>0.9 mg/kg</td><td>IV</td><td>Once</td><td>09:00</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>PRN for SBP > 180</td><td>10:30, 12:30</td></tr><tr><td>Aspirin</td><td>81 mg</td><td>PO</td><td>Daily</td><td>Held</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td><td>Held</td></tr></tbody></table>"
+                },
+                {
+                    "id": "radiology",
+                    "title": "Radiology",
+                    "content": "No radiology reports available."
+                }
+            ]
+        },
+        "pedagogy": {
+            "bloomLevel": "Analyze",
+            "cjmmStep": "Recognizing Cues",
+            "nclexCategory": "Physiological Integrity",
+            "difficulty": 5,
+            "topicTags": [
+                "Neurological: Stroke & Increased ICP"
+            ]
+        },
+        "options": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp (°C)</th><th>GCS</th></tr></thead><tbody><tr><td>08:00</td><td>160/90</td><td>80</td><td>16</td><td>98%</td><td>37.0</td><td>15</td></tr><tr><td>09:00</td><td>150/85</td><td>75</td><td>18</td><td>99%</td><td>37.1</td><td>15</td></tr><tr><td>10:00</td><td>170/95</td><td>70</td><td>14</td><td>97%</td><td>37.1</td><td>14</td></tr><tr><td>11:00</td><td>175/98</td><td>65</td><td>13</td><td>96%</td><td>37.2</td><td>13</td></tr><tr><td>12:00</td><td>180/100</td><td>60</td><td>12</td><td>96%</td><td>37.2</td><td>12</td></tr><tr><td>13:00</td><td>182/102</td><td>58</td><td>12</td><td>95%</td><td>37.2</td><td>11</td></tr><tr><td>14:00</td><td>180/100</td><td>60</td><td>12</td><td>96%</td><td>37.2</td><td>10</td></tbody></table>"
+                "id": "option-1",
+                "text": "Declining Glasgow Coma Scale (GCS)",
+                "isCorrect": true,
+                "rationale": "A declining GCS score indicates a worsening level of consciousness, which is a key sign of increasing ICP. As pressure increases within the skull, it impairs neurological function, leading to a decreased level of alertness and responsiveness. This requires immediate intervention to prevent further neurological damage. ClinicalPearl: A GCS score decrease of 2 or more points is clinically significant."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.0 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>1.0 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Glucose</td><td>120 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>INR</td><td>1.1</td><td>0.8-1.2</td></tr><tr><td>PTT</td><td>30 sec</td><td>25-35 sec</td></tr><tr><td>Platelets</td><td>200,000/µL</td><td>150,000-400,000/µL</td></tr></tbody></table>"
+                "id": "option-2",
+                "text": "Blood pressure of 180/100 mmHg",
+                "isCorrect": true,
+                "rationale": "Hypertension in the setting of a stroke can exacerbate cerebral edema and increase ICP. Elevated blood pressure increases cerebral blood volume, contributing to increased intracranial pressure. Managing blood pressure is crucial to prevent further neurological damage. QuestionTrap: Students may think high BP is 'okay' post-stroke to perfuse the penumbra, but this level is too high and dangerous."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>tPA</td><td>0.9 mg/kg</td><td>IV</td><td>Once</td><td>09:00</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>PRN for SBP > 180</td><td>10:30, 12:30</td></tr><tr><td>Aspirin</td><td>81 mg</td><td>PO</td><td>Daily</td><td>Held</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td><td>Held</td></tr></tbody></table>"
+                "id": "option-3",
+                "text": "Sluggish pupillary response to light",
+                "isCorrect": true,
+                "rationale": "Sluggish pupillary response suggests compression of the oculomotor nerve (CN III) due to increasing ICP. As ICP rises, it can compress cranial nerves, leading to pupillary changes. This requires immediate intervention to relieve pressure and prevent permanent nerve damage. Mnemonic: PERRLA - Pupils Equal, Round, Reactive to Light and Accommodation. Changes indicate neurological compromise."
+            },
+            {
+                "id": "option-4",
+                "text": "Heart rate of 60 bpm",
+                "isCorrect": true,
+                "rationale": "Bradycardia, in the context of hypertension, can be a sign of Cushing's triad, indicating increased ICP. Cushing's triad (bradycardia, hypertension, and irregular respirations) is a late sign of increased ICP and requires immediate intervention. The body is trying to compensate for the increased pressure on the brainstem. ClinicalPearl: Cushing's triad is a LATE sign of increased ICP; do not wait for all three signs to be present before intervening."
+            },
+            {
+                "id": "option-5",
+                "text": "Sodium level of 140 mEq/L",
+                "isCorrect": false,
+                "rationale": "Sodium levels within normal limits do not directly indicate increased ICP. While electrolyte imbalances can affect neurological function, a sodium level of 140 mEq/L is within the normal range and not a primary concern in this scenario."
+            },
+            {
+                "id": "option-6",
+                "text": "Temperature of 37.2°C",
+                "isCorrect": false,
+                "rationale": "A temperature of 37.2°C is within normal limits or slightly elevated, and while fever can contribute to increased metabolic demand, it is not the most immediate indicator of worsening ICP in this scenario. Focus should be on neurological signs and blood pressure control first."
+            },
+            {
+                "id": "option-7",
+                "text": "Respiratory rate of 12 breaths per minute",
+                "isCorrect": false,
+                "rationale": "Respiratory rate of 12 breaths per minute is within normal limits for an adult and does not directly indicate increased ICP. While changes in respiratory pattern can occur with increased ICP (e.g., Cheyne-Stokes respirations), a rate of 12 is not indicative of this."
             }
-        ]
-    },
-    "pedagogy": {
-        "bloomLevel": "Analyze",
-        "cjmmStep": "Recognizing Cues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Stroke & Increased ICP"
-        ]
-    },
-    "rationale": {
-        "correct": "Declining GCS indicates a worsening level of consciousness, suggestive of increasing ICP. Hypertension can exacerbate cerebral edema and increase ICP, requiring immediate management. Sluggish pupillary response suggests compression of the oculomotor nerve due to increasing ICP. Bradycardia, in the context of hypertension, can be a sign of Cushing's triad, indicating increased ICP.",
-        "incorrect": "Sodium levels within normal limits do not directly indicate increased ICP. A temperature of 37.2°C is within normal limits or slightly elevated, and while fever can contribute to increased metabolic demand, it is not the most immediate indicator of worsening ICP in this scenario. Respiratory rate of 12 breaths per minute is within normal limits for an adult and does not directly indicate increased ICP.",
-        "clinicalPearls": [
-            "Cushing's triad (hypertension, bradycardia, and irregular respirations) is a late and ominous sign of increased ICP.",
-            "Maintain a patent airway, optimize oxygenation, and control blood pressure in patients at risk for increased ICP.",
-            "Frequent neurological assessments are crucial for early detection of changes indicating increased ICP."
         ],
-        "questionTrap": {
-            "trap": "Students may focus on individual vital signs in isolation rather than recognizing the trends and relationships between them (e.g., hypertension and bradycardia as Cushing's triad).",
-            "howToOvercome": "Encourage students to analyze trends in vital signs and correlate them with neurological assessments to identify patterns indicative of increased ICP."
-        },
-        "mnemonic": {
-            "title": "I-ICP",
-            "expansion": "Increased ICP: Irritability, Changes in LOC, Pupils (sluggish/unequal), Posturing (late sign)"
+        "rationale": {
+            "clinicalPearls": [
+                "Cushing's triad (hypertension, bradycardia, and irregular respirations) is a late and ominous sign of increased ICP.",
+                "Maintain a patent airway, optimize oxygenation, and control blood pressure in patients at risk for increased ICP.",
+                "Frequent neurological assessments are crucial for early detection of changes indicating increased ICP."
+            ],
+            "questionTrap": {
+                "trap": "Students may focus on individual vital signs in isolation rather than recognizing the trends and relationships between them (e.g., hypertension and bradycardia as Cushing's triad).",
+                "howToOvercome": "Encourage students to analyze trends in vital signs and correlate them with neurological assessments to identify patterns indicative of increased ICP."
+            },
+            "mnemonic": {
+                "title": "I-ICP",
+                "expansion": "Increased ICP: Irritability, Changes in LOC, Pupils (sluggish/unequal), Posturing (late sign)"
+            }
         }
     }
-}
+]

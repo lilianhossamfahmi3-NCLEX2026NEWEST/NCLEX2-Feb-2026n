@@ -2,9 +2,31 @@
     "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
     "type": "selectN",
     "stem": "The nurse is preparing to administer medications to Mr. Jones. Based on the provided information, which actions should the nurse take *prior* to administering the medications? Select all that apply.",
+    "options": [
+        {
+            "id": "option1",
+            "text": "Verify the potassium chloride order and administer it."
+        },
+        {
+            "id": "option2",
+            "text": "Notify the provider about the elevated blood pressure."
+        },
+        {
+            "id": "option3",
+            "text": "Confirm the warfarin dose with another nurse."
+        },
+        {
+            "id": "option4",
+            "text": "Administer the lisinopril as scheduled."
+        },
+        {
+            "id": "option5",
+            "text": "Administer the scheduled metformin."
+        }
+    ],
     "scoring": {
         "method": "polytomous",
-        "maxPoints": 5
+        "maxPoints": 3
     },
     "itemContext": {
         "patient": {
@@ -16,22 +38,27 @@
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "S: Mr. Jones is a 72-year-old male admitted for heart failure exacerbation. He reports increased shortness of breath and lower extremity edema. B: He has a history of hypertension, hyperlipidemia, and type 2 diabetes. He is currently on furosemide, lisinopril, metformin, and warfarin. A: At 06:00 vital signs were: BP 160/90, HR 98, RR 24, SpO2 92% on room air. He is alert and oriented but anxious about his breathing. The morning labs show a potassium level of 3.2 mEq/L. The INR is 2.8. He received 40mg furosemide IV at 07:00. R: Please assess Mr. Jones, address his hypokalemia, and continue to monitor his vital signs and respiratory status. Verify the warfarin dose before administration at 09:00. Contact provider with any concerns.",
+        "sbar": "S: Mr. Jones is a 72-year-old male admitted for heart failure exacerbation. He reports increased shortness of breath and lower extremity edema. B: He has a history of hypertension, hyperlipidemia, and type 2 diabetes. His medications include furosemide, lisinopril, metformin, and warfarin. A: At 06:00, vital signs were: BP 160/90, HR 98, RR 24, SpO2 92% on room air. He is alert and oriented, but anxious about his breathing. Morning labs show potassium 3.2 mEq/L and INR 2.8. He received 40mg furosemide IV at 07:00. R: Assess Mr. Jones, address hypokalemia, monitor vital signs and respiratory status. Verify warfarin dose before 09:00 administration. Contact provider with concerns.",
         "tabs": [
+            {
+                "id": "sbar",
+                "title": "SBAR",
+                "content": "S: Mr. Jones is a 72-year-old male admitted for heart failure exacerbation. He reports increased shortness of breath and lower extremity edema. B: He has a history of hypertension, hyperlipidemia, and type 2 diabetes. His medications include furosemide, lisinopril, metformin, and warfarin. A: At 06:00, vital signs were: BP 160/90, HR 98, RR 24, SpO2 92% on room air. He is alert and oriented, but anxious about his breathing. Morning labs show potassium 3.2 mEq/L and INR 2.8. He received 40mg furosemide IV at 07:00. R: Assess Mr. Jones, address hypokalemia, monitor vital signs and respiratory status. Verify warfarin dose before 09:00 administration. Contact provider with concerns."
+            },
             {
                 "id": "labs",
                 "title": "Labs",
                 "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>INR</td><td>2.8</td><td>2.0-3.0 (therapeutic range for warfarin)</td></tr><tr><td>Creatinine</td><td>1.5 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>Daily</td><td>07:00</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>09:00</td></tr><tr><td>Metformin</td><td>500 mg</td><td>PO</td><td>BID</td><td>08:00</td></tr><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td><td>Scheduled 09:00</td></tr><tr><td>Potassium Chloride</td><td>40 mEq</td><td>PO</td><td>STAT</td><td>Not yet administered</td></tr></tbody></table>"
-            },
-            {
                 "id": "vitals",
                 "title": "Vitals",
                 "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>06:00</td><td>160/90</td><td>98</td><td>24</td><td>92%</td></tr><tr><td>08:00</td><td>150/85</td><td>94</td><td>22</td><td>94%</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>Daily</td><td>07:00</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>09:00</td></tr><tr><td>Metformin</td><td>500 mg</td><td>PO</td><td>BID</td><td>08:00</td></tr><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td><td>Scheduled 09:00</td></tr><tr><td>Potassium Chloride</td><td>40 mEq</td><td>PO</td><td>STAT</td><td>Not yet administered</td></tr></tbody></table>"
             }
         ]
     },
@@ -60,5 +87,11 @@
             "title": "ABC-MAP",
             "expansion": "Airway, Breathing, Circulation - Medications, Assessment, Planning. Prioritize interventions based on the patient's immediate needs and potential risks."
         }
-    }
+    },
+    "correctOptions": [
+        "option1",
+        "option2",
+        "option3"
+    ],
+    "sentinelStatus": "deep_healed_v2026"
 }

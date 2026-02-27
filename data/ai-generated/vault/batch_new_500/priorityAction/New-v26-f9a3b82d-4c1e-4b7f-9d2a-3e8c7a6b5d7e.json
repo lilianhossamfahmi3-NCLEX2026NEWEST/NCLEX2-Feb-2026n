@@ -4,7 +4,8 @@
     "stem": "The patient is exhibiting signs of acute decompensated heart failure following an MI. Based on the available information, select the FIVE (5) most important actions the nurse should take *immediately* to stabilize the patient.",
     "scoring": {
         "method": "dichotomous",
-        "maxPoints": 1
+        "maxPoints": 1,
+        "penalty": 1
     },
     "itemContext": {
         "patient": {
@@ -17,22 +18,27 @@
             ],
             "isolation": "Standard"
         },
-        "sbar": "S: Jameson Tyrell is a 68-year-old male admitted three days ago for an acute myocardial infarction (MI). He reports increasing shortness of breath and chest pain, rated as 0/10. He states, \"I can't catch my breath.\" O: At 06:00, the patient is restless, with a respiratory rate of 32 and labored breathing. His SpO2 is 88% on 2L nasal cannula, and coarse crackles are auscultated bilaterally. Blood pressure is 180/110 mmHg, and heart rate is 120 bpm, regular. At 06:05, a new S3 heart sound is auscultated. EKG shows sinus tachycardia with ST elevation in leads II, III, and aVF. A: Acute decompensated heart failure secondary to MI. Potential cardiogenic shock is a concern given his presentation. P: I recommend immediate interventions to improve oxygenation, reduce preload, and enhance cardiac output. Orders are needed for escalating oxygen support, diuretic administration (Furosemide), and potential afterload reduction. Stat labs have already been drawn. The patient appears anxious and is diaphoretic. Continuous cardiac monitoring is essential.",
+        "sbar": "S: Jameson Tyrell, a 68-year-old male, was admitted three days ago for an acute myocardial infarction (MI). He reports increasing shortness of breath and chest pain, rated 0/10. He states, \"I can't catch my breath.\" B: Patient has a history of hypertension and hyperlipidemia. He underwent percutaneous coronary intervention (PCI) to the LAD during this admission. A: At 06:00, the patient is restless, with a respiratory rate of 32 and labored breathing. SpO2 is 88% on 2L nasal cannula, with coarse crackles auscultated bilaterally. Blood pressure is 180/110 mmHg, and heart rate is 120 bpm, regular. At 06:05, a new S3 heart sound is auscultated. EKG shows sinus tachycardia with ST elevation in leads II, III, and aVF. Labs show elevated Troponin I and BNP. A: Acute decompensated heart failure secondary to MI. Potential cardiogenic shock is a concern. P: I recommend immediate interventions to improve oxygenation, reduce preload, and enhance cardiac output. Orders are needed for escalating oxygen support, diuretic administration (Furosemide), and potential afterload reduction. The patient appears anxious and is diaphoretic. Continuous cardiac monitoring is essential.",
         "tabs": [
+            {
+                "id": "sbar",
+                "title": "SBAR",
+                "content": "S: Jameson Tyrell, a 68-year-old male, was admitted three days ago for an acute myocardial infarction (MI). He reports increasing shortness of breath and chest pain, rated 0/10. He states, \"I can't catch my breath.\" B: Patient has a history of hypertension and hyperlipidemia. He underwent percutaneous coronary intervention (PCI) to the LAD during this admission. A: At 06:00, the patient is restless, with a respiratory rate of 32 and labored breathing. SpO2 is 88% on 2L nasal cannula, with coarse crackles auscultated bilaterally. Blood pressure is 180/110 mmHg, and heart rate is 120 bpm, regular. At 06:05, a new S3 heart sound is auscultated. EKG shows sinus tachycardia with ST elevation in leads II, III, and aVF. Labs show elevated Troponin I and BNP. A: Acute decompensated heart failure secondary to MI. Potential cardiogenic shock is a concern. P: I recommend immediate interventions to improve oxygenation, reduce preload, and enhance cardiac output. Orders are needed for escalating oxygen support, diuretic administration (Furosemide), and potential afterload reduction. The patient appears anxious and is diaphoretic. Continuous cardiac monitoring is essential."
+            },
             {
                 "id": "labs",
                 "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Troponin I</td><td>12.5 ng/mL</td><td><0.04 ng/mL</td></tr><tr><td>BNP</td><td>1600 pg/mL</td><td><100 pg/mL</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Aspirin</td><td>325 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Metoprolol</td><td>5 mg</td><td>IV</td><td>q6h PRN HR>100</td><td>02:00</td></tr><tr><td>Morphine Sulfate</td><td>2 mg</td><td>IV</td><td>q2h PRN Pain</td><td>04:00</td></tr><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>BID</td><td>-</td></tr><tr><td>Oxygen</td><td>2 L</td><td>NC</td><td>Continuous</td><td>-</td></tr></tbody></table>"
+                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Troponin I</td><td>12.5 ng/mL</td><td>&lt;0.04 ng/mL</td></tr><tr><td>BNP</td><td>1600 pg/mL</td><td>&lt;100 pg/mL</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></tbody></table>"
             },
             {
                 "id": "vitals",
                 "title": "Vitals",
                 "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>05:00</td><td>160/90</td><td>100</td><td>24</td><td>92% on 2L NC</td><td>37.0 C</td></tr><tr><td>05:30</td><td>170/100</td><td>110</td><td>28</td><td>90% on 2L NC</td><td>37.0 C</td></tr><tr><td>06:00</td><td>180/110</td><td>120</td><td>32</td><td>88% on 2L NC</td><td>37.0 C</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Aspirin</td><td>325 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Metoprolol</td><td>5 mg</td><td>IV</td><td>q6h PRN HR&gt;100</td><td>02:00</td></tr><tr><td>Morphine Sulfate</td><td>2 mg</td><td>IV</td><td>q2h PRN Pain</td><td>04:00</td></tr><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>BID</td><td>-</td></tr><tr><td>Oxygen</td><td>2 L</td><td>NC</td><td>Continuous</td><td>-</td></tr></tbody></table>"
             }
         ]
     },
@@ -46,8 +52,8 @@
         ]
     },
     "rationale": {
-        "correct": "Administering oxygen to increase SpO2 is crucial. The patient's SpO2 is significantly low (88%), indicating hypoxemia and the need for immediate intervention to improve oxygenation. Elevating the head of the bed helps reduce preload by promoting venous pooling in the lower extremities, decreasing the workload on the heart, and improving breathing. Administering Furosemide helps reduce fluid overload and pulmonary congestion, improving breathing and reducing the strain on the heart. Notifying the physician is essential to report the patient's deteriorating condition and obtain further orders for management of acute decompensated heart failure. Monitoring vital signs frequently (every 5-15 minutes) is necessary to assess the patient's response to interventions and detect any further deterioration, allowing for timely adjustments to the treatment plan.",
-        "incorrect": "Administering morphine may mask the symptoms of worsening heart failure, such as shortness of breath, and can cause respiratory depression, which would be detrimental in this patient. While pain management is important, addressing the respiratory distress and hemodynamic instability is the priority. Encouraging ambulation is contraindicated in a patient experiencing acute decompensated heart failure and respiratory distress. Ambulation increases cardiac workload and oxygen demand, potentially worsening the patient's condition. Decreasing the oxygen flow rate would worsen the patient's hypoxemia and further compromise oxygen delivery to vital organs. Documenting the findings is important but is not an immediate action compared to interventions that directly improve the patient's condition. Obtaining a 12-lead ECG is important to assess for changes related to the MI, but optimizing oxygenation and reducing fluid overload are higher priorities in this immediate situation.",
+        "correct": "Administering oxygen to increase SpO2 is crucial. The patient's SpO2 is significantly low (88%), indicating hypoxemia and the need for immediate intervention to improve oxygenation. Elevating the head of the bed helps reduce preload by promoting venous pooling in the lower extremities, decreasing the workload on the heart, and improving breathing. Administering Furosemide helps reduce fluid overload and pulmonary congestion, improving breathing and reducing the strain on the heart. Notifying the physician is essential to report the patient's deteriorating condition and obtain further orders for management of acute decompensated heart failure. Monitoring vital signs frequently (every 5-15 minutes) is necessary to assess the patient's response to interventions and detect any further deterioration, allowing for timely adjustments to the treatment plan. These actions directly address the patient's compromised respiratory and cardiovascular status, aligning with the immediate priorities in acute decompensated heart failure. The elevated BNP and Troponin levels, along with the S3 heart sound, support the diagnosis and the need for rapid intervention. ClinicalPearl: Rapid interventions in ADHF are critical to prevent further decompensation and potential cardiogenic shock.",
+        "incorrect": "Administering morphine may mask the symptoms of worsening heart failure, such as shortness of breath, and can cause respiratory depression, which would be detrimental in this patient. While pain management is important, addressing the respiratory distress and hemodynamic instability is the priority. Encouraging ambulation is contraindicated in a patient experiencing acute decompensated heart failure and respiratory distress. Ambulation increases cardiac workload and oxygen demand, potentially worsening the patient's condition. Decreasing the oxygen flow rate would worsen the patient's hypoxemia and further compromise oxygen delivery to vital organs. Documenting the findings is important but is not an immediate action compared to interventions that directly improve the patient's condition. Obtaining a 12-lead ECG is important to assess for changes related to the MI, but optimizing oxygenation and reducing fluid overload are higher priorities in this immediate situation. QuestionTrap: Students may be tempted to select interventions that are part of routine MI care, but the focus should be on addressing the acute decompensation. ClinicalPearl: Prioritize interventions based on the ABCs (Airway, Breathing, Circulation) in acute situations.",
         "clinicalPearls": [
             "In acute decompensated heart failure, prioritize interventions that improve oxygenation, reduce preload, and decrease afterload.",
             "Monitor vital signs closely to assess the patient's response to interventions and detect any further deterioration.",
@@ -117,5 +123,6 @@
                 "isCorrect": false
             }
         ]
-    }
+    },
+    "sentinelStatus": "deep_healed_v2026"
 }

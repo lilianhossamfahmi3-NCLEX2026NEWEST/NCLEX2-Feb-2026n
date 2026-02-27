@@ -5,7 +5,7 @@
         "category": "Sepsis & MODS",
         "stem": "A 72-year-old male is admitted to the ICU with septic shock secondary to pneumonia. Review the EHR and respond to the tasks that follow.",
         "itemContext": {
-            "SBAR": "14:00, I'm Dr. Ramirez calling about Mr. Johnson in room 302. He's a 72-year-old male admitted for pneumonia who is now showing signs of septic shock. His BP is 80/40, HR is 130, RR is 32, and SpO2 is 88% on 6L nasal cannula. He's confused and lethargic. He has a history of hypertension, diabetes, and COPD. He was started on IV fluids and broad-spectrum antibiotics per protocol, but his condition is worsening. The cultures are pending. He also has an indwelling urinary catheter with cloudy urine. His lactate is elevated at 4.5 mmol/L. I'm concerned he's developing multi-organ dysfunction syndrome (MODS). I need you to evaluate him urgently and consider vasopressors and advanced respiratory support. He's not responding adequately to the current treatment. Please review his labs and vitals in the EHR. He needs immediate attention.",
+            "SBAR": "14:00, I'm Dr. Ramirez calling about Mr. Johnson in room 302. He's a 72-year-old male admitted for pneumonia who is now showing signs of septic shock. His BP is 80/40, HR is 130, RR is 32, and SpO2 is 88% on 6L nasal cannula. He's confused and lethargic. He has a history of hypertension, diabetes, and COPD. He has an indwelling urinary catheter, and his urine is cloudy. His lactate is elevated at 4.5 mmol/L. Cultures are pending. He was started on IV fluids (Lactated Ringers) and broad-spectrum antibiotics (Ceftriaxone and Vancomycin) per protocol, but his condition is worsening. I'm concerned he's developing multi-organ dysfunction syndrome (MODS). I need you to evaluate him urgently and consider vasopressors and advanced respiratory support. Please review his labs and vitals in the EHR. He needs immediate attention.",
             "Labs": "WBC: 18,000/mm3, Lactate: 4.5 mmol/L, Creatinine: 2.1 mg/dL, BUN: 30 mg/dL, Platelets: 90,000/mm3, Procalcitonin: 15 ng/mL, ABG: pH 7.28, PaCO2 50 mmHg, PaO2 60 mmHg, HCO3 22 mEq/L",
             "Vitals": "BP: 80/40 mmHg, HR: 130 bpm, RR: 32 bpm, SpO2: 88% on 6L NC, Temperature: 38.9°C (102°F)",
             "Radiology": "Chest X-ray shows bilateral infiltrates consistent with pneumonia.",
@@ -59,7 +59,7 @@
                 "taskID": "2",
                 "taskType": "highlight",
                 "title": "From the notes below, highlight the phrases that indicate the patient is at risk for developing Multi-Organ Dysfunction Syndrome (MODS).",
-                "text": "The patient's blood pressure continues to decline despite aggressive fluid resuscitation. Urine output is significantly decreased to 15 mL/hr. Laboratory results show a creatinine level of 2.1 mg/dL, indicating acute kidney injury. Platelet count is 90,000/mm3, suggesting possible disseminated intravascular coagulation (DIC). The patient's PaO2/FiO2 ratio is 200, indicative of acute respiratory distress syndrome (ARDS). The patient requires increasing levels of oxygen support to maintain adequate saturation. Liver function tests are pending but there is a concern for hepatic dysfunction.",
+                "text": "The patient's blood pressure continues to decline despite aggressive fluid resuscitation. Urine output is significantly decreased to 15 mL/hr. Laboratory results show a creatinine level of 2.1 mg/dL, indicating acute kidney injury. Platelet count is 90,000/mm3, suggesting possible disseminated intravascular coagulation (DIC). The patient's PaO2/FiO2 ratio is 200, indicative of acute respiratory distress syndrome (ARDS). The patient requires increasing levels of oxygen support to maintain adequate saturation. Liver function tests are pending, but there is a concern for hepatic dysfunction.",
                 "highlights": [
                     {
                         "phrase": "blood pressure continues to decline despite aggressive fluid resuscitation",
@@ -91,7 +91,7 @@
             {
                 "taskID": "3",
                 "taskType": "bowtie",
-                "title": "For each condition, indicate the action and rationale.",
+                "title": "For each condition, indicate the appropriate action and rationale.",
                 "options": [
                     {
                         "optionID": "A",
@@ -179,8 +179,8 @@
                     },
                     {
                         "optionID": "M",
-                        "text": "Decreases the work of breathing",
-                        "isCorrect": false,
+                        "text": "Removes airway secretions",
+                        "isCorrect": true,
                         "rationale": "Suctioning can improve oxygenation by removing secretions to help treat hypoxemia",
                         "action": "Suction the airway"
                     }
@@ -250,8 +250,8 @@
                 "howToOvercome": "A common mistake is to focus solely on one aspect of the patient's condition (e.g., fever) rather than recognizing the constellation of signs and symptoms indicating septic shock and the impending risk for MODS. Also, confusing the actions (increase O2, reposition, suction) to treat hypoxemia."
             },
             "mnemonic": {
-                "title": "HINT",
-                "expansion": "I DIE (Infection, Decreased perfusion, Inflammation, End-organ damage) – Key components of Septic Shock and MODS"
+                "title": "I DIE",
+                "expansion": "Infection, Decreased perfusion, Inflammation, End-organ damage – Key components of Septic Shock and MODS"
             },
             "answerBreakdown": [],
             "reviewUnits": []
@@ -261,15 +261,20 @@
         "mnemonic": "I DIE (Infection, Decreased perfusion, Inflammation, End-organ damage) – Key components of Septic Shock and MODS",
         "type": "graphic",
         "scoring": {
-            "method": "dichotomous",
-            "maxPoints": 1
+            "method": "polytomous",
+            "penaltyFactor": 1,
+            "maxPoints": 6
         },
         "pedagogy": {
             "bloomLevel": "apply",
             "cjmmStep": "analyzeCues",
             "nclexCategory": "Physiological Adaptation",
             "topicTags": [
-                "Uncategorized"
+                "Sepsis",
+                "MODS",
+                "Septic Shock",
+                "Pneumonia",
+                "Infection"
             ],
             "difficulty": 4
         }

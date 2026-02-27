@@ -1,94 +1,102 @@
-{
-    "id": "New-v26-8f9d3a2b-1c5e-4b7a-9d8c-3e7f6a5b4c2d",
-    "type": "matrixMatch",
-    "stem": "The nurse is reviewing the patient's medical record and current assessment findings. Based on the information provided in the EHR tabs, determine whether each finding is consistent with Acute Kidney Injury (AKI), Chronic Kidney Disease (CKD), or a normal expected finding. Select one option for each row.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 6
-    },
-    "itemContext": {
-        "patient": {
-            "name": "John Smith",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical Unit",
-            "allergies": [
-                "Penicillin"
-            ],
-            "conditions": [
-                "Pneumonia"
+[
+    {
+        "id": "New-v26-8f9d3a2b-1c5e-4b7a-9d8c-3e7f6a5b4c2d",
+        "type": "matrixMatch",
+        "stem": "The nurse is reviewing the patient's medical record and current assessment findings. Based on the information provided in the EHR tabs, determine whether each finding is consistent with Acute Kidney Injury (AKI), Chronic Kidney Disease (CKD), or a normal expected finding. Select one option for each row.",
+        "scoring": {
+            "method": "dichotomous",
+            "maxPoints": 6
+        },
+        "itemContext": {
+            "patient": {
+                "name": "John Smith",
+                "age": 72,
+                "gender": "Male",
+                "iso": "Medical Unit",
+                "allergies": [
+                    "Penicillin"
+                ],
+                "conditions": [
+                    "Pneumonia"
+                ]
+            },
+            "sbar": "Situation: John Smith, a 72-year-old male, admitted 3 days ago for pneumonia. Background: He has a history of hypertension and type 2 diabetes mellitus. Assessment: At 08:00, lab results showed elevated creatinine (3.5 mg/dL) and potassium (6.8 mEq/L). Urine output has decreased significantly over the last 24 hours, averaging 20 mL/hr. He has gained 3 kg since admission and reports increased fatigue and shortness of breath. Auscultation reveals crackles bilaterally. Recommendation: He is currently receiving IV fluids at 75 mL/hr, antibiotics, and insulin per sliding scale. The provider was notified about the lab results and decreased urine output and prescribed furosemide 40mg IV STAT and restricted potassium intake. Reviewing trends to differentiate AKI from CKD exacerbation. Patient denies any recent NSAID use. Last bowel movement was two days ago. Consider further evaluation of his renal function and potential need for dialysis if the furosemide is ineffective. Continue to monitor vital signs and fluid balance closely.",
+            "tabs": [
+                {
+                    "id": "labs",
+                    "title": "Labs",
+                    "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Creatinine</td><td>3.5 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BUN</td><td>60 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Potassium</td><td>6.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>GFR (estimated)</td><td>25 mL/min/1.73 m2</td><td>>90 mL/min/1.73 m2</td></tr><tr><td>Hemoglobin</td><td>11.0 g/dL</td><td>13.5-17.5 g/dL</td></tr></tbody></table>"
+                },
+                {
+                    "id": "mar",
+                    "title": "MAR",
+                    "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td></tr><tr><td>Insulin Aspart</td><td>Per Sliding Scale</td><td>Subcutaneous</td><td>AC/HS</td></tr><tr><td>Furosemide</td><td>40mg</td><td>IV</td><td>STAT</td></tr><tr><td>Metoprolol</td><td>25mg</td><td>PO</td><td>BID</td></tr></tbody></table>"
+                },
+                {
+                    "id": "vitals",
+                    "title": "Vitals",
+                    "content": "<table><thead><tr><th>Vital Sign</th><th>Value</th></tr></thead><tbody><tr><td>Blood Pressure</td><td>160/90 mmHg</td></tr><tr><td>Heart Rate</td><td>105 bpm</td></tr><tr><td>Respiratory Rate</td><td>24 bpm</td></tr><tr><td>Oxygen Saturation</td><td>92% on 2L nasal cannula</td></tr><tr><td>Temperature</td><td>37.5°C (99.5°F)</td></tr><tr><td>Urine Output (past 24 hrs)</td><td>480 mL</td></tr><tr><td>Weight (Admission)</td><td>80 kg</td></tr><tr><td>Weight (Current)</td><td>83 kg</td></tr></tbody></table>"
+                },
+                {
+                    "id": "radiology",
+                    "title": "Radiology",
+                    "content": "No radiology reports available."
+                }
             ]
         },
-        "sbar": "Situation: John Smith, a 72-year-old male, admitted 3 days ago for pneumonia. Background: He has a history of hypertension and type 2 diabetes. Assessment: 0800 labs show elevated creatinine (3.5 mg/dL) and potassium (6.8 mEq/L). Urine output has decreased significantly over the last 24 hours, averaging 20 mL/hr. He's gained 3 kg since admission and reports increased fatigue and shortness of breath. Lung sounds reveal crackles bilaterally. Recommendation: He is currently on IV fluids at 75 mL/hr, antibiotics, and insulin per sliding scale. The provider was notified about the lab results and decreased urine output and ordered furosemide 40mg IV STAT and restricted potassium intake. Reviewing trends to differentiate AKI from CKD exacerbation. Patient denies any recent NSAID use. Last BM was two days ago. Consider further evaluation of his renal function and potential need for dialysis if the furosemide is ineffective. Continue to monitor vital signs and fluid balance closely.",
-        "tabs": [
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Creatinine</td><td>3.5 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BUN</td><td>60 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Potassium</td><td>6.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>GFR (estimated)</td><td>25 mL/min/1.73 m2</td><td>>90 mL/min/1.73 m2</td></tr><tr><td>Hemoglobin</td><td>11.0 g/dL</td><td>13.5-17.5 g/dL</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td></tr><tr><td>Insulin Aspart</td><td>Per Sliding Scale</td><td>Subcutaneous</td><td>AC/HS</td></tr><tr><td>Furosemide</td><td>40mg</td><td>IV</td><td>STAT</td></tr><tr><td>Metoprolol</td><td>25mg</td><td>PO</td><td>BID</td></tr></tbody></table>"
-            },
-            {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>Value</th></tr></thead><tbody><tr><td>Blood Pressure</td><td>160/90 mmHg</td></tr><tr><td>Heart Rate</td><td>105 bpm</td></tr><tr><td>Respiratory Rate</td><td>24 bpm</td></tr><tr><td>Oxygen Saturation</td><td>92% on 2L nasal cannula</td></tr><tr><td>Temperature</td><td>37.5°C (99.5°F)</td></tr><tr><td>Urine Output (past 24 hrs)</td><td>480 mL</td></tr><tr><td>Weight (Admission)</td><td>80 kg</td></tr><tr><td>Weight (Current)</td><td>83 kg</td></tr></tbody></table>"
-            }
-        ]
-    },
-    "pedagogy": {
-        "bloomLevel": "Analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Renal: AKI vs CKD & Electrolyte Emergencies"
-        ]
-    },
-    "rationale": {
-        "correct": "Elevated creatinine (3.5 mg/dL) and BUN (60 mg/dL) are indicators of kidney dysfunction. A GFR of 25 mL/min/1.73 m2 is significantly reduced, indicative of kidney damage. Decreased urine output (480 mL in 24 hours) suggests impaired renal function and fluid retention. Hyperkalemia (6.8 mEq/L) is a common complication of both AKI and CKD due to impaired potassium excretion. Anemia (Hemoglobin 11.0 g/dL) is more common in CKD due to decreased erythropoietin production but can also occur in AKI.",
-        "incorrect": "Normal creatinine, BUN, GFR, urine output, potassium, and hemoglobin values would fall within the provided reference ranges. Findings inconsistent with AKI include long-standing anemia and small kidney size on imaging (not provided in this scenario). Findings less consistent with CKD alone, without acute decompensation, would include sudden drops in urine output or potassium spikes. The presence of AKI superimposed on CKD is possible; however, this question focuses on differentiating standalone findings.",
-        "clinicalPearls": [
-            "AKI is characterized by a sudden decline in kidney function, while CKD is a gradual and progressive loss of kidney function over months or years.",
-            "Hyperkalemia is a life-threatening electrolyte imbalance that requires immediate intervention.",
-            "Accurate assessment of urine output is crucial in monitoring kidney function."
-        ],
-        "questionTrap": {
-            "trap": "The trap here is to assume that the patient's condition is solely AKI or CKD without considering the possibility of AKI superimposed on CKD, given the patient's history of hypertension and diabetes. Also, focusing on one lab value in isolation without considering the overall clinical picture can lead to incorrect conclusions.",
-            "howToOvercome": "Carefully analyze all the available data (labs, vitals, history) to determine the most likely primary diagnosis and any contributing factors. Consider the timeline of events (acute vs. chronic) and the patient's medical history."
+        "pedagogy": {
+            "bloomLevel": "Analyze",
+            "cjmmStep": "analyzeCues",
+            "nclexCategory": "Physiological Integrity",
+            "difficulty": 5,
+            "topicTags": [
+                "Renal: AKI vs CKD & Electrolyte Emergencies"
+            ]
         },
-        "mnemonic": {
-            "title": "I WATCH DEATH",
-            "expansion": "This mnemonic helps remember the causes of AKI:\nI - Infection\nW - Weak Perfusion (Hypovolemia)\nA - Allergies (Drug-induced)\nT - Toxins\nC - Clot (Renal Artery Stenosis)\nH - Hypertension\nD - Drugs (Nephrotoxic)\nE - Electrolytes (Hypercalcemia)\nA - Acute Tubular Necrosis\nT - Trauma\nH - Hydronephrosis (Obstruction)"
+        "rationale": {
+            "correct": "Elevated creatinine (3.5 mg/dL) and BUN (60 mg/dL) are indicators of kidney dysfunction, suggesting impaired filtration. A GFR of 25 mL/min/1.73 m2 is significantly reduced, indicating kidney damage and reduced clearance of waste products. Decreased urine output (480 mL in 24 hours) suggests impaired renal function and fluid retention, leading to oliguria. Hyperkalemia (6.8 mEq/L) is a common complication of both AKI and CKD due to impaired potassium excretion by the kidneys. Anemia (Hemoglobin 11.0 g/dL) is more common in CKD due to decreased erythropoietin production, but can also occur in AKI due to hemodilution or decreased production. Elevated BUN is due to the kidney's inability to filter urea from the blood.",
+            "incorrect": "Normal creatinine, BUN, GFR, urine output, potassium, and hemoglobin values would fall within the provided reference ranges. Findings inconsistent with AKI include long-standing anemia and small kidney size on imaging (not provided in this scenario). Findings less consistent with CKD alone, without acute decompensation, would include sudden drops in urine output or potassium spikes. The presence of AKI superimposed on CKD is possible; however, this question focuses on differentiating standalone findings.",
+            "clinicalPearls": [
+                "AKI is characterized by a sudden decline in kidney function, often reversible, while CKD is a gradual and progressive loss of kidney function over months or years, often irreversible.",
+                "Hyperkalemia is a life-threatening electrolyte imbalance that requires immediate intervention, such as calcium gluconate, insulin with glucose, or dialysis.",
+                "Accurate assessment of urine output is crucial in monitoring kidney function; a sudden decrease can indicate AKI, while a consistently low output is more indicative of CKD.",
+                "The BUN to Creatinine ratio can help differentiate between pre-renal, intra-renal, and post-renal AKI."
+            ],
+            "questionTrap": {
+                "trap": "The trap here is to assume that the patient's condition is solely AKI or CKD without considering the possibility of AKI superimposed on CKD, given the patient's history of hypertension and diabetes. Also, focusing on one lab value in isolation without considering the overall clinical picture can lead to incorrect conclusions. Failing to recognize that some findings can be present in both conditions is also a trap.",
+                "howToOvercome": "Carefully analyze all the available data (labs, vitals, history) to determine the most likely primary diagnosis and any contributing factors. Consider the timeline of events (acute vs. chronic) and the patient's medical history. Remember that AKI can occur in patients with underlying CKD."
+            },
+            "mnemonic": {
+                "title": "AEIOU",
+                "expansion": "This mnemonic helps remember the indications for dialysis:\nA - Acidosis (severe metabolic acidosis)\nE - Electrolyte Imbalance (severe hyperkalemia)\nI - Intoxication (certain drug overdoses)\nO - Overload (fluid overload unresponsive to diuretics)\nU - Uremia (symptomatic uremia, such as pericarditis or encephalopathy)"
+            }
+        },
+        "matrixMatchOptions": {
+            "rows": [
+                "Creatinine 3.5 mg/dL",
+                "GFR 25 mL/min/1.73 m2",
+                "Urine Output 480 mL/24 hrs",
+                "Potassium 6.8 mEq/L",
+                "Hemoglobin 11.0 g/dL",
+                "BUN 60 mg/dL"
+            ],
+            "columns": [
+                "AKI",
+                "CKD",
+                "Normal"
+            ]
+        },
+        "correctResponse": {
+            "Creatinine 3.5 mg/dL": "AKI",
+            "GFR 25 mL/min/1.73 m2": "CKD",
+            "Urine Output 480 mL/24 hrs": "AKI",
+            "Potassium 6.8 mEq/L": "AKI",
+            "Hemoglobin 11.0 g/dL": "CKD",
+            "BUN 60 mg/dL": "AKI"
+        },
+        "environmentProfile": {
+            "isolation": "standard",
+            "airborneConsiderations": false
         }
-    },
-    "matrixMatchOptions": {
-        "rows": [
-            "Creatinine 3.5 mg/dL",
-            "GFR 25 mL/min/1.73 m2",
-            "Urine Output 480 mL/24 hrs",
-            "Potassium 6.8 mEq/L",
-            "Hemoglobin 11.0 g/dL",
-            "BUN 60 mg/dL"
-        ],
-        "columns": [
-            "AKI",
-            "CKD",
-            "Normal"
-        ]
-    },
-    "correctResponse": {
-        "Creatinine 3.5 mg/dL": "AKI",
-        "GFR 25 mL/min/1.73 m2": "CKD",
-        "Urine Output 480 mL/24 hrs": "AKI",
-        "Potassium 6.8 mEq/L": "AKI",
-        "Hemoglobin 11.0 g/dL": "CKD",
-        "BUN 60 mg/dL": "AKI"
-    },
-    "environmentProfile": {
-        "isolation": "standard",
-        "airborneConsiderations": false
     }
-}
+]
