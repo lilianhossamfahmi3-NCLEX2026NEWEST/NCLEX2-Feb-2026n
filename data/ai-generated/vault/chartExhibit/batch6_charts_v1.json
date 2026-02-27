@@ -71,11 +71,14 @@
                 "sbar": {}
             }
         ],
-        "questionTrap": "The primary trap is confusing reversal agents. Test-takers may incorrectly select protamine sulfate, the antidote for heparin, instead of recognizing the need for Vitamin K (phytonadione) to reverse warfarin's effects. Another trap is failing to recognize the significance of the lab value and continuing with the scheduled medication administration.",
         "mnemonics": "WAR-K-IN: For WARfarin, the antidote is Vitamin K, and you monitor the INR.\nWEPT: Warfarin affects the Extrinsic pathway, so you monitor the Prothrombin Time (PT/INR).",
         "sentinelStatus": "healed_v2026_v11",
         "rationale": {
-            "correct": "Clinical rationale pending deep clinical alignment."
+            "correct": "Clinical rationale pending deep clinical alignment.",
+            "questionTrap": {
+                "trap": "Common Pitfall",
+                "howToOvercome": "The primary trap is confusing reversal agents. Test-takers may incorrectly select protamine sulfate, the antidote for heparin, instead of recognizing the need for Vitamin K (phytonadione) to reverse warfarin's effects. Another trap is failing to recognize the significance of the lab value and continuing with the scheduled medication administration."
+            }
         }
     },
     {
@@ -139,11 +142,14 @@
                     "optionId": "d",
                     "content": "Incorrect. Stopping the infusion is not indicated in this scenario. The aPTT is low, indicating a need to increase, not decrease, anticoagulation."
                 }
-            ]
-        },
-        "questionTrap": {
-            "title": "Misinterpreting aPTT Values",
-            "content": "A common mistake is to assume that a lower aPTT is always safer. In this case, a low aPTT indicates that the heparin is not effectively preventing clot formation, and the infusion rate needs to be increased."
+            ],
+            "clinicalPearls": [
+                "Regularly monitor aPTT levels and adjust heparin infusion rates accordingly. Be aware of the signs and symptoms of bleeding. Follow established weight-based heparin protocols."
+            ],
+            "questionTrap": {
+                "title": "Misinterpreting aPTT Values",
+                "content": "A common mistake is to assume that a lower aPTT is always safer. In this case, a low aPTT indicates that the heparin is not effectively preventing clot formation, and the infusion rate needs to be increased."
+            }
         },
         "mnemonics": {
             "title": "Heparin and aPTT",
@@ -159,7 +165,6 @@
             "assessment": "aPTT is subtherapeutic, indicating insufficient anticoagulation.",
             "recommendation": "Increase heparin infusion rate per protocol."
         },
-        "clinicalPearls": "Regularly monitor aPTT levels and adjust heparin infusion rates accordingly. Be aware of the signs and symptoms of bleeding. Follow established weight-based heparin protocols.",
         "sentinelStatus": "healed_v2026_v11"
     },
     {
@@ -223,12 +228,11 @@
             "questionTrap": "The primary trap is failing to recognize the absolute contraindication of an ABO mismatch. Test-takers might be distracted by the matching Rh factor (both are negative) and overlook the critical ABO difference. Another trap is defaulting to a 'call the provider' option, which is incorrect when an independent nursing action based on established safety protocols is required. Lastly, some may confuse this severe incompatibility with a minor allergic reaction, incorrectly choosing the premedication option (diphenhydramine).",
             "mnemonics": "1. **Blood Type O**: Think of the 'O' as a zero. Patients with Type O blood have 'zero' A or B antigens on their RBCs, so their immune system will attack any A or B antigens it sees. They can only receive 'O' blood. 2. **Universal Donor/Recipient**: The universal d**O**n**O**r is **O**-negative. The universal recipient is **AB**-positive, as they can accept from **A**ny**B**ody. 3. **STOP**: **S**top the transfusion, **T**ake vitals, **O**pen a new saline line, **P**hone the provider and blood bank. This mnemonic applies once a reaction starts, but the principle of 'STOP' is key at the verification stage.",
             "clinicalPearls": "Always double-check blood compatibility before administration. Never assume that the blood bank has sent the correct unit. Patient safety is paramount. If a transfusion reaction is suspected, stop the transfusion immediately and follow institutional protocols. Proper blood product verification is a critical nursing responsibility. Familiarize yourself with your institution's transfusion policies and procedures.",
-            "sbar": "**Situation (0700):** Two nurses are verifying a unit of PRBCs at the bedside for Jane Doe (MRN 12345). The client's blood type is O negative.\n**Background:** The blood bag indicates the unit is A negative. The client is scheduled for surgery at 0800 and requires a blood transfusion due to pre-operative anemia.\n**Assessment:** There is an ABO incompatibility between the client and the blood product. The client's O negative blood will react with the A antigens on the donor's A negative blood, causing a potentially fatal acute hemolytic transfusion reaction.\n**Recommendation:** Stop the verification process immediately. Return the blood to the blood bank. Notify the provider and blood bank of the ABO incompatibility. Obtain a new, correctly matched unit of O negative PRBCs for the client. Monitor the client for any signs of a transfusion reaction.",
             "correct": "The correct action is to stop the verification and return the blood to the blood bank due to the ABO incompatibility between the client's O negative blood and the A negative blood bag. Infusing mismatched blood can lead to a life-threatening acute hemolytic transfusion reaction."
         },
         "pedagogy": {
-            "bloomLevel": "Analyze",
-            "cjmmStep": "takeActions",
+            "bloomLevel": "analyze",
+            "cjmmStep": "analyzeCues",
             "nclexCategory": "Reduction of Risk Potential",
             "nclexSubCategory": "Potential for Complications from Surgical Procedures and Health Alterations",
             "difficulty": 2,
@@ -245,7 +249,10 @@
             "method": "dichotomous",
             "maxPoints": 1
         },
-        "sentinelStatus": "healed_v2026_v11"
+        "sentinelStatus": "healed_v2026_v11",
+        "itemContext": {
+            "sbar": "**Situation (0700):** Two nurses are verifying a unit of PRBCs at the bedside for Jane Doe (MRN 12345). The client's blood type is O negative.\n**Background:** The blood bag indicates the unit is A negative. The client is scheduled for surgery at 0800 and requires a blood transfusion due to pre-operative anemia.\n**Assessment:** There is an ABO incompatibility between the client and the blood product. The client's O negative blood will react with the A antigens on the donor's A negative blood, causing a potentially fatal acute hemolytic transfusion reaction.\n**Recommendation:** Stop the verification process immediately. Return the blood to the blood bank. Notify the provider and blood bank of the ABO incompatibility. Obtain a new, correctly matched unit of O negative PRBCs for the client. Monitor the client for any signs of a transfusion reaction."
+        }
     },
     {
         "id": "mixed_acidosis_abg_chart_v1",
@@ -333,21 +340,6 @@
                 }
             ]
         },
-        "clinicalPearls": {
-            "sbar": "**S**ituation: Client in cardiac arrest with ABG results indicating acidemia.\n**B**ackground: Client experienced cardiac arrest, requiring resuscitation. ABG drawn to assess acid-base status.\n**A**ssessment: pH 7.15, PaCO2 55 mmHg, HCO3 18 mEq/L, Lactate 4.5 mmol/L. Indicates mixed respiratory and metabolic acidosis.\n**R**ecommendation: Continue resuscitation efforts, including effective ventilation and chest compressions. Administer sodium bicarbonate per protocol. Monitor ABGs and lactate levels to assess response to treatment. Consider advanced interventions to improve perfusion and oxygenation. Notify provider immediately of ABG results at 0800.",
-            "questionTrap": "The trap is failing to recognize simultaneous acid-base disturbances. Candidates may identify one component (e.g., high PaCO2) as primary, viewing the other (low HCO3) as failed compensation. In mixed disorders, both respiratory and metabolic values abnormally push pH in the same direction, indicating distinct pathologies, not compensation.",
-            "mnemonics": [
-                {
-                    "name": "ROME Method",
-                    "description": "Respiratory Opposite, Metabolic Equal. Respiratory disorders: pH and PaCO2 move in Opposite directions (pH ↓, PaCO2 ↑). Metabolic disorders: pH and HCO3 move in an Equal direction (pH ↓, HCO3 ↓). Both conditions met here, confirming a mixed disorder."
-                },
-                {
-                    "name": "Cardiac Arrest = Double Acidosis",
-                    "description": "No Breathing = No CO2 release = Respiratory Acidosis. No Pumping (Perfusion) = No O2 delivery = Anaerobic Metabolism = Lactic Acid = Metabolic Acidosis. Expect a mixed picture in this scenario."
-                }
-            ],
-            "deepPathophysiologyRationale": "Cardiac arrest disrupts both respiratory and circulatory function. Respiratory arrest prevents CO2 elimination, leading to hypercapnia and respiratory acidosis. Simultaneously, circulatory collapse impairs oxygen delivery to tissues, causing anaerobic metabolism and lactic acid production, resulting in metabolic acidosis. The elevated lactate level confirms the presence of anaerobic metabolism. The combination of these two processes results in a severe acidemia that requires immediate intervention to improve ventilation, perfusion, and acid-base balance."
-        },
         "sentinelStatus": "healed_v2026_v11"
     },
     {
@@ -381,7 +373,7 @@
         ],
         "correctOptionId": "a",
         "pedagogy": {
-            "bloomLevel": "Apply",
+            "bloomLevel": "apply",
             "cjmmStep": "recognizeCues",
             "nclexCategory": "Neurological/Sensory",
             "difficulty": 3,
@@ -415,10 +407,6 @@
                 "scoring": "-"
             }
         },
-        "questionTrap": {
-            "title": "Central vs. Peripheral Lesion Trap",
-            "content": "The primary trap is confusing a peripheral CN VII palsy (Bell's Palsy) with a central lesion (stroke). Candidates may see 'facial droop' and immediately select 'CVA'. The critical differentiator is the forehead. A peripheral lesion affects the entire side of the face (can't close eye, can't raise eyebrow). A central lesion spares the forehead due to bilateral cortical innervation. The absence of limb weakness is the second major clue ruling out a typical stroke."
-        },
         "mnemonics": {
             "title": "Forehead is Key",
             "content": "**BELL'S Palsy** (Lower Motor Neuron):\n- **B**others **E**yebrows, **L**ids, & **L**ips (affects the entire side of the face).\n\n**Stroke** (Upper Motor Neuron):\n- **S**troke **S**pares the **S**uperior (forehead is spared)."
@@ -429,7 +417,11 @@
         },
         "sentinelStatus": "healed_v2026_v11",
         "rationale": {
-            "correct": "Bell's Palsy is the most likely cause given the sudden onset of unilateral facial paralysis affecting the entire right side of the face, including the forehead, with intact limb strength. This indicates a lower motor neuron lesion of the facial nerve (CN VII)."
+            "correct": "Bell's Palsy is the most likely cause given the sudden onset of unilateral facial paralysis affecting the entire right side of the face, including the forehead, with intact limb strength. This indicates a lower motor neuron lesion of the facial nerve (CN VII).",
+            "questionTrap": {
+                "title": "Central vs. Peripheral Lesion Trap",
+                "content": "The primary trap is confusing a peripheral CN VII palsy (Bell's Palsy) with a central lesion (stroke). Candidates may see 'facial droop' and immediately select 'CVA'. The critical differentiator is the forehead. A peripheral lesion affects the entire side of the face (can't close eye, can't raise eyebrow). A central lesion spares the forehead due to bilateral cortical innervation. The absence of limb weakness is the second major clue ruling out a typical stroke."
+            }
         }
     },
     {
@@ -501,11 +493,14 @@
                 "content": "Consulting a wound care nurse is appropriate for clients with complex wounds or very high risk for pressure injuries. Consulting this specialist for a client with a score of 22, categorized as 'No Risk,' is not a judicious use of healthcare resources. The client's condition falls within the scope of standard nursing practice for skin integrity monitoring."
             }
         ],
-        "questionTrap": "The primary trap is over-intervention based on the presence of a risk assessment tool. Test-takers may choose an active intervention like turning or a specialty mattress simply because the Braden Scale was used. Accurately interpret the score. A high score (e.g., 19-23) indicates LOW or NO risk, meaning standard care is the correct action. Choosing an unnecessary intervention demonstrates a failure to correctly analyze the provided data.",
         "mnemonics": "Braden Score Interpretation: **'The Great 18 Rule'**\n*   **>18 (19-23):** 'Great!' - No risk, standard care is sufficient.\n*   **15-18:** 'At-Risk Gate' - Implement standard prevention protocols (e.g., turning, moisture management).\n*   **13-14:** 'Moderate Trouble' - Increase intervention frequency, consider pressure redistribution surface.\n*   **<12:** 'Very High Danger' - Aggressive intervention, specialty bed, nutrition consult required.",
         "sentinelStatus": "healed_v2026_v11",
         "rationale": {
-            "correct": "A Braden Scale score of 22 indicates a low risk for pressure injury development. Routine skin care is appropriate for clients with low risk."
+            "correct": "A Braden Scale score of 22 indicates a low risk for pressure injury development. Routine skin care is appropriate for clients with low risk.",
+            "questionTrap": {
+                "trap": "Common Pitfall",
+                "howToOvercome": "The primary trap is over-intervention based on the presence of a risk assessment tool. Test-takers may choose an active intervention like turning or a specialty mattress simply because the Braden Scale was used. Accurately interpret the score. A high score (e.g., 19-23) indicates LOW or NO risk, meaning standard care is the correct action. Choosing an unnecessary intervention demonstrates a failure to correctly analyze the provided data."
+            }
         }
     },
     {
@@ -661,7 +656,6 @@
             }
         ],
         "pathophysiology": "The Bishop score assesses cervical readiness for labor based on dilation, effacement, station, consistency, and position. A low score indicates an unripe cervix that is unlikely to respond to oxytocin alone. Cervical ripening agents promote cervical softening and dilation by increasing collagen breakdown and water content in the cervical tissue.",
-        "questionTrap": "The question trap lies in assuming that induction always starts with oxytocin. The Bishop score is crucial for determining the appropriate initial intervention. Failing to recognize the significance of the low Bishop score and the high fetal station can lead to incorrect choices.",
         "mnemonics": "Bishop Score: Dilation, Effacement, Station, Consistency, Position (DESCP). Remember that a low Bishop score requires cervical ripening before induction.",
         "scoring": {
             "method": "dichotomous",
@@ -673,15 +667,19 @@
             "assessment": "Bishop score is 0, indicating an unfavorable cervix. Fetal station is -3.",
             "recommendation": "Initiate cervical ripening with misoprostol per protocol. Monitor maternal and fetal status. Avoid amniotomy due to high fetal station. Reassess Bishop score after ripening."
         },
-        "clinicalPearls": [
-            "A low Bishop score indicates the need for cervical ripening before oxytocin induction.",
-            "Amniotomy is contraindicated with a high fetal station due to the risk of cord prolapse.",
-            "Misoprostol is a prostaglandin E1 analog used for cervical ripening.",
-            "Monitor for uterine tachysystole during cervical ripening."
-        ],
         "sentinelStatus": "healed_v2026_v11",
         "rationale": {
-            "correct": "The patient's Bishop score of 0 indicates an unfavorable cervix, meaning it is not ready for labor. The most appropriate initial step is to administer a cervical ripening agent, such as misoprostol, to soften and thin the cervix, making it more likely to dilate in response to contractions. This prepares the cervix for induction with oxytocin."
+            "correct": "The patient's Bishop score of 0 indicates an unfavorable cervix, meaning it is not ready for labor. The most appropriate initial step is to administer a cervical ripening agent, such as misoprostol, to soften and thin the cervix, making it more likely to dilate in response to contractions. This prepares the cervix for induction with oxytocin.",
+            "clinicalPearls": [
+                "A low Bishop score indicates the need for cervical ripening before oxytocin induction.",
+                "Amniotomy is contraindicated with a high fetal station due to the risk of cord prolapse.",
+                "Misoprostol is a prostaglandin E1 analog used for cervical ripening.",
+                "Monitor for uterine tachysystole during cervical ripening."
+            ],
+            "questionTrap": {
+                "trap": "Common Pitfall",
+                "howToOvercome": "The question trap lies in assuming that induction always starts with oxytocin. The Bishop score is crucial for determining the appropriate initial intervention. Failing to recognize the significance of the low Bishop score and the high fetal station can lead to incorrect choices."
+            }
         }
     },
     {
@@ -747,7 +745,6 @@
                 "scoringImpact": "Negative"
             }
         ],
-        "questionTrap": "The primary trap is selecting a valid postpartum intervention that is not the *first* priority in a hemorrhagic emergency. All options are components of managing PPH, but the sequence is critical. The clinical data (boggy fundus, rapid saturation) indicates a life-threatening bleed that requires an immediate therapeutic action (massage) over further assessment (BP check) or secondary interventions (voiding, notifying provider).",
         "mnemonics": "For initial management of postpartum hemorrhage due to uterine atony, remember the mnemonic **'M-A-S-S-A-G-E'** to prioritize actions:\n\n*   **M**assage the fundus: The first and most critical action to mechanically stimulate uterine contraction.\n*   **A**ssess for and **A**ddress bladder distention: A full bladder is a common cause; assist the client to void or catheterize.\n*   **S**ecure IV access & **S**tart uterotonics: Administer medications like oxytocin, methylergonovine, or carboprost as ordered.\n*   **S**hout for help / **S**ummons the provider: Activate the team for collaborative management once initial interventions are started.\n*   **A**dminister Oxygen: Maintain adequate oxygenation.\n*   **G**ive fluids: Rapid IV fluid bolus to maintain blood pressure.\n*   **E**valuate & document: Monitor vital signs, lochia, and response to interventions.",
         "scoring": {
             "method": "dichotomous",
@@ -755,7 +752,11 @@
         },
         "sentinelStatus": "healed_v2026_v11",
         "rationale": {
-            "correct": "Clinical rationale pending deep clinical alignment."
+            "correct": "Clinical rationale pending deep clinical alignment.",
+            "questionTrap": {
+                "trap": "Common Pitfall",
+                "howToOvercome": "The primary trap is selecting a valid postpartum intervention that is not the *first* priority in a hemorrhagic emergency. All options are components of managing PPH, but the sequence is critical. The clinical data (boggy fundus, rapid saturation) indicates a life-threatening bleed that requires an immediate therapeutic action (massage) over further assessment (BP check) or secondary interventions (voiding, notifying provider)."
+            }
         }
     },
     {
@@ -823,9 +824,6 @@
                 "scoring": "-"
             }
         ],
-        "questionTrap": {
-            "content": "The primary trap is focusing on a single risk factor (e.g., the IV line) instead of considering the overall high fall risk indicated by the Morse Fall Scale score. Another trap is misinterpreting the role of side rails in fall prevention. The correct approach is to recognize the cumulative risk and implement comprehensive fall precautions."
-        },
         "mnemonics": {
             "content": "Remember 'SAFE' for Fall Prevention: S - Safe environment, A - Assist with ambulation, F - Fall risk assessment, E - Educate patient and family."
         },
@@ -841,7 +839,10 @@
         },
         "sentinelStatus": "healed_v2026_v11",
         "rationale": {
-            "correct": "A Morse Fall Scale score of 125 indicates a high risk for falls. Implementing high-risk fall precautions is the most appropriate intervention to prevent injury. These precautions address the multiple risk factors identified by the scale."
+            "correct": "A Morse Fall Scale score of 125 indicates a high risk for falls. Implementing high-risk fall precautions is the most appropriate intervention to prevent injury. These precautions address the multiple risk factors identified by the scale.",
+            "questionTrap": {
+                "content": "The primary trap is focusing on a single risk factor (e.g., the IV line) instead of considering the overall high fall risk indicated by the Morse Fall Scale score. Another trap is misinterpreting the role of side rails in fall prevention. The correct approach is to recognize the cumulative risk and implement comprehensive fall precautions."
+            }
         }
     }
 ]

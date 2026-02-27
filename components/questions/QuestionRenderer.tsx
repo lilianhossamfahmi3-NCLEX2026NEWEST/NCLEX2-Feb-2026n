@@ -3,7 +3,8 @@
  * Routes each MasterItem.type to the appropriate renderer.
  */
 
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import React, { useState, useCallback, useMemo, useEffect, ReactNode } from 'react';
+import { AlertTriangle } from 'lucide-react';
 import { MasterItem } from '../../types/master';
 import RationalePanel from './RationalePanel';
 
@@ -15,8 +16,34 @@ interface QuestionRendererProps {
     userAnswer?: unknown;
 }
 
+// ═══════════════════════════════════════════════════════════
+//  Per-Item Error Boundary
+// ═══════════════════════════════════════════════════════════
+
+class ItemErrorBoundary extends React.Component<{ children: ReactNode; type: string }, { hasError: boolean }> {
+    constructor(props: any) {
+        super(props);
+        this.state = { hasError: false };
+    }
+    static getDerivedStateFromError() { return { hasError: true }; }
+    render() {
+        if (this.state.hasError) {
+            return (
+                <div className="p-8 text-rose-600 bg-rose-50 rounded-2xl border border-rose-100 flex flex-col items-center text-center">
+                    <AlertTriangle className="w-12 h-12 mb-4 opacity-50" />
+                    <h3 className="font-black uppercase tracking-tighter italic">Clinical Fragment Corruption</h3>
+                    <p className="text-sm opacity-70 mb-4">The simulator could not parse the logic for this {this.props.type} item.</p>
+                </div>
+            );
+        }
+        return this.props.children;
+    }
+}
+
 export default function QuestionRenderer({ item, onSubmit, isSubmitted, earnedScore, userAnswer }: QuestionRendererProps) {
     // Safety check for scoring which might be missing or nested in older data
+    if (!item) return <div className="p-10 text-center text-slate-400">Loading Clinical stimulus...</div>;
+
     const scoring = item.scoring || (item.rationale as any)?.scoring || { method: 'polytomous', maxPoints: 1 };
     const maxPoints = scoring.maxPoints || 1;
     const isCorrect = earnedScore !== undefined && earnedScore >= maxPoints;
@@ -25,10 +52,12 @@ export default function QuestionRenderer({ item, onSubmit, isSubmitted, earnedSc
         <div className="question-renderer">
             <div className="question-stem">
                 <span className="item-type-badge">{formatType(item.type)}</span>
-                <p className="stem-text">{item.stem}</p>
+                <p className="stem-text">{item.stem || 'Patient data pending...'}</p>
             </div>
             <div className="question-body">
-                <ItemBody item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />
+                <ItemErrorBoundary type={item.type}>
+                    <ItemBody item={item} onSubmit={onSubmit} isSubmitted={isSubmitted} userAnswer={userAnswer} />
+                </ItemErrorBoundary>
             </div>
 
             {isSubmitted && earnedScore !== undefined && (
@@ -608,9 +637,19 @@ function SingleSelect({ item, onSubmit, isSubmitted, userAnswer }: { item: any; 
     const [selected, setSelected] = useState<string | null>((userAnswer as string) || null);
     const correctId = item.correctOptionId;
 
+    const rawOptions = item.options || [];
+    const options = useMemo(() => {
+        if (Array.isArray(rawOptions)) return rawOptions;
+        // Handle object options fallback
+        return Object.entries(rawOptions as Record<string, any>).map(([id, val]) => ({
+            id,
+            text: typeof val === 'string' ? val : (val.text || val.content || String(val))
+        }));
+    }, [rawOptions]);
+
     const shuffledOptions = useMemo(() => {
-        return seededShuffle<{ id: string; text: string }>(item.options || [], item.id + '_ss');
-    }, [item.id, item.options]);
+        return seededShuffle<{ id: string; text: string }>(options, item.id + '_ss');
+    }, [item.id, options]);
 
     const getOptionClass = (optId: string) => {
         let cls = 'option-btn';
@@ -654,9 +693,18 @@ function MultiSelect({ item, onSubmit, isSubmitted, userAnswer }: { item: any; o
     const [selected, setSelected] = useState<Set<string>>(new Set(userAnswer as string[] || []));
     const correctIds: string[] = item.correctOptionIds || [];
 
+    const rawOptions = item.options || [];
+    const options = useMemo(() => {
+        if (Array.isArray(rawOptions)) return rawOptions;
+        return Object.entries(rawOptions as Record<string, any>).map(([id, val]) => ({
+            id,
+            text: typeof val === 'string' ? val : (val.text || val.content || String(val))
+        }));
+    }, [rawOptions]);
+
     const shuffledOptions = useMemo(() => {
-        return seededShuffle<{ id: string; text: string }>(item.options || [], item.id + '_ms');
-    }, [item.id, item.options]);
+        return seededShuffle<{ id: string; text: string }>(options, item.id + '_ms');
+    }, [item.id, options]);
 
     const toggle = useCallback((id: string) => {
         if (isSubmitted) return;
@@ -717,10 +765,11 @@ function MultiSelect({ item, onSubmit, isSubmitted, userAnswer }: { item: any; o
 
 function OrderedResponse({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
     const [order, setOrder] = useState<{ id: string; text: string }[]>(() => {
+        const options = Array.isArray(item.options) ? item.options : [];
         if (userAnswer && Array.isArray(userAnswer)) {
-            return (userAnswer as string[]).map(id => item.options.find((o: any) => o.id === id)).filter(Boolean);
+            return (userAnswer as string[]).map(id => options.find((o: any) => o.id === id)).filter(Boolean);
         }
-        return [...item.options];
+        return [...options];
     });
 
     const moveUp = (idx: number) => {
@@ -779,22 +828,29 @@ function MatrixMatch({ item, onSubmit, isSubmitted, userAnswer }: { item: any; o
         setSelections(prev => ({ ...prev, [rowId]: colId }));
     };
 
+    const rows = item.rows || [];
+    const columns = item.columns || [];
+
+    if (rows.length === 0 || columns.length === 0) {
+        return <div className="p-8 text-amber-600 bg-amber-50 rounded-2xl border border-amber-100">Matrix grid data missing.</div>;
+    }
+
     return (
         <div className="matrix-wrapper">
             <table className="matrix-table">
                 <thead>
                     <tr>
                         <th className="matrix-corner">Evaluation Parameter</th>
-                        {item.columns.map((col: { id: string; text: string }) => (
+                        {columns.map((col: { id: string; text: string }) => (
                             <th key={col.id}>{col.text}</th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
-                    {item.rows.map((row: { id: string; text: string }) => (
+                    {rows.map((row: { id: string; text: string }) => (
                         <tr key={row.id}>
                             <td className="matrix-row-label">{row.text}</td>
-                            {item.columns.map((col: { id: string; text: string }) => (
+                            {columns.map((col: { id: string; text: string }) => (
                                 <td key={col.id} className="matrix-cell">
                                     <label className="matrix-radio-container">
                                         <input
@@ -816,7 +872,7 @@ function MatrixMatch({ item, onSubmit, isSubmitted, userAnswer }: { item: any; o
             <button
                 className="submit-btn"
                 style={{ marginTop: 32 }}
-                disabled={Object.keys(selections).length !== item.rows.length || isSubmitted}
+                disabled={Object.keys(selections).length !== rows.length || isSubmitted}
                 onClick={() => onSubmit(item.id, selections)}
             >
                 {isSubmitted ? 'Assessment Recorded ✓' : 'Submit Evaluation'}
@@ -836,6 +892,10 @@ function ClozeDropdown({ item, onSubmit, isSubmitted, userAnswer }: { item: any;
         if (isSubmitted) return;
         setSelections(prev => ({ ...prev, [blankId]: value }));
     };
+
+    if (!item.template || !item.blanks) {
+        return <div className="p-8 text-amber-600 bg-amber-50 rounded-2xl border border-amber-100">Cloze interaction template missing.</div>;
+    }
 
     // Parse template and inject dropdowns
     const renderTemplate = () => {
@@ -902,9 +962,11 @@ function Bowtie({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubm
     const [parameterSelections, setParameterSelections] = useState<string[]>(userAnswer?.parameters || []);
 
     // Safety checks
-    const hasActions = item?.actions || item?.bowtieData?.actionOptions;
-    const hasParams = item?.parameters || item?.bowtieData?.parameterOptions;
-    if (!hasActions || !hasParams) {
+    const actions = item?.actions || item?.bowtieData?.actionOptions || [];
+    const parameters = item?.parameters || item?.bowtieData?.parameterOptions || [];
+    const condition = item?.condition || item?.correctAnswers?.condition || '';
+
+    if (actions.length === 0 || parameters.length === 0) {
         return <div className="p-8 text-indigo-600 bg-indigo-50 rounded-2xl border border-indigo-100">
             <h3 className="font-black uppercase tracking-tighter italic">Clinical Schematic Missing</h3>
             <p className="text-sm opacity-70">Regulatory bowtie layout for this clinical scenario is missing from the lab vault.</p>
@@ -912,21 +974,17 @@ function Bowtie({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubm
     }
 
     // Shuffle actions & parameters using item.id as seed — eliminates answer position bias
-    const actions = item.actions || item.bowtieData?.actionOptions || [];
-    const parameters = item.parameters || item.bowtieData?.parameterOptions || [];
-    const condition = item.condition || item.correctAnswers?.condition || '';
-
     const shuffledActions = useMemo(() => seededShuffle(actions, item.id + '_actions'), [item.id, actions]);
     const shuffledParameters = useMemo(() => seededShuffle(parameters, item.id + '_params'), [item.id, parameters]);
 
     // Use case-specific potentialConditions from data — no hardcoded fallbacks
     const potentialConditions = useMemo(() => {
-        const pc = item.potentialConditions || item.bowtieData?.conditionOptions?.map((o: any) => o.text) || [];
+        const pc = item.potentialConditions || item.bowtieData?.conditionOptions?.map((o: any) => typeof o === 'string' ? o : o.text) || [];
         if (pc.length > 0) {
             return seededShuffle(pc, item.id + '_conds');
         }
-        // Ultimate fallback only if data is completely missing (should not happen after data fix)
-        return seededShuffle([condition, "Unrelated Condition A", "Unrelated Condition B", "Unrelated Condition C"], item.id + '_conds');
+        // Ultimate fallback
+        return seededShuffle([condition || 'Finding A', "Finding B", "Finding C", "Finding D"], item.id + '_conds');
     }, [item.id, item.potentialConditions, item.bowtieData, condition]);
 
     const toggleAction = (id: string) => {
@@ -1206,11 +1264,12 @@ function TrendQuestion({ item, onSubmit, isSubmitted, userAnswer }: { item: any;
 function HighlightQuestion({ item, onSubmit, isSubmitted, userAnswer }: { item: any; onSubmit: (id: string, answer: unknown) => void; isSubmitted?: boolean; userAnswer?: any }) {
     const [selectedIndices, setSelectedIndices] = useState<Set<number>>(new Set(userAnswer as number[] || []));
 
+    const passage = item?.passage || item?.content || item?.text || '';
     // Split passage into sentences for selection
     const sentences = useMemo(() => {
-        if (!item?.passage) return [];
-        return (item.passage as string).split(/(?<=[.!?])\s+/);
-    }, [item?.passage]);
+        if (!passage) return [];
+        return (passage as string).split(/(?<=[.!?])\s+/);
+    }, [passage]);
 
     const toggleSentence = (idx: number) => {
         if (isSubmitted) return;
@@ -1220,6 +1279,10 @@ function HighlightQuestion({ item, onSubmit, isSubmitted, userAnswer }: { item: 
             return next;
         });
     };
+
+    if (!passage) {
+        return <div className="p-8 text-amber-600 bg-amber-50 rounded-2xl border border-amber-100">Highlight passage content missing.</div>;
+    }
 
     return (
         <div className="highlight-wrapper">
@@ -1315,15 +1378,17 @@ function DragAndDropCloze({ item, onSubmit, isSubmitted, userAnswer }: { item: a
         });
     };
 
-    const isComplete = Object.keys(selections).length === detectedBlanks.length;
+    const isComplete = Object.keys(selections).length >= detectedBlanks.length && detectedBlanks.length > 0;
+
+    const options = Array.isArray(item.options) ? item.options : [];
 
     return (
         <div className="p-4">
             <div className="template-text leading-loose">{renderTemplate()}</div>
 
-            {!isSubmitted && (
+            {!isSubmitted && options.length > 0 && (
                 <div className="token-pool">
-                    {item.options.map((opt: string) => {
+                    {options.map((opt: string) => {
                         const isUsed = Object.values(selections).includes(opt);
                         return (
                             <button

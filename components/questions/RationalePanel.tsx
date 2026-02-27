@@ -288,6 +288,10 @@ export default function RationalePanel({ rationale, pedagogy, earnedPoints, maxP
 //  Evidence Row Builder — adapts per item type
 // ═══════════════════════════════════════════════════════════
 
+// ═══════════════════════════════════════════════════════════
+//  Evidence Row Builder — adapts per item type
+// ═══════════════════════════════════════════════════════════
+
 interface EvidenceRow {
     label: string;
     optionText?: string;
@@ -300,10 +304,11 @@ function buildEvidenceRows(item: any, itemType: string, userAnswer: any, rationa
     const rows: EvidenceRow[] = [];
     if (!item) return fromBreakdown(rationale);
 
-    const breakdown = rationale?.answerBreakdown || [];
+    const breakdown = Array.isArray(rationale?.answerBreakdown) ? rationale.answerBreakdown : [];
     const matchedBDIndices = new Set<number>();
 
     const getBD = (label: string, text?: string) => {
+        if (breakdown.length === 0) return undefined;
         const idx = breakdown.findIndex((b, i) =>
             !matchedBDIndices.has(i) && (
                 b.label?.toLowerCase() === label.toLowerCase() ||
@@ -518,17 +523,19 @@ function buildEvidenceRows(item: any, itemType: string, userAnswer: any, rationa
     }
 
     // ─── Append Unmatched Breakdown Items ───
-    breakdown.forEach((b, i) => {
-        if (!matchedBDIndices.has(i)) {
-            rows.push({
-                label: b.label || 'Note',
-                optionText: undefined,
-                rationale: b.content,
-                status: b.isCorrect === true ? 'correct' : b.isCorrect === false ? 'incorrect' : 'neutral',
-                wasSelected: false,
-            });
-        }
-    });
+    if (Array.isArray(breakdown)) {
+        breakdown.forEach((b, i) => {
+            if (!matchedBDIndices.has(i)) {
+                rows.push({
+                    label: b.label || 'Note',
+                    optionText: undefined,
+                    rationale: b.content,
+                    status: b.isCorrect === true ? 'correct' : b.isCorrect === false ? 'incorrect' : 'neutral',
+                    wasSelected: false,
+                });
+            }
+        });
+    }
 
     if (rows.length === 0) return fromBreakdown(rationale);
     return rows;
