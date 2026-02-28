@@ -1,89 +1,316 @@
 {
     "id": "New-v26-a7b9c2d1-4e3f-4a5b-9c8d-6e7f8a1b2c3d",
-    "type": "dragAndDropCloze",
-    "stem": "Review the patient's information and the provided medication order. Calculate the correct dosage and infusion rate, then select the appropriate values from the options provided to complete the following statements.\n\nThe ordered dose of heparin is [cloze-1] units. To deliver this dose, the infusion pump should be set to [cloze-2] mL/hr. After administering the bolus, the aPTT should be monitored [cloze-3].",
+    "type": "clozeDropdown",
+    "stem": "The nurse prepares to administer a prescribed heparin infusion. Using the client's record, complete the sentence by selecting the correct values for the bolus dose, infusion rate, and initial monitoring time.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 3
     },
     "itemContext": {
         "patient": {
             "name": "Jameson Tyrell",
             "age": 68,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
-            "allergies": [
-                "NKDA"
-            ]
+            "sex": "Male",
+            "pronouns": "he/him",
+            "weight": "68 kg (150 lbs)",
+            "allergies": "NKDA"
         },
-        "sbar": "S: Jameson Tyrell, 68-year-old male, admitted at 03:00 for a deep vein thrombosis (DVT) in the left lower extremity. He reports left calf pain, rated 7/10.\nB: PMH includes atrial fibrillation, hypertension, and hyperlipidemia. Current meds: warfarin, amlodipine, atorvastatin. Hx of non-compliance with warfarin, resulting in subtherapeutic INR.\nA: At 07:00, physician ordered a heparin bolus and continuous infusion. Vitals: BP 160/90 mmHg, HR 98 bpm, RR 18 breaths/min, SpO2 96% on room air. Labs: platelets 250,000/mcL. Patient is alert and oriented.\nR: Physician ordered heparin bolus 18 units/kg, then continuous infusion of 1200 units/hour. Available: Heparin 25,000 units in 250 mL D5W. Titrate per protocol based on aPTT. Obtain aPTT in 6 hours to assess therapeutic effect.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Jameson Tyrell, 68-year-old male, admitted at 03:00 for a deep vein thrombosis (DVT) in the left lower extremity. He reports left calf pain, rated 7/10.\nB: PMH includes atrial fibrillation, hypertension, and hyperlipidemia. Current meds: warfarin, amlodipine, atorvastatin. Hx of non-compliance with warfarin, resulting in subtherapeutic INR.\nA: At 07:00, physician ordered a heparin bolus and continuous infusion. Vitals: BP 160/90 mmHg, HR 98 bpm, RR 18 breaths/min, SpO2 96% on room air. Labs: platelets 250,000/mcL. Patient is alert and oriented.\nR: Physician ordered heparin bolus 18 units/kg, then continuous infusion of 1200 units/hour. Available: Heparin 25,000 units in 250 mL D5W. Titrate per protocol based on aPTT. Obtain aPTT in 6 hours to assess therapeutic effect."
-            },
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>PT</td><td>14 seconds</td><td>11-13 seconds</td></tr><tr><td>INR</td><td>1.2</td><td>0.8-1.1</td></tr><tr><td>aPTT</td><td>30 seconds</td><td>30-40 seconds</td></tr><tr><td>Platelets</td><td>250,000/mcL</td><td>150,000-400,000/mcL</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 03:00",
+                        "content": "S: Client is a 68-year-old male presenting to the ED with acute-onset left calf pain, swelling, and redness that began yesterday. Pain is rated 7/10, described as a deep ache.\nB: History of atrial fibrillation (on warfarin, reports non-compliance), hypertension, and hyperlipidemia. Client reports living alone in a third-floor walk-up apartment, which makes ambulation difficult and may have contributed to immobility. No recent surgery or trauma.\nA: Alert and oriented x4. Left lower extremity is erythematous, warm, with 3+ pitting edema. Calf circumference is 4 cm larger than the right. Doppler ultrasound confirmed an acute DVT in the popliteal vein. Vitals are stable. Baseline labs drawn.\nR: Admit to the medical-surgical unit for anticoagulation therapy. Plan to initiate a heparin infusion per protocol. Provide pain management and elevate the affected extremity."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 1, 07:00",
+                        "content": "S: Client reports continued left calf pain, now 6/10. States he understands the need for heparin therapy.\nB: Client has been settled on the unit. IV access established. Baseline aPTT is within normal limits. Warfarin has been held.\nA: Vitals remain stable. Neurovascular checks of the left lower extremity are unchanged. No signs of bleeding or shortness of breath. Physician has entered orders for a weight-based heparin protocol.\nR: Prepare to administer the heparin bolus and start the continuous infusion as ordered. Educate the client on bleeding precautions. Ensure follow-up aPTT is scheduled correctly per the protocol to monitor for therapeutic effect and prevent complications."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>06:00</td><td>160/90</td><td>98</td><td>18</td><td>96%</td></tr><tr><td>07:00</td><td>162/92</td><td>96</td><td>18</td><td>97%</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "03:00",
+                        "Temp °F (°C)": "98.6 (37.0)",
+                        "HR (bpm)": "102",
+                        "BP (mmHg)": "168/94",
+                        "MAP (mmHg)": "119",
+                        "RR (breaths/min)": "20",
+                        "SpO₂ (%)": "95% on room air"
+                    },
+                    {
+                        "Time": "06:00",
+                        "Temp °F (°C)": "98.8 (37.1)",
+                        "HR (bpm)": "98",
+                        "BP (mmHg)": "160/90",
+                        "MAP (mmHg)": "113",
+                        "RR (breaths/min)": "18",
+                        "SpO₂ (%)": "96% on room air"
+                    },
+                    {
+                        "Time": "07:00",
+                        "Temp °F (°C)": "98.7 (37.1)",
+                        "HR (bpm)": "96",
+                        "BP (mmHg)": "162/92",
+                        "MAP (mmHg)": "115",
+                        "RR (breaths/min)": "18",
+                        "SpO₂ (%)": "97% on room air"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "Lab": "Prothrombin Time (PT)",
+                        "Result": "14",
+                        "Unit": "seconds",
+                        "Reference Range": "11-13",
+                        "Status": "High"
+                    },
+                    {
+                        "Lab": "International Normalized Ratio (INR)",
+                        "Result": "1.2",
+                        "Unit": "",
+                        "Reference Range": "0.8-1.1 (standard)",
+                        "Status": "High"
+                    },
+                    {
+                        "Lab": "Activated Partial Thromboplastin Time (aPTT)",
+                        "Result": "30",
+                        "Unit": "seconds",
+                        "Reference Range": "30-40",
+                        "Status": "WNL"
+                    },
+                    {
+                        "Lab": "Platelet Count",
+                        "Result": "250,000",
+                        "Unit": "/mcL",
+                        "Reference Range": "150,000-400,000",
+                        "Status": "WNL"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "assessment": {
+                    "timestamp": "Day 1, 03:15",
+                    "systems": {
+                        "Cardiovascular": "Tachycardic rate, regular rhythm. S1, S2 audible. No murmurs. Capillary refill <3 seconds in all extremities.",
+                        "Peripheral Vascular": "Left lower extremity: +3 pitting edema from ankle to mid-calf. Calf circumference 4 cm greater than right. Palpable cord-like vein in popliteal fossa. Homan's sign positive. Skin is erythematous and warm to touch. Dorsalis pedis and posterior tibial pulses 2+ bilaterally.",
+                        "Respiratory": "Lungs clear to auscultation bilaterally. Respirations unlabored.",
+                        "Neurological": "Alert and oriented x4. Follows commands. No focal deficits."
+                    }
+                }
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "report": {
+                    "type": "Doppler Ultrasound - Left Lower Extremity",
+                    "timestamp": "Day 1, 04:30",
+                    "findings": "Compressibility of the deep venous system was assessed. The common femoral, femoral, and popliteal veins were visualized. Non-compressibility and lack of flow augmentation were noted in the popliteal vein, consistent with thrombus.",
+                    "impression": "Acute deep vein thrombosis (DVT) of the left popliteal vein."
+                }
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "action": "Heparin bolus 80 units/kg IV push once.",
+                        "status": "Stat"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "action": "Heparin continuous infusion at 18 units/kg/hr.",
+                        "status": "Continuous"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "action": "Available solution: Heparin 25,000 units in 250 mL D5W.",
+                        "status": "Pharmacy Note"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "action": "Check aPTT 6 hours after bolus and infusion start, then adjust per protocol.",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "action": "Vital signs every 4 hours.",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "action": "Bed rest with left leg elevated.",
+                        "status": "Standing"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td></tr><tr><td>Amlodipine</td><td>10 mg</td><td>PO</td><td>Daily</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td></tr></tbody></table>"
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Warfarin",
+                        "dose": "5 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 0, 09:00"
+                    },
+                    {
+                        "medication": "Amlodipine",
+                        "dose": "10 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 1, 09:00"
+                    },
+                    {
+                        "medication": "Atorvastatin",
+                        "dose": "40 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 1, 09:00"
+                    },
+                    {
+                        "medication": "Heparin Bolus",
+                        "dose": "80 units/kg",
+                        "route": "IV",
+                        "frequency": "Stat",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "Heparin Infusion",
+                        "dose": "18 units/kg/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "lastAdministered": "N/A"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Pharmacological and Parenteral Therapies",
         "difficulty": 5,
         "topicTags": [
             "Safety: Medication Calculation & High-Alert Drugs"
         ]
     },
     "rationale": {
-        "correct": "The patient weighs 68 kg. The bolus dose is calculated as 18 units/kg x 68 kg = 1224 units. The concentration of the heparin solution is 25,000 units / 250 mL = 100 units/mL. The infusion rate is calculated as 1200 units/hour / 100 units/mL = 12 mL/hr. The aPTT should be monitored 6 hours after the bolus administration to assess the effectiveness of the heparin therapy and adjust the infusion rate as needed per protocol. This ensures therapeutic anticoagulation is achieved and maintained while minimizing the risk of bleeding complications.",
-        "incorrect": "Incorrect answers would result from miscalculations of the bolus dose, infusion rate, or improper timing of aPTT monitoring. These errors could lead to subtherapeutic anticoagulation, increasing the risk of clot progression, or excessive anticoagulation, increasing the risk of bleeding. A wrong selection demonstrates a lack of understanding of heparin dosing and monitoring guidelines.",
+        "correct": "The ordered continuous infusion is 18 units/kg/hr. The client weighs 68 kg. The infusion dose is 18 units/kg/hr * 68 kg = 1224 units/hr. The available concentration is 25,000 units / 250 mL = 100 units/mL. The infusion pump rate is calculated as (1224 units/hr) / (100 units/mL) = 12.24 mL/hr, which rounds to 12 mL/hr. The aPTT is monitored 6 hours after the bolus and start of the infusion to assess if a therapeutic range (typically 1.5-2.5 times the baseline) has been reached, allowing for timely dose adjustments.",
+        "answerBreakdown": {
+            "cloze-1": [
+                {
+                    "option": "1224",
+                    "correct": true,
+                    "rationale": "Correct. Calculation: 18 units/kg/hr * 68 kg = 1224 units/hr. This precise, weight-based infusion rate is critical for maintaining a therapeutic level of anticoagulation, preventing further thrombus growth by potentiating antithrombin III."
+                },
+                {
+                    "option": "1000",
+                    "correct": false,
+                    "rationale": "Incorrect. This is an arbitrary, rounded-down value. Administering a subtherapeutic dose fails to adequately inhibit the coagulation cascade, placing the client at high risk for thrombus extension and potentially fatal pulmonary embolism."
+                },
+                {
+                    "option": "1500",
+                    "correct": false,
+                    "rationale": "Incorrect. This value represents a significant overdose. An excessive infusion rate would lead to over-anticoagulation, saturating antithrombin III and dramatically increasing the risk of spontaneous, life-threatening hemorrhage."
+                },
+                {
+                    "option": "5440",
+                    "correct": false,
+                    "rationale": "Incorrect. This value is the result of calculating the bolus dose (80 units/kg * 68 kg = 5440 units), not the hourly infusion rate. Confusing the bolus with the infusion rate is a critical error leading to a massive overdose."
+                }
+            ],
+            "cloze-2": [
+                {
+                    "option": "12",
+                    "correct": true,
+                    "rationale": "Correct. Calculation: (1224 units/hr) / (100 units/mL) = 12.24 mL/hr, which rounds to 12 mL/hr. Setting the correct pump rate ensures the precise delivery of the calculated therapeutic dose."
+                },
+                {
+                    "option": "10",
+                    "correct": false,
+                    "rationale": "Incorrect. This rate would deliver only 1000 units/hr, a subtherapeutic dose. This error often results from rounding the dose down before calculating the rate, leading to ineffective treatment."
+                },
+                {
+                    "option": "18",
+                    "correct": false,
+                    "rationale": "Incorrect. This error involves confusing the dose in units/kg/hr with the final pump rate in mL/hr. This demonstrates a fundamental misunderstanding of the dose calculation process and would result in an overdose."
+                },
+                {
+                    "option": "54",
+                    "correct": false,
+                    "rationale": "Incorrect. This rate corresponds to the bolus dose (5440 units / 100 units/mL = 54.4 mL), not the continuous infusion. Administering the bolus volume as an hourly rate would cause rapid, severe over-anticoagulation."
+                }
+            ],
+            "cloze-3": [
+                {
+                    "option": "in 6 hours",
+                    "correct": true,
+                    "rationale": "Correct. Standard heparin protocols require checking the aPTT 6 hours after initiation or any rate change. This timing allows the drug to reach a steady state, providing an accurate measure of its therapeutic effect for safe titration."
+                },
+                {
+                    "option": "immediately",
+                    "correct": false,
+                    "rationale": "Incorrect. Checking the aPTT immediately after the bolus would not reflect the steady-state effect of the continuous infusion. The result would be falsely low, leading to an unnecessary and dangerous increase in the infusion rate."
+                },
+                {
+                    "option": "in 2 hours",
+                    "correct": false,
+                    "rationale": "Incorrect. While heparin has a short half-life, 2 hours is too soon to accurately assess the therapeutic level of the continuous infusion. The drug has not yet reached a stable concentration in the plasma, leading to unreliable results."
+                },
+                {
+                    "option": "in 12 hours",
+                    "correct": false,
+                    "rationale": "Incorrect. Waiting 12 hours is unsafe as it delays the first assessment of therapeutic effect. This could leave the client in a subtherapeutic state for too long, risking clot extension, or an over-anticoagulated state, risking hemorrhage."
+                }
+            ]
+        },
         "clinicalPearls": [
-            "Always double-check medication calculations, especially for high-alert medications like heparin.",
-            "Use a standardized heparin protocol to guide dosing and monitoring.",
-            "Monitor the patient for signs of bleeding or thrombosis during heparin therapy.",
-            "Ensure timely aPTT monitoring and dose adjustments based on protocol guidelines."
+            "Always perform an independent double-check with another nurse for all high-alert medication calculations, including heparin.",
+            "Heparin-induced thrombocytopenia (HIT) is a critical adverse effect. Monitor platelet counts closely, especially between days 4-14 of therapy.",
+            "The antidote for heparin overdose is protamine sulfate. Always be aware of its location and the protocol for its administration."
         ],
         "questionTrap": {
-            "trap": "A common mistake is to forget to convert the units or to miscalculate the infusion rate based on the concentration of the heparin solution. Another trap is to select an incorrect time frame for monitoring the aPTT, which could lead to inappropriate dose adjustments.",
-            "howToOvercome": "Carefully review the medication order and the available concentration. Double-check all calculations and use a systematic approach to ensure accuracy. Understand the specific monitoring guidelines for heparin therapy."
+            "trap": "A common trap is confusing the bolus dose calculation with the continuous infusion calculation. Candidates may incorrectly use the bolus units (80 units/kg) to calculate the hourly rate, leading to a significant dosing error.",
+            "howToOvercome": "Methodically read the order for each component separately: one for the 'bolus' and one for the 'infusion'. Use the correct value (units/kg for bolus, units/kg/hr for infusion) for each distinct calculation step."
         },
         "mnemonic": {
-            "title": "ACT FAST for Heparin",
-            "expansion": "ACT: Assess for Allergies, Clots (existing), and Thrombocytopenia. FAST: Follow the aPTT, Administer bolus, Set infusion rate, Titrate per protocol."
+            "title": "HEPARIN Check",
+            "expansion": "H: Have another nurse check. E: Evaluate aPTT at 6 hours. P: Pump rate calculation (Dose/Concentration). A: Assess for bleeding. R: Right patient weight (in kg). I: Infusion rate (units/hr). N: Note the concentration (units/mL)."
         }
     },
     "possibleResponses": {
         "cloze-1": [
-            "1000",
             "1224",
+            "1000",
             "1500",
-            "2000"
+            "5440"
         ],
         "cloze-2": [
-            "8",
-            "10",
             "12",
-            "15"
+            "10",
+            "18",
+            "54"
         ],
         "cloze-3": [
+            "in 6 hours",
             "immediately",
             "in 2 hours",
-            "in 6 hours",
             "in 12 hours"
         ]
     },
@@ -91,5 +318,6 @@
         "cloze-1": "1224",
         "cloze-2": "12",
         "cloze-3": "in 6 hours"
-    }
+    },
+    "clozeSentence": "The ordered hourly infusion dose of heparin is {cloze-1} units/hr. To deliver this dose, the infusion pump should be set to {cloze-2} mL/hr. After administering the bolus and starting the infusion, the aPTT should be monitored {cloze-3}."
 }

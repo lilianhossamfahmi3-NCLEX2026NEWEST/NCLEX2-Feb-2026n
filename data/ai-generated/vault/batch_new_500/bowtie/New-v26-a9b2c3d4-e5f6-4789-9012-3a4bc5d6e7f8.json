@@ -1,188 +1,219 @@
 {
-    "id": "New-v26-a9b2c3d4-e5f6-4789-9012-3a4bc5d6e7f8",
+    "id": "v26-upgraded-a9b2c3d4-e5f6-4789-9012-3a4bc5d6e7f8",
     "type": "bowtie",
-    "stem": "The nurse is caring for a 68-year-old male patient admitted with an acute myocardial infarction (MI). Based on the assessment data, diagnostic findings, and physician orders, determine the MOST appropriate actions, the underlying reason for those actions, and the potential complications if the actions are not taken.",
-    "scoring": {
-        "method": "linkage",
-        "maxPoints": 5
+    "vault": {
+        "category": "/bowtie",
+        "filename": "acuteMI_cardiogenicShock_bowtie_v1.json"
     },
+    "stem": "The nurse is evaluating the client's deteriorating condition. Based on the provided clinical data, drag the most appropriate options from each category to specify the condition the client is developing, the necessary actions, and the parameters to monitor.",
     "itemContext": {
         "patient": {
-            "name": "Robert Johnson",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Medical Intensive Care Unit (MICU)",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "SBAR: Mr. Johnson, 68-year-old male, admitted at 03:00 today with acute MI. He reports chest pain radiating to his left arm, rated 6/10. He received morphine 4mg IV at 03:15. At 07:00, vital signs: BP 90/60 mmHg, HR 110 bpm, RR 24 breaths/min, SpO2 92% on 2L NC. ECG shows ST elevation in leads II, III, and aVF. Troponin I is elevated at 8.5 ng/mL. Physician orders include oxygen to maintain SpO2 > 92%, continuous ECG monitoring, aspirin 325mg PO, metoprolol 5mg IV every 5 minutes x 3 doses if SBP > 100 mmHg, and nitroglycerin IV drip starting at 5 mcg/min titrated to effect. His history includes hypertension and hyperlipidemia. He appears anxious and diaphoretic. Auscultation reveals bibasilar crackles. Urine output is 20 mL/hr.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "SBAR: Mr. Johnson, 68-year-old male, admitted at 03:00 today with acute MI. He reports chest pain radiating to his left arm, rated 6/10. He received morphine 4mg IV at 03:15. At 07:00, vital signs: BP 90/60 mmHg, HR 110 bpm, RR 24 breaths/min, SpO2 92% on 2L NC. ECG shows ST elevation in leads II, III, and aVF. Troponin I is elevated at 8.5 ng/mL. Physician orders include oxygen to maintain SpO2 > 92%, continuous ECG monitoring, aspirin 325mg PO, metoprolol 5mg IV every 5 minutes x 3 doses if SBP > 100 mmHg, and nitroglycerin IV drip starting at 5 mcg/min titrated to effect. His history includes hypertension and hyperlipidemia. He appears anxious and diaphoretic. Auscultation reveals bibasilar crackles. Urine output is 20 mL/hr."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 03:00",
+                        "header": "Admission Note",
+                        "body": "S: Client is a 68-year-old male brought to the ED via ambulance reporting severe, crushing substernal chest pain (8/10) radiating to his left arm, which started 2 hours ago. Reports shortness of breath and nausea.\nB: History of hypertension and hyperlipidemia. Takes lisinopril and atorvastatin. No known drug allergies besides Penicillin. Client lives alone in a rural area, approximately 45 minutes from the nearest hospital. He reports financial concerns about missing work.\nA: A&O x4, anxious, diaphoretic. ECG shows ST-elevation in leads II, III, aVF, consistent with inferior wall MI. Initial vitals: BP 140/90 mmHg, HR 90/min, RR 20/min, SpO2 95% on room air. Cardiac enzymes drawn. MONA protocol initiated.\nR: Admit to MICU for continuous cardiac monitoring, serial troponins, and preparation for potential cardiac catheterization. Oxygen initiated via nasal cannula."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "header": "Progress Note",
+                        "body": "S: Client reports persistent chest pain, now 6/10. States he feels 'lightheaded and weak.'\nB: Admitted at 03:00 for inferior wall STEMI. Received Aspirin 325mg PO and Morphine 4mg IV. Nitroglycerin IV drip initiated at 07:15 at 5 mcg/min. Metoprolol order is on hold due to blood pressure parameters.\nA: Vitals trending towards hypotension and tachycardia. BP 90/60 mmHg (MAP 70), HR 110/min, RR 24/min, SpO2 92% on 2L NC. Client is cool and clammy. Auscultation reveals new bibasilar crackles. Urine output has been 20 mL/hr for the past hour. Client appears increasingly anxious.\nR: Continue to monitor hemodynamics closely. Notify provider of change in status and signs of developing shock. Anticipate orders for fluid challenge and potential vasopressor support. Hold all negative inotropes/chronotropes."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Normal Range</th></tr></thead><tbody><tr><td>Troponin I</td><td>8.5 ng/mL</td><td>&lt; 0.04 ng/mL</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>1.2 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BNP</td><td>600 pg/mL</td><td>&lt; 100 pg/mL</td></tr><tr><td>Cholesterol</td><td>240 mg/dL</td><td>&lt; 200 mg/dL</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO₂</th><th>Urine Output (hourly)</th></tr></thead><tbody><tr><td>03:00</td><td>140/90 mmHg (107)</td><td>90/min</td><td>20/min</td><td>98.6°F (37.0°C)</td><td>95% on RA</td><td>N/A</td></tr><tr><td>05:00</td><td>110/72 mmHg (85)</td><td>102/min</td><td>22/min</td><td>98.8°F (37.1°C)</td><td>94% on 2L NC</td><td>35 mL</td></tr><tr><td>07:00</td><td>90/60 mmHg (70)</td><td>110/min</td><td>24/min</td><td>98.7°F (37.1°C)</td><td>92% on 2L NC</td><td>20 mL</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Urine Output</th></tr></thead><tbody><tr><td>03:00</td><td>140/90 mmHg</td><td>90 bpm</td><td>20 breaths/min</td><td>95%</td><td>N/A</td></tr><tr><td>07:00</td><td>90/60 mmHg</td><td>110 bpm</td><td>24 breaths/min</td><td>92%</td><td>20 mL/hr</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Troponin I</td><td>8.5</td><td>ng/mL</td><td>< 0.04</td><td>High</td></tr><tr><td>BNP</td><td>600</td><td>pg/mL</td><td>< 100</td><td>High</td></tr><tr><td>Lactate</td><td>2.5</td><td>mmol/L</td><td>0.5 - 2.2</td><td>High</td></tr><tr><td>Potassium</td><td>3.8</td><td>mEq/L</td><td>3.5 - 5.0</td><td>WNL</td></tr><tr><td>Creatinine</td><td>1.2</td><td>mg/dL</td><td>0.6 - 1.2</td><td>WNL</td></tr><tr><td>Cholesterol, Total</td><td>240</td><td>mg/dL</td><td>< 200</td><td>High</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Aspirin</td><td>325 mg</td><td>PO</td><td>Once</td><td>03:30</td></tr><tr><td>Morphine</td><td>4 mg</td><td>IV</td><td>PRN pain</td><td>03:15</td></tr><tr><td>Metoprolol</td><td>5 mg</td><td>IV</td><td>Every 5 min x 3 if SBP &gt; 100 mmHg</td><td>Not Yet Given</td></tr><tr><td>Nitroglycerin</td><td>5 mcg/min</td><td>IV Drip</td><td>Continuous, titrate to effect</td><td>Started at 07:15</td></tr><tr><td>Oxygen</td><td>2 L</td><td>Nasal Cannula</td><td>Continuous</td><td>Ongoing</td></tr></tbody></table>"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<strong>Admission (03:00):</strong><br>General: Anxious, diaphoretic, in moderate distress.<br>Cardiovascular: S1, S2 audible, regular rhythm, no murmurs.<br>Respiratory: Lungs clear to auscultation bilaterally.<br><br><strong>Focused Assessment (07:00):</strong><br>General: Increased anxiety, skin is cool and clammy.<br>Cardiovascular: Tachycardia with S3 gallop noted.<br>Respiratory: Bibasilar crackles auscultated.<br>Neurological: A&O x4, reports feeling lightheaded.<br>Renal: Oliguria noted over past hour."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<strong>Type:</strong> Portable Chest X-ray<br><strong>Date:</strong> Day 1, 07:30<br><strong>Reason for Exam:</strong> Shortness of breath, hypoxia.<br><strong>Findings:</strong> Heart size is borderline enlarged. There is evidence of mild vascular congestion and small bilateral pleural effusions. No focal consolidation or pneumothorax is identified.<br><strong>Impression:</strong> Findings are consistent with early congestive heart failure / pulmonary edema."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 03:10</td><td>Oxygen to maintain SpO₂ > 92%</td><td>Standing</td></tr><tr><td>Day 1, 03:10</td><td>Continuous ECG monitoring</td><td>Standing</td></tr><tr><td>Day 1, 03:10</td><td>Aspirin 325 mg PO</td><td>STAT</td></tr><tr><td>Day 1, 03:15</td><td>Morphine 2-4 mg IV PRN chest pain</td><td>PRN</td></tr><tr><td>Day 1, 07:10</td><td>Nitroglycerin IV Drip, start at 5 mcg/min</td><td>STAT, Titrate to effect</td></tr><tr><td>Day 1, 07:10</td><td>Metoprolol 5 mg IV every 5 min x 3 doses</td><td>Standing, HOLD if SBP < 100 mmHg</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Aspirin</td><td>325 mg</td><td>PO</td><td>Once</td><td>Day 1, 03:30</td></tr><tr><td>Morphine</td><td>4 mg</td><td>IV</td><td>PRN</td><td>Day 1, 03:15</td></tr><tr><td>Nitroglycerin</td><td>5 mcg/min</td><td>IV Drip</td><td>Continuous</td><td>Day 1, 07:15</td></tr><tr><td>Metoprolol</td><td>5 mg</td><td>IV</td><td>Scheduled</td><td>Not Given (SBP < 100 mmHg)</td></tr><tr><td>Oxygen</td><td>2 L</td><td>NC</td><td>Continuous</td><td>Ongoing</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Acute MI & Heart Failure"
-        ]
-    },
-    "rationale": {
-        "correct": "The patient is hypotensive and showing signs of heart failure (crackles, elevated BNP, low urine output). Administering metoprolol would further decrease his blood pressure and is contraindicated with current vital signs. Titrating the nitroglycerin drip as ordered, after fluid resuscitation, would improve myocardial oxygen supply and decrease preload. Administering a fluid bolus is important to increase preload and improve blood pressure, which is essential to avoid further compromising cardiac output. Monitoring for signs of worsening heart failure is crucial as the patient already has bibasilar crackles and hypotension, indicating possible cardiogenic shock. Contacting the physician to report the hypotension and discuss further management, especially the metoprolol order, is a priority. The rationale is that the patient's hypotension needs to be addressed before administering medications that could worsen it. Fluid resuscitation can improve cardiac output and blood pressure. Monitoring for heart failure allows for early intervention. Communication with the physician ensures appropriate and timely adjustments to the treatment plan.",
-        "incorrect": "Administering metoprolol without addressing the hypotension can lead to severe bradycardia and further hypotension. Continuing the nitroglycerin drip at the current rate without addressing the hypotension may exacerbate hypotension and compromise coronary perfusion. Delaying fluid resuscitation could lead to cardiogenic shock. Not monitoring for worsening heart failure delays intervention and can lead to pulmonary edema and respiratory failure. Failing to communicate the patient's status to the physician can result in delayed or inappropriate treatment. The rationale is that metoprolol can worsen hypotension, nitroglycerin can further reduce blood pressure if hypovolemia is present, fluid resuscitation is needed to improve cardiac output, monitoring is essential to detect complications early, and communication ensures appropriate treatment adjustments.",
-        "clinicalPearls": [
-            "In acute MI, address pain, oxygenation, and perfusion in that order (if possible).",
-            "Hypotension in the setting of acute MI is a critical finding that requires prompt intervention.",
-            "Always reassess vital signs after administering medications, especially those that affect blood pressure and heart rate.",
-            "Urine output is a key indicator of adequate perfusion. A urine output of 20 mL/hr suggests inadequate renal perfusion."
-        ],
-        "questionTrap": {
-            "trap": "Many students might focus solely on the nitroglycerin order to address the chest pain without considering the patient's blood pressure, leading them to titrate the drip without addressing the hypotension first.",
-            "howToOvercome": "Prioritize interventions based on ABCs (Airway, Breathing, Circulation). Address the hypotension before titrating the nitroglycerin drip. Remember that adequate blood pressure is necessary for effective coronary perfusion."
-        },
-        "mnemonic": {
-            "title": "MONA",
-            "expansion": "Morphine, Oxygen, Nitroglycerin, Aspirin (Initial management of Acute Coronary Syndrome; however, circulation/perfusion must always be considered!)"
-        }
-    },
-    "stemSections": {
-        "action": [
-            "Administer metoprolol 5 mg IV",
-            "Titrate nitroglycerin drip per order",
-            "Administer a fluid bolus",
-            "Monitor for signs of worsening heart failure",
-            "Contact the physician to report hypotension"
-        ],
-        "reason": [
-            "To decrease myocardial oxygen demand",
-            "To improve myocardial oxygen supply and decrease preload",
-            "To increase preload and improve blood pressure",
-            "To detect early signs of pulmonary edema",
-            "To obtain guidance on further management"
-        ],
-        "complication": [
-            "Severe bradycardia and hypotension",
-            "Exacerbation of hypotension and compromised coronary perfusion",
-            "Cardiogenic shock",
-            "Pulmonary edema and respiratory failure",
-            "Delayed or inappropriate treatment"
-        ]
-    },
-    "responseOptions": {
-        "action": [
+    "bowTie": {
+        "actions": [
             {
-                "id": "action1",
-                "content": "Administer metoprolol 5 mg IV"
+                "id": "action_1",
+                "text": "Administer metoprolol 5 mg IV push"
             },
             {
-                "id": "action2",
-                "content": "Titrate nitroglycerin drip per order"
+                "id": "action_2",
+                "text": "Administer 500 mL 0.9% NaCl bolus"
             },
             {
-                "id": "action3",
-                "content": "Administer a fluid bolus"
+                "id": "action_3",
+                "text": "Increase nitroglycerin drip rate"
             },
             {
-                "id": "action4",
-                "content": "Monitor for signs of worsening heart failure"
+                "id": "action_4",
+                "text": "Notify provider of hypotension and signs of shock"
             },
             {
-                "id": "action5",
-                "content": "Contact the physician to report hypotension"
+                "id": "action_5",
+                "text": "Prepare for endotracheal intubation"
             }
         ],
-        "reason": [
+        "condition": [
             {
-                "id": "reason1",
-                "content": "To decrease myocardial oxygen demand"
+                "id": "condition_1",
+                "text": "Cardiogenic Shock"
             },
             {
-                "id": "reason2",
-                "content": "To improve myocardial oxygen supply and decrease preload"
+                "id": "condition_2",
+                "text": "Hypovolemic Shock"
             },
             {
-                "id": "reason3",
-                "content": "To increase preload and improve blood pressure"
-            },
-            {
-                "id": "reason4",
-                "content": "To detect early signs of pulmonary edema"
-            },
-            {
-                "id": "reason5",
-                "content": "To obtain guidance on further management"
+                "id": "condition_3",
+                "text": "Anaphylactic Shock"
             }
         ],
-        "complication": [
+        "parameters": [
             {
-                "id": "complication1",
-                "content": "Severe bradycardia and hypotension"
+                "id": "param_1",
+                "text": "Mean Arterial Pressure (MAP)"
             },
             {
-                "id": "complication2",
-                "content": "Exacerbation of hypotension and compromised coronary perfusion"
+                "id": "param_2",
+                "text": "Serum potassium level"
             },
             {
-                "id": "complication3",
-                "content": "Cardiogenic shock"
+                "id": "param_3",
+                "text": "Urine Output"
             },
             {
-                "id": "complication4",
-                "content": "Pulmonary edema and respiratory failure"
+                "id": "param_4",
+                "text": "Temperature"
             },
             {
-                "id": "complication5",
-                "content": "Delayed or inappropriate treatment"
+                "id": "param_5",
+                "text": "Pain score"
             }
         ]
     },
     "correctResponse": {
-        "action": [
-            "action2",
-            "action3",
-            "action4",
-            "action5"
+        "actions": [
+            "action_2",
+            "action_4"
         ],
-        "reason": [
-            "reason2",
-            "reason3",
-            "reason4",
-            "reason5"
-        ],
-        "complication": [
-            "complication2",
-            "complication3",
-            "complication4",
-            "complication5"
+        "condition": "condition_1",
+        "parameters": [
+            "param_1",
+            "param_3"
         ]
     },
-    "isolation": "standard",
-    "sentinelStatus": "deep_healed_v2026"
+    "rationale": {
+        "correct": "The client's clinical presentation—hypotension (BP 90/60), tachycardia (HR 110), cool/clammy skin, bibasilar crackles, elevated BNP, and low urine output following an inferior wall MI—strongly indicates Cardiogenic Shock. The heart's pumping ability is failing, leading to decreased cardiac output and subsequent hypoperfusion. The priority actions are to notify the provider immediately to escalate care and to administer a cautious fluid bolus to optimize preload without exacerbating pulmonary edema. Monitoring MAP and urine output are the most critical parameters to assess the adequacy of perfusion to vital organs.",
+        "answerBreakdown": [
+            {
+                "optionId": "action_2",
+                "content": "Correct. A cautious fluid bolus (e.g., 250-500 mL) is often a first-line intervention in right-sided or inferior MI-induced cardiogenic shock to improve preload and, consequently, cardiac output and blood pressure."
+            },
+            {
+                "optionId": "action_4",
+                "content": "Correct. The client's rapid deterioration into a shock state is a medical emergency. Notifying the provider is a critical safety action to facilitate rapid escalation of care, such as initiating vasopressors or inotropes."
+            },
+            {
+                "optionId": "condition_1",
+                "content": "Correct. This is the central problem. The MI has damaged the myocardium, impairing contractility and leading to pump failure, which is the definition of cardiogenic shock."
+            },
+            {
+                "optionId": "param_1",
+                "content": "Correct. MAP is a direct indicator of systemic perfusion pressure. A MAP below 65 mmHg indicates inadequate organ perfusion. Tracking this value is essential to guide therapy (fluids, vasopressors)."
+            },
+            {
+                "optionId": "param_3",
+                "content": "Correct. Urine output is a sensitive indicator of renal and end-organ perfusion. The client's oliguria (20 mL/hr) is a key sign of hypoperfusion and worsening shock."
+            },
+            {
+                "optionId": "action_1",
+                "content": "Incorrect. Metoprolol is a beta-blocker with negative inotropic and chronotropic effects. It is contraindicated as it would worsen hypotension, decrease cardiac output, and deepen the shock state. The order specifically states to hold for SBP < 100 mmHg."
+            },
+            {
+                "optionId": "action_3",
+                "content": "Incorrect. Nitroglycerin is a vasodilator. Increasing the rate would cause further vasodilation, decrease preload, and severely worsen the client's hypotension, further compromising coronary perfusion."
+            },
+            {
+                "optionId": "action_5",
+                "content": "Incorrect. While the client is tachypneic, their SpO2 is 92% on 2L NC. Intubation may become necessary, but it is not the immediate priority action. Stabilizing circulation is the first step."
+            },
+            {
+                "optionId": "condition_2",
+                "content": "Incorrect. Hypovolemic shock is caused by fluid loss. This client has signs of fluid overload (crackles, elevated BNP), not depletion."
+            },
+            {
+                "optionId": "condition_3",
+                "content": "Incorrect. Anaphylactic shock is a severe allergic reaction. There is no evidence of an allergen exposure in the clinical scenario."
+            },
+            {
+                "optionId": "param_2",
+                "content": "Incorrect. While important, the client's potassium is within normal limits and is not a primary indicator for monitoring acute hemodynamic instability in cardiogenic shock."
+            },
+            {
+                "optionId": "param_4",
+                "content": "Incorrect. The client is afebrile. Temperature is not a key parameter for monitoring perfusion in this non-septic shock state."
+            },
+            {
+                "optionId": "param_5",
+                "content": "Incorrect. While pain management is important in MI, the immediate life-threat is circulatory collapse. Therefore, perfusion parameters (MAP, UOP) take priority over the pain score at this critical moment."
+            }
+        ],
+        "clinicalPearls": [
+            "Cardiogenic shock is a major cause of death in acute MI, characterized by hypotension (SBP < 90 mmHg or MAP < 65 mmHg) and signs of end-organ hypoperfusion (e.g., oliguria, altered mental status).",
+            "In inferior wall MIs, which can affect the right ventricle, clients may be preload-dependent. A cautious fluid challenge is often used before starting vasopressors.",
+            "Always question and hold orders for medications like beta-blockers and nitrates if the client's hemodynamic parameters are outside the safe range. Critical thinking supersedes automatically following orders."
+        ],
+        "questionTrap": "The primary trap is focusing on the MI diagnosis and automatically choosing standard MI interventions (like increasing nitroglycerin for pain or giving the ordered beta-blocker) without first assessing and addressing the life-threatening circulatory collapse. Always prioritize C-A-B (Circulation, Airway, Breathing) in a deteriorating patient.",
+        "mnemonic": {
+            "title": "SHOCK Management Priorities",
+            "expansion": "F-O-P (Fluid, Oxygen, Pressors). First, optimize FLUID status (cautious bolus). Second, ensure OXYGENATION. Third, use PRESSORS (like norepinephrine) if hypotension persists. This helps prioritize initial actions."
+        },
+        "reviewUnits": [
+            "Cardiovascular Disorders",
+            "Pharmacology",
+            "Critical Care Nursing"
+        ]
+    },
+    "scoring": {
+        "method": "Rationale (Linked)",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Prioritize Hypotheses",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    }
 }

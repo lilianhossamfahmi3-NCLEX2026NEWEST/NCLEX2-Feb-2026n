@@ -1,67 +1,295 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-4789-a012-34567890abcd",
     "type": "highlight",
-    "stem": "The patient is exhibiting signs of sepsis. Review the nurse's notes below. Highlight the findings that are most indicative of sepsis and require immediate action.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is reviewing the 15:00 progress note. For the client with pneumonia, highlight the 4 findings that most strongly indicate progression to septic shock.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "history of hypertension"
+        },
+        {
+            "id": "opt_02",
+            "text": "new-onset confusion"
+        },
+        {
+            "id": "opt_03",
+            "text": "reports feeling chilled"
+        },
+        {
+            "id": "opt_04",
+            "text": "systolic BP of 84 mmHg"
+        },
+        {
+            "id": "opt_05",
+            "text": "serum lactate of 4.2 mmol/L"
+        },
+        {
+            "id": "opt_06",
+            "text": "adult child is anxious"
+        },
+        {
+            "id": "opt_07",
+            "text": "urine output of <0.5 mL/kg/hr"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_02",
+        "opt_04",
+        "opt_05",
+        "opt_07"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact and Droplet",
+            "age": "78",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "15:00 SBAR: Patient John Smith, 78-year-old male, admitted 3 days ago for pneumonia. History of hypertension, managed with medication. Presenting concerns: escalating fever, rapid heart rate, declining blood pressure, raising sepsis suspicion. 07:00: Temp 38.8°C, HR 110, RR 24, BP 90/60 mmHg. 11:00: Increasingly lethargic, decreased urine output (<30mL/hr past 4 hours). New confusion; disoriented to time/place. WBC 15,000/mm3. Lactate 3.5 mmol/L. Blood cultures ordered, pending. IV fluids (Normal Saline 100mL/hr), Oxygen 2L NC. 14:00: Vitals declining, BP 85/55 mmHg, SpO2 92%. Physician notified, concern for septic shock. Orders: repeat blood cultures, broad-spectrum antibiotics (Vancomycin). Chills, body aches reported. Code status: Full code. Family anxious. Requesting immediate evaluation/intervention. Sepsis concerns escalating due to deterioration. 15:15: Vancomycin infusing.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 15,000/mm3 (High); Lactate: 3.5 mmol/L (High); Creatinine: 2.1 mg/dL (High); Blood cultures: Pending; Procalcitonin: 4.0 ng/mL (High)"
+                "id": "clinical_feed",
+                "title": "Nurses' Notes",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 09:00",
+                        "noteType": "Admission Note",
+                        "text": "S: Client reports productive cough, fever, and shortness of breath for 3 days. States, 'I feel too weak to get up.'\nB: 78-year-old male with a history of hypertension. Lives alone in a rural community; adult child provides transportation and expresses concern about his recent decline. Admitted from the emergency department with a diagnosis of community-acquired pneumonia.\nA: Alert and oriented x3. Lungs with crackles in the right lower lobe. SpO2 94% on 2L NC. Skin warm and dry. Denies chest pain. Appears fatigued but in no acute distress.\nR: Obtain blood and sputum cultures. Start IV Normal Saline at 75 mL/hr. Administer first dose of IV levofloxacin after cultures are drawn. Continue supplemental oxygen. Monitor vital signs and respiratory status every 4 hours."
+                    },
+                    {
+                        "timestamp": "Day 3, 15:00",
+                        "noteType": "Progress Note",
+                        "text": "S: Client is difficult to arouse and minimally responsive. Adult child is anxious and at the bedside.\nB: Client's condition has deteriorated over the last 8 hours despite IV antibiotics and fluids. He has a [history of hypertension](opt_01). \nA: Presents with [new-onset confusion](opt_02) and lethargy. Vital signs show persistent tachycardia and a [systolic BP of 84 mmHg](opt_04). Client [reports feeling chilled](opt_03). Labs from 14:30 show a [serum lactate of 4.2 mmol/L](opt_05). Monitored [urine output of <0.5 mL/kg/hr](opt_07) over the past 4 hours. Skin is cool and clammy.\nR: Notified provider of findings; septic shock is suspected. Received orders for a fluid bolus, norepinephrine infusion, and repeat labs. The [adult child is anxious](opt_06) and requires frequent updates. Continuing to monitor hemodynamic status closely."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: Temp 38.8°C, HR 110, RR 24, BP 90/60, SpO2 95%; 11:00: Temp 39.2°C, HR 115, RR 26, BP 88/58, SpO2 93%; 14:00: Temp 39.5°C, HR 120, RR 28, BP 85/55, SpO2 92%; 15:00: Temp 39.6°C, HR 122, RR 29, BP 84/54, SpO2 91%"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "Day 3, 07:00",
+                        "Temp": "101.8°F (38.8°C)",
+                        "HR": "110 bpm",
+                        "RR": "24/min",
+                        "BP": "98/60 mmHg (MAP 73)",
+                        "SpO2": "95% on 2L NC"
+                    },
+                    {
+                        "Time": "Day 3, 11:00",
+                        "Temp": "102.6°F (39.2°C)",
+                        "HR": "118 bpm",
+                        "RR": "26/min",
+                        "BP": "90/58 mmHg (MAP 69)",
+                        "SpO2": "93% on 2L NC"
+                    },
+                    {
+                        "Time": "Day 3, 15:00",
+                        "Temp": "103.1°F (39.5°C)",
+                        "HR": "125 bpm",
+                        "RR": "28/min",
+                        "BP": "84/54 mmHg (MAP 64)",
+                        "SpO2": "91% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Vancomycin 1g IV q12h - Started 15:15; Acetaminophen 650mg PO q4h PRN for fever; Oxygen 2L NC"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC Count",
+                        "Result": "18.5",
+                        "Unit": "x10³/μL",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Serum Lactate",
+                        "Result": "4.2",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "1.9",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "12.5",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.5",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Blood Culture",
+                        "Result": "Pending",
+                        "Unit": "",
+                        "Reference": "No growth",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "GCS 13 (E3, V4, M6). Lethargic, slow to respond. Disoriented to time and place."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Tachycardia with S1/S2 heard. Peripheral pulses +1 and thready. Capillary refill >3 seconds. Skin is cool and clammy."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Tachypneic with shallow respirations. Coarse crackles auscultated in right lower lobe. Increased work of breathing."
+                    },
+                    {
+                        "System": "Genitourinary",
+                        "Findings": "Indwelling urinary catheter in place. 60 mL of dark amber urine in the last 4 hours."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Procedure": "Chest X-ray (PA and Lateral)",
+                        "Date": "Day 1",
+                        "Report": "FINDINGS: Lungs show evidence of a dense consolidation in the right lower lobe, consistent with lobar pneumonia. No significant pleural effusion or pneumothorax is identified. The cardiomediastinal silhouette is within normal limits.\n\nIMPRESSION: Right lower lobe pneumonia."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": [
+                    {
+                        "Date/Time": "Day 3, 15:05",
+                        "Action": "Administer 0.9% Sodium Chloride 30 mL/kg IV bolus over 1 hour.",
+                        "Status": "STAT"
+                    },
+                    {
+                        "Date/Time": "Day 3, 15:05",
+                        "Action": "Initiate Norepinephrine infusion, titrate to maintain MAP >65 mmHg.",
+                        "Status": "STAT"
+                    },
+                    {
+                        "Date/Time": "Day 3, 15:05",
+                        "Action": "Obtain repeat serum lactate and blood cultures.",
+                        "Status": "STAT"
+                    },
+                    {
+                        "Date/Time": "Day 1, 09:30",
+                        "Action": "Vancomycin 1g in 250mL D5W IVPB every 12 hours.",
+                        "Status": "Standing"
+                    },
+                    {
+                        "Date/Time": "Day 1, 09:30",
+                        "Action": "Acetaminophen 650 mg PO every 6 hours PRN for Temp >101.5°F.",
+                        "Status": "PRN"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Vancomycin",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "q12h",
+                        "Last Administered": "Day 3, 09:30"
+                    },
+                    {
+                        "Medication": "0.9% Sodium Chloride",
+                        "Dose": "75 mL/hr",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last Administered": "Ongoing"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "q6h PRN Fever",
+                        "Last Administered": "Day 3, 11:15"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+    "rationale": {
+        "correct": "The combination of hypotension, new-onset confusion, elevated lactate, and decreased urine output are hallmark signs of septic shock. This pattern indicates widespread vasodilation and capillary leakage (distributive shock), leading to systemic hypoperfusion. The body's cells switch to anaerobic metabolism, producing lactate. The brain (confusion), kidneys (oliguria), and cardiovascular system (hypotension) are all showing signs of critical dysfunction due to inadequate oxygen delivery.",
+        "incorrect": "While feeling chilled is a common symptom of infection and family anxiety is a valid psychosocial concern, they are not specific diagnostic criteria for septic shock. A history of hypertension is background data and does not reflect the client's acute physiological state. The priority is to recognize the objective evidence of end-organ damage resulting from sepsis.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Incorrect. A history of hypertension is part of the client's past medical history. While it provides context, it is not an acute finding indicating the progression to septic shock."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. New-onset confusion or any acute change in mental status is a critical sign of cerebral hypoperfusion. It is a key component of the qSOFA score and indicates severe sepsis or septic shock."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. Reporting feeling chilled is a subjective symptom associated with fever and systemic infection (rigors). It is not a specific indicator of the severe hemodynamic collapse seen in septic shock."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. A systolic BP of 84 mmHg (and a MAP <65 mmHg) is a defining characteristic of shock. This level of hypotension indicates that the circulatory system is failing to adequately perfuse vital organs."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. A serum lactate >2 mmol/L (and especially >4 mmol/L) is a strong indicator of tissue hypoxia. It reflects widespread cellular distress from anaerobic metabolism and is a key marker for septic shock."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. The family's emotional state is an important psychosocial factor for the nurse to address but is not a clinical finding related to the client's physiological progression to septic shock."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. Urine output less than 0.5 mL/kg/hr is defined as oliguria and is a sign of acute kidney injury due to hypoperfusion. It is a critical indicator of end-organ damage in septic shock."
+            }
+        ],
+        "clinicalPearls": [
+            "Septic shock is defined by persistent hypotension requiring vasopressors to maintain a MAP ≥65 mmHg and a serum lactate level >2 mmol/L despite adequate fluid resuscitation.",
+            "The qSOFA (Quick Sepsis-related Organ Failure Assessment) score uses three criteria: altered mental status (GCS <15), fast respiratory rate (≥22/min), and low blood pressure (SBP ≤100 mmHg). A score of 2 or more suggests a high risk for poor outcomes.",
+            "Early and aggressive fluid resuscitation (30 mL/kg crystalloid) is a cornerstone of sepsis management, but clients must be monitored closely for signs of fluid overload."
+        ],
+        "questionTrap": "The trap is focusing on general signs of infection (like feeling chilled) rather than the specific signs of end-organ dysfunction that define septic shock. Candidates may overlook the more subtle but critical data like urine output or lactate levels in favor of more obvious vital signs.",
+        "mnemonic": "To remember the key indicators of septic shock (perfusion-related), think 'L.O.U.D.':\nL - Lactate elevated (>2 mmol/L)\nO - Oliguria (Urine output <0.5 mL/kg/hr)\nU - Unresponsive (Altered mental status)\nD - Dropping blood pressure (Hypotension, MAP <65 mmHg)",
+        "reviewUnits": [
+            "Sepsis and Septic Shock",
+            "Hemodynamic Monitoring",
+            "Acid-Base Balance",
+            "Pharmacology: Vasopressors"
         ]
     },
-    "rationale": {
-        "correct": "The correct findings to highlight are: 'Temp 38.8°C', 'HR 110', 'RR 24', 'BP 90/60', 'lethargic', and 'WBC 15,000'. These findings collectively indicate sepsis. Elevated temperature, heart rate, respiratory rate, and white blood cell count are key indicators of systemic inflammation. Hypotension (BP 90/60 mmHg) and lethargy further support the diagnosis, suggesting organ dysfunction from inadequate perfusion. Decreased urine output (mentioned in SBAR) also contributes to this assessment. Elevated lactate (from Labs tab) is another critical indicator.",
-        "incorrect": "Failing to recognize and highlight these key indicators suggests a lack of understanding of the systemic inflammatory response and the clinical presentation of sepsis. Overlooking these signs could lead to delayed treatment and potentially adverse patient outcomes. While 'chills and body aches' are symptoms, they are less specific to sepsis than the vital sign abnormalities and lab results. 'Family at bedside' is irrelevant to the diagnosis of sepsis.",
-        "clinicalPearls": [
-            "Early recognition of sepsis is critical for improving patient outcomes.",
-            "Sepsis is a life-threatening condition requiring prompt intervention.",
-            "Monitor vital signs closely and be alert for subtle changes indicating sepsis.",
-            "Lactate levels are a key indicator of tissue hypoperfusion in sepsis.",
-            "Consider the 'source' of infection when assessing sepsis (e.g., pneumonia in this case)."
-        ],
-        "questionTrap": {
-            "trap": "The question trap here is focusing solely on subjective symptoms like chills and body aches, rather than the objective vital sign data and lab values that are more definitive indicators of sepsis.",
-            "howToOvercome": "To overcome this trap, prioritize objective data (vital signs, lab results) over subjective symptoms. Remember that sepsis is a systemic response, and key indicators will be reflected in these parameters. Consider the patient's history (pneumonia) as a potential source."
-        },
-        "mnemonic": {
-            "title": "S.E.P.S.I.S.",
-            "expansion": "S - Shivering, fever, or very cold; E - Extreme pain or general discomfort; P - Pale or discolored skin; S - Sleepy, difficult to rouse, confused; I - \"I feel like I might die\"; S - Short of breath"
-        }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 4
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Reduction of Risk Potential",
+        "topicTags": [
+            "Infection Control: Sepsis & Multi-Drug Resistance",
+            "Hemodynamic Instability",
+            "Critical Care"
+        ]
+    },
+    "correctOptionId": "opt_02",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:56:05.237Z"
 }

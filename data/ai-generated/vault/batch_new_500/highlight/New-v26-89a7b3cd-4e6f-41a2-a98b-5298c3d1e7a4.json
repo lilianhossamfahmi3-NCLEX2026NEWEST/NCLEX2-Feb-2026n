@@ -1,75 +1,300 @@
 {
     "id": "New-v26-89a7b3cd-4e6f-41a2-a98b-5298c3d1e7a4",
-    "type": "highlight",
-    "stem": "The nurse is caring for a patient receiving mechanical ventilation. Review the patient's information and identify findings that require immediate intervention. Click to highlight the findings in the text below.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is reviewing the client's electronic health record. Based on the trending data and assessment findings, which complication is the client most likely experiencing?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Tension Pneumothorax"
+        },
+        {
+            "id": "opt_02",
+            "text": "Acute Respiratory Distress Syndrome (ARDS)"
+        },
+        {
+            "id": "opt_03",
+            "text": "Mucus Plug Obstruction"
+        },
+        {
+            "id": "opt_04",
+            "text": "Pulmonary Embolism"
+        }
+    ],
+    "correctOptionId": "opt_01",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "name": "Marcus Thorne",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Mr. Smith is a 68-year-old male admitted for pneumonia, intubated and mechanically ventilated due to increasing respiratory distress. B: His history includes COPD and hypertension. Intubated and ventilated at 04:00 due to worsening respiratory status. A: At 07:00, HR 110 bpm, BP 100/60 mmHg, RR 28 breaths/min (set rate 14), SpO2 92%, ETCO2 48 mmHg. PIP is 35 cm H2O. Auscultation reveals diminished breath sounds on the left. Restless and agitated, possibly due to discomfort or hypoxemia. ABG from 06:30: pH 7.30, PaCO2 55 mmHg, PaO2 65 mmHg, HCO3 25 mEq/L. R: Concerned about possible pneumothorax given diminished breath sounds and worsening respiratory acidosis. Request stat chest x-ray to rule out pneumothorax and immediate ventilator adjustments to improve oxygenation and ventilation. Consider increasing FiO2 and/or adjusting tidal volume.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Arterial Blood Gas (06:30):\npH: 7.30\nPaCO2: 55 mmHg\nPaO2: 65 mmHg\nHCO3: 25 mEq/L\nSaO2: 92%\n\nComplete Blood Count (04:00):\nWBC: 14,000/uL\nHemoglobin: 14 g/dL\nHematocrit: 42%"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 02:00",
+                        "text": "S: Client is a 68-year-old male presenting to the ED with a 3-day history of worsening dyspnea, productive cough with purulent sputum, and fever.\nB: History of COPD and hypertension. Client lives alone in a rural area and reports delaying care due to transportation issues. He is a former smoker (40-pack-years, quit 5 years ago).\nA: Alert and oriented x3 but in significant respiratory distress. SpO2 is 85% on room air. Bilateral coarse crackles auscultated. Tachycardic at 120/min. Diagnosed with severe community-acquired pneumonia.\nR: Admitted to ICU. Initiated on BiPAP, broad-spectrum IV antibiotics (Cefepime), and IV fluids. Requires close monitoring for impending respiratory failure."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 07:00",
+                        "text": "S: Reporting on client who experienced acute respiratory decompensation requiring intubation.\nB: Client was intubated at 04:00 due to worsening hypoxemia and respiratory muscle fatigue despite BiPAP support. Post-intubation chest x-ray confirmed proper ETT placement.\nA: Client is now tachycardic to 118/min, hypotensive at 94/58 mmHg (MAP 70), and tachypneic at 28 breaths/min over the set ventilator rate of 14. Peak inspiratory pressure (PIP) has acutely risen to 38 cm H2O. Auscultation reveals diminished breath sounds over the entire left lung field, with noted tracheal deviation to the right. Client is restless and agitated (RASS +2).\nR: High suspicion for a left-sided tension pneumothorax secondary to barotrauma. Have notified provider and respiratory therapist STAT. Preparing for emergent needle decompression and chest tube insertion."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00:\nHR: 110 bpm\nBP: 100/60 mmHg\nRR: 28 breaths/min\nSpO2: 92%\nETCO2: 48 mmHg\nPIP: 35 cm H2O"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "04:00 (Post-Intubation)",
+                        "HR": "98/min",
+                        "BP": "124/78 mmHg (MAP 93)",
+                        "RR": "14/min (Ventilator)",
+                        "SpO2": "95% on 60% FiO2",
+                        "Temp": "101.1°F (38.4°C)",
+                        "PIP": "28 cm H2O"
+                    },
+                    {
+                        "Time": "06:00",
+                        "HR": "105/min",
+                        "BP": "110/70 mmHg (MAP 83)",
+                        "RR": "22/min (Client)",
+                        "SpO2": "93% on 60% FiO2",
+                        "Temp": "101.3°F (38.5°C)",
+                        "PIP": "32 cm H2O"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR": "118/min",
+                        "BP": "94/58 mmHg (MAP 70)",
+                        "RR": "28/min (Client)",
+                        "SpO2": "91% on 60% FiO2",
+                        "Temp": "101.4°F (38.6°C)",
+                        "PIP": "38 cm H2O"
+                    }
+                ]
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Panel": "Arterial Blood Gas (06:30)",
+                        "Results": [
+                            {
+                                "Name": "pH",
+                                "Result": "7.30",
+                                "Unit": "",
+                                "Reference": "7.35-7.45",
+                                "Status": "Low"
+                            },
+                            {
+                                "Name": "PaCO2",
+                                "Result": "55",
+                                "Unit": "mmHg",
+                                "Reference": "35-45",
+                                "Status": "High"
+                            },
+                            {
+                                "Name": "PaO2",
+                                "Result": "65",
+                                "Unit": "mmHg",
+                                "Reference": "80-100",
+                                "Status": "Low"
+                            },
+                            {
+                                "Name": "HCO3",
+                                "Result": "25",
+                                "Unit": "mEq/L",
+                                "Reference": "22-26",
+                                "Status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "Panel": "Complete Blood Count (02:00)",
+                        "Results": [
+                            {
+                                "Name": "WBC",
+                                "Result": "18.5",
+                                "Unit": "x 10³/μL",
+                                "Reference": "4.5-11.0",
+                                "Status": "High"
+                            },
+                            {
+                                "Name": "Hgb",
+                                "Result": "14.2",
+                                "Unit": "g/dL",
+                                "Reference": "13.5-17.5",
+                                "Status": "Normal"
+                            },
+                            {
+                                "Name": "Platelets",
+                                "Result": "220",
+                                "Unit": "x 10³/μL",
+                                "Reference": "150-450",
+                                "Status": "Normal"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "07:00: Restless and agitated, RASS +2. Pupils equal and reactive to light."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "07:00: Tachycardia with S1, S2 audible. Pulses +1 peripherally. No edema noted."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "07:00: Asymmetrical chest wall movement noted. Tracheal deviation to the right. Diminished breath sounds over the entire left lung field. Subcutaneous emphysema palpated on the left upper chest. Client is mechanically ventilated via endotracheal tube."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No prior radiology reports available."
+                "content": {
+                    "ReportType": "Chest X-ray (Portable)",
+                    "Timestamp": "Day 1, 07:15",
+                    "Indication": "Acute respiratory distress, hypotension, and suspected pneumothorax in a mechanically ventilated patient.",
+                    "Findings": "Large left-sided pneumothorax is identified with complete collapse of the left lung. There is a significant mediastinal and tracheal shift to the right. The endotracheal tube tip is appropriately positioned 4 cm above the carina. Diffuse interstitial opacities are present bilaterally, consistent with underlying pneumonia/ARDS.",
+                    "Impression": "Left-sided tension pneumothorax requiring emergent intervention."
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "04:30: Cefepime 2g IV q12h\n05:00: Pantoprazole 40mg IV daily\n06:00: Albuterol/Ipratropium Nebulizer\n07:00: PRN Morphine 2mg IV (given)"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "OrderDate": "Day 1, 04:00",
+                        "Action": "Mechanical Ventilation: Assist-Control (AC) mode, Rate 14/min, Tidal Volume 450 mL, FiO2 60%, PEEP 5 cm H2O",
+                        "Status": "Active"
+                    },
+                    {
+                        "OrderDate": "Day 1, 07:05",
+                        "Action": "STAT Portable Chest X-ray",
+                        "Status": "Completed"
+                    },
+                    {
+                        "OrderDate": "Day 1, 07:05",
+                        "Action": "Prepare for STAT left-sided chest tube insertion",
+                        "Status": "Active"
+                    },
+                    {
+                        "OrderDate": "Day 1, 07:10",
+                        "Action": "Norepinephrine IV infusion, titrate to maintain MAP > 65 mmHg",
+                        "Status": "Active"
+                    },
+                    {
+                        "OrderDate": "Day 1, 02:30",
+                        "Action": "Cefepime 2g IV",
+                        "Frequency": "Every 12 hours",
+                        "Status": "Active"
+                    },
+                    {
+                        "OrderDate": "Day 1, 02:30",
+                        "Action": "Lorazepam 1 mg IV PRN for agitation (RASS > +1)",
+                        "Frequency": "Every 4 hours",
+                        "Status": "Available"
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Mr. Smith is a 68-year-old male admitted for pneumonia, intubated and mechanically ventilated due to increasing respiratory distress. B: His history includes COPD and hypertension. Intubated and ventilated at 04:00 due to worsening respiratory status. A: At 07:00, HR 110 bpm, BP 100/60 mmHg, RR 28 breaths/min (set rate 14), SpO2 92%, ETCO2 48 mmHg. PIP is 35 cm H2O. Auscultation reveals diminished breath sounds on the left. Restless and agitated, possibly due to discomfort or hypoxemia. ABG from 06:30: pH 7.30, PaCO2 55 mmHg, PaO2 65 mmHg, HCO3 25 mEq/L. R: Concerned about possible pneumothorax given diminished breath sounds and worsening respiratory acidosis. Request stat chest x-ray to rule out pneumothorax and immediate ventilator adjustments to improve oxygenation and ventilation. Consider increasing FiO2 and/or adjusting tidal volume."
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Cefepime",
+                        "Dose": "2g",
+                        "Route": "IV",
+                        "Frequency": "Q12H",
+                        "LastAdministered": "Day 1, 04:30"
+                    },
+                    {
+                        "Medication": "Pantoprazole",
+                        "Dose": "40mg",
+                        "Route": "IV",
+                        "Frequency": "Daily",
+                        "LastAdministered": "Day 1, 05:00"
+                    },
+                    {
+                        "Medication": "Norepinephrine Infusion",
+                        "Dose": "5 mcg/min",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "LastAdministered": "Day 1, 07:10 (Initiated)"
+                    },
+                    {
+                        "Medication": "Lorazepam",
+                        "Dose": "1mg",
+                        "Route": "IV",
+                        "Frequency": "Q4H PRN",
+                        "LastAdministered": "Not administered"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
-        ]
-    },
     "rationale": {
-        "correct": "The elevated respiratory rate (28 breaths/min) indicates increased work of breathing and inadequate ventilation. Diminished breath sounds on the left suggest possible pneumothorax or lung collapse. Low blood pressure (100/60 mmHg) could indicate hypovolemia or sepsis. Elevated ETCO2 (48 mmHg) combined with ABG (PaCO2 55 mmHg, pH 7.30) confirms respiratory acidosis. Low PaO2 of 65 mmHg indicates hypoxemia. Elevated PIP (35 cm H2O) suggests increased airway resistance or decreased lung compliance.",
-        "incorrect": "Elevated WBC (14,000/uL) suggests infection but doesn't require *immediate* intervention given the acute respiratory distress and existing antibiotic order. Elevated HR (110 bpm) is likely compensatory to hypoxemia and respiratory distress. Morphine administration requires monitoring for respiratory depression, but is not the priority.",
-        "clinicalPearls": [
-            "Assess breath sounds bilaterally post-intubation to confirm tube placement and rule out pneumothorax.",
-            "Monitor PIP trends as an indicator of airway resistance or lung compliance changes.",
-            "Respiratory acidosis in ventilated patients requires immediate assessment of ventilator settings and underlying causes."
+        "correct": "The client's presentation is a classic example of a tension pneumothorax, a life-threatening complication of positive pressure ventilation. The pathophysiology involves air entering the pleural space without a means of escape, causing lung collapse and a mediastinal shift. This shift compresses the great vessels (vena cava), obstructing venous return to the heart, which leads to profound hypotension and obstructive shock. The combination of a sudden rise in PIP, unilateral diminished breath sounds, tracheal deviation, and hemodynamic collapse is pathognomonic for this condition.",
+        "incorrect": "While other options are potential complications in a critically ill client, they do not fit the specific cluster of signs. ARDS involves bilateral lung injury. A mucus plug would not typically cause tracheal deviation or severe hypotension. A pulmonary embolism does not explain the unilateral chest findings.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The constellation of findings—acutely rising PIP (38 cm H2O), unilateral (left-sided) diminished breath sounds, tracheal deviation to the right, and sudden hypotension (94/58 mmHg)—is the hallmark of a tension pneumothorax."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. While the client has risk factors for ARDS, this condition is characterized by bilateral diffuse infiltrates and crackles. The client's assessment reveals unilateral findings and a clear mediastinal shift, which is not typical for ARDS."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. A mucus plug can cause a high PIP and diminished breath sounds on one side due to obstruction. However, it would not cause tracheal deviation or the severe, rapid-onset hypotension seen in this client, which results from mediastinal shift and impaired cardiac filling."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. A massive pulmonary embolism can cause sudden hypotension and hypoxia. However, it does not explain the asymmetrical chest findings, such as unilateral diminished breath sounds, rising PIP, and tracheal deviation. The primary issue in a PE is perfusion, not ventilation mechanics in this specific way."
+            }
         ],
-        "questionTrap": {
-            "trap": "Focusing solely on one abnormal lab value (e.g., WBC) or vital sign (e.g., HR) without considering the overall clinical picture.",
-            "howToOvercome": "Prioritize findings that directly impact oxygenation and ventilation, such as respiratory rate, breath sounds, blood pressure, ABGs, ETCO2, and PIP. Consider the interrelationship of these findings and their impact on the patient's respiratory status."
-        },
+        "clinicalPearls": [
+            "In any mechanically ventilated patient who suddenly decompensates, always suspect a tension pneumothorax. The combination of respiratory distress, high ventilator pressures, and hypotension is a red flag.",
+            "Tracheal deviation is a late and ominous sign of tension pneumothorax. It indicates significant pressure in the chest cavity and requires immediate intervention (needle decompression followed by chest tube) to prevent cardiovascular collapse.",
+            "Barotrauma, or lung injury from excessive pressure, is a significant risk in patients with pre-existing lung disease like COPD, as their lung tissue is less compliant and more prone to rupture under positive pressure ventilation."
+        ],
+        "questionTrap": "The primary trap is focusing on a single abnormal finding, such as hypoxia or hypotension, which can be present in all the listed conditions. To overcome this, the nurse must synthesize the entire clinical picture, recognizing that the unique combination of high airway pressure, unilateral lung collapse, and tracheal shift points specifically to tension pneumothorax.",
         "mnemonic": {
             "title": "DOPES",
-            "expansion": "Displacement, Obstruction, Pneumothorax, Equipment, Stacked Breaths"
-        }
+            "expansion": "For sudden deterioration in a ventilated patient, check for: D - Displacement of the tube, O - Obstruction (mucus plug), P - Pneumothorax, E - Equipment failure, S - Stacked breaths (auto-PEEP)."
+        },
+        "reviewUnits": [
+            "Critical Care Nursing",
+            "Mechanical Ventilation",
+            "Respiratory Emergencies"
+        ]
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:13:50.888Z"
 }

@@ -1,79 +1,303 @@
 {
-    "id": "New-v26-7a8b9c2d-3e4f-5g6h-7i8j-9k0l1m2n3o4p",
+    "id": "NGN-HL-2026-Neuro-ICP-01",
     "type": "highlight",
-    "stem": "The patient is exhibiting signs of increased intracranial pressure (ICP). Review the nursing note below and highlight all findings that support this diagnosis.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "stem": "The nurse reviews the 07:00 progress note in the Clinical Feed. Highlight the findings that indicate the client is developing increased intracranial pressure (ICP).",
+    "options": [
+        {
+            "id": "span_01",
+            "text": "Client is less responsive to verbal stimuli and difficult to arouse."
+        },
+        {
+            "id": "span_02",
+            "text": "GCS has declined to 11 (E2, V4, M5) from 14 on admission."
+        },
+        {
+            "id": "span_03",
+            "text": "Neurological assessment reveals anisocoria, with the right pupil at 6 mm and sluggishly reactive to light."
+        },
+        {
+            "id": "span_04",
+            "text": "New-onset left-sided weakness is present, with motor strength 1/5."
+        },
+        {
+            "id": "span_05",
+            "text": "Vital signs reflect Cushing's response: BP 200/100 mmHg, HR 54/min, RR 24/min and irregular."
+        },
+        {
+            "id": "span_06",
+            "text": "Client reports a worsening headache, rating it 8/10."
+        },
+        {
+            "id": "span_07",
+            "text": "Acetaminophen 650 mg was administered at 06:00 with minimal relief."
+        },
+        {
+            "id": "span_08",
+            "text": "Neurologist has been notified of the change in condition."
+        }
+    ],
+    "correctOptionIds": [
+        "span_01",
+        "span_02",
+        "span_03",
+        "span_04",
+        "span_05"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Jameson Walker",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Jameson Walker, 68-year-old male, admitted at 02:00 today for acute ischemic stroke, right middle cerebral artery (MCA) occlusion. NIHSS score upon admission was 18. B: History of hypertension, hyperlipidemia, and atrial fibrillation. Last dose of IV Alteplase completed at 03:30. A: At 07:00, patient's GCS has decreased from 14 to 11. Pupils are unequal; right pupil 6mm and sluggishly reactive, left pupil 3mm and reactive to light. New onset of left-sided weakness. Requires increased oxygen supplementation to maintain SpO2 >94%. BP trending upward. R: Recommend immediate neurological assessment and CT scan of the head without contrast to evaluate for increased ICP and possible hemorrhagic conversion. Consider administering mannitol per protocol. Notify neurosurgery for emergent consultation if ICP continues to rise.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Jameson Walker, 68-year-old male, admitted at 02:00 today for acute ischemic stroke, right middle cerebral artery (MCA) occlusion. NIHSS score upon admission was 18. B: History of hypertension, hyperlipidemia, and atrial fibrillation. Last dose of IV Alteplase completed at 03:30. A: At 07:00, patient's GCS has decreased from 14 to 11. Pupils are unequal; right pupil 6mm and sluggishly reactive, left pupil 3mm and reactive to light. New onset of left-sided weakness. Requires increased oxygen supplementation to maintain SpO2 >94%. BP trending upward. R: Recommend immediate neurological assessment and CT scan of the head without contrast to evaluate for increased ICP and possible hemorrhagic conversion. Consider administering mannitol per protocol. Notify neurosurgery for emergent consultation if ICP continues to rise."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (02:00)\nS: Jameson Walker is a 68-year-old male brought in by his adult child after a witnessed syncopal episode and subsequent left-sided facial droop and slurred speech starting at 01:00. \nB: Client has a history of hypertension (non-adherent with medication), hyperlipidemia, and atrial fibrillation (not on anticoagulation). He lives alone in a rural area with limited access to transportation, which delayed seeking immediate care. NIHSS score on admission was 18. IV Alteplase was initiated at 02:30 and completed at 03:30. \nA: On admission, GCS was 14. Pupils equal and reactive. Mild left-sided weakness noted. BP 180/100 mmHg. SpO₂ 96% on room air. \nR: Admitted to the neuro-ICU for post-thrombolytic monitoring. Strict neurological checks, vital signs every 15 minutes. Maintain SBP < 180 mmHg. Head of bed at 30 degrees. Awaiting admission labs and CT scan results.\n\nProgress Note (07:00)\nS: Reporting on Jameson Walker, post-ischemic stroke. Client has shown acute neurological decline over the past hour.\nB: Alteplase infusion was completed at 03:30. Initial post-infusion period was stable.\nA: At 07:00, client is less responsive to verbal stimuli and difficult to arouse. GCS has declined to 11 (E2, V4, M5) from 14 on admission. Neurological assessment reveals anisocoria, with the right pupil at 6 mm and sluggishly reactive to light. New-onset left-sided weakness is present, with motor strength 1/5. Vital signs reflect Cushing's response: BP 200/100 mmHg, HR 54/min, RR 24/min and irregular. Client reports a worsening headache, rating it 8/10. Acetaminophen 650 mg was administered at 06:00 with minimal relief. Neurologist has been notified of the change in condition.\nR: Recommend immediate stat head CT without contrast to rule out hemorrhagic conversion. Prepare for potential administration of mannitol and possible neurosurgical intervention. Continue frequent neuro assessments."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L, K: 4.1 mEq/L, Cl: 100 mEq/L, HCO3: 24 mEq/L, BUN: 18 mg/dL, Creatinine: 1.0 mg/dL, Glucose: 110 mg/dL, INR: 1.2, Platelets: 200,000/uL, WBC: 9,000/uL"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "02:00",
+                        "HR": "90",
+                        "BP": "180/100",
+                        "MAP": "127",
+                        "RR": "20",
+                        "SpO2": "96% on RA",
+                        "Temp °F (°C)": "98.6 (37.0)"
+                    },
+                    {
+                        "Time": "04:00",
+                        "HR": "88",
+                        "BP": "174/96",
+                        "MAP": "122",
+                        "RR": "18",
+                        "SpO2": "95% on RA",
+                        "Temp °F (°C)": "98.8 (37.1)"
+                    },
+                    {
+                        "Time": "06:00",
+                        "HR": "70",
+                        "BP": "190/102",
+                        "MAP": "131",
+                        "RR": "22",
+                        "SpO2": "92% on 2L NC",
+                        "Temp °F (°C)": "99.0 (37.2)"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR": "54",
+                        "BP": "200/100",
+                        "MAP": "133",
+                        "RR": "24 (Irregular)",
+                        "SpO2": "90% on 2L NC",
+                        "Temp °F (°C)": "99.1 (37.3)"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "02:00: BP 180/100, HR 90, RR 20, SpO2 96% on room air, Temp 37.0°C; 04:00: BP 170/95, HR 88, RR 18, SpO2 95% on room air, Temp 37.2°C; 06:00: BP 190/105, HR 95, RR 22, SpO2 92% on 2L NC, Temp 37.5°C; 07:00: BP 200/110, HR 100, RR 24, SpO2 90% on 2L NC, Temp 37.7°C"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Sodium (Na+)",
+                        "Value": "140",
+                        "Unit": "mEq/L",
+                        "Ref Range": "135-145",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Potassium (K+)",
+                        "Value": "4.1",
+                        "Unit": "mEq/L",
+                        "Ref Range": "3.5-5.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Glucose",
+                        "Value": "125",
+                        "Unit": "mg/dL",
+                        "Ref Range": "70-110",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "BUN",
+                        "Value": "18",
+                        "Unit": "mg/dL",
+                        "Ref Range": "10-20",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "1.0",
+                        "Unit": "mg/dL",
+                        "Ref Range": "0.6-1.2",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "INR",
+                        "Value": "1.2",
+                        "Unit": null,
+                        "Ref Range": "0.8-1.2",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Platelets",
+                        "Value": "210",
+                        "Unit": "x10³/μL",
+                        "Ref Range": "150-400",
+                        "Status": "Normal"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Admission (02:00):\nGeneral: Appears stated age, anxious.\nNeurological: GCS 14 (E4, V4, M6). Alert but confused. Left facial droop. Dysarthria. Left upper and lower extremity strength 4/5. Pupils 3mm, equal, round, reactive to light.\nCardiovascular: Atrial fibrillation on monitor. S1/S2 audible. No murmurs.\nRespiratory: Lungs clear to auscultation bilaterally.\n\nFocused Assessment (07:00):\nNeurological: GCS 11 (E2, V4, M5). Arouses to painful stimuli only. Anisocoria noted: Right pupil 6mm, sluggishly reactive; Left pupil 3mm, briskly reactive. Left upper and lower extremity strength 1/5, no movement against gravity."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "CT Head without contrast (02:15)\n\nINDICATION: Acute onset left-sided weakness and facial droop.\n\nFINDINGS: No evidence of acute intracranial hemorrhage. There is subtle loss of gray-white matter differentiation in the right middle cerebral artery (MCA) territory, consistent with early signs of an acute ischemic infarct. No mass effect or midline shift is identified at this time.\n\nIMPRESSION: Early signs of acute right MCA ischemic stroke. No acute hemorrhage."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "02:30: Alteplase 0.9 mg/kg IV; 06:00: Acetaminophen 650 mg PO for headache; 06:00: Aspirin 325 mg PO; PRN: Ondansetron 4mg IV for nausea"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Today @ 02:15",
+                        "Action": "Admit to Neuro-ICU",
+                        "Frequency/Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 02:15",
+                        "Action": "Neurological assessment every 15 minutes for 2 hours, then every 30 minutes",
+                        "Frequency/Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 02:15",
+                        "Action": "Vital signs with neuro checks",
+                        "Frequency/Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 02:15",
+                        "Action": "Maintain Head of Bed at 30 degrees",
+                        "Frequency/Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 02:15",
+                        "Action": "Mannitol 1 g/kg IV",
+                        "Frequency/Status": "PRN for signs of increased ICP"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 02:15",
+                        "Action": "STAT Head CT without contrast",
+                        "Frequency/Status": "Completed"
+                    }
+                ]
             },
             {
-                "id": "notes",
-                "title": "Nursing Note",
-                "content": "07:00: Patient assessed. Level of consciousness decreased; GCS now 11 (Eyes 2, Verbal 4, Motor 5) compared to 14 on admission. Pupils unequal; right pupil 6mm and sluggishly reactive to light, left pupil 3mm and reactive. New onset of left-sided weakness noted (1/5 motor strength). Patient reports headache. Requires increased oxygen supplementation to maintain SpO2 >94%. BP elevated to 200/110. No seizure activity observed. Acetaminophen administered for headache. Neurologist notified."
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Alteplase (tPA)",
+                        "Dose": "0.9 mg/kg IV",
+                        "Route": "IV",
+                        "Frequency": "Once",
+                        "Last Administered": "Today @ 03:30 (Completed)"
+                    },
+                    {
+                        "Medication": "Aspirin",
+                        "Dose": "325 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Today @ 06:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "q6h PRN headache",
+                        "Last Administered": "Today @ 06:00"
+                    },
+                    {
+                        "Medication": "Ondansetron",
+                        "Dose": "4 mg",
+                        "Route": "IV",
+                        "Frequency": "q6h PRN nausea",
+                        "Last Administered": "N/A"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Stroke & Increased ICP"
+    "rationale": {
+        "correct": "The combination of a declining level of consciousness (LOC), new pupillary changes (anisocoria), worsening focal motor deficits, and the onset of Cushing's response (hypertension, bradycardia, irregular respirations) are classic and critical indicators of increased intracranial pressure (ICP). These findings suggest that cerebral edema from the stroke is causing brain tissue to swell, leading to compression of vital structures like the brainstem and cranial nerves, which requires immediate intervention to prevent herniation.",
+        "incorrect": "Subjective reports like headache, while a symptom of ICP, are less reliable and objective than neurological assessment findings. Actions taken by the nurse, such as administering medication or notifying a provider, are interventions or communications, not clinical findings that describe the client's physiological state.",
+        "answerBreakdown": [
+            {
+                "optionId": "span_01",
+                "content": "Correct. A change in the level of consciousness, such as becoming less responsive, is the earliest and most sensitive indicator of increased ICP. It reflects dysfunction of the cerebral hemispheres or the reticular activating system."
+            },
+            {
+                "optionId": "span_02",
+                "content": "Correct. A drop in the Glasgow Coma Scale (GCS) score provides an objective measure of a worsening neurological status. This decline is a critical sign of increasing pressure on the brain."
+            },
+            {
+                "optionId": "span_03",
+                "content": "Correct. Anisocoria (unequal pupils) with a sluggish reaction indicates pressure on the oculomotor nerve (CN III). This is a significant localizing sign and an ominous finding suggesting uncal herniation is possible."
+            },
+            {
+                "optionId": "span_04",
+                "content": "Correct. New or worsening contralateral motor weakness indicates that the swelling and pressure are impacting the motor cortex or descending motor pathways. This progression signifies an expanding neurological injury."
+            },
+            {
+                "optionId": "span_05",
+                "content": "Correct. This cluster of vital signs is known as Cushing's response (or triad), a late and life-threatening sign of severe ICP. The hypertension is a reflex to maintain cerebral perfusion, while the bradycardia and irregular respirations result from brainstem compression."
+            },
+            {
+                "optionId": "span_06",
+                "content": "Incorrect. While headache is a symptom of increased ICP, it is a subjective report. In a client with a declining LOC, objective findings like changes in GCS, pupils, and vital signs are more reliable and higher priority indicators."
+            },
+            {
+                "optionId": "span_07",
+                "content": "Incorrect. This describes a nursing intervention that has already been performed. It is not an assessment finding or a physiological cue indicating the client's current state."
+            },
+            {
+                "optionId": "span_08",
+                "content": "Incorrect. This describes a necessary communication or action taken by the nurse. It is part of the care process but is not a clinical finding from the client's assessment."
+            }
+        ],
+        "clinicalPearls": [
+            "The earliest sign of increased ICP is a change in the level of consciousness (LOC). Subtle changes like restlessness or confusion should be investigated immediately.",
+            "Cushing's Triad (widened pulse pressure, bradycardia, irregular respirations) is a late sign of increased ICP and indicates impending brain herniation. Do not wait for this triad to appear before intervening.",
+            "In a client with a known brain injury, any new pupillary abnormality (e.g., anisocoria, fixed and dilated pupil) is a neurological emergency.",
+            "Maintaining the head of the bed at 30 degrees and keeping the head in a neutral, midline position helps promote venous drainage from the brain and can help lower ICP."
+        ],
+        "questionTrap": "The trap is selecting subjective symptoms (headache) or nursing actions (notifying MD) over objective, measurable physiological data. While relevant to the overall picture, they are not the primary findings that confirm the pathophysiology of increased ICP.",
+        "mnemonic": "MIND CRUSHED (Signs of Increased ICP)\nM - Mental Status Changes (early sign)\nI - Irregular Breathing (Cheyne-Stokes)\nN - Nerve Changes (pupils, vision)\nD - Decorticate/Decerebrate Posturing\nC - Cushing's Triad\nR - Reflexes (Babinski)\nU - Unconscious\nS - Seizures\nH - Headache\nE - Emesis (vomiting)\nD - Deterioration of motor function",
+        "reviewUnits": [
+            "Neurological Assessment",
+            "Pathophysiology of Stroke",
+            "Management of Increased Intracranial Pressure"
         ]
     },
-    "rationale": {
-        "correct": "The highlighted findings directly indicate increased ICP. A decreasing GCS (Level of consciousness decreased; GCS now 11 (Eyes 2, Verbal 4, Motor 5)) indicates worsening neurological function. Unequal pupils (Pupils unequal; right pupil 6mm and sluggishly reactive to light) suggest pressure on the oculomotor nerve. The need for increased oxygen (Requires increased oxygen supplementation to maintain SpO2 >94%) is due to possible respiratory compromise secondary to brainstem compression. Elevated blood pressure (BP elevated to 200/110) is the body's attempt to maintain cerebral perfusion (Cushing's Triad). New onset of weakness (New onset of left-sided weakness noted (1/5 motor strength)) indicates increased pressure on motor pathways. These are all critical signs that the patient's condition is deteriorating and requires immediate intervention.",
-        "incorrect": "Acetaminophen administration, although relevant to patient care, does not directly support increased ICP. While headache is a symptom of increased ICP, it is a subjective complaint and not an objective finding. Neurologist notification is an appropriate action but not a direct assessment finding. The patient's report of a headache may be related to increased ICP, but it is not as direct and objective as the other findings.",
-        "clinicalPearls": [
-            "Cushing's Triad (bradycardia, irregular respirations, and widened pulse pressure) is a late sign of increased ICP, indicating imminent brain herniation.",
-            "Early recognition of increased ICP is crucial to prevent irreversible brain damage and improve patient outcomes. Monitor for subtle changes in LOC and vital signs.",
-            "Maintain the head of the bed at 30 degrees to promote venous drainage and reduce ICP. Avoid activities that increase ICP, such as coughing or straining."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on the stroke diagnosis instead of recognizing the signs and symptoms of increased ICP, a complication of the stroke, can lead to delayed intervention.",
-            "howToOvercome": "Carefully analyze each finding and consider its relationship to increased ICP pathophysiology. Remember the compensatory mechanisms and the signs of decompensation. Prioritize objective findings over subjective complaints."
-        },
-        "mnemonic": {
-            "title": "I-ICP",
-            "expansion": "Irritability, Increased BP, Changes in LOC, Pupil changes"
-        }
-    }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "correctOptionId": "span_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:09:11.503Z"
 }

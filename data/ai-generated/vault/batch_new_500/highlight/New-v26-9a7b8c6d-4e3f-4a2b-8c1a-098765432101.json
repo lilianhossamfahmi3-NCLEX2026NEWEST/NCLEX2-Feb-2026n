@@ -1,146 +1,169 @@
 {
     "id": "New-v26-9a7b8c6d-4e3f-4a2b-8c1a-098765432101",
     "type": "highlight",
-    "stem": "The nurse is reviewing the electronic health record of a patient with acute pancreatitis. Which findings require immediate intervention? Select all that apply.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is reviewing the client's progress note. Click to highlight the findings that require immediate intervention.",
+    "prompt": "The client is a 58-year-old male admitted 3 days ago for acute pancreatitis. At 08:00, the client is tachycardic [HR 125/min] and hypotensive [BP 88/48 mmHg]. Respiratory rate is [28/min] with an [SpO2 of 91% on 2L NC]. The abdomen is rigid and distended. Recent labs show an [amylase of 1500 U/L] and a [lipase of 2000 U/L]. The client's [serum calcium is 7.0 mg/dL], and he has a positive Chvostek's sign. [WBC count is 18,000/µL]. Urine output is [25 mL/hr].",
+    "options": [
+        {
+            "id": "opt1",
+            "text": "HR 125/min",
+            "isCorrect": true
+        },
+        {
+            "id": "opt2",
+            "text": "BP 88/48 mmHg",
+            "isCorrect": true
+        },
+        {
+            "id": "opt3",
+            "text": "28/min",
+            "isCorrect": true
+        },
+        {
+            "id": "opt4",
+            "text": "SpO2 of 91% on 2L NC",
+            "isCorrect": true
+        },
+        {
+            "id": "opt5",
+            "text": "amylase of 1500 U/L",
+            "isCorrect": false
+        },
+        {
+            "id": "opt6",
+            "text": "lipase of 2000 U/L",
+            "isCorrect": false
+        },
+        {
+            "id": "opt7",
+            "text": "serum calcium is 7.0 mg/dL",
+            "isCorrect": true
+        },
+        {
+            "id": "opt8",
+            "text": "WBC count is 18,000/µL",
+            "isCorrect": true
+        },
+        {
+            "id": "opt9",
+            "text": "25 mL/hr",
+            "isCorrect": true
+        }
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 58,
-            "gender": "Male",
-            "iso": "Medical Unit",
-            "airborne": false,
+            "age": "58 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: John Smith, a 58-year-old male, was admitted three days ago with acute pancreatitis secondary to alcohol abuse. He reports abdominal pain as 7/10. Background: He has a history of chronic alcohol abuse and elevated triglycerides. He was admitted with nausea, vomiting, and severe abdominal pain. Assessment: At 07:00, the patient is alert and oriented. His abdomen is distended and tender to palpation; bowel sounds are hypoactive. Vital signs: BP 90/50 mmHg, HR 120 bpm, RR 28, SpO2 92% on 2L NC, Temp 38.5°C (101.3°F). An indwelling urinary catheter is in place, with 30 mL of dark amber urine output in the past hour. Labs are pending. Recommendation: Assess the patient's fluid status and pain control. Evaluate pending lab results, particularly amylase, lipase, and electrolytes. Consider increasing the IV fluid rate and contacting the provider regarding the hypotension and tachycardia. Assess for signs of worsening pancreatitis or complications.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Amylase</td><td>1500 U/L</td><td>30-110 U/L</td></tr><tr><td>Lipase</td><td>2000 U/L</td><td>0-160 U/L</td></tr><tr><td>Sodium</td><td>130 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>96 mEq/L</td><td>98-106 mEq/L</td></tr><tr><td>Glucose</td><td>180 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>BUN</td><td>30 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Calcium</td><td>7.0 mg/dL</td><td>8.5-10.5 mg/dL</td></tr><tr><td>Hematocrit</td><td>52%</td><td>42-52%</td></tr><tr><td>WBC</td><td>18,000/µL</td><td>4,500-11,000/µL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (3 days ago, 14:00): Client admitted from ED with severe epigastric pain radiating to the back, nausea, and vomiting. History of chronic alcohol use disorder. Diagnosed with acute pancreatitis.\n\nProgress Note (Today, 08:30):\nS: Client reports worsening abdominal pain, rated 8/10, and feels 'short of breath.'\nB: 58-year-old male, admitted 3 days ago for acute pancreatitis. History of chronic alcohol use disorder. Client lives alone in a rural area with inconsistent access to primary care, which delayed initial treatment. Allergic to Penicillin.\nA: At 08:00, client is tachycardic (125/min), hypotensive (88/48 mmHg), tachypneic (28/min), and febrile (101.5°F / 38.6°C). SpO₂ is 91% on 2L NC. Abdomen is rigid, distended, with hypoactive bowel sounds. Urine output is scant (25 mL/hr). Client exhibits facial twitching when the cheek is tapped (positive Chvostek's sign).\nR: Increase IV fluid rate per protocol. Notify the provider of hemodynamic instability and potential hypocalcemia. Prepare for possible transfer to ICU. Continue to monitor vital signs and urine output closely."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>95/60 mmHg</td><td>110 bpm</td><td>24</td><td>94% on 2L NC</td><td>38.3°C (100.9°F)</td></tr><tr><td>07:00</td><td>90/50 mmHg</td><td>120 bpm</td><td>28</td><td>92% on 2L NC</td><td>38.5°C (101.3°F)</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>95/60 mmHg (72)</td><td>110</td><td>24</td><td>94% on 2L NC</td><td>100.9°F (38.3°C)</td></tr><tr><td>07:00</td><td>90/50 mmHg (63)</td><td>120</td><td>28</td><td>92% on 2L NC</td><td>101.3°F (38.5°C)</td></tr><tr><td>08:00</td><td>88/48 mmHg (61)</td><td>125</td><td>28</td><td>91% on 2L NC</td><td>101.5°F (38.6°C)</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Morphine Sulfate</td><td>4 mg</td><td>IV</td><td>q4h PRN Pain</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IV</td><td>q6h PRN Nausea</td></tr><tr><td>Lactated Ringers</td><td>125 mL/hr</td><td>IV</td><td>Continuous</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>Daily</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Amylase</td><td>1500</td><td>U/L</td><td>30-110</td><td>High</td></tr><tr><td>Lipase</td><td>2000</td><td>U/L</td><td>0-160</td><td>High</td></tr><tr><td>Sodium</td><td>132</td><td>mEq/L</td><td>135-145</td><td>Low</td></tr><tr><td>Potassium</td><td>3.3</td><td>mEq/L</td><td>3.5-5.0</td><td>Low</td></tr><tr><td>Calcium, Total</td><td>7.0</td><td>mg/dL</td><td>8.5-10.5</td><td>Low</td></tr><tr><td>Glucose</td><td>180</td><td>mg/dL</td><td>70-110</td><td>High</td></tr><tr><td>BUN</td><td>30</td><td>mg/dL</td><td>10-20</td><td>High</td></tr><tr><td>Creatinine</td><td>1.8</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>WBC</td><td>18.0</td><td>x10³/µL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Hematocrit</td><td>52</td><td>%</td><td>42-52</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Focused Assessment (Today, 08:15):\nGeneral: Appears acutely ill, diaphoretic.\nNeurological: Alert but anxious. Positive Chvostek's sign noted.\nCardiovascular: Tachycardia, S1/S2 audible. Capillary refill 4 seconds. Peripheral pulses +1.\nRespiratory: Tachypneic with shallow respirations. Crackles noted at bilateral lung bases.\nGastrointestinal: Abdomen rigid, distended, and tender to light palpation. Bowel sounds hypoactive.\nGenitourinary: Indwelling catheter draining scant, dark amber urine."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "Type: CT Abdomen/Pelvis with Contrast\nDate: [Admission Date]\nImpression: Diffuse enlargement and inflammation of the pancreas with significant peripancreatic fluid collections and fat stranding, consistent with acute interstitial edematous pancreatitis. No evidence of organized necrosis. Findings suggest severe inflammatory response."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>[Admission Date] 14:30</td><td>NPO</td><td>Standing</td></tr><tr><td>[Admission Date] 14:30</td><td>IV Fluids: Lactated Ringers at 125 mL/hr</td><td>Continuous</td></tr><tr><td>[Admission Date] 14:30</td><td>Monitor vital signs</td><td>Every 4 hours</td></tr><tr><td>[Admission Date] 14:30</td><td>Strict Intake & Output</td><td>Standing</td></tr><tr><td>[Admission Date] 14:30</td><td>Daily Labs: CBC, CMP</td><td>Daily</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Morphine Sulfate</td><td>4 mg</td><td>IV</td><td>q4h PRN Pain</td><td>04:00 Today</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IV</td><td>q6h PRN Nausea</td><td>02:00 Today</td></tr><tr><td>Lactated Ringers</td><td>125 mL/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>Daily</td><td>09:00 Yesterday</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
+    "rationale": {
+        "correct": "The selected findings indicate the client is developing severe complications of pancreatitis, including hypovolemic shock, systemic inflammatory response syndrome (SIRS), and potential acute respiratory distress syndrome (ARDS). Hypotension, tachycardia, tachypnea, hypoxemia, leukocytosis, and oliguria are all signs of systemic decompensation requiring immediate fluid resuscitation, oxygen support, and provider notification for possible escalation of care.",
+        "incorrect": "Elevated amylase and lipase are expected diagnostic markers for acute pancreatitis. While they confirm the diagnosis, their absolute values do not correlate with the severity of the disease and are not the priority over signs of life-threatening systemic complications. The focus of intervention must be on stabilizing the client's hemodynamic and respiratory status.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1",
+                "content": "Correct. Tachycardia (HR 125/min) is a compensatory response to hypovolemia and systemic inflammation, indicating the client is progressing towards shock."
+            },
+            {
+                "optionId": "opt2",
+                "content": "Correct. Hypotension (BP 88/48 mmHg) is a critical sign of hypovolemic shock due to third-spacing of fluid into the retroperitoneal space. This requires immediate intervention to restore circulating volume."
+            },
+            {
+                "optionId": "opt3",
+                "content": "Correct. Tachypnea (RR 28/min) is an early sign of respiratory distress, which can be caused by pain, metabolic acidosis, or the development of ARDS, a severe complication of pancreatitis."
+            },
+            {
+                "optionId": "opt4",
+                "content": "Correct. Hypoxemia (SpO2 91%) despite supplemental oxygen indicates impaired gas exchange and is a hallmark of developing ARDS, requiring immediate escalation of respiratory support."
+            },
+            {
+                "optionId": "opt5",
+                "content": "Incorrect. Elevated amylase is an expected finding in acute pancreatitis and is used for diagnosis, not for monitoring the severity or guiding immediate life-saving interventions."
+            },
+            {
+                "optionId": "opt6",
+                "content": "Incorrect. Like amylase, elevated lipase confirms the diagnosis of pancreatitis but does not take priority over hemodynamic instability or respiratory failure."
+            },
+            {
+                "optionId": "opt7",
+                "content": "Correct. Hypocalcemia (7.0 mg/dL) is a dangerous complication caused by fat saponification. It can lead to neuromuscular irritability (tetany, seizures) and cardiac dysrhythmias, requiring urgent correction."
+            },
+            {
+                "optionId": "opt8",
+                "content": "Correct. Leukocytosis (WBC 18,000/µL) is a key component of SIRS, indicating a massive inflammatory response that can lead to multi-organ failure."
+            },
+            {
+                "optionId": "opt9",
+                "content": "Correct. Oliguria (urine output < 30 mL/hr) is a sensitive indicator of decreased renal perfusion and intravascular volume depletion, signaling impending acute kidney injury and shock."
+            }
+        ],
+        "clinicalPearls": [
+            "In acute pancreatitis, fluid and electrolyte shifts can be massive. Third-spacing can lead to severe hypovolemia, requiring aggressive IV fluid resuscitation (often several liters) in the first 24-48 hours.",
+            "Hypocalcemia is a classic sign of severe pancreatitis. Monitor for Chvostek's sign (facial twitching) and Trousseau's sign (carpopedal spasm) and be prepared to administer IV calcium gluconate.",
+            "Pulmonary complications, especially ARDS, are a leading cause of mortality in acute pancreatitis. Early signs include tachypnea and refractory hypoxemia. Always prioritize respiratory assessment."
+        ],
+        "questionTrap": "A common trap is focusing on the pancreatic enzymes (amylase/lipase) because they are so specific to the diagnosis. However, the NCLEX tests priority. Always prioritize findings related to Airway, Breathing, and Circulation (ABCs) and systemic decompensation over diagnostic lab values that are expected for the condition.",
+        "mnemonic": {
+            "title": "PANCREAS Complications",
+            "expansion": "P: Pulmonary Edema (ARDS)\nA: Acute Kidney Injury\nN: Necrosis (Hemorrhagic)\nC: Coagulopathy (DIC)\nR: Release of Enzymes (SIRS)\nE: Electrolyte Imbalance (Hypocalcemia)\nA: Abscess/Pseudocyst\nS: Shock (Hypovolemic/Distributive)"
+        },
+        "reviewUnits": [
+            "Gastrointestinal Disorders",
+            "Fluid & Electrolytes",
+            "Hemodynamic Monitoring",
+            "Critical Care Nursing"
         ]
     },
-    "rationale": {
-        "correct": "Hypotension (BP 90/50 mmHg) indicates potential hypovolemia or shock, requiring immediate intervention with fluid resuscitation and possible vasopressors. Tachycardia (HR 120 bpm) is a compensatory mechanism for hypotension or pain and needs to be addressed. Tachypnea (RR 28) and decreased SpO2 (92% on 2L NC) suggest respiratory compromise, potentially related to fluid accumulation or pain, requiring oxygen therapy and monitoring. Fever (Temp 38.5°C) and elevated WBC (18,000/µL) indicate infection or inflammation, necessitating further investigation and potentially antibiotics. Low Calcium (7.0 mg/dL) can lead to tetany and cardiac arrhythmias, requiring calcium replacement.",
-        "incorrect": "Elevated Amylase (1500 U/L) and Lipase (2000 U/L) are expected findings in acute pancreatitis, confirming the diagnosis but not necessarily requiring immediate intervention unless complications arise. Elevated Glucose (180 mg/dL) can occur due to stress and hormonal changes during acute illness; while it should be monitored, it is not the priority in this scenario. Elevated BUN (30 mg/dL) and Creatinine (1.8 mg/dL) may indicate renal dysfunction secondary to dehydration, but require further evaluation before immediate intervention. High Hematocrit (52%) may indicate dehydration but requires correlation with other findings before intervention.",
-        "clinicalPearls": [
-            "In acute pancreatitis, monitor for signs of hypovolemic shock, including hypotension, tachycardia, and decreased urine output.",
-            "Hypocalcemia is a common complication of acute pancreatitis due to saponification (fat necrosis) and requires prompt correction.",
-            "Early recognition and management of respiratory compromise are crucial in patients with acute pancreatitis due to potential ARDS development."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus solely on the elevated amylase and lipase, as they are hallmark diagnostic indicators of pancreatitis, and overlook the more immediately life-threatening vital sign abnormalities.",
-            "howToOvercome": "Prioritize ABCs (Airway, Breathing, Circulation) and consider which findings pose the most immediate threat to the patient's well-being. Focus on deviations from expected vital sign ranges and their potential consequences."
-        },
-        "mnemonic": {
-            "title": "I WATCH DEATH",
-            "expansion": "Illness, Withdrawal, Anxiety, Trauma, CAGE questionnaire, High BP/HR, Dehydration, Electrolyte imbalance, Temperature (high)"
-        }
+    "scoring": {
+        "method": "plusMinus",
+        "maxPoints": 7
     },
-    "response": [
-        {
-            "id": "hypotension",
-            "content": "BP 90/50 mmHg",
-            "correct": true,
-            "feedback": "Hypotension indicates potential hypovolemia or shock, requiring immediate intervention with fluid resuscitation and possible vasopressors."
-        },
-        {
-            "id": "tachycardia",
-            "content": "HR 120 bpm",
-            "correct": true,
-            "feedback": "Tachycardia is a compensatory mechanism for hypotension or pain and needs to be addressed."
-        },
-        {
-            "id": "tachypnea",
-            "content": "RR 28",
-            "correct": true,
-            "feedback": "Tachypnea suggests respiratory compromise, potentially related to fluid accumulation or pain, requiring oxygen therapy and monitoring."
-        },
-        {
-            "id": "decreasedSpo2",
-            "content": "SpO2 92% on 2L NC",
-            "correct": true,
-            "feedback": "Decreased SpO2 suggests respiratory compromise, potentially related to fluid accumulation or pain, requiring oxygen therapy and monitoring."
-        },
-        {
-            "id": "fever",
-            "content": "Temp 38.5°C",
-            "correct": true,
-            "feedback": "Fever indicates infection or inflammation, necessitating further investigation and potentially antibiotics."
-        },
-        {
-            "id": "elevatedWBC",
-            "content": "WBC 18,000/µL",
-            "correct": true,
-            "feedback": "Elevated WBC indicates infection or inflammation, necessitating further investigation and potentially antibiotics."
-        },
-        {
-            "id": "lowCalcium",
-            "content": "Calcium 7.0 mg/dL",
-            "correct": true,
-            "feedback": "Low Calcium can lead to tetany and cardiac arrhythmias, requiring calcium replacement."
-        },
-        {
-            "id": "elevatedAmylase",
-            "content": "Amylase 1500 U/L",
-            "correct": false,
-            "feedback": "Elevated Amylase is an expected finding in acute pancreatitis, confirming the diagnosis but not necessarily requiring immediate intervention unless complications arise."
-        },
-        {
-            "id": "elevatedLipase",
-            "content": "Lipase 2000 U/L",
-            "correct": false,
-            "feedback": "Elevated Lipase is an expected finding in acute pancreatitis, confirming the diagnosis but not necessarily requiring immediate intervention unless complications arise."
-        },
-        {
-            "id": "elevatedGlucose",
-            "content": "Glucose 180 mg/dL",
-            "correct": false,
-            "feedback": "Elevated Glucose can occur due to stress and hormonal changes during acute illness; while it should be monitored, it is not the priority in this scenario."
-        },
-        {
-            "id": "elevatedBUN",
-            "content": "BUN 30 mg/dL",
-            "correct": false,
-            "feedback": "Elevated BUN may indicate renal dysfunction secondary to dehydration, but requires further evaluation before immediate intervention."
-        },
-        {
-            "id": "elevatedCreatinine",
-            "content": "Creatinine 1.8 mg/dL",
-            "correct": false,
-            "feedback": "Elevated Creatinine may indicate renal dysfunction secondary to dehydration, but requires further evaluation before immediate intervention."
-        },
-        {
-            "id": "highHematocrit",
-            "content": "Hematocrit 52%",
-            "correct": false,
-            "feedback": "High Hematocrit may indicate dehydration but requires correlation with other findings before intervention."
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "analyze",
+        "cjmmStep": "recognizeCues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:23:10.628Z"
 }

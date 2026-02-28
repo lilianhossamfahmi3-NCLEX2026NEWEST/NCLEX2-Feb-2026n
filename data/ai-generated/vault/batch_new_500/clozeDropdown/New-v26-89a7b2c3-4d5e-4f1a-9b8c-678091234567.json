@@ -1,103 +1,289 @@
 {
     "id": "New-v26-89a7b2c3-4d5e-4f1a-9b8c-678091234567",
-    "type": "clozeDropdown",
-    "stem": "Based on the provided patient data, the nurse should anticipate the patient experiencing [dropdown1] due to the impaired liver's inability to metabolize bilirubin. This can manifest as [dropdown2]. Additionally, the elevated ammonia level indicates hepatic encephalopathy, requiring the nurse to monitor for [dropdown3]. The low albumin level contributes to ascites and edema; therefore, the nurse should assess for [dropdown4]. Finally, the prolonged PT/INR suggests an increased risk of [dropdown5], necessitating careful monitoring and precautions.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 5
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is analyzing the client's laboratory results and assessment findings. Which interpretation correctly links a key laboratory value to its primary clinical manifestation in the client's electronic health record?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "The elevated ammonia level is causing the client's altered mental status and asterixis."
+        },
+        {
+            "id": "opt_02",
+            "text": "The low albumin level is responsible for the client's increased risk of bleeding."
+        },
+        {
+            "id": "opt_03",
+            "text": "The prolonged PT/INR is the primary cause of the client's jaundice and scleral icterus."
+        },
+        {
+            "id": "opt_04",
+            "text": "The elevated total bilirubin is contributing to the development of peripheral edema and ascites."
+        }
+    ],
+    "correctOptionId": "opt_01",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "62 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Mr. Smith, 62-year-old male, admitted at 03:00 with a history of alcohol-induced cirrhosis, presents with increasing abdominal distension and confusion. B: The patient has a longstanding history of heavy alcohol use, leading to cirrhosis. Liver function tests have been abnormal for years, but he hasn't consistently followed up. He was found at home by his son, confused and unable to care for himself. A: At 07:00, the patient's abdomen is tense and distended. He is oriented to person only and exhibits asterixis. Vitals: BP 100/60, HR 110, RR 24, SpO2 92% on room air, Temp 37.9°C. Labs show elevated bilirubin, ammonia, and prolonged PT/INR, with low albumin. He is currently receiving lactulose and diuretics per MAR. U: I'm concerned about worsening liver failure and potential complications such as hepatic encephalopathy and spontaneous bacterial peritonitis. I recommend a paracentesis to relieve ascites, continued lactulose to lower ammonia levels, close monitoring for bleeding, and assessment for SBP.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Mr. Smith, 62-year-old male, admitted at 03:00 with a history of alcohol-induced cirrhosis, presents with increasing abdominal distension and confusion. B: The patient has a longstanding history of heavy alcohol use, leading to cirrhosis. Liver function tests have been abnormal for years, but he hasn't consistently followed up. He was found at home by his son, confused and unable to care for himself. A: At 07:00, the patient's abdomen is tense and distended. He is oriented to person only and exhibits asterixis. Vitals: BP 100/60, HR 110, RR 24, SpO2 92% on room air, Temp 37.9°C. Labs show elevated bilirubin, ammonia, and prolonged PT/INR, with low albumin. He is currently receiving lactulose and diuretics per MAR. U: I'm concerned about worsening liver failure and potential complications such as hepatic encephalopathy and spontaneous bacterial peritonitis. I recommend a paracentesis to relieve ascites, continued lactulose to lower ammonia levels, close monitoring for bleeding, and assessment for SBP."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 03:00",
+                        "text": "S: Client is a 62-year-old male with a history of alcohol-induced cirrhosis, brought to the ED by his adult child due to increasing confusion and abdominal swelling over the past 48 hours.\nB: Longstanding history of heavy alcohol use with poor follow-up. Adult child reports client has been unable to care for himself. Client lives alone in a rural area with limited transportation, which is a barrier to consistent care. He has been non-adherent with his prescribed diuretic and lactulose regimen.\nA: On arrival, client is disoriented to time and place. Abdomen is protuberant and firm. Skin and sclera are jaundiced. A coarse flapping tremor (asterixis) is noted in both hands when arms are extended. Initial vital signs are stable. Admission labs drawn and sent.\nR: Admit to the medical-surgical unit for management of decompensated cirrhosis and hepatic encephalopathy. Initiate fall precautions and seizure precautions."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 07:00",
+                        "text": "S: Client remains confused, oriented only to person. Reports feeling 'bloated and uncomfortable.'\nB: Lactulose administered at 06:30 per MAR. Client has not yet had a bowel movement. Spironolactone and furosemide scheduled for 09:00.\nA: Abdomen remains tense and distended with a measured girth of 112 cm. 3+ pitting edema noted in bilateral lower extremities. Asterixis persists. Vital signs show tachycardia and tachypnea. SpO₂ is 92% on room air. Labs from admission show critically elevated ammonia, elevated bilirubin, prolonged PT/INR, and low albumin.\nR: Continue to monitor neurological status every 2 hours. Encourage oral intake to promote effects of lactulose. Prepare for potential paracentesis to relieve ascites. Maintain strict I&O and daily weights. Awaiting provider orders for oxygen therapy."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Bilirubin: 8.2 mg/dL (Elevated), Ammonia: 180 mcg/dL (Elevated), Albumin: 2.5 g/dL (Low), PT/INR: 2.1 (Prolonged), Sodium: 130 mEq/L (Low), Potassium: 3.2 mEq/L (Low)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:00 (Admission)",
+                        "HR": "102 bpm",
+                        "BP": "104/62 mmHg (MAP 76)",
+                        "RR": "20/min",
+                        "SpO2": "94% on room air",
+                        "Temp": "99.9°F (37.7°C)"
+                    },
+                    {
+                        "Time": "05:00",
+                        "HR": "108 bpm",
+                        "BP": "102/60 mmHg (MAP 74)",
+                        "RR": "22/min",
+                        "SpO2": "93% on room air",
+                        "Temp": "100.2°F (37.9°C)"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR": "110 bpm",
+                        "BP": "100/60 mmHg (MAP 73)",
+                        "RR": "24/min",
+                        "SpO2": "92% on room air",
+                        "Temp": "100.4°F (38.0°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Lactulose 30 mL PO q6h, Spironolactone 100 mg PO daily, Furosemide 40 mg PO daily, Multivitamin PO daily"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Ammonia",
+                        "Result": "180",
+                        "Unit": "mcg/dL",
+                        "Reference": "15-45",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Total Bilirubin",
+                        "Result": "8.2",
+                        "Unit": "mg/dL",
+                        "Reference": "0.3-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Albumin",
+                        "Result": "2.5",
+                        "Unit": "g/dL",
+                        "Reference": "3.5-5.0",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Prothrombin Time (PT)",
+                        "Result": "24.5",
+                        "Unit": "seconds",
+                        "Reference": "11-13.5",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "INR",
+                        "Result": "2.1",
+                        "Unit": "",
+                        "Reference": "0.8-1.1",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Sodium",
+                        "Result": "130",
+                        "Unit": "mEq/L",
+                        "Reference": "136-145",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Potassium",
+                        "Result": "3.2",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Low"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: BP 100/60, HR 110, RR 24, SpO2 92% on room air, Temp 37.9°C"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "Day 1, 07:00: Oriented to person only. Sluggish response to questions. Asterixis present with arm extension. PERRLA intact. Moves all extremities purposefully."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Day 1, 07:00: Tachycardia with S1, S2 audible. No murmurs. Capillary refill 3 seconds. Bilateral 3+ pitting edema to mid-calf."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Day 1, 07:00: Tachypneic. Lungs clear to auscultation bilaterally. Breathing appears shallow, likely secondary to abdominal distension."
+                    },
+                    {
+                        "System": "Gastrointestinal",
+                        "Findings": "Day 1, 07:00: Abdomen protuberant, tense, with positive fluid wave. Bowel sounds hypoactive in all four quadrants. Abdominal girth 112 cm."
+                    },
+                    {
+                        "System": "Integumentary",
+                        "Findings": "Day 1, 07:00: Skin warm, dry. Jaundice noted on skin and sclera (scleral icterus). Spider angiomas present on chest."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Procedure": "Abdominal Ultrasound",
+                        "Date": "Day 1, 04:30",
+                        "Impression": "Findings are consistent with advanced cirrhosis, including a nodular liver contour and splenomegaly. A large volume of free peritoneal fluid (ascites) is identified. No evidence of hepatocellular carcinoma. The portal vein appears patent with hepatofugal flow, suggestive of significant portal hypertension."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order_Date_Time": "Day 1, 03:30",
+                        "Action": "Admit to Medical-Surgical Unit",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_Date_Time": "Day 1, 03:30",
+                        "Action": "Low sodium diet (2g/day)",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_Date_Time": "Day 1, 03:30",
+                        "Action": "Fluid restriction 1.5 L/day",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_Date_Time": "Day 1, 03:30",
+                        "Action": "Fall and Seizure Precautions",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_Date_Time": "Day 1, 03:30",
+                        "Action": "Neurological checks every 2 hours",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_Date_Time": "Day 1, 03:30",
+                        "Action": "Daily weight and abdominal girth measurement",
+                        "Frequency_Status": "Standing"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lactulose",
+                        "Dose": "30 mL",
+                        "Route": "PO",
+                        "Frequency": "Every 6 hours",
+                        "Last_Administered": "Day 1, 06:30"
+                    },
+                    {
+                        "Medication": "Spironolactone",
+                        "Dose": "100 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last_Administered": "Yesterday"
+                    },
+                    {
+                        "Medication": "Furosemide",
+                        "Dose": "40 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last_Administered": "Yesterday"
+                    },
+                    {
+                        "Medication": "Multivitamin",
+                        "Dose": "1 tablet",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last_Administered": "Yesterday"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
-        ]
-    },
     "rationale": {
-        "correct": "Elevated bilirubin leads to jaundice, a yellowing of the skin and sclera due to the liver's inability to process and excrete it properly. Hepatic encephalopathy is characterized by altered mental status, ranging from mild confusion to coma, caused by the buildup of ammonia in the bloodstream. Low albumin causes fluid shifts, resulting in edema, especially in the extremities and abdomen (ascites), as albumin is crucial for maintaining oncotic pressure. Prolonged PT/INR indicates impaired clotting factor synthesis, increasing bleeding risk because the liver is responsible for producing many clotting factors. Hyponatremia is commonly seen in liver failure due to fluid retention and dilution, often exacerbated by diuretic use. \n\nclinicalPearl: Monitor for asterixis (flapping tremor) as a key indicator of worsening hepatic encephalopathy. Assess for signs of spontaneous bacterial peritonitis (SBP), a common and serious complication of ascites.",
-        "incorrect": "Selecting incorrect options indicates a lack of understanding of the pathophysiology and clinical manifestations of liver failure. Options related to hyperkalemia, improved coagulation, or decreased ascites are directly contradictory to the laboratory findings and clinical presentation. Assuming improved mental status or decreased jaundice is also incorrect, as these are not expected findings in worsening liver failure. \n\nquestionTrap: Students may be tempted to focus on isolated symptoms rather than connecting them to the underlying liver dysfunction. For example, they might choose 'decreased confusion' without considering the elevated ammonia levels. \n\nmnemonic: \"ALBumin problems in Liver failure: Ascites, Low oncotic pressure, Bleeding risk (due to decreased clotting factors).\"",
+        "correct": "The correct interpretation links the elevated ammonia level (180 mcg/dL) to the client's neurological changes. In severe liver dysfunction, the liver cannot convert ammonia, a byproduct of protein metabolism, into urea for excretion. Ammonia is a neurotoxin that crosses the blood-brain barrier, leading to cerebral edema and altered neurotransmission. This manifests clinically as hepatic encephalopathy, characterized by confusion, altered level of consciousness, and neuromuscular disturbances like asterixis (the 'liver flap'), all of which are present in this client.",
+        "incorrect": "The incorrect options demonstrate a misunderstanding of the pathophysiology of cirrhosis by misattributing clinical signs to the wrong laboratory values. Each abnormal lab value in liver failure has a distinct and specific set of consequences, and correctly linking them is crucial for prioritizing care.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "This is correct. The client's elevated ammonia level of 180 mcg/dL directly correlates with the assessment findings of disorientation and asterixis, which are hallmark signs of hepatic encephalopathy."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "This is incorrect. Low albumin (hypoalbuminemia) impairs the body's ability to maintain colloid osmotic pressure, causing fluid to shift from the intravascular space to the interstitial space. This results in ascites and peripheral edema, not an increased risk of bleeding. The bleeding risk is due to the liver's inability to synthesize clotting factors, which is reflected by a prolonged PT/INR."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "This is incorrect. A prolonged PT/INR indicates impaired synthesis of vitamin K-dependent clotting factors by the failing liver, leading to coagulopathy and an increased risk of bleeding. Jaundice and scleral icterus are caused by the accumulation of bilirubin in the bloodstream (hyperbilirubinemia) due to the liver's inability to conjugate and excrete it."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "This is incorrect. Elevated total bilirubin is the cause of jaundice. Peripheral edema and ascites are primarily caused by two factors in cirrhosis: low oncotic pressure from hypoalbuminemia and increased hydrostatic pressure from portal hypertension."
+            }
+        ],
         "clinicalPearls": [
-            "Asterixis (flapping tremor of the hands) is a classic sign of hepatic encephalopathy.",
-            "Hyponatremia in liver failure is often dilutional and should be managed carefully to avoid rapid sodium correction, which can lead to central pontine myelinolysis.",
-            "Monitor fluid balance closely in patients with ascites; diuretics can worsen electrolyte imbalances and renal function."
+            "Asterixis, or 'liver flap,' is a key physical exam finding for hepatic encephalopathy. It is assessed by having the client extend their arms and dorsiflex their wrists; a positive sign is an intermittent, jerky flapping of the hands.",
+            "Lactulose is a primary treatment for hepatic encephalopathy. It works by acidifying the colon, which traps ammonia in the gut as ammonium and promotes its excretion through bowel movements. The therapeutic goal is typically 2-3 soft stools per day.",
+            "Spontaneous bacterial peritonitis (SBP) is a life-threatening infection of ascitic fluid. Nurses must monitor for subtle signs like low-grade fever, abdominal pain, or a sudden worsening of encephalopathy."
         ],
-        "questionTrap": {
-            "trap": "The question focuses on anticipating complications of liver failure based on lab values. Students may be tempted to choose options that represent improvements or are less directly related to the given lab results.",
-            "howToOvercome": "Focus on the direct physiological consequences of each abnormal lab value. For example, high bilirubin causes jaundice; low albumin causes edema; high ammonia causes encephalopathy; prolonged PT/INR causes increased bleeding risk."
-        },
-        "mnemonic": {
-            "title": "HALT (for Liver Failure)",
-            "expansion": "H - Hepatic Encephalopathy, A - Ascites, L - Low Albumin, T - Treat Underlying Cause"
-        }
-    },
-    "correctResponses": {
-        "dropdown1": "jaundice",
-        "dropdown2": "yellowing of the skin and sclera",
-        "dropdown3": "altered mental status",
-        "dropdown4": "peripheral edema",
-        "dropdown5": "increased bleeding risk"
-    },
-    "responseOptions": {
-        "dropdown1": [
-            "jaundice",
-            "improved coagulation",
-            "decreased ascites"
-        ],
-        "dropdown2": [
-            "yellowing of the skin and sclera",
-            "improved mental status",
-            "decreased jaundice"
-        ],
-        "dropdown3": [
-            "altered mental status",
-            "hyperkalemia",
-            "decreased confusion"
-        ],
-        "dropdown4": [
-            "peripheral edema",
-            "decreased abdominal girth",
-            "increased urine output"
-        ],
-        "dropdown5": [
-            "increased bleeding risk",
-            "decreased bleeding risk",
-            "improved clotting"
+        "questionTrap": "The primary trap is the misattribution of symptoms. With multiple abnormal labs and a complex clinical picture, it is easy to incorrectly link a finding to the wrong cause. For example, linking bleeding risk to low albumin instead of the prolonged PT/INR is a common error.",
+        "mnemonic": "For complications of cirrhosis, remember 'HE'S JAILED': H - Hepatic encephalopathy, E - Esophageal varices, S - Splenomegaly, J - Jaundice, A - Ascites, I - Increased bleeding (INR), L - Low albumin, E - Edema, D - Dilutional hyponatremia.",
+        "reviewUnits": [
+            "Gastrointestinal System",
+            "Fluid and Electrolytes",
+            "Pharmacology"
         ]
-    }
+    },
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:47:05.709Z"
 }

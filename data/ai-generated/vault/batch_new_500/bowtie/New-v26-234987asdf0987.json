@@ -1,64 +1,389 @@
 {
     "id": "New-v26-234987asdf0987",
     "type": "bowtie",
-    "stem": "A 72-year-old male patient, Mr. Jones, is admitted for acute decompensated heart failure. He has a history of hypertension, type 2 diabetes, and chronic kidney disease (CKD). His current medications include lisinopril 20mg daily, metformin 500mg twice daily, and furosemide 40mg daily. The physician orders an intravenous (IV) infusion of dobutamine at 5 mcg/kg/min to improve cardiac output. The pharmacy provides a dobutamine solution of 500 mg in 250 mL of 0.9% sodium chloride. Mr. Jones weighs 200 lbs. Use the bowtie format to address the following aspects of Mr. Jones' care regarding the dobutamine infusion.",
-    "scoring": {
-        "method": "linkage",
-        "maxPoints": 4
-    },
-    "itemContext": {
-        "patient": {
-            "name": "Mr. Jones",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical-Surgical Unit",
-            "allergies": [
-                "NKDA"
-            ]
-        },
-        "sbar": "S: Mr. Jones, a 72-year-old male, was admitted for acute decompensated heart failure. He is receiving a dobutamine infusion at 5 mcg/kg/min. At 06:00, he reported increased shortness of breath and palpitations. His BP was 160/90 at 05:00, now 170/100. HR increased from 110 to 120, and RR from 24 to 28. SpO2 decreased from 92% to 90% on 2L NC. Crackles are auscultated bilaterally.\nB: He has a history of HTN, DM2, and CKD. His medications include lisinopril, metformin, and furosemide.\nA: He is receiving furosemide IV and dobutamine at 5 mcg/kg/min. He exhibits signs of worsening heart failure, possibly related to the dobutamine infusion and/or fluid overload. His weight is 200 lbs. Labs show elevated potassium (5.8 mEq/L) and creatinine (2.5 mg/dL).\nR: I need guidance on managing the dobutamine infusion and addressing his worsening condition. Consider adjusting the infusion rate, obtaining further orders, and addressing the elevated potassium level.",
-        "tabs": [
+    "stem": "The nurse is caring for a client with acute decompensated heart failure receiving a dobutamine infusion. Based on the client's record, complete the bowtie diagram by selecting the most appropriate condition, two actions to take, and two parameters to monitor.",
+    "options": {
+        "actions": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 138 mEq/L, K: 5.8 mEq/L, Cl: 100 mEq/L, BUN: 45 mg/dL, Creatinine: 2.5 mg/dL, Glucose: 180 mg/dL, BNP: 800 pg/mL"
+                "id": "act_01",
+                "text": "Stop the dobutamine infusion."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Lisinopril 20mg PO daily, Metformin 500mg PO BID, Furosemide 40mg PO daily, Furosemide 20mg IV now, Dobutamine 5 mcg/kg/min IV infusion"
+                "id": "act_02",
+                "text": "Notify the healthcare provider."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "05:00: BP 160/90, HR 110, RR 24, SpO2 92% on 2L NC\n05:30: BP 165/95, HR 115, RR 26, SpO2 91% on 2L NC\n06:00: BP 170/100, HR 120, RR 28, SpO2 90% on 2L NC"
+                "id": "act_03",
+                "text": "Administer ordered PRN morphine."
+            },
+            {
+                "id": "act_04",
+                "text": "Increase oxygen to 4L via nasal cannula."
+            },
+            {
+                "id": "act_05",
+                "text": "Request a stat 12-lead ECG."
+            }
+        ],
+        "condition": [
+            {
+                "id": "cond_01",
+                "text": "Dobutamine-induced myocardial ischemia."
+            },
+            {
+                "id": "cond_02",
+                "text": "Anaphylactic reaction."
+            },
+            {
+                "id": "cond_03",
+                "text": "Pulmonary embolism."
+            },
+            {
+                "id": "cond_04",
+                "text": "Acute renal failure."
+            }
+        ],
+        "parameters": [
+            {
+                "id": "param_01",
+                "text": "Heart rate and rhythm."
+            },
+            {
+                "id": "param_02",
+                "text": "Blood pressure."
+            },
+            {
+                "id": "param_03",
+                "text": "Urine output."
+            },
+            {
+                "id": "param_04",
+                "text": "Serum creatinine."
+            },
+            {
+                "id": "param_05",
+                "text": "Oxygen saturation."
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
+    "correctOptionIds": [
+        "act_01",
+        "act_02",
+        "cond_01",
+        "param_01",
+        "param_02"
+    ],
+    "itemContext": {
+        "patient": {
+            "age": "72 years",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "No Known Drug Allergies"
+            ]
+        },
+        "tabs": [
+            {
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 02:00",
+                        "type": "Admission Note",
+                        "author": "ED Nurse",
+                        "note": "S: Client is a 72-year-old male brought to the ED by his adult child for worsening shortness of breath and leg swelling over the past 3 days. Reports feeling 'too tired to walk to the bathroom.'\nB: History of hypertension, type 2 diabetes mellitus, and chronic kidney disease (Stage 3). Admitted for similar symptoms 6 months ago. Takes lisinopril, metformin, and furosemide at home.\nA: Alert and oriented x4. Appears anxious and in moderate respiratory distress. JVD noted at 45 degrees. S3 gallop present. Bilateral crackles auscultated in lower lung bases. 3+ pitting edema to bilateral knees. Vitals stable on 2L NC. Admitted to medical-surgical unit for management of acute decompensated heart failure.\nR: Transfer to floor. Initiate cardiac monitoring, IV access, and orders per cardiology."
+                    },
+                    {
+                        "timestamp": "Day 1, 06:00",
+                        "type": "Progress Note",
+                        "author": "RN",
+                        "note": "S: Client used call light to report a sudden increase in shortness of breath and a feeling of his 'heart racing.'\nB: 72-year-old male admitted at 02:00 for ADHF. Comorbidities include HTN, T2DM, and CKD. A dobutamine infusion was initiated at 04:00 at 5 mcg/kg/min to improve cardiac output. The client lives alone in a third-floor apartment with no elevator, which he states is a barrier to attending follow-up appointments and accessing fresh groceries.\nA: Client is alert, oriented, and visibly anxious. Respiratory rate is 28/min with use of accessory muscles. SpO2 has decreased from 92% to 90% on 2L NC. BP has trended up to 170/100 mmHg, and heart rate is now 120/min. Auscultation reveals worsening bilateral crackles extending to the mid-lung fields. Telemetry shows sinus tachycardia with frequent premature ventricular contractions (PVCs).\nR: Immediate intervention required for suspected adverse reaction to dobutamine. Will notify provider of significant change in cardiovascular status and await further orders. Continue close hemodynamic monitoring."
+                    }
+                ]
+            },
+            {
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (/min)",
+                        "SpO₂ (%)",
+                        "Temp °F (°C)"
+                    ],
+                    "rows": [
+                        [
+                            "04:00",
+                            "105",
+                            "158/88",
+                            "111",
+                            "22",
+                            "93% on 2L NC",
+                            "98.8 (37.1)"
+                        ],
+                        [
+                            "05:00",
+                            "110",
+                            "160/90",
+                            "113",
+                            "24",
+                            "92% on 2L NC",
+                            "98.9 (37.2)"
+                        ],
+                        [
+                            "06:00",
+                            "120",
+                            "170/100",
+                            "123",
+                            "28",
+                            "90% on 2L NC",
+                            "99.0 (37.2)"
+                        ]
+                    ],
+                    "telemetry": "Sinus tachycardia with frequent unifocal PVCs."
+                }
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "test": "Sodium (Na+)",
+                        "result": "138",
+                        "unit": "mEq/L",
+                        "reference": "136-145",
+                        "status": "Normal"
+                    },
+                    {
+                        "test": "Potassium (K+)",
+                        "result": "5.8",
+                        "unit": "mEq/L",
+                        "reference": "3.5-5.0",
+                        "status": "High"
+                    },
+                    {
+                        "test": "BUN",
+                        "result": "45",
+                        "unit": "mg/dL",
+                        "reference": "10-20",
+                        "status": "High"
+                    },
+                    {
+                        "test": "Creatinine",
+                        "result": "2.5",
+                        "unit": "mg/dL",
+                        "reference": "0.6-1.2",
+                        "status": "High"
+                    },
+                    {
+                        "test": "Glucose",
+                        "result": "180",
+                        "unit": "mg/dL",
+                        "reference": "70-110",
+                        "status": "High"
+                    },
+                    {
+                        "test": "B-type Natriuretic Peptide (BNP)",
+                        "result": "800",
+                        "unit": "pg/mL",
+                        "reference": "<100",
+                        "status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 02:15 (Admission)",
+                        "findings": "GENERAL: Alert and oriented x4, appears fatigued.\nCARDIOVASCULAR: S1, S2, S3 gallop present. Tachycardic. 3+ pitting edema bilateral lower extremities to knees. JVD present at 45-degree angle.\nRESPIRATORY: Tachypneic. Bilateral crackles in lower lung bases. Clear upper fields.\nNEUROLOGICAL: Grossly intact.\nGI/GU: Bowel sounds active x4. Abdomen soft, non-tender."
+                    },
+                    {
+                        "timestamp": "Day 1, 06:00 (Focused)",
+                        "findings": "CARDIOVASCULAR: Tachycardia at 120 bpm. Telemetry shows frequent PVCs. Pulses 2+ peripherally.\nRESPIRATORY: Labored breathing with use of accessory muscles. Crackles now auscultated bilaterally extending into mid-lung fields."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Chest X-ray (Portable, AP view)",
+                        "timestamp": "Day 1, 02:30",
+                        "report": "FINDINGS: Moderate cardiomegaly is noted. There is evidence of pulmonary vascular congestion with interstitial edema and small bilateral pleural effusions, consistent with congestive heart failure. No focal consolidation to suggest pneumonia.\nIMPRESSION: Acute pulmonary edema secondary to cardiac decompensation."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "Day 1, 02:15",
+                        "action": "Admit to Medical-Surgical Unit. Telemetry.",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 02:15",
+                        "action": "2-gram sodium, fluid-restricted diet (1500 mL/day).",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 02:15",
+                        "action": "Strict Intake & Output.",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 02:15",
+                        "action": "Daily weights.",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 02:15",
+                        "action": "Furosemide 40 mg IV push now.",
+                        "status": "Completed"
+                    },
+                    {
+                        "order_time": "Day 1, 03:45",
+                        "action": "Start Dobutamine infusion at 5 mcg/kg/min. Titrate to maintain MAP > 65 mmHg.",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "20 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "last_admin": "Yesterday 09:00"
+                    },
+                    {
+                        "medication": "Metformin",
+                        "dose": "500 mg",
+                        "route": "PO",
+                        "frequency": "BID",
+                        "last_admin": "Yesterday 21:00"
+                    },
+                    {
+                        "medication": "Furosemide",
+                        "dose": "40 mg",
+                        "route": "IV Push",
+                        "frequency": "STAT",
+                        "last_admin": "Day 1, 02:20"
+                    },
+                    {
+                        "medication": "Dobutamine",
+                        "dose": "5 mcg/kg/min",
+                        "route": "IV Infusion",
+                        "frequency": "Continuous",
+                        "last_admin": "Ongoing since 04:00"
+                    }
+                ]
+            }
         ]
     },
     "rationale": {
-        "correct": "The correct answers address the patient's deteriorating condition, which includes increasing blood pressure, heart rate, and respiratory rate. The initial action should be to slow or stop the infusion. Calculating the correct infusion rate is essential for patient safety. The physician needs to be notified promptly about the patient's status change and the actions taken. Continuously monitoring the patient's vital signs is critical to assess the response to the changes in the infusion rate and other interventions. Lastly, documenting the patient's status, the interventions performed, and the patient's response is crucial for maintaining a clear and accurate record of care. An elevated potassium level should also be addressed but it is not the priority.",
-        "incorrect": "Incorrect answers may focus on actions that are not immediately relevant to the patient's acute distress, such as increasing the oxygen flow rate before addressing the medication causing the adverse effect. Some options suggest actions that are within the scope of practice but not the priority action, such as obtaining an EKG. Other options suggest actions outside the scope of nursing practice, such as ordering new medications. Some actions like contacting the rapid response team might be necessary later but are not the initial, most critical steps.",
-        "clinicalPearls": [
-            "Dobutamine is a high-alert medication that requires careful monitoring due to its potential to cause significant hemodynamic changes.",
-            "Patients with heart failure and CKD are particularly vulnerable to adverse effects from medications that affect fluid balance and electrolyte levels.",
-            "Prompt recognition and management of adverse drug reactions are crucial for preventing further complications."
-        ],
-        "questionTrap": {
-            "trap": "The question may lead you to focus solely on the dobutamine infusion rate calculation, overlooking the patient's immediate clinical deterioration. It's easy to get caught up in the calculation and forget to assess the overall patient condition.",
-            "howToOvercome": "Prioritize the patient's immediate physiological needs. Address the patient's signs and symptoms of distress before focusing solely on medication calculations."
+        "correct": "The client's worsening tachycardia, hypertension, tachypnea, and increased ventricular ectopy (PVCs) are classic signs of an adverse reaction to dobutamine. Dobutamine is a beta-1 adrenergic agonist that increases heart rate and contractility. In this vulnerable client, the infusion has caused excessive cardiac stimulation, leading to increased myocardial oxygen demand and precipitating myocardial ischemia and worsening heart failure. The priority is to remove the cause by stopping the infusion. The nurse must then immediately notify the provider for further orders. The most critical parameters to monitor are those directly affected by the drug: heart rate, rhythm, and blood pressure, to evaluate the client's response to stopping the infusion.",
+        "incorrect": "Increasing oxygen or administering morphine treats the symptoms (hypoxia, anxiety) but fails to address the iatrogenic cause of the deterioration, which is the dobutamine infusion. Requesting an ECG is appropriate but is secondary to stopping the infusion that is causing harm. The clinical picture is not consistent with an anaphylactic reaction (no rash, stridor, or angioedema) or a pulmonary embolism. While renal function and urine output are important in heart failure, they are not the immediate priority parameters to monitor for an acute tachydysrhythmic event caused by a vasoactive medication.",
+        "answerBreakdown": {
+            "actions": [
+                {
+                    "optionId": "act_01",
+                    "content": "Correct. This is the priority nursing action. The client is experiencing a severe adverse reaction to the medication. Stopping the infusion removes the causative agent and is the first step in preventing further harm."
+                },
+                {
+                    "optionId": "act_02",
+                    "content": "Correct. After stopping the infusion and ensuring immediate patient safety, the nurse must notify the provider of the significant change in the client's status to obtain further orders for management."
+                },
+                {
+                    "optionId": "act_03",
+                    "content": "Incorrect. While morphine can reduce preload and anxiety in heart failure, the client's primary problem is medication-induced tachycardia and hypertension, which morphine does not directly address. Stopping the offending drug is the priority."
+                },
+                {
+                    "optionId": "act_04",
+                    "content": "Incorrect. This is a supportive measure that addresses a symptom (hypoxia) but not the root cause. The client's hypoxia is due to worsening pulmonary edema from cardiac overstimulation. The infusion must be stopped first."
+                },
+                {
+                    "optionId": "act_05",
+                    "content": "Incorrect. An ECG is a valuable diagnostic tool, but it is not an intervention. The nurse's first action should be to intervene by stopping the source of the problem before gathering additional data."
+                }
+            ],
+            "condition": [
+                {
+                    "optionId": "cond_01",
+                    "content": "Correct. The combination of tachycardia, hypertension, and increased PVCs points directly to excessive myocardial oxygen demand and cardiac irritability caused by the beta-1 agonist effects of dobutamine."
+                },
+                {
+                    "optionId": "cond_02",
+                    "content": "Incorrect. The client shows no signs of anaphylaxis, such as urticaria, angioedema, or bronchospasm."
+                },
+                {
+                    "optionId": "cond_03",
+                    "content": "Incorrect. While the client is short of breath, the severe tachycardia and hypertension are more characteristic of dobutamine toxicity than a typical pulmonary embolism presentation."
+                },
+                {
+                    "optionId": "cond_04",
+                    "content": "Incorrect. The client has chronic kidney disease, but the acute event is cardiovascular. The signs and symptoms are not primarily indicative of a sudden decline in renal function."
+                }
+            ],
+            "parameters": [
+                {
+                    "optionId": "param_01",
+                    "content": "Correct. The primary adverse effects of dobutamine are on the heart's rate and rhythm. Monitoring the telemetry for resolution of tachycardia and PVCs is essential to evaluate the client's response."
+                },
+                {
+                    "optionId": "param_02",
+                    "content": "Correct. Dobutamine can cause significant changes in blood pressure. Monitoring the BP is critical to ensure it returns to a safer range after stopping the infusion."
+                },
+                {
+                    "optionId": "param_03",
+                    "content": "Incorrect. While important for overall fluid status management in heart failure, urine output is not the most immediate parameter to assess the client's response to stopping a vasoactive drip causing a tachydysrhythmia."
+                },
+                {
+                    "optionId": "param_04",
+                    "content": "Incorrect. Serum creatinine reflects renal function over a longer period. It is not a useful parameter for monitoring the acute cardiovascular effects of stopping the dobutamine infusion."
+                },
+                {
+                    "optionId": "param_05",
+                    "content": "Incorrect. Oxygen saturation is a lagging indicator of a respiratory symptom. The primary problem is cardiovascular, and monitoring the direct hemodynamic parameters (HR, BP, rhythm) is the priority."
+                }
+            ]
         },
+        "clinicalPearls": [
+            "Dobutamine is a potent inotrope and chronotrope; its primary risk is inducing tachydysrhythmias and increasing myocardial oxygen demand, which can lead to ischemia, especially in clients with pre-existing heart disease.",
+            "The nurse's priority action when a life-threatening adverse effect from a continuous infusion is suspected is to stop the infusion first, then perform a rapid assessment and notify the provider.",
+            "In clients with acute decompensated heart failure (ADHF) and underlying renal insufficiency, vasoactive drips require extremely cautious titration and continuous hemodynamic monitoring due to impaired drug clearance and fragile fluid balance."
+        ],
+        "questionTrap": "The trap is 'symptom management vs. source control.' The client's worsening crackles and hypoxia might tempt you to choose oxygen or diuretics first. However, these symptoms are a direct result of the dobutamine infusion causing excessive cardiac workload. Always address the iatrogenic cause first.",
         "mnemonic": {
-            "title": "ADPIE",
-            "expansion": "Assessment, Diagnosis, Planning, Implementation, Evaluation. This mnemonic helps prioritize nursing actions in a systematic manner."
-        }
-    }
+            "title": "Dobutamine DANGER",
+            "expansion": "Key signs of dobutamine toxicity or over-stimulation:\n\n**D**ysrhythmias (e.g., PVCs, tachycardia)\n**A**ngina (chest pain from ischemia)\n**N**ausea/Vomiting\n**G**asping (shortness of breath)\n**E**levated BP & HR\n**R**estlessness & Anxiety"
+        },
+        "reviewUnits": [
+            "Pharmacology: Vasoactive Medications",
+            "Cardiovascular: Acute Decompensated Heart Failure",
+            "Critical Care: Hemodynamic Monitoring"
+        ]
+    },
+    "scoring": {
+        "method": "rationale-linked",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "correctOptionId": "act_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:13:01.524Z"
 }

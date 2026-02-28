@@ -1,47 +1,293 @@
 {
     "id": "New-v26-a8b3c2d1-4e5f-409a-82b7-9d3e1c6a578f",
     "type": "dragAndDropCloze",
-    "stem": "The patient's clinical presentation and laboratory data indicate acute respiratory distress syndrome (ARDS). Based on this information, complete the following statements regarding the expected pathophysiology and appropriate nursing interventions:\n\nIn ARDS, the [__________] is damaged, leading to increased permeability and pulmonary edema. This results in impaired gas exchange and [__________]. The nurse should anticipate the need for [__________] ventilation and monitor for complications such as [__________]. To optimize oxygenation, the nurse should consider placing the patient in the [__________] position.\n\n**Options:**\n*  Alveolar-capillary membrane\n*  Decreased lung compliance\n*  Positive pressure\n*  Pneumothorax\n*  Prone",
+    "vault": {
+        "category": "/dragAndDropCloze",
+        "filename": "ards_dragAndDropCloze_v1.json"
+    },
+    "stem": "The nurse is documenting the pathophysiology and plan of care for a client with acute respiratory distress syndrome (ARDS). Drag the options provided to complete the following clinical note.",
+    "prompt": "In ARDS, the [BLANK_1] is damaged, leading to increased permeability and pulmonary edema. This results in impaired gas exchange and [BLANK_2]. The nurse should anticipate the need for [BLANK_3] ventilation and monitor for complications such as [BLANK_4]. To optimize oxygenation, the nurse should consider placing the patient in the [BLANK_5] position.",
+    "blanks": [
+        {
+            "id": "BLANK_1"
+        },
+        {
+            "id": "BLANK_2"
+        },
+        {
+            "id": "BLANK_3"
+        },
+        {
+            "id": "BLANK_4"
+        },
+        {
+            "id": "BLANK_5"
+        }
+    ],
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "Alveolar-capillary membrane"
+        },
+        {
+            "id": "opt_2",
+            "text": "Decreased lung compliance"
+        },
+        {
+            "id": "opt_3",
+            "text": "Positive pressure"
+        },
+        {
+            "id": "opt_4",
+            "text": "Pneumothorax"
+        },
+        {
+            "id": "opt_5",
+            "text": "Prone"
+        },
+        {
+            "id": "opt_6",
+            "text": "Bronchial smooth muscle"
+        },
+        {
+            "id": "opt_7",
+            "text": "Supine"
+        }
+    ],
+    "correctResponse": [
+        {
+            "blankId": "BLANK_1",
+            "optionId": "opt_1"
+        },
+        {
+            "blankId": "BLANK_2",
+            "optionId": "opt_2"
+        },
+        {
+            "blankId": "BLANK_3",
+            "optionId": "opt_3"
+        },
+        {
+            "blankId": "BLANK_4",
+            "optionId": "opt_4"
+        },
+        {
+            "blankId": "BLANK_5",
+            "optionId": "opt_5"
+        }
+    ],
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 5
     },
     "itemContext": {
         "patient": {
             "name": "Jameson, Robert",
             "age": 62,
-            "gender": "Male",
-            "iso": "ICU",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: This is Robert Jameson, a 62-year-old male admitted two days ago with sepsis secondary to pneumonia, currently in the ICU. B: Mr. Jameson has a history of COPD, hypertension, and type 2 diabetes. Initially, he was managed with antibiotics and supplemental oxygen, showing some improvement. A: At 07:00 this morning, Mr. Jameson's respiratory status deteriorated rapidly. His current vital signs are: heart rate 120 bpm, respiratory rate 36 and labored, blood pressure 90/60 mmHg, SpO2 88% on 100% FiO2 via non-rebreather. ABG results from 07:00: pH 7.25, PaCO2 60 mmHg, PaO2 55 mmHg, HCO3 24 mEq/L. Chest X-ray shows bilateral infiltrates. He is increasingly agitated and confused. C: I am highly concerned about impending respiratory failure and possible ARDS. I strongly recommend immediate intubation and mechanical ventilation. Further investigation into the sepsis cause is crucial. Monitor response to treatment and prepare for potential ARDS and mechanical ventilation complications.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG (07:00): pH 7.25, PaCO2 60 mmHg, PaO2 55 mmHg, HCO3 24 mEq/L, SaO2 88%. WBC: 18,000/mm3. Lactate: 4.0 mmol/L."
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 14:00",
+                        "content": "S: Client is a 62-year-old male brought to the ED with fever, productive cough, and shortness of breath. B: History of COPD, hypertension, and type 2 diabetes mellitus. Diagnosed with community-acquired pneumonia. Admitted to the medical floor for treatment. A: Vital signs stable on 4L NC. Receiving IV fluids and broad-spectrum antibiotics. Alert and oriented x3. R: Continue current treatment plan. Monitor respiratory status closely for any signs of deterioration. Consult respiratory therapy for breathing treatments."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 3, 07:30",
+                        "content": "S: This is the nurse for Robert Jameson, calling to report acute respiratory decompensation. B: Mr. Jameson is a 62-year-old male admitted two days ago for sepsis secondary to pneumonia, now with suspected ARDS. His history includes COPD, hypertension, and T2DM. A: Over the last hour, his respiratory rate increased to 36/min with significant accessory muscle use. SpO2 has dropped to 88% on a 100% non-rebreather mask. He is tachycardic at 120 bpm and hypotensive at 90/60 mmHg. ABGs from 07:00 show severe hypoxemia and respiratory acidosis (PaO2 55 mmHg, PaCO2 60 mmHg). The client is now agitated and confused. R: I am requesting an immediate ICU consult for intubation and mechanical ventilation. We need to initiate ARDSnet protocol, including low tidal volume ventilation. We will prepare for prone positioning to improve oxygenation."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: HR 110, RR 28, BP 110/70, SpO2 92% on 6L NC. 07:00: HR 120, RR 36, BP 90/60, SpO2 88% on 100% non-rebreather."
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "04:00",
+                        "Temp": "99.1°F (37.3°C)",
+                        "HR": "105",
+                        "RR": "26",
+                        "BP": "115/75",
+                        "MAP": "88",
+                        "SpO2": "93% on 6L NC"
+                    },
+                    {
+                        "Time": "06:00",
+                        "Temp": "99.0°F (37.2°C)",
+                        "HR": "110",
+                        "RR": "28",
+                        "BP": "110/70",
+                        "MAP": "83",
+                        "SpO2": "92% on 10L Face Mask"
+                    },
+                    {
+                        "Time": "07:00",
+                        "Temp": "98.9°F (37.2°C)",
+                        "HR": "120",
+                        "RR": "36",
+                        "BP": "90/60",
+                        "MAP": "70",
+                        "SpO2": "88% on 100% NRB"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 2g IV q24h, Vancomycin 1g IV q12h, Pantoprazole 40mg IV daily, PRN lorazepam 1mg IV for agitation."
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "Test": "WBC",
+                        "Result": "18.5",
+                        "Unit": "x10³/μL",
+                        "Reference Range": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate",
+                        "Result": "4.0",
+                        "Unit": "mmol/L",
+                        "Reference Range": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "pH (Arterial)",
+                        "Result": "7.25",
+                        "Unit": "",
+                        "Reference Range": "7.35-7.45",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "PaCO2 (Arterial)",
+                        "Result": "60",
+                        "Unit": "mmHg",
+                        "Reference Range": "35-45",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "PaO2 (Arterial)",
+                        "Result": "55",
+                        "Unit": "mmHg",
+                        "Reference Range": "80-100",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "HCO3 (Arterial)",
+                        "Result": "24",
+                        "Unit": "mEq/L",
+                        "Reference Range": "22-26",
+                        "Status": "Normal"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "assessment": {
+                    "timestamp": "Day 3, 07:15",
+                    "systems": [
+                        {
+                            "system": "General",
+                            "findings": "Anxious, agitated, in acute respiratory distress."
+                        },
+                        {
+                            "system": "Respiratory",
+                            "findings": "Tachypneic with use of accessory muscles. Diffuse bilateral crackles on auscultation."
+                        },
+                        {
+                            "system": "Neurological",
+                            "findings": "Confused, not oriented to time or place. GCS 13 (E4, V4, M5)."
+                        },
+                        {
+                            "system": "Cardiovascular",
+                            "findings": "Tachycardic, S1/S2 audible. Peripheral pulses +2, cool extremities."
+                        }
+                    ]
+                }
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray indicates bilateral infiltrates."
+                "reports": [
+                    {
+                        "type": "Chest X-ray, PA and Lateral",
+                        "timestamp": "Day 3, 07:10",
+                        "content": "INDICATION: Worsening hypoxemia, rule out ARDS.\n\nFINDINGS: Extensive, diffuse bilateral airspace opacities consistent with pulmonary edema. No evidence of cardiomegaly or significant pleural effusion. The cardiomediastinal silhouette is within normal limits. Endotracheal tube is not present.\n\nIMPRESSION: Radiographic findings are highly suggestive of Acute Respiratory Distress Syndrome (ARDS), given the clinical context of sepsis and refractory hypoxemia."
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR tab for patient information."
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "Day 1, 14:05",
+                        "action": "Ceftriaxone 2g IV",
+                        "status": "Standing, q24h"
+                    },
+                    {
+                        "timestamp": "Day 1, 14:05",
+                        "action": "Vancomycin 1g IV",
+                        "status": "Standing, q12h"
+                    },
+                    {
+                        "timestamp": "Day 1, 14:10",
+                        "action": "Pantoprazole 40mg IV",
+                        "status": "Standing, Daily"
+                    },
+                    {
+                        "timestamp": "Day 1, 14:10",
+                        "action": "Lorazepam 1mg IV for agitation",
+                        "status": "PRN"
+                    },
+                    {
+                        "timestamp": "Day 3, 07:35",
+                        "action": "Prepare for immediate endotracheal intubation",
+                        "status": "STAT"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Ceftriaxone",
+                        "dose": "2g",
+                        "route": "IV",
+                        "frequency": "q24h",
+                        "lastAdministered": "Day 2, 14:05"
+                    },
+                    {
+                        "medication": "Vancomycin",
+                        "dose": "1g",
+                        "route": "IV",
+                        "frequency": "q12h",
+                        "lastAdministered": "Day 3, 02:00"
+                    },
+                    {
+                        "medication": "Pantoprazole",
+                        "dose": "40mg",
+                        "route": "IV",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 3, 06:00"
+                    },
+                    {
+                        "medication": "Lorazepam",
+                        "dose": "1mg",
+                        "route": "IV",
+                        "frequency": "PRN",
+                        "lastAdministered": "Day 3, 07:20"
+                    }
+                ]
             }
         ]
     },
@@ -51,25 +297,52 @@
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
+            "Respiratory: Respiratory Failure & ARDS",
+            "Advanced Monitoring"
         ]
     },
     "rationale": {
-        "correct": "In ARDS, the alveolar-capillary membrane is damaged, leading to increased permeability and pulmonary edema. This results in impaired gas exchange and decreased lung compliance. The nurse should anticipate the need for positive pressure ventilation and monitor for complications such as pneumothorax. To optimize oxygenation, the nurse should consider placing the patient in the prone position.\n\n**Rationale:** The alveolar-capillary membrane damage is the hallmark of ARDS, causing fluid leakage into the alveoli and impairing gas exchange. Decreased lung compliance results from the edema and inflammation, making it harder for the lungs to expand. Positive pressure ventilation is often required to maintain adequate oxygenation and support breathing. Pneumothorax is a potential complication of mechanical ventilation, particularly when high pressures are used. Prone positioning helps improve oxygenation by redistributing lung perfusion and ventilation, allowing for better gas exchange in previously compressed areas of the lungs.",
-        "incorrect": "Incorrect selections indicate a lack of understanding of the pathophysiology of ARDS and appropriate nursing interventions. Review the underlying causes of ARDS, the effects on gas exchange and lung mechanics, and the rationale for specific interventions such as mechanical ventilation and prone positioning. Pay close attention to the potential complications associated with these interventions. For example, consider why other options, such as treatments directly targeting the underlying infection, are not the immediate priority in the face of acute respiratory distress.",
+        "correct": "In ARDS, the alveolar-capillary membrane is damaged, leading to increased permeability and pulmonary edema. This results in impaired gas exchange and decreased lung compliance. The nurse should anticipate the need for positive pressure ventilation and monitor for complications such as pneumothorax. To optimize oxygenation, the nurse should consider placing the patient in the prone position.",
+        "answerBreakdown": [
+            {
+                "blankId": "BLANK_1",
+                "correctOptionId": "opt_1",
+                "explanation": "The primary pathophysiological event in ARDS is diffuse inflammatory damage to the alveolar-capillary membrane. This makes the membrane leaky, allowing protein-rich fluid to flood the alveoli, causing non-cardiogenic pulmonary edema. 'Bronchial smooth muscle' is incorrect; its constriction is the primary mechanism in asthma, not ARDS."
+            },
+            {
+                "blankId": "BLANK_2",
+                "correctOptionId": "opt_2",
+                "explanation": "The fluid-filled alveoli and loss of surfactant make the lungs stiff and difficult to inflate, which is defined as decreased lung compliance. This significantly increases the work of breathing and necessitates mechanical ventilation."
+            },
+            {
+                "blankId": "BLANK_3",
+                "correctOptionId": "opt_3",
+                "explanation": "Positive pressure ventilation is required to deliver oxygen and tidal volume into the noncompliant lungs. Positive End-Expiratory Pressure (PEEP) is used to keep alveoli open and improve oxygenation."
+            },
+            {
+                "blankId": "BLANK_4",
+                "correctOptionId": "opt_4",
+                "explanation": "A major risk of positive pressure ventilation, especially with the high pressures needed for stiff lungs in ARDS, is barotrauma, which can lead to a pneumothorax (collapsed lung). This is a life-threatening complication requiring immediate intervention."
+            },
+            {
+                "blankId": "BLANK_5",
+                "correctOptionId": "opt_5",
+                "explanation": "Prone positioning is a key intervention that improves ventilation-perfusion (V/Q) matching. It shifts pressure off the dependent, dorsal lung regions, allowing them to re-expand, and improves drainage of secretions, thereby enhancing oxygenation. 'Supine' positioning can worsen atelectasis."
+            }
+        ],
         "clinicalPearls": [
-            "Early recognition of ARDS and prompt initiation of appropriate interventions are crucial for improving patient outcomes. Monitor patients at risk for ARDS closely for signs of respiratory distress and hypoxemia.",
-            "Prone positioning can significantly improve oxygenation in patients with ARDS, but it requires careful monitoring and specialized nursing care. Ensure adequate staffing and adherence to established protocols for prone positioning.",
-            "Ventilator-induced lung injury (VILI) is a significant concern in patients with ARDS, so lung-protective ventilation strategies should be employed. These strategies include using low tidal volumes and limiting plateau pressures to minimize lung damage."
+            "The hallmark of ARDS is refractory hypoxemia, meaning the client's PaO2 remains low despite receiving a high concentration of inspired oxygen (FiO2). This is evident in the client's PaO2 of 55 mmHg on 100% FiO2.",
+            "Lung-protective ventilation strategies are crucial to prevent ventilator-induced lung injury (VILI). This involves using low tidal volumes (e.g., 4-6 mL/kg of ideal body weight) and maintaining plateau pressures below 30 cm H2O.",
+            "Prone positioning is a complex, high-risk procedure that requires a coordinated, multi-person team to execute safely, preventing complications like pressure injuries, airway dislodgement, or loss of vascular access."
         ],
         "questionTrap": {
-            "trap": "Students may incorrectly select options that are related to respiratory distress but not directly caused by or related to the appropriate management of ARDS. For example, selecting options related to fluid overload as a primary cause of ARDS, rather than the inflammatory process damaging the alveolar-capillary membrane.",
-            "howToOvercome": "Focus on the underlying pathophysiology of ARDS, which involves inflammation and increased permeability of the alveolar-capillary membrane. Identify the direct consequences of this process and the interventions that specifically address these consequences. Consider the immediate priorities in managing the patient's respiratory distress."
+            "trap": "A common trap is confusing the pathophysiology of ARDS with other respiratory conditions. Selecting 'Bronchial smooth muscle' incorrectly applies asthma pathophysiology. Another trap is failing to recognize specific interventions and their rationales, such as choosing 'Supine' positioning, which is a standard patient position but is therapeutically incorrect for optimizing oxygenation in severe ARDS.",
+            "howToOvercome": "Focus on the core definition of ARDS: acute, diffuse, inflammatory lung injury leading to increased pulmonary vascular permeability. Link this core concept to its direct consequences (leaky membranes, stiff lungs) and the specific interventions designed to manage them (PEEP, prone positioning)."
         },
         "mnemonic": {
-            "title": "ARDS",
-            "expansion": "Alveolar/Atelectasis, Refractory Hypoxemia, Decreased Compliance, Severe Dyspnea"
+            "title": "ARDS Pathophysiology",
+            "expansion": "Alveolar damage, Refractory hypoxemia, Decreased lung compliance, Surfactant loss"
         }
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "sentinelStatus": "upgraded_2026_standard"
 }

@@ -1,76 +1,162 @@
 {
     "id": "New-v26-78a9b2c3-d4e5-4f60-a1b7-9c08e3f210ab",
     "type": "highlight",
-    "stem": "The nurse is caring for a 67-year-old male patient admitted to the ICU with septic shock secondary to a urinary tract infection. Based on the data provided in the patient's chart, identify all findings that indicate the patient is experiencing inadequate tissue perfusion and requires immediate intervention. Click on the phrases in the text below that support your answer. \n\nInitial assessment reveals a patient who is [lethargic and confused]. His skin is [cool and clammy] with [weak peripheral pulses]. The patient's urine output has been [less than 20 mL/hr] for the past two hours. Auscultation of the lungs reveals [scattered crackles bilaterally]. The patient’s current blood pressure is [88/52 mmHg], heart rate is 128 bpm, respiratory rate is 32 breaths/min and labored, and temperature is 38.9°C (102.0°F). The central venous pressure (CVP) is 2 mmHg. Laboratory results show an elevated lactate level of [4.5 mmol/L] and a base deficit of [-6 mEq/L]. The patient is currently receiving oxygen via nasal cannula at 2L/min with an SpO2 reading of 91%.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is reviewing the clinical record for a client in the ICU with septic shock. For the client data below, click to highlight findings that indicate inadequate tissue perfusion.",
+    "passage": "The client is [lethargic and confused]. Skin is [cool and clammy to the touch] with [1+ peripheral pulses]. Recent urine output is [<30 mL/hr for 2 hours]. Lungs have [bilateral crackles on auscultation]. The most recent blood pressure is [88/52 mmHg (MAP 64)]. Heart rate is [128/min]. The lactate level is critically high at [4.5 mmol/L].",
+    "options": [
+        {
+            "id": "opt1",
+            "text": "lethargic and confused"
+        },
+        {
+            "id": "opt2",
+            "text": "cool and clammy to the touch"
+        },
+        {
+            "id": "opt3",
+            "text": "1+ peripheral pulses"
+        },
+        {
+            "id": "opt4",
+            "text": "<30 mL/hr for 2 hours"
+        },
+        {
+            "id": "opt5",
+            "text": "bilateral crackles on auscultation"
+        },
+        {
+            "id": "opt6",
+            "text": "88/52 mmHg (MAP 64)"
+        },
+        {
+            "id": "opt7",
+            "text": "128/min"
+        },
+        {
+            "id": "opt8",
+            "text": "4.5 mmol/L"
+        }
+    ],
+    "correctOptionIds": [
+        "opt1",
+        "opt2",
+        "opt3",
+        "opt4",
+        "opt6",
+        "opt8"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 67,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "67 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ],
-            "airborne": false
+            ]
         },
-        "sbar": "Situation: John Smith, a 67-year-old male, was admitted to the ICU for septic shock secondary to a urinary tract infection (UTI). Background: The patient presented to the ED at 03:00 with fever, altered mental status, and decreased urine output. He has a history of hypertension and type 2 diabetes mellitus. Assessment: At 07:00, the patient is lethargic and confused. His blood pressure is 88/52 mmHg, heart rate is 128 bpm, respiratory rate is 32 breaths/min and labored, and temperature is 38.9°C. Urine output is less than 20 mL/hr for the last 2 hours. Lactate is 4.5 mmol/L, base deficit is -6 mEq/L, and CVP is 2 mmHg. SpO2 is 91% on 2L nasal cannula. Auscultation reveals scattered crackles. Skin is cool and clammy, with weak peripheral pulses. Recommendation: I am concerned about worsening tissue perfusion. I recommend increasing oxygen delivery, initiating vasopressors, reassessing fluid status, and considering advanced hemodynamic monitoring. Please advise on further management.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Lactate</td><td>4.5 mmol/L</td><td>0.5-2.2 mmol/L</td></tr><tr><td>Base Deficit</td><td>-6 mEq/L</td><td>-2 to +2 mEq/L</td></tr><tr><td>WBC</td><td>18,000/μL</td><td>4,500-11,000/μL</td></tr><tr><td>Creatinine</td><td>2.1 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>8-20 mg/dL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<h5>Admission Note - 03:00</h5><p><strong>S:</strong> Client arrived via EMS from home. Adult child called 911 for acute confusion and lethargy. Client has a history of T2DM and HTN. Client lives alone in a rural area with limited access to primary care, which delayed seeking treatment. <br><strong>B:</strong> On arrival, client febrile, hypotensive, and tachycardic. Suspected urosepsis. <br><strong>A:</strong> Two peripheral IVs established. 30 mL/kg NS bolus initiated. Blood and urine cultures obtained. Broad-spectrum antibiotics ordered. <br><strong>R:</strong> Admitted to ICU for septic shock management and hemodynamic monitoring.</p><h5>Progress Note - 07:00</h5><p><strong>S:</strong> Client remains hypotensive despite initial fluid resuscitation. Adult child at bedside, expresses significant concern. <br><strong>B:</strong> 67-year-old male with septic shock secondary to UTI. History of T2DM, HTN. Lives alone in a rural area, which contributed to delayed care. Admitted at 03:00. Received 2.5L NS bolus. Ceftriaxone administered at 06:00. <br><strong>A:</strong> Client is lethargic, GCS 13. BP 88/52 (MAP 64), HR 128, RR 32, SpO2 91% on 2L NC. Skin is cool and clammy, cap refill >3 sec. Urine output 19 mL in the last hour. Lactate remains elevated at 4.5 mmol/L. Bilateral crackles noted. CVP is 2 mmHg. <br><strong>R:</strong> Recommend initiating norepinephrine infusion to maintain MAP >65 mmHg per sepsis protocol. Continue to monitor lactate and acid-base status. May require increased respiratory support if oxygenation worsens. Discussing goals of care with family.</p>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Given</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td><td>06:00</td></tr><tr><td>Acetaminophen</td><td>650mg</td><td>PO</td><td>q4h PRN Fever</td><td>04:00</td></tr><tr><td>Insulin Aspart</td><td>Varies</td><td>SubQ</td><td>AC & HS per sliding scale</td><td>06:30</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO₂</th></tr></thead><tbody><tr><td>05:00</td><td>92/58 mmHg (69)</td><td>122/min</td><td>28/min</td><td>101.9°F (38.8°C)</td><td>92% on 2L NC</td></tr><tr><td>06:00</td><td>90/55 mmHg (67)</td><td>125/min</td><td>30/min</td><td>102.0°F (38.9°C)</td><td>91% on 2L NC</td></tr><tr><td>07:00</td><td>88/52 mmHg (64)</td><td>128/min</td><td>32/min</td><td>102.0°F (38.9°C)</td><td>91% on 2L NC</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO2</th><th>CVP</th><th>Urine Output (mL/hr)</th></tr></thead><tbody><tr><td>05:00</td><td>92/58</td><td>122</td><td>28</td><td>38.7°C</td><td>92% (2L NC)</td><td>3 mmHg</td><td>22</td></tr><tr><td>06:00</td><td>90/55</td><td>125</td><td>30</td><td>38.8°C</td><td>91% (2L NC)</td><td>2 mmHg</td><td>18</td></tr><tr><td>07:00</td><td>88/52</td><td>128</td><td>32</td><td>38.9°C</td><td>91% (2L NC)</td><td>2 mmHg</td><td>19</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Lactate</td><td>4.5</td><td>mmol/L</td><td>0.5-2.2</td><td>High</td></tr><tr><td>WBC</td><td>18.5</td><td>x 10⁹/L</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Creatinine</td><td>2.1</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>BUN</td><td>35</td><td>mg/dL</td><td>8-20</td><td>High</td></tr><tr><td>pH (Arterial)</td><td>7.28</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>HCO₃⁻ (Arterial)</td><td>18</td><td>mEq/L</td><td>22-26</td><td>Low</td></tr><tr><td>Base Excess</td><td>-6</td><td>mEq/L</td><td>-2 to +2</td><td>Low</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<h5>Focused Assessment - 07:00</h5><ul><li><strong>General:</strong> Lethargic, slow to respond to verbal stimuli.</li><li><strong>Cardiovascular:</strong> Tachycardic, S1/S2 audible. Peripheral pulses 1+ bilaterally. Capillary refill >3 seconds. Skin is cool, clammy.</li><li><strong>Respiratory:</strong> Labored respirations with use of accessory muscles. Bilateral crackles in lower lobes on auscultation.</li><li><strong>Neurological:</strong> GCS 13 (E4, V4, M5). Disoriented to time and place.</li><li><strong>Renal:</strong> Indwelling urinary catheter draining scant, concentrated urine.</li></ul>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology data available."
+                "content": "<h5>Chest X-ray, Portable AP View - 06:30</h5><p><strong>Findings:</strong> Diffuse bilateral opacities and interstitial edema consistent with developing acute respiratory distress syndrome (ARDS). No evidence of focal consolidation, pneumothorax, or significant pleural effusion.<br><strong>Impression:</strong> Findings are suggestive of ARDS, likely secondary to sepsis.</p>"
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See the SBAR section in the Item Context."
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Today @ 03:15</td><td>Fluid bolus 30 mL/kg Normal Saline IV</td><td>STAT</td></tr><tr><td>Today @ 03:15</td><td>Blood cultures x2, urine culture</td><td>STAT</td></tr><tr><td>Today @ 07:10</td><td>Initiate Norepinephrine IV infusion, titrate to maintain MAP > 65 mmHg</td><td>Standing</td></tr><tr><td>Today @ 03:15</td><td>Continuous cardiac and SpO₂ monitoring</td><td>Standing</td></tr><tr><td>Today @ 03:15</td><td>Strict I&O, measure urine output hourly</td><td>Standing</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td><td>Today @ 06:00</td></tr><tr><td>Norepinephrine Infusion</td><td>8mg/250mL D5W</td><td>IV</td><td>Continuous</td><td>Initiated @ 07:15</td></tr><tr><td>Acetaminophen</td><td>650mg</td><td>PO</td><td>q4h PRN Fever >101.5°F</td><td>Today @ 04:00</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
+    "rationale": {
+        "correct": "In septic shock, massive vasodilation and increased capillary permeability lead to a relative hypovolemia and maldistribution of blood flow. This results in inadequate tissue perfusion and cellular hypoxia. The highlighted findings are direct consequences of this state. Altered mental status, cool/clammy skin with weak pulses, oliguria, hypotension, and elevated lactate are classic signs of end-organ damage and anaerobic metabolism due to insufficient oxygen delivery.",
+        "incorrect": "Tachycardia is a compensatory mechanism; the heart beats faster to try to maintain cardiac output in the face of vasodilation and low blood pressure. While a sign of shock, it represents the body's attempt to correct the problem, not the perfusion failure itself. Bilateral crackles suggest fluid shifting into the alveoli, a sign of developing ARDS or fluid overload, which is a complication of sepsis and its treatment, not a primary indicator of systemic tissue hypoperfusion.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1",
+                "content": "Correct. Lethargy and confusion are signs of decreased cerebral perfusion. The brain is highly sensitive to oxygen deprivation, and altered mental status is an early and critical indicator of systemic hypoperfusion."
+            },
+            {
+                "optionId": "opt2",
+                "content": "Correct. Cool, clammy skin results from the body's compensatory shunting of blood from the periphery (skin) to vital organs (heart, brain, kidneys). It is a direct sign of poor peripheral tissue perfusion."
+            },
+            {
+                "optionId": "opt3",
+                "content": "Correct. Weak (1+) peripheral pulses are a direct result of decreased stroke volume and compensatory peripheral vasoconstriction, indicating insufficient arterial pressure to perfuse the extremities."
+            },
+            {
+                "optionId": "opt4",
+                "content": "Correct. Urine output less than 30 mL/hr (oliguria) is a key indicator of decreased renal perfusion. The kidneys are not receiving enough blood flow to produce urine, signaling impending acute kidney injury."
+            },
+            {
+                "optionId": "opt5",
+                "content": "Incorrect. Bilateral crackles indicate fluid in the alveoli, a hallmark of ARDS or fluid overload. While related to the septic process (capillary leak), it is a finding of pulmonary compromise, not a direct measure of systemic tissue perfusion."
+            },
+            {
+                "optionId": "opt6",
+                "content": "Correct. A MAP below 65 mmHg is insufficient to perfuse vital organs. This hypotension is a primary driver of tissue hypoxia in distributive shock."
+            },
+            {
+                "optionId": "opt7",
+                "content": "Incorrect. Tachycardia (heart rate >100/min) is a compensatory response to hypotension and stress. The body increases heart rate to try to maintain cardiac output (CO = HR x SV). It is a sign of distress, but not a direct measure of perfusion failure."
+            },
+            {
+                "optionId": "opt8",
+                "content": "Correct. An elevated lactate level (>2 mmol/L) is a biomarker for cellular hypoxia. When cells lack oxygen, they switch to anaerobic metabolism, which produces lactic acid as a byproduct. It is a direct indicator of inadequate tissue perfusion at the cellular level."
+            }
+        ],
+        "clinicalPearls": [
+            "The Surviving Sepsis Campaign guidelines recommend maintaining a Mean Arterial Pressure (MAP) of at least 65 mmHg to ensure adequate perfusion of vital organs.",
+            "Lactate clearance, or the rate at which lactate levels decrease with treatment, is a key prognostic indicator. A failure to clear lactate is associated with higher mortality.",
+            "In septic shock, a low Central Venous Pressure (CVP) often indicates the need for more fluid resuscitation, but fluid administration must be balanced against the risk of pulmonary edema, especially if crackles are present."
+        ],
+        "questionTrap": "The primary trap is confusing compensatory vital signs (like tachycardia) with direct evidence of perfusion failure. While abnormal, compensatory signs show the body is still trying to adapt. Signs of perfusion failure (like confusion, oliguria, high lactate) show the body is failing.",
+        "mnemonic": {
+            "title": "SHOCK'D",
+            "expansion": "Skin (cool, clammy), Hypotension (MAP <65), Oliguria (<0.5 mL/kg/hr), Confusion (altered mental status), K+ (Lactate elevation), Decreased peripheral pulses."
+        },
+        "reviewUnits": [
+            "Septic Shock",
+            "Hemodynamic Monitoring",
+            "Acid-Base Balance",
+            "Acute Respiratory Distress Syndrome (ARDS)",
+            "Acute Kidney Injury (AKI)"
         ]
     },
-    "rationale": {
-        "correct": "The highlighted findings directly indicate inadequate tissue perfusion. Lethargy and confusion suggest decreased cerebral perfusion, indicating that the brain is not receiving enough oxygen and nutrients. Cool and clammy skin and weak peripheral pulses are signs of vasoconstriction and poor peripheral blood flow, as the body shunts blood to vital organs. Urine output less than 20 mL/hr indicates decreased renal perfusion, reflecting the kidneys' inability to filter waste due to reduced blood flow. Scattered crackles suggest fluid overload due to impaired cardiac function and capillary leak from sepsis, contributing to poor oxygenation and potentially worsening tissue perfusion. A blood pressure of 88/52 mmHg indicates hypotension, reducing blood flow to vital organs and compromising oxygen delivery. An elevated lactate level (4.5 mmol/L) signifies anaerobic metabolism due to insufficient oxygen delivery at the cellular level. A base deficit of -6 mEq/L indicates metabolic acidosis, also related to poor tissue oxygenation as cells switch to anaerobic respiration.",
-        "incorrect": "The patient's temperature of 38.9°C (102.0°F), heart rate of 128 bpm, respiratory rate of 32 breaths/min, and SpO2 of 91% on 2L NC, while abnormal, are more indicative of the body's response to infection and compensatory mechanisms (e.g., increased heart rate and respiratory rate to improve oxygen delivery) rather than direct indicators of tissue hypoperfusion. They contribute to the overall clinical picture but are not the *most* direct indicators the question is targeting. CVP is low, suggesting hypovolemia, however, it doesn't DIRECTLY indicate inadequate tissue perfusion as much as the highlighted items.",
-        "clinicalPearls": [
-            "In septic shock, early recognition of inadequate tissue perfusion is critical for timely intervention and improved patient outcomes. Interventions such as fluid resuscitation, vasopressors, and oxygen therapy should be initiated promptly.",
-            "Lactate level and base deficit are important indicators of anaerobic metabolism and tissue hypoxia. Serial measurements can help assess the effectiveness of interventions.",
-            "Monitor urine output closely as an indicator of renal perfusion. A declining urine output despite adequate fluid resuscitation may indicate worsening shock."
-        ],
-        "questionTrap": {
-            "trap": "Selecting findings that are abnormal but don't directly reflect tissue perfusion (e.g., fever, tachycardia, tachypnea). The question asks for the *most direct* indicators of inadequate tissue perfusion.",
-            "howToOvercome": "Focus on the underlying physiology. Ask yourself, 'Does this finding directly result from a lack of oxygen delivery to the tissues?' Consider the direct consequences of hypoperfusion on organ function."
-        },
-        "mnemonic": {
-            "title": "LOCALS",
-            "expansion": "Lethargy, Output (urine), Cool skin, Altered mental status, Lactate elevated, Shocky BP"
-        }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 6
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "correctOptionId": "opt1",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:02:18.449Z"
 }

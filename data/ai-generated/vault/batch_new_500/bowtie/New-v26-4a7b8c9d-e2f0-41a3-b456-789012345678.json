@@ -1,105 +1,344 @@
 {
     "id": "New-v26-4a7b8c9d-e2f0-41a3-b456-789012345678",
     "type": "bowtie",
-    "stem": "A 23-year-old active duty Marine presents to the emergency department at 03:00 after being brought in by military police. He reports feeling hopeless after a relationship breakup and expresses thoughts of self-harm. Based on the information provided, determine the priority actions, the client condition, and the appropriate interventions.",
-    "scoring": {
-        "method": "linkage",
-        "maxPoints": 6
-    },
-    "itemContext": {
-        "patient": {
-            "name": "John Smith",
-            "age": 23,
-            "gender": "Male",
-            "iso": "USA",
-            "allergies": [
-                "NKDA"
-            ]
-        },
-        "sbar": "Situation: John Smith, a 23-year-old male Marine, was brought in by MPs at 03:00. He states, \"I don't see any point anymore.\" Background: He reports a recent breakup with his girlfriend and feelings of hopelessness. He admits to having thoughts of harming himself but denies a specific plan. Assessment: The patient is alert and oriented to person, place, and time. He is visibly upset, pacing, and has a tearful affect. Vital signs at 03:05: BP 130/80, HR 92, RR 20, Temp 98.6°F (37°C), SpO2 99% on room air. No signs of acute distress besides emotional distress. He denies any medical problems or current medications. He reports consuming two beers earlier in the evening. Labs show ETOH level: 0.02%. Urine drug screen negative. Recommendation: Immediate psychiatric evaluation and continuous monitoring are needed due to expressed suicidal ideation. A risk assessment should be completed to determine the severity of the risk and appropriate safety measures. He requires a safe environment and therapeutic communication.",
-        "tabs": [
+    "stem": "A 23-year-old active duty Marine is brought to the ED by military police at 03:00, reporting hopelessness and thoughts of self-harm. Based on the clinical data, identify two actions to take, the client's condition, and two parameters to monitor.",
+    "options": {
+        "actionsToTake": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<b>CBC:</b> Within normal limits.<br><b>CMP:</b> Within normal limits.<br><b>Urine Drug Screen:</b> Negative for illicit substances.<br><b>ETOH level:</b> 0.02%"
+                "id": "opt_A1",
+                "text": "Initiate one-to-one observation"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<b>03:05:</b> BP 130/80, HR 92, RR 20, Temp 98.6°F (37°C), SpO2 99% on room air"
+                "id": "opt_A2",
+                "text": "Remove all personal belongings"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "No medications administered."
+                "id": "opt_A3",
+                "text": "Administer PRN lorazepam for anxiety"
+            },
+            {
+                "id": "opt_A4",
+                "text": "Contact the client's commanding officer for collateral"
+            },
+            {
+                "id": "opt_A5",
+                "text": "Encourage client to call his ex-girlfriend"
+            }
+        ],
+        "potentialCondition": [
+            {
+                "id": "opt_C1",
+                "text": "Acute suicidal ideation"
+            },
+            {
+                "id": "opt_C2",
+                "text": "Adjustment disorder with depressed mood"
+            },
+            {
+                "id": "opt_C3",
+                "text": "Alcohol intoxication, acute"
+            },
+            {
+                "id": "opt_C4",
+                "text": "Post-traumatic stress disorder (PTSD) exacerbation"
+            },
+            {
+                "id": "opt_C5",
+                "text": "Major depressive disorder, single episode"
+            }
+        ],
+        "parametersToMonitor": [
+            {
+                "id": "opt_P1",
+                "text": "Verbalization of a safety plan"
+            },
+            {
+                "id": "opt_P2",
+                "text": "Willingness to engage in therapeutic communication"
+            },
+            {
+                "id": "opt_P3",
+                "text": "Client's sleep/wake cycle over 24 hours"
+            },
+            {
+                "id": "opt_P4",
+                "text": "Vital signs every 4 hours"
+            },
+            {
+                "id": "opt_P5",
+                "text": "Family's understanding of the diagnosis"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Psychosocial Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Mental Health: Suicide Risk & Crisis Management"
+    "correctResponse": {
+        "actionsToTake": [
+            "opt_A1",
+            "opt_A2"
+        ],
+        "potentialCondition": [
+            "opt_C1"
+        ],
+        "parametersToMonitor": [
+            "opt_P1",
+            "opt_P2"
+        ]
+    },
+    "itemContext": {
+        "patient": {
+            "age": "23",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "No Known Drug Allergies"
+            ]
+        },
+        "tabs": [
+            {
+                "id": "clinical_feed",
+                "title": "Clinical Feed (Nurses' Notes)",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 03:15",
+                        "note_type": "Admission Note (SBAR)",
+                        "text": "Situation: A 23-year-old male active duty Marine was brought to the Emergency Department by military police due to expressed suicidal ideation. Client states, 'I don't see any point anymore.'\n\nBackground: The client reports a recent breakup with his girlfriend as the primary stressor. He is stationed over 2,000 miles from his family, a significant social determinant of health impacting his support system. He admits to consuming two beers approximately four hours ago but denies other substance use. No prior psychiatric history is reported.\n\nAssessment: Client is alert and oriented x4, with a distraught and tearful affect. He is observed pacing in the room. Mood is described as 'hopeless.' The Columbia-Suicide Severity Rating Scale (C-SSRS) is positive for suicidal ideation with a potential method identified, but he denies immediate intent or a specific plan. Vitals are stable.\n\nRecommendation: Initiate immediate one-to-one observation and full suicide precautions. Place a STAT consult to psychiatry. Ensure a safe environment by removing all personal belongings and potential ligature risks. Maintain NPO status pending psychiatric evaluation."
+                    },
+                    {
+                        "timestamp": "Day 1, 04:00",
+                        "note_type": "Progress Note",
+                        "text": "Client has been placed in a secure room near the nurses' station under continuous one-to-one observation. All personal belongings have been inventoried and secured per protocol. Client is no longer pacing and has accepted a glass of water. He is now engaging in conversation with the nurse about the events leading to his ED visit. Psychiatry resident has been paged and is expected to arrive shortly. Vital signs remain stable."
+                    }
+                ]
+            },
+            {
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:05",
+                        "HR": "92",
+                        "BP": "130/80 (97)",
+                        "RR": "20",
+                        "SpO2": "99% on RA",
+                        "Temp": "98.6°F (37.0°C)"
+                    },
+                    {
+                        "Time": "03:30",
+                        "HR": "98",
+                        "BP": "134/82 (99)",
+                        "RR": "22",
+                        "SpO2": "99% on RA",
+                        "Temp": "N/A"
+                    },
+                    {
+                        "Time": "04:00",
+                        "HR": "88",
+                        "BP": "128/78 (95)",
+                        "RR": "18",
+                        "SpO2": "98% on RA",
+                        "Temp": "N/A"
+                    }
+                ]
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Ethanol, Serum",
+                        "Result": "20",
+                        "Unit": "mg/dL",
+                        "Reference": "<10",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Urine Drug Screen",
+                        "Result": "Negative",
+                        "Unit": "",
+                        "Reference": "Negative",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "WBC",
+                        "Result": "7.5",
+                        "Unit": "x10^3/μL",
+                        "Reference": "4.5-11.0",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Hgb",
+                        "Result": "15.1",
+                        "Unit": "g/dL",
+                        "Reference": "13.5-17.5",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "250",
+                        "Unit": "x10^3/μL",
+                        "Reference": "150-450",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Sodium",
+                        "Result": "140",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Potassium",
+                        "Result": "4.1",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "General",
+                        "findings": "23-year-old male, appears stated age. Dressed in military fatigues. Initially pacing and restless, now sitting on edge of bed."
+                    },
+                    {
+                        "system": "Psychiatric",
+                        "findings": "Mood: 'Hopeless, overwhelmed.' Affect: Tearful, constricted, congruent with mood. Thought Process: Logical and linear. Thought Content: Preoccupation with relationship loss; expresses suicidal ideation without specific plan or intent. Denies homicidal ideation, hallucinations, or delusions. Cognition: Alert and oriented x4."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology (Imaging & Diagnostics)",
+                "content": "No imaging studies indicated or ordered at this time."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders & Interventions)",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 03:10",
+                        "Action": "Initiate suicide precautions",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 03:10",
+                        "Action": "One-to-one continuous observation",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 03:10",
+                        "Action": "Psychiatry consult",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 03:10",
+                        "Action": "Remove all personal belongings and provide hospital gown",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 03:10",
+                        "Action": "NPO until cleared by psychiatry",
+                        "Frequency/Status": "Standing"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console (Medications)",
+                "content": "No medications scheduled or administered."
+            }
         ]
     },
     "rationale": {
-        "correct": "The client's stated feelings of hopelessness and suicidal ideation require immediate intervention to ensure his safety. Establishing a therapeutic relationship is crucial to building trust and encouraging the client to share his feelings. Continuous monitoring allows for immediate intervention if the client's condition deteriorates. The client's condition is categorized as acute suicidal ideation based on his expressed thoughts of self-harm and emotional distress. Providing a safe environment minimizes the risk of self-harm. Encouraging expression of feelings can help the patient verbalize their emotions and feel heard. Notifying the psychiatric provider ensures that a comprehensive evaluation and treatment plan are developed promptly.",
-        "incorrect": "Delaying intervention or failing to provide a safe environment could have devastating consequences. Dismissing the client's feelings as simply sadness or downplaying the risk of suicide is inappropriate. Reassurance without addressing the underlying issues is ineffective and potentially harmful. While further assessment is needed, immediate action is paramount. Leaving the client unattended is a safety risk. Administering pain medication or offering a dietary consult are not relevant to the immediate needs of a patient expressing suicidal ideation. Contacting family members may be appropriate later, but the priority is the patient's immediate safety.",
+        "correct": "The client's presentation of hopelessness and expressed thoughts of self-harm indicate Acute Suicidal Ideation, the most critical condition to address. The immediate priority actions must focus on safety. Initiating one-to-one observation ensures constant monitoring to prevent self-harm. Removing all personal belongings eliminates potential means for self-injury. The key parameters to monitor for improvement are the client's ability to develop and verbalize a safety plan and their willingness to engage in therapeutic communication, which signals a de-escalation of the immediate crisis and a move toward recovery.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_A1",
+                "content": "Correct. This is the highest priority safety intervention for a client with active suicidal ideation. It provides constant visual monitoring to prevent any attempts at self-harm."
+            },
+            {
+                "optionId": "opt_A2",
+                "content": "Correct. This is a standard component of suicide precautions. Removing items like belts, shoelaces, and other personal effects eliminates potential means for self-harm, creating a safer environment."
+            },
+            {
+                "optionId": "opt_A3",
+                "content": "Incorrect. While an anxiolytic may be indicated later, it is not the first action. Establishing safety is the priority. Furthermore, administering medication requires a provider's order, which is not yet in place for this specific medication."
+            },
+            {
+                "optionId": "opt_A4",
+                "content": "Incorrect. Contacting a commanding officer without the client's explicit consent is a violation of HIPAA. Confidentiality is paramount unless there is a specific, immediate threat that requires disclosure, which is not the case here."
+            },
+            {
+                "optionId": "opt_A5",
+                "content": "Incorrect. Contacting the source of the acute distress (the ex-girlfriend) is therapeutically contraindicated and could escalate the client's emotional crisis."
+            },
+            {
+                "optionId": "opt_C1",
+                "content": "Correct. The client's direct statements of hopelessness and thoughts of self-harm in the context of an acute stressor are the hallmark of acute suicidal ideation. This is the most accurate and urgent hypothesis."
+            },
+            {
+                "optionId": "opt_C2",
+                "content": "Incorrect. While the client is having difficulty adjusting to a stressor, this diagnosis does not capture the life-threatening severity and immediacy of the suicide risk."
+            },
+            {
+                "optionId": "opt_C3",
+                "content": "Incorrect. The client's serum ethanol level is 20 mg/dL (0.02%), which is very low and not consistent with intoxication being the primary cause of his distress."
+            },
+            {
+                "optionId": "opt_C4",
+                "content": "Incorrect. There is no information in the client's history or presentation to suggest a history of trauma or a diagnosis of PTSD."
+            },
+            {
+                "optionId": "opt_C5",
+                "content": "Incorrect. A diagnosis of Major Depressive Disorder requires symptoms to be present for at least two weeks. This presentation is an acute crisis related to a specific event."
+            },
+            {
+                "optionId": "opt_P1",
+                "content": "Correct. A key goal of crisis intervention is to help the client develop coping strategies. The ability to create and verbalize a safety plan is a critical indicator that the client is moving toward stability."
+            },
+            {
+                "optionId": "opt_P2",
+                "content": "Correct. The client's willingness to engage with staff is a crucial parameter. It indicates that a therapeutic alliance is forming and that the client is becoming receptive to interventions."
+            },
+            {
+                "optionId": "opt_P3",
+                "content": "Incorrect. While sleep is important for overall mental health, it is not an immediate priority parameter to monitor in an acute suicidal crisis. Safety and engagement come first."
+            },
+            {
+                "optionId": "opt_P4",
+                "content": "Incorrect. The client's vital signs are stable, and there is no indication of a medical issue. This is a psychiatric emergency, so monitoring psychological status is the priority."
+            },
+            {
+                "optionId": "opt_P5",
+                "content": "Incorrect. While family involvement may be part of the long-term plan, the immediate priority is monitoring the client's own status and safety."
+            }
+        ],
         "clinicalPearls": [
-            "Always take statements of suicidal ideation seriously, regardless of the client's apparent demeanor.",
-            "Establish a therapeutic relationship with the client to encourage open communication.",
-            "Ensure a safe environment by removing potentially harmful objects.",
-            "Continuous monitoring is crucial for clients at risk of suicide.",
-            "Encourage the patient to verbalize their feelings and provide a non-judgmental space for them to express themselves."
+            "For any client expressing suicidal ideation, immediate environmental safety (e.g., removing dangerous items) and constant observation (e.g., one-to-one) are the highest nursing priorities, superseding all other interventions.",
+            "Military personnel may face unique stressors, including geographic isolation from support systems, which is a critical social determinant of health to consider during assessment.",
+            "A therapeutic alliance is the foundation of psychiatric care. Monitoring a client's willingness to engage in communication is a key indicator of their progress and readiness for treatment."
         ],
-        "questionTrap": {
-            "trap": "A common mistake is to focus solely on the physical assessment and overlook the psychological distress. Another trap is to provide false reassurance without addressing the underlying issues.",
-            "howToOvercome": "Prioritize the client's mental health needs and avoid offering platitudes. Instead, actively listen, validate their feelings, and take immediate steps to ensure their safety. Remember that mental health crises require immediate intervention just as physical emergencies do."
-        },
+        "questionTrap": "A common trap is to select a valid but less urgent diagnosis, like 'Adjustment disorder,' which fails to capture the immediate life-threatening risk of 'Acute suicidal ideation.' Always prioritize the most severe and immediate risk to the client's life.",
         "mnemonic": {
-            "title": "IS PATH WARM",
-            "expansion": "Ideation, Substance abuse, Purposelessness, Anxiety, Trapped, Hopelessness, Withdrawal, Anger, Recklessness, Mood change"
-        }
-    },
-    "responseOptions": {
-        "column1": [
-            "Establish therapeutic relationship",
-            "Initiate suicide precautions",
-            "Notify psychiatric provider",
-            "Provide a safe environment",
-            "Continuous monitoring",
-            "Administer anti-anxiety medication"
-        ],
-        "column2": [
-            "Acute suicidal ideation",
-            "Situational anxiety",
-            "Major depressive disorder",
-            "Brief psychotic disorder",
-            "Adjustment disorder"
-        ],
-        "column3": [
-            "Encourage expression of feelings",
-            "Administer PRN pain medication",
-            "Provide reassurance",
-            "Perform a thorough physical assessment",
-            "Offer dietary consult",
-            "Contact family members"
+            "title": "IS PATH WARM (Suicide Risk Assessment)",
+            "expansion": "Ideation, Substance abuse, Purposelessness, Anxiety, Trapped, Hopelessness, Withdrawal, Anger, Recklessness, Mood changes."
+        },
+        "reviewUnits": [
+            "Mental Health Concepts",
+            "Safety and Infection Control"
         ]
     },
-    "correctResponse": {
-        "precondition": [
-            "Establish therapeutic relationship",
-            "Provide a safe environment"
-        ],
-        "condition": [
-            "Acute suicidal ideation"
-        ],
-        "intervention": [
-            "Encourage expression of feelings",
-            "Notify psychiatric provider"
-        ]
+    "scoring": {
+        "method": "rationale_linked",
+        "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Prioritize Hypotheses",
+        "nclexCategory": "Psychosocial Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:14:07.885Z"
 }

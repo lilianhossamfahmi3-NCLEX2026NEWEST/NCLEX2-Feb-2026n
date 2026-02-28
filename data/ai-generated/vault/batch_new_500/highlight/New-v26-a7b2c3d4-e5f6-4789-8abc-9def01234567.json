@@ -1,75 +1,303 @@
 {
-    "id": "New-v26-a7b2c3d4-e5f6-4789-8abc-9def01234567",
+    "id": "v26-upgraded-a7b2c3d4-e5f6-4789-8abc-9def01234567",
     "type": "highlight",
-    "stem": "The patient is exhibiting signs of possible ventilator-associated pneumonia (VAP). Review the nurse's notes below and highlight all findings that support this suspicion. Only highlight the specific findings, not the surrounding text.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is reviewing the most recent progress note for a client on mechanical ventilation. Highlight the 4 findings in the note that are most indicative of developing Ventilator-Associated Pneumonia (VAP).",
+    "highlightablePassage": "12:00 Progress Note: Client is on [post-operative day 3 following a coronary artery bypass graft (CABG)]. He remains intubated and mechanically ventilated; [ventilator settings are unchanged]. Assessment reveals a [Temperature of 101.5°F (38.6°C)], an increase from 99.0°F (37.2°C) at 08:00. [Blood pressure is 138/88 mmHg] and [Heart rate is 98 bpm]. The [SpO₂ has decreased to 91%] on FiO2 40%, requiring intervention. Auscultation reveals new coarse crackles in the right lower lobe. Suctioning was performed for a large amount of [thick, purulent, yellow-green sputum]. The most recent lab report shows a [WBC count of 15,500/mm³]. Recommendation is to notify the provider for further orders.",
+    "spans": [
+        {
+            "id": "span_01",
+            "text": "post-operative day 3 following a coronary artery bypass graft (CABG)",
+            "isCorrect": false
+        },
+        {
+            "id": "span_02",
+            "text": "ventilator settings are unchanged",
+            "isCorrect": false
+        },
+        {
+            "id": "span_03",
+            "text": "Temperature of 101.5°F (38.6°C)",
+            "isCorrect": true
+        },
+        {
+            "id": "span_04",
+            "text": "Blood pressure is 138/88 mmHg",
+            "isCorrect": false
+        },
+        {
+            "id": "span_05",
+            "text": "Heart rate is 98 bpm",
+            "isCorrect": false
+        },
+        {
+            "id": "span_06",
+            "text": "SpO₂ has decreased to 91%",
+            "isCorrect": true
+        },
+        {
+            "id": "span_07",
+            "text": "thick, purulent, yellow-green sputum",
+            "isCorrect": true
+        },
+        {
+            "id": "span_08",
+            "text": "WBC count of 15,500/mm³",
+            "isCorrect": true
+        }
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Contact & Droplet",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "Penicillin"
-            ]
+                "Penicillin (rash)"
+            ],
+            "header": "Age: 68 | Sex: Male | Pronouns: he/him | Allergies: Penicillin"
         },
-        "sbar": "Situation: John Smith, a 68-year-old male, is on post-operative day 3 following a coronary artery bypass graft (CABG). He is intubated and mechanically ventilated. Background: The patient has a history of COPD and hypertension. The CABG procedure was uncomplicated. Assessment: At 06:00, vital signs were: BP 130/80 mmHg, HR 88 bpm, RR 16 breaths/min (ventilator settings), SpO2 95% on FiO2 40%, Temp 37.2°C. At 08:00, respiratory status changed. Vitals: BP 140/90 mmHg, HR 98 bpm, RR 16 breaths/min (ventilator), SpO2 92% on FiO2 40%, Temp 38.5°C. Suctioning at 07:45 yielded thick, yellow secretions. Labs show WBC 14,000/mm3. Recommendation: Stat chest x-ray and sputum culture to rule out VAP. Consider increasing PEEP to improve oxygenation.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 14,000/mm3 (High)\nHemoglobin: 12.5 g/dL\nPlatelets: 250,000/mm3\nSputum Gram Stain: Gram-negative rods present\nSputum Culture: Pending"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "note_type": "Admission Note",
+                        "content": "S: Client admitted to ICU post-coronary artery bypass graft (CABG). Intubated and on mechanical ventilation per protocol. \nB: 68-year-old male with a history of COPD and hypertension. No surgical complications reported. Allergies include Penicillin. Lives alone in a second-floor apartment, which may present a barrier upon discharge. \nA: Vitals stable, incision clean, dry, and intact. Lungs clear to auscultation bilaterally. Sedation wean initiated. Client is hemodynamically stable. Initial post-op labs within expected limits. Following VAP prevention bundle protocols, including head of bed elevation and chlorhexidine oral care. \nR: Continue mechanical ventilation and sedation per protocol. Monitor vital signs, telemetry, and hemodynamics closely. Continue VAP bundle. Plan for extubation trial within 24-48 hours if stability is maintained."
+                    },
+                    {
+                        "timestamp": "Day 3, 12:00",
+                        "note_type": "Progress Note",
+                        "content": "S: Client's respiratory status has declined over the past 4 hours. Increased oxygen requirement noted. \nB: Client is on post-operative day 3 following a coronary artery bypass graft (CABG). He remains intubated and mechanically ventilated; ventilator settings are unchanged. \nA: Assessment reveals a Temperature of 101.5°F (38.6°C), an increase from 99.0°F (37.2°C) at 08:00. Blood pressure is 138/88 mmHg and Heart rate is 98 bpm. The SpO₂ has decreased to 91% on FiO2 40%, requiring intervention. Auscultation reveals new coarse crackles in the right lower lobe. Suctioning was performed for a large amount of thick, purulent, yellow-green sputum. The most recent lab report shows a WBC count of 15,500/mm³. \nR: Recommendation is to notify the provider for further orders, including a stat chest x-ray and sputum culture."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 130/80 mmHg, HR 88 bpm, RR 16 (Ventilator), SpO2 95% FiO2 40%, Temp 37.2°C\n08:00: BP 140/90 mmHg, HR 98 bpm, RR 16 (Ventilator), SpO2 92% FiO2 40%, Temp 38.5°C"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "04:00",
+                        "HR": "84 bpm",
+                        "BP": "128/76 (93)",
+                        "RR": "16 (Ventilator)",
+                        "SpO2": "96% on FiO2 40%",
+                        "Temp": "98.8°F (37.1°C)"
+                    },
+                    {
+                        "Time": "08:00",
+                        "HR": "88 bpm",
+                        "BP": "130/80 (97)",
+                        "RR": "16 (Ventilator)",
+                        "SpO2": "95% on FiO2 40%",
+                        "Temp": "99.0°F (37.2°C)"
+                    },
+                    {
+                        "Time": "12:00",
+                        "HR": "98 bpm",
+                        "BP": "138/88 (105)",
+                        "RR": "16 (Ventilator)",
+                        "SpO2": "91% on FiO2 40%",
+                        "Temp": "101.5°F (38.6°C)"
+                    }
+                ]
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "15.5",
+                        "Unit": "x 10³/mm³",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Hemoglobin",
+                        "Result": "11.8",
+                        "Unit": "g/dL",
+                        "Reference": "13.5-17.5",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "180",
+                        "Unit": "x 10³/mm³",
+                        "Reference": "150-450",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "2.5",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.15",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Sputum Culture",
+                        "Result": "Pending",
+                        "Unit": "",
+                        "Reference": "No growth",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00 (Admission)",
+                        "findings": "Neurological: Sedated, responds to painful stimuli. Cardiovascular: S1, S2 audible. Regular rhythm. Pulses 2+ peripherally. Respiratory: Endotracheal tube in place, secured. Lungs clear to auscultation bilaterally. Symmetrical chest rise. GI/GU: Abdomen soft, non-distended. Foley catheter draining clear yellow urine. Integumentary: Sternal incision clean, dry, intact. Skin warm and dry."
+                    },
+                    {
+                        "timestamp": "Day 3, 12:00 (Focused)",
+                        "findings": "Respiratory: Increased work of breathing noted. New coarse crackles auscultated in the right lower lobe. Large amount of purulent sputum suctioned. SpO₂ 91% on current ventilator settings."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No prior chest x-ray available for comparison. STAT chest x-ray ordered, results pending."
+                "content": [
+                    {
+                        "type": "Chest X-ray",
+                        "timestamp": "Day 3, 12:30",
+                        "report": "FINDINGS: Comparison is made to the post-operative study from Day 1. Endotracheal tube tip is 4 cm superior to the carina. Central venous catheter tip is in the superior vena cava. There is a new opacity in the right lower lobe consistent with an infiltrate. No evidence of large pleural effusion or pneumothorax. \nIMPRESSION: New right lower lobe infiltrate, concerning for developing pneumonia."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "05:00: Cefazolin 1g IVPB\n07:00: Morphine 2mg IV\nContinuous: Enteral Feeding 60mL/hr"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "Day 1, 14:00",
+                        "action": "VAP Prevention Bundle",
+                        "frequency": "Continuous"
+                    },
+                    {
+                        "order_time": "Day 1, 14:00",
+                        "action": "Maintain HOB elevation 30-45 degrees",
+                        "frequency": "Continuous"
+                    },
+                    {
+                        "order_time": "Day 1, 14:00",
+                        "action": "Chlorhexidine oral care",
+                        "frequency": "q12h"
+                    },
+                    {
+                        "order_time": "Day 3, 12:15",
+                        "action": "STAT Portable Chest X-ray",
+                        "frequency": "STAT"
+                    },
+                    {
+                        "order_time": "Day 3, 12:15",
+                        "action": "Obtain sputum sample for culture & sensitivity",
+                        "frequency": "STAT"
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See separate SBAR tab for details."
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Propofol Infusion",
+                        "dose": "20 mcg/kg/min",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "last_admin": "Ongoing"
+                    },
+                    {
+                        "medication": "Heparin Infusion",
+                        "dose": "Per protocol",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "last_admin": "Ongoing"
+                    },
+                    {
+                        "medication": "Famotidine",
+                        "dose": "20 mg",
+                        "route": "IV",
+                        "frequency": "q12h",
+                        "last_admin": "Day 3, 09:00"
+                    },
+                    {
+                        "medication": "Morphine",
+                        "dose": "2 mg",
+                        "route": "IV",
+                        "frequency": "q2h PRN pain/sedation",
+                        "last_admin": "Day 3, 07:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
+    "rationale": {
+        "correct": "The combination of new-onset fever, decreased oxygen saturation, purulent sputum, and leukocytosis are the cardinal signs of Ventilator-Associated Pneumonia (VAP). These findings indicate a systemic inflammatory response to a new pulmonary infection.",
+        "incorrect": "Contextual information (post-op day), unchanged ventilator settings, and non-specific vital sign changes like mild tachycardia or hypertension are not primary indicators of VAP. These can be related to other post-operative factors like pain or stress and lack the specificity of the infectious signs.",
+        "answerBreakdown": [
+            {
+                "optionId": "span_01",
+                "content": "This is background information. While being post-operative on a ventilator is a risk factor for VAP, it is not a clinical finding that supports the diagnosis."
+            },
+            {
+                "optionId": "span_02",
+                "content": "Unchanged ventilator settings indicate a lack of intervention, not a sign of pathology. A worsening condition would typically necessitate an increase in ventilator support."
+            },
+            {
+                "optionId": "span_03",
+                "content": "Fever is a systemic sign of inflammation and infection. The significant increase to 101.5°F (38.6°C) is a key indicator that the body is mounting an immune response, highly suggestive of a new infection like VAP."
+            },
+            {
+                "optionId": "span_04",
+                "content": "Mild hypertension is a non-specific finding. It can be caused by numerous factors in a post-operative client, including pain, anxiety, or physiological stress, and is not a reliable indicator of VAP."
+            },
+            {
+                "optionId": "span_05",
+                "content": "Sinus tachycardia is also non-specific. While infection can cause an increased heart rate, so can fever, pain, hypovolemia, or anxiety. It is less specific than other available cues."
+            },
+            {
+                "optionId": "span_06",
+                "content": "A decrease in SpO₂ to 91% indicates worsening gas exchange at the alveolar level. In VAP, inflammatory exudate and pus fill the alveoli, creating a shunt and impairing oxygen diffusion, leading to hypoxemia."
+            },
+            {
+                "optionId": "span_07",
+                "content": "The presence of thick, purulent (pus-containing) sputum is a hallmark sign of a bacterial lower respiratory tract infection. The color change and consistency reflect an accumulation of white blood cells, cellular debris, and bacteria."
+            },
+            {
+                "optionId": "span_08",
+                "content": "Leukocytosis (WBC > 11,000/mm³) reflects the systemic inflammatory response to infection. The bone marrow increases production of neutrophils to fight the invading pathogens, resulting in an elevated white blood cell count."
+            }
+        ],
+        "clinicalPearls": [
+            "VAP is defined as pneumonia that develops 48 hours or more after endotracheal intubation and initiation of mechanical ventilation.",
+            "The 'VAP bundle' is a cornerstone of prevention and includes: head-of-bed elevation (30-45 degrees), daily sedation vacations to assess readiness for extubation, peptic ulcer disease prophylaxis, deep vein thrombosis prophylaxis, and regular oral care with chlorhexidine.",
+            "Early diagnosis and treatment of VAP are critical as it is associated with increased ventilator days, length of stay, and mortality. A change in sputum characteristics is often one of the earliest and most specific signs."
+        ],
+        "questionTrap": "The trap is focusing on non-specific vital signs like heart rate and blood pressure. While these are elevated, they can be caused by many post-operative stressors. To overcome this, prioritize findings that directly point to a pulmonary infectious process: fever, hypoxemia, purulent sputum, and leukocytosis.",
+        "mnemonic": {
+            "title": "VAP Signs",
+            "expansion": "T-R-A-C-H-E-A: Temperature elevation, Respiratory secretions (purulent), Auscultation (new crackles), Chest X-ray (new infiltrate), Hypoxemia (low SpO₂), Elevated WBC, Acute onset."
+        },
+        "reviewUnits": [
+            "Critical Care",
+            "Infection Control",
+            "Respiratory Disorders"
         ]
     },
-    "rationale": {
-        "correct": "Elevated WBC count, Temperature increase, Thick, yellow secretions, SpO2 decrease",
-        "incorrect": "The other findings, such as stable vital signs at 06:00, morphine administration, chlorhexidine oral care (mentioned in the original SBAR), and cefazolin administration, are not directly indicative of VAP. These are standard aspects of post-operative care or medication administration.",
-        "clinicalPearls": [
-            "VAP is a significant complication in mechanically ventilated patients, increasing morbidity and mortality.",
-            "Early identification of VAP through vigilant monitoring and assessment is crucial for timely intervention.",
-            "Strict adherence to infection control protocols, including hand hygiene and oral care, is essential in preventing VAP."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus on individual vital signs without considering the overall trend or may misinterpret routine care activities as indicative of infection.",
-            "howToOvercome": "Emphasize the importance of analyzing trends in vital signs and lab values, rather than focusing on isolated data points. Teach students to differentiate between routine care and signs of infection."
-        },
-        "mnemonic": {
-            "title": "TRACHEA",
-            "expansion": "Temperature elevated, Respiratory distress, Auscultation (abnormal breath sounds), Change in sputum, High WBC, Early identification, Action (obtain cultures)."
-        }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 4,
+        "penalty": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyzing",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:30:29.210Z"
 }

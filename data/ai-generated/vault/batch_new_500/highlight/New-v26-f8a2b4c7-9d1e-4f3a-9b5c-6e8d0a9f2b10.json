@@ -1,168 +1,367 @@
 {
     "id": "New-v26-f8a2b4c7-9d1e-4f3a-9b5c-6e8d0a9f2b10",
     "type": "highlight",
-    "stem": "The patient is exhibiting signs of septic shock. Based on the assessment data, highlight the findings that support the diagnosis of septic shock. Select all that apply.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "stem": "The nurse is reviewing the most recent progress note in the Clinical Feed. Based on the data provided, highlight the 8 findings that are most indicative of septic shock.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "admitted 3 days ago for community-acquired pneumonia"
+        },
+        {
+            "id": "opt_02",
+            "text": "BP is now 88/48 mmHg with a MAP of 61 mmHg"
+        },
+        {
+            "id": "opt_03",
+            "text": "Heart rate is 128 bpm"
+        },
+        {
+            "id": "opt_04",
+            "text": "Respiratory rate is 30/min and shallow"
+        },
+        {
+            "id": "opt_05",
+            "text": "Temperature is 102.8°F (39.3°C)"
+        },
+        {
+            "id": "opt_06",
+            "text": "SpO2 is 89% on 2L NC"
+        },
+        {
+            "id": "opt_07",
+            "text": "Urine output via catheter has been 15 mL for the past 2 hours"
+        },
+        {
+            "id": "opt_08",
+            "text": "He is disoriented to time and place"
+        },
+        {
+            "id": "opt_09",
+            "text": "Recent lactate result is 4.5 mmol/L"
+        },
+        {
+            "id": "opt_10",
+            "text": "WBC count is 19,500/mm³"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_02",
+        "opt_03",
+        "opt_04",
+        "opt_05",
+        "opt_06",
+        "opt_07",
+        "opt_08",
+        "opt_09"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact Precautions",
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "1500 Report: John Smith, 78-year-old male, admitted three days ago for pneumonia. Known allergy: Penicillin. Currently on Vancomycin and Piperacillin/Tazobactam. At 0700, patient stable. At 1400, increasing confusion and restlessness noted. BP dropped from 130/80 mmHg to 90/50 mmHg. HR increased from 88 bpm to 122 bpm. Temperature is 102.5°F (39.2°C). Respiratory rate 28 and labored. Oxygen saturation 90% on 2L nasal cannula. Urine output decreased to 20 mL/hr. WBC elevated at 18,000/µL. Lactate level 4.0 mmol/L. Blood cultures drawn and sent. Physician notified. Please note Penicillin allergy when reviewing orders.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "1400: BP 90/50 mmHg; HR 122 bpm; RR 28 breaths/min; Temp 102.5°F (39.2°C); SpO2 90% on 2L NC; Urine Output: 20 mL/hr"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": {
+                    "type": "SBAR",
+                    "notes": [
+                        {
+                            "timestamp": "Day 1, 14:00",
+                            "author": "E. Johnson, RN",
+                            "note_type": "Admission Note",
+                            "text": "S: Patient is a 78-year-old male presenting from home with a 3-day history of productive cough, fever, and shortness of breath. \nB: History of hypertension, managed with lisinopril. Known allergy to Penicillin. Lives alone in a rural area with limited access to follow-up care. He is a former smoker, quit 20 years ago. \nA: Vital signs on admission: BP 138/86 mmHg, HR 92 bpm, RR 22/min, Temp 101.5°F (38.6°C), SpO2 93% on room air. Coarse crackles noted in the right lower lobe. Patient is alert and oriented x4. Chest x-ray confirms right lower lobe infiltrate. \nR: Admitted to the medical-surgical unit for community-acquired pneumonia. Initiated IV fluids and broad-spectrum antibiotics per protocol. Blood and sputum cultures obtained."
+                        },
+                        {
+                            "timestamp": "Day 3, 15:00",
+                            "author": "S. Miller, RN",
+                            "note_type": "Progress Note",
+                            "text": "S: Patient has experienced an acute change in mental status and is now hypotensive.\nB: Patient has been receiving IV Meropenem for pneumonia since admission. He was stable until approximately 14:00 today. He is [admitted 3 days ago for community-acquired pneumonia].\nA: Over the last hour, patient has become increasingly restless. [BP is now 88/48 mmHg with a MAP of 61 mmHg]. [Heart rate is 128 bpm], sinus tachycardia on monitor. [Respiratory rate is 30/min and shallow]. [Temperature is 102.8°F (39.3°C)]. [SpO2 is 89% on 2L NC]. [Urine output via catheter has been 15 mL for the past 2 hours]. Skin is flushed and warm. [He is disoriented to time and place]. [Recent lactate result is 4.5 mmol/L]. [WBC count is 19,500/mm³].\nR: Provider notified of patient's change in condition. Recommended immediate 30 mL/kg crystalloid fluid bolus and preparation for vasopressor therapy. Transfer to intensive care unit is being arranged."
+                        }
+                    ]
+                }
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/µL (High); Hemoglobin: 12.5 g/dL; Platelets: 150,000/µL; Sodium: 140 mEq/L; Potassium: 4.2 mEq/L; Creatinine: 1.8 mg/dL (High); BUN: 25 mg/dL (High); Lactate: 4.0 mmol/L (High); Blood cultures: Pending"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "type": "flowsheet",
+                    "data": [
+                        {
+                            "Time": "Day 3, 08:00",
+                            "HR (bpm)": "94",
+                            "BP (mmHg)": "128/78",
+                            "MAP (mmHg)": "95",
+                            "RR (/min)": "20",
+                            "SpO2 (%)": "95% on 2L NC",
+                            "Temp °F (°C)": "100.8 (38.2)"
+                        },
+                        {
+                            "Time": "Day 3, 12:00",
+                            "HR (bpm)": "106",
+                            "BP (mmHg)": "110/64",
+                            "MAP (mmHg)": "79",
+                            "RR (/min)": "24",
+                            "SpO2 (%)": "92% on 2L NC",
+                            "Temp °F (°C)": "101.9 (38.8)"
+                        },
+                        {
+                            "Time": "Day 3, 15:00",
+                            "HR (bpm)": "128",
+                            "BP (mmHg)": "88/48",
+                            "MAP (mmHg)": "61",
+                            "RR (/min)": "30",
+                            "SpO2 (%)": "89% on 2L NC",
+                            "Temp °F (°C)": "102.8 (39.3)"
+                        }
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Vancomycin 1g IV q12h; Piperacillin/Tazobactam 4.5g IV q6h; Acetaminophen 650mg PO q4h PRN for fever; Oxygen 2L NC"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "type": "table",
+                    "data": [
+                        {
+                            "Test": "WBC",
+                            "Result": "19.5",
+                            "Unit": "x10³/mm³",
+                            "Reference": "4.5-11.0",
+                            "Status": "High"
+                        },
+                        {
+                            "Test": "Lactate, Venous",
+                            "Result": "4.5",
+                            "Unit": "mmol/L",
+                            "Reference": "0.5-2.2",
+                            "Status": "High"
+                        },
+                        {
+                            "Test": "Creatinine",
+                            "Result": "1.9",
+                            "Unit": "mg/dL",
+                            "Reference": "0.6-1.2",
+                            "Status": "High"
+                        },
+                        {
+                            "Test": "BUN",
+                            "Result": "35",
+                            "Unit": "mg/dL",
+                            "Reference": "7-20",
+                            "Status": "High"
+                        },
+                        {
+                            "Test": "Hemoglobin",
+                            "Result": "13.1",
+                            "Unit": "g/dL",
+                            "Reference": "13.5-17.5",
+                            "Status": "Normal"
+                        },
+                        {
+                            "Test": "Platelets",
+                            "Result": "165",
+                            "Unit": "x10³/µL",
+                            "Reference": "150-450",
+                            "Status": "Normal"
+                        },
+                        {
+                            "Test": "Blood Culture",
+                            "Result": "Pending",
+                            "Unit": "",
+                            "Reference": "No growth",
+                            "Status": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": {
+                    "type": "narrative",
+                    "data": [
+                        {
+                            "System": "Neurological",
+                            "Findings": "Acute change from baseline. Patient is restless, disoriented to time and place. GCS 13 (E4, V4, M5). Pupils equal, round, reactive to light."
+                        },
+                        {
+                            "System": "Cardiovascular",
+                            "Findings": "Tachycardia with S1, S2 audible. Pulses +1 in lower extremities. Capillary refill 4 seconds. Skin is flushed and warm."
+                        },
+                        {
+                            "System": "Respiratory",
+                            "Findings": "Tachypneic with shallow respirations. Use of accessory muscles noted. Coarse crackles persist in right lower lobe."
+                        },
+                        {
+                            "System": "Renal",
+                            "Findings": "Indwelling urinary catheter in place. Urine is concentrated and dark amber. Output is 20 mL in the past 2 hours."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "type": "report",
+                    "data": {
+                        "Procedure": "Chest X-ray (PA and Lateral)",
+                        "Date": "Day 1",
+                        "Findings": "Lungs are well-expanded. There is a dense consolidation in the right lower lobe, consistent with lobar pneumonia. No evidence of pleural effusion or pneumothorax. The cardiac silhouette is within normal limits.",
+                        "Impression": "Right lower lobe pneumonia."
+                    }
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "type": "orders",
+                    "data": [
+                        {
+                            "Date/Time": "Day 3, 15:05",
+                            "Action": "STAT: Infuse 30 mL/kg Normal Saline (approx. 2L) over 1 hour.",
+                            "Status": "Active"
+                        },
+                        {
+                            "Date/Time": "Day 3, 15:05",
+                            "Action": "STAT: Norepinephrine infusion, titrate to maintain MAP > 65 mmHg.",
+                            "Status": "Active"
+                        },
+                        {
+                            "Date/Time": "Day 3, 15:00",
+                            "Action": "STAT: Repeat serum lactate level.",
+                            "Status": "Pending"
+                        },
+                        {
+                            "Date/Time": "Day 1, 14:30",
+                            "Action": "Blood cultures x 2 sites.",
+                            "Status": "Completed"
+                        },
+                        {
+                            "Date/Time": "Day 1, 14:30",
+                            "Action": "Oxygen therapy to maintain SpO2 > 90%.",
+                            "Status": "Active"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "type": "med_list",
+                    "data": [
+                        {
+                            "Medication": "Meropenem",
+                            "Dose": "1g",
+                            "Route": "IV",
+                            "Frequency": "q8h",
+                            "Last Administered": "Day 3, 14:00"
+                        },
+                        {
+                            "Medication": "Normal Saline",
+                            "Dose": "75 mL/hr",
+                            "Route": "IV",
+                            "Frequency": "Continuous",
+                            "Last Administered": "Ongoing"
+                        },
+                        {
+                            "Medication": "Acetaminophen",
+                            "Dose": "650mg",
+                            "Route": "PO",
+                            "Frequency": "q6h PRN fever >101°F",
+                            "Last Administered": "Day 3, 12:30"
+                        },
+                        {
+                            "Medication": "Lisinopril",
+                            "Dose": "10mg",
+                            "Route": "PO",
+                            "Frequency": "Daily",
+                            "Last Administered": "Held since admission"
+                        }
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "recognizeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+    "rationale": {
+        "correct": "Septic shock is a life-threatening condition characterized by persistent hypotension and tissue hypoperfusion despite adequate fluid resuscitation, stemming from a dysregulated host response to infection. The pathophysiology involves widespread vasodilation, increased capillary permeability, and microvascular thrombosis, leading to maldistribution of blood flow and cellular hypoxia. The highlighted findings are the classic clinical manifestations of this state: hypotension (MAP < 65 mmHg), compensatory tachycardia and tachypnea, fever from the systemic inflammatory response, altered mental status from cerebral hypoperfusion, oliguria from renal hypoperfusion, hypoxemia, and elevated lactate, which is a direct marker of anaerobic metabolism due to cellular oxygen deficit.",
+        "incorrect": "The non-highlighted options are either background information or less specific indicators. While pneumonia is the source of the infection, it is the cause, not a defining criterion of the resulting shock state. The WBC count, while indicative of infection, is part of the broader sepsis criteria but is less specific to the shock phase than the signs of organ hypoperfusion. The goal is to identify the evidence of systemic collapse, not just the presence of infection.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Incorrect. This describes the patient's primary diagnosis and reason for admission. While it is the source of the infection leading to sepsis, it is not a direct clinical finding of the current state of septic shock."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. A MAP below 65 mmHg indicates inadequate organ perfusion. Persistent hypotension is a hallmark of septic shock, caused by systemic vasodilation from inflammatory mediators."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. Tachycardia is a primary compensatory mechanism to maintain cardiac output when systemic vascular resistance and blood pressure fall dramatically."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. Tachypnea is a compensatory response to metabolic acidosis (caused by lactate accumulation) and systemic hypoxemia. It is a key component of the systemic inflammatory response syndrome (SIRS) criteria."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. Fever is a cardinal sign of infection and the systemic inflammatory response that drives sepsis. It is a key diagnostic criterion."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. Hypoxemia (SpO2 < 90%) indicates respiratory compromise, which can be due to the underlying pneumonia, the development of ARDS, or increased metabolic demand, all common in septic shock."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. Oliguria (< 0.5 mL/kg/hr) is a critical sign of end-organ damage, specifically acute kidney injury due to hypoperfusion. It reflects the shunting of blood away from the kidneys."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Correct. An acute change in mental status is a sensitive indicator of cerebral hypoperfusion and is a key criterion in the qSOFA score for identifying patients with sepsis at high risk of poor outcomes."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Correct. An elevated lactate level (> 2 mmol/L, especially > 4 mmol/L) is a critical marker of tissue hypoperfusion and anaerobic metabolism, directly indicating cellular dysfunction due to shock."
+            },
+            {
+                "optionId": "opt_10",
+                "content": "Incorrect. While leukocytosis (high WBC count) is a sign of infection and part of the SIRS criteria, it is not specific to the shock state. The signs of organ hypoperfusion (hypotension, oliguria, lactate) are more definitive for septic shock."
+            }
+        ],
+        "clinicalPearls": [
+            "The qSOFA (quick Sepsis-related Organ Failure Assessment) score uses three criteria: altered mental status (GCS < 15), fast respiratory rate (≥ 22/min), and low blood pressure (systolic BP ≤ 100 mmHg). A score of ≥ 2 suggests a high risk for poor outcomes.",
+            "Surviving Sepsis Campaign guidelines emphasize early recognition and intervention within the first hour ('Hour-1 Bundle'), including measuring lactate, obtaining blood cultures, administering broad-spectrum antibiotics, and rapid fluid resuscitation.",
+            "Mean Arterial Pressure (MAP) is a more reliable indicator of organ perfusion than systolic blood pressure alone. The target MAP in septic shock is typically ≥ 65 mmHg."
+        ],
+        "questionTrap": "The primary trap is confusing signs of infection with signs of shock. Many findings point to infection (fever, WBC), but the question asks for indicators of *septic shock*, which requires evidence of systemic hypoperfusion and organ dysfunction (hypotension, high lactate, oliguria, altered mental status).",
+        "mnemonic": {
+            "title": "SEPSIS",
+            "expansion": "S: Shivering or fever (temperature dysregulation)\nE: Extreme pain or discomfort\nP: Pale or discolored skin\nS: Sleepy, difficult to rouse, confused (altered mental status)\nI: 'I feel like I might die' (sense of impending doom)\nS: Short of breath (tachypnea/hypoxia)"
+        },
+        "reviewUnits": [
+            "Pathophysiology of Shock",
+            "Sepsis and Septic Shock Management",
+            "Hemodynamic Monitoring",
+            "Pharmacology: Vasopressors and Antibiotics"
         ]
     },
-    "rationale": {
-        "correct": "Septic shock is characterized by hypotension (BP 90/50 mmHg), tachycardia (HR 122 bpm), tachypnea (RR 28 breaths/min), fever (102.5°F/39.2°C), elevated white blood cell count (18,000/µL), and elevated lactate levels (4.0 mmol/L). Reduced urine output (20 mL/hr) indicates impaired renal perfusion, a key sign of hypoperfusion in septic shock. These findings, combined with the patient's recent hospitalization for pneumonia and current antibiotic regimen, strongly suggest septic shock. The patient's Penicillin allergy is also important to note, as it restricts antibiotic choices and highlights the need for careful medication management.",
-        "incorrect": "While elevated creatinine and BUN may indicate renal impairment, they are not specific indicators of septic shock and can be elevated in other conditions such as dehydration or chronic kidney disease. The patient's current medications (Vancomycin, Piperacillin/Tazobactam, Acetaminophen) are treatments for the underlying pneumonia and fever and do not directly indicate the presence of septic shock. Pending blood cultures are relevant for identifying the causative organism but do not, in themselves, confirm the presence of septic shock. The patient's oxygen administration (2L NC) is a supportive measure, not a diagnostic criterion for septic shock. Hemoglobin and platelet levels are within normal limits and do not directly contribute to the diagnosis of septic shock.",
-        "clinicalPearls": [
-            "Early recognition of septic shock is crucial for improving patient outcomes. Time is tissue!",
-            "Monitor trends in vital signs and lab values closely, especially in patients at risk for infection.",
-            "Lactate level is a key indicator of tissue hypoperfusion and anaerobic metabolism in septic shock."
-        ],
-        "questionTrap": {
-            "trap": "The trap is to focus solely on the infection aspect (pneumonia) and overlook the systemic signs of shock.",
-            "howToOvercome": "Carefully analyze all vital signs and lab values, considering them in the context of the patient's overall clinical picture, to identify the signs of end-organ damage and systemic inflammatory response."
-        },
-        "mnemonic": {
-            "title": "S.H.O.C.K.",
-            "expansion": "S: Shivering, fever, or very cold; H: Hypotension (low blood pressure); O: Oliguria (decreased urine output); C: Confusion or disorientation; K: Killer lactate levels (elevated lactate)"
-        }
+    "scoring": {
+        "method": "+/- 1.0 Penalty",
+        "maxPoints": 8
     },
-    "responseOptions": [
-        {
-            "id": "ro-8211",
-            "content": "BP 90/50 mmHg",
-            "correct": true,
-            "feedback": "Hypotension is a key indicator of septic shock due to widespread vasodilation and decreased systemic vascular resistance."
-        },
-        {
-            "id": "ro-3992",
-            "content": "HR 122 bpm",
-            "correct": true,
-            "feedback": "Tachycardia is a compensatory mechanism to maintain cardiac output in the face of decreased blood pressure and tissue perfusion."
-        },
-        {
-            "id": "ro-1744",
-            "content": "RR 28 breaths/min",
-            "correct": true,
-            "feedback": "Tachypnea is often present in septic shock as the body attempts to compensate for metabolic acidosis and hypoxemia."
-        },
-        {
-            "id": "ro-9285",
-            "content": "Temp 102.5°F (39.2°C)",
-            "correct": true,
-            "feedback": "Fever is a common sign of infection and systemic inflammatory response in septic shock."
-        },
-        {
-            "id": "ro-5366",
-            "content": "WBC: 18,000/µL",
-            "correct": true,
-            "feedback": "Elevated WBC count indicates an active infection and inflammatory response, which are characteristic of sepsis and septic shock."
-        },
-        {
-            "id": "ro-7427",
-            "content": "Lactate: 4.0 mmol/L",
-            "correct": true,
-            "feedback": "Elevated lactate levels indicate tissue hypoperfusion and anaerobic metabolism, a critical finding in septic shock."
-        },
-        {
-            "id": "ro-2858",
-            "content": "Urine Output: 20 mL/hr",
-            "correct": true,
-            "feedback": "Decreased urine output reflects impaired renal perfusion and is a sign of hypovolemia and end-organ damage in septic shock."
-        },
-        {
-            "id": "ro-4619",
-            "content": "Hemoglobin: 12.5 g/dL",
-            "correct": false,
-            "feedback": "Hemoglobin levels within the normal range do not directly indicate septic shock."
-        },
-        {
-            "id": "ro-6170",
-            "content": "Platelets: 150,000/µL",
-            "correct": false,
-            "feedback": "Platelet levels within the normal range do not directly indicate septic shock."
-        },
-        {
-            "id": "ro-1321",
-            "content": "Sodium: 140 mEq/L",
-            "correct": false,
-            "feedback": "Sodium levels within the normal range do not directly indicate septic shock."
-        },
-        {
-            "id": "ro-5782",
-            "content": "Potassium: 4.2 mEq/L",
-            "correct": false,
-            "feedback": "Potassium levels within the normal range do not directly indicate septic shock."
-        },
-        {
-            "id": "ro-8943",
-            "content": "Creatinine: 1.8 mg/dL",
-            "correct": false,
-            "feedback": "While elevated creatinine can indicate renal impairment, it is not a specific indicator of septic shock."
-        },
-        {
-            "id": "ro-2504",
-            "content": "BUN: 25 mg/dL",
-            "correct": false,
-            "feedback": "While elevated BUN can indicate renal impairment, it is not a specific indicator of septic shock."
-        },
-        {
-            "id": "ro-7165",
-            "content": "Vancomycin 1g IV q12h",
-            "correct": false,
-            "feedback": "Vancomycin is an antibiotic used to treat infections, but its administration does not directly indicate the presence of septic shock."
-        },
-        {
-            "id": "ro-3726",
-            "content": "Piperacillin/Tazobactam 4.5g IV q6h",
-            "correct": false,
-            "feedback": "Piperacillin/Tazobactam is an antibiotic used to treat infections, but its administration does not directly indicate the presence of septic shock."
-        },
-        {
-            "id": "ro-9887",
-            "content": "Acetaminophen 650mg PO q4h PRN for fever",
-            "correct": false,
-            "feedback": "Acetaminophen is used to treat fever, but its administration does not directly indicate the presence of septic shock."
-        },
-        {
-            "id": "ro-6448",
-            "content": "Oxygen 2L NC",
-            "correct": false,
-            "feedback": "Oxygen administration is a supportive measure and does not directly indicate the presence of septic shock."
-        }
-    ]
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "correctOptionId": "opt_02",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:00:29.731Z"
 }

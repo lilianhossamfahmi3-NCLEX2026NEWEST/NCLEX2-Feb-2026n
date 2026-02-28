@@ -1,102 +1,364 @@
 {
     "id": "New-v26-6c4b85e9-8b23-4a12-b7a1-0e9a2c3f5d6e",
     "type": "clozeDropdown",
-    "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the provided information, select the most appropriate intervention for each assessment finding.\n\nPatient is experiencing increasing peak inspiratory pressure (PIP) and scattered wheezes are auscultated. The nurse should [dropdown1].\n\nPatient's SpO2 is trending downward despite an increased FiO2. The nurse should [dropdown2].\n\nPatient's endotracheal tube cuff pressure is measured at 14 cm H2O. The nurse should [dropdown3].",
+    "stem": "The nurse is caring for a client on mechanical ventilation. After reviewing the clinical record, complete the following table by selecting the most appropriate intervention for each assessment finding.\n\n| Assessment Finding | Priority Intervention |\n| :--- | :--- |\n| Increasing peak inspiratory pressure (PIP) to 35 cm H2O with scattered wheezes auscultated. | [dropdown1] |\n| SpO2 trending downward to 89% despite an FiO2 of 50%. | [dropdown2] |\n| Endotracheal tube cuff pressure measured at 14 cm H2O. | [dropdown3] |",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 3
     },
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Contact & Droplet",
+            "name": "Marcus Thorne",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "He/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: John Smith, a 68-year-old male with a history of COPD and hypertension, admitted for pneumonia. Background: At 10:00, he was placed on mechanical ventilation due to acute respiratory failure. Current ventilator settings: FiO2 50%, tidal volume 450mL, respiratory rate 16 breaths/min, PEEP 5 cm H2O. Assessment: At 14:30, peak inspiratory pressure (PIP) is increasing to 35 cm H2O, with scattered wheezes bilaterally. SpO2 is trending down from 94% to 89% despite increased FiO2. Endotracheal tube cuff pressure is 14 cm H2O. Recommendation: I'm concerned about bronchospasm, mucus plugging, or worsening pneumonia. Hypoxia is worsening, and low cuff pressure increases aspiration risk. I recommend orders for a bronchodilator and suctioning if needed. Adjust ET tube cuff pressure to 20-30 cm H2O. Please advise.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG (14:00): pH 7.32, PaCO2 58, PaO2 65, HCO3 26. WBC: 14,000. Sputum culture pending."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 08:00",
+                        "note_type": "Admission Note",
+                        "content": "S: 68-year-old male admitted from home with a 3-day history of productive cough, fever, and worsening shortness of breath. B: History of COPD and hypertension. Client lives alone in a rural area with limited access to transportation, delaying his visit to the clinic. He is a former smoker (quit 10 years ago). A: Alert and oriented x3, in moderate respiratory distress. Initial SpO2 88% on room air. Bilateral crackles in lower lobes. Diagnosed with community-acquired pneumonia. R: Placed on 4L nasal cannula, initiated IV fluids and broad-spectrum antibiotics. Due to worsening respiratory status and fatigue, client was intubated and placed on mechanical ventilation at 10:00 for acute hypoxemic respiratory failure. Family notified of change in status."
+                    },
+                    {
+                        "timestamp": "Day 1, 14:30",
+                        "note_type": "Progress Note",
+                        "content": "S: Client is sedated on mechanical ventilation. High-pressure alarm has been sounding intermittently for the past 30 minutes. B: Intubated at 10:00 for pneumonia-induced ARF. Current ventilator settings are AC mode, FiO2 50%, TV 450 mL, RR 16, PEEP 5 cm H2O. A: Peak inspiratory pressure (PIP) has increased from 28 to 35 cm H2O. Scattered expiratory wheezes auscultated bilaterally. SpO2 has trended down from 94% to 89% over the last hour. Endotracheal tube cuff pressure was just checked and found to be 14 cm H2O. Client is tachycardic but hemodynamically stable. R: Concerned for bronchospasm contributing to high PIP and worsening hypoxemia. Low cuff pressure poses a significant aspiration risk. Recommend administering PRN bronchodilator, increasing PEEP to improve oxygenation, and inflating ET tube cuff to therapeutic range. Will continue to monitor closely."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "HR: 110, BP: 150/90, RR: 16 (ventilator), SpO2: 89%, Temp: 38.5 C (101.3 F)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR",
+                        "BP (MAP)",
+                        "RR",
+                        "SpO2",
+                        "Temp"
+                    ],
+                    "rows": [
+                        [
+                            "08:00",
+                            "105",
+                            "148/88 (108)",
+                            "28",
+                            "88% on RA",
+                            "101.8°F (38.8°C)"
+                        ],
+                        [
+                            "12:00",
+                            "112",
+                            "152/90 (111)",
+                            "16 (Vent)",
+                            "94% on 50% FiO2",
+                            "101.5°F (38.6°C)"
+                        ],
+                        [
+                            "14:30",
+                            "118",
+                            "150/92 (111)",
+                            "16 (Vent)",
+                            "89% on 50% FiO2",
+                            "101.3°F (38.5°C)"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Albuterol PRN, scheduled antibiotics."
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Arterial Blood Gas (ABG) - 14:00",
+                        "results": [
+                            {
+                                "name": "pH",
+                                "result": "7.32",
+                                "unit": "",
+                                "reference": "7.35-7.45",
+                                "status": "Low"
+                            },
+                            {
+                                "name": "PaCO2",
+                                "result": "58",
+                                "unit": "mm Hg",
+                                "reference": "35-45",
+                                "status": "High"
+                            },
+                            {
+                                "name": "PaO2",
+                                "result": "65",
+                                "unit": "mm Hg",
+                                "reference": "80-100",
+                                "status": "Low"
+                            },
+                            {
+                                "name": "HCO3",
+                                "result": "26",
+                                "unit": "mEq/L",
+                                "reference": "22-26",
+                                "status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Complete Blood Count (CBC) - 08:00",
+                        "results": [
+                            {
+                                "name": "WBC",
+                                "result": "14.5",
+                                "unit": "x10³/μL",
+                                "reference": "4.5-11.0",
+                                "status": "High"
+                            },
+                            {
+                                "name": "Hgb",
+                                "result": "13.8",
+                                "unit": "g/dL",
+                                "reference": "13.5-17.5",
+                                "status": "Normal"
+                            },
+                            {
+                                "name": "Platelets",
+                                "result": "250",
+                                "unit": "x10³/μL",
+                                "reference": "150-450",
+                                "status": "Normal"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 08:00 (Admission)",
+                        "findings": "GENERAL: Anxious male in moderate respiratory distress. RESPIRATORY: Tachypneic with use of accessory muscles. Coarse crackles auscultated in bilateral lower lobes. Productive cough with yellow sputum. CARDIOVASCULAR: Tachycardia, S1/S2 regular, no murmurs. NEUROLOGICAL: Alert and oriented x3, anxious. SKIN: Warm, diaphoretic."
+                    },
+                    {
+                        "timestamp": "Day 1, 14:30 (Focused)",
+                        "findings": "Client is sedated, RASS -4. RESPIRATORY: Endotracheal tube in place, secured. Symmetrical chest rise with ventilation. Scattered expiratory wheezes auscultated bilaterally. Diminished breath sounds in the bases. No spontaneous respiratory effort noted."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray: Infiltrates in the lower lobes bilaterally."
+                "content": {
+                    "report_type": "Chest X-ray (Portable AP)",
+                    "timestamp": "Day 1, 09:00",
+                    "findings": "Endotracheal tube tip is appropriately positioned 4 cm above the carina. Lungs show diffuse bilateral airspace opacities, more pronounced in the lower lobes. No evidence of a large pleural effusion or pneumothorax. Cardiomediastinal silhouette is within normal limits.",
+                    "impression": "Findings are consistent with bilateral pneumonia. No acute cardiopulmonary complications identified."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": [
+                    {
+                        "order_time": "Day 1, 10:00",
+                        "action": "Mechanical Ventilation: Assist-Control (AC) mode, TV 450 mL, RR 16, PEEP 5 cm H2O, FiO2 50%",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 10:00",
+                        "action": "Propofol infusion for sedation, titrate to RASS -4",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 08:15",
+                        "action": "Levofloxacin 750 mg IV",
+                        "status": "Daily"
+                    },
+                    {
+                        "order_time": "Day 1, 08:15",
+                        "action": "Albuterol 2.5 mg via nebulizer",
+                        "status": "PRN q4h for wheezing"
+                    },
+                    {
+                        "order_time": "Day 1, 08:15",
+                        "action": "Check ET tube cuff pressure every 4 hours",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 08:15",
+                        "action": "Vital signs every 1 hour",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Levofloxacin",
+                        "dose": "750 mg",
+                        "route": "IV",
+                        "frequency": "Daily",
+                        "last_administered": "Day 1, 08:30"
+                    },
+                    {
+                        "medication": "Propofol",
+                        "dose": "20 mcg/kg/min",
+                        "route": "IV Infusion",
+                        "frequency": "Continuous",
+                        "last_administered": "Ongoing"
+                    },
+                    {
+                        "medication": "Albuterol",
+                        "dose": "2.5 mg",
+                        "route": "Nebulizer",
+                        "frequency": "PRN q4h",
+                        "last_administered": "Day 1, 10:15"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Management of Care",
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation",
         "difficulty": 5,
         "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
+            "Respiratory: Mechanical Ventilation",
+            "Critical Care",
+            "Pharmacology"
         ]
     },
     "rationale": {
-        "correct": "Increasing PIP and wheezes indicate airway obstruction or bronchospasm; a bronchodilator is the appropriate first step. Low SpO2 despite increased FiO2 suggests ventilation/perfusion mismatch or alveolar collapse; increasing PEEP can help open alveoli and improve oxygenation. An ET tube cuff pressure of 14 cm H2O is too low; the recommended range is 20-30 cm H2O to prevent aspiration and maintain adequate ventilation. The cuff should be inflated to the appropriate pressure.",
-        "incorrect": "With increasing PIP and wheezes, increasing the tidal volume could worsen barotrauma. Suctioning might be needed later, but a bronchodilator should be tried first. For declining SpO2, increasing FiO2 alone may not be sufficient if alveoli are collapsed. Decreasing PEEP could worsen oxygenation. For low cuff pressure, documenting is not enough; an intervention is needed. Deflating the cuff entirely risks aspiration and loss of airway.",
-        "clinicalPearls": [
-            "Always assess for reversible causes of increased PIP, such as bronchospasm or secretions.",
-            "Monitor cuff pressure regularly to prevent both aspiration (low pressure) and tracheal damage (high pressure).",
-            "PEEP improves oxygenation by preventing alveolar collapse, but excessive PEEP can cause barotrauma."
+        "correct": "The correct set of interventions addresses the three distinct problems presented. 1) Increasing PIP with wheezing indicates bronchoconstriction; administering a bronchodilator is the first-line treatment to open the airways. 2) Worsening hypoxemia despite high FiO2 suggests alveolar collapse (atelectasis) or V/Q mismatch; increasing PEEP helps recruit and keep alveoli open, improving gas exchange. 3) An ET tube cuff pressure of 14 cm H2O is below the therapeutic range (20-30 cm H2O), creating a risk for ventilator-associated pneumonia from aspiration of oral secretions; inflating the cuff to a safe pressure is a critical safety intervention.",
+        "incorrect": "Incorrect options represent common errors or less-than-optimal choices. Increasing tidal volume with high pressures risks barotrauma. Suctioning is for secretions, not bronchospasm. Decreasing PEEP would worsen atelectasis and hypoxemia. Simply documenting an unsafe cuff pressure is negligent; an intervention is required to mitigate the immediate risk of aspiration.",
+        "answerBreakdown": [
+            {
+                "dropdownId": "dropdown1",
+                "option": "Administer a PRN bronchodilator",
+                "isCorrect": true,
+                "content": "Correct. The combination of rising peak inspiratory pressure and auscultated wheezes strongly indicates bronchospasm. A bronchodilator, like Albuterol, directly addresses this by relaxing airway smooth muscle, reducing resistance, and lowering PIP."
+            },
+            {
+                "dropdownId": "dropdown1",
+                "option": "Increase ventilator tidal volume",
+                "isCorrect": false,
+                "content": "Incorrect. Increasing the volume of air forced into constricted airways would further increase pressure, significantly elevating the risk of barotrauma (e.g., pneumothorax) without addressing the underlying bronchospasm."
+            },
+            {
+                "dropdownId": "dropdown1",
+                "option": "Perform deep tracheal suctioning",
+                "isCorrect": false,
+                "content": "Incorrect. While a mucus plug can cause high PIP, the primary clinical sign here is wheezing, which points to bronchospasm. Suctioning is invasive and should be reserved for when there are signs of secretions (e.g., coarse rhonchi), not as a first step for wheezing."
+            },
+            {
+                "dropdownId": "dropdown1",
+                "option": "Request a stat chest x-ray",
+                "isCorrect": false,
+                "content": "Incorrect. This is a reasonable diagnostic step if other causes are suspected (e.g., pneumothorax, tube displacement), but it is not a therapeutic intervention. The immediate priority is to treat the evident bronchospasm."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "option": "Increase positive end-expiratory pressure (PEEP)",
+                "isCorrect": true,
+                "content": "Correct. The client's SpO2 is falling despite a high FiO2 (50%), indicating a shunt or V/Q mismatch, likely from alveolar collapse due to pneumonia/ARDS. Increasing PEEP provides pressure at the end of expiration to recruit collapsed alveoli and improve oxygenation."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "option": "Decrease positive end-expiratory pressure (PEEP)",
+                "isCorrect": false,
+                "content": "Incorrect. Decreasing PEEP would lead to further alveolar collapse (derecruitment) and would worsen the existing hypoxemia."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "option": "Check ventilator circuit for leaks",
+                "isCorrect": false,
+                "content": "Incorrect. A circuit leak would typically trigger a low-pressure alarm, not a high-pressure alarm and worsening hypoxemia. The data points to a physiological problem, not an equipment one."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "option": "Administer a PRN sedative",
+                "isCorrect": false,
+                "content": "Incorrect. The client is already sedated (RASS -4). The cause of hypoxemia is physiological (alveolar collapse), not related to anxiety or ventilator dyssynchrony that would be treated with more sedation."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "option": "Inflate cuff to 25 cm H2O",
+                "isCorrect": true,
+                "content": "Correct. The therapeutic range for an ET tube cuff is 20-30 cm H2O. A pressure of 14 cm H2O is too low and allows for a micro-leak, increasing the risk of aspirating oral/gastric secretions and causing ventilator-associated pneumonia (VAP). Inflating to 25 cm H2O secures the airway."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "option": "Document the finding as within normal limits",
+                "isCorrect": false,
+                "content": "Incorrect. This value is not within normal limits. Documenting an unsafe condition without taking corrective action is a failure to act and constitutes negligence."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "option": "Deflate and re-inflate the cuff immediately",
+                "isCorrect": false,
+                "content": "Incorrect. While re-seating the cuff is sometimes necessary, completely deflating it, even for a moment, would allow any pooled secretions above the cuff to be aspirated directly into the lungs. The correct procedure is to add air to the existing volume until the target pressure is reached."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "option": "Notify the respiratory therapist to assess",
+                "isCorrect": false,
+                "content": "Incorrect. While the respiratory therapist is a key partner in ventilator management, inflating the cuff is a basic, critical nursing competency that should be performed immediately to resolve an unsafe condition. Delaying the intervention is inappropriate."
+            }
         ],
-        "questionTrap": {
-            "trap": "The question presents multiple problems that need to be addressed. Students may focus on only one aspect and neglect the others, leading to an incorrect answer.",
-            "howToOvercome": "Carefully analyze each assessment finding and select the intervention that best addresses the specific problem. Prioritize interventions based on the severity of the patient's condition."
-        },
+        "clinicalPearls": [
+            "High peak inspiratory pressure (PIP) alarms suggest resistance (bronchospasm, secretions, biting the tube) or decreased compliance (pneumothorax, ARDS, pulmonary edema).",
+            "Refractory hypoxemia (low SpO2 despite high FiO2) is a hallmark of intrapulmonary shunting and is primarily treated by increasing mean airway pressure, most commonly by increasing PEEP.",
+            "ET tube cuff pressure is a balancing act: too low (<20 cm H2O) risks aspiration and VAP; too high (>30 cm H2O) risks tracheal ischemia, necrosis, and tracheoesophageal fistula."
+        ],
+        "questionTrap": "The primary trap is misinterpreting the cause of the high-pressure alarm. Candidates might immediately think of a mucus plug and choose suctioning, but the presence of wheezing is a more specific cue for bronchospasm, making the bronchodilator the higher priority initial action.",
         "mnemonic": {
-            "title": "DOPE",
-            "expansion": "Displacement, Obstruction, Pneumothorax, Equipment failure. (Used to remember common causes of sudden respiratory distress in ventilated patients)"
+            "title": "DOPE for Ventilator Alarms",
+            "expansion": "When a ventilated patient acutely decompensates, think DOPE: D - Displacement (ET tube moved into mainstem or out of trachea), O - Obstruction (secretions, bronchospasm, kinked tube), P - Pneumothorax (a type of barotrauma), E - Equipment (ventilator malfunction, circuit disconnect)."
         }
     },
     "response": [
         {
             "id": "dropdown1",
             "options": [
-                "Administer a bronchodilator",
-                "Increase the tidal volume",
-                "Suction the airway",
-                "Obtain a chest x-ray"
+                "Administer a PRN bronchodilator",
+                "Increase ventilator tidal volume",
+                "Perform deep tracheal suctioning",
+                "Request a stat chest x-ray"
             ],
-            "correctResponse": "Administer a bronchodilator"
+            "correctResponse": "Administer a PRN bronchodilator"
         },
         {
             "id": "dropdown2",
             "options": [
-                "Increase the PEEP",
-                "Decrease the PEEP",
-                "Check the ventilator circuit",
-                "Administer a sedative"
+                "Increase positive end-expiratory pressure (PEEP)",
+                "Decrease positive end-expiratory pressure (PEEP)",
+                "Check ventilator circuit for leaks",
+                "Administer a PRN sedative"
             ],
-            "correctResponse": "Increase the PEEP"
+            "correctResponse": "Increase positive end-expiratory pressure (PEEP)"
         },
         {
             "id": "dropdown3",
             "options": [
-                "Inflate the cuff to 25 cm H2O",
-                "Document the cuff pressure",
-                "Deflate the cuff entirely",
-                "Administer oxygen via nasal cannula"
+                "Inflate cuff to 25 cm H2O",
+                "Document the finding as within normal limits",
+                "Deflate and re-inflate the cuff immediately",
+                "Notify the respiratory therapist to assess"
             ],
-            "correctResponse": "Inflate the cuff to 25 cm H2O"
+            "correctResponse": "Inflate cuff to 25 cm H2O"
         }
     ],
-    "sentinelStatus": "deep_healed_v2026"
+    "sentinelStatus": "deep_healed_v2026",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:45:05.063Z"
 }

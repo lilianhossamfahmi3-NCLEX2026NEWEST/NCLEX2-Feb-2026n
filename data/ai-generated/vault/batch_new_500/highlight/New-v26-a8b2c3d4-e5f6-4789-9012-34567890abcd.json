@@ -1,73 +1,174 @@
 {
     "id": "New-v26-a8b2c3d4-e5f6-4789-9012-34567890abcd",
-    "type": "highlight",
-    "stem": "The patient is exhibiting signs of thyroid storm. Based on the information provided in the EHR, highlight the findings that support this diagnosis.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
-    "itemContext": {
-        "patient": {
-            "name": "Jane Doe",
-            "age": 42,
-            "gender": "Female",
-            "iso": "Medical Intensive Care Unit",
-            "allergies": [
-                "Penicillin"
-            ]
+    "type": "selectAll",
+    "stem": "The nurse is reviewing the client's record. Which 6 findings are most indicative of thyroid storm? Select all that apply.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Acutely agitated and confused to time and place"
         },
-        "sbar": "S: Jane Doe, 42-year-old female, admitted at 03:00 for uncontrolled hyperthyroidism. B: Patient has a history of Graves' disease and has been non-compliant with methimazole. The patient presented with increasing symptoms over the past 24 hours. A: At 07:00, the patient became increasingly agitated and diaphoretic. Vital signs at that time: Temp 104.2°F (40.1°C), HR 180 bpm, BP 180/100 mmHg, RR 32 and shallow, SpO2 94% on 2L NC. The patient reports palpitations and feels like she is 'going to explode.' Mental status: anxious and confused. Notified the attending physician at 07:15. Noted significant lab abnormalities. R: Stat labs were drawn and sent to the lab. Continue monitoring vital signs and neurological status every 15 minutes. Prepare for potential interventions to manage hyperthermia, tachycardia, and hypertension. Obtain a cooling blanket. Titrate oxygen to maintain SpO2 > 92%. Cardiology consult ordered. Repeat EKG. Ensure IV access is patent. Monitor I/O. Administer scheduled medications as prescribed.",
+        {
+            "id": "opt_02",
+            "text": "History of discontinuing methimazole 3 weeks ago"
+        },
+        {
+            "id": "opt_03",
+            "text": "Temperature of 104.2°F (40.1°C)"
+        },
+        {
+            "id": "opt_04",
+            "text": "Heart rate of 180/min"
+        },
+        {
+            "id": "opt_05",
+            "text": "SpO₂ of 94% on 2L nasal cannula"
+        },
+        {
+            "id": "opt_06",
+            "text": "TSH level <0.01 mIU/L"
+        },
+        {
+            "id": "opt_07",
+            "text": "Free T4 level of 7.5 ng/dL"
+        },
+        {
+            "id": "opt_08",
+            "text": "WBC count of 12.5 x10^3/μL"
+        },
+        {
+            "id": "opt_09",
+            "text": "Free T3 level of 25.0 pg/mL"
+        },
+        {
+            "id": "opt_10",
+            "text": "Blood glucose of 145 mg/dL"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_03",
+        "opt_04",
+        "opt_06",
+        "opt_07",
+        "opt_09"
+    ],
+    "itemContext": {
+        "sbar": "S: Client used call light to report feeling 'like my heart is going to explode' and 'I can't catch my breath.' States she feels 'extremely hot and shaky.' B: 42-year-old female with Graves' disease, non-compliant with methimazole. Admitted at 03:00 for hyperthyroidism. No significant events overnight until now. A: Client is now acutely agitated, confused to time and place, and pulling at her IV lines. Skin is hot to the touch and profusely diaphoretic. Exhibits a fine tremor in bilateral upper extremities. Tachycardia to 180s on monitor. Temperature is 104.2°F (40.1°C). BP 180/100 mmHg. RR 32/min and shallow. SpO₂ 94% on 2L NC. R: Notified rapid response team and endocrinologist. Placed on continuous cardiac monitoring. Preparing to administer PRN medications and apply a cooling blanket. Ensure patent IV access for anticipated medication administration.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>TSH</td><td><mark class='highlight-target'>&lt;0.01 mIU/L</mark></td><td>0.4-4.0 mIU/L</td></tr><tr><td>Free T4</td><td><mark class='highlight-target'>7.5 ng/dL</mark></td><td>0.8-1.8 ng/dL</td></tr><tr><td>Free T3</td><td><mark class='highlight-target'>25 pg/mL</mark></td><td>2.3-4.2 pg/mL</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>100 mEq/L</td><td>95-105 mEq/L</td></tr><tr><td>Glucose</td><td>110 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>WBC</td><td>12,000/μL</td><td>4,500-11,000/μL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<h5>Admission Note (Day 1, 03:00)</h5><p>Client is a 42-year-old female with a known history of Graves' disease admitted from the ED for uncontrolled hyperthyroidism. Reports discontinuing her methimazole approximately 3 weeks ago due to financial constraints. Presented with complaints of anxiety, palpitations, and heat intolerance over the past 48 hours. Initial vitals stable. Client is alert and oriented x4. IV access established. Labs drawn and sent. Will monitor closely for signs of decompensation.</p><h5>Progress Note (Day 1, 07:00)</h5><p><strong>S:</strong> Client used call light to report feeling 'like my heart is going to explode' and 'I can't catch my breath.' States she feels 'extremely hot and shaky.'<br><strong>B:</strong> 42-year-old female with Graves' disease, non-compliant with methimazole. Admitted at 03:00 for hyperthyroidism. No significant events overnight until now.<br><strong>A:</strong> Client is now acutely agitated, confused to time and place, and pulling at her IV lines. Skin is hot to the touch and profusely diaphoretic. Exhibits a fine tremor in bilateral upper extremities. Tachycardia to 180s on monitor. Temperature is 104.2°F (40.1°C). BP 180/100 mmHg. RR 32/min and shallow. SpO₂ 94% on 2L NC.<br><strong>R:</strong> Notified rapid response team and endocrinologist. Placed on continuous cardiac monitoring. Preparing to administer PRN medications and apply a cooling blanket. Ensure patent IV access for anticipated medication administration.</p>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Methimazole</td><td>5 mg</td><td>PO</td><td>Daily</td><td>Missed dose</td></tr><tr><td>Propranolol</td><td>40 mg</td><td>PO</td><td>q6h PRN HR &gt;100</td><td>Not given</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN Temp &gt;101°F</td><td>Not given</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp °F (°C)</th><th>HR (bpm)</th><th>RR (breaths/min)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>SpO₂ (%)</th><th>O2 Source</th></tr></thead><tbody><tr><td>03:00</td><td>99.8 (37.7)</td><td>110</td><td>20</td><td>145/88</td><td>107</td><td>98%</td><td>Room Air</td></tr><tr><td>06:00</td><td>102.5 (39.2)</td><td>140</td><td>24</td><td>160/90</td><td>113</td><td>96%</td><td>2L NC</td></tr><tr><td>07:00</td><td>104.2 (40.1)</td><td>180</td><td>32</td><td>180/100</td><td>127</td><td>94%</td><td>2L NC</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>Temp (°F)</th><th>HR (bpm)</th><th>BP (mmHg)</th><th>RR (breaths/min)</th><th>SpO2 (%)</th></tr></thead><tbody><tr><td>06:00</td><td>102.5</td><td>140</td><td>160/90</td><td>24</td><td>96</td></tr><tr><td>07:00</td><td><mark class='highlight-target'>104.2</mark></td><td><mark class='highlight-target'>180</mark></td><td><mark class='highlight-target'>180/100</mark></td><td>32</td><td>94</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>TSH</td><td>&lt;0.01 mIU/L</td><td>0.4-4.0</td><td>Low</td></tr><tr><td>Free T4</td><td>7.5 ng/dL</td><td>0.8-1.8</td><td>High</td></tr><tr><td>Free T3</td><td>25.0 pg/mL</td><td>2.3-4.2</td><td>High</td></tr><tr><td>WBC</td><td>12.5 x10^3/μL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Glucose</td><td>145 mg/dL</td><td>70-110</td><td>High</td></tr><tr><td>ALT</td><td>85 U/L</td><td>7-56</td><td>High</td></tr><tr><td>AST</td><td>92 U/L</td><td>10-40</td><td>High</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145</td><td>Normal</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<h5>Admission (Day 1, 03:00)</h5><ul><li><strong>General:</strong> Alert and oriented x4, appears anxious.</li><li><strong>Cardiovascular:</strong> Tachycardic, regular rhythm. No murmurs.</li><li><strong>Neurological:</strong> Mild bilateral hand tremor noted.</li><li><strong>Skin:</strong> Warm, moist.</li></ul><h5>Focused (Day 1, 07:00)</h5><ul><li><strong>General:</strong> Acutely agitated, confused to time and place.</li><li><strong>Cardiovascular:</strong> Sinus tachycardia at 180 bpm.</li><li><strong>Neurological:</strong> Hyperreflexia noted in bilateral lower extremities. Fine tremor persists.</li><li><strong>Skin:</strong> Profusely diaphoretic, hot to the touch.</li></ul>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<h5>Chest X-ray (PA and Lateral) - Day 1, 04:00</h5><p><strong>Findings:</strong> Lungs are well-expanded and clear. The cardiomediastinal silhouette is within normal limits. No pleural effusion or pneumothorax.<br><strong>Impression:</strong> No acute cardiopulmonary process.</p>"
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 03:15</td><td>Admit to Medical ICU</td><td>Standing</td></tr><tr><td>Day 1, 03:15</td><td>Continuous cardiac and SpO₂ monitoring</td><td>Standing</td></tr><tr><td>Day 1, 03:15</td><td>Vital signs every 4 hours</td><td>Standing</td></tr><tr><td>Day 1, 07:05</td><td>Change vital signs to every 15 minutes</td><td>STAT</td></tr><tr><td>Day 1, 03:15</td><td>IV Fluids: D5NS at 125 mL/hr</td><td>Standing</td></tr><tr><td>Day 1, 07:05</td><td>STAT Endocrine consult</td><td>STAT</td></tr><tr><td>Day 1, 07:05</td><td>STAT Cardiology consult</td><td>STAT</td></tr><tr><td>Day 1, 07:05</td><td>Cooling blanket</td><td>PRN Temp > 103°F</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Methimazole</td><td>10 mg</td><td>PO</td><td>Daily</td><td>>3 weeks ago</td></tr><tr><td>Propranolol</td><td>40 mg</td><td>PO</td><td>q6h</td><td>Not yet given</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN Temp >101°F</td><td>Not yet given</td></tr><tr><td>Potassium Iodide (SSKI)</td><td>5 drops</td><td>PO</td><td>q6h</td><td>New order</td></tr></tbody></table>"
             }
+        ],
+        "patient": {
+            "age": "42 years",
+            "sex": "Female",
+            "pronouns": "she/her",
+            "allergies": [
+                "Penicillin"
+            ]
+        }
+    },
+    "rationale": {
+        "correct": "Thyroid storm is a life-threatening hypermetabolic state caused by excessive thyroid hormone release. The correct findings reflect the cardinal signs of this condition: severe hyperthermia (Temp 104.2°F), extreme tachycardia (HR 180/min), and central nervous system dysfunction (agitation, confusion). These clinical signs are directly caused by the profound thyrotoxicosis, which is confirmed by the laboratory results: a suppressed TSH (<0.01) indicating the pituitary is trying to stop production, and massively elevated Free T3 and T4 (7.5 ng/dL and 25.0 pg/mL), the active hormones causing the systemic effects.",
+        "incorrect": "The incorrect options are either precipitating factors, non-specific findings, or secondary consequences that are not as indicative of thyroid storm as the cardinal signs. Medication non-compliance is the cause, not a clinical finding. Mild hypoxia, leukocytosis, and hyperglycemia are common in many critical illnesses and lack the specificity needed to confirm thyroid storm.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. Acute agitation and confusion are hallmark signs of CNS dysfunction in thyroid storm, caused by the direct neurotoxic effects of excessive thyroid hormones on the brain."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. While medication non-compliance is the most common trigger for thyroid storm in a client with Graves' disease, it is a historical fact (a cause), not a current clinical finding that defines the syndrome."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. Hyperpyrexia (temperature >104°F or 40°C) is a classic and critical sign of thyroid storm, reflecting the extreme hypermetabolic state induced by thyroid hormone excess."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. Tachycardia is expected in hyperthyroidism, but a heart rate disproportionately high for the fever (e.g., >140 bpm, here 180 bpm) is a key feature that points towards thyroid storm."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Incorrect. An SpO₂ of 94% on 2L NC indicates mild hypoxemia, which can result from increased oxygen demand. However, it is a non-specific finding and not a primary diagnostic criterion for thyroid storm."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. A suppressed TSH level (typically <0.01 mIU/L) is essential for diagnosis, confirming that the thyroid gland is autonomously overproducing hormone, independent of pituitary stimulation."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. A markedly elevated Free T4 level is a direct measure of the excess circulating thyroid hormone that is driving the systemic hypermetabolic crisis."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Incorrect. Mild leukocytosis (elevated WBC count) is a non-specific inflammatory or stress response common in many critical illnesses and does not specifically point to thyroid storm."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Correct. A significantly elevated Free T3 level is crucial, as T3 is the more metabolically active thyroid hormone, and its high level is directly responsible for the severity of the clinical manifestations."
+            },
+            {
+                "optionId": "opt_10",
+                "content": "Incorrect. Mild hyperglycemia can occur in thyroid storm due to increased gluconeogenesis and insulin resistance. However, it is a secondary metabolic effect and not a core diagnostic finding."
+            }
+        ],
+        "clinicalPearls": [
+            "Aspirin and other salicylates are contraindicated for fever management in thyroid storm because they can displace thyroid hormone from protein-binding sites, increasing the level of free, active hormone and worsening the crisis.",
+            "The Burch-Wartofsky Point Scale is a diagnostic tool used to assess the probability of thyroid storm based on the severity of clinical signs like temperature, CNS effects, and cardiovascular dysfunction.",
+            "Treatment for thyroid storm is multi-faceted, targeting different parts of the hormone pathway: beta-blockers (e.g., propranolol) for symptom control, antithyroid drugs (e.g., methimazole, PTU) to block new hormone synthesis, and iodine solutions to block hormone release."
+        ],
+        "questionTrap": "A common trap is confusing the precipitating factor (e.g., medication non-compliance) with the acute clinical findings. The question asks for the evidence that *defines* the current crisis, not the historical event that caused it. Always focus on the 'here and now' data when asked for diagnostic indicators.",
+        "mnemonic": "STORM: Sweating/Shivering (hyperthermia), Tachycardia/Tremors, Out of it (altered mental status), Restlessness/Rapid breathing, Muscle weakness/Myopathy.",
+        "reviewUnits": [
+            "Endocrine System Pathophysiology",
+            "Thyroid Disorders",
+            "Emergency Nursing Care",
+            "Pharmacology: Endocrine Agents"
         ]
+    },
+    "scoring": {
+        "method": "+/- 1.0 Penalty",
+        "maxPoints": 6
     },
     "pedagogy": {
         "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
-        "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
-        ]
+        "cjmmStep": "recognizeCues",
+        "nclexCategory": "Physiological Adaptation"
     },
-    "rationale": {
-        "correct": "The highlighted findings are indicative of thyroid storm: TSH <0.01 mIU/L (suppressed), Free T4 7.5 ng/dL (elevated), Free T3 25 pg/mL (elevated), Temperature 104.2°F (40.1°C) (hyperpyrexia), Heart Rate 180 bpm (tachycardia), and Blood Pressure 180/100 mmHg (hypertension). These findings are consistent with the pathophysiology of thyroid storm, which involves excessive thyroid hormone release leading to a hypermetabolic state. The suppressed TSH with elevated Free T3 and Free T4 confirm hyperthyroidism. The elevated temperature, heart rate, and blood pressure reflect the body's response to the excess thyroid hormones.",
-        "incorrect": "Normal laboratory values and vital signs do not support a diagnosis of thyroid storm. Focusing on the patient's presenting symptoms and comparing them to reference ranges is crucial. Identifying deviations from normal values that are consistent with the pathophysiology of thyroid storm is essential for accurate diagnosis and timely intervention. For example, a normal blood glucose level does not point to thyroid storm. A normal WBC count does not rule out thyroid storm but is not a primary indicator.",
-        "clinicalPearls": [
-            "Thyroid storm is a life-threatening emergency requiring rapid assessment and intervention.",
-            "The Burch-Wartofsky Point Scale can be used to assess the likelihood of thyroid storm.",
-            "Beta-blockers (e.g., propranolol) are often used to manage tachycardia and hypertension associated with thyroid storm.",
-            "Antithyroid medications (e.g., methimazole) are used to block the synthesis of thyroid hormones.",
-            "Iodine solutions (e.g., Lugol's solution) are used to inhibit the release of thyroid hormones.",
-            "Cooling blankets and acetaminophen can be used to manage hyperthermia."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus solely on the elevated temperature and heart rate and miss the critical lab values, or they may misinterpret normal values as abnormal in the context of the patient's presentation. Students might also confuse thyroid storm with other conditions presenting with similar symptoms.",
-            "howToOvercome": "Carefully review all lab values and vital signs, comparing them to reference ranges and considering the patient's history and presenting symptoms. Prioritize data points that directly correlate with the pathophysiology of thyroid storm (e.g., elevated free T4 and T3, suppressed TSH). Consider the entire clinical picture, including lab results, vital signs, and patient history, to differentiate thyroid storm from other conditions."
-        },
-        "mnemonic": {
-            "title": "HOTTT",
-            "expansion": "<b>H</b>yperthermia, <b>O</b>ut of proportion tachycardia, <b>T</b>hyroid hormone excess, <b>T</b>achyarrhythmia, <b>T</b>remors"
-        }
-    },
-    "sentinelStatus": "deep_healed_v2026"
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:54:05.206Z"
 }

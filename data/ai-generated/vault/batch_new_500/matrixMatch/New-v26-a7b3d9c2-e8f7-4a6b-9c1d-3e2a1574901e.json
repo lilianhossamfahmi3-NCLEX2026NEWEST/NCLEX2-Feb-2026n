@@ -1,92 +1,319 @@
 {
     "id": "New-v26-a7b3d9c2-e8f7-4a6b-9c1d-3e2a1574901e",
     "type": "matrixMatch",
-    "stem": "The nurse is caring for a 6-month-old infant diagnosed with Tetralogy of Fallot. Based on the assessment findings and available information, match the following nursing interventions to the assessment finding that indicates the need for that intervention.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is evaluating the 07:30 data for an infant with Tetralogy of Fallot. For each critical finding, select the priority nursing intervention required to address the underlying pathophysiology.",
     "itemContext": {
         "patient": {
-            "name": "Liam Miller",
-            "age": 6,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "6 months",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "SITUATION: Liam Miller, a 6-month-old male, 6 months old, diagnosed with Tetralogy of Fallot, was admitted to the ICU at 07:00 for a hypercyanotic spell. He has a history of similar episodes. BACKGROUND: Liam was diagnosed at 2 weeks old. His mother reports increased irritability, worsening cyanosis, and difficulty breathing, even when using the knee-chest position at home. Current medications include Propranolol 1 mg PO BID, last given at 06:00. ASSESSMENT: At 07:00, Liam is irritable and crying. His oxygen saturation is 68% on room air. Heart rate is 180 bpm, and respiratory rate is 60 bpm with moderate intercostal retractions. Capillary refill is 4 seconds. Auscultation reveals a loud systolic murmur. His skin is mottled. At 07:15, his color is worsening, now dusky. RECOMMENDATION: I recommend obtaining a STAT blood gas, increasing oxygen to 100% via face mask, administering morphine sulfate 0.1 mg/kg IV push for the hypercyanotic spell, and preparing for possible intubation. I notified the cardiologist and respiratory therapy at 07:15.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>pH</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>58 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>45 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>23 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>Hemoglobin</td><td>18 g/dL</td><td>11-14 g/dL</td></tr><tr><td>Hematocrit</td><td>55%</td><td>34-42%</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "time": "07:30",
+                        "type": "Progress Note",
+                        "author": "RN",
+                        "note": "S: This is a 6-month-old male with a known history of Tetralogy of Fallot, currently experiencing a severe hypercyanotic spell. He was admitted at 07:00 with deep cyanosis and respiratory distress.\nB: The infant has a history of similar episodes, but his mother reports this is the most severe. He lives in a rural community, delaying access to specialized care. His home medication is propranolol.\nA: Initial SpO2 was 68% on room air. Despite applying 100% oxygen via face mask, his SpO2 has dropped to 65%. He is increasingly lethargic with a heart rate of 185/min and respiratory rate of 62/min with severe retractions. Capillary refill is 4 seconds. STAT ABG results show severe hypoxemia (PaO2 45) and mixed acidosis (pH 7.28).\nR: Recommend immediate administration of IV morphine and sodium bicarbonate. An IV fluid bolus is also indicated to improve perfusion and decrease blood viscosity from polycythemia. Respiratory therapy is on standby for potential intubation."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propranolol</td><td>1 mg</td><td>PO</td><td>BID</td><td>06:00</td></tr><tr><td>Morphine Sulfate</td><td>0.1 mg/kg</td><td>IV PRN</td><td>Hypercyanotic Spell</td><td>N/A</td></tr><tr><td>Sodium Bicarbonate</td><td>1 mEq/kg</td><td>IV PRN</td><td>Severe Acidosis</td><td>N/A</td></tr></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "time": "07:00",
+                        "hr": "180",
+                        "rr": "60",
+                        "bp": "70/40 (50)",
+                        "spo2": "68% on RA",
+                        "temp": "99.5°F (37.5°C)"
+                    },
+                    {
+                        "time": "07:15",
+                        "hr": "185",
+                        "rr": "62",
+                        "bp": "68/38 (48)",
+                        "spo2": "65% on 100% FM",
+                        "temp": "99.5°F (37.5°C)"
+                    },
+                    {
+                        "time": "07:30",
+                        "hr": "188",
+                        "rr": "64",
+                        "bp": "65/35 (45)",
+                        "spo2": "64% on 100% FM",
+                        "temp": "99.5°F (37.5°C)"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th><th>BP</th></tr></thead><tbody><tr><td>07:00</td><td>180</td><td>60</td><td>68%</td><td>37.5°C</td><td>70/40</td></tr><tr><td>07:15</td><td>185</td><td>62</td><td>65%</td><td>37.5°C</td><td>68/38</td></tr></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Arterial Blood Gas (ABG)",
+                        "time": "07:25",
+                        "results": [
+                            {
+                                "test": "pH",
+                                "value": "7.28",
+                                "unit": "",
+                                "range": "7.35-7.45",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "PaCO2",
+                                "value": "58",
+                                "unit": "mmHg",
+                                "range": "35-45",
+                                "status": "High"
+                            },
+                            {
+                                "test": "PaO2",
+                                "value": "45",
+                                "unit": "mmHg",
+                                "range": "80-100",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "HCO3",
+                                "value": "23",
+                                "unit": "mEq/L",
+                                "range": "22-26",
+                                "status": "WNL"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Complete Blood Count (CBC)",
+                        "time": "07:25",
+                        "results": [
+                            {
+                                "test": "Hemoglobin (Hgb)",
+                                "value": "18.0",
+                                "unit": "g/dL",
+                                "range": "10.5-13.5",
+                                "status": "High"
+                            },
+                            {
+                                "test": "Hematocrit (Hct)",
+                                "value": "55",
+                                "unit": "%",
+                                "range": "31-39",
+                                "status": "High"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "time": "07:30",
+                        "system": "Cardiovascular",
+                        "findings": "Sinus tachycardia at 188/min. Loud, harsh systolic murmur at left upper sternal border. Distal pulses +1. Capillary refill 4 seconds. Skin is cool and mottled."
+                    },
+                    {
+                        "time": "07:30",
+                        "system": "Respiratory",
+                        "findings": "Tachypnea at 64/min with severe subcostal and intercostal retractions. Deep central and peripheral cyanosis noted. Lungs clear to auscultation bilaterally."
+                    },
+                    {
+                        "time": "07:30",
+                        "system": "Neurological",
+                        "findings": "Previously irritable, now lethargic. Responds to painful stimuli only. Pupils equal and reactive to light."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No radiology reports available.</p>"
+                "content": [
+                    {
+                        "type": "Chest X-ray (AP View)",
+                        "date": "Current Admission",
+                        "report": "FINDINGS: The cardiac silhouette is enlarged, demonstrating a 'boot-shaped' appearance (coeur en sabot) secondary to right ventricular hypertrophy and an upturned cardiac apex. Pulmonary vascular markings are decreased, consistent with reduced pulmonary blood flow.\nIMPRESSION: Radiographic findings are highly consistent with Tetralogy of Fallot."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "07:05",
+                        "action": "Place infant in knee-chest position",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "07:05",
+                        "action": "Administer Oxygen 100% via non-rebreather mask",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "07:10",
+                        "action": "Establish peripheral IV access",
+                        "status": "Completed"
+                    },
+                    {
+                        "order_time": "07:10",
+                        "action": "STAT Arterial Blood Gas and Complete Blood Count",
+                        "status": "Completed"
+                    },
+                    {
+                        "order_time": "07:10",
+                        "action": "Continuous cardiac and SpO2 monitoring",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Propranolol",
+                        "dose": "1 mg",
+                        "route": "PO",
+                        "frequency": "BID",
+                        "last_administered": "06:00"
+                    },
+                    {
+                        "medication": "Morphine Sulfate",
+                        "dose": "0.1 mg/kg",
+                        "route": "IV",
+                        "frequency": "PRN for hypercyanotic spell",
+                        "last_administered": "N/A"
+                    },
+                    {
+                        "medication": "Sodium Bicarbonate",
+                        "dose": "1 mEq/kg",
+                        "route": "IV",
+                        "frequency": "PRN for severe acidosis",
+                        "last_administered": "N/A"
+                    },
+                    {
+                        "medication": "0.9% Sodium Chloride",
+                        "dose": "10 mL/kg",
+                        "route": "IV",
+                        "frequency": "PRN bolus for hypovolemia/perfusion",
+                        "last_administered": "N/A"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Pediatric: Congenital Heart Defects & Safety"
-        ]
-    },
-    "rationale": {
-        "correct": "Administering morphine sulfate IV push is indicated because it helps reduce respiratory effort and pulmonary vascular resistance, breaking the hypercyanotic spell by reducing the shunting of deoxygenated blood. Elevating the head of the bed is indicated to improve oxygenation by reducing abdominal pressure on the diaphragm, facilitating better lung expansion. Preparing for possible intubation is indicated because the infant's increased respiratory rate, retractions, and decreasing oxygen saturation suggest impending respiratory failure, requiring advanced airway management. Administering sodium bicarbonate IV push is indicated to correct the metabolic acidosis indicated by the blood gas results (pH 7.28, PaCO2 58 mmHg), which can result from hypoxemia and anaerobic metabolism.",
-        "incorrect": "Each incorrect match represents a misunderstanding of the immediate interventions required during a hypercyanotic spell in a child with Tetralogy of Fallot. Failing to administer morphine or sodium bicarbonate promptly or delaying respiratory support can have severe consequences, leading to worsening hypoxemia, acidosis, and potential cardiac arrest. Positioning, oxygen administration, and preparing for advanced interventions are all crucial components of managing these critical episodes, and incorrect matching indicates a lack of prioritization and understanding of the underlying pathophysiology.",
-        "clinicalPearls": [
-            "Hypercyanotic spells (Tet spells) are characterized by sudden marked cyanosis and hyperpnea, often triggered by crying, feeding, or defecation.",
-            "The knee-chest position is a compensatory mechanism used by infants to increase systemic vascular resistance and reduce right-to-left shunting of blood, improving oxygen saturation.",
-            "Morphine sulfate helps to reduce respiratory effort and pulmonary vascular resistance, decreasing the shunting of deoxygenated blood and improving oxygenation.",
-            "Metabolic acidosis can result from hypoxemia and requires prompt correction with sodium bicarbonate to restore normal pH and improve cellular function.",
-            "Early recognition and intervention are crucial to prevent severe complications such as brain damage or death during a hypercyanotic spell."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus solely on the low oxygen saturation and choose oxygen administration as the only intervention, overlooking the underlying cause of the cyanosis and the need for more comprehensive interventions. They might also confuse the order of interventions, prioritizing less critical actions over life-saving ones, or fail to recognize the significance of metabolic acidosis indicated by the blood gas results.",
-            "howToOvercome": "Carefully analyze all assessment findings, including vital signs, lab results, and clinical observations. Consider the pathophysiology of Tetralogy of Fallot and the specific mechanisms by which each intervention addresses the problem. Prioritize interventions based on their potential to immediately improve the patient's condition and prevent further deterioration. Understand the importance of addressing both the hypoxemia and the metabolic acidosis during a hypercyanotic spell."
-        },
-        "mnemonic": {
-            "title": "K-MOP for Tet Spells",
-            "expansion": "K - Knee-chest position (or squatting in older children)\nM - Morphine sulfate administration\nO - Oxygen administration (100% via face mask)\nP - Prepare for further interventions (intubation, sodium bicarbonate)"
-        }
-    },
-    "matrixMatchOptions": {
+    "matrix": {
         "rows": [
-            "Infant irritable, crying, SpO2 68% on room air.",
-            "pH 7.28, PaCO2 58 mmHg, PaO2 45 mmHg.",
-            "HR 185 bpm, RR 62 bpm, SpO2 65%, moderate intercostal retractions.",
-            "Dusky skin, mottled extremities, capillary refill 4 seconds."
+            {
+                "id": "R1",
+                "text": "Lethargy, irritability, and inconsolable crying"
+            },
+            {
+                "id": "R2",
+                "text": "Arterial blood gas: pH 7.28, PaCO2 58 mmHg"
+            },
+            {
+                "id": "R3",
+                "text": "SpO2 64% on 100% O2, severe retractions, RR 64/min"
+            },
+            {
+                "id": "R4",
+                "text": "Hct 55% with capillary refill of 4 seconds"
+            }
         ],
         "columns": [
-            "Administer morphine sulfate IV push.",
-            "Elevate the head of the bed.",
-            "Prepare for possible intubation.",
-            "Administer sodium bicarbonate IV push."
+            {
+                "id": "C1",
+                "text": "Administer morphine sulfate IV"
+            },
+            {
+                "id": "C2",
+                "text": "Administer sodium bicarbonate IV"
+            },
+            {
+                "id": "C3",
+                "text": "Prepare for endotracheal intubation"
+            },
+            {
+                "id": "C4",
+                "text": "Administer 0.9% sodium chloride IV bolus"
+            }
         ]
     },
-    "correctResponse": {
-        "Infant irritable, crying, SpO2 68% on room air.": "Administer morphine sulfate IV push.",
-        "pH 7.28, PaCO2 58 mmHg, PaO2 45 mmHg.": "Administer sodium bicarbonate IV push.",
-        "HR 185 bpm, RR 62 bpm, SpO2 65%, moderate intercostal retractions.": "Prepare for possible intubation.",
-        "Dusky skin, mottled extremities, capillary refill 4 seconds.": "Elevate the head of the bed."
+    "correctResponse": [
+        {
+            "rowId": "R1",
+            "columnId": "C1"
+        },
+        {
+            "rowId": "R2",
+            "columnId": "C2"
+        },
+        {
+            "rowId": "R3",
+            "columnId": "C3"
+        },
+        {
+            "rowId": "R4",
+            "columnId": "C4"
+        }
+    ],
+    "rationale": {
+        "correct": "During a hypercyanotic 'Tet' spell, there is a sudden increase in right-to-left shunting of deoxygenated blood across the ventricular septal defect due to acute obstruction of the right ventricular outflow tract (RVOTO). This leads to profound hypoxemia and acidosis. The correct interventions address the distinct pathophysiological components of the spell: morphine reduces infundibular spasm and calms the infant to decrease oxygen demand; sodium bicarbonate corrects the resulting metabolic acidosis; preparing for intubation addresses impending respiratory failure; and an IV fluid bolus improves systemic perfusion and reduces blood viscosity from compensatory polycythemia.",
+        "incorrect": "Mismatching these interventions demonstrates a failure to connect clinical findings to their underlying cause. For example, giving sodium bicarbonate for irritability without recognizing the acidosis on the ABG is treating a symptom without data. Administering an IV bolus as the primary response to severe respiratory distress misses the priority of securing the airway. Each intervention has a specific target, and incorrect pairing can delay life-saving care.",
+        "answerBreakdown": [
+            {
+                "rowId": "R1",
+                "columnId": "C1",
+                "content": "The infant's irritability and crying increase oxygen consumption and can worsen the infundibular spasm, exacerbating the right-to-left shunt. Morphine sulfate is a cornerstone of Tet spell management because it provides sedation to calm the infant and has a vasodilatory effect on the pulmonary vasculature, helping to relax the RVOTO and improve pulmonary blood flow."
+            },
+            {
+                "rowId": "R2",
+                "columnId": "C2",
+                "content": "The ABG results (pH 7.28, PaCO2 58) indicate a mixed respiratory and metabolic acidosis, a direct consequence of severe hypoxemia and anaerobic metabolism. Administering sodium bicarbonate is critical to correct the metabolic component of the acidosis, which improves myocardial function and cellular response to other interventions."
+            },
+            {
+                "rowId": "R3",
+                "columnId": "C3",
+                "content": "An SpO2 of 64% despite 100% oxygen, combined with a high respiratory rate and severe retractions, signals profound hypoxemia and impending respiratory failure. The infant is unable to compensate. Preparing for endotracheal intubation is the priority action to secure the airway, provide controlled ventilation, and reduce the work of breathing."
+            },
+            {
+                "rowId": "R4",
+                "columnId": "C4",
+                "content": "A hematocrit of 55% indicates significant polycythemia, a chronic compensation for hypoxemia. This increases blood viscosity. Poor perfusion (cap refill 4 seconds) suggests decreased systemic vascular resistance or dehydration. An isotonic IV fluid bolus (0.9% NaCl) is needed to increase preload, improve systemic perfusion, and decrease blood viscosity, reducing the risk of a thromboembolic event."
+            }
+        ],
+        "clinicalPearls": [
+            "Tet spells are caused by a sudden increase in right-to-left shunting, often triggered by crying, feeding, or defecation, which tightens the right ventricular outflow tract (infundibular spasm).",
+            "Chronic hypoxemia in TOF leads to compensatory polycythemia (elevated Hgb/Hct), which increases blood viscosity and the risk for thromboembolic events like a stroke.",
+            "The 'boot-shaped heart' on a chest x-ray is a classic sign of TOF, resulting from right ventricular hypertrophy which elevates the cardiac apex."
+        ],
+        "questionTrap": "The primary trap is focusing solely on the low SpO2 and thinking oxygen is the only solution. While essential, 100% O2 is often insufficient during a severe Tet spell because the problem is a shunt, not a ventilation issue. The deoxygenated blood bypasses the lungs entirely, so interventions must target the shunt itself.",
+        "mnemonic": {
+            "title": "PROVE your TOF knowledge!",
+            "expansion": "P - Pulmonary Stenosis, R - Right Ventricular Hypertrophy, O - Overriding Aorta, V - Ventricular Septal Defect. This mnemonic helps recall the four core defects of Tetralogy of Fallot."
+        }
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyzing",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:24:08.428Z"
 }

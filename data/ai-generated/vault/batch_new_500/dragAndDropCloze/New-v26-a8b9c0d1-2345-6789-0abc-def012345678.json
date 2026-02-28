@@ -1,75 +1,265 @@
 {
     "id": "New-v26-a8b9c0d1-2345-6789-0abc-def012345678",
-    "type": "dragAndDropCloze",
-    "stem": "The patient is exhibiting signs of hypovolemic shock secondary to hemorrhage. Based on the provided data, prioritize the following interventions in order of importance to stabilize the patient. Drag and drop the interventions into the numbered boxes. \n\n1. {1}\n2. {2}\n3. {3}\n4. {4}\n5. {5}\n\nAvailable interventions:\n* Administer packed red blood cells (PRBCs)\n* Initiate vasopressor infusion (e.g., norepinephrine)\n* Apply direct pressure to the bleeding site\n* Insert a second large-bore IV catheter\n* Elevate the patient's legs",
-    "scoring": {
-        "method": "exactOrder",
-        "maxPoints": 5
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client with an active hemorrhage and signs of hypovolemic shock. Based on the clinical data, drag the actions into the box to indicate the correct priority order, from first to last.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Apply direct pressure to the bleeding site"
+        },
+        {
+            "id": "opt_02",
+            "text": "Insert a second large-bore IV catheter"
+        },
+        {
+            "id": "opt_03",
+            "text": "Administer packed red blood cells (PRBCs)"
+        },
+        {
+            "id": "opt_04",
+            "text": "Elevate the patient's legs"
+        },
+        {
+            "id": "opt_05",
+            "text": "Initiate vasopressor infusion (e.g., norepinephrine)"
+        }
+    ],
+    "correctOptionId": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04",
+        "opt_05"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Doe",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Medical Unit",
+            "age": "62 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Doe, a 62-year-old male, admitted for a GI bleed and a fall causing a left forearm laceration. Hemoglobin (Hgb) was 10.2 this morning. B: History includes hypertension (HTN) and coronary artery disease (CAD). A: At 07:00, patient reported dizziness and weakness. Vitals: BP 88/50 mmHg, HR 122 bpm, RR 26 breaths/min, SpO2 92% on room air. Forearm dressing saturated with blood. Patient pale, diaphoretic, alert, and oriented to person, place, and time. At 07:05, physician notified, orders received for 2 units PRBCs and stat CBC. O: Ongoing assessment and intervention implementation. Vital signs monitored every 15 minutes. Anticipating further interventions based on response. At 07:10, initiating IV access for blood administration.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Hemoglobin: 7.1 g/dL\nHematocrit: 21.3%\nPlatelets: 210,000/mcL\nINR: 1.1\nPTT: 32 seconds\nLactate: 4.2 mmol/L"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 02:00",
+                        "header": "Admission Note",
+                        "body": "S: Client is a 62-year-old male admitted from the ED for management of a GI bleed and a deep 10 cm laceration to the left forearm sustained during a fall. Reports mild abdominal cramping and dark, tarry stools for 2 days. Denies chest pain or shortness of breath. \nB: History of hypertension, coronary artery disease, and daily aspirin use. Lives alone in a second-floor apartment with no elevator, which poses a mobility challenge. Allergies include Penicillin. \nA: Vitals stable on admission. Abdomen soft, non-tender with active bowel sounds. Forearm laceration cleaned, sutured, and dressed in ED; small amount of serosanguinous drainage noted. Alert and oriented x4. \nR: Continue IV fluids. Monitor vital signs, hemoglobin/hematocrit. Consult gastroenterology. Reinforce fall precautions. Assess for social support needs given living situation."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:05",
+                        "header": "Progress Note",
+                        "body": "S: Client used call light to report sudden onset of dizziness and feeling 'very weak.' States his 'heart is racing.' Denies pain but appears anxious. \nB: Client's Hgb on admission was 10.2 g/dL. He has been receiving 0.9% NaCl at 150 mL/hr. The forearm dressing, which was clean and dry at 06:00, is now saturated with bright red blood. \nA: Client is pale, cool, and diaphoretic. Vitals: BP 88/50 mmHg (MAP 63), HR 122 bpm (sinus tachycardia), RR 26/min, SpO₂ 92% on room air. Peripheral pulses are +1 and thready. Capillary refill is 4 seconds. \nR: Provider notified of significant change in status. New orders received for STAT CBC and type & crossmatch, and to transfuse 2 units PRBCs. Will apply direct pressure to forearm laceration and establish a second large-bore IV for resuscitation."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Normal Saline 0.9% IV at 150 mL/hr\nOndansetron 4mg IV PRN Nausea\nPRBCs (Order placed, pending)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "06:00",
+                        "Temp": "98.6°F (37.0°C)",
+                        "HR": "80 bpm",
+                        "BP": "120/80 mmHg (MAP 93)",
+                        "RR": "18/min",
+                        "SpO2": "98% on room air"
+                    },
+                    {
+                        "Time": "06:30",
+                        "Temp": "98.5°F (36.9°C)",
+                        "HR": "95 bpm",
+                        "BP": "110/70 mmHg (MAP 83)",
+                        "RR": "20/min",
+                        "SpO2": "96% on room air"
+                    },
+                    {
+                        "Time": "07:00",
+                        "Temp": "98.2°F (36.8°C)",
+                        "HR": "122 bpm",
+                        "BP": "88/50 mmHg (MAP 63)",
+                        "RR": "26/min",
+                        "SpO2": "92% on room air"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 120/80, HR 80, RR 18, SpO2 98%\n06:30: BP 110/70, HR 95, RR 20, SpO2 96%\n07:00: BP 88/50, HR 122, RR 26, SpO2 92%"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Hemoglobin (Hgb)",
+                        "Result": "7.1",
+                        "Unit": "g/dL",
+                        "Reference": "13.5-17.5",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Hematocrit (Hct)",
+                        "Result": "21.3",
+                        "Unit": "%",
+                        "Reference": "41-53",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "210",
+                        "Unit": "x10³/mcL",
+                        "Reference": "150-450",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Lactate, Venous",
+                        "Result": "4.2",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "INR",
+                        "Result": "1.1",
+                        "Unit": "",
+                        "Reference": "0.8-1.2",
+                        "Status": "Normal"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "General",
+                        "Findings": "Alert and oriented x3, anxious. Pale and diaphoretic."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Tachycardic, S1/S2 audible. Peripheral pulses +1, thready. Capillary refill 4 seconds. No JVD."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Tachypneic. Lungs clear to auscultation bilaterally."
+                    },
+                    {
+                        "System": "Integumentary",
+                        "Findings": "Skin is cool and clammy. Left forearm dressing saturated with bright red blood; active oozing noted from suture line."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "No imaging studies available at this time."
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR tab for patient information."
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 02:00",
+                        "Action": "0.9% Sodium Chloride infusion",
+                        "Frequency/Status": "Continuous at 150 mL/hr"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 02:00",
+                        "Action": "Ondansetron 4 mg IV",
+                        "Frequency/Status": "PRN every 6 hours for nausea"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 07:05",
+                        "Action": "STAT Complete Blood Count (CBC)",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 07:05",
+                        "Action": "STAT Type and Crossmatch",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 07:05",
+                        "Action": "Transfuse 2 units Packed Red Blood Cells (PRBCs)",
+                        "Frequency/Status": "STAT, infuse each unit over 2 hours"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 07:05",
+                        "Action": "Vital signs",
+                        "Frequency/Status": "Every 15 minutes"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "0.9% Sodium Chloride",
+                        "Dose": "1000 mL",
+                        "Route": "IV",
+                        "Frequency": "Continuous at 150 mL/hr",
+                        "Last Administered": "Ongoing"
+                    },
+                    {
+                        "Medication": "Ondansetron",
+                        "Dose": "4 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN q6h Nausea",
+                        "Last Administered": "N/A"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
+    "rationale": {
+        "correct": "The correct sequence follows the critical thinking pathway for managing hemorrhagic shock, prioritizing hemorrhage control above all else. The primary goal is to stop the loss of circulating volume (direct pressure), then establish robust access for replacement (second IV), replace lost oxygen-carrying capacity (PRBCs), use temporizing measures to support circulation (leg elevation), and finally, use vasopressors if hypotension persists despite volume resuscitation.",
+        "incorrect": "An incorrect sequence can be lethal. Administering vasopressors before volume replacement will increase systemic vascular resistance against an empty ventricle, worsening myocardial ischemia and tissue perfusion. Delaying hemorrhage control while administering fluids is futile, as the volume is lost as quickly as it is infused ('leaky bucket' analogy). Failing to secure adequate IV access before blood products are ready causes critical delays in resuscitation.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct, Position 1. The absolute first priority in active hemorrhage is to control the source of bleeding. All other interventions are ineffective if volume continues to be lost. This directly addresses the 'C' (Circulation) in the ABCs of trauma and resuscitation."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct, Position 2. Once hemorrhage is being controlled, the next step is to ensure adequate intravenous access for rapid administration of fluids and blood products. A single IV is insufficient for aggressive resuscitation; a second large-bore (16-18 gauge) catheter is essential."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct, Position 3. With a hemoglobin of 7.1 g/dL and ongoing bleeding, the client has a critical deficit in oxygen-carrying capacity. Administering PRBCs is the definitive treatment to restore this capacity and improve tissue oxygenation, but it requires hemorrhage control and IV access to be effective."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct, Position 4. Elevating the legs (passive leg raise) is a temporary, non-invasive maneuver to increase venous return and augment preload, which can briefly improve cardiac output and blood pressure. It is a supportive measure used while definitive treatments like volume replacement are underway."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct, Position 5. Vasopressors are used in hemorrhagic shock only after fluid and blood volume have been substantially replaced. Using them prematurely can constrict vessels and worsen organ hypoperfusion by increasing afterload on a heart that does not have adequate volume to pump."
+            }
+        ],
+        "clinicalPearls": [
+            "In traumatic or hemorrhagic shock, the priority algorithm shifts from ABC to C-ABC (Catastrophic Hemorrhage, Airway, Breathing, Circulation). Stop the bleed first.",
+            "A MAP of <65 mmHg is generally considered the threshold for inadequate organ perfusion. The client's MAP of 63 is a critical indicator for immediate intervention.",
+            "Elevated lactate (>2 mmol/L) is a sensitive marker of anaerobic metabolism due to tissue hypoperfusion and is a key indicator of shock severity and response to resuscitation."
+        ],
+        "questionTrap": "The most common trap is prioritizing IV access or fluid administration over hemorrhage control. Test-takers often think 'give fluids for low BP' without first considering why the BP is low. If the cause is a hole in the vascular system, plugging the hole must come first.",
+        "mnemonic": "Hemorrhage Management: 'STOP' the Bleed\n\nS - Search for the source of bleeding.\nT - Tourniquet or direct Pressure to control it.\nO - Oxygenate and obtain IV access.\nP - Provide volume (PRBCs, crystalloids).",
+        "reviewUnits": [
+            "Shock: Hypovolemic",
+            "Fluid & Electrolytes: IV Therapy",
+            "Blood & Blood Products Administration"
         ]
     },
-    "rationale": {
-        "correct": "Hypovolemic shock requires rapid intervention to restore circulating volume and oxygen delivery. Applying direct pressure is the immediate priority to control the source of bleeding. Inserting a second large-bore IV ensures adequate access for fluid and blood administration. Administering PRBCs addresses the hemoglobin deficit and improves oxygen-carrying capacity. Elevating the legs promotes venous return and increases preload. Vasopressors are generally used after fluid resuscitation to address persistent hypotension.\n\nclinicalPearl: Remember the order of interventions: stop the bleed, ensure IV access, replace volume, and then consider vasopressors if needed.",
-        "incorrect": "Incorrect sequencing of interventions can delay stabilization and worsen the patient's condition. Delaying direct pressure prolongs bleeding. Administering fluids or blood without adequate IV access slows resuscitation. Using vasopressors before addressing volume depletion can exacerbate tissue hypoperfusion. Leg elevation alone is insufficient to address significant volume loss.\n\nclinicalPearl: Prioritizing interventions based on the immediate threat to the patient's life is crucial. Think ABCs (Airway, Breathing, Circulation).",
-        "clinicalPearls": [
-            "Rapid assessment and intervention are critical in managing hypovolemic shock.",
-            "Control the source of bleeding is paramount in hypovolemic shock due to hemorrhage.",
-            "Fluid resuscitation and blood transfusion are essential components of treatment.",
-            "Vasopressors should be used cautiously and typically after initial fluid resuscitation in hypovolemic shock."
-        ],
-        "questionTrap": {
-            "trap": "Many students prioritize fluid resuscitation (IV access, PRBCs) before addressing the source of the bleed, failing to recognize that uncontrolled hemorrhage will negate the benefits of fluid replacement.",
-            "howToOvercome": "Focus on the ABCs (Airway, Breathing, Circulation) and remember that stopping the bleeding is the most immediate priority in a patient with hemorrhage. Consider what is happening to the patient and how each intervention will effect the patient's immediate presentation."
-        },
-        "mnemonic": {
-            "title": "STOP the Bleed",
-            "expansion": "Source (find and control), Tourniquet/pressure, Oxygen, Position (Trendelenburg not recommended, elevate legs)"
-        }
-    }
+    "scoring": {
+        "method": "exactOrder",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:55:04.632Z"
 }

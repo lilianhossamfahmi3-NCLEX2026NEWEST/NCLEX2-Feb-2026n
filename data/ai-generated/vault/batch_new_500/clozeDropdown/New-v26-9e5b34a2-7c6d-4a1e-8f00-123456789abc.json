@@ -1,94 +1,360 @@
 {
     "id": "New-v26-9e5b34a2-7c6d-4a1e-8f00-123456789abc",
     "type": "clozeDropdown",
-    "stem": "Based on the patient's presentation and lab results, the most likely source of infection is {0}. The priority nursing intervention should be {1}. To prevent the spread of infection to other patients, the nurse should initiate {2} precautions.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
-    },
+    "stem": "Based on the client's presentation and diagnostic data, the most likely condition is {{1}}. The priority action to address the underlying pathophysiology is {{2}}. To mitigate nosocomial risk, the nurse must implement {{3}} precautions.",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "English",
+            "age": "78",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: This is John Smith, a 78-year-old male in room 302, admitted for a urinary tract infection (UTI), now showing signs of possible urosepsis. Background: Mr. Smith was admitted at 08:00 for a UTI. He has a history of methicillin-resistant Staphylococcus aureus (MRSA). Assessment: At 14:00, the patient became increasingly confused and hypotensive. His current blood pressure is 88/52 mmHg, heart rate is 110 bpm, respiratory rate is 24 breaths/min, temperature is 102.5°F (39.2°C), and SpO2 is 92% on room air. Lab results include a WBC count of 15,000/mm³, lactate of 4.0 mmol/L, creatinine of 2.1 mg/dL, BUN of 30 mg/dL, platelets of 140,000/mm³, and procalcitonin of 3.5 ng/mL. Urine culture is pending. He reports increasing lower back pain. A Foley catheter was placed at 09:00. The patient is alert but disoriented. Recommendation: I am concerned that Mr. Smith is developing urosepsis and requires immediate intervention. I recommend drawing blood cultures immediately, followed by the administration of broad-spectrum antibiotics, specifically considering vancomycin given his MRSA history. We should closely monitor his vital signs and urine output. Contact precautions should be initiated immediately to prevent the spread of potential infection.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 15,000/mm3 (High), Lactate: 4.0 mmol/L (High), Creatinine: 2.1 mg/dL (High), BUN: 30 mg/dL (High), Platelets: 140,000/mm3 (Low), Procalcitonin: 3.5 ng/mL (High), Urine Culture: Pending, Blood Cultures x2: Ordered"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 08:00",
+                        "content": "S: Client is a 78-year-old male admitted from home with a 2-day history of dysuria, urinary frequency, and fever. Reports feeling weak and confused this morning. Adult child is concerned about his ability to manage at home.\nB: History of benign prostatic hyperplasia (BPH), hypertension, and known colonization with methicillin-resistant Staphylococcus aureus (MRSA) from a previous hospitalization. Lives alone in a rural area with limited access to transportation, which sometimes delays seeking care. Allergic to Penicillin.\nA: Alert and oriented to person only. Skin is warm and dry. T: 99.5°F (37.5°C), HR: 80, RR: 18, BP: 120/80 mmHg, SpO₂: 98% on room air. Urinalysis shows significant bacteriuria and leukocytes. Foley catheter inserted for accurate output monitoring.\nR: Admit to medical unit for management of urinary tract infection. Start IV fluids and obtain urine culture."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 14:00",
+                        "content": "S: Called to bedside for acute change in mental status and hypotension.\nB: Admitted at 08:00 for UTI. Foley catheter in situ. Known MRSA colonization. Penicillin allergy.\nA: Client is lethargic, disoriented to time and place. Skin is flushed and warm. BP is 88/52 mmHg (MAP 64), HR 110 bpm, RR 24 breaths/min, T 102.5°F (39.2°C), SpO₂ 92% on room air. Recent labs show leukocytosis (15.0 x10³/mm³), lactic acidosis (4.0 mmol/L), and acute kidney injury (Creatinine 2.1 mg/dL). Urine output is scant and cloudy.\nR: Suspect urosepsis progressing to septic shock. Recommend activating sepsis protocol. Obtain blood cultures x2 STAT, then initiate broad-spectrum antibiotics per protocol, avoiding beta-lactams. Continue aggressive fluid resuscitation and monitor MAP closely. Initiate contact precautions immediately due to MRSA history."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "08:00: BP 120/80 mmHg, HR 80 bpm, RR 18 breaths/min, Temp 99.5°F (37.5°C), SpO2 98% RA; 12:00: BP 110/70 mmHg, HR 90 bpm, RR 20 breaths/min, Temp 101.2°F (38.4°C), SpO2 95% RA; 14:00: BP 88/52 mmHg, HR 110 bpm, RR 24 breaths/min, Temp 102.5°F (39.2°C), SpO2 92% RA"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "08:00",
+                        "Temp": "99.5°F (37.5°C)",
+                        "HR": "80 bpm",
+                        "RR": "18/min",
+                        "BP": "120/80 mmHg",
+                        "MAP": "93 mmHg",
+                        "SpO2": "98% on Room Air"
+                    },
+                    {
+                        "Time": "12:00",
+                        "Temp": "101.2°F (38.4°C)",
+                        "HR": "90 bpm",
+                        "RR": "20/min",
+                        "BP": "110/70 mmHg",
+                        "MAP": "83 mmHg",
+                        "SpO2": "95% on Room Air"
+                    },
+                    {
+                        "Time": "14:00",
+                        "Temp": "102.5°F (39.2°C)",
+                        "HR": "110 bpm",
+                        "RR": "24/min",
+                        "BP": "88/52 mmHg",
+                        "MAP": "64 mmHg",
+                        "SpO2": "92% on Room Air"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 1g IVPB q24h (Ordered, Not Yet Administered), Acetaminophen 650mg PO q4h PRN Fever (Last Administered: 12:00), Normal Saline 0.9% IV at 125 mL/hr (Continuous), Famotidine 20mg IV q12h (Next Dose: 21:00)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC Count",
+                        "Result": "15.0",
+                        "Unit": "x10³/mm³",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate, Venous",
+                        "Result": "4.0",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High (Critical)"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "2.1",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "30",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "140",
+                        "Unit": "x10³/mm³",
+                        "Reference": "150-450",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "3.5",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.15",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Urine Culture",
+                        "Result": "Pending",
+                        "Unit": "",
+                        "Reference": "",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 08:00 (Admission)",
+                        "findings": "Neurological: Alert, oriented to person only. Mild confusion noted.\nCardiovascular: S1, S2 audible. No murmurs. Pulses 2+ peripherally.\nRespiratory: Lungs clear to auscultation bilaterally. Breathing non-labored.\nGastrointestinal: Abdomen soft, non-tender, bowel sounds active.\nGenitourinary: Reports dysuria. No CVA tenderness.\nIntegumentary: Skin warm, dry, intact."
+                    },
+                    {
+                        "timestamp": "Day 1, 14:00 (Focused)",
+                        "findings": "Neurological: Lethargic, difficult to arouse. Disoriented to time and place.\nCardiovascular: Tachycardia noted. Pulses 1+ and thready peripherally.\nRespiratory: Tachypneic. Lungs remain clear.\nIntegumentary: Skin is flushed, warm to touch."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "procedure": "Chest X-ray, Portable, AP View",
+                        "timestamp": "Day 1, 14:30",
+                        "report": "FINDINGS: Lungs are clear without evidence of consolidation, effusion, or edema. Cardiomediastinal silhouette is within normal limits for a portable examination. No acute osseous abnormalities identified.\n\nIMPRESSION: No acute cardiopulmonary process."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order_DateTime": "Day 1, 08:15",
+                        "Action": "Insert Foley catheter",
+                        "Status": "Completed"
+                    },
+                    {
+                        "Order_DateTime": "Day 1, 08:15",
+                        "Action": "0.9% Sodium Chloride IV at 125 mL/hr",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order_DateTime": "Day 1, 08:15",
+                        "Action": "Urine culture and sensitivity",
+                        "Status": "Collected"
+                    },
+                    {
+                        "Order_DateTime": "Day 1, 14:05",
+                        "Action": "Blood cultures x2 from separate sites",
+                        "Status": "STAT - Ordered"
+                    },
+                    {
+                        "Order_DateTime": "Day 1, 14:05",
+                        "Action": "Vancomycin 1g IVPB after blood cultures drawn",
+                        "Status": "STAT - Ordered"
+                    },
+                    {
+                        "Order_DateTime": "Day 1, 14:05",
+                        "Action": "Initiate Sepsis Protocol",
+                        "Status": "STAT - Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650mg",
+                        "Route": "PO",
+                        "Frequency": "q4h PRN Fever >101°F",
+                        "Last_Administered": "Day 1, 12:05"
+                    },
+                    {
+                        "Medication": "Lisinopril",
+                        "Dose": "10mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last_Administered": "Day 1, 09:00"
+                    },
+                    {
+                        "Medication": "0.9% Sodium Chloride",
+                        "Dose": "125 mL/hr",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last_Administered": "Ongoing"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+    "options": [
+        {
+            "id": "dd1_opt1",
+            "text": "urosepsis",
+            "dropdownKey": 1
+        },
+        {
+            "id": "dd1_opt2",
+            "text": "viral infection",
+            "dropdownKey": 1
+        },
+        {
+            "id": "dd1_opt3",
+            "text": "pneumonia",
+            "dropdownKey": 1
+        },
+        {
+            "id": "dd1_opt4",
+            "text": "acute kidney injury",
+            "dropdownKey": 1
+        },
+        {
+            "id": "dd2_opt1",
+            "text": "administering antipyretics",
+            "dropdownKey": 2
+        },
+        {
+            "id": "dd2_opt2",
+            "text": "initiating broad-spectrum antibiotics",
+            "dropdownKey": 2
+        },
+        {
+            "id": "dd2_opt3",
+            "text": "increasing IV fluid rate",
+            "dropdownKey": 2
+        },
+        {
+            "id": "dd2_opt4",
+            "text": "reassessing vital signs in 1 hour",
+            "dropdownKey": 2
+        },
+        {
+            "id": "dd3_opt1",
+            "text": "standard",
+            "dropdownKey": 3
+        },
+        {
+            "id": "dd3_opt2",
+            "text": "droplet",
+            "dropdownKey": 3
+        },
+        {
+            "id": "dd3_opt3",
+            "text": "airborne",
+            "dropdownKey": 3
+        },
+        {
+            "id": "dd3_opt4",
+            "text": "contact",
+            "dropdownKey": 3
+        }
+    ],
+    "correctOptionIds": [
+        "dd1_opt1",
+        "dd2_opt2",
+        "dd3_opt4"
+    ],
+    "rationale": {
+        "correct": "The client's clinical picture, including a known UTI, fever, hypotension (MAP <65 mmHg), tachycardia, tachypnea, altered mental status, and critical lab values (leukocytosis, elevated lactate, elevated procalcitonin, AKI), strongly indicates urosepsis progressing to septic shock. The priority action is to treat the source of infection by initiating broad-spectrum antibiotics immediately after obtaining blood cultures. Given the client's history of MRSA, contact precautions are mandatory to prevent nosocomial transmission.",
+        "incorrect": "Focusing on symptomatic treatment (like fever or fluid volume) without addressing the underlying infection is a critical error in sepsis management. Delaying antibiotics significantly increases mortality. Standard precautions are insufficient for a known MRSA-colonized client, posing a risk to other patients and healthcare workers. Misidentifying the source of infection would lead to incorrect treatment pathways.",
+        "answerBreakdown": [
+            {
+                "optionId": "dd1_opt1",
+                "content": "Correct. The client's history of UTI, indwelling catheter, and systemic signs of infection (fever, hypotension, tachycardia, leukocytosis, elevated lactate) all point to the urinary tract as the source of a systemic infection (urosepsis)."
+            },
+            {
+                "optionId": "dd1_opt2",
+                "content": "Incorrect. While a viral infection can cause systemic symptoms, the high procalcitonin and leukocytosis are classic markers for a bacterial process. The localized signs of a UTI make a bacterial source far more likely."
+            },
+            {
+                "optionId": "dd1_opt3",
+                "content": "Incorrect. The chest x-ray is clear, and there are no respiratory symptoms like cough or adventitious lung sounds, making pneumonia an unlikely diagnosis."
+            },
+            {
+                "optionId": "dd1_opt4",
+                "content": "Incorrect. The elevated creatinine and BUN indicate acute kidney injury (AKI), but this is a consequence of the septic process (hypoperfusion), not the primary condition itself."
+            },
+            {
+                "optionId": "dd2_opt1",
+                "content": "Incorrect. While managing fever is important for comfort, it is a symptomatic treatment. The priority is to treat the underlying cause of the infection to prevent further hemodynamic collapse and organ failure."
+            },
+            {
+                "optionId": "dd2_opt2",
+                "content": "Correct. According to sepsis management guidelines (e.g., Surviving Sepsis Campaign), early administration of broad-spectrum antibiotics after obtaining cultures is the most critical intervention to reduce mortality."
+            },
+            {
+                "optionId": "dd2_opt3",
+                "content": "Incorrect. While fluid resuscitation is a key component of sepsis management and is necessary, initiating antibiotics to control the source of infection is the highest priority action to halt the pathophysiologic cascade."
+            },
+            {
+                "optionId": "dd2_opt4",
+                "content": "Incorrect. The client is in septic shock, a life-threatening emergency. Delaying intervention for an hour is unsafe and could lead to irreversible organ damage or death."
+            },
+            {
+                "optionId": "dd3_opt1",
+                "content": "Incorrect. Standard precautions are used for all patients but are insufficient for pathogens like MRSA, which require additional transmission-based precautions."
+            },
+            {
+                "optionId": "dd3_opt2",
+                "content": "Incorrect. Droplet precautions are for pathogens spread by large respiratory droplets (e.g., influenza, pertussis). MRSA is not typically spread this way."
+            },
+            {
+                "optionId": "dd3_opt3",
+                "content": "Incorrect. Airborne precautions are for pathogens spread by small aerosolized particles (e.g., tuberculosis, varicella). MRSA is not spread via the airborne route."
+            },
+            {
+                "optionId": "dd3_opt4",
+                "content": "Correct. MRSA is transmitted by direct or indirect contact. Contact precautions (gown and gloves) are required to prevent its spread to other patients and healthcare providers."
+            }
+        ],
+        "clinicalPearls": [
+            "In sepsis, hypotension (MAP < 65 mmHg) and elevated lactate (>2 mmol/L) are key indicators of tissue hypoperfusion and septic shock, requiring immediate intervention.",
+            "The 'Hour-1 Bundle' for sepsis management emphasizes obtaining blood cultures before administering antibiotics, as antibiotics can sterilize the blood and prevent identification of the causative organism.",
+            "Always review a client's history for multi-drug resistant organisms (MDROs) like MRSA or VRE, as this dictates both the choice of empiric antibiotics and the required level of isolation precautions.",
+            "Acute Kidney Injury (AKI) is a common complication of sepsis due to renal hypoperfusion and inflammatory damage. Monitoring urine output and creatinine is crucial."
+        ],
+        "questionTrap": "The primary trap is choosing a supportive care measure (like giving fluids or antipyretics) over the definitive treatment (antibiotics). While fluids are vital, they do not stop the infection. The question asks for the priority action to address the pathophysiology, which is the uncontrolled infection.",
+        "mnemonic": {
+            "title": "SEPSIS SIX Bundle (within 1 hour)",
+            "expansion": "Oxygen to keep SpO₂ >94% | Blood Cultures | Antibiotics (broad-spectrum) | Fluid resuscitation | Lactate measurement | Urine output monitoring"
+        },
+        "reviewUnits": [
+            "Infection Control",
+            "Sepsis and Septic Shock",
+            "Pharmacology: Antibiotics",
+            "Fluid and Electrolytes",
+            "Renal and Urinary Disorders"
         ]
     },
-    "rationale": {
-        "correct": "The patient's presentation (hypotension, tachycardia, tachypnea, fever, confusion), elevated lactate, elevated WBC, elevated procalcitonin, and decreased platelets, coupled with his history of a UTI and MRSA, strongly suggest urosepsis. The priority intervention is initiating broad-spectrum antibiotics after obtaining blood cultures to combat the suspected bacterial infection and prevent further deterioration. Given the history of MRSA, vancomycin should be considered. Contact precautions are vital to prevent the spread of potential multi-drug resistant organisms like MRSA to other vulnerable patients. Hand hygiene is also essential.",
-        "incorrect": "Failing to recognize the signs and symptoms of sepsis can lead to rapid deterioration and increased mortality. Delaying antibiotic administration or focusing solely on symptomatic treatment (e.g., antipyretics) without addressing the underlying infection is detrimental. Overlooking the patient's MRSA history and failing to implement appropriate infection control measures puts other patients at risk. Focusing solely on the UTI without considering systemic involvement is a critical error.",
-        "clinicalPearls": [
-            "Sepsis is a life-threatening condition arising from a dysregulated host response to infection.",
-            "Early recognition and treatment of sepsis are crucial to improve patient outcomes.",
-            "Patients with indwelling catheters are at increased risk for UTIs and subsequent urosepsis.",
-            "Always consider a patient's history of multi-drug resistant organisms when selecting empiric antibiotic therapy."
-        ],
-        "questionTrap": {
-            "trap": "Selecting 'viral infection' or 'pneumonia' as the source of infection. While these are possible, the patient's history of UTI, Foley catheter, and lab results point towards a urinary source. Focusing on comfort measures (antipyretics) before addressing the infection.",
-            "howToOvercome": "Thoroughly assess all available data, including patient history, vital signs, and lab results, to identify the most likely source of infection. Prioritize interventions based on the severity of the patient's condition and the underlying pathophysiology."
-        },
-        "mnemonic": {
-            "title": "SEPSIS",
-            "expansion": "Source identification, Early antibiotics, Prevent spread, Support organ systems, Identify risk factors, Systemic monitoring"
-        }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
     },
-    "responseOptions": [
-        {
-            "key": 0,
-            "options": [
-                "urosepsis",
-                "viral infection",
-                "pneumonia",
-                "cellulitis"
-            ]
-        },
-        {
-            "key": 1,
-            "options": [
-                "administering antipyretics",
-                "initiating broad-spectrum antibiotics",
-                "increasing IV fluid rate",
-                "reassessing in 1 hour"
-            ]
-        },
-        {
-            "key": 2,
-            "options": [
-                "standard",
-                "droplet",
-                "airborne",
-                "contact"
-            ]
-        }
-    ]
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Management of Care"
+    },
+    "correctOptionId": "dd1_opt1",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:39:39.916Z"
 }

@@ -1,7 +1,7 @@
 {
     "id": "New-v26-e9b7a2c3-4d5e-4f91-a8b0-6a7b8c9d0e2f",
     "type": "dragAndDropCloze",
-    "stem": "A 62-year-old female presents to the ED at 13:30. Review the EHR and complete the sentences below to reflect appropriate nursing interventions and expected outcomes.\n\nBased on the patient's presentation and lab results, the priority nursing intervention is to initiate intravenous fluid resuscitation with [ ] to address the severe dehydration. Closely monitor [ ] every hour to assess the effectiveness of fluid replacement and prevent fluid overload. Administer [ ] via continuous intravenous infusion, titrating the dosage based on the patient's blood glucose levels, aiming for a gradual reduction to prevent rapid shifts in osmolality, which can lead to cerebral edema. Assess the patient's [ ] frequently for signs of neurological changes, such as altered mental status or seizures, which may indicate complications related to hyperosmolality or electrolyte imbalances. Finally, anticipate the need for [ ] administration as the glucose levels decrease to prevent hypoglycemia as the insulin drip continues.",
+    "stem": "Review the client's electronic health record. Drag the options from the list to complete the sentences describing the priority plan of care for this client.",
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 5
@@ -11,107 +11,329 @@
             "name": "Edna Krabappel",
             "age": 62,
             "gender": "Female",
-            "iso": "Medical-Surgical Unit",
+            "pronouns": "She/Her",
+            "iso": "Intensive Care Unit",
             "allergies": [
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "S: Edna Krabappel, a 62-year-old female, presented to the ED at 13:30. Her chief complaints are altered mental status and severe thirst. She has a history of poorly controlled type 2 diabetes. \nB: The patient was found at home by a neighbor, confused and lethargic. Her last known normal state was yesterday morning. There are no known recent illnesses reported. \nA: The patient is unresponsive to verbal stimuli, tachycardic with a heart rate of 120 bpm, hypotensive with a blood pressure of 90/50 mmHg, and hyperthermic with a temperature of 102.5°F (39.2°C). A rapid glucose check showed a level >600 mg/dL. Her respirations are rapid and deep, indicative of Kussmaul breathing. We suspect Hyperosmolar Hyperglycemic State (HHS). \nR: STAT labs and ECG have been ordered. A normal saline bolus has been ordered to start, along with a continuous insulin infusion. Closely monitor vital signs and neurological status. Anticipate potassium replacement based on lab results. Consider placing an indwelling urinary catheter for accurate monitoring of intake and output. Notify the provider of any significant changes.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<b>Glucose:</b> >600 mg/dL\n<b>Sodium:</b> 155 mEq/L\n<b>Potassium:</b> 3.0 mEq/L\n<b>Chloride:</b> 110 mEq/L\n<b>Bicarbonate:</b> 18 mEq/L\n<b>BUN:</b> 40 mg/dL\n<b>Creatinine:</b> 2.0 mg/dL\n<b>Osmolality:</b> 340 mOsm/kg\n<b>pH:</b> 7.30\n<b>Anion Gap:</b> 14\n<b>Beta-hydroxybutyrate:</b> 0.4 mmol/L"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "timestamp": "13:30",
+                        "type": "Admission Note",
+                        "content": "S: 62-year-old female with poorly controlled type 2 diabetes found confused and lethargic by a neighbor. B: Last known well yesterday morning. History of non-adherence with metformin. Lives alone in a senior apartment complex with limited access to fresh groceries, a known social determinant of health impacting her diabetes management. A: Unresponsive to verbal stimuli, only responsive to painful stimuli. Tachycardic at 125/min, hypotensive at 88/48 mmHg. Skin is hot, dry, with poor turgor. Respirations are 30/min, deep but not Kussmaul. Fingerstick glucose >600 mg/dL. Suspected Hyperosmolar Hyperglycemic State (HHS) due to severe hyperglycemia without significant ketosis. R: Initiate large-bore IV access. Begin aggressive fluid resuscitation per protocol. Start continuous regular insulin infusion. Obtain STAT labs including serum chemistry, osmolality, and ABG. Insert indwelling urinary catheter to monitor output. Transfer to ICU for continuous monitoring."
+                    },
+                    {
+                        "timestamp": "15:30",
+                        "type": "Progress Note",
+                        "content": "S: Client remains unresponsive two hours after initiation of treatment for HHS. B: Received 1L of 0.9% sodium chloride over the first hour, now infusing at 500 mL/hr. Continuous regular insulin infusion is running at 5 units/hr. A: Heart rate decreased to 110/min, BP improved to 98/60 mmHg (MAP 73). Urine output is 40 mL in the last hour. Repeat glucose is 550 mg/dL. Serum osmolality remains critically high at 335 mOsm/kg. Neurological status is unchanged. No signs of fluid overload; lungs clear bilaterally. R: Continue fluid resuscitation with 0.9% sodium chloride. Continue insulin infusion and monitor glucose hourly. Monitor serum electrolytes and osmolality every 1-2 hours. Maintain strict I&O. Continue frequent neurological assessments for any sign of cerebral edema."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<b>13:30</b>\nHR: 120 bpm\nBP: 90/50 mmHg\nRR: 32 (Kussmaul breathing)\nTemp: 102.5°F (39.2°C)\nSpO2: 96% on room air\nLOC: Unresponsive to verbal stimuli"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "13:30",
+                        "Temp": "102.5°F (39.2°C)",
+                        "HR": "125",
+                        "RR": "30",
+                        "BP": "88/48",
+                        "MAP": "61",
+                        "SpO2": "96% on Room Air"
+                    },
+                    {
+                        "Time": "14:30",
+                        "Temp": "101.8°F (38.8°C)",
+                        "HR": "115",
+                        "RR": "26",
+                        "BP": "95/55",
+                        "MAP": "68",
+                        "SpO2": "97% on Room Air"
+                    },
+                    {
+                        "Time": "15:30",
+                        "Temp": "101.2°F (38.4°C)",
+                        "HR": "110",
+                        "RR": "24",
+                        "BP": "98/60",
+                        "MAP": "73",
+                        "SpO2": "97% on Room Air"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<b>09:00</b> Metformin 500mg PO Daily\n<b>PRN</b> Acetaminophen 650mg PO Q4H for Pain\n<b>STAT</b> Normal Saline 1L IV Bolus\n<b>STAT</b> Regular Insulin IV continuous infusion (per protocol)"
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "Test": "Glucose, Serum",
+                        "Result": "680",
+                        "Unit": "mg/dL",
+                        "Reference": "70-110",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Serum Osmolality",
+                        "Result": "340",
+                        "Unit": "mOsm/kg",
+                        "Reference": "275-295",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Sodium (Na+)",
+                        "Result": "155",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Potassium (K+)",
+                        "Result": "3.0",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "40",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "2.0",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Anion Gap",
+                        "Result": "14",
+                        "Unit": "mEq/L",
+                        "Reference": "8-16",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Beta-hydroxybutyrate",
+                        "Result": "0.4",
+                        "Unit": "mmol/L",
+                        "Reference": "<0.5",
+                        "Status": "Normal"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "assessment": {
+                    "timestamp": "13:30",
+                    "findings": [
+                        {
+                            "system": "Neurological",
+                            "details": "Unresponsive to verbal stimuli, groans and withdraws to painful stimuli. Pupils equal and reactive to light. GCS 6 (E1, V1, M4)."
+                        },
+                        {
+                            "system": "Cardiovascular",
+                            "details": "Tachycardia with regular rhythm. S1/S2 audible. Pulses +1 peripherally. Capillary refill >4 seconds. No JVD."
+                        },
+                        {
+                            "system": "Respiratory",
+                            "details": "Lungs clear to auscultation bilaterally. Respirations deep and rapid. No accessory muscle use."
+                        },
+                        {
+                            "system": "Integumentary",
+                            "details": "Skin hot, flushed, and dry. Mucous membranes are dry. Skin turgor is poor with significant tenting."
+                        }
+                    ]
+                }
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "reports": [
+                    {
+                        "type": "N/A",
+                        "impression": "No diagnostic imaging reports available at this time."
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See separate SBAR tab."
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "13:35",
+                        "action": "Establish two large-bore peripheral IVs.",
+                        "status": "STAT"
+                    },
+                    {
+                        "timestamp": "13:35",
+                        "action": "Administer 0.9% sodium chloride, 1 liter IV bolus over 1 hour, then titrate to protocol.",
+                        "status": "STAT"
+                    },
+                    {
+                        "timestamp": "13:35",
+                        "action": "Continuous regular insulin IV infusion, start at 0.1 units/kg/hr.",
+                        "status": "STAT"
+                    },
+                    {
+                        "timestamp": "13:35",
+                        "action": "STAT Serum Chemistry Panel, Serum Osmolality, ABG.",
+                        "status": "STAT"
+                    },
+                    {
+                        "timestamp": "13:40",
+                        "action": "Insert indwelling urinary catheter.",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "13:40",
+                        "action": "Monitor blood glucose hourly.",
+                        "status": "Standing"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Metformin",
+                        "dose": "500 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Yesterday 09:00"
+                    },
+                    {
+                        "medication": "0.9% Sodium Chloride",
+                        "dose": "1000 mL",
+                        "route": "IV",
+                        "frequency": "STAT Bolus",
+                        "lastAdministered": "13:45 (In Progress)"
+                    },
+                    {
+                        "medication": "Regular Insulin",
+                        "dose": "5 units/hr",
+                        "route": "IV",
+                        "frequency": "Continuous Infusion",
+                        "lastAdministered": "13:50 (Initiated)"
+                    }
+                ]
             }
         ]
+    },
+    "clozePrompt": "Based on the client's presentation and lab results, the priority nursing intervention is to initiate intravenous fluid resuscitation with [1] to address the severe dehydration. Closely monitor [2] every hour to assess the effectiveness of fluid replacement and prevent fluid overload. Administer [3] via continuous intravenous infusion, titrating the dosage based on the client's blood glucose levels, aiming for a gradual reduction to prevent rapid shifts in osmolality, which can lead to cerebral edema. Assess the client's [4] frequently for signs of neurological changes, such as altered mental status or seizures, which may indicate complications related to hyperosmolality or electrolyte imbalances. Finally, anticipate the need for [5] administration as the glucose levels decrease to prevent hypoglycemia as the insulin drip continues.",
+    "options": [
+        "0.9% sodium chloride",
+        "serum osmolality",
+        "regular insulin",
+        "neurological status",
+        "dextrose-containing IV fluids",
+        "Potassium Chloride",
+        "Sodium Bicarbonate",
+        "Furosemide",
+        "urine output",
+        "blood pressure",
+        "lispro insulin"
+    ],
+    "solution": {
+        "slot1": "0.9% sodium chloride",
+        "slot2": "serum osmolality",
+        "slot3": "regular insulin",
+        "slot4": "neurological status",
+        "slot5": "dextrose-containing IV fluids"
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "generateSolutions",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
+            "Endocrine",
+            "HHS",
+            "Fluid and Electrolytes",
+            "Critical Care"
         ]
     },
     "rationale": {
-        "correct": "The patient presents with Hyperosmolar Hyperglycemic State (HHS), characterized by severe hyperglycemia, hyperosmolality, and dehydration. The priority is fluid resuscitation with Normal Saline to address dehydration and improve circulatory volume. Hourly monitoring of serum osmolality is crucial to assess the effectiveness of fluid replacement and prevent rapid fluid shifts and cerebral edema. A continuous infusion of regular insulin is essential to gradually reduce blood glucose levels. Frequent neurological assessments are vital to detect cerebral edema or electrolyte imbalances. As glucose levels decrease, administering a dextrose-containing solution becomes necessary to prevent hypoglycemia, a potential complication of insulin therapy.",
-        "incorrect": "Incorrect answers fail to address the key components of HHS management: fluid resuscitation, glucose control, electrolyte balance, and neurological monitoring. Selecting interventions without considering the underlying pathophysiology of HHS can lead to inappropriate or harmful treatment decisions. For example, administering dextrose solutions too early without addressing the underlying dehydration and hyperosmolality could worsen the patient's condition. Similarly, neglecting neurological assessments can delay the detection of life-threatening complications like cerebral edema.",
+        "correct": "The client is experiencing Hyperosmolar Hyperglycemic State (HHS), a life-threatening emergency characterized by extreme hyperglycemia, hyperosmolality, and profound dehydration. The pathophysiology involves severe hyperglycemia causing massive osmotic diuresis, leading to significant fluid and electrolyte loss. The management priorities are: 1) Aggressive IV fluid replacement to restore circulatory volume and improve renal perfusion, 2) Gradual reduction of blood glucose with a continuous insulin infusion, 3) Correction of electrolyte imbalances (especially potassium), and 4) Close monitoring for complications, particularly cerebral edema.",
+        "answerBreakdown": [
+            {
+                "option": "0.9% sodium chloride",
+                "isCorrect": true,
+                "explanation": "Correct. This is an isotonic solution and the first-line intervention for HHS. It rapidly expands intravascular volume to correct the profound dehydration and circulatory collapse, which is the most immediate threat to life."
+            },
+            {
+                "option": "serum osmolality",
+                "isCorrect": true,
+                "explanation": "Correct. This is the most critical parameter to monitor to prevent cerebral edema. A rapid decrease in serum osmolality can cause a fluid shift into brain cells. The goal is a slow, controlled reduction of 3-8 mOsm/kg/hr."
+            },
+            {
+                "option": "regular insulin",
+                "isCorrect": true,
+                "explanation": "Correct. Regular insulin is the standard for continuous IV infusion to gradually lower blood glucose. A slow reduction is key to preventing rapid osmotic shifts and subsequent cerebral edema."
+            },
+            {
+                "option": "neurological status",
+                "isCorrect": true,
+                "explanation": "Correct. Frequent neurological assessments are vital for the early detection of cerebral edema. Changes in level of consciousness, headache, or new focal deficits are ominous signs requiring immediate intervention."
+            },
+            {
+                "option": "dextrose-containing IV fluids",
+                "isCorrect": true,
+                "explanation": "Correct. As the insulin infusion lowers blood glucose to approximately 200-250 mg/dL, dextrose must be added to the IV fluids. This prevents iatrogenic hypoglycemia while allowing the insulin drip to continue resolving the hyperosmolar state."
+            },
+            {
+                "option": "Potassium Chloride",
+                "isCorrect": false,
+                "explanation": "Incorrect. While potassium replacement is crucial (as insulin drives potassium into cells, worsening hypokalemia), it is not the primary resuscitation fluid. It is added to maintenance fluids after initial volume expansion."
+            },
+            {
+                "option": "Sodium Bicarbonate",
+                "isCorrect": false,
+                "explanation": "Incorrect. The client's anion gap is normal, indicating no significant metabolic acidosis. Bicarbonate is not indicated in HHS and can have adverse effects."
+            },
+            {
+                "option": "Furosemide",
+                "isCorrect": false,
+                "explanation": "Incorrect. This is a diuretic and is absolutely contraindicated. Administering it would exacerbate the client's life-threatening dehydration and electrolyte imbalances."
+            },
+            {
+                "option": "urine output",
+                "isCorrect": false,
+                "explanation": "Incorrect. While monitoring urine output is important for assessing fluid balance and renal function, serum osmolality is the most direct and specific parameter for guiding therapy to prevent cerebral edema."
+            },
+            {
+                "option": "blood pressure",
+                "isCorrect": false,
+                "explanation": "Incorrect. Blood pressure is a key vital sign for assessing response to fluid resuscitation but is not the primary indicator used to prevent the specific complication of cerebral edema."
+            },
+            {
+                "option": "lispro insulin",
+                "isCorrect": false,
+                "explanation": "Incorrect. Lispro is a rapid-acting insulin analog not approved or formulated for continuous IV infusion. Only regular insulin is used for IV insulin drips due to its stability and predictable action."
+            }
+        ],
         "clinicalPearls": [
-            "In HHS, dehydration is often more severe than in DKA, requiring aggressive fluid resuscitation with isotonic solutions like Normal Saline.",
-            "Monitor serum osmolality closely during treatment to prevent rapid fluid shifts. A decrease of 3-8 mOsm/kg/hr is the target.",
-            "Neurological assessments are crucial for detecting cerebral edema, a serious complication of HHS treatment. Watch for changes in LOC, seizures, or new neurological deficits."
+            "HHS is characterized by the '3 Hypers': Hyperglycemia (>600 mg/dL), Hyperosmolality (>320 mOsm/kg), and profound Hypertonic Dehydration.",
+            "Fluid replacement is the absolute first priority in HHS, even before insulin. Restoring volume improves perfusion and can start lowering glucose levels by diluting the blood and improving renal clearance.",
+            "Unlike DKA, Kussmaul respirations and significant acidosis are absent in HHS because there is enough endogenous insulin to prevent widespread ketone production, as evidenced by the normal beta-hydroxybutyrate level."
         ],
         "questionTrap": {
-            "trap": "Selecting interventions in the wrong order or focusing solely on glucose control without addressing fluid balance and electrolyte imbalances.",
-            "howToOvercome": "Prioritize interventions based on the ABCs (Airway, Breathing, Circulation) and address the most immediate life-threatening issues first. Carefully analyze lab values to identify electrolyte imbalances and adjust treatment accordingly. Remember that fluid resuscitation is the priority in HHS."
+            "trap": "Confusing HHS and DKA management. Candidates might prioritize insulin over fluids or incorrectly select bicarbonate. Another trap is choosing a valid monitoring parameter (like urine output) over the most specific one for the complication mentioned (serum osmolality for cerebral edema).",
+            "howToOvercome": "Recognize that in HHS, the primary problem is profound dehydration from osmotic diuresis. Therefore, fluid resuscitation is the most critical initial action (Circulation). For monitoring, always link the parameter to the specific complication: Serum Osmolality -> Cerebral Edema."
         },
         "mnemonic": {
             "title": "HHS Management",
-            "expansion": "<b>H</b>ydrate aggressively (Normal Saline), <b>H</b>ypoglycemia prevention (Dextrose), <b>S</b>odium & Osmolality watch (Hourly monitoring)"
+            "expansion": "HHS = HHHuge Dehydration. H: Hydration (0.9% NaCl first!). H: Hourly Glucose & Neuro checks. S: Slowly lower glucose to prevent Swelling (cerebral edema)."
         }
     },
-    "solution": {
-        "slots": [
-            {
-                "slot": 1,
-                "acceptableValues": [
-                    "Normal Saline"
-                ]
-            },
-            {
-                "slot": 2,
-                "acceptableValues": [
-                    "serum osmolality"
-                ]
-            },
-            {
-                "slot": 3,
-                "acceptableValues": [
-                    "regular insulin"
-                ]
-            },
-            {
-                "slot": 4,
-                "acceptableValues": [
-                    "neurological status"
-                ]
-            },
-            {
-                "slot": 5,
-                "acceptableValues": [
-                    "dextrose-containing solution"
-                ]
-            }
-        ],
-        "distractors": [
-            "Potassium Chloride",
-            "Sodium Bicarbonate",
-            "Furosemide",
-            "urine output",
-            "blood pressure",
-            "lispro insulin"
-        ]
-    },
-    "sentinelStatus": "deep_healed_v2026"
+    "sentinelStatus": "upgraded_standard_2026"
 }

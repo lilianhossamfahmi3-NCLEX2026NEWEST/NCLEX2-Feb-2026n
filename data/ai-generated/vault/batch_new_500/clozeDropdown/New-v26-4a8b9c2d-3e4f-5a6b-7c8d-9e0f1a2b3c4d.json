@@ -1,101 +1,447 @@
 {
     "id": "New-v26-4a8b9c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
     "type": "clozeDropdown",
-    "stem": "Based on the provided information, the nurse should prioritize interventions to address the patient's increased pulmonary blood flow and potential complications. The most appropriate initial action is to administer [dropdown1] as prescribed to [dropdown2] and monitor for [dropdown3]. Additionally, the nurse should immediately report any signs of [dropdown4] to the healthcare provider.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is updating the plan of care based on the 06:00 assessment. For each blank below, select the option that best completes the nurse's clinical plan.",
+    "clause": "The most appropriate initial action is to administer [BLANK_1] as prescribed to [BLANK_2]. The nurse will closely monitor for [BLANK_3] as an indicator of therapeutic effectiveness and immediately report any signs of [BLANK_4] to the provider.",
+    "blanks": [
+        {
+            "id": "BLANK_1",
+            "options": [
+                {
+                    "id": "opt_1_1",
+                    "text": "Furosemide"
+                },
+                {
+                    "id": "opt_1_2",
+                    "text": "Morphine Sulfate"
+                },
+                {
+                    "id": "opt_1_3",
+                    "text": "Potassium Chloride"
+                },
+                {
+                    "id": "opt_1_4",
+                    "text": "Normal Saline bolus"
+                }
+            ],
+            "correctOptionId": "opt_1_1"
+        },
+        {
+            "id": "BLANK_2",
+            "options": [
+                {
+                    "id": "opt_2_1",
+                    "text": "increase oxygen saturation"
+                },
+                {
+                    "id": "opt_2_2",
+                    "text": "reduce cardiac preload"
+                },
+                {
+                    "id": "opt_2_3",
+                    "text": "manage post-operative pain"
+                },
+                {
+                    "id": "opt_2_4",
+                    "text": "correct hypotension"
+                }
+            ],
+            "correctOptionId": "opt_2_2"
+        },
+        {
+            "id": "BLANK_3",
+            "options": [
+                {
+                    "id": "opt_3_1",
+                    "text": "increased urine output"
+                },
+                {
+                    "id": "opt_3_2",
+                    "text": "decreased heart rate"
+                },
+                {
+                    "id": "opt_3_3",
+                    "text": "stabilization of blood pressure"
+                },
+                {
+                    "id": "opt_3_4",
+                    "text": "reduced pain score"
+                }
+            ],
+            "correctOptionId": "opt_3_1"
+        },
+        {
+            "id": "BLANK_4",
+            "options": [
+                {
+                    "id": "opt_4_1",
+                    "text": "a productive cough"
+                },
+                {
+                    "id": "opt_4_2",
+                    "text": "muscle cramping"
+                },
+                {
+                    "id": "opt_4_3",
+                    "text": "chest tube drainage >20 mL/hr"
+                },
+                {
+                    "id": "opt_4_4",
+                    "text": "a temperature of 100.4°F (38°C)"
+                }
+            ],
+            "correctOptionId": "opt_4_2"
+        }
+    ],
     "itemContext": {
         "patient": {
             "name": "Liam Walker",
-            "age": 6,
-            "gender": "Male",
-            "iso": "Pediatric ICU",
+            "age": "6 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "S: Liam Walker, 6-year-old male, post-op day 1 from Ventricular Septal Defect (VSD) repair in Pediatric ICU. 0600 vitals: HR 140, RR 36, SpO2 92% on 2L NC, BP 110/70 mmHg.\nB: Diagnosed with VSD at 3 months, frequent respiratory infections. Pre-op echo showed moderate pulmonary hypertension. Uncomplicated surgical repair.\nA: Restless, frequent coughing. Bilateral lung base crackles. Chest tube output 10 mL in past hour. IV fluids at 75 mL/hr. Furosemide last given at 0000.\nR: Evaluate for fluid overload, consider diuretic adjustment. Monitor respiratory status, report deterioration. Continue current meds. Implement droplet precautions due to cough/distress.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 138 mEq/L, K: 4.1 mEq/L, Cl: 100 mEq/L, HCO3: 24 mEq/L, BUN: 12 mg/dL, Creatinine: 0.6 mg/dL, Hgb: 12.5 g/dL, Hct: 37%, WBC: 10,000/uL, BNP: 350 pg/mL"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 08:00",
+                        "note": "S: Liam Walker is a 6-year-old male admitted to the PICU after a scheduled surgical repair of a ventricular septal defect (VSD). \nB: Patient has a known history of a moderate VSD diagnosed at 3 months, leading to frequent respiratory infections and failure to thrive. Pre-operative echocardiogram confirmed the defect and showed moderate pulmonary hypertension. The family lives in a rural area with limited access to pediatric cardiology follow-up, which has complicated chronic management. Surgery was completed without any immediate intraoperative complications. \nA: Patient is intubated and sedated upon arrival from the OR. Initial vital signs are stable. Chest tube is in place with minimal serosanguinous drainage. Peripheral IVs are patent. \nR: Plan is to monitor hemodynamic stability, manage pain and sedation, and wean from mechanical ventilation as tolerated over the next 24-48 hours. Strict intake and output monitoring initiated."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 2, 06:15",
+                        "note": "S: Reporting on Liam Walker, post-op day 1 from VSD repair. The patient is becoming increasingly restless and tachypneic over the last two hours. \nB: Patient was extubated yesterday evening. IV fluids are infusing at 75 mL/hr. Last dose of PRN furosemide was administered at 00:00. The adult child of the patient is at the bedside and expresses concern about his rapid breathing. \nA: Vital signs show a trend of increasing tachycardia and tachypnea, with SpO2 decreasing to 92% on 2L nasal cannula. Physical assessment reveals bilateral crackles at the lung bases and a new S3 gallop. Skin is cool and clammy. 1+ pitting edema noted in lower extremities. Chest tube output is minimal. BNP is elevated at 350 pg/mL. These findings are consistent with developing fluid volume excess and pulmonary edema. \nR: Recommend administering the prescribed PRN furosemide to promote diuresis. Continue to closely monitor respiratory status, urine output, and electrolytes. Notify provider of any worsening respiratory distress or signs of electrolyte imbalance."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "0600: HR 140, RR 36, SpO2 92% on 2L NC, BP 110/70 mmHg, Temp 37.8°C (100°F), Pain 3/10\n0400: HR 130, RR 32, SpO2 94% on 2L NC, BP 100/60 mmHg, Temp 37.5°C (99.5°F), Pain 2/10"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (breaths/min)",
+                        "SpO₂",
+                        "Temp °F (°C)"
+                    ],
+                    "rows": [
+                        [
+                            "02:00",
+                            "125",
+                            "98/58",
+                            "71",
+                            "30",
+                            "95% on 2L NC",
+                            "99.1 (37.3)"
+                        ],
+                        [
+                            "04:00",
+                            "130",
+                            "100/60",
+                            "73",
+                            "32",
+                            "94% on 2L NC",
+                            "99.5 (37.5)"
+                        ],
+                        [
+                            "06:00",
+                            "140",
+                            "110/70",
+                            "83",
+                            "36",
+                            "92% on 2L NC",
+                            "100.0 (37.8)"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Furosemide 20mg IV q12h PRN edema (Last dose: 0000), Morphine Sulfate 2mg IV q4h PRN pain (Last dose: 0400), Acetaminophen 325mg PO q4h PRN fever (Last dose: N/A), Cefazolin 500mg IV q8h (Next dose: 1400)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Sodium (Na)",
+                            "138",
+                            "mEq/L",
+                            "135-145",
+                            "Normal"
+                        ],
+                        [
+                            "Potassium (K)",
+                            "4.1",
+                            "mEq/L",
+                            "3.5-5.0",
+                            "Normal"
+                        ],
+                        [
+                            "Chloride (Cl)",
+                            "100",
+                            "mEq/L",
+                            "98-106",
+                            "Normal"
+                        ],
+                        [
+                            "BUN",
+                            "12",
+                            "mg/dL",
+                            "5-18",
+                            "Normal"
+                        ],
+                        [
+                            "Creatinine",
+                            "0.6",
+                            "mg/dL",
+                            "0.3-0.7",
+                            "Normal"
+                        ],
+                        [
+                            "Hemoglobin (Hgb)",
+                            "12.5",
+                            "g/dL",
+                            "11.5-15.5",
+                            "Normal"
+                        ],
+                        [
+                            "BNP",
+                            "350",
+                            "pg/mL",
+                            "<100",
+                            "High"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Neurological",
+                        "findings": "Alert but restless and irritable. Moves all extremities purposefully."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardia with regular rhythm. S1/S2 audible. S3 gallop noted. Capillary refill 3 seconds. Pulses 2+ peripherally."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Tachypneic with mild subcostal retractions. Bilateral crackles auscultated at lung bases. Cough is frequent and sounds wet."
+                    },
+                    {
+                        "system": "Integumentary",
+                        "findings": "Skin is cool and clammy. 1+ pitting edema noted in bilateral lower extremities. Surgical incision clean, dry, and intact."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Chest X-ray (Portable AP)",
+                        "timestamp": "Day 2, 06:30",
+                        "report": "FINDINGS: Comparison is made to the study from yesterday. There is evidence of mild cardiomegaly. Increased interstitial markings and slight haziness in the perihilar regions are noted, suggestive of developing pulmonary vascular congestion. The lungs are otherwise expanded. No evidence of pneumothorax or significant pleural effusion. The chest tube remains in the appropriate position.\n\nIMPRESSION: Mild pulmonary edema."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Date/Time",
+                        "Order",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 09:00",
+                            "Continuous cardiac and pulse oximetry monitoring",
+                            "Active"
+                        ],
+                        [
+                            "Day 1, 09:00",
+                            "D5 1/2 NS at 75 mL/hr",
+                            "Active"
+                        ],
+                        [
+                            "Day 1, 09:00",
+                            "Strict Intake & Output",
+                            "Active"
+                        ],
+                        [
+                            "Day 1, 09:00",
+                            "Furosemide 1 mg/kg IV every 12 hours PRN for signs of fluid overload",
+                            "Active"
+                        ],
+                        [
+                            "Day 1, 09:00",
+                            "Morphine Sulfate 0.1 mg/kg IV every 4 hours PRN for pain > 4/10",
+                            "Active"
+                        ],
+                        [
+                            "Day 1, 09:00",
+                            "Cefazolin 25 mg/kg IV every 8 hours for 48 hours",
+                            "Active"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Furosemide",
+                            "20 mg",
+                            "IV",
+                            "q12h PRN",
+                            "Day 2, 00:00"
+                        ],
+                        [
+                            "Morphine Sulfate",
+                            "2 mg",
+                            "IV",
+                            "q4h PRN",
+                            "Day 2, 04:00"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "325 mg",
+                            "PO",
+                            "q4h PRN",
+                            "Not Administered"
+                        ],
+                        [
+                            "Cefazolin",
+                            "500 mg",
+                            "IV",
+                            "q8h",
+                            "Day 2, 06:00"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Pediatric: Congenital Heart Defects & Safety"
+    "rationale": {
+        "correct": "The patient's clinical presentation, including increasing tachycardia, tachypnea, decreasing SpO2, bilateral crackles, S3 gallop, and elevated BNP, strongly indicates fluid volume excess and developing pulmonary edema. The priority intervention is to reduce the excess fluid. Furosemide, a loop diuretic, is the correct medication to administer. Its primary therapeutic goal is to reduce cardiac preload by promoting diuresis, which alleviates pulmonary congestion. The most direct measure of its effectiveness is increased urine output. A significant adverse effect of furosemide is potassium depletion (hypokalemia), which can manifest as muscle cramping or weakness and must be reported immediately.",
+        "incorrect": "Administering a Normal Saline bolus would dangerously worsen the fluid overload. Morphine is inappropriate as it can cause respiratory depression, which is hazardous in a patient already showing signs of respiratory compromise. While oxygen saturation is a concern, simply increasing the oxygen flow treats a symptom, not the underlying cause (pulmonary edema); the primary goal is to remove fluid. Monitoring heart rate or blood pressure alone is insufficient to evaluate diuretic effectiveness; urine output is the key indicator. Other potential adverse effects or findings are either less critical or unrelated to the immediate intervention.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1_1",
+                "content": "Correct. Furosemide is a loop diuretic that is indicated for treating fluid overload and pulmonary edema, which is consistent with the patient's assessment findings (crackles, edema, high BNP, CXR results)."
+            },
+            {
+                "optionId": "opt_1_2",
+                "content": "Incorrect. Morphine is an opioid analgesic. While it can cause some vasodilation, its primary risk in this tachypneic patient is respiratory depression, which would worsen the clinical picture."
+            },
+            {
+                "optionId": "opt_1_3",
+                "content": "Incorrect. Potassium Chloride is used to treat hypokalemia. The patient's current potassium level is normal (4.1 mEq/L). Administering potassium is contraindicated and could cause life-threatening hyperkalemia."
+            },
+            {
+                "optionId": "opt_1_4",
+                "content": "Incorrect. A Normal Saline bolus is an isotonic fluid used for volume expansion. Administering more fluid to a patient in fluid overload would significantly worsen pulmonary edema and respiratory distress."
+            },
+            {
+                "optionId": "opt_2_1",
+                "content": "Incorrect. While improving oxygen saturation is a desired outcome, it is a result of treating the underlying problem. The direct physiological action of furosemide is not to increase oxygenation but to remove fluid."
+            },
+            {
+                "optionId": "opt_2_2",
+                "content": "Correct. The primary mechanism of action for a diuretic in this context is to increase fluid excretion, which decreases circulating volume. This reduction in volume lowers venous return to the heart, thereby reducing cardiac preload and alleviating pulmonary congestion."
+            },
+            {
+                "optionId": "opt_2_3",
+                "content": "Incorrect. Furosemide has no analgesic properties. The patient's restlessness is more likely due to hypoxia from fluid overload than pain, especially since morphine was given at 04:00."
+            },
+            {
+                "optionId": "opt_2_4",
+                "content": "Incorrect. Furosemide can cause hypotension as a side effect due to volume depletion, but its primary therapeutic purpose in this scenario is not to lower blood pressure."
+            },
+            {
+                "optionId": "opt_3_1",
+                "content": "Correct. The most direct and immediate indicator that the diuretic is working is an increase in urine output (diuresis), signifying that excess fluid is being effectively removed from the body."
+            },
+            {
+                "optionId": "opt_3_2",
+                "content": "Incorrect. While the heart rate may decrease as fluid overload resolves and cardiac workload lessens, this is a secondary effect and not the most direct measure of the drug's action. The initial priority is confirming diuresis."
+            },
+            {
+                "optionId": "opt_3_3",
+                "content": "Incorrect. Blood pressure may decrease due to fluid loss, but it is not the primary indicator of therapeutic effectiveness for treating pulmonary edema. Significant hypotension would be an adverse effect."
+            },
+            {
+                "optionId": "opt_3_4",
+                "content": "Incorrect. Pain score is irrelevant to the therapeutic effect of furosemide."
+            },
+            {
+                "optionId": "opt_4_1",
+                "content": "Incorrect. A productive cough is an expected finding with pulmonary edema as fluid is mobilized. While it should be monitored, it is not an adverse event that requires immediate reporting in this context."
+            },
+            {
+                "optionId": "opt_4_2",
+                "content": "Correct. Loop diuretics like furosemide cause potassium wasting. Muscle cramping is a classic early sign of hypokalemia, which can lead to dangerous cardiac dysrhythmias. It must be reported immediately."
+            },
+            {
+                "optionId": "opt_4_3",
+                "content": "Incorrect. Increased chest tube drainage would be a concern for hemorrhage, not a side effect of furosemide. The patient's current output is minimal."
+            },
+            {
+                "optionId": "opt_4_4",
+                "content": "Incorrect. A low-grade fever is common post-operatively and is not a known side effect of furosemide. It would be monitored but is not the priority related to this specific medication."
+            }
+        ],
+        "clinicalPearls": [
+            "In pediatric patients post-cardiac surgery, fluid balance is critical. Even small amounts of fluid overload can precipitate heart failure and pulmonary edema due to the heart's limited ability to handle volume stress after surgery.",
+            "An S3 heart sound in a child can sometimes be normal, but the appearance of a *new* S3 gallop, especially when accompanied by tachycardia and signs of respiratory distress, is a classic sign of fluid volume overload and decreased ventricular compliance.",
+            "When administering loop diuretics, always check the most recent potassium level before administration and have a plan for monitoring for signs of hypokalemia (e.g., muscle weakness, cramping, ECG changes) after administration."
+        ],
+        "questionTrap": "The primary trap is focusing on a single symptom, like the low SpO2 of 92%, and choosing an intervention that only addresses that symptom (e.g., increasing oxygen). A high-level nurse synthesizes all data (vitals trend, physical exam, labs, CXR) to identify the root cause—fluid overload—and prioritizes the intervention that corrects the underlying pathophysiology.",
+        "mnemonic": {
+            "title": "Fluid Overload Assessment (POST-OP)",
+            "expansion": "P - Pitting edema\nO - Output low, input high\nS - S3 heart sound (new)\nT - Tachycardia/Tachypnea\n\nO - Orthopnea/Crackles\nP - Pulmonary congestion (on CXR)"
+        },
+        "reviewUnits": [
+            "Pediatric Nursing",
+            "Cardiovascular Disorders",
+            "Pharmacology",
+            "Fluid and Electrolytes"
         ]
     },
-    "rationale": {
-        "correct": "The patient's increased heart rate, respiratory rate, crackles, and elevated BNP level suggest fluid overload post-VSD repair, leading to increased pulmonary blood flow. Furosemide, a loop diuretic, is indicated to reduce pulmonary congestion by promoting fluid excretion. Monitoring urine output is crucial to assess the effectiveness of the diuretic. Signs of hypokalemia, such as muscle weakness, arrhythmias, and EKG changes, must be reported promptly as furosemide can deplete potassium levels. Hypokalemia can further compromise cardiac function and exacerbate complications.",
-        "incorrect": "Withholding furosemide would exacerbate the fluid overload and worsen pulmonary edema. Administering morphine is not the priority in this situation and could further depress respirations, increasing the risk of respiratory failure. Increasing oxygen flow rate is not the primary intervention to address fluid overload; it only treats the symptom of hypoxemia. Administering potassium without lab values is dangerous and can lead to hyperkalemia, potentially causing cardiac arrest. Monitoring blood pressure alone is insufficient to assess the effectiveness of the diuretic; urine output and electrolyte levels are more indicative of fluid balance.",
-        "clinicalPearls": [
-            "Post-operative management of congenital heart defects often involves careful fluid balance to prevent complications like pulmonary edema. Early recognition of fluid overload is crucial.",
-            "Loop diuretics like furosemide can cause electrolyte imbalances, particularly hypokalemia, requiring close monitoring and potential supplementation. Potassium levels should be checked regularly.",
-            "BNP levels are useful in assessing the severity of heart failure and fluid overload. Elevated BNP indicates increased cardiac workload and fluid retention."
-        ],
-        "questionTrap": {
-            "trap": "Selecting 'Increase oxygen flow rate' might seem logical due to the decreased SpO2. However, addressing the underlying cause of the decreased SpO2 (fluid overload) with a diuretic is the priority.",
-            "howToOvercome": "Focus on the 'why' behind the symptoms. The decreased SpO2 is likely due to pulmonary edema from fluid overload, not simply a lack of oxygen. Prioritize interventions that address the root cause of the problem."
-        },
-        "mnemonic": {
-            "title": "VSD Complications",
-            "expansion": "V - Volume Overload (Pulmonary Edema), S - SOB (Shortness of Breath), D - Decreased Oxygenation & Dysrhythmias"
-        }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
     },
-    "dropdown1": {
-        "options": [
-            "Furosemide",
-            "Morphine Sulfate",
-            "Potassium Chloride",
-            "Normal Saline"
-        ],
-        "correctAnswer": "Furosemide"
-    },
-    "dropdown2": {
-        "options": [
-            "increase oxygen saturation",
-            "reduce pain",
-            "decrease pulmonary congestion",
-            "lower blood pressure"
-        ],
-        "correctAnswer": "decrease pulmonary congestion"
-    },
-    "dropdown3": {
-        "options": [
-            "increased pain level",
-            "decreased urine output",
-            "increased blood pressure",
-            "improved appetite"
-        ],
-        "correctAnswer": "decreased urine output"
-    },
-    "dropdown4": {
-        "options": [
-            "increased appetite",
-            "decreased pain",
-            "signs of hypokalemia",
-            "stable blood pressure"
-        ],
-        "correctAnswer": "signs of hypokalemia"
-    },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Pharmacological and Parenteral Therapies"
+    }
 }

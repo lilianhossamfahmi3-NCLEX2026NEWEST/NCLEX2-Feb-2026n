@@ -1,69 +1,302 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-4789-8012-34567890abcd",
-    "type": "highlight",
-    "stem": "The nurse is caring for a 6-month-old infant, Samuel Jones, diagnosed with Tetralogy of Fallot, who is admitted to the pediatric unit. Based on the information provided in the EHR, identify the findings that require immediate intervention. Click on those findings in the EHR below.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 3
-    },
+    "type": "selectAll",
+    "stem": "The nurse is reviewing the electronic health record for a 6-month-old infant with Tetralogy of Fallot. Select the findings that indicate a hypercyanotic spell and require immediate nursing intervention.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "SpO2 78% on room air"
+        },
+        {
+            "id": "opt_02",
+            "text": "Respiratory rate 64/min"
+        },
+        {
+            "id": "opt_03",
+            "text": "Heart rate 180/min"
+        },
+        {
+            "id": "opt_04",
+            "text": "Marked irritability"
+        },
+        {
+            "id": "opt_05",
+            "text": "Hemoglobin 18.0 g/dL"
+        },
+        {
+            "id": "opt_06",
+            "text": "Clubbing of fingers"
+        },
+        {
+            "id": "opt_07",
+            "text": "Temperature 100.0°F (37.8°C)"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04"
+    ],
     "itemContext": {
         "patient": {
             "name": "Samuel Jones",
-            "age": 6,
-            "gender": "Male",
-            "iso": "Droplet",
+            "age": "6 months",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "Report for Samuel Jones, 6-month-old male, admitted at 07:00 today with Tetralogy of Fallot. History of cyanotic episodes. Mother reports increased irritability and poor feeding over the past 24 hours. Vitals at 08:30: HR 180 bpm, RR 64, SpO2 78% on room air, Temp 37.8°C (100°F), BP 90/60 mmHg. Current weight 7 kg. Administered morphine sulfate 0.5 mg IV at 08:00 for agitation. Noted circumoral cyanosis and clubbing of fingers. IV access established in the right hand. Currently receiving maintenance IV fluids. Pediatric cardiology consulted. Preparing for possible 'Tet spell' management. Monitor respiratory status closely. Next dose of digoxin due at 12:00. Parents at bedside, anxious about infant's condition. Physician orders include oxygen PRN and repeat morphine PRN for agitation.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "08:30: HR 180 bpm, RR 64, SpO2 78% on room air, Temp 37.8°C (100°F), BP 90/60 mmHg\n07:00: HR 160 bpm, RR 48, SpO2 88% on room air, Temp 37.2°C (99°F), BP 95/65 mmHg"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": {
+                    "08:30": {
+                        "type": "Progress Note",
+                        "text": "S: 6-month-old male with Tetralogy of Fallot presenting with a suspected hypercyanotic spell. Increased irritability, poor feeding, and worsening cyanosis over the last hour.\nB: Admitted at 07:00 from home. Known history of TOF, awaiting surgical correction. Mother reports he has had more frequent 'blue spells' recently. No recent illnesses. The family lives in a rural area with limited access to pediatric specialists, leading to delayed follow-ups.\nA: Currently tachypneic (RR 64), tachycardic (HR 180), and severely hypoxemic (SpO2 78% on room air). Circumoral cyanosis is prominent. Infant is markedly irritable and inconsolable. Lungs are clear. A harsh systolic murmur is audible at the left sternal border. Capillary refill is 3 seconds.\nR: Recommend immediate intervention to manage the Tet spell. Place in knee-chest position. Prepare for blow-by oxygen administration. Notify pediatric cardiology and the rapid response team. Maintain IV access for potential fluid bolus and further medication."
+                    },
+                    "07:00": {
+                        "type": "Admission Note",
+                        "text": "S: Infant brought to ED by mother for increased fussiness and poor feeding over 24 hours. Mother reports infant seems 'bluer' than usual during crying spells.\nB: 6-month-old male with a known diagnosis of Tetralogy of Fallot, diagnosed at 1 week of age. Followed by pediatric cardiology. Not yet had surgical repair. Immunizations are up to date.\nA: Infant is awake, alert but irritable. Mild circumoral cyanosis noted. Respiratory rate elevated but no retractions. Vitals stable on admission. Weight is 7 kg.\nR: Admit to pediatric unit for observation and management. Establish IV access. Obtain baseline labs including CBC and ABG. Consult pediatric cardiology. Provide parental support and education."
+                    }
+                }
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "CBC (07:30):\nHgb: 18 g/dL\nHct: 54%\nWBC: 12,000/mm3\nPlatelets: 300,000/mm3\nABG (08:00):\npH: 7.30\npCO2: 50 mmHg\npO2: 55 mmHg\nHCO3: 24 mEq/L\nSaO2: 80%"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "08:30",
+                        "HR": "180",
+                        "BP": "90/60 (MAP 70)",
+                        "RR": "64",
+                        "SpO2": "78% on Room Air",
+                        "Temp": "100.0°F (37.8°C)"
+                    },
+                    {
+                        "Time": "08:00",
+                        "HR": "172",
+                        "BP": "92/62 (MAP 72)",
+                        "RR": "56",
+                        "SpO2": "82% on Room Air",
+                        "Temp": "99.5°F (37.5°C)"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR": "160",
+                        "BP": "95/65 (MAP 75)",
+                        "RR": "48",
+                        "SpO2": "88% on Room Air",
+                        "Temp": "99.0°F (37.2°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Morphine Sulfate 0.5 mg IV, Administered at 08:00\nDigoxin 0.05 mg PO, Scheduled for 12:00\nIV Fluids: D5W 1/4 NS at 30 mL/hr"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "Complete Blood Count (07:30)": [
+                        {
+                            "Result": "Hemoglobin (Hgb)",
+                            "Value": "18.0",
+                            "Unit": "g/dL",
+                            "Ref Range": "10.5-13.5",
+                            "Status": "High"
+                        },
+                        {
+                            "Result": "Hematocrit (Hct)",
+                            "Value": "54",
+                            "Unit": "%",
+                            "Ref Range": "31-39",
+                            "Status": "High"
+                        },
+                        {
+                            "Result": "WBC",
+                            "Value": "12.0",
+                            "Unit": "x10³/μL",
+                            "Ref Range": "6.0-17.5",
+                            "Status": "Normal"
+                        },
+                        {
+                            "Result": "Platelets",
+                            "Value": "300",
+                            "Unit": "x10³/μL",
+                            "Ref Range": "150-450",
+                            "Status": "Normal"
+                        }
+                    ],
+                    "Arterial Blood Gas (08:00)": [
+                        {
+                            "Result": "pH",
+                            "Value": "7.30",
+                            "Unit": "",
+                            "Ref Range": "7.35-7.45",
+                            "Status": "Low"
+                        },
+                        {
+                            "Result": "pCO2",
+                            "Value": "50",
+                            "Unit": "mmHg",
+                            "Ref Range": "35-45",
+                            "Status": "High"
+                        },
+                        {
+                            "Result": "pO2",
+                            "Value": "55",
+                            "Unit": "mmHg",
+                            "Ref Range": "80-100",
+                            "Status": "Low"
+                        },
+                        {
+                            "Result": "HCO3",
+                            "Value": "24",
+                            "Unit": "mEq/L",
+                            "Ref Range": "22-26",
+                            "Status": "Normal"
+                        }
+                    ]
+                }
             },
             {
-                "id": "notes",
-                "title": "Nurses Notes",
-                "content": "07:00: Admitted to pediatric unit. Infant irritable and crying. Circumoral cyanosis noted. Mother states infant has been feeding poorly for the past 24 hours. 08:00: Morphine sulfate 0.5mg IV administered for agitation. Infant remains restless. Pediatric cardiology notified of increased cyanosis and irritability."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": {
+                    "Timestamp": "08:30",
+                    "Cardiovascular": "Tachycardia. Harsh, loud systolic murmur at left upper sternal border. 2+ peripheral pulses. Capillary refill 3 seconds. Clubbing of fingers and toes noted.",
+                    "Respiratory": "Tachypnea with subcostal retractions. Lungs clear to auscultation bilaterally.",
+                    "Neurological": "Markedly irritable, high-pitched cry. Anterior fontanelle soft and flat.",
+                    "Integumentary": "Prominent circumoral and peripheral cyanosis. Skin cool to touch."
+                }
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "Report": "Chest X-ray (AP and Lateral)",
+                    "Timestamp": "07:45",
+                    "Findings": "The cardiac silhouette is consistent with a 'boot-shaped' heart (coeur en sabot), with right ventricular hypertrophy and an upturned cardiac apex. Pulmonary vascular markings are decreased. Lungs are clear.",
+                    "Impression": "Findings are characteristic of Tetralogy of Fallot."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "07:15",
+                        "Action": "Knee-chest position for cyanotic spells",
+                        "Frequency/Status": "PRN"
+                    },
+                    {
+                        "Order Date/Time": "07:15",
+                        "Action": "Oxygen 100% via non-rebreather mask for SpO2 <85%",
+                        "Frequency/Status": "PRN"
+                    },
+                    {
+                        "Order Date/Time": "07:15",
+                        "Action": "Morphine sulfate 0.1 mg/kg IV for agitation during spell",
+                        "Frequency/Status": "PRN"
+                    },
+                    {
+                        "Order Date/Time": "07:15",
+                        "Action": "Digoxin 5 mcg/kg PO BID",
+                        "Frequency/Status": "Scheduled"
+                    },
+                    {
+                        "Order Date/Time": "07:15",
+                        "Action": "IV Fluids: D5W 1/4 NS at 30 mL/hr",
+                        "Frequency/Status": "Continuous"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Morphine Sulfate",
+                        "Dose": "0.7 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN",
+                        "Last Administered": "08:00"
+                    },
+                    {
+                        "Medication": "Digoxin",
+                        "Dose": "35 mcg",
+                        "Route": "PO",
+                        "Frequency": "BID",
+                        "Last Administered": "N/A (Due at 12:00)"
+                    },
+                    {
+                        "Medication": "D5W 1/4 NS",
+                        "Dose": "30 mL/hr",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last Administered": "Ongoing"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "recognizeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Pediatric: Congenital Heart Defects & Safety"
+    "rationale": {
+        "correct": "The combination of severe hypoxemia (SpO2 78%), tachypnea (RR 64), tachycardia (HR 180), and profound irritability are the classic signs of a hypercyanotic 'Tet spell.' This is an acute, life-threatening event caused by a sudden spasm of the infundibular septum, which decreases pulmonary blood flow and increases the right-to-left shunting of deoxygenated blood into systemic circulation. This cascade requires immediate intervention to prevent severe cerebral hypoxia and death.",
+        "incorrect": "Chronic compensatory findings, such as polycythemia (elevated hemoglobin) and clubbing of the fingers, are expected in an infant with uncorrected Tetralogy of Fallot and do not indicate an acute crisis. While a low-grade fever can increase metabolic demand and potentially trigger a spell, it is not a primary indicator of the spell itself and is a lower priority than the acute cardiorespiratory collapse.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. An SpO2 of 78% indicates severe hypoxemia. This is a hallmark of a hypercyanotic spell, where deoxygenated blood is shunted into the systemic circulation, and is a critical finding requiring immediate action."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. A respiratory rate of 64/min is significant tachypnea for a 6-month-old. This represents the body's attempt to compensate for severe hypoxia and metabolic acidosis."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. A heart rate of 180/min is significant tachycardia. This reflects the heart's effort to increase cardiac output in response to systemic hypoxemia and distress."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. Marked irritability and inconsolable crying are key neurological signs of cerebral hypoxia during a Tet spell. This change in mental status is a critical indicator of the spell's severity."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Incorrect. An elevated hemoglobin of 18.0 g/dL is indicative of polycythemia, a chronic physiological adaptation to long-standing hypoxemia. It is an expected finding, not a sign of an acute event."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. Clubbing of the fingers is a physical sign of chronic tissue hypoxia that develops over months. It is a baseline finding for this infant and does not indicate an acute crisis."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. A temperature of 100.0°F is a low-grade fever. While fever can increase metabolic demand and act as a stressor, it is not a defining sign of the hypercyanotic spell and is a much lower priority than the severe cardiorespiratory findings."
+            }
+        ],
+        "clinicalPearls": [
+            "Hypercyanotic 'Tet spells' are often triggered by stressors that decrease systemic vascular resistance (SVR) or increase pulmonary vascular resistance, such as crying, feeding, defecation, or waking from sleep.",
+            "The primary intervention for a Tet spell is the knee-chest position. This maneuver increases SVR, which decreases the right-to-left shunt across the VSD and forces more blood through the stenotic pulmonary valve into the lungs.",
+            "Pharmacological interventions for a Tet spell include morphine to reduce agitation and decrease respiratory drive, IV fluids to improve preload, and potentially beta-blockers (like propranolol) to relax the infundibular spasm."
+        ],
+        "questionTrap": "The primary trap is confusing chronic, compensatory findings (polycythemia, clubbing) with acute, life-threatening signs of a hypercyanotic spell. Test-takers must differentiate between the patient's baseline abnormalities and the indicators of an acute crisis.",
+        "mnemonic": "KNEES for Tet Spell Management: K - Knee-chest position, N - Narcotic (Morphine), E - Ensure calm environment, E - Extra IV fluids, S - Supplemental O2.",
+        "reviewUnits": [
+            "Pediatric Cardiology",
+            "Congenital Heart Defects",
+            "Emergency Management",
+            "Pharmacology"
         ]
     },
-    "rationale": {
-        "correct": "The infant's SpO2 of 78% on room air indicates severe hypoxemia and requires immediate intervention such as oxygen administration. A heart rate of 180 bpm is significantly elevated for a 6-month-old infant, indicating tachycardia and potential distress. The respiratory rate of 64 is also elevated (tachypnea), suggesting respiratory distress and potential compensation for hypoxemia. These findings are critical in a patient with Tetralogy of Fallot and require immediate action to prevent further deterioration.",
-        "incorrect": "The temperature of 37.8°C (100°F) is slightly elevated but not the most critical finding requiring immediate intervention. While it warrants monitoring, the hypoxemia, tachycardia, and tachypnea pose a more immediate threat. The hemoglobin of 18 g/dL and hematocrit of 54% are elevated, consistent with polycythemia seen in chronic hypoxemia with congenital heart defects, but are not the priority for immediate intervention. The elevated H&H are expected and the body's response to low oxygen.",
-        "clinicalPearls": [
-            "Tetralogy of Fallot (TOF) involves four heart defects: ventricular septal defect (VSD), pulmonary stenosis, overriding aorta, and right ventricular hypertrophy.",
-            "Hypercyanotic spells (Tet spells) are characterized by a sudden decrease in pulmonary blood flow, leading to severe cyanosis and potential loss of consciousness.",
-            "Knee-chest position can help increase systemic vascular resistance and redirect blood flow to the lungs during a Tet spell."
-        ],
-        "questionTrap": {
-            "trap": "The question trap lies in focusing solely on one abnormal vital sign (e.g., temperature) and overlooking the more critical indicators of respiratory and cardiac distress.",
-            "howToOvercome": "To overcome this trap, consider the patient's entire clinical picture, including their diagnosis, presenting symptoms, and all vital signs. Prioritize interventions based on the immediate threat to the patient's well-being."
-        },
-        "mnemonic": {
-            "title": "RAPS (Tetralogy of Fallot)",
-            "expansion": "R-Right ventricular hypertrophy, A-Aorta overriding, P-Pulmonary stenosis, S-Septal defect (VSD)"
-        }
-    }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:55:08.024Z"
 }

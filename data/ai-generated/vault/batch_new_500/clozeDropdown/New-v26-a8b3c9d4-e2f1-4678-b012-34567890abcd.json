@@ -1,103 +1,384 @@
 {
-    "id": "New-v26-a8b3c9d4-e2f1-4678-b012-34567890abcd",
+    "id": "v26-upgraded-a8b3c9d4-e2f1-4678-b012-34567890abcd",
     "type": "clozeDropdown",
-    "stem": "The nurse is caring for a 32-year-old G1P1 patient, 12 hours postpartum, who delivered vaginally. Based on the patient's assessment and lab data, the nurse should prioritize the following interventions to prevent further complications related to postpartum hemorrhage.\n\n1.  Administer [dropdown1] to contract the uterus.\n2.  Monitor the patient's [dropdown2] every 15 minutes.\n3.  Assess the [dropdown3] for firmness and location.\n4.  Encourage [dropdown4] to promote uterine involution.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is finalizing the plan of care for a client with postpartum hemorrhage due to uterine atony. Complete the nurse's priority actions table by selecting the most appropriate option from each dropdown list.",
     "itemContext": {
         "patient": {
             "name": "Maria Rodriguez",
-            "age": 32,
-            "gender": "Female",
-            "iso": "Postpartum Unit",
+            "age": "32 years",
+            "sex": "Female",
+            "pronouns": "she/her",
             "allergies": [
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "Situation: Maria Rodriguez, a 32-year-old G1P1 patient, is 12 hours postpartum following a vaginal delivery complicated by prolonged labor. Background: Estimated blood loss during delivery was 600 mL. The patient received 20 units of Oxytocin IV during and after delivery. She has a history of gestational hypertension. Assessment: At 06:30, the fundus is boggy and 2 cm above the umbilicus. Lochia rubra is heavy with clots. Vital signs are BP 150/95 mmHg, HR 98 bpm, RR 20 breaths/min, Temp 37.2°C (99°F), and SpO2 98% on room air. The patient reports lightheadedness. Labs indicate decreased H&H and thrombocytopenia. Recommendation: Continue to closely monitor vital signs and lochia. Administer Methergine 0.2mg IM PRN for a boggy uterus as prescribed. Encourage breastfeeding. Monitor for any signs of worsening hemorrhage or hypertension. The provider is aware and en route for further evaluation.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Hemoglobin: 9.8 g/dL; Hematocrit: 29%; Platelets: 140,000/mcL; WBC: 15,000/mcL; BUN: 18 mg/dL; Creatinine: 0.9 mg/dL"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 01:00",
+                        "text": "S: Admission to postpartum unit following prolonged second stage of labor and vaginal delivery of a 4100g infant. B: 32-year-old G1P1 with a history of diet-controlled gestational hypertension. Estimated blood loss at delivery was 600 mL. Received 20 units Oxytocin IV bolus post-delivery. Epidural anesthesia was used. A: Alert and oriented x4, reports moderate cramping pain. Fundus firm at umbilicus. Lochia rubra moderate. Vital signs stable. Bonding with infant, attempting to breastfeed. R: Continue routine postpartum monitoring per protocol. Encourage breastfeeding and skin-to-skin contact. Manage pain with PRN analgesics. Monitor for signs of hemorrhage or worsening hypertension. Provider notified of patient's arrival on unit."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 06:45",
+                        "text": "S: Patient used call light to report feeling 'dizzy and lightheaded' and that she has 'bled through her pad quickly.' B: History of gestational hypertension. Current BP remains elevated. Last fundal check at 06:00 was firm at U-1. A: Fundus is now boggy, located 2 cm above the umbilicus and deviated to the right. A large amount of lochia rubra with several small clots expressed with fundal massage. Peripad is saturated. Patient is anxious. Vital signs show tachycardia and continued hypertension. Labs from 06:30 show a drop in H&H. R: Stay with the patient and initiate fundal massage. Notify provider of change in status and request bedside evaluation. Prepare to administer PRN uterotonic medications as ordered. Continue to monitor vital signs and bleeding every 15 minutes."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "0630: BP 150/95 mmHg, HR 98 bpm, RR 20 breaths/min, Temp 37.2°C (99°F), SpO2 98%; 0600: BP 148/92 mmHg, HR 96 bpm, RR 18 breaths/min, Temp 37.0°C (98.6°F), SpO2 99%"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp",
+                        "HR",
+                        "RR",
+                        "BP (MAP)",
+                        "SpO₂"
+                    ],
+                    "rows": [
+                        [
+                            "07:00",
+                            "99.1°F (37.3°C)",
+                            "102 bpm",
+                            "20",
+                            "152/96 mmHg (115)",
+                            "97% on RA"
+                        ],
+                        [
+                            "06:30",
+                            "99.0°F (37.2°C)",
+                            "98 bpm",
+                            "20",
+                            "150/95 mmHg (113)",
+                            "98% on RA"
+                        ],
+                        [
+                            "06:00",
+                            "98.6°F (37.0°C)",
+                            "90 bpm",
+                            "18",
+                            "148/92 mmHg (111)",
+                            "99% on RA"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Oxytocin 20 units IV after delivery (Completed); Ibuprofen 600 mg PO q6h PRN pain (Last dose: 04:00); Methergine 0.2 mg IM PRN boggy uterus (Not Administered)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Hemoglobin",
+                            "9.8",
+                            "g/dL",
+                            "12.0 - 15.5",
+                            "Low"
+                        ],
+                        [
+                            "Hematocrit",
+                            "29",
+                            "%",
+                            "36 - 48",
+                            "Low"
+                        ],
+                        [
+                            "Platelets",
+                            "140",
+                            "x10³/mcL",
+                            "150 - 450",
+                            "Low"
+                        ],
+                        [
+                            "WBC",
+                            "15.0",
+                            "x10³/mcL",
+                            "4.5 - 11.0",
+                            "High"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "Situation: Maria Rodriguez, a 32-year-old G1P1 patient, is 12 hours postpartum following a vaginal delivery complicated by prolonged labor. Background: Estimated blood loss during delivery was 600 mL. The patient received 20 units of Oxytocin IV during and after delivery. She has a history of gestational hypertension. Assessment: At 06:30, the fundus is boggy and 2 cm above the umbilicus. Lochia rubra is heavy with clots. Vital signs are BP 150/95 mmHg, HR 98 bpm, RR 20 breaths/min, Temp 37.2°C (99°F), and SpO2 98% on room air. The patient reports lightheadedness. Labs indicate decreased H&H and thrombocytopenia. Recommendation: Continue to closely monitor vital signs and lochia. Administer Methergine 0.2mg IM PRN for a boggy uterus as prescribed. Encourage breastfeeding. Monitor for any signs of worsening hemorrhage or hypertension. The provider is aware and en route for further evaluation."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "General",
+                        "findings": "Anxious but alert and oriented x4. Reports feeling lightheaded."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "S1, S2 audible. Tachycardic rate, regular rhythm. Capillary refill <3 seconds."
+                    },
+                    {
+                        "system": "Reproductive (06:45)",
+                        "findings": "Fundus is boggy, located 2 cm above the umbilicus, and deviated to the right. Lochia rubra is heavy, with multiple small clots noted. Perineum intact with minimal edema."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "No imaging studies on file."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 01:00",
+                            "Fundal checks and vital signs q4h",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 01:00",
+                            "Ibuprofen 600 mg PO",
+                            "q6h PRN, mild-moderate pain"
+                        ],
+                        [
+                            "Day 1, 01:00",
+                            "Methylergonovine (Methergine) 0.2 mg IM",
+                            "Once PRN, for boggy uterus"
+                        ],
+                        [
+                            "Day 1, 06:50",
+                            "STAT Type and Crossmatch 2 units PRBCs",
+                            "STAT"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Oxytocin",
+                            "20 units",
+                            "IV",
+                            "Once post-delivery",
+                            "Day 1, 00:45 (Completed)"
+                        ],
+                        [
+                            "Ibuprofen",
+                            "600 mg",
+                            "PO",
+                            "q6h PRN",
+                            "Day 1, 04:00"
+                        ],
+                        [
+                            "Methylergonovine",
+                            "0.2 mg",
+                            "IM",
+                            "Once PRN",
+                            "Not Administered"
+                        ]
+                    ]
+                }
             }
-        ]
-    },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Maternal: Preeclampsia & Postpartum Hemorrhage"
-        ]
-    },
-    "rationale": {
-        "correct": "Methergine is an uterotonic medication that stimulates uterine contractions, decreasing bleeding. Monitoring blood pressure is crucial as Methergine can elevate it, especially given the patient's history of gestational hypertension and current elevated BP. Assessing the fundus is essential to determine uterine tone and location, indicating if the uterus is contracting effectively. Encouraging breastfeeding releases oxytocin, a natural uterotonic, promoting uterine involution and reducing bleeding. \n\nclinicalPearl: Uterotonic medications like Methergine are crucial in managing postpartum hemorrhage due to uterine atony. Methergine helps contract the uterus, reducing blood loss. However, it's contraindicated in patients with hypertension, necessitating close blood pressure monitoring.",
-        "incorrect": "While other options might be components of postpartum care, they are not the highest priority in preventing further complications of postpartum hemorrhage in this specific scenario. For instance, while pain management is important, it is secondary to controlling the bleeding. Similarly, although assessing for edema is a standard postpartum assessment, it is not directly related to managing postpartum hemorrhage. Encouraging ambulation is important but also secondary to controlling bleeding and ensuring the patient's safety given her lightheadedness. Initiating a fluid bolus might be considered, but administering a uterotonic medication is the priority intervention based on the provider's order and the patient's assessment.\n\nquestionTrap: The question trap lies in getting distracted by the patient's gestational hypertension history and focusing solely on blood pressure management while overlooking the immediate risk of postpartum hemorrhage. Prioritize interventions directly addressing the primary problem, which is the postpartum hemorrhage, and then consider the patient's hypertension history in the context of medication administration and monitoring.",
-        "clinicalPearls": [
-            "Postpartum hemorrhage is defined as blood loss >500 mL after vaginal delivery or >1000 mL after cesarean delivery.",
-            "Uterotonic medications are first-line interventions for postpartum hemorrhage related to uterine atony.",
-            "Methergine is contraindicated in patients with hypertension or cardiac disease.",
-            "Frequent assessment of the fundus and lochia is crucial for early detection of postpartum hemorrhage."
         ],
-        "questionTrap": {
-            "trap": "The question trap lies in getting distracted by the patient's gestational hypertension history and focusing solely on blood pressure management while overlooking the immediate risk of postpartum hemorrhage.",
-            "howToOvercome": "Prioritize interventions directly addressing the primary problem, which is the postpartum hemorrhage, and then consider the patient's hypertension history in the context of medication administration and monitoring."
+        "clozeTable": {
+            "headers": [
+                "Intervention/Parameter",
+                "Selection"
+            ],
+            "rows": [
+                {
+                    "label": "1. Uterotonic Medication",
+                    "dropdownId": "dropdown1"
+                },
+                {
+                    "label": "2. Priority Vital Sign Monitoring",
+                    "dropdownId": "dropdown2"
+                },
+                {
+                    "label": "3. Key Physical Assessment",
+                    "dropdownId": "dropdown3"
+                },
+                {
+                    "label": "4. Non-pharmacologic Action",
+                    "dropdownId": "dropdown4"
+                }
+            ]
         },
-        "mnemonic": {
-            "title": "4 T's of Postpartum Hemorrhage",
-            "expansion": "Tone (uterine atony), Trauma (lacerations, hematomas), Tissue (retained placenta), Thrombin (coagulation disorders)"
+        "dropdownOptions": {
+            "dropdown1": [
+                "Methylergonovine 0.2 mg IM",
+                "Ibuprofen 600 mg PO",
+                "Acetaminophen 650 mg PO",
+                "Oxytocin 10 units IV"
+            ],
+            "dropdown2": [
+                "Blood pressure",
+                "Oxygen saturation",
+                "Temperature",
+                "Pain level"
+            ],
+            "dropdown3": [
+                "Fundal height and tone",
+                "Perineal integrity",
+                "Bladder distention",
+                "Bowel sounds"
+            ],
+            "dropdown4": [
+                "Encourage breastfeeding",
+                "Promote early ambulation",
+                "Apply ice packs to perineum",
+                "Offer a warm blanket"
+            ]
         }
     },
-    "responseOptions": {
-        "dropdown1": [
-            "Methergine 0.2 mg IM",
-            "Ibuprofen 600 mg PO",
-            "Acetaminophen 650 mg PO",
-            "Oxycodone 5 mg PO"
+    "correctResponses": [
+        {
+            "dropdownId": "dropdown1",
+            "option": "Methylergonovine 0.2 mg IM"
+        },
+        {
+            "dropdownId": "dropdown2",
+            "option": "Blood pressure"
+        },
+        {
+            "dropdownId": "dropdown3",
+            "option": "Fundal height and tone"
+        },
+        {
+            "dropdownId": "dropdown4",
+            "option": "Encourage breastfeeding"
+        }
+    ],
+    "rationale": {
+        "correct": "The client is experiencing postpartum hemorrhage secondary to uterine atony, evidenced by a boggy fundus, heavy lochia, and signs of hypovolemia (tachycardia, lightheadedness). The correct plan involves administering a prescribed uterotonic (Methylergonovine), closely monitoring for its primary adverse effect (hypertension), performing the key assessment for uterine atony (fundal check), and utilizing a non-pharmacologic method to stimulate natural uterine contractions (breastfeeding).",
+        "answerBreakdown": [
+            {
+                "dropdownId": "dropdown1",
+                "optionText": "Methylergonovine 0.2 mg IM",
+                "content": "Correct. This is a potent uterotonic agent ordered PRN to cause sustained uterine contractions and control bleeding from uterine atony. It is the appropriate pharmacological intervention."
+            },
+            {
+                "dropdownId": "dropdown1",
+                "optionText": "Ibuprofen 600 mg PO",
+                "content": "Incorrect. This is a non-steroidal anti-inflammatory drug (NSAID) for pain and inflammation. It has no uterotonic effect and does not address the hemorrhage."
+            },
+            {
+                "dropdownId": "dropdown1",
+                "optionText": "Acetaminophen 650 mg PO",
+                "content": "Incorrect. This is an analgesic and antipyretic. It does not treat uterine atony or postpartum hemorrhage."
+            },
+            {
+                "dropdownId": "dropdown1",
+                "optionText": "Oxytocin 10 units IV",
+                "content": "Incorrect. While oxytocin is a first-line uterotonic, the client already received a 20-unit bolus. If atony persists, a second-line agent like methylergonovine is indicated as ordered."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "optionText": "Blood pressure",
+                "content": "Correct. Methylergonovine is a vasoconstrictor and is known to cause significant hypertension. Given the client's history of gestational hypertension and current elevated BP, this is the most critical vital sign to monitor after administration."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "optionText": "Oxygen saturation",
+                "content": "Incorrect. While important in any unstable patient, the immediate, medication-specific risk is a hypertensive crisis, not hypoxia. Her SpO₂ is currently stable at 97-98%."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "optionText": "Temperature",
+                "content": "Incorrect. Temperature is not directly affected by methylergonovine administration or acute hemorrhage. It is a lower priority."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "optionText": "Pain level",
+                "content": "Incorrect. While uterine cramping will increase, which may increase pain, the life-threatening risk is related to blood pressure, not pain."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "optionText": "Fundal height and tone",
+                "content": "Correct. The primary cause of the hemorrhage is uterine atony. Assessing the fundus for firmness, height, and position is the most direct way to evaluate the effectiveness of the interventions."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "optionText": "Perineal integrity",
+                "content": "Incorrect. While lacerations can cause hemorrhage, the assessment findings (boggy uterus) point to atony as the cause. This assessment is a lower priority."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "optionText": "Bladder distention",
+                "content": "Incorrect. A full bladder can contribute to uterine atony and should be assessed, but the direct assessment of the uterus itself is the highest priority to gauge intervention effectiveness."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "optionText": "Bowel sounds",
+                "content": "Incorrect. This is a routine postpartum assessment but is irrelevant to the acute management of postpartum hemorrhage."
+            },
+            {
+                "dropdownId": "dropdown4",
+                "optionText": "Encourage breastfeeding",
+                "content": "Correct. Nipple stimulation from breastfeeding causes the posterior pituitary to release endogenous oxytocin, which promotes uterine contractions and helps control bleeding."
+            },
+            {
+                "dropdownId": "dropdown4",
+                "optionText": "Promote early ambulation",
+                "content": "Incorrect. This is contraindicated. The client is actively hemorrhaging, lightheaded, and at high risk for falls and further complications."
+            },
+            {
+                "dropdownId": "dropdown4",
+                "optionText": "Apply ice packs to perineum",
+                "content": "Incorrect. This is appropriate for perineal trauma and edema, not for controlling hemorrhage originating from an atonic uterus."
+            },
+            {
+                "dropdownId": "dropdown4",
+                "optionText": "Offer a warm blanket",
+                "content": "Incorrect. While providing comfort is important, it is not a therapeutic intervention for postpartum hemorrhage. It does not address the underlying cause."
+            }
         ],
-        "dropdown2": [
-            "blood pressure",
-            "oxygen saturation",
-            "temperature",
-            "pain level"
+        "clinicalPearls": [
+            "Uterine atony is the most common cause of postpartum hemorrhage (PPH), accounting for approximately 80% of cases.",
+            "Methylergonovine (Methergine) is contraindicated in clients with hypertension or preeclampsia due to its potent vasoconstrictive effects. If administered, blood pressure must be monitored closely.",
+            "A boggy uterus that is deviated from the midline (usually to the right) is a classic sign of bladder distention, which can prevent the uterus from contracting effectively.",
+            "The sequence of managing uterine atony is typically: 1) Fundal massage, 2) Oxytocin, 3) Second-line uterotonics (e.g., methylergonovine, carboprost, misoprostol)."
         ],
-        "dropdown3": [
-            "fundus",
-            "perineum",
-            "bladder",
-            "bowels"
-        ],
-        "dropdown4": [
-            "breastfeeding",
-            "ambulation",
-            "formula feeding",
-            "rest"
-        ]
+        "questionTrap": "The primary trap is hesitating to select Methylergonovine due to the client's elevated blood pressure. While it is a relative contraindication, in a life-threatening hemorrhage, the benefit of controlling bleeding may outweigh the risk, provided the nurse is prepared to monitor and manage the hypertensive effects. The provider's order indicates this risk-benefit analysis has been made.",
+        "mnemonic": {
+            "title": "4 T's of Postpartum Hemorrhage",
+            "expansion": "Tone (Uterine Atony - most common), Trauma (Lacerations, hematoma, uterine rupture), Tissue (Retained placental fragments), Thrombin (Coagulopathy)."
+        }
     },
-    "correctResponse": {
-        "dropdown1": "Methergine 0.2 mg IM",
-        "dropdown2": "blood pressure",
-        "dropdown3": "fundus",
-        "dropdown4": "breastfeeding"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:08:04.576Z"
 }

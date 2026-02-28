@@ -1,37 +1,100 @@
 {
     "id": "New-v26-9c3a7e22-4a1c-4b2d-8f99-12e3456789ab",
-    "type": "dragAndDropCloze",
+    "type": "clozeDropdown",
     "stem": "Based on the patient's presentation and vital signs, the patient is most likely experiencing [BLANK1] shock. The priority nursing intervention is to administer [BLANK2]. This action will directly address the [BLANK3] by increasing [BLANK4]. In addition to the above, the nurse should closely monitor [BLANK5] for signs of deterioration.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 5
     },
     "itemContext": {
         "patient": {
             "name": "John Smith",
             "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "0700: SBAR for John Smith, 68-year-old male in the ICU for pneumonia. BP is 88/50 mmHg, HR 120 bpm, RR 32, SpO2 90% on 2L nasal cannula. He's confused and restless with minimal urine output since admission. 0600 labs: lactate 4.2 mmol/L, pH 7.30. Received 500mL NS bolus at 0600 with no BP improvement. History: hypertension, CAD.\n\n0715: MAP 62 mmHg. Provider notified, requested vasopressor initiation.\n\n0730: Obtain central line access, administer vasopressor as ordered. Continuously monitor vitals and urine output. Consider blood cultures to investigate shock cause. Evaluate vasopressor response and adjust to maintain adequate perfusion.",
         "tabs": [
             {
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 06:00",
+                        "noteType": "Admission Note",
+                        "author": "ED Nurse",
+                        "text": "S: Patient is a 68-year-old male brought to the ED by his adult child with a 3-day history of productive cough, fever, and increasing confusion. Adult child reports patient has been less responsive today.\nB: History of hypertension and coronary artery disease. Lives alone in a rural area with limited access to transportation for routine check-ups. Diagnosed with community-acquired pneumonia. Initial vitals are unstable, showing hypotension and tachycardia. Received a 500 mL Normal Saline bolus in the ED.\nA: Patient appears lethargic, skin is warm and flushed. Tachycardic, tachypneic, and hypotensive. SpO₂ is 92% on 2L nasal cannula. Labs drawn, awaiting results. Suspected sepsis secondary to pneumonia.\nR: Transfer to ICU for continuous hemodynamic monitoring and further management. Initiate sepsis protocol. Recommend obtaining central venous access for vasopressor therapy if he remains hypotensive after initial fluid resuscitation."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "noteType": "Progress Note",
+                        "author": "ICU Nurse",
+                        "text": "S: Patient remains hypotensive despite the initial 500 mL fluid bolus. BP is 88/50 mmHg with a MAP of 62 mmHg. He is increasingly restless and confused.\nB: Admitted from ED for management of pneumonia and suspected septic shock. Labs from 06:30 show elevated lactate (4.2 mmol/L) and metabolic acidosis (pH 7.30), confirming tissue hypoperfusion.\n A: Cardiovascular: Tachycardia at 120 bpm, weak peripheral pulses. Respiratory: Tachypneic at 32 breaths/min with coarse crackles in the right lower lobe. Neurological: GCS 13 (E4, V4, M5), disoriented to time and place. Renal: No urine output in the past hour.\nR: Notify provider of persistent hypotension and request orders for vasopressor therapy. Prepare for norepinephrine infusion via central line. Continue to monitor vital signs and MAP every 15 minutes. Obtain blood cultures before starting broad-spectrum antibiotics."
+                    }
+                ]
+            },
+            {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr><tr><td>0600</td><td>90/60</td><td>110</td><td>28</td><td>92%</td></tr><tr><td>0700</td><td>88/50</td><td>120</td><td>32</td><td>90%</td></tr></table>"
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp</th><th>HR</th><th>BP</th><th>MAP</th><th>RR</th><th>SpO₂</th></tr></thead><tbody><tr><td>06:00</td><td>101.5°F (38.6°C)</td><td>110</td><td>90/60 mmHg</td><td>70 mmHg</td><td>28</td><td>92% on 2L NC</td></tr><tr><td>07:00</td><td>101.8°F (38.8°C)</td><td>120</td><td>88/50 mmHg</td><td>62 mmHg</td><td>32</td><td>90% on 2L NC</td></tr><tr><td>07:30</td><td>102.0°F (38.9°C)</td><td>125</td><td>84/48 mmHg</td><td>60 mmHg</td><td>34</td><td>89% on 2L NC</td></tr></tbody></table>"
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "<table><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr><tr><td>Lactate</td><td>4.2 mmol/L</td><td>0.5-2.2 mmol/L</td></tr><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>PaO2</td><td>70 mmHg</td><td>80-100 mmHg</td></tr><tr><td>PaCO2</td><td>50 mmHg</td><td>35-45 mmHg</td></tr></table>"
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>WBC</td><td>18.5</td><td>x10³/μL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Lactate</td><td>4.2</td><td>mmol/L</td><td>0.5-2.2</td><td>High</td></tr><tr><td>Procalcitonin</td><td>12.5</td><td>ng/mL</td><td>< 0.15</td><td>High</td></tr><tr><td>Creatinine</td><td>1.8</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>BUN</td><td>35</td><td>mg/dL</td><td>7-20</td><td>High</td></tr><tr><td colspan='5'><strong>Arterial Blood Gas (ABG)</strong></td></tr><tr><td>pH</td><td>7.30</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>32</td><td>mmHg</td><td>35-45</td><td>Low</td></tr><tr><td>PaO₂</td><td>70</td><td>mmHg</td><td>80-100</td><td>Low</td></tr><tr><td>HCO₃⁻</td><td>18</td><td>mEq/L</td><td>22-26</td><td>Low</td></tr></tbody></table>"
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "General",
+                        "findings": "Appears acutely ill. Lethargic but rousable to verbal stimuli."
+                    },
+                    {
+                        "system": "Neurological",
+                        "findings": "GCS 13 (E4, V4, M5). Disoriented to time and place. Pupils equal and reactive to light."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardia with S1, S2 audible. Peripheral pulses +1 and thready. Capillary refill >3 seconds. Skin is warm and flushed."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Tachypneic with shallow respirations. Coarse crackles auscultated in the right lower lung field. No accessory muscle use noted."
+                    },
+                    {
+                        "system": "Gastrointestinal",
+                        "findings": "Abdomen soft, non-tender. Bowel sounds hypoactive in all four quadrants."
+                    },
+                    {
+                        "system": "Genitourinary",
+                        "findings": "Foley catheter in place, no urine output in the past hour."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Chest X-ray (AP, Portable)",
+                        "timestamp": "Day 1, 06:15",
+                        "report": "FINDINGS: Lungs show a dense consolidation in the right lower lobe, consistent with lobar pneumonia. No evidence of pneumothorax or significant pleural effusion. Cardiomediastinal silhouette is within normal limits.\n\nIMPRESSION: Right lower lobe pneumonia."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 06:05</td><td>Initiate IV access x2 large bore</td><td>STAT</td></tr><tr><td>Day 1, 06:10</td><td>Administer Normal Saline 500 mL IV bolus over 30 min</td><td>STAT, Completed</td></tr><tr><td>Day 1, 06:15</td><td>Obtain Blood Cultures x2 sites</td><td>STAT</td></tr><tr><td>Day 1, 06:20</td><td>Administer Cefepime 2g IVPB</td><td>STAT, after cultures</td></tr><tr><td>Day 1, 07:10</td><td>Place central venous catheter</td><td>STAT</td></tr><tr><td>Day 1, 07:15</td><td>Initiate Norepinephrine infusion at 2 mcg/min, titrate to maintain MAP ≥ 65 mmHg</td><td>STAT</td></tr><tr><td>Day 1, 07:15</td><td>Monitor vital signs and MAP</td><td>Every 15 minutes</td></tr><tr><td>Day 1, 07:15</td><td>Monitor urine output</td><td>Hourly</td></tr></tbody></table>"
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "<table><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th></tr><tr><td>Normal Saline</td><td>500 mL</td><td>IV</td><td>Bolus (0600)</td></tr><tr><td>Oxygen</td><td>2L</td><td>Nasal Cannula</td><td>Continuous</td></tr></table>"
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Normal Saline</td><td>500 mL</td><td>IV</td><td>STAT Bolus</td><td>Day 1, 06:40</td></tr><tr><td>Oxygen</td><td>2 L</td><td>Nasal Cannula</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Cefepime</td><td>2 g</td><td>IVPB</td><td>STAT</td><td>Pending</td></tr><tr><td>Norepinephrine</td><td>2 mcg/min</td><td>IV Infusion</td><td>Continuous</td><td>Not yet started</td></tr></tbody></table>"
             }
         ]
     },
@@ -41,25 +104,138 @@
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
+            "Cardiovascular: Shock & Hemodynamics",
+            "Sepsis",
+            "Critical Care"
         ]
     },
     "rationale": {
-        "correct": "The patient's presentation indicates distributive shock, likely septic shock given the pneumonia diagnosis. Key signs include hypotension (BP 88/50 mmHg), tachycardia (HR 120 bpm), tachypnea (RR 32), elevated lactate (4.2 mmol/L), decreased pH (7.30), and confusion. The priority intervention is administering vasopressors, such as norepinephrine, to increase systemic vascular resistance (SVR) and improve blood pressure. Increasing SVR will elevate the Mean Arterial Pressure (MAP), ensuring adequate organ perfusion. Monitoring urine output is critical to assess renal perfusion and overall fluid status. Decreased urine output suggests worsening shock and inadequate perfusion.\n\nclinicalPearl: Early vasopressor use in distributive shock can prevent end-organ damage.",
-        "incorrect": "Failing to recognize the signs of distributive shock and selecting inappropriate interventions can lead to patient deterioration and potentially fatal outcomes. Delaying vasopressor administration in distributive shock prolongs hypotension and end-organ hypoperfusion. Interventions that don't address the underlying vasodilation will not improve the patient's condition. For instance, administering more fluids without addressing the vasodilation may cause fluid overload without improving blood pressure. Selecting oxygen alone is inadequate, as it does not address the underlying hemodynamic instability.\n\nclinicalPearl: Remember, distributive shock requires interventions that address vasodilation and maintain adequate blood pressure.",
+        "correct": "The patient's clinical picture—pneumonia, persistent hypotension despite fluid resuscitation (MAP < 65 mmHg), tachycardia, tachypnea, confusion, and elevated lactate—is classic for distributive shock, specifically septic shock. The underlying pathophysiology is a massive inflammatory response to infection, causing widespread vasodilation and increased capillary permeability. This leads to a relative hypovolemia and a drastic drop in systemic vascular resistance (SVR). The priority is to correct the life-threatening hypotension. Since the patient is fluid-refractory, vasopressors (e.g., norepinephrine) are required to induce vasoconstriction, increase SVR, and raise the MAP to a level (≥ 65 mmHg) that ensures adequate perfusion to vital organs. Urine output is a critical, real-time indicator of renal and systemic perfusion.",
+        "answerBreakdown": {
+            "BLANK1": [
+                {
+                    "option": "distributive",
+                    "correct": true,
+                    "rationale": "Correct. This is characterized by widespread vasodilation. The patient's signs of infection (pneumonia, fever, high WBC) and hypotension refractory to fluids point to septic shock, a form of distributive shock."
+                },
+                {
+                    "option": "hypovolemic",
+                    "correct": false,
+                    "rationale": "Incorrect. Hypovolemic shock is caused by a loss of circulating volume (e.g., hemorrhage, dehydration). This patient's primary problem is vasodilation from sepsis, not volume loss."
+                },
+                {
+                    "option": "cardiogenic",
+                    "correct": false,
+                    "rationale": "Incorrect. Cardiogenic shock results from primary pump failure (e.g., acute MI). While this patient has a history of CAD, there are no acute signs of cardiac failure like JVD or pulmonary edema."
+                },
+                {
+                    "option": "obstructive",
+                    "correct": false,
+                    "rationale": "Incorrect. Obstructive shock is caused by a physical obstruction to blood flow (e.g., pulmonary embolism, cardiac tamponade). The patient's presentation is not consistent with these causes."
+                }
+            ],
+            "BLANK2": [
+                {
+                    "option": "vasopressors",
+                    "correct": true,
+                    "rationale": "Correct. The patient's MAP is 62 mmHg and falling despite a fluid bolus. Vasopressors are the priority to chemically induce vasoconstriction and restore adequate organ perfusion pressure."
+                },
+                {
+                    "option": "oxygen",
+                    "correct": false,
+                    "rationale": "Incorrect. While the patient is hypoxemic and requires oxygen, it is a supportive measure. It does not correct the primary hemodynamic problem of profound vasodilation and hypotension."
+                },
+                {
+                    "option": "antipyretics",
+                    "correct": false,
+                    "rationale": "Incorrect. Treating the fever is important for comfort and reducing metabolic demand, but it is not the priority intervention to reverse life-threatening shock."
+                },
+                {
+                    "option": "antibiotics",
+                    "correct": false,
+                    "rationale": "Incorrect. Antibiotics are critical to treat the underlying infection but take time to work. They do not address the immediate, life-threatening hypotension. Hemodynamic stabilization is the first priority."
+                }
+            ],
+            "BLANK3": [
+                {
+                    "option": "vasodilation",
+                    "correct": true,
+                    "rationale": "Correct. The core pathophysiological defect in distributive (septic) shock is systemic vasodilation caused by inflammatory mediators, leading to a drop in blood pressure."
+                },
+                {
+                    "option": "hypovolemia",
+                    "correct": false,
+                    "rationale": "Incorrect. While there is a 'relative' hypovolemia due to vasodilation, the primary problem that vasopressors address is the enlarged vascular container, not an absolute loss of fluid."
+                },
+                {
+                    "option": "cardiac output",
+                    "correct": false,
+                    "rationale": "Incorrect. In early septic shock, cardiac output is often normal or even high ('warm shock'). The problem is that the blood pressure is low due to the lack of vascular resistance, not poor pump function."
+                },
+                {
+                    "option": "oxygenation",
+                    "correct": false,
+                    "rationale": "Incorrect. While oxygenation is impaired, vasopressors do not directly improve gas exchange in the lungs; their primary function is to restore vascular tone."
+                }
+            ],
+            "BLANK4": [
+                {
+                    "option": "systemic vascular resistance",
+                    "correct": true,
+                    "rationale": "Correct. Vasopressors, like norepinephrine, act on alpha-adrenergic receptors in the blood vessels, causing vasoconstriction. This directly increases systemic vascular resistance (SVR), which is the primary determinant of blood pressure that is low in distributive shock."
+                },
+                {
+                    "option": "cardiac output",
+                    "correct": false,
+                    "rationale": "Incorrect. While some vasopressors have inotropic effects that can increase cardiac output, their primary mechanism for raising blood pressure in distributive shock is by increasing SVR."
+                },
+                {
+                    "option": "preload",
+                    "correct": false,
+                    "rationale": "Incorrect. Preload is the ventricular stretch at the end of diastole, primarily influenced by fluid volume. Vasopressors increase venous return which can increase preload, but their main effect is on SVR (afterload)."
+                },
+                {
+                    "option": "afterload",
+                    "correct": false,
+                    "rationale": "Incorrect. While SVR is the main component of afterload, 'systemic vascular resistance' is the more precise physiological term for what vasopressors directly target to counteract vasodilation."
+                }
+            ],
+            "BLANK5": [
+                {
+                    "option": "urine output",
+                    "correct": true,
+                    "rationale": "Correct. Urine output is a sensitive and immediate indicator of renal perfusion, which serves as a proxy for overall vital organ perfusion. A return of adequate urine output (≥ 0.5 mL/kg/hr) is a key sign that resuscitation efforts are successful."
+                },
+                {
+                    "option": "temperature",
+                    "correct": false,
+                    "rationale": "Incorrect. While monitoring temperature is important for managing sepsis, it does not provide immediate feedback on the effectiveness of vasopressor therapy in restoring organ perfusion."
+                },
+                {
+                    "option": "respiratory rate",
+                    "correct": false,
+                    "rationale": "Incorrect. Respiratory rate is an important vital sign but is less specific for assessing the immediate hemodynamic response to vasopressors compared to urine output or MAP."
+                },
+                {
+                    "option": "blood glucose",
+                    "correct": false,
+                    "rationale": "Incorrect. Stress hyperglycemia is common in critical illness, and glucose should be monitored. However, it is not the primary parameter to evaluate the immediate success of vasopressor administration."
+                }
+            ]
+        },
         "clinicalPearls": [
-            "Early recognition and treatment of shock are critical to improve patient outcomes.",
-            "Mean Arterial Pressure (MAP) is a crucial indicator of organ perfusion; a MAP of 65 mmHg or greater is generally desired.",
-            "Lactate levels are a marker of anaerobic metabolism and tissue hypoxia, often elevated in shock states.",
-            "Patients with distributive shock often require vasopressors to maintain adequate blood pressure and organ perfusion, even after fluid resuscitation."
+            "In septic shock, hypotension that persists after adequate fluid resuscitation (typically 30 mL/kg) is a key indication for starting vasopressor therapy.",
+            "The goal of vasopressor therapy is to achieve a Mean Arterial Pressure (MAP) of ≥ 65 mmHg, which is generally considered the minimum pressure needed to perfuse vital organs.",
+            "Lactate is a critical marker of tissue hypoxia and anaerobic metabolism. A decreasing lactate level is a major indicator of successful resuscitation in shock states.",
+            "Norepinephrine is the first-line vasopressor for septic shock because it provides potent alpha-adrenergic (vasoconstriction) effects with some beta-adrenergic (inotropic) support."
         ],
         "questionTrap": {
-            "trap": "Many students might be tempted to select fluid boluses as the initial intervention. While fluids are important, the patient has already received a bolus without improvement. The persistent hypotension and elevated lactate indicate a need for vasopressors to address the underlying vasodilation.",
-            "howToOvercome": "Carefully analyze the vital signs and lab values. The lack of response to the initial fluid bolus is a key indicator that vasopressors are needed to increase SVR and improve blood pressure. Look for trends in the data and consider the patient's overall clinical picture."
+            "trap": "Focusing on treating the infection with antibiotics as the immediate priority. While essential, antibiotics will not reverse the acute, life-threatening hypotension. The 'ABCs' (Airway, Breathing, Circulation) always come first, and in this case, 'C' for circulation is failing.",
+            "howToOvercome": "Prioritize interventions based on the most immediate threat to life. Profound hypotension and hypoperfusion will cause irreversible organ damage and death far more quickly than the infection itself. Stabilize hemodynamics (restore MAP) first, then address the source."
         },
         "mnemonic": {
-            "title": "VIP for Shock",
-            "expansion": "V - Vasopressors (for blood pressure support), I - Identify underlying cause (sepsis, hypovolemia, etc.), P - Perfusion (monitor urine output, mental status, and lactate levels)."
+            "title": "SEPSIS Response",
+            "expansion": "S - Stabilize (Fluids & Vasopressors to get MAP ≥ 65)\nE - Examine (Find the source of infection)\nP - Puncture (Get blood cultures BEFORE antibiotics)\nS - Start (Administer broad-spectrum antibiotics)\nI - Investigate (Monitor lactate and organ function)\nS - Support (Provide oxygen, manage fever, etc.)"
         }
     },
     "possibleAnswers": {

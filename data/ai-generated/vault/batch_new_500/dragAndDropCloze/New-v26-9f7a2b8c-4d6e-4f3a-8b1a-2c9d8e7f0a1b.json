@@ -1,82 +1,232 @@
 {
     "id": "New-v26-9f7a2b8c-4d6e-4f3a-8b1a-2c9d8e7f0a1b",
-    "type": "dragAndDropCloze",
-    "stem": "Review the patient data and complete the sentences below. Based on the assessment findings, the patient is most likely experiencing [BLANK1]. The most appropriate initial intervention is to administer [BLANK2] to address the elevated ammonia levels. Considering the patient's altered mental status, it is crucial to implement [BLANK3] to prevent potential injury. The healthcare provider should be immediately notified of the patient's [BLANK4] levels exceeding normal limits.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is caring for a client with cirrhosis and acute pancreatitis. Based on the data in the clinical record, which action is the highest priority for the nurse to take?",
+    "options": [
+        {
+            "id": "opt_A",
+            "text": "Administer lactulose 30 mL orally as scheduled."
+        },
+        {
+            "id": "opt_B",
+            "text": "Request an order for intravenous albumin."
+        },
+        {
+            "id": "opt_C",
+            "text": "Administer PRN morphine for reported abdominal pain."
+        },
+        {
+            "id": "opt_D",
+            "text": "Prepare the client for an urgent paracentesis."
+        }
+    ],
+    "correctOptionId": "opt_A",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "62 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: This is [Your Name], calling from the Med-Surg unit regarding John Smith, a 62-year-old male admitted at 08:00 for acute pancreatitis secondary to alcohol abuse. Background: He has a history of chronic alcohol abuse and cirrhosis. He's increasingly confused and agitated since 14:00. His abdomen is distended, and he has 3+ pitting edema in his lower extremities. He received morphine 4mg IV at 13:00 for abdominal pain. Assessment: Current vital signs: BP 90/60, HR 110, RR 28, SpO2 92% on 2L NC, Temp 101.5°F. Labs show elevated ammonia at 210 mcg/dL and elevated bilirubin levels at 8.5 mg/dL. His GCS score has decreased from 15 to 12. I'm concerned about hepatic encephalopathy. Recommendation: I'm requesting orders for managing his altered mental status, specifically related to the elevated ammonia. Would you like any additional information or to prescribe an intervention?",
+        "sbar": "Nurses' Note - 14:00\n\nSituation: The client, a 62-year-old male, is experiencing a rapid decline in neurological status, with increasing confusion and agitation over the past hour.\n\nBackground: Admitted at 08:00 for acute pancreatitis secondary to alcohol abuse. He has a known history of alcohol-induced cirrhosis. The client lives alone in a rural area with limited access to consistent follow-up care, which has complicated management of his chronic conditions.\n\nAssessment: Glasgow Coma Scale has decreased from 15 on admission to 12. Vital signs are unstable: BP 90/60 mmHg, HR 110 bpm, RR 28/min, SpO2 92% on 2L NC. Physical exam reveals a distended abdomen, 3+ pitting edema in lower extremities, and newly noted asterixis. Critical labs from 13:30 show an ammonia level of 210 mcg/dL.\n\nRecommendation: The primary concern is severe hepatic encephalopathy. I will administer the scheduled 18:00 dose of lactulose now per protocol for acute mental status change. I will hold all PRN sedating medications, including morphine, and implement seizure precautions. I have requested the provider to come to the bedside for immediate evaluation.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Ammonia: 210 mcg/dL (Normal: 10-80 mcg/dL), Bilirubin (Total): 8.5 mg/dL (Normal: 0.3-1.0 mg/dL), Albumin: 2.8 g/dL (Normal: 3.5-5.0 g/dL), INR: 1.8 (Normal: 0.8-1.2), Sodium: 130 mEq/L (Normal: 135-145 mEq/L), Potassium: 3.4 mEq/L (Normal: 3.5-5.0 mEq/L)"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "14:00",
+                        "Temp": "101.5°F (38.6°C)",
+                        "HR": "110 bpm",
+                        "RR": "28/min",
+                        "BP": "90/60 mmHg (MAP 70)",
+                        "SpO2": "92% on 2L NC"
+                    },
+                    {
+                        "Time": "13:00",
+                        "Temp": "100.4°F (38.0°C)",
+                        "HR": "98 bpm",
+                        "RR": "22/min",
+                        "BP": "100/70 mmHg (MAP 80)",
+                        "SpO2": "95% on 2L NC"
+                    },
+                    {
+                        "Time": "08:00 (Admission)",
+                        "Temp": "99.8°F (37.7°C)",
+                        "HR": "88 bpm",
+                        "RR": "20/min",
+                        "BP": "110/75 mmHg (MAP 87)",
+                        "SpO2": "96% on Room Air"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Morphine 4mg IV q4h PRN pain (Last dose: 13:00), Lactulose 30 mL PO q6h (Next dose due: 18:00), Multivitamin 1 tab PO daily, Spironolactone 100mg PO daily"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Ammonia",
+                        "Value": "210",
+                        "Unit": "mcg/dL",
+                        "Reference": "15-45 mcg/dL",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Bilirubin, Total",
+                        "Value": "8.5",
+                        "Unit": "mg/dL",
+                        "Reference": "0.3-1.0 mg/dL",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Albumin",
+                        "Value": "2.8",
+                        "Unit": "g/dL",
+                        "Reference": "3.5-5.0 g/dL",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "INR",
+                        "Value": "1.8",
+                        "Unit": "",
+                        "Reference": "0.8-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Sodium",
+                        "Value": "130",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145 mEq/L",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "Potassium",
+                        "Value": "3.4",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0 mEq/L",
+                        "Status": "Low"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "14:00: BP 90/60, HR 110, RR 28, SpO2 92% on 2L NC, Temp 101.5°F, GCS 12 (E3, V4, M5)\n13:00: BP 100/70, HR 98, RR 22, SpO2 95% on 2L NC, Temp 100.4°F, GCS 14 (E4, V4, M6)\n08:00: BP 110/75, HR 88, RR 20, SpO2 96% on RA, Temp 99.8°F, GCS 15 (E4, V5, M6)"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Admission (08:00): Alert and oriented x4. Abdomen soft, non-distended, tender to palpation in epigastric region. Skin warm, dry, jaundiced. No edema noted.\n\nProgress (14:00): Lethargic, oriented to person only. GCS 12 (E3, V4, M5). Asterixis present with dorsiflexion of wrists. Abdomen distended and firm. 3+ pitting edema to bilateral lower extremities. Scleral icterus noted."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "Procedure: Abdominal Ultrasound\n\nDate: Today at 10:00\n\nImpression: Diffusely echogenic and nodular liver, consistent with advanced cirrhosis. Moderate volume of ascites is present. The pancreas appears edematous, consistent with acute pancreatitis. No evidence of biliary ductal dilation or cholelithiasis. Spleen is enlarged."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": [
+                    {
+                        "Date/Time": "Today 08:30",
+                        "Action": "Low protein diet (20g/day)",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Today 08:30",
+                        "Action": "Bed rest with bathroom privileges",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Today 08:30",
+                        "Action": "Neurological checks every 4 hours",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Today 08:30",
+                        "Action": "Initiate seizure precautions",
+                        "Status": "Pending"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lactulose",
+                        "Dose": "30 mL",
+                        "Route": "PO",
+                        "Frequency": "q6h",
+                        "Last Administered": "12:00"
+                    },
+                    {
+                        "Medication": "Spironolactone",
+                        "Dose": "100 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "09:00"
+                    },
+                    {
+                        "Medication": "Multivitamin",
+                        "Dose": "1 tab",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "09:00"
+                    },
+                    {
+                        "Medication": "Morphine Sulfate",
+                        "Dose": "4 mg",
+                        "Route": "IV",
+                        "Frequency": "q4h PRN pain",
+                        "Last Administered": "13:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Pharmacological and Parenteral Therapies",
-        "difficulty": 5,
-        "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
+    "rationale": {
+        "correct": "The client's clinical presentation, including a rapid decline in GCS, presence of asterixis, and a critically high ammonia level (210 mcg/dL), is pathognomonic for severe hepatic encephalopathy (HE). The priority action is to administer lactulose, which reduces serum ammonia levels by trapping it in the gut and promoting its excretion through defecation. This intervention directly addresses the life-threatening neurotoxicity and is crucial to prevent irreversible neurological damage, seizures, or coma.",
+        "incorrect": null,
+        "answerBreakdown": [
+            {
+                "optionId": "opt_A",
+                "content": "Correct. This is the priority. Lactulose is the first-line treatment for hepatic encephalopathy. It creates an acidic environment in the colon, converting ammonia (NH3) to ammonium (NH4+), which is not absorbed and is subsequently excreted, thereby lowering systemic ammonia levels and improving mental status."
+            },
+            {
+                "optionId": "opt_B",
+                "content": "Incorrect. While the client's albumin is low (2.8 g/dL), which contributes to ascites and edema, correcting it with IV albumin is not the immediate priority. The acute, life-threatening issue is the severe neurological impairment from hyperammonemia."
+            },
+            {
+                "optionId": "opt_C",
+                "content": "Incorrect. This action is contraindicated and dangerous. Morphine is a CNS depressant that is metabolized by the liver. In a client with severe liver dysfunction, its effects are prolonged and can significantly worsen the encephalopathy, further depressing respiratory drive and mental status."
+            },
+            {
+                "optionId": "opt_D",
+                "content": "Incorrect. The client has ascites, but paracentesis is an intervention for respiratory distress due to abdominal pressure or for diagnostic purposes. It does not address the underlying cause of the neurological decline (high ammonia) and is therefore not the highest priority action."
+            }
+        ],
+        "clinicalPearls": [
+            "Hepatic encephalopathy is a reversible neuropsychiatric syndrome caused by the accumulation of toxins, primarily ammonia, due to severe liver dysfunction.",
+            "Asterixis, or 'liver flap,' is a classic sign of hepatic encephalopathy, characterized by an inability to maintain a fixed posture, resulting in a flapping tremor when the wrists are extended.",
+            "Opioids, benzodiazepines, and other sedating medications must be used with extreme caution or avoided entirely in patients with advanced liver disease as they can precipitate or worsen hepatic encephalopathy.",
+            "The goal of lactulose therapy is typically to produce 2-3 soft stools per day. The dose is titrated to achieve this effect."
+        ],
+        "questionTrap": "The primary trap is focusing on other significant but non-emergent abnormal findings, such as low albumin or ascites, instead of identifying the most immediate life-threatening condition, which is the acute neurological decline from hyperammonemia. Another trap is considering pain management without recognizing the contraindication for opioids in this context.",
+        "mnemonic": "To remember signs of Hepatic Encephalopathy, think 'LIVER':\nL - Lethargy/Confusion\nI - Inverted sleep-wake cycle\nV - 'Vlap' (Flap) - Asterixis\nE - Elevated ammonia\nR - Restlessness/Agitation",
+        "reviewUnits": [
+            "Gastrointestinal System",
+            "Pharmacology",
+            "Neurological System",
+            "Fluid and Electrolytes"
         ]
     },
-    "rationale": {
-        "correct": "The patient's elevated ammonia level (210 mcg/dL), altered mental status (GCS score decrease), and history of cirrhosis strongly suggest hepatic encephalopathy. Lactulose is a hyperosmotic laxative that promotes the excretion of ammonia through the stool. Safety precautions are essential due to the patient's confusion and risk of falls. Elevated ammonia levels are directly related to hepatic encephalopathy and warrant immediate notification of the healthcare provider for potential order changes and further management.",
-        "incorrect": "While pancreatitis is part of the patient's history, the current clinical picture is more indicative of hepatic encephalopathy. Diuretics, while potentially helpful for ascites, are not the priority intervention for elevated ammonia levels. Restraints are a last resort and require a specific order; less restrictive measures should be attempted first. While all lab values are important, the elevated ammonia is the most critical and directly related to the altered mental status.",
-        "clinicalPearls": [
-            "Hepatic encephalopathy is a neuropsychiatric complication of liver failure caused by the accumulation of toxins, especially ammonia, in the bloodstream.",
-            "Lactulose is the first-line treatment for hepatic encephalopathy, working by decreasing intestinal ammonia production and absorption.",
-            "Assess level of consciousness frequently in patients with liver failure.",
-            "Elevated ammonia levels can cause asterixis (flapping tremor of the hands)."
-        ],
-        "questionTrap": {
-            "trap": "Selecting interventions that address the pancreatitis symptoms instead of recognizing the more acute and life-threatening complication of hepatic encephalopathy.",
-            "howToOvercome": "Prioritize based on ABCs and Maslow's hierarchy. Recognize the signs and symptoms of hepatic encephalopathy (altered mental status, elevated ammonia) and understand the pathophysiology behind it."
-        },
-        "mnemonic": {
-            "title": "HEAL",
-            "expansion": "Hepatic Encephalopathy Affects the Liver."
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "possibleResponses": [
-        "fluid resuscitation",
-        "hepatic encephalopathy",
-        "pancreatitis exacerbation",
-        "lactulose",
-        "furosemide",
-        "safety precautions",
-        "physical restraints",
-        "ammonia",
-        "amylase"
-    ],
-    "answerKey": {
-        "BLANK1": "hepatic encephalopathy",
-        "BLANK2": "lactulose",
-        "BLANK3": "safety precautions",
-        "BLANK4": "ammonia"
-    }
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Management of Care"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:49:18.586Z"
 }

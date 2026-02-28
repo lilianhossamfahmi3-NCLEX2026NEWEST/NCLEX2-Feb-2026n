@@ -1,89 +1,332 @@
 {
     "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
-    "type": "dragAndDropCloze",
-    "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the patient data, select the most appropriate actions to ensure patient safety and prevent complications. Drag the options from the left to the correct drop-down boxes on the right.\n\nIf the patient's peak inspiratory pressure (PIP) suddenly increases, the nurse should first assess for [dropdown1]. If the patient's oxygen saturation (SpO2) begins to decrease despite a stable FiO2, the nurse should [dropdown2]. To prevent ventilator-associated pneumonia (VAP), the nurse should maintain the head of the bed at [dropdown3] degrees and provide frequent [dropdown4].",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
+    "type": "clozeDropdown",
+    "stem": "The nurse is planning care for a client on mechanical ventilation. Based on the client's data, complete the following sentences by selecting the most appropriate option from each dropdown list to ensure safety and prevent complications.\n\n1. If the client's peak inspiratory pressure (PIP) alarm sounds, the nurse's first action should be to assess for [dropdown1].\n2. If the client's SpO2 decreases to 88% despite a stable FiO2, the nurse should immediately [dropdown2].\n3. To prevent ventilator-associated pneumonia (VAP), the nurse must maintain the head of the bed at [dropdown3] degrees.\n4. A critical component of the VAP prevention bundle includes performing frequent [dropdown4].",
+    "clozeOptions": {
+        "dropdown1": [
+            {
+                "id": "opt1-1",
+                "text": "endotracheal tube displacement"
+            },
+            {
+                "id": "opt1-2",
+                "text": "a kink in the ventilator tubing"
+            },
+            {
+                "id": "opt1-3",
+                "text": "the client biting the endotracheal tube"
+            }
+        ],
+        "dropdown2": [
+            {
+                "id": "opt2-1",
+                "text": "increase the FiO2"
+            },
+            {
+                "id": "opt2-2",
+                "text": "administer a PRN bronchodilator"
+            },
+            {
+                "id": "opt2-3",
+                "text": "suction the client's airway"
+            }
+        ],
+        "dropdown3": [
+            {
+                "id": "opt3-1",
+                "text": "10-20"
+            },
+            {
+                "id": "opt3-2",
+                "text": "30-45"
+            },
+            {
+                "id": "opt3-3",
+                "text": "60-75"
+            }
+        ],
+        "dropdown4": [
+            {
+                "id": "opt4-1",
+                "text": "oral care with chlorhexidine"
+            },
+            {
+                "id": "opt4-2",
+                "text": "client repositioning every 2 hours"
+            },
+            {
+                "id": "opt4-3",
+                "text": "chest physiotherapy"
+            }
+        ]
+    },
+    "answerKey": {
+        "dropdown1": "opt1-2",
+        "dropdown2": "opt2-1",
+        "dropdown3": "opt3-2",
+        "dropdown4": "opt4-1"
     },
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Contact and Droplet",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "SBAR: 06:00 Report - Patient John Smith, a 68-year-old male with a history of COPD exacerbation, hypertension, and coronary artery disease (CAD). He is currently on mechanical ventilation with the following settings: FiO2 40%, PEEP 5 cm H2O, tidal volume 450 mL, and respiratory rate of 14 breaths per minute. His current respiratory rate is 22 breaths/min, heart rate is 110 bpm, blood pressure is 150/90 mmHg, and temperature is 38.5°C. Coarse crackles are auscultated bilaterally. Arterial blood gas (ABG) results are: pH 7.32, PaCO2 55 mmHg, PaO2 75 mmHg, and HCO3 26 mEq/L. The patient is agitated and requires restraints. PRN sedation orders are available. He received a scheduled albuterol/ipratropium nebulizer treatment at 05:30. Urinary output has been 30 mL/hr for the past 2 hours. He requires frequent suctioning. His last bowel movement was 3 days ago. Vitals have been stable since the last assessment at 04:00, but I'm concerned about the increasing respiratory rate and agitation, possibly indicating worsening respiratory status or discomfort. Please assess and advise.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "SBAR"
+                "id": "nurses_notes",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Yesterday 19:00",
+                        "noteType": "Admission Note",
+                        "content": "S: Client is a 68-year-old male brought to the ED by ambulance with severe shortness of breath and productive cough. B: History of COPD, hypertension, and coronary artery disease. He is a former smoker with a 40-pack-year history. A: In the ED, client was lethargic with labored respirations and use of accessory muscles. Initial SpO2 was 85% on room air. ABG revealed acute hypercapnic respiratory failure. Client was intubated for airway protection and placed on mechanical ventilation. R: Admitted to the ICU for management of acute respiratory failure secondary to COPD exacerbation and suspected pneumonia. Plan is to obtain chest x-ray, start broad-spectrum antibiotics, and provide ventilatory support."
+                    },
+                    {
+                        "timestamp": "Today 06:00",
+                        "noteType": "Progress Note",
+                        "content": "S: Reporting on 68-year-old male on mechanical ventilation for ARDS secondary to pneumonia. He has become increasingly agitated overnight, fighting the ventilator. B: History of COPD, HTN, CAD. Lives alone in a rural area with limited access to consistent follow-up care, which is a barrier to chronic disease management. Admitted yesterday. Ventilator settings are AC/VC, FiO2 0.40, PEEP 5, TV 450mL, RR 14. A: Vitals trending upwards: T 101.3°F (38.5°C), HR 110, RR 22, BP 150/90 (MAP 110). SpO2 is 92%. Coarse crackles auscultated bilaterally. ABG shows uncompensated respiratory acidosis. WBC is elevated at 14,000/mm³. Appears uncomfortable and asynchronous with the ventilator. R: Recommend assessing for cause of agitation (pain, anxiety, hypoxia), evaluating ventilator synchrony, and considering PRN sedation. Continue VAP bundle protocols rigorously."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG: pH 7.32, PaCO2 55 mmHg, PaO2 75 mmHg, HCO3 26 mEq/L; WBC: 14,000/mm3"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "02:00",
+                        "HR (bpm)": "95",
+                        "BP (mmHg)": "138/84",
+                        "MAP (mmHg)": "102",
+                        "RR (breaths/min)": "18",
+                        "SpO2 (%)": "95% on 40% FiO2",
+                        "Temp °F (°C)": "99.8 (37.7)"
+                    },
+                    {
+                        "Time": "04:00",
+                        "HR (bpm)": "102",
+                        "BP (mmHg)": "145/88",
+                        "MAP (mmHg)": "107",
+                        "RR (breaths/min)": "20",
+                        "SpO2 (%)": "93% on 40% FiO2",
+                        "Temp °F (°C)": "100.6 (38.1)"
+                    },
+                    {
+                        "Time": "06:00",
+                        "HR (bpm)": "110",
+                        "BP (mmHg)": "150/90",
+                        "MAP (mmHg)": "110",
+                        "RR (breaths/min)": "22",
+                        "SpO2 (%)": "92% on 40% FiO2",
+                        "Temp °F (°C)": "101.3 (38.5)"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "HR: 110 bpm, BP: 150/90 mmHg, RR: 22 bpm, SpO2: 92% on FiO2 40%, Temp: 38.5°C (101.3°F)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Panel": "Arterial Blood Gas (ABG)",
+                        "Result": "pH: 7.32",
+                        "Unit": "",
+                        "Reference Range": "7.35-7.45",
+                        "Status": "Low"
+                    },
+                    {
+                        "Panel": "Arterial Blood Gas (ABG)",
+                        "Result": "PaCO2: 55",
+                        "Unit": "mmHg",
+                        "Reference Range": "35-45",
+                        "Status": "High"
+                    },
+                    {
+                        "Panel": "Arterial Blood Gas (ABG)",
+                        "Result": "PaO2: 75",
+                        "Unit": "mmHg",
+                        "Reference Range": "80-100",
+                        "Status": "Low"
+                    },
+                    {
+                        "Panel": "Arterial Blood Gas (ABG)",
+                        "Result": "HCO3: 26",
+                        "Unit": "mEq/L",
+                        "Reference Range": "22-26",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Panel": "Complete Blood Count (CBC)",
+                        "Result": "WBC: 14.0",
+                        "Unit": "x 10³/μL",
+                        "Reference Range": "4.5-11.0",
+                        "Status": "High"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Albuterol/Ipratropium Nebulizer q4h PRN, Famotidine 20mg IV BID, PRN Sedation Orders available."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "Assessed at 06:00. Agitated, responsive to painful stimuli. Pupils equal, round, reactive to light. Follows no commands."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Endotracheal tube in place, secured at 23 cm at the lip. Symmetrical chest rise. Coarse crackles auscultated bilaterally. Spontaneous respiratory rate 22, asynchronous with ventilator setting of 14."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Sinus tachycardia on monitor. S1/S2 audible. No murmurs. Capillary refill <3 seconds. 1+ pitting edema in lower extremities."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Procedure": "Chest X-ray (Portable AP)",
+                        "Date": "Yesterday 20:00",
+                        "Report": "FINDINGS: Diffuse bilateral opacities and infiltrates consistent with pulmonary edema and inflammation. Endotracheal tube tip is appropriately positioned 4 cm above the carina. No evidence of pneumothorax or significant pleural effusion. Cardiomediastinal silhouette is within normal limits.\n\nIMPRESSION: Findings are highly suggestive of Acute Respiratory Distress Syndrome (ARDS)."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Yesterday 19:30",
+                        "Action": "Mechanical Ventilation: Assist-Control/Volume Control, FiO2 40%, PEEP 5 cm H2O, Tidal Volume 450 mL, Rate 14/min.",
+                        "Frequency/Status": "Continuous"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 19:30",
+                        "Action": "VAP Prevention Bundle Protocol",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 19:30",
+                        "Action": "Suction endotracheal tube",
+                        "Frequency/Status": "PRN for secretions or signs of distress"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 19:30",
+                        "Action": "Continuous cardiac and pulse oximetry monitoring",
+                        "Frequency/Status": "Continuous"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Famotidine",
+                        "Dose": "20 mg",
+                        "Route": "IV",
+                        "Frequency": "BID",
+                        "Last Administered": "Yesterday 21:00"
+                    },
+                    {
+                        "Medication": "Enoxaparin",
+                        "Dose": "40 mg",
+                        "Route": "SubQ",
+                        "Frequency": "DAILY",
+                        "Last Administered": "Yesterday 21:00"
+                    },
+                    {
+                        "Medication": "Lorazepam",
+                        "Dose": "1 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN q4h for agitation",
+                        "Last Administered": "Today 01:30"
+                    },
+                    {
+                        "Medication": "Albuterol/Ipratropium",
+                        "Dose": "3 mL",
+                        "Route": "Nebulizer",
+                        "Frequency": "PRN q4h for wheezing",
+                        "Last Administered": "Today 05:30"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
-        ]
-    },
     "rationale": {
-        "correct": "Increased PIP can indicate various issues, including secretions, kinked tubing, or bronchospasm. Assessing for a kink in the ventilator tubing is the initial step to ensure proper ventilation. Decreasing SpO2 requires immediate intervention, such as increasing the FiO2 to improve oxygenation and address potential hypoxemia. Maintaining the head of the bed at 30-45 degrees minimizes aspiration risk, and frequent oral care reduces bacterial colonization in the oral cavity, a major source of VAP. Proper oral hygiene will reduce the risk of VAP.\n\nclinicalPearl: Always assess the patient and the equipment when encountering sudden changes in respiratory parameters. Early detection and intervention can prevent further complications.\nmnemonic: \"FOAR\" - FiO2, Oxygenation, Airway, Respiratory rate. This mnemonic helps prioritize interventions for declining respiratory status.",
-        "incorrect": "Checking for endotracheal tube displacement, patient biting the endotracheal tube, administering a bronchodilator, suctioning the patient, setting the head of the bed at 10-20 or 60-75 degrees, repositioning, or chest physiotherapy are not the most appropriate initial actions based on the scenario. These actions may be necessary in other situations, but the selected answers address the immediate concerns of increased PIP and decreased SpO2.\n\nquestionTrap: Students may select interventions without considering the immediate need to assess the equipment and ensure proper oxygenation. They might also confuse preventative measures with immediate interventions.",
-        "clinicalPearls": [
-            "Sudden increases in PIP necessitate immediate assessment of the patient and ventilator circuit to identify and correct the cause.",
-            "Elevating the head of the bed is a simple yet effective intervention to reduce aspiration risk and improve lung expansion.",
-            "VAP prevention bundles are crucial in mechanically ventilated patients to minimize the risk of hospital-acquired pneumonia."
+        "correct": "The selected options represent the safest and most evidence-based actions for managing a client on mechanical ventilation. 1) A sudden increase in PIP suggests an obstruction; checking for a kink in the tubing is the fastest, least invasive first step. 2) A drop in SpO2 indicates hypoxemia, and immediately increasing the FiO2 is the most direct intervention to improve oxygenation. 3) Maintaining the head of the bed at 30-45 degrees uses gravity to reduce the risk of gastric content aspiration, a primary cause of VAP. 4) Frequent oral care with an antiseptic like chlorhexidine reduces the bacterial load in the oropharynx, preventing colonization and subsequent infection of the lower respiratory tract.",
+        "incorrect": "The incorrect options are either lower priority, not indicated, or potentially harmful. For a high PIP alarm, assessing the client (e.g., for biting the tube) is important, but checking the external equipment first is more efficient. For desaturation, suctioning or administering a bronchodilator may be needed, but only after addressing the immediate oxygenation deficit with FiO2. Incorrect head of bed angles either increase aspiration risk (too low) or can cause skin breakdown and hemodynamic instability (too high). While repositioning and chest physiotherapy are important for mobility and secretion clearance, they are not as specific to VAP prevention as meticulous oral care.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1-1",
+                "content": "Incorrect. While ET tube displacement can cause a high-pressure alarm (if the tube migrates into a mainstem bronchus), it more commonly presents with a low-pressure alarm or loss of breath sounds. This is a critical assessment but not the first check for an obstruction-type alarm."
+            },
+            {
+                "optionId": "opt1-2",
+                "content": "Correct. A kink in the ventilator tubing is a common, easily correctable cause of obstruction that leads to a high PIP alarm. It should be the first thing assessed as part of the initial equipment check."
+            },
+            {
+                "optionId": "opt1-3",
+                "content": "Incorrect. The client biting the tube is a valid cause of obstruction. However, assessing for this requires looking inside the client's mouth, which is more invasive than a quick visual scan of the external tubing for kinks."
+            },
+            {
+                "optionId": "opt2-1",
+                "content": "Correct. A decrease in SpO2 signifies hypoxemia. The most immediate and direct action to correct this is to increase the fraction of inspired oxygen (FiO2), which increases the oxygen supply to the alveoli."
+            },
+            {
+                "optionId": "opt2-2",
+                "content": "Incorrect. A bronchodilator is indicated for bronchospasm (wheezing). While bronchospasm can cause desaturation, it is not the default cause, and increasing FiO2 is a more universal first response to hypoxemia."
+            },
+            {
+                "optionId": "opt2-3",
+                "content": "Incorrect. Suctioning is appropriate if the desaturation is caused by copious secretions obstructing the airway. However, it is an invasive procedure that can cause further desaturation and should only be performed when indicated, not as a first-line response to all SpO2 drops."
+            },
+            {
+                "optionId": "opt3-1",
+                "content": "Incorrect. An angle of 10-20 degrees is too low and significantly increases the risk of aspiration of oropharyngeal and gastric contents, a primary pathway for VAP development."
+            },
+            {
+                "optionId": "opt3-2",
+                "content": "Correct. The evidence-based standard for VAP prevention is to maintain the head of the bed at an angle between 30 and 45 degrees to minimize aspiration risk."
+            },
+            {
+                "optionId": "opt3-3",
+                "content": "Incorrect. A high Fowler's position of 60-75 degrees is generally not recommended for prolonged periods as it can increase the risk of sacral pressure injuries and may not be well-tolerated hemodynamically."
+            },
+            {
+                "optionId": "opt4-1",
+                "content": "Correct. Meticulous and frequent oral care, often with an antiseptic rinse like chlorhexidine, is a cornerstone of the VAP bundle. It reduces the burden of pathogenic bacteria in the mouth that could be aspirated into the lungs."
+            },
+            {
+                "optionId": "opt4-2",
+                "content": "Incorrect. While repositioning is crucial for preventing pressure injuries and mobilizing secretions, it is not considered a primary, direct intervention for preventing VAP itself, unlike oral care."
+            },
+            {
+                "optionId": "opt4-3",
+                "content": "Incorrect. Chest physiotherapy is a treatment to mobilize existing secretions and is not a standard preventative measure for VAP in all ventilated clients. It is used when clinically indicated, not as routine prophylaxis."
+            }
         ],
-        "questionTrap": {
-            "trap": "Students might focus solely on oxygenation and select increasing PEEP without considering immediate airway patency issues, or they might jump to administering medications before assessing basic needs.",
-            "howToOvercome": "Prioritize assessments to identify the root cause of the problem before implementing interventions. Consider the immediacy of the required intervention and the potential impact on the patient's immediate safety."
-        },
-        "mnemonic": {
-            "title": "VAP Bundle",
-            "expansion": "HOB (Head of Bed elevation), Oral Care, Pulmonary hygiene, Ulcer prophylaxis, VTE prophylaxis."
-        }
+        "clinicalPearls": [
+            "High PIP alarms are an 'assess first' situation. Always start with the simplest, most external causes (equipment) and work your way to the patient.",
+            "The VAP prevention bundle is a set of evidence-based practices that significantly reduces pneumonia risk; adherence is a key nursing responsibility and quality metric.",
+            "Ventilator asynchrony (patient fighting the vent) increases work of breathing and oxygen demand, often signaling a need to assess for pain, anxiety, or worsening respiratory status."
+        ],
+        "questionTrap": "The trap is choosing a plausible intervention before performing the most immediate assessment. For example, suctioning a patient for a high PIP alarm is a common action, but checking for a simple equipment issue like a kinked tube should always come first as it's faster and less invasive.",
+        "mnemonic": "Use 'DOPES' for high-pressure ventilator alarms: D - Displacement (of ETT), O - Obstruction (secretions, kink, biting), P - Pneumothorax, E - Equipment failure, S - Stacking breaths (breath stacking/asynchrony)."
     },
-    "dropOptions": [
-        "endotracheal tube displacement",
-        "a kink in the ventilator tubing",
-        "patient biting the endotracheal tube",
-        "increase the FiO2",
-        "administer a bronchodilator",
-        "suction the patient",
-        "30-45",
-        "10-20",
-        "60-75",
-        "oral care",
-        "repositioning",
-        "chest physiotherapy"
-    ],
-    "answerKey": {
-        "dropdown1": "a kink in the ventilator tubing",
-        "dropdown2": "increase the FiO2",
-        "dropdown3": "30-45",
-        "dropdown4": "oral care"
-    }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:51:39.423Z"
 }

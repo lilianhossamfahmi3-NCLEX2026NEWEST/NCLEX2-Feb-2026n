@@ -1,76 +1,297 @@
 {
     "id": "New-v26-8a2b9c3d-4e5f-6071-8293-a4b5c6d7e8f9",
-    "type": "dragAndDropCloze",
-    "stem": "The patient is exhibiting signs of increased intracranial pressure (ICP) following a hemorrhagic stroke. Based on the provided information, prioritize the following interventions in the order that they should be implemented:\n\n1. Administer [drag1] mannitol 25% IV bolus as prescribed to reduce cerebral edema.\n2. Elevate the head of the bed to [drag2] 30-45 degrees to promote venous drainage and reduce ICP.\n3. Monitor [drag3] neurological status, including LOC, pupillary response, and motor function, every hour.\n4. Implement measures to prevent [drag4] Valsalva maneuver, such as stool softeners, to avoid increasing ICP.\n5. Maintain [drag5] normothermia (36-37°C) to reduce metabolic demand and cerebral blood flow.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 5
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is planning care for a client with increased intracranial pressure (ICP) from a hemorrhagic stroke. Drag the interventions into the correct order of priority, from highest to lowest, that the nurse should implement.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Elevate the head of the bed to 30 degrees."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer mannitol 25% IV bolus as prescribed."
+        },
+        {
+            "id": "opt_03",
+            "text": "Administer acetaminophen for fever."
+        },
+        {
+            "id": "opt_04",
+            "text": "Perform a focused neurological assessment."
+        },
+        {
+            "id": "opt_05",
+            "text": "Administer a stool softener."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04",
+        "opt_05"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "S: John Smith, 68-year-old male, admitted at 07:00 for acute right-sided weakness and altered mental status, highly suspected stroke. B: History of hypertension and hyperlipidemia. Last seen normal at 22:00 the previous day. A: At 08:00, Glasgow Coma Scale (GCS) is 11 (Eyes 3, Verbal 3, Motor 5). Pronounced right-sided weakness; CT confirms left-sided hemorrhagic stroke. Current BP 190/110 mmHg, HR 92 bpm (regular), RR 22 (labored), SpO2 94% on 2L nasal cannula, Temp 38.5°C. Oxygen therapy and continuous cardiac monitoring initiated per stroke protocol. Labs pending. R: Concerned about increased ICP given stroke location, GCS, and vital signs. Requesting orders for mannitol to address potential cerebral edema and frequent neurological monitoring. Need assistance with BP management, given elevated readings despite PRN hydralazine. Recommend interventions to manage elevated temperature.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L, K: 3.8 mEq/L, Cl: 100 mEq/L, Glucose: 180 mg/dL, BUN: 25 mg/dL, Creatinine: 1.5 mg/dL, PT: 13 sec, INR: 1.1, Platelets: 200,000/uL, WBC: 12,000/uL"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 07:00",
+                        "text": "S: Client is a 68-year-old male brought to the ED by his adult child with a sudden onset of right-sided weakness, slurred speech, and confusion that began approximately 2 hours ago. B: He has a history of uncontrolled hypertension and hyperlipidemia. Client lives alone in a rural area with limited access to transportation, which delayed seeking immediate care. He is a poor historian due to altered mental status. A: On arrival, client is drowsy but arousable to painful stimuli. GCS is 11 (E3, V3, M5). Right-sided hemiparesis noted. Vital signs are unstable. Non-contrast head CT ordered STAT to rule out hemorrhagic event. Initiated on 2L O₂ via nasal cannula. R: Prepare for potential admission to the neuro-ICU. Initiate stroke protocol. Awaiting CT results to guide further management, specifically regarding blood pressure parameters and potential neurosurgical consultation."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 09:00",
+                        "text": "S: Client remains with altered mental status. GCS has declined to 9 (E2, V2, M5). B: Head CT confirmed a large left-sided intracerebral hemorrhage with evidence of midline shift. Client was transferred to the neuro-ICU. A: Client is now exhibiting decorticate posturing with noxious stimuli. Pupils are unequal, with the left pupil sluggish to react. Vital signs show a widening pulse pressure (Cushing's triad). Current BP is 195/95 mmHg, HR 54 bpm, RR 24 and irregular. Temperature is 101.3°F (38.5°C). R: The client is showing clear signs of worsening increased intracranial pressure (ICP) and potential brainstem compression. Immediate interventions are required to decrease ICP. Will implement STAT orders for ICP management, including osmotic therapy and head of bed elevation. Continue frequent neurological monitoring."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: BP 180/100 mmHg, HR 88 bpm, RR 20, SpO2 95% on RA, Temp 37.8°C.\n08:00: BP 190/110 mmHg, HR 92 bpm, RR 22, SpO2 94% on 2L NC, Temp 38.5°C."
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "07:00",
+                        "HR": "88/min",
+                        "BP": "180/100 mmHg (MAP 127)",
+                        "RR": "20/min",
+                        "SpO2": "95% on RA",
+                        "Temp": "99.9°F (37.7°C)"
+                    },
+                    {
+                        "Time": "08:00",
+                        "HR": "75/min",
+                        "BP": "190/110 mmHg (MAP 137)",
+                        "RR": "22/min, labored",
+                        "SpO2": "94% on 2L NC",
+                        "Temp": "100.6°F (38.1°C)"
+                    },
+                    {
+                        "Time": "09:00",
+                        "HR": "54/min",
+                        "BP": "195/95 mmHg (MAP 128)",
+                        "RR": "24/min, irregular",
+                        "SpO2": "93% on 2L NC",
+                        "Temp": "101.3°F (38.5°C)"
+                    }
+                ]
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Sodium (Na)",
+                        "Value": "148",
+                        "Unit": "mEq/L",
+                        "Reference": "136-145",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Potassium (K)",
+                        "Value": "3.8",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": ""
+                    },
+                    {
+                        "Result": "Glucose",
+                        "Value": "180",
+                        "Unit": "mg/dL",
+                        "Reference": "74-106",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "BUN",
+                        "Value": "25",
+                        "Unit": "mg/dL",
+                        "Reference": "10-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "1.3",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "INR",
+                        "Value": "1.1",
+                        "Unit": "",
+                        "Reference": "0.8-1.2",
+                        "Status": ""
+                    },
+                    {
+                        "Result": "WBC",
+                        "Value": "12.5",
+                        "Unit": "x10³/μL",
+                        "Reference": "5.0-10.0",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "GCS 9 (E2, V2, M5). Arousable to deep sternal rub only. Exhibits decorticate posturing with noxious stimuli. Left pupil 4mm and sluggishly reactive; right pupil 2mm and briskly reactive. Absent gag reflex. Positive Babinski sign on the right."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Bradycardia with regular rhythm. S1, S2 audible. No murmurs. Pulses 2+ in all extremities. No peripheral edema."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Irregular respiratory pattern (Cheyne-Stokes). Coarse crackles in bilateral lung bases. Labored breathing effort."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "CT scan of the head without contrast reveals a left-sided hemorrhagic stroke."
+                "content": [
+                    {
+                        "Procedure": "CT Head without Contrast",
+                        "Timestamp": "Day 1, 08:30",
+                        "Report": "FINDINGS: Large, acute intraparenchymal hemorrhage is identified within the left basal ganglia, measuring approximately 5 cm in diameter. There is associated vasogenic edema causing mass effect. This results in a significant left-to-right midline shift of approximately 8 mm. The lateral ventricles are compressed. No evidence of intraventricular hemorrhage or hydrocephalus. \n\nIMPRESSION: Acute large left basal ganglia hemorrhage with significant mass effect and midline shift, consistent with a hemorrhagic stroke. Findings are critical and indicate high risk for cerebral herniation."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Scheduled: Lisinopril 20mg PO daily, Atorvastatin 40mg PO daily. PRN: Acetaminophen 650mg PO q4h PRN for pain/fever, Hydralazine 10mg IV PRN for SBP > 180 mmHg."
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Time": "09:05",
+                        "Action": "Elevate head of bed to 30 degrees. Maintain head in neutral alignment.",
+                        "Frequency": "Continuous"
+                    },
+                    {
+                        "Time": "09:05",
+                        "Action": "Mannitol 1 g/kg IV bolus over 30 minutes.",
+                        "Frequency": "STAT"
+                    },
+                    {
+                        "Time": "09:05",
+                        "Action": "Acetaminophen 650 mg per rectum.",
+                        "Frequency": "STAT, for Temp > 100.4°F (38°C)"
+                    },
+                    {
+                        "Time": "09:05",
+                        "Action": "Neurological assessment every 15 minutes.",
+                        "Frequency": "Continuous"
+                    },
+                    {
+                        "Time": "09:05",
+                        "Action": "Docusate sodium 100 mg via NG tube.",
+                        "Frequency": "Daily"
+                    },
+                    {
+                        "Time": "09:05",
+                        "Action": "Labetalol 10 mg IV push PRN for SBP > 180 mmHg.",
+                        "Frequency": "PRN"
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See separate SBAR tab."
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Mannitol 25%",
+                        "Dose": "1 g/kg",
+                        "Route": "IV",
+                        "Frequency": "STAT",
+                        "Last Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PR",
+                        "Frequency": "q6h PRN Fever",
+                        "Last Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Docusate Sodium",
+                        "Dose": "100 mg",
+                        "Route": "NG Tube",
+                        "Frequency": "Daily",
+                        "Last Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Labetalol",
+                        "Dose": "10 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN SBP > 180",
+                        "Last Administered": "N/A"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Stroke & Increased ICP"
+    "rationale": {
+        "correct": "The correct sequence of interventions for a client with rapidly increasing intracranial pressure (ICP) prioritizes immediate, life-saving actions that reduce cerebral volume and pressure. The first priority is elevating the head of the bed, a non-invasive action that uses gravity to promote venous outflow from the brain, immediately lowering ICP. The second priority is administering mannitol, a potent osmotic diuretic that rapidly reduces cerebral edema by pulling fluid from brain tissue into the vasculature. Third, controlling hyperthermia with acetaminophen is critical because fever increases cerebral metabolic rate and blood flow, exacerbating ICP. Fourth, once immediate interventions are initiated, a focused neurological assessment is performed to establish a new baseline and evaluate the response to treatment. Finally, administering a stool softener to prevent the Valsalva maneuver is a preventative measure, making it the lowest priority in this acute phase.",
+        "incorrect": "Incorrect sequencing can lead to delayed treatment and irreversible brain injury. For instance, performing an assessment before elevating the head of the bed wastes critical time when a simple positioning change could be life-saving. Delaying mannitol administration allows cerebral edema to worsen, increasing the risk of herniation. Failing to address hyperthermia negates the effects of other ICP-lowering interventions by keeping metabolic demand high. Prioritizing a stool softener over acute interventions misjudges the immediate threat to the client's life.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct #1: Elevating the head of the bed to 30 degrees is the fastest, non-invasive intervention to facilitate venous drainage from the head, which can immediately decrease ICP. It is a foundational nursing action that should be performed first."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct #2: Administering mannitol is the priority pharmacological intervention. As an osmotic diuretic, it creates an osmotic gradient that pulls edematous fluid from the brain tissue into the bloodstream, rapidly decreasing cerebral volume and ICP."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct #3: The client's temperature is 101.3°F (38.5°C). Hyperthermia significantly increases cerebral metabolic demand and cerebral blood flow, which worsens ICP. Controlling the fever is a critical supportive measure to prevent secondary brain injury."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct #4: While continuous monitoring is essential, a focused neurological assessment is performed after initiating life-saving interventions. This allows the nurse to evaluate the client's response to the interventions and detect any further deterioration."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct #5: Administering a stool softener prevents the Valsalva maneuver (straining), which can increase intrathoracic pressure and transiently raise ICP. This is an important preventative measure but is a lower priority than the acute interventions aimed at reducing current, critically high ICP."
+            }
+        ],
+        "clinicalPearls": [
+            "Cushing's triad (bradycardia, irregular respirations, and a widened pulse pressure) is a late and ominous sign of severely increased ICP and impending brain herniation.",
+            "When managing ICP, maintaining the head in a neutral, midline position is as important as elevation to prevent jugular vein compression, which would impede venous outflow.",
+            "Serum osmolality and electrolytes must be monitored closely during mannitol therapy to prevent severe dehydration, hypernatremia, and acute kidney injury.",
+            "Permissive hypertension is often allowed in hemorrhagic stroke to maintain cerebral perfusion pressure (CPP), but extreme hypertension must be carefully controlled as it can worsen bleeding and edema."
+        ],
+        "questionTrap": "A common trap is to prioritize assessment over immediate action. In a crisis like rapidly increasing ICP, the nurse must initiate simple, life-saving interventions like positioning simultaneously with or even before a detailed reassessment.",
+        "mnemonic": "For ICP intervention priorities, remember 'BRAIN':\nB - Bed head up (30 degrees)\nR - Reduce stimulation & fever\nA - Administer osmotic diuretics (Mannitol)\nI - Intubation & ventilation (if GCS < 8)\nN - Neuro checks (after interventions start)",
+        "reviewUnits": [
+            "Neurological Disorders",
+            "Pharmacology",
+            "Critical Care Nursing"
         ]
     },
-    "rationale": {
-        "correct": "The interventions are prioritized based on the immediate need to reduce ICP and prevent further neurological damage following a hemorrhagic stroke. Administering mannitol, an osmotic diuretic, rapidly reduces cerebral edema by drawing fluid from the brain tissue into the intravascular space, decreasing ICP. Elevating the head of the bed to 30-45 degrees promotes venous drainage from the brain, further reducing ICP. Frequent neurological assessments, including level of consciousness (LOC), pupillary response, and motor function, are crucial for monitoring the patient's response to interventions and detecting any deterioration. Preventing the Valsalva maneuver, such as by administering stool softeners, avoids increases in intrathoracic and intra-abdominal pressure, which can impede venous return from the brain and increase ICP. Maintaining normothermia (36-37°C) reduces cerebral metabolic demand and cerebral blood flow, which helps to lower ICP and prevent further brain injury. Hyperthermia significantly increases metabolic demands, exacerbating the risk of neurological damage.\n\nclinicalPearl: Monitor serum osmolality when administering mannitol to avoid dehydration or hyperosmolar states. QuestionTrap: Students may focus solely on lowering blood pressure without addressing the underlying issue of increased ICP. While blood pressure control is important, reducing ICP is the immediate priority. Mnemonic: ICP Management: Elevate Head, Control Temperature, Prevent Valsalva, Osmotic Diuretics, Monitor Neuro Status.",
-        "incorrect": "Reversing the order or prioritizing less critical interventions can lead to increased ICP and further neurological damage. Delaying mannitol administration or failing to elevate the head of the bed will prolong cerebral edema and increase the risk of herniation. Infrequent neurological assessments may delay the detection of worsening conditions. Ignoring measures to prevent the Valsalva maneuver can exacerbate ICP. Neglecting temperature control will increase metabolic demand and cerebral blood flow, worsening ICP.",
-        "clinicalPearls": [
-            "Early recognition and intervention are crucial in managing increased ICP following a stroke.",
-            "Maintain a calm and quiet environment to minimize stimulation that could increase ICP.",
-            "Avoid clustering nursing activities that could increase ICP.",
-            "Monitor serum osmolality when administering mannitol to avoid dehydration or hyperosmolar states."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus solely on lowering blood pressure without addressing the underlying issue of increased ICP. While blood pressure control is important, reducing ICP is the immediate priority.",
-            "howToOvercome": "Prioritize interventions based on the immediate threat to the patient's neurological status. Focus on interventions directly aimed at reducing ICP before solely focusing on blood pressure."
-        },
-        "mnemonic": {
-            "title": "ICP Management",
-            "expansion": "Elevate Head (30-45 degrees), Monitor Neuro Status, Osmotic Diuretics (Mannitol), Prevent Valsalva, Normothermia."
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:27:53.888Z"
 }

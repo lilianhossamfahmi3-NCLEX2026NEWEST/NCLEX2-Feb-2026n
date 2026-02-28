@@ -1,91 +1,292 @@
 {
-    "id": "New-v26-MedCalcNitroDrip",
-    "type": "clozeDropdown",
-    "stem": "The physician orders a nitroglycerin drip at 10 mcg/min for Mr. Johnson, who is experiencing a hypertensive crisis. The pharmacy provides a solution of nitroglycerin 50 mg in 250 mL of D5W. Based on this order, the nurse should program the IV pump to deliver [dropdown1] mL/hr to initiate the infusion. After 30 minutes of the initial infusion, Mr. Johnson's blood pressure remains elevated at 160/95 mmHg. The physician then orders to increase the nitroglycerin drip by 5 mcg/min every 3-5 minutes until the systolic blood pressure reaches 120 mmHg, not to exceed a maximum dose of 200 mcg/min. Following this new order, the nurse should increase the infusion rate by [dropdown2] mL/hr. This adjustment will result in a NEW infusion rate of [dropdown3] mL/hr.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
-    },
+    "id": "v26-MedCalcNitroDrip-MCQ-01",
+    "type": "multipleChoice",
+    "stem": "A client with a hypertensive crisis is prescribed a continuous IV nitroglycerin infusion at 10 mcg/min. The pharmacy supplies 50 mg of nitroglycerin in 250 mL D5W. The nurse should program the infusion pump to deliver what rate in mL/hr?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "0.05 mL/hr"
+        },
+        {
+            "id": "opt_02",
+            "text": "3 mL/hr"
+        },
+        {
+            "id": "opt_03",
+            "text": "2.4 mL/hr"
+        },
+        {
+            "id": "opt_04",
+            "text": "30 mL/hr"
+        }
+    ],
+    "correctOptionId": "opt_02",
     "itemContext": {
         "patient": {
             "name": "Robert Johnson",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "S: Robert Johnson, 68-year-old male, admitted at 07:00 for hypertensive crisis. Initial BP 180/110 mmHg. A: History of hypertension and hyperlipidemia. Complaining of headache and blurred vision. Possible end-organ damage. B: On 2L O2 via nasal cannula, continuous cardiac monitoring. BP 170/100 mmHg at 09:00. Physician ordered IV nitroglycerin drip at 10 mcg/min. Labs drawn, awaiting results. R: New order for nitroglycerin drip titration to maintain systolic BP around 120 mmHg, not exceeding 200 mcg/min. Reports chest pain 2/10. Notify physician if chest pain worsens or BP unresponsive to titration. Last Lisinopril dose at 08:00. At 09:30, BP is 160/95 mmHg. Increase nitroglycerin by 5 mcg/min every 3-5 minutes per order. I will continue to monitor and titrate per orders.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L\nK: 4.2 mEq/L\nCl: 100 mEq/L\nBUN: 25 mg/dL\nCreatinine: 1.5 mg/dL\nGlucose: 110 mg/dL\nTrop: <0.03 ng/mL"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Today, 07:00",
+                        "note": "S: 68-year-old male presents with hypertensive crisis, BP 180/110 mmHg, complaining of severe headache and blurred vision.\nB: History of poorly controlled hypertension and hyperlipidemia. Client reports financial difficulty, often splitting pills to make prescriptions last longer. Lives alone in a senior apartment complex.\nA: Alert and oriented x4, anxious. Skin is cool and diaphoretic. Continuous cardiac monitoring shows sinus tachycardia. Neurological exam reveals no focal deficits. The elevated BUN and Creatinine suggest early signs of renal end-organ damage from chronic hypertension.\nR: Admit to the medical-surgical unit for continuous BP monitoring and IV antihypertensive therapy. Initiate fall precautions. Consult with social work regarding medication affordability and home support."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Today, 09:00",
+                        "note": "S: Client's BP remains elevated at 170/100 mmHg despite oral lisinopril given at 08:00. He continues to report a 3/10 headache.\nB: Orders received for a continuous IV nitroglycerin infusion.\nA: No new neurological changes. Cardiac monitor shows sinus rhythm at 92 bpm. Lungs clear to auscultation bilaterally.\nR: Initiate nitroglycerin infusion per protocol, starting at 10 mcg/min. Titrate as ordered to achieve SBP < 140 mmHg. Monitor BP every 5 minutes during initial titration. The goal is to reduce MAP by no more than 25% in the first hour to prevent cerebral hypoperfusion."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: BP 180/110 mmHg, HR 98 bpm, RR 22, SpO2 97% on 2L NC\n08:00: BP 175/105 mmHg, HR 95 bpm, RR 20, SpO2 98% on 2L NC\n09:00: BP 170/100 mmHg, HR 92 bpm, RR 19, SpO2 98% on 2L NC\n09:30: BP 160/95 mmHg, HR 90 bpm, RR 18, SpO2 98% on 2L NC"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp °F (°C)",
+                        "HR (bpm)",
+                        "RR (breaths/min)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "SpO₂ (%)"
+                    ],
+                    "rows": [
+                        [
+                            "07:00",
+                            "98.6 (37.0)",
+                            "98",
+                            "22",
+                            "180/110",
+                            "133",
+                            "97% on RA"
+                        ],
+                        [
+                            "08:00",
+                            "98.8 (37.1)",
+                            "95",
+                            "20",
+                            "175/105",
+                            "128",
+                            "98% on 2L NC"
+                        ],
+                        [
+                            "09:00",
+                            "98.7 (37.1)",
+                            "92",
+                            "19",
+                            "170/100",
+                            "123",
+                            "98% on 2L NC"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "08:00: Lisinopril 20 mg PO\n09:15: Nitroglycerin 50 mg in 250 mL D5W at 10 mcg/min (New Order)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Sodium (Na)",
+                            "140",
+                            "mEq/L",
+                            "136-145",
+                            "Normal"
+                        ],
+                        [
+                            "Potassium (K)",
+                            "4.2",
+                            "mEq/L",
+                            "3.5-5.0",
+                            "Normal"
+                        ],
+                        [
+                            "BUN",
+                            "25",
+                            "mg/dL",
+                            "10-20",
+                            "High"
+                        ],
+                        [
+                            "Creatinine",
+                            "1.5",
+                            "mg/dL",
+                            "0.6-1.2",
+                            "High"
+                        ],
+                        [
+                            "Troponin I",
+                            "<0.03",
+                            "ng/mL",
+                            "<0.04",
+                            "Normal"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Neurological",
+                        "timestamp": "Today, 09:00",
+                        "findings": "Alert and oriented x4. Reports 3/10 throbbing headache and blurred vision. PERRLA. No facial droop, slurred speech, or focal weakness."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "timestamp": "Today, 09:00",
+                        "findings": "S1, S2 audible. Sinus rhythm on monitor. No murmurs, gallops, or rubs. Capillary refill <3 seconds. Pulses 2+ and equal bilaterally."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "timestamp": "Today, 09:00",
+                        "findings": "Lungs clear to auscultation bilaterally. Respirations even and unlabored on 2L NC."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "test": "Chest X-ray (PA and Lateral)",
+                        "timestamp": "Today, 07:45",
+                        "impression": "The cardiomediastinal silhouette is top-normal in size. The pulmonary vasculature is unremarkable. Lungs are clear. No pleural effusion or pneumothorax is identified. No acute cardiopulmonary process."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Today 07:15",
+                            "Admit to Medical-Surgical Unit",
+                            "Standing"
+                        ],
+                        [
+                            "Today 07:15",
+                            "Continuous cardiac and BP monitoring",
+                            "Standing"
+                        ],
+                        [
+                            "Today 09:00",
+                            "Nitroglycerin 50 mg in 250 mL D5W IV",
+                            "STAT"
+                        ],
+                        [
+                            "Today 09:00",
+                            "Initiate Nitroglycerin infusion at 10 mcg/min",
+                            "STAT"
+                        ],
+                        [
+                            "Today 09:00",
+                            "Titrate Nitroglycerin by 5 mcg/min q 3-5 min for SBP > 140 mmHg",
+                            "PRN"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Lisinopril",
+                            "20 mg",
+                            "PO",
+                            "Daily",
+                            "Today 08:00"
+                        ],
+                        [
+                            "Nitroglycerin",
+                            "50 mg in 250 mL D5W",
+                            "IV",
+                            "Continuous",
+                            "Not Yet Given"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
-        ]
-    },
     "rationale": {
-        "correct": "The initial infusion rate is calculated as follows: (10 mcg/min * 60 min/hr) / (50000 mcg/250 mL) = 3 mL/hr. This calculation converts the desired dose (10 mcg/min) into the equivalent volume to administer per hour, given the concentration of the nitroglycerin solution. To increase the nitroglycerin drip by 5 mcg/min, the calculation is: (5 mcg/min * 60 min/hr) / (50000 mcg/250 mL) = 1.5 mL/hr. This determines the additional volume needed per hour to achieve the increased dose. The new infusion rate is the sum of the initial rate and the increase: 3 mL/hr + 1.5 mL/hr = 4.5 mL/hr. This is the final rate the nurse will set on the IV pump to deliver the adjusted dose of nitroglycerin. \n\nclinicalPearl: Always use a pump for nitroglycerin administration to ensure accurate dosing.",
-        "incorrect": "Incorrect answers may arise from errors in unit conversion, such as incorrectly converting between mcg and mg, or neglecting to convert minutes to hours. They can also result from misapplication of the formula, such as inverting the concentration or failing to account for it altogether. Another error would be increasing the drip by an incorrect amount or using the maximum dose instead of the ordered increment. These mistakes highlight the need for careful attention to detail and accurate calculations when administering high-alert medications.\n\nclinicalPearl: Double-check all calculations with another nurse, especially for high-alert medications.",
+        "correct": "The correct infusion rate is 3 mL/hr. Nitroglycerin is a potent vasodilator that reduces both preload and afterload, decreasing myocardial oxygen demand. Accurate calculation is critical to prevent severe hypotension. The calculation requires converting the ordered dose (mcg/min) to the pump rate (mL/hr) using the available concentration. This involves a multi-step dimensional analysis: converting mg to mcg, then calculating the concentration in mcg/mL, and finally converting the rate from minutes to hours.",
+        "incorrect": "Incorrect answers result from common calculation errors, such as failing to convert units (mg to mcg, or min to hr) or setting up the formula incorrectly. For a high-alert medication like nitroglycerin, these errors can lead to significant underdosing (ineffective treatment) or overdosing (profound hypotension, reflex tachycardia, and compromised organ perfusion), causing severe patient harm.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "This rate is incorrect. This result (0.05) is obtained if the final step of converting the rate from minutes to hours (multiplying by 60) is omitted. This would lead to significant underdosing and failure to manage the hypertensive crisis."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "This is the correct rate. Step 1: Convert mg to mcg: 50 mg = 50,000 mcg. Step 2: Find concentration: 50,000 mcg / 250 mL = 200 mcg/mL. Step 3: Calculate mL/min: 10 mcg/min / 200 mcg/mL = 0.05 mL/min. Step 4: Convert to mL/hr: 0.05 mL/min * 60 min/hr = 3 mL/hr."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "This rate is incorrect. This result (2.4) is derived from an illogical calculation, likely by incorrectly dividing the hourly dose (10 mcg/min * 60 = 600 mcg/hr) by the total volume (250 mL) instead of the concentration. This demonstrates a misunderstanding of the dose calculation formula."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "This rate is incorrect. This result (30) is 10 times the correct rate and likely stems from a decimal point error during the calculation of the drug concentration (e.g., calculating 20 mcg/mL instead of 200 mcg/mL). This would cause a dangerous overdose and severe hypotension."
+            }
+        ],
         "clinicalPearls": [
-            "Always double-check medication calculations with another nurse, especially for high-alert medications like nitroglycerin, to ensure accuracy and patient safety.",
-            "Use a standardized formula and consistently apply dimensional analysis to minimize errors during medication calculations.",
-            "Titrate nitroglycerin according to the patient's blood pressure response and established protocols, while continuously monitoring vital signs and assessing for adverse effects.",
-            "Educate patients about the purpose of nitroglycerin and potential side effects such as headache or dizziness, promoting adherence and early reporting of concerns."
+            "Nitroglycerin is a high-alert medication; always perform an independent double-check with another nurse before initiating or changing the infusion rate.",
+            "The most common side effect of nitroglycerin is a headache due to cerebral vasodilation. This can often be managed with acetaminophen and typically subsides as the client develops tolerance.",
+            "Continuous blood pressure monitoring (ideally with an arterial line, or non-invasive cuff cycling every 5-15 minutes) is essential during nitroglycerin titration to prevent precipitous drops in blood pressure.",
+            "Nitroglycerin requires special non-PVC tubing for administration, as the drug can be absorbed into standard PVC plastic, leading to inconsistent and reduced dosage delivery."
         ],
-        "questionTrap": {
-            "trap": "A common mistake is to directly add the mcg/min increase to the initial rate without converting to mL/hr, or to miscalculate the initial infusion rate by overlooking the concentration of the solution. Another trap is to mistakenly increase the infusion rate by the maximum allowed dose (200 mcg/min) instead of the ordered 5 mcg/min increment.",
-            "howToOvercome": "Carefully review the medication order, paying close attention to the available solution's concentration. Use dimensional analysis to ensure accurate unit conversions and apply the formula correctly. Always adhere to the specific titration parameters ordered by the physician and avoid assumptions about dosage increases."
-        },
-        "mnemonic": {
-            "title": "Desired Over Have",
-            "expansion": "The 'Desired Over Have' formula is a helpful mnemonic for calculating medication dosages: Desired dose (mcg/min) / Have (concentration: mcg/mL) = Amount to administer (mL/min). Remember to convert mL/min to mL/hr by multiplying by 60 to match the IV pump's units."
-        }
-    },
-    "responseOptions": {
-        "dropdown1": [
-            "1",
-            "2",
-            "3",
-            "4"
-        ],
-        "dropdown2": [
-            "0.5",
-            "1.0",
-            "1.5",
-            "2.0"
-        ],
-        "dropdown3": [
-            "3.5",
-            "4.0",
-            "4.5",
-            "5.0"
+        "questionTrap": "The primary trap in this question is managing multiple unit conversions within a single calculation. Candidates may forget to convert milligrams to micrograms, or fail to convert the final rate from mL/minute to mL/hour, leading to one of the plausible distractors.",
+        "mnemonic": "Use the 'D/H x Q' formula for medication calculations. D = Desired dose (10 mcg/min), H = Have on hand concentration (50,000 mcg / 250 mL = 200 mcg/mL), Q = Quantity (1 mL). So, (10 mcg/min / 200 mcg/mL) * 1 mL = 0.05 mL/min. Then, remember to convert to hours: 0.05 * 60 = 3 mL/hr.",
+        "reviewUnits": [
+            "Medication Calculation",
+            "Hypertensive Crisis",
+            "Pharmacology: Vasodilators"
         ]
     },
-    "correctResponse": {
-        "dropdown1": "3",
-        "dropdown2": "1.5",
-        "dropdown3": "4.5"
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Pharmacological and Parenteral Therapies"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:14:00.552Z"
 }

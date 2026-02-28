@@ -1,48 +1,245 @@
 {
     "id": "New-v26-d425e89a-7c2b-461a-9d3f-9a8b3c74e56d",
-    "type": "dragAndDropCloze",
-    "stem": "Patient Name: Maria Rodriguez. Gestational Age: 38 weeks. Presenting Complaint: Postpartum hemorrhage and suspected preeclampsia. Based on the patient's clinical data, prioritize the following interventions in the correct order. Drag and drop the interventions into the numbered boxes below. \n\n1. [ ]\n2. [ ]\n3. [ ]\n4. [ ]\n5. [ ]\n\n**Options:**\n* Administer Methylergonovine 0.2mg IM\n* Initiate Magnesium Sulfate IV\n* Establish two large-bore IV lines\n* Prepare for possible blood transfusion\n* Assess fundal tone and perform fundal massage",
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client with postpartum hemorrhage and severe features of preeclampsia. Based on the clinical data, drag the interventions into the correct priority order. The highest priority action should be placed at the top.",
+    "options": [
+        {
+            "id": "opt_1",
+            "label": "Assess fundal tone and perform fundal massage"
+        },
+        {
+            "id": "opt_2",
+            "label": "Establish two large-bore IV lines"
+        },
+        {
+            "id": "opt_3",
+            "label": "Initiate Magnesium Sulfate IV"
+        },
+        {
+            "id": "opt_4",
+            "label": "Administer Methylergonovine 0.2mg IM"
+        },
+        {
+            "id": "opt_5",
+            "label": "Prepare for possible blood transfusion"
+        }
+    ],
+    "correctOrder": [
+        "opt_1",
+        "opt_2",
+        "opt_3",
+        "opt_4",
+        "opt_5"
+    ],
     "scoring": {
-        "method": "linked",
-        "maxPoints": 5
+        "method": "dichotomous",
+        "maxPoints": 1
     },
     "itemContext": {
         "patient": {
             "name": "Maria Rodriguez",
-            "age": 32,
-            "gender": "Female",
-            "iso": "Postpartum Unit",
+            "age": "32 years",
+            "sex": "Female",
+            "pronouns": "She/Her",
+            "location": "Postpartum Unit",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: Maria Rodriguez, a 32-year-old female, G1P1, delivered vaginally at 02:00 this morning. She is now experiencing postpartum hemorrhage and suspected preeclampsia. Background: Patient has a history of gestational hypertension, which resolved postpartum. Assessment: At 08:00, the patient reports increased vaginal bleeding and a severe headache. Her fundus is boggy and displaced, with heavy lochia rubra and clots. Blood pressure is elevated at 160/100 mmHg, heart rate is 110 bpm, respiratory rate is 22, and oxygen saturation is 94% on room air. Lab results show a Hemoglobin of 9.8 g/dL, Platelets of 120,000/mcL, elevated liver enzymes, and 3+ protein in urine. The patient is alert but visibly anxious. Recommendation: I request immediate orders for postpartum hemorrhage and possible preeclampsia management, including continuous monitoring, fluid resuscitation, and potential medication administration to stabilize her condition.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Hemoglobin: 9.8 g/dL\nPlatelets: 120,000/mcL\nALT: 90 U/L\nAST: 85 U/L\nUrine Protein: 3+\nSerum Creatinine: 1.3 mg/dL"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Oxytocin 20 units IV in 1000mL LR @ 125 mL/hr (current infusion)\nPRN pain medication ordered\nMagnesium Sulfate loading dose order pending"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "02:30",
+                        "content": "S: Client is a 32-year-old G1P1 admitted to the postpartum unit after a spontaneous vaginal delivery at 02:00. B: History of diet-controlled gestational hypertension. Client lives in a rural area, 90 minutes from the hospital, which delayed her initial presentation for labor. She received standard oxytocin prophylaxis post-delivery. A: Initial postpartum assessment was within normal limits. Fundus firm, midline, at the umbilicus. Lochia moderate. Vital signs stable. Client is bonding with newborn. R: Continue routine postpartum monitoring per protocol. Encourage skin-to-skin and assist with initial breastfeeding attempts. Monitor for signs of hemorrhage or hypertensive complications."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "08:00",
+                        "content": "S: Client used the call light to report a sudden increase in vaginal bleeding and a severe, throbbing headache that is not relieved by acetaminophen. B: The client's history includes gestational hypertension. The current oxytocin infusion is running at 125 mL/hr. A: Fundus is now boggy, 2 cm above the umbilicus, and displaced to the right. A large amount of lochia rubra with clots was noted on the perineal pad. Vital signs show hypertension and tachycardia. Client is alert and oriented but appears anxious and pale. R: Requesting immediate provider evaluation for concurrent postpartum hemorrhage and severe features of preeclampsia. Will implement emergency protocols, including establishing secondary IV access and preparing for medication administration to manage both conditions. Seizure precautions will be initiated."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: BP 140/90, HR 90, RR 18, O2 Sat 98%\n07:30: BP 150/95, HR 100, RR 20, O2 Sat 96%\n08:00: BP 160/100, HR 110, RR 22, O2 Sat 94%"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "07:00",
+                        "Temp": "98.8°F (37.1°C)",
+                        "HR": "90 bpm",
+                        "BP": "140/90 mmHg (MAP 107)",
+                        "RR": "18/min",
+                        "SpO2": "98% on room air"
+                    },
+                    {
+                        "Time": "07:30",
+                        "Temp": "98.9°F (37.2°C)",
+                        "HR": "100 bpm",
+                        "BP": "150/95 mmHg (MAP 113)",
+                        "RR": "20/min",
+                        "SpO2": "96% on room air"
+                    },
+                    {
+                        "Time": "08:00",
+                        "Temp": "99.0°F (37.2°C)",
+                        "HR": "110 bpm",
+                        "BP": "160/100 mmHg (MAP 120)",
+                        "RR": "22/min",
+                        "SpO2": "94% on room air"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "Test": "Hemoglobin",
+                        "Result": "9.8",
+                        "Unit": "g/dL",
+                        "Reference": "12.0-15.5",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "120",
+                        "Unit": "x10³/mcL",
+                        "Reference": "150-450",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Alanine Aminotransferase (ALT)",
+                        "Result": "90",
+                        "Unit": "U/L",
+                        "Reference": "7-56",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Aspartate Aminotransferase (AST)",
+                        "Result": "85",
+                        "Unit": "U/L",
+                        "Reference": "10-40",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Blood Urea Nitrogen (BUN)",
+                        "Result": "25",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Serum Creatinine",
+                        "Result": "1.3",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Urinalysis, Protein",
+                        "Result": "3+",
+                        "Unit": "",
+                        "Reference": "Negative",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "findings": [
+                    {
+                        "System": "Neurological",
+                        "Finding": "Alert and oriented x3. Complains of a severe, throbbing frontal headache. No visual disturbances reported. Deep tendon reflexes 3+ bilaterally."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Finding": "Tachycardia with regular rhythm. S1, S2 audible. No murmurs. Capillary refill 3 seconds. Pulses 2+ peripherally."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Finding": "Lungs clear to auscultation bilaterally. Respirations unlabored."
+                    },
+                    {
+                        "System": "Gastrointestinal/Genitourinary",
+                        "Finding": "Bowel sounds active in all four quadrants. No epigastric pain reported. Bladder is non-distended."
+                    },
+                    {
+                        "System": "Obstetrical",
+                        "Finding": "Fundus is boggy, located 2 cm above the umbilicus and deviated to the right. Heavy lochia rubra with several plum-sized clots noted on perineal pad."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "reports": [
+                    {
+                        "type": "N/A",
+                        "impression": "No imaging studies available at this time."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "Timestamp": "08:05",
+                        "Action": "Initiate seizure precautions",
+                        "Frequency": "STAT"
+                    },
+                    {
+                        "Timestamp": "08:05",
+                        "Action": "Magnesium Sulfate 4g IV bolus over 20 minutes, then maintenance infusion at 2g/hr",
+                        "Frequency": "STAT"
+                    },
+                    {
+                        "Timestamp": "08:05",
+                        "Action": "Type and crossmatch for 2 units Packed Red Blood Cells",
+                        "Frequency": "STAT"
+                    },
+                    {
+                        "Timestamp": "02:30",
+                        "Action": "Vital signs per postpartum protocol, advance to q15min with any instability",
+                        "Frequency": "Standing"
+                    },
+                    {
+                        "Timestamp": "02:30",
+                        "Action": "Acetaminophen 650 mg PO q6h for pain",
+                        "Frequency": "PRN"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "Medication": "Oxytocin",
+                        "Dose": "20 units in 1000mL Lactated Ringers",
+                        "Route": "IV",
+                        "Frequency": "Continuous infusion at 125 mL/hr",
+                        "LastAdministered": "Ongoing"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "q6h PRN pain",
+                        "LastAdministered": "06:00"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "takeAction",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
@@ -50,21 +247,46 @@
         ]
     },
     "rationale": {
-        "correct": "The correct order of interventions is:\n1. Establish two large-bore IV lines: Rapid fluid resuscitation and medication administration are critical in managing postpartum hemorrhage and potential complications of preeclampsia. Establishing IV access ensures immediate availability for fluids and medications.\n2. Assess fundal tone and perform fundal massage: Addressing uterine atony, a common cause of postpartum hemorrhage, is paramount. Fundal massage helps stimulate uterine contraction and reduce bleeding.\n3. Initiate Magnesium Sulfate IV: Given the elevated BP and other signs of preeclampsia (headache, proteinuria), seizure prophylaxis is essential. Magnesium sulfate is the drug of choice to prevent seizures in preeclamptic patients.\n4. Administer Methylergonovine 0.2mg IM: This uterotonic medication helps contract the uterus and reduce bleeding. However, it is contraindicated in patients with high blood pressure; benefits outweigh the risks at this point. Monitor BP closely. Methylergonovine promotes uterine contraction but can elevate blood pressure, requiring careful monitoring.\n5. Prepare for possible blood transfusion: The low hemoglobin level indicates significant blood loss, necessitating preparation for possible transfusion. Blood transfusion may be necessary to restore adequate oxygen-carrying capacity.",
-        "incorrect": "Incorrect sequences demonstrate a lack of understanding of the urgency and prioritization of interventions in managing postpartum hemorrhage and preeclampsia. For instance, administering methylergonovine before addressing the fundal tone or establishing IV access delays crucial interventions. Delaying magnesium sulfate administration in the presence of elevated BP increases the risk of seizures.",
+        "correct": "The correct sequence of interventions addresses the most immediate life threats first. The client is experiencing two simultaneous emergencies: postpartum hemorrhage (PPH) due to uterine atony and preeclampsia with severe features. The priority is to control the hemorrhage at its source (fundal massage) while preparing for resuscitation (IV access). Concurrently, the risk of an eclamptic seizure, a life-threatening neurological event, must be mitigated with Magnesium Sulfate. Only after these critical steps are initiated can secondary uterotonics and blood products be considered.",
+        "answerBreakdown": [
+            {
+                "option": "Assess fundal tone and perform fundal massage",
+                "order": 1,
+                "rationale": "This is the highest priority. Uterine atony is the leading cause of PPH. Fundal massage is a rapid, non-invasive intervention that directly stimulates uterine muscle contraction, constricting spiral arteries at the placental site to control bleeding. This action addresses the root cause of the hemorrhage immediately."
+            },
+            {
+                "option": "Establish two large-bore IV lines",
+                "order": 2,
+                "rationale": "This is the next priority to address circulation. Large-bore (16-18 gauge) IV access is essential for rapid administration of crystalloid fluids, colloid volume expanders, medications (like Magnesium Sulfate), and blood products. Without secure access, resuscitation efforts for both hypovolemic shock and preeclampsia management would be critically delayed."
+            },
+            {
+                "option": "Initiate Magnesium Sulfate IV",
+                "order": 3,
+                "rationale": "With a BP of 160/100 mmHg and a severe headache, the client is at high risk for an eclamptic seizure. Magnesium Sulfate is the first-line treatment for seizure prophylaxis. It acts as a CNS depressant and smooth muscle relaxant. Preventing a seizure is a critical priority to avoid maternal hypoxia, trauma, and potential death."
+            },
+            {
+                "option": "Administer Methylergonovine 0.2mg IM",
+                "order": 4,
+                "rationale": "This uterotonic is used to treat PPH but is administered after initial measures and seizure prophylaxis. Crucially, Methylergonovine is contraindicated in clients with hypertension because it causes vasoconstriction and can dangerously elevate blood pressure. This action would only be taken after consultation with the provider, likely after Magnesium Sulfate is infusing and if other uterotonics are unavailable."
+            },
+            {
+                "option": "Prepare for possible blood transfusion",
+                "order": 5,
+                "rationale": "This is a preparatory action, not a direct intervention. While vital due to the low hemoglobin and ongoing blood loss, it occurs concurrently with or after the immediate life-saving actions. The process of typing, crossmatching, and obtaining blood products from the blood bank takes time. The preceding actions are performed by the nurse at the bedside to stabilize the client while awaiting the transfusion."
+            }
+        ],
         "clinicalPearls": [
-            "Postpartum hemorrhage is a leading cause of maternal mortality worldwide. Early recognition and prompt intervention are crucial.",
-            "Magnesium sulfate is the drug of choice for preventing and treating seizures in preeclampsia/eclampsia.",
-            "Uterotonic medications like methylergonovine should be used with caution in patients with hypertension. Monitor blood pressure closely after administration.",
-            "Always assess fundal tone and perform fundal massage as the initial intervention for postpartum hemorrhage."
+            "In a dual diagnosis of PPH and severe preeclampsia, interventions must be prioritized to manage both conditions, often simultaneously. Address the most immediate threat to life first: massive hemorrhage or imminent seizure.",
+            "Always be aware of medication contraindications. Methylergonovine (Methergine) is contraindicated in hypertension, while Carboprost tromethamine (Hemabate) is contraindicated in patients with asthma.",
+            "A boggy uterus displaced to the right often indicates a full bladder, which prevents effective uterine contraction. After initiating fundal massage, consider assessing for bladder distention and inserting a urinary catheter if needed."
         ],
         "questionTrap": {
-            "trap": "Students may prioritize administering uterotonics before addressing the ABCs (Airway, Breathing, Circulation) or assessing the fundus. They may also overlook the contraindications of methylergonovine in patients with elevated blood pressure.",
-            "howToOvercome": "Emphasize the importance of a systematic approach to patient assessment and intervention. Prioritize interventions based on the immediate threat to the patient's life. Carefully consider the patient's vital signs and laboratory results before administering medications. Remember the ABCs and the importance of addressing the cause of the bleeding first."
+            "trap": "The primary trap is focusing on only one diagnosis. A test-taker might prioritize all PPH interventions before addressing the severe preeclampsia, or vice-versa. Another trap is administering Methylergonovine, a PPH drug, without recognizing its severe contraindication in a hypertensive patient.",
+            "howToOvercome": "Recognize that multiple life-threatening processes can occur at once. Use a systematic approach: address the most immediate cause of instability (bleeding from atony) with the quickest intervention (massage), then secure the means for resuscitation (IVs), then prevent the next most likely catastrophe (seizure)."
         },
         "mnemonic": {
-            "title": "STOP the Bleed",
-            "expansion": "Stabilize (ABCs), Tone (fundal massage/uterotonics), Oxygenate, Perfusion (IV fluids/blood), Labs/LOC, Evaluate, Document"
+            "title": "OH-MAG!",
+            "expansion": "A mnemonic for this dual emergency: O (Oh no, bleeding!) -> Massage Fundus; H (Help/Hydration) -> Get IV access; MAG (Magnesium) -> Start Magnesium Sulfate for seizure prevention."
         }
     },
     "sentinelStatus": "deep_healed_v2026"

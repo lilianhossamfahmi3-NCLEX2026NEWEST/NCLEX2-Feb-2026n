@@ -1,86 +1,239 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-9012-34567890abcd",
     "type": "matrixMatch",
-    "stem": "The patient is experiencing autonomic dysreflexia. Based on the assessment findings in the EHR, indicate whether each intervention is indicated, contraindicated, or neutral at this time.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 5
-    },
+    "stem": "The nurse is caring for a client experiencing autonomic dysreflexia. Based on the data in the electronic health record, for each potential nursing intervention, specify if it is indicated, contraindicated, or neutral.",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 52,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "52 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ],
-            "conditions": [
-                "Droplet"
             ]
         },
-        "sbar": "S: This is John Smith, a 52-year-old male with a T6 spinal cord injury, admitted three days ago. I'm calling because he's exhibiting signs of autonomic dysreflexia. His BP is elevated and he reports a severe headache. B: Mr. Smith has a history of T6 SCI from a motor vehicle accident two years ago, resulting in chronic neurogenic bowel and bladder. He typically self-catheterizes every 4 hours. A: At 07:00, his BP was 120/80 mmHg, HR 72 bpm. At 09:00, his BP is 210/110 mmHg, HR 50 bpm. He reports a pounding headache, blurred vision, and nasal congestion. Assessment reveals flushed skin above the level of injury and pallor below. The urinary catheter is patent. Last bowel movement was yesterday. Assess: The patient is experiencing autonomic dysreflexia, likely triggered by a bowel or bladder issue. R: I recommend immediate assessment to identify the trigger, administer hydralazine 10mg IV PRN as prescribed per MAR for SBP > 180 mmHg, and continue close monitoring of vital signs every 15 minutes.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L\nK: 4.2 mEq/L\nCreatinine: 1.0 mg/dL\nWBC: 8.5 x 10^3/uL\nUrine Analysis: Negative for UTI"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": {
+                    "notes": [
+                        {
+                            "timestamp": "[3 days ago] 14:00",
+                            "type": "Admission Note",
+                            "content": "S: Client is a 52-year-old male admitted from home for management of a stage 2 pressure injury on his sacrum. B: History of a T6 spinal cord injury (SCI) two years ago from a motor vehicle accident. Client has a neurogenic bladder and bowel, managed with an intermittent catheterization schedule and a daily bowel program. He is a full-code. Client reports living alone in a second-floor apartment with no elevator, which sometimes complicates his ability to attend follow-up appointments. A: On admission, vital signs stable. Sacral wound measures 2x3 cm, pink wound bed, no signs of infection. Neurological exam consistent with T6 paraplegia. R: Admit to medical-surgical unit. Consult wound care. Continue home bladder and bowel regimen. Maintain skin integrity and provide pressure relief."
+                        },
+                        {
+                            "timestamp": "[Today] 09:05",
+                            "type": "Progress Note",
+                            "content": "S: This is the nurse for the 52-year-old male client with a T6 SCI. I am concerned about a possible autonomic dysreflexia episode. He is complaining of a severe, pounding headache and blurred vision. B: Client has been stable. His last intermittent catheterization was at 06:00 and was unremarkable. Last bowel movement was yesterday evening. A: At 07:00, BP was 120/80 mmHg, HR 72. At 09:00, his BP is now 210/110 mmHg with a heart rate of 50 bpm. He is diaphoretic and flushed above the T6 level, with cool, pale skin below. He appears anxious and is complaining of nasal stuffiness. The indwelling urinary catheter, placed an hour ago for convenience, appears patent and is draining clear yellow urine. R: Immediate intervention is required. I will elevate the head of the bed, perform a rapid assessment to find the noxious stimulus, and prepare to administer PRN hydralazine for SBP > 180 mmHg as ordered."
+                        }
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: BP 120/80 mmHg, HR 72 bpm, RR 16, SpO2 98%\n09:00: BP 210/110 mmHg, HR 50 bpm, RR 18, SpO2 99%"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "table": [
+                        {
+                            "Time": "07:00",
+                            "Temp °F (°C)": "98.6 (37.0)",
+                            "HR (bpm)": "72",
+                            "BP (mmHg)": "120/80",
+                            "MAP (mmHg)": "93",
+                            "RR (breaths/min)": "16",
+                            "SpO₂ (%)": "98% on Room Air",
+                            "Telemetry": "Normal Sinus Rhythm"
+                        },
+                        {
+                            "Time": "08:45",
+                            "Temp °F (°C)": "98.8 (37.1)",
+                            "HR (bpm)": "60",
+                            "BP (mmHg)": "168/94",
+                            "MAP (mmHg)": "119",
+                            "RR (breaths/min)": "18",
+                            "SpO₂ (%)": "99% on Room Air",
+                            "Telemetry": "Sinus Rhythm"
+                        },
+                        {
+                            "Time": "09:00",
+                            "Temp °F (°C)": "98.8 (37.1)",
+                            "HR (bpm)": "50",
+                            "BP (mmHg)": "210/110",
+                            "MAP (mmHg)": "143",
+                            "RR (breaths/min)": "18",
+                            "SpO₂ (%)": "99% on Room Air",
+                            "Telemetry": "Sinus Bradycardia"
+                        }
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Hydralazine 10mg IV PRN for SBP > 180 mmHg\nDocusate 100mg PO daily\nPolyethylene glycol 17g PO daily"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "table": [
+                        {
+                            "Test": "Sodium (Na)",
+                            "Result": "140",
+                            "Unit": "mEq/L",
+                            "Reference Range": "136-145",
+                            "Status": "Normal"
+                        },
+                        {
+                            "Test": "Potassium (K)",
+                            "Result": "4.2",
+                            "Unit": "mEq/L",
+                            "Reference Range": "3.5-5.0",
+                            "Status": "Normal"
+                        },
+                        {
+                            "Test": "Creatinine",
+                            "Result": "1.0",
+                            "Unit": "mg/dL",
+                            "Reference Range": "0.7-1.3",
+                            "Status": "Normal"
+                        },
+                        {
+                            "Test": "WBC",
+                            "Result": "8.5",
+                            "Unit": "x 10³/µL",
+                            "Reference Range": "4.5-11.0",
+                            "Status": "Normal"
+                        },
+                        {
+                            "Test": "Urinalysis",
+                            "Result": "Clear, yellow",
+                            "Unit": "-",
+                            "Reference Range": "-",
+                            "Status": "-"
+                        },
+                        {
+                            "Test": "- Leukocyte Esterase",
+                            "Result": "Negative",
+                            "Unit": "-",
+                            "Reference Range": "Negative",
+                            "Status": "Normal"
+                        },
+                        {
+                            "Test": "- Nitrites",
+                            "Result": "Negative",
+                            "Unit": "-",
+                            "Reference Range": "Negative",
+                            "Status": "Normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": {
+                    "timestamp": "[Today] 09:00",
+                    "findings": [
+                        {
+                            "system": "Neurological",
+                            "finding": "Alert and oriented x4, anxious. Reports severe, pounding headache and blurred vision. Sensation absent below T6 level."
+                        },
+                        {
+                            "system": "Cardiovascular",
+                            "finding": "Sinus bradycardia on monitor. S1, S2 audible. No murmurs. Pulses 2+ in upper extremities, 1+ in lower extremities."
+                        },
+                        {
+                            "system": "Respiratory",
+                            "finding": "Lungs clear to auscultation bilaterally. Respirations unlabored."
+                        },
+                        {
+                            "system": "Integumentary",
+                            "finding": "Marked diaphoresis and flushing of skin on face, neck, and upper chest (above T6). Skin below T6 is cool, pale, with piloerection (goosebumps)."
+                        }
+                    ]
+                }
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No recent radiology reports available."
+                "content": {
+                    "reports": [
+                        {
+                            "type": "N/A",
+                            "timestamp": "N/A",
+                            "report": "No recent imaging studies on file."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": {
+                    "table": [
+                        {
+                            "Order Date/Time": "[Admission Date] 08:00",
+                            "Action": "Activity: Out of bed to chair TID with assist",
+                            "Frequency/Status": "Standing"
+                        },
+                        {
+                            "Order Date/Time": "[Admission Date] 08:00",
+                            "Action": "Diet: Regular",
+                            "Frequency/Status": "Standing"
+                        },
+                        {
+                            "Order Date/Time": "[Admission Date] 08:00",
+                            "Action": "Intermittent urinary catheterization",
+                            "Frequency/Status": "Every 4 hours"
+                        },
+                        {
+                            "Order Date/Time": "[Admission Date] 08:00",
+                            "Action": "Bowel program protocol",
+                            "Frequency/Status": "Daily"
+                        },
+                        {
+                            "Order Date/Time": "[Admission Date] 08:00",
+                            "Action": "Hydralazine 10 mg IV push for SBP > 180 mmHg",
+                            "Frequency/Status": "PRN, may repeat x1 after 20 min"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "table": [
+                        {
+                            "Medication": "Docusate Sodium",
+                            "Dose": "100 mg",
+                            "Route": "PO",
+                            "Frequency": "Daily",
+                            "Last Administered": "[Today] 08:00"
+                        },
+                        {
+                            "Medication": "Polyethylene Glycol",
+                            "Dose": "17 g",
+                            "Route": "PO",
+                            "Frequency": "Daily",
+                            "Last Administered": "[Today] 08:00"
+                        },
+                        {
+                            "Medication": "Hydralazine",
+                            "Dose": "10 mg",
+                            "Route": "IV",
+                            "Frequency": "PRN for SBP > 180 mmHg",
+                            "Last Administered": "Not Applicable"
+                        }
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Spinal Cord Injury & Autonomic Dysreflexia"
-        ]
-    },
-    "rationale": {
-        "correct": "Elevating the head of the bed helps lower blood pressure by promoting venous pooling in the lower extremities, reducing venous return to the heart. Assessing for bowel impaction is crucial as it is a common trigger for autonomic dysreflexia due to visceral distension. Administering antihypertensive medication (hydralazine) as prescribed is essential to lower the dangerously high blood pressure and prevent end-organ damage. Removing constrictive clothing, such as tight socks or abdominal binders, can help improve circulation and reduce external pressure that may be contributing to the hypertensive episode. Checking for bladder distension, even with a patent catheter, is important as the catheter may not be draining effectively due to kinks, sediment, or bladder spasms, all of which can trigger autonomic dysreflexia.",
-        "incorrect": "Administering a beta-blocker is contraindicated as it can worsen bradycardia, which is already present due to the autonomic dysreflexia; beta-blockers can further reduce heart rate and cardiac output. Lowering the head of the bed would increase blood pressure further, exacerbating the hypertensive crisis by increasing venous return. Placing the patient in Trendelenburg position would significantly increase blood pressure and is absolutely contraindicated due to the increased venous return to the heart. Encouraging deep breathing exercises is not the priority in this acute situation as it does not directly address the hypertension or the underlying trigger. Massaging the legs is contraindicated as it could potentially dislodge a clot (especially if the patient has decreased mobility) and increase venous return, further raising blood pressure.",
-        "clinicalPearls": [
-            "Autonomic dysreflexia is a medical emergency requiring immediate intervention to prevent stroke, seizure, or death.",
-            "Always prioritize assessing and addressing the underlying cause of autonomic dysreflexia, such as bladder distension, bowel impaction, or skin irritation.",
-            "Elevate the head of the bed as the FIRST intervention to reduce BP and decrease cerebral blood flow."
-        ],
-        "questionTrap": {
-            "trap": "The question focuses on immediate interventions. Many students might fixate on bowel impaction as *the* cause and miss the need for immediate blood pressure management. Students may also confuse interventions for hypertension in general with those specific to autonomic dysreflexia.",
-            "howToOvercome": "Prioritize interventions based on immediacy. Lowering blood pressure is paramount. Then, focus on identifying and addressing the trigger. Remember the unique pathophysiology of autonomic dysreflexia and its specific triggers."
-        },
-        "mnemonic": {
-            "title": "SIT UP",
-            "expansion": "S: Sit the patient up (elevate HOB).\nI: Investigate the cause (bladder, bowel, skin).\nT: Treat the blood pressure (antihypertensives).\nU: Undo constrictive clothing.\nP: Prevent further episodes (patient education)."
-        }
-    },
     "matrixMatch": {
         "rows": [
-            "Elevate the head of the bed.",
-            "Administer a beta-blocker.",
-            "Assess for bowel impaction.",
-            "Administer hydralazine 10mg IV per MAR.",
-            "Lower the head of the bed.",
-            "Place patient in Trendelenburg position.",
-            "Encourage deep breathing exercises.",
-            "Remove constrictive clothing.",
-            "Check for bladder distension.",
-            "Massage the legs."
+            "Elevate the head of the bed to 90 degrees.",
+            "Administer metoprolol 5 mg IV push.",
+            "Assess for bladder distention and catheter patency.",
+            "Administer hydralazine 10 mg IV push per orders.",
+            "Place the client in Trendelenburg position."
         ],
         "columns": [
             "Indicated",
@@ -88,17 +241,68 @@
             "Neutral"
         ],
         "matches": {
-            "Elevate the head of the bed.": "Indicated",
-            "Administer a beta-blocker.": "Contraindicated",
-            "Assess for bowel impaction.": "Indicated",
-            "Administer hydralazine 10mg IV per MAR.": "Indicated",
-            "Lower the head of the bed.": "Contraindicated",
-            "Place patient in Trendelenburg position.": "Contraindicated",
-            "Encourage deep breathing exercises.": "Neutral",
-            "Remove constrictive clothing.": "Indicated",
-            "Check for bladder distension.": "Indicated",
-            "Massage the legs.": "Contraindicated"
+            "Elevate the head of the bed to 90 degrees.": "Indicated",
+            "Administer metoprolol 5 mg IV push.": "Contraindicated",
+            "Assess for bladder distention and catheter patency.": "Indicated",
+            "Administer hydralazine 10 mg IV push per orders.": "Indicated",
+            "Place the client in Trendelenburg position.": "Contraindicated"
         }
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity",
+        "reviewUnits": [
+            "Neurological Disorders",
+            "Spinal Cord Injury",
+            "Pharmacology",
+            "Emergency Management"
+        ]
+    },
+    "rationale": {
+        "correct": "Autonomic dysreflexia (AD) is a life-threatening emergency in clients with spinal cord injuries at T6 or above. It is caused by a noxious stimulus below the level of injury, leading to an imbalanced sympathetic nervous system response. This results in severe hypertension, bradycardia, and other symptoms. The management priorities are to immediately lower the blood pressure to prevent stroke or seizure and then to identify and eliminate the underlying cause. This involves a rapid, systematic approach combining positioning, pharmacological intervention, and diagnostic assessment.",
+        "answerBreakdown": [
+            {
+                "option": "Elevate the head of the bed to 90 degrees.",
+                "classification": "Indicated",
+                "content": "This is the first and most crucial nursing action. Placing the client in a high-Fowler's position uses gravity to cause orthostatic hypotension, promoting venous pooling in the lower extremities. This reduces venous return to the heart, decreases cardiac output, and helps lower blood pressure immediately while the nurse searches for the cause."
+            },
+            {
+                "option": "Administer metoprolol 5 mg IV push.",
+                "classification": "Contraindicated",
+                "content": "The client is already experiencing significant bradycardia (HR 50 bpm), which is a classic sign of AD. The hypertension triggers a baroreceptor reflex, causing a vagal response that slows the heart rate. Administering a beta-blocker like metoprolol would worsen the bradycardia, potentially leading to dangerously low cardiac output and cardiovascular collapse."
+            },
+            {
+                "option": "Assess for bladder distention and catheter patency.",
+                "classification": "Indicated",
+                "content": "The most common cause of AD (up to 85% of cases) is bladder-related issues. Even if a catheter is present, it could be kinked, clogged, or malpositioned. A rapid assessment for bladder distention and ensuring catheter patency is a high-priority action to identify and remove the noxious stimulus, which is the definitive treatment."
+            },
+            {
+                "option": "Administer hydralazine 10 mg IV push per orders.",
+                "classification": "Indicated",
+                "content": "The client's systolic blood pressure is 210 mmHg, which is dangerously high and places them at risk for stroke. The standing order for hydralazine for SBP > 180 mmHg should be implemented promptly after elevating the head of the bed. Hydralazine is a direct-acting vasodilator that will help lower the blood pressure while the underlying cause is being addressed."
+            },
+            {
+                "option": "Place the client in Trendelenburg position.",
+                "classification": "Contraindicated",
+                "content": "This position would dramatically increase venous return to the heart and raise intracranial pressure, severely exacerbating the hypertensive crisis. It is the opposite of the indicated intervention and would be extremely dangerous for this client."
+            }
+        ],
+        "clinicalPearls": [
+            "Autonomic dysreflexia is a medical emergency. The first action is always to sit the client up to lower blood pressure.",
+            "The classic triad of symptoms for AD is severe hypertension, pounding headache, and bradycardia.",
+            "Never assume a patent urinary catheter means the bladder is not the source of the problem. Always check for kinks, clogs, and bladder spasms."
+        ],
+        "questionTrap": "A common trap is to focus on the bradycardia (HR 50) and consider withholding antihypertensives or treating the low heart rate. In AD, the hypertension is the primary threat, and the bradycardia is a secondary reflex. The priority is to lower the blood pressure, not raise the heart rate.",
+        "mnemonic": {
+            "title": "AD Management: The HIGH-5",
+            "expansion": "H: Head of Bed Up (90 degrees)\nI: Investigate & Irrigate (Check bladder/bowel)\nG: Give Antihypertensives\nH: Hang up tight clothing (Remove constrictive items)\n5: Five-minute vitals (Monitor closely)"
+        }
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:22:01.242Z"
 }

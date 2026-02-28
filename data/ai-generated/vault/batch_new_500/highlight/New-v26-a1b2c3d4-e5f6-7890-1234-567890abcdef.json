@@ -1,70 +1,262 @@
 {
     "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
     "type": "highlight",
-    "stem": "The nurse is reviewing the patient's electronic health record. Based on the information provided, identify the findings that indicate an increased risk for suicide. Click to highlight the relevant information.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "stem": "The nurse reviews the 07:00 progress note in the client's clinical record. Click to highlight the findings that indicate an acute, increased risk for suicide.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Client appears agitated and withdrawn."
+        },
+        {
+            "id": "opt_02",
+            "text": "He has refused breakfast."
+        },
+        {
+            "id": "opt_03",
+            "text": "He states, \"I don't see any point in going on.\""
+        },
+        {
+            "id": "opt_04",
+            "text": "His father died by suicide 10 years ago."
+        },
+        {
+            "id": "opt_05",
+            "text": "He recently lost his job and is going through a divorce."
+        },
+        {
+            "id": "opt_06",
+            "text": "He stopped taking his sertraline 6 months ago."
+        },
+        {
+            "id": "opt_07",
+            "text": "Vital signs are stable."
+        },
+        {
+            "id": "opt_08",
+            "text": "Toxicology screen was negative."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt__03",
+        "opt_04",
+        "opt_05",
+        "opt_06"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Michael Chen",
-            "age": 32,
-            "gender": "Male",
-            "iso": "Medical Unit",
+            "age": "32 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "S: Michael Chen, a 32-year-old male, was admitted at 02:00 today. He presents with increased anxiety and reports feeling overwhelmed due to job loss and recent divorce. B: Patient has a history of depression, diagnosed at age 25. He was previously treated with sertraline but discontinued medication 6 months ago. Patient reports a family history of suicide; his father died by suicide 10 years ago. A: At 07:00, the patient appears agitated and withdrawn. He is pacing in his room and has refused breakfast. He states, \"I don't see any point in going on.\" Vital signs are stable. R: Requesting immediate psychiatric evaluation and suicide risk assessment. Consider initiating suicide precautions. I will continue to monitor closely. Notified Dr. Lee at 07:15.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Lab Results (06:00):\nSodium: 140 mEq/L\nPotassium: 4.2 mEq/L\nChloride: 102 mEq/L\nBUN: 15 mg/dL\nCreatinine: 1.0 mg/dL\nGlucose: 95 mg/dL\nToxicology Screen: Negative"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (Day 1, 02:00)\n\nS: Client is a 32-year-old male, Michael Chen, admitted voluntarily for evaluation of major depressive disorder and suicidal ideation. He reports feeling 'overwhelmed' and 'hopeless' since losing his job two months ago and separating from his wife.\n\nB: Client has a history of depression diagnosed at age 25. He was prescribed sertraline but self-discontinued 6 months ago, citing feeling 'better'. His father died by suicide when the client was 22. The client lives alone and reports increasing social isolation. He recently lost his employer-sponsored health insurance, creating a significant barrier to accessing outpatient psychiatric care.\n\nA: On admission, client is tearful, anxious, with a flat affect. He denies an active suicide plan or intent but endorses a passive death wish, stating, 'It would be easier if I just didn't wake up.'\n\nR: Admit to inpatient psychiatric unit. Initiate 1:1 constant observation for suicide precautions. Consult psychiatry for evaluation and medication management. Obtain admission labs.\n\n---\n\nProgress Note (Day 1, 07:00)\n\nS: Client reports sleeping for only 2 hours and feeling 'exhausted'.\n\nB: Admitted 5 hours ago for suicidal ideation and major depressive episode.\n\nA: <opt_01>Client appears agitated and withdrawn.</opt_01> He is pacing intermittently in his room. <opt_02>He has refused breakfast.</opt_02> <opt_03>He states, \"I don't see any point in going on.\"</opt_03> When asked about his family, he noted that <opt_04>his father died by suicide 10 years ago.</opt_04> He verbalized distress about his current life stressors, stating <opt_05>he recently lost his job and is going through a divorce.</opt_05> Medication history review confirms <opt_06>he stopped taking his sertraline 6 months ago.</opt_06> <opt_07>Vital signs are stable.</opt_07> Admission labs reviewed. <opt_08>Toxicology screen was negative.</opt_08>\n\nR: Continue 1:1 observation. STAT page to psychiatry for immediate evaluation due to escalating risk. Offer PRN lorazepam for agitation. Will re-attempt to offer nutrition in 1 hour."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Medication Administration Record:\nSertraline 50mg PO daily (Discontinued 6 months ago)\nPRN Orders:\nLorazepam 1mg PO q4h PRN anxiety (Not administered)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "02:00",
+                        "Temp": "98.6°F (37.0°C)",
+                        "HR": "88 bpm",
+                        "RR": "18/min",
+                        "BP": "128/78 mmHg (MAP 95)",
+                        "SpO2": "99% on room air"
+                    },
+                    {
+                        "Time": "04:00",
+                        "Temp": "98.7°F (37.1°C)",
+                        "HR": "94 bpm",
+                        "RR": "20/min",
+                        "BP": "132/80 mmHg (MAP 97)",
+                        "SpO2": "98% on room air"
+                    },
+                    {
+                        "Time": "07:00",
+                        "Temp": "98.6°F (37.0°C)",
+                        "HR": "92 bpm",
+                        "RR": "20/min",
+                        "BP": "130/80 mmHg (MAP 97)",
+                        "SpO2": "98% on room air"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "Vital Signs (07:00):\nTemperature: 98.6°F (37°C)\nHeart Rate: 92 bpm\nRespiratory Rate: 20 breaths/min\nBlood Pressure: 130/80 mmHg\nOxygen Saturation: 98% on room air"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Sodium",
+                        "Result": "140",
+                        "Unit": "mEq/L",
+                        "Reference": "136-145",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Potassium",
+                        "Result": "4.2",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "15",
+                        "Unit": "mg/dL",
+                        "Reference": "10-20",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "1.0",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Glucose",
+                        "Result": "95",
+                        "Unit": "mg/dL",
+                        "Reference": "70-110",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Urine Drug Screen",
+                        "Result": "Negative",
+                        "Unit": "",
+                        "Reference": "Negative",
+                        "Status": ""
+                    }
+                ]
             },
             {
-                "id": "notes",
-                "title": "Nurses' Notes",
-                "content": "02:00: Patient admitted to medical unit. Appears anxious and tearful. Reports feelings of hopelessness and worthlessness related to job loss and divorce. \n03:00: Patient oriented to room and hospital policies. Encouraged to rest.\n06:00: Patient observed pacing in room. Reports difficulty sleeping. Refused morning medications.\n07:00: Patient states, <highlight>\"I don't see any point in going on.\"</highlight> <highlight>Appears increasingly agitated and withdrawn.</highlight> Refused breakfast. Family history of suicide noted. <highlight>History of depression, previously treated with sertraline, but discontinued 6 months ago.</highlight> <highlight>Reports feeling overwhelmed due to job loss and recent divorce.</highlight> <highlight>Patient is pacing in his room.</highlight>"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Admission Assessment (02:15):\nNeurological: Alert and oriented x4. Speech clear. Affect flat. Appears anxious.\nCardiovascular: S1, S2 audible. Rate regular. No murmurs.\nRespiratory: Lungs clear to auscultation bilaterally. Respirations unlabored.\nGI/GU: Abdomen soft, non-tender. Bowel sounds active.\nIntegumentary: Skin warm, dry, intact. No evidence of self-harm.\n\nFocused Assessment (07:00):\nPsychiatric: Client is withdrawn with poor eye contact. Appears agitated, pacing in room. Speech is slow with delayed responses. Affect remains flat."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "No imaging studies on file."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 02:10",
+                        "Action": "Admit to inpatient psychiatric unit.",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 02:10",
+                        "Action": "1:1 Constant Observation (Suicide Precautions)",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 02:10",
+                        "Action": "Psychiatry Consult",
+                        "Frequency/Status": "Stat"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 02:10",
+                        "Action": "Basic Metabolic Panel, CBC, Urine Drug Screen",
+                        "Frequency/Status": "Stat"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Sertraline",
+                        "Dose": "50 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "N/A (Discontinued 6 months prior)"
+                    },
+                    {
+                        "Medication": "Lorazepam",
+                        "Dose": "1 mg",
+                        "Route": "PO",
+                        "Frequency": "Every 4 hours PRN Anxiety/Agitation",
+                        "Last Administered": "N/A"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Psychosocial Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Mental Health: Suicide Risk & Crisis Management"
+    "rationale": {
+        "correct": "The combination of direct suicidal ideation, significant psychosocial stressors (job loss, divorce), a family history of suicide, untreated depression (sertraline discontinuation), and behavioral changes (agitation, withdrawal) indicates a high and acute risk for suicide. These factors collectively create a clinical picture requiring immediate intervention.",
+        "incorrect": "While findings like refusing breakfast are consistent with depression, they are less specific for acute suicide risk than direct statements of hopelessness. Physiologically reassuring data, such as stable vital signs and a negative toxicology screen, are critical distractors; they do not mitigate the severity of the client's psychological crisis and must not lead to a de-escalation of concern.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. Agitation and withdrawal are significant behavioral cues. Agitation can be a precursor to impulsive self-harm, while withdrawal indicates severe depression and hopelessness."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. Anorexia is a common symptom of major depression but is not a specific indicator of acute suicide risk compared to other available cues."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. This is a direct statement of hopelessness and passive suicidal ideation. It is the most critical finding and must be prioritized as an indicator of acute risk."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. A family history of suicide is one of the strongest demographic risk factors, potentially due to genetic predisposition and the normalization of suicide as a coping mechanism."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. The loss of a job and the breakdown of a primary relationship are major psychosocial stressors that can precipitate a suicidal crisis, especially in an individual with pre-existing depression."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. Abrupt discontinuation of an SSRI like sertraline can lead to a relapse of depressive symptoms, significantly increasing the risk of suicide. The client's depression is currently untreated."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. This is a key distractor. A client can be at imminent risk of suicide while maintaining physiological stability. Psychological safety and physiological safety are two distinct assessments."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Incorrect. While substance use is a risk factor, its absence does not decrease the risk from other factors like severe depression and hopelessness. This finding rules out intoxication as a contributor but does not make the client safe."
+            }
+        ],
+        "clinicalPearls": [
+            "Physiological stability (e.g., normal vital signs) can create a false sense of security and must never override a thorough psychosocial and suicide risk assessment.",
+            "A client's risk for suicide is dynamic and can escalate rapidly. Continuous assessment is required, especially following admission or a change in status.",
+            "The presence of multiple risk factors (e.g., history, recent loss, untreated illness) has a synergistic effect, exponentially increasing the overall risk of suicide."
+        ],
+        "questionTrap": "The 'Reassuring Data' Trap: Test-takers may be drawn to clinically 'normal' findings like stable vitals or a negative drug screen, incorrectly using them to downplay the severity of psychiatric symptoms. Always prioritize direct statements of intent/hopelessness and acute behavioral changes in risk assessment.",
+        "mnemonic": {
+            "title": "SAD PERSONS Scale",
+            "expansion": "Sex (Male), Age (<19 or >45), Depression, Previous attempt, Ethanol/drug use, Rational thinking loss, Social supports lacking, Organized plan, No spouse, Sickness. This tool helps recall key risk factors."
+        },
+        "reviewUnits": [
+            "Mental Health Concepts",
+            "Safety and Infection Control",
+            "Psychosocial Integrity"
         ]
     },
-    "rationale": {
-        "correct": "The highlighted findings indicate an increased risk for suicide. These include: the patient's direct statement expressing suicidal ideation ('I don't see any point in going on'); his agitated and withdrawn presentation; his history of depression with recent discontinuation of medication; the recent stressors of job loss and divorce; and the patient pacing which indicates anxiety/agitation.",
-        "incorrect": "The lab values, vital signs, and general admission notes do not directly indicate an immediate increased risk for suicide. While these elements are important for overall patient care, they do not contribute to the acute assessment of suicide risk in this scenario. Normal lab values and vital signs do not negate the presence of suicidal ideation or intent.",
-        "clinicalPearls": [
-            "Always take statements of hopelessness or worthlessness seriously, as they can be indicators of suicidal ideation.",
-            "Recent life stressors, such as job loss and divorce, can significantly increase the risk of suicide, especially in individuals with a history of depression.",
-            "Discontinuation of antidepressant medication can lead to a relapse of depressive symptoms and increase the risk of suicide.",
-            "Family history of suicide is a significant risk factor for suicide."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on the vital signs or lab results can distract from the more critical psychological factors.",
-            "howToOvercome": "Prioritize assessing the patient's mental state, paying close attention to any expressions of hopelessness, worthlessness, or suicidal ideation. Consider the patient's history and recent life events."
-        },
-        "mnemonic": {
-            "title": "IS PATH WARM",
-            "expansion": "Ideation, Substance abuse, Purposelessness, Anxiety, Trapped, Hopelessness, Withdrawal, Anger, Recklessness, Mood change"
-        }
-    }
+    "scoring": {
+        "method": "+/- 1.0 Penalty",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Psychosocial Integrity"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:29:39.760Z"
 }

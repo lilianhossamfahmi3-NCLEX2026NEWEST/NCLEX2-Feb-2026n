@@ -1,77 +1,326 @@
 {
     "id": "New-v26-8a9b7c2d-3e4f-5061-7283-94a5b6c7d8e9",
-    "type": "clozeDropdown",
-    "stem": "Based on the patient's presentation and vital signs, the patient is MOST likely experiencing [{1: hypovolemic, cardiogenic, septic, anaphylactic}] shock. The initial compensatory mechanism observed is [{2: increased, decreased}] heart rate, attempting to maintain cardiac output. However, the body's attempt to compensate is failing, as evidenced by the [{3: increased, decreased}] blood pressure. Therefore, the priority nursing intervention is to administer [{4: crystalloid bolus, vasopressors, antihistamines, bronchodilators}].",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
+    "type": "matrixMatch",
+    "stem": "The nurse is analyzing cues for a client on post-operative day 1. For each finding below, select the potential condition(s) it indicates. Each finding may support one or more conditions.",
+    "rows": [
+        {
+            "id": "row1",
+            "text": "Tachycardia and Hypotension"
+        },
+        {
+            "id": "row2",
+            "text": "Hemoglobin 8.2 g/dL & Hematocrit 25%"
+        },
+        {
+            "id": "row3",
+            "text": "Lactate 3.5 mmol/L"
+        },
+        {
+            "id": "row4",
+            "text": "Urine Output < 30 mL over 4 hours"
+        }
+    ],
+    "columns": [
+        {
+            "id": "col1",
+            "text": "Hypovolemic Shock"
+        },
+        {
+            "id": "col2",
+            "text": "Septic Shock"
+        },
+        {
+            "id": "col3",
+            "text": "Cardiogenic Shock"
+        }
+    ],
+    "correctResponse": {
+        "row1": [
+            "col1",
+            "col2",
+            "col3"
+        ],
+        "row2": [
+            "col1"
+        ],
+        "row3": [
+            "col1",
+            "col2",
+            "col3"
+        ],
+        "row4": [
+            "col1",
+            "col2",
+            "col3"
+        ]
     },
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "MRN: 1234567",
+            "id": "MRN1234567",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ],
-            "condition": "Droplet"
+            "isolation": "Standard Precautions"
         },
-        "sbar": "S: This is the nurse caring for Mr. Smith, a 68-year-old male, post-op day 1 from a bowel resection, who is exhibiting signs of shock. O: At 06:00, his BP was 100/60, HR 110, RR 24, and SpO2 94% on 2L NC. At 07:00, his BP dropped to 90/50, HR increased to 120, RR is 28, and SpO2 is 92% on 2L NC. Urine output has been minimal since surgery, less than 30mL in the last 4 hours. The surgical dressing is dry and intact, but his abdominal girth has increased. Labs show Hgb 8.2, Hct 25, and Lactate 3.5. A: I suspect hypovolemic shock secondary to possible internal bleeding or fluid shifts. The increased abdominal girth and low H&H support this assessment. B: Current orders include NS at 100mL/hr, pain meds PRN, and routine post-op care. He has a history of hypertension, managed with lisinopril prior to admission. The last dose of lisinopril was held pre-op. The patient is oriented to person only and complains of dizziness. His current pain level is 2/10.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: This is the nurse caring for Mr. Smith, a 68-year-old male, post-op day 1 from a bowel resection, who is exhibiting signs of shock. O: At 06:00, his BP was 100/60, HR 110, RR 24, and SpO2 94% on 2L NC. At 07:00, his BP dropped to 90/50, HR increased to 120, RR is 28, and SpO2 is 92% on 2L NC. Urine output has been minimal since surgery, less than 30mL in the last 4 hours. The surgical dressing is dry and intact, but his abdominal girth has increased. Labs show Hgb 8.2, Hct 25, and Lactate 3.5. A: I suspect hypovolemic shock secondary to possible internal bleeding or fluid shifts. The increased abdominal girth and low H&H support this assessment. B: Current orders include NS at 100mL/hr, pain meds PRN, and routine post-op care. He has a history of hypertension, managed with lisinopril prior to admission. The last dose of lisinopril was held pre-op. The patient is oriented to person only and complains of dizziness. His current pain level is 2/10."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Yesterday at 14:00",
+                        "body": "S: Client is a 68-year-old male admitted for a scheduled bowel resection due to diverticular disease. Reports intermittent abdominal pain over the last 3 months. History of hypertension controlled with lisinopril.\nB: Pre-operative labs and ECG are within normal limits. Client understands the procedure and has provided consent. NPO since midnight. Last dose of lisinopril was held this morning as per surgical protocol. Adult child is at the bedside and serves as primary support.\nA: Client is calm, cooperative, and prepared for surgery. Vital signs are stable. IV access established with an 18-gauge catheter in the left forearm. Pre-operative checklist is complete.\nR: Awaiting transport to the operating room. Will continue to monitor vital signs and provide emotional support."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Today at 07:30",
+                        "body": "S: Client is post-operative day 1 from a bowel resection. He is oriented to person only and reports feeling dizzy and weak. Pain is rated 2/10 at the surgical site.\nB: Client returned from PACU yesterday evening. He has a history of hypertension. He lives alone in a second-floor apartment with no elevator, which may present a barrier upon discharge. His adult child is involved in care planning.\nA: Vital signs are trending downwards: BP is now 90/50 mmHg with a MAP of 63, HR 120 bpm, RR 28/min, SpO2 92% on 2L NC. Skin is cool and clammy. Abdomen is distended with an increase in girth of 4 cm since 04:00. Surgical dressing is dry and intact. Urine output is only 25 mL in the past 4 hours. Labs from 07:00 show critical Hgb/Hct.\nR: Suspect hypovolemic shock secondary to internal hemorrhage. Recommend STAT physician notification, rapid fluid bolus, and preparation for potential blood product administration."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Hgb: 8.2 g/dL, Hct: 25%, WBC: 12,000/uL, Na: 140 mEq/L, K: 3.8 mEq/L, Creatinine: 1.4 mg/dL, Lactate: 3.5 mmol/L"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "04:00",
+                        "HR": "105 bpm",
+                        "BP": "108/64 mmHg (MAP 79)",
+                        "RR": "22/min",
+                        "SpO2": "95% on 2L NC",
+                        "Temp": "99.1°F (37.3°C)"
+                    },
+                    {
+                        "Time": "06:00",
+                        "HR": "110 bpm",
+                        "BP": "100/60 mmHg (MAP 73)",
+                        "RR": "24/min",
+                        "SpO2": "94% on 2L NC",
+                        "Temp": "98.9°F (37.2°C)"
+                    },
+                    {
+                        "Time": "07:30",
+                        "HR": "120 bpm",
+                        "BP": "90/50 mmHg (MAP 63)",
+                        "RR": "28/min",
+                        "SpO2": "92% on 2L NC",
+                        "Temp": "98.4°F (36.9°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Morphine 2mg IV PRN pain, Ondansetron 4mg IV PRN nausea, NS 100mL/hr continuous"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Hemoglobin (Hgb)",
+                        "Result": "8.2",
+                        "Unit": "g/dL",
+                        "Reference": "14-18",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Hematocrit (Hct)",
+                        "Result": "25",
+                        "Unit": "%",
+                        "Reference": "42-52",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "White Blood Cell (WBC)",
+                        "Result": "12.5",
+                        "Unit": "x 10³/μL",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "180",
+                        "Unit": "x 10³/μL",
+                        "Reference": "150-450",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Sodium (Na)",
+                        "Result": "140",
+                        "Unit": "mEq/L",
+                        "Reference": "136-145",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Potassium (K)",
+                        "Result": "3.8",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "1.4",
+                        "Unit": "mg/dL",
+                        "Reference": "0.7-1.3",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate",
+                        "Result": "3.5",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 100/60, HR 110, RR 24, SpO2 94% on 2L NC. 07:00: BP 90/50, HR 120, RR 28, SpO2 92% on 2L NC."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "Oriented to person only, confused to time and place. Restless. PERRLA intact."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Tachycardia with S1, S2 audible. Pulses +1 peripherally. Capillary refill >3 seconds. Skin is cool, pale, and clammy."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Tachypneic. Lungs clear to auscultation bilaterally. Symmetrical chest expansion."
+                    },
+                    {
+                        "System": "Gastrointestinal",
+                        "Findings": "Abdomen distended and firm. Hypoactive bowel sounds in all four quadrants. Surgical incision clean, dry, and intact with staples. Abdominal girth at umbilicus is 104 cm (was 100 cm at 04:00)."
+                    },
+                    {
+                        "System": "Genitourinary",
+                        "Findings": "Indwelling urinary catheter in place, draining scant, concentrated urine. 25 mL output in last 4 hours."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "Report": "No recent imaging reports available."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Yesterday 18:00",
+                        "Action": "Vital signs every 4 hours",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 18:00",
+                        "Action": "NPO",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 18:00",
+                        "Action": "Bed rest with bathroom privileges",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 18:00",
+                        "Action": "Normal Saline 0.9% continuous IV infusion at 100 mL/hr",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 18:00",
+                        "Action": "Monitor urine output every hour",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 18:00",
+                        "Action": "Measure abdominal girth every 4 hours",
+                        "Status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Normal Saline 0.9%",
+                        "Dose": "100 mL/hr",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last Administered": "Ongoing"
+                    },
+                    {
+                        "Medication": "Morphine Sulfate",
+                        "Dose": "2 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN every 2 hours for pain > 6",
+                        "Last Administered": "Yesterday 22:15"
+                    },
+                    {
+                        "Medication": "Ondansetron",
+                        "Dose": "4 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN every 6 hours for nausea",
+                        "Last Administered": "N/A"
+                    }
+                ]
             }
-        ],
-        "isolation": "Standard"
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
         ]
     },
     "rationale": {
-        "correct": "Hypovolemic shock is the most likely diagnosis given the patient's post-operative status, low hemoglobin/hematocrit levels suggesting blood loss, decreased urine output, and increasing abdominal girth, potentially indicating internal bleeding or fluid accumulation. The increased heart rate is a compensatory mechanism to maintain cardiac output when circulating volume is reduced. The falling blood pressure indicates decompensation, meaning the compensatory mechanisms are failing. Administering a crystalloid bolus is the priority nursing intervention to increase circulating volume and improve tissue perfusion. Rapid fluid replacement is essential in hypovolemic shock to restore adequate blood volume and prevent further deterioration. \n\nclinicalPearl: Monitor the patient closely for signs of fluid overload during fluid resuscitation, such as crackles in the lungs or increased work of breathing.",
-        "incorrect": "Cardiogenic shock would be suspected if the patient had a history of heart failure or recent myocardial infarction, which is not indicated in this scenario. Septic shock would be suspected with signs of infection, such as fever and elevated white blood cell count, which are not the primary indicators here. Anaphylactic shock would be suspected with exposure to an allergen and signs of airway compromise and hives, which are also not present. While vasopressors, antihistamines, and bronchodilators may be indicated later in the patient's treatment, the priority is to address the hypovolemia with a crystalloid bolus. Vasopressors are typically used after fluid resuscitation has been initiated and is inadequate to maintain blood pressure. Antihistamines are used for allergic reactions, and bronchodilators are used for airway constriction. \n\nclinicalPearl: Early recognition and treatment of hypovolemic shock are crucial to prevent irreversible organ damage and improve patient outcomes.",
-        "clinicalPearls": [
-            "In hypovolemic shock, fluid resuscitation is the cornerstone of treatment.",
-            "Monitor urine output closely as an indicator of renal perfusion and overall fluid status.",
-            "Lactate levels can indicate the severity of tissue hypoperfusion.",
-            "Assess for signs of internal bleeding, such as increasing abdominal girth or changes in vital signs."
+        "correct": "The client's clinical presentation strongly indicates hypovolemic shock, likely from a post-operative hemorrhage. The combination of specific cues (critically low hemoglobin/hematocrit, increasing abdominal girth) with non-specific signs of shock (tachycardia, hypotension, oliguria, elevated lactate) allows the nurse to correctly analyze the situation. While many findings are common across all shock states, the evidence of significant blood loss is the key differentiator.",
+        "incorrect": "Septic shock is less likely as there are no definitive signs of infection, such as a fever (client is afebrile) or a confirmed source, although the WBC is mildly elevated which can occur with post-operative stress. Cardiogenic shock is unlikely given the absence of a relevant cardiac history (e.g., MI, heart failure), chest pain, or signs of pulmonary edema (lungs are clear). The primary problem is volume loss, not pump failure.",
+        "answerBreakdown": [
+            {
+                "rowId": "row1",
+                "content": "Tachycardia and hypotension are hallmark signs of decompensated shock. The body increases heart rate (tachycardia) to compensate for low stroke volume, but when this fails, blood pressure drops (hypotension). This is a non-specific finding present in all three types of shock (hypovolemic, septic, and cardiogenic) as the final common pathway of circulatory failure."
+            },
+            {
+                "rowId": "row2",
+                "content": "A low hemoglobin and hematocrit level is a specific indicator of hemorrhagic hypovolemic shock. This finding directly points to a loss of red blood cells and circulating volume, which is not a primary feature of septic or cardiogenic shock unless a secondary bleed occurs."
+            },
+            {
+                "rowId": "row3",
+                "content": "An elevated lactate level indicates cellular hypoxia and a shift to anaerobic metabolism. This occurs when tissue perfusion is inadequate to meet oxygen demands. It is a non-specific marker of systemic hypoperfusion and is therefore seen in all forms of shock."
+            },
+            {
+                "rowId": "row4",
+                "content": "Low urine output (oliguria) is a sign of decreased renal perfusion. The kidneys are highly sensitive to changes in blood volume and pressure. In any shock state, blood is shunted away from the kidneys to vital organs, leading to a drop in urine production. This is a non-specific finding common to all three shock types."
+            }
         ],
-        "questionTrap": {
-            "trap": "Selecting vasopressors first might seem correct due to the low blood pressure, but they are generally administered AFTER initial fluid resuscitation unless the patient remains hypotensive despite adequate fluid volume. Administering vasopressors before addressing the underlying hypovolemia can worsen tissue perfusion and compromise organ function.",
-            "howToOvercome": "Prioritize interventions based on the underlying cause of the shock. In hypovolemic shock, restoring circulating volume is the first step to improve blood pressure and tissue perfusion. Remember the principle of 'filling the tank' before 'squeezing the pipes' with vasopressors."
-        },
+        "clinicalPearls": [
+            "In post-operative clients, always consider hemorrhage as a cause of hypovolemia, even with a clean and dry surgical dressing. Internal bleeding can be insidious.",
+            "Mean Arterial Pressure (MAP) is a critical indicator of organ perfusion. A MAP below 65 mmHg is generally considered insufficient to perfuse vital organs.",
+            "A rising lactate level is a more sensitive indicator of worsening tissue hypoperfusion than blood pressure alone, which may be maintained initially by compensatory mechanisms."
+        ],
+        "questionTrap": "The primary trap is focusing on the non-specific signs of shock (hypotension, tachycardia, high lactate) without identifying the specific, cause-related cue. Many candidates might see these and be unable to differentiate. The key is to find the data point that tells the 'why'—in this case, the low Hgb/Hct and increasing abdominal girth point directly to hemorrhage.",
         "mnemonic": {
-            "title": "STOP THE BLEED",
-            "expansion": "S: Stop the source of fluid loss. T: Trendelenburg position (modified). O: Oxygen administration. P: Pressors (after fluid resuscitation). T: Trend vital signs. H: Head-to-toe assessment. E: Evaluate LOC. B: Blood products (if indicated). L: Labs (CBC, CMP, Lactate). E: Ensure IV access. E: Emergency equipment nearby. D: Document interventions."
-        }
-    }
+            "title": "SHOCK Assessment",
+            "expansion": "S - Skin: Assess color, temperature, moisture (cool, clammy, pale).\nH - Heart Rate: Tachycardia is an early sign.\nO - Output (Urine): Oliguria indicates poor renal perfusion.\nC - Consciousness: Altered mental status (confusion, restlessness) is a sign of cerebral hypoperfusion.\nK - K(C)apillary Refill: Delayed refill (>2-3 seconds) indicates poor peripheral perfusion."
+        },
+        "reviewUnits": [
+            "Pathophysiology of Shock States",
+            "Post-operative Complications",
+            "Fluid and Electrolyte Balance",
+            "Interpretation of CBC and Lactate"
+        ]
+    },
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:50:20.250Z"
 }

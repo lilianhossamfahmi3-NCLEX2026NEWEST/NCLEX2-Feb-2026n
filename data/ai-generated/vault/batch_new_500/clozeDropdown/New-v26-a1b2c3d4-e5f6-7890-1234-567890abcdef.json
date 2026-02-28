@@ -3,110 +3,438 @@
     "type": "clozeDropdown",
     "stem": "The patient's presentation is MOST consistent with [dropdown1]. The priority nursing intervention is [dropdown2] to address the [dropdown3]. The nurse should also immediately monitor for [dropdown4] as a potential complication.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 4
     },
     "itemContext": {
         "patient": {
             "name": "Josephine Baker",
-            "age": 78,
-            "gender": "Female",
-            "iso": "Medical ICU",
+            "age": "78 years",
+            "sex": "Female",
+            "pronouns": "She/Her",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Josephine Baker, a 78-year-old female, admitted two days ago for pneumonia, is exhibiting altered mental status, increasing confusion, and rapid breathing. R: History includes type 2 diabetes, hypertension, and hyperlipidemia. Insulin glargine 20 units given nightly at 21:00. O: At 06:00, BP 90/60 mmHg, HR 135 bpm, RR 38 breaths/min, SpO2 92% on 4L nasal cannula, Temp 102.8°F (39.3°C). Labs: Glucose 680 mg/dL, K+ 3.1 mEq/L, Na+ 150 mEq/L, HCO3- 10 mEq/L, pH 7.25, BUN 45 mg/dL, Creatinine 2.0 mg/dL. WBC 18,000/mm3. A: Likely Diabetic Ketoacidosis (DKA) secondary to pneumonia and possible insulin non-adherence. Plan: Initiate normal saline bolus for rehydration, start insulin drip per DKA protocol, correct electrolyte imbalances with monitoring, and monitor mental status, respiratory distress, and potential complications. Repeat ABGs within the hour.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Josephine Baker, a 78-year-old female, admitted two days ago for pneumonia, is exhibiting altered mental status, increasing confusion, and rapid breathing. R: History includes type 2 diabetes, hypertension, and hyperlipidemia. Insulin glargine 20 units given nightly at 21:00. O: At 06:00, BP 90/60 mmHg, HR 135 bpm, RR 38 breaths/min, SpO2 92% on 4L nasal cannula, Temp 102.8°F (39.3°C). Labs: Glucose 680 mg/dL, K+ 3.1 mEq/L, Na+ 150 mEq/L, HCO3- 10 mEq/L, pH 7.25, BUN 45 mg/dL, Creatinine 2.0 mg/dL. WBC 18,000/mm3. A: Likely Diabetic Ketoacidosis (DKA) secondary to pneumonia and possible insulin non-adherence. Plan: Initiate normal saline bolus for rehydration, start insulin drip per DKA protocol, correct electrolyte imbalances with monitoring, and monitor mental status, respiratory distress, and potential complications. Repeat ABGs within the hour."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 14:00",
+                        "text": "S: 78-year-old female presents from home with a productive cough, fever, and shortness of breath for three days. Reports feeling progressively weaker.\nB: History of Type 2 Diabetes Mellitus, hypertension, and hyperlipidemia. Manages diabetes with insulin glargine. Lives alone on a fixed income. Reports occasional difficulty affording medications. Allergic to penicillin.\nA: Alert and oriented x3. Temp 101.2°F, HR 105, RR 22, BP 138/84, SpO2 94% on room air. Coarse crackles noted in the right lower lung base. Chest X-ray ordered to rule out pneumonia. Blood cultures drawn. Labs pending.\nR: Admit to medical-surgical unit for management of suspected community-acquired pneumonia. Start empiric antibiotics after cultures are obtained. Provide supplemental oxygen as needed. Monitor vital signs and glycemic control closely."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 3, 06:15",
+                        "text": "S: Called to bedside for acute change in mental status. Patient is increasingly confused, tachypneic, and hypotensive.\nB: 78-year-old female admitted two days ago for right lower lobe pneumonia. History includes T2DM, HTN, HLD. Lives alone and reports financial barriers to consistent medication access. Last dose of insulin glargine was administered at 21:00 yesterday. Penicillin allergy noted.\nA: Vitals are deteriorating: BP 90/60 mmHg, HR 135 bpm, RR 38 breaths/min with a deep, rapid (Kussmaul) pattern, SpO2 92% on 4L nasal cannula, Temp 102.8°F (39.3°C). Neuro: GCS 13 (E4, V4, M5), disoriented. Skin turgor is poor with dry mucous membranes. Labs show severe hyperglycemia, metabolic acidosis, hypokalemia, and leukocytosis.\nR: Recommend immediate transfer to ICU and initiation of DKA protocol. Priority is aggressive IV fluid resuscitation with 0.9% NaCl. Prepare for an insulin infusion. Requires continuous cardiac and frequent neurological monitoring."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Glucose: 680 mg/dL, K+: 3.1 mEq/L, Na+: 150 mEq/L, HCO3-: 10 mEq/L, pH: 7.25, BUN: 45 mg/dL, Creatinine: 2.0 mg/dL, WBC: 18,000/mm3"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (breaths/min)",
+                        "SpO₂ (%)",
+                        "Temp °F (°C)"
+                    ],
+                    "rows": [
+                        [
+                            "02:00",
+                            "110",
+                            "118/76",
+                            "90",
+                            "24",
+                            "95% on 2L NC",
+                            "101.5 (38.6)"
+                        ],
+                        [
+                            "04:00",
+                            "122",
+                            "105/68",
+                            "80",
+                            "30",
+                            "93% on 4L NC",
+                            "102.1 (38.9)"
+                        ],
+                        [
+                            "06:00",
+                            "135",
+                            "90/60",
+                            "70",
+                            "38",
+                            "92% on 4L NC",
+                            "102.8 (39.3)"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Insulin Glargine 20 units subcutaneous at 21:00 daily, scheduled. Ceftriaxone 1g IVPB q12h, Metoprolol 25mg PO BID, Lisinopril 20mg PO Daily."
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "panel": "Metabolic & Hematology Panel (06:00)",
+                    "results": [
+                        {
+                            "test": "Glucose",
+                            "result": "680",
+                            "unit": "mg/dL",
+                            "range": "70-110",
+                            "status": "High"
+                        },
+                        {
+                            "test": "Potassium (K+)",
+                            "result": "3.1",
+                            "unit": "mEq/L",
+                            "range": "3.5-5.0",
+                            "status": "Low"
+                        },
+                        {
+                            "test": "Sodium (Na+)",
+                            "result": "150",
+                            "unit": "mEq/L",
+                            "range": "135-145",
+                            "status": "High"
+                        },
+                        {
+                            "test": "Bicarbonate (HCO3-)",
+                            "result": "10",
+                            "unit": "mEq/L",
+                            "range": "22-28",
+                            "status": "Low"
+                        },
+                        {
+                            "test": "Arterial pH",
+                            "result": "7.25",
+                            "unit": "",
+                            "range": "7.35-7.45",
+                            "status": "Low"
+                        },
+                        {
+                            "test": "BUN",
+                            "result": "45",
+                            "unit": "mg/dL",
+                            "range": "7-20",
+                            "status": "High"
+                        },
+                        {
+                            "test": "Creatinine",
+                            "result": "2.0",
+                            "unit": "mg/dL",
+                            "range": "0.6-1.2",
+                            "status": "High"
+                        },
+                        {
+                            "test": "WBC Count",
+                            "result": "18.0",
+                            "unit": "x10³/mm³",
+                            "range": "4.5-11.0",
+                            "status": "High"
+                        }
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 90/60, HR 135, RR 38, SpO2 92% on 4L NC, Temp 102.8°F (39.3°C)"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "General",
+                        "findings": "Appears acutely ill, restless on assessment."
+                    },
+                    {
+                        "system": "Neurological",
+                        "findings": "GCS 13 (E4, V4, M5). Disoriented to time and place. Pupils equal and reactive."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardia with regular rhythm. S1/S2 audible. Capillary refill >3 seconds. Peripheral pulses +1 bilaterally."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Tachypnea with deep, rapid respirations (Kussmaul breathing). Coarse crackles auscultated in the right lower lobe."
+                    },
+                    {
+                        "system": "Integumentary",
+                        "findings": "Skin is warm, flushed, and dry. Poor skin turgor noted on forearm. Mucous membranes are dry."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "report_type": "Chest X-ray (PA and Lateral)",
+                    "timestamp": "Day 1, 15:30",
+                    "findings": "There is evidence of an opacity and consolidation in the right lower lobe, consistent with an infectious process. The cardiomediastinal silhouette is within normal limits. The pleural spaces are clear with no evidence of effusion or pneumothorax.",
+                    "impression": "Right lower lobe pneumonia."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "Day 3, 06:20",
+                        "action": "Transfer to Medical ICU",
+                        "status": "Stat"
+                    },
+                    {
+                        "order_time": "Day 3, 06:20",
+                        "action": "Initiate DKA Management Protocol",
+                        "status": "Stat"
+                    },
+                    {
+                        "order_time": "Day 3, 06:20",
+                        "action": "Continuous cardiac monitoring",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "Day 3, 06:20",
+                        "action": "Vital signs every 15 minutes",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "Day 3, 06:20",
+                        "action": "Neurological checks every 1 hour",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "Day 3, 06:20",
+                        "action": "Establish second large-bore IV access",
+                        "status": "Stat"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Insulin Glargine",
+                            "20 units",
+                            "Subcutaneous",
+                            "Daily at 21:00",
+                            "Day 2, 21:00"
+                        ],
+                        [
+                            "Ceftriaxone",
+                            "1 g",
+                            "IV Piggyback",
+                            "Every 12 hours",
+                            "Day 3, 00:00"
+                        ],
+                        [
+                            "Metoprolol",
+                            "25 mg",
+                            "PO",
+                            "Twice daily",
+                            "Day 2, 21:00"
+                        ],
+                        [
+                            "Lisinopril",
+                            "20 mg",
+                            "PO",
+                            "Daily",
+                            "Day 2, 09:00"
+                        ]
+                    ]
+                }
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Endocrine",
-        "difficulty": 5,
-        "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
-        ]
+        "bloomLevel": "Applying",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Adaptation"
     },
     "rationale": {
-        "correct": "The patient's elevated glucose level, metabolic acidosis (indicated by low pH and bicarbonate), and elevated BUN/Creatinine levels strongly suggest a diagnosis of DKA. The immediate priority is fluid resuscitation using intravenous fluids to combat dehydration and improve renal perfusion. Addressing the dehydration will subsequently aid in improving renal perfusion and correcting electrolyte imbalances. Close monitoring for cerebral edema is crucial, especially during rapid correction of hyperglycemia, as it can be a life-threatening complication, particularly in elderly patients.",
-        "incorrect": "Incorrect answers demonstrate a failure to recognize the critical indicators of DKA and/or prioritize interventions incorrectly. Some options may address isolated symptoms but neglect the underlying pathophysiology or potential complications. For instance, administering potassium without addressing the underlying dehydration and acidosis can be dangerous and ineffective. While treating the underlying pneumonia is important, it is secondary to addressing the immediate metabolic crisis posed by the DKA.",
-        "clinicalPearls": [
-            "In DKA, always prioritize addressing dehydration with intravenous fluids as the initial intervention.",
-            "Closely monitor potassium levels during insulin administration, as insulin drives potassium into cells, potentially leading to rapid and severe hypokalemia. Have potassium replacement protocols readily available.",
-            "Maintain a high index of suspicion for signs and symptoms of cerebral edema, particularly in elderly patients or those with severe hyperglycemia undergoing rapid glucose correction.",
-            "Arterial blood gas (ABG) analysis is essential for monitoring the patient's acid-base status and guiding treatment adjustments."
+        "correct": "The patient's clinical data, including severe hyperglycemia (680 mg/dL), metabolic acidosis (pH 7.25, HCO3- 10 mEq/L), and signs of profound dehydration (hypotension, tachycardia, poor skin turgor), are hallmark indicators of Diabetic Ketoacidosis (DKA), often triggered by an underlying infection like pneumonia. The absolute priority in managing DKA is to correct the severe fluid volume deficit with intravenous fluids. This action addresses the circulatory collapse, improves tissue perfusion, and enhances renal clearance of glucose and ketones. Following fluid resuscitation, insulin therapy is initiated. A critical complication to monitor during DKA treatment is cerebral edema, which can result from rapid shifts in osmolality as glucose levels are corrected.",
+        "incorrect": "Distractor diagnoses like HHS are incorrect due to the presence of significant acidosis. Other interventions are secondary or inappropriate at this stage; administering insulin without first giving fluids can worsen hypotension and cause a precipitous drop in potassium. Treating hypokalemia or administering bicarbonate before addressing the root cause (dehydration and lack of insulin) is incorrect. Other complications are less specific to the acute phase of DKA treatment.",
+        "answerBreakdown": [
+            {
+                "optionId": "d1_opt1",
+                "content": "Correct. The triad of hyperglycemia (>250 mg/dL), metabolic acidosis (pH < 7.30, HCO3 < 18), and ketosis (implied by anion gap) confirms DKA."
+            },
+            {
+                "optionId": "d1_opt2",
+                "content": "Incorrect. Hyperosmolar Hyperglycemic State (HHS) is characterized by more extreme hyperglycemia (>600 mg/dL) but minimal or no acidosis (pH > 7.3, HCO3 > 18)."
+            },
+            {
+                "optionId": "d1_opt3",
+                "content": "Incorrect. Thyroid storm presents with fever, tachycardia, and altered mental status, but does not cause severe metabolic acidosis or the profound hyperglycemia seen here."
+            },
+            {
+                "optionId": "d1_opt4",
+                "content": "Incorrect. Addisonian crisis involves adrenal insufficiency and typically presents with hypotension, hyponatremia, and hyperkalemia, which is inconsistent with this patient's labs."
+            },
+            {
+                "optionId": "d2_opt1",
+                "content": "Correct. The priority is to correct severe dehydration and circulatory collapse caused by osmotic diuresis. Fluid resuscitation improves perfusion to vital organs."
+            },
+            {
+                "optionId": "d2_opt2",
+                "content": "Incorrect. While insulin is essential, administering it before fluids can worsen hypotension and drive potassium into cells, exacerbating hypokalemia and risking cardiac dysrhythmias."
+            },
+            {
+                "optionId": "d2_opt3",
+                "content": "Incorrect. Although the patient is hypokalemic (K+ 3.1), potassium is typically administered after fluid resuscitation has begun and with the insulin infusion, not as the initial priority."
+            },
+            {
+                "optionId": "d2_opt4",
+                "content": "Incorrect. Sodium bicarbonate is rarely used and is reserved for severe, life-threatening acidosis (e.g., pH < 6.9) as it can have paradoxical adverse effects."
+            },
+            {
+                "optionId": "d3_opt1",
+                "content": "Incorrect. While hyperglycemia is the cause of the osmotic diuresis, the life-threatening consequence that must be treated first is the resulting dehydration and circulatory compromise."
+            },
+            {
+                "optionId": "d3_opt2",
+                "content": "Correct. Severe hyperglycemia acts as an osmotic diuretic, pulling large volumes of water into the urine, leading to profound dehydration, hypovolemia, and hypotension."
+            },
+            {
+                "optionId": "d3_opt3",
+                "content": "Incorrect. The infection is the trigger for DKA, but the immediate life-threatening physiological state is dehydration, not the infection itself. Antibiotics are secondary to hemodynamic stabilization."
+            },
+            {
+                "optionId": "d3_opt4",
+                "content": "Incorrect. Hypokalemia is a critical issue to manage during treatment, but it is a consequence of the overall process and insulin therapy, not the primary target of initial fluid resuscitation."
+            },
+            {
+                "optionId": "d4_opt1",
+                "content": "Incorrect. The patient's initial potassium is low. Insulin therapy will drive potassium further into the cells, increasing the risk of severe hypokalemia, not hyperkalemia."
+            },
+            {
+                "optionId": "d4_opt2",
+                "content": "Incorrect. Hypoglycemia is a potential complication of insulin therapy later in the treatment course, not an immediate concern at the outset when glucose is 680 mg/dL."
+            },
+            {
+                "optionId": "d4_opt3",
+                "content": "Correct. Rapid correction of hyperglycemia and osmolality can cause fluid to shift into brain cells, leading to cerebral edema, a life-threatening complication requiring vigilant neurological monitoring."
+            },
+            {
+                "optionId": "d4_opt4",
+                "content": "Incorrect. While DKA can create a hypercoagulable state, pulmonary embolism is not the most common or immediate complication to monitor for during initial treatment."
+            }
         ],
-        "questionTrap": {
-            "trap": "Many students may be immediately drawn to the high blood glucose level and choose insulin administration as the priority intervention. While insulin is necessary for DKA management, fluid resuscitation is the crucial first step.",
-            "howToOvercome": "Carefully evaluate the complete clinical picture, including vital signs, laboratory values, and the patient's history, to identify the underlying pathophysiology and prioritize interventions based on the ABCs (Airway, Breathing, Circulation). Remember that fluid resuscitation takes precedence over insulin administration in the initial management of DKA."
-        },
+        "clinicalPearls": [
+            "In DKA management, the mantra is 'Fluids, Insulin, Potassium' in that order of thought, though they are often managed concurrently after the initial fluid bolus.",
+            "Never administer an insulin drip until the patient's potassium level is confirmed to be ≥3.3 mEq/L. Giving insulin to a hypokalemic patient can cause fatal cardiac arrhythmias.",
+            "Anion gap metabolic acidosis is a key feature of DKA. Calculating the anion gap (Na - [Cl + HCO3]) helps differentiate DKA from other causes of acidosis and monitors treatment response.",
+            "The underlying trigger for DKA (e.g., infection, insulin non-adherence, MI) must be identified and treated simultaneously for successful resolution."
+        ],
+        "questionTrap": "The most common trap is prioritizing insulin administration due to the extremely high glucose level. Test-takers must recognize that circulatory collapse from severe dehydration is the most immediate threat to life. The ABCs (Airway, Breathing, Circulation) always take precedence; fluid resuscitation directly supports circulation.",
         "mnemonic": {
-            "title": "DKA Treatment",
-            "expansion": "Fluids First (Normal Saline), then Insulin (IV drip), Potassium (monitor and replace), and Evaluate (ABGs, glucose, electrolytes)."
+            "title": "DKA Management: KING-U",
+            "expansion": "K (Potassium check >3.3), I (Insulin drip), N (Normal saline for fluid resuscitation), G (Glucose monitoring hourly), U (Underlying cause identification and treatment)."
         }
     },
     "response": [
         {
             "id": "dropdown1",
             "options": [
-                "DKA",
-                "HHS",
-                "Thyroid Storm",
-                "Addisonian Crisis"
+                {
+                    "id": "d1_opt1",
+                    "text": "Diabetic Ketoacidosis (DKA)"
+                },
+                {
+                    "id": "d1_opt2",
+                    "text": "Hyperosmolar Hyperglycemic State (HHS)"
+                },
+                {
+                    "id": "d1_opt3",
+                    "text": "Thyroid Storm"
+                },
+                {
+                    "id": "d1_opt4",
+                    "text": "Addisonian Crisis"
+                }
             ],
-            "correctResponse": "DKA"
+            "correctResponse": "d1_opt1"
         },
         {
             "id": "dropdown2",
             "options": [
-                "Administering intravenous fluids",
-                "Administering insulin intravenously",
-                "Administering potassium chloride",
-                "Administering sodium bicarbonate"
+                {
+                    "id": "d2_opt1",
+                    "text": "administering intravenous fluids"
+                },
+                {
+                    "id": "d2_opt2",
+                    "text": "administering insulin intravenously"
+                },
+                {
+                    "id": "d2_opt3",
+                    "text": "administering potassium chloride"
+                },
+                {
+                    "id": "d2_opt4",
+                    "text": "administering sodium bicarbonate"
+                }
             ],
-            "correctResponse": "Administering intravenous fluids"
+            "correctResponse": "d2_opt1"
         },
         {
             "id": "dropdown3",
             "options": [
-                "hyperglycemia",
-                "dehydration",
-                "infection",
-                "hypokalemia"
+                {
+                    "id": "d3_opt1",
+                    "text": "hyperglycemia"
+                },
+                {
+                    "id": "d3_opt2",
+                    "text": "dehydration"
+                },
+                {
+                    "id": "d3_opt3",
+                    "text": "infection"
+                },
+                {
+                    "id": "d3_opt4",
+                    "text": "hypokalemia"
+                }
             ],
-            "correctResponse": "dehydration"
+            "correctResponse": "d3_opt2"
         },
         {
             "id": "dropdown4",
             "options": [
-                "hyperkalemia",
-                "hypoglycemia",
-                "cerebral edema",
-                "pulmonary embolism"
+                {
+                    "id": "d4_opt1",
+                    "text": "hyperkalemia"
+                },
+                {
+                    "id": "d4_opt2",
+                    "text": "hypoglycemia"
+                },
+                {
+                    "id": "d4_opt3",
+                    "text": "cerebral edema"
+                },
+                {
+                    "id": "d4_opt4",
+                    "text": "pulmonary embolism"
+                }
             ],
-            "correctResponse": "cerebral edema"
+            "correctResponse": "d4_opt3"
         }
-    ]
+    ],
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:02:00.964Z"
 }

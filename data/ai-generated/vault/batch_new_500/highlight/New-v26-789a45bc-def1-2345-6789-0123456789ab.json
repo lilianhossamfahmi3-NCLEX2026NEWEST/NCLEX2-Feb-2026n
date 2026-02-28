@@ -1,71 +1,296 @@
 {
     "id": "New-v26-789a45bc-def1-2345-6789-0123456789ab",
-    "type": "highlight",
-    "stem": "The nurse is caring for a 68-year-old male patient admitted with acute decompensated heart failure (ADHF). Review the patient's electronic health record and identify the findings that indicate the patient is experiencing fluid volume overload and requires immediate intervention. Click on those findings in the text below.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse reviews the client's record. Which finding is the most significant indicator of worsening acute decompensated heart failure requiring immediate intervention?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Productive cough with pink-tinged sputum"
+        },
+        {
+            "id": "opt_02",
+            "text": "Blood pressure of 168/94 mmHg"
+        },
+        {
+            "id": "opt_03",
+            "text": "+3 pitting edema in lower extremities"
+        },
+        {
+            "id": "opt_04",
+            "text": "Serum BNP of 850 pg/mL"
+        }
+    ],
+    "correctOptionId": "opt_01",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "S: John Smith, a 68-year-old male, was admitted at 03:00 this morning with acute decompensated heart failure (ADHF). He has a history of hypertension and coronary artery disease (CAD). B: The patient reported increasing shortness of breath and lower extremity edema over the past week. He takes lisinopril and metoprolol at home. A: At 07:00, his vital signs are: heart rate 112 bpm, blood pressure 168/94 mmHg, respiratory rate 28 breaths/min, SpO2 90% on 2L NC, and temperature 37.1°C. He has **crackles bilaterally**, a **productive cough with pink-tinged sputum**, and **+3 pitting edema in his lower extremities**. He is **anxious and restless**. His urine output has been minimal since admission. Current medications include furosemide 40mg IV push ordered q12h, with the first dose given at 04:00. He is on continuous cardiac monitoring, and his EKG shows sinus tachycardia without acute ST changes. P: I am concerned about his worsening respiratory status and fluid overload. I recommend increasing the furosemide dose, obtaining a chest x-ray, and considering BiPAP if his oxygen saturation does not improve with increased oxygen delivery. Please expedite these interventions.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "03:00: HR 104 bpm, BP 160/90 mmHg, RR 24 breaths/min, SpO2 92% on 2L NC, Temp 36.8°C\n05:00: HR 110 bpm, BP 164/92 mmHg, RR 26 breaths/min, SpO2 91% on 2L NC, Temp 37.0°C\n07:00: HR 112 bpm, BP 168/94 mmHg, RR 28 breaths/min, SpO2 90% on 2L NC, Temp 37.1°C"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 03:00",
+                        "text": "S: Client is a 68-year-old male presenting to the ED with a chief complaint of severe shortness of breath, which has worsened over the past 48 hours. He reports a 10 lb weight gain in the last week and difficulty sleeping flat.\nB: Client has a known history of hypertension and coronary artery disease. He reports inconsistent adherence to his home medications (lisinopril, metoprolol). He lives alone in a second-floor apartment with no elevator, which he states is a barrier to attending follow-up appointments.\nA: On arrival, client is tachypneic and using accessory muscles. Lungs with bibasilar crackles. SpO2 92% on 2L NC. BP 160/90 mmHg, HR 104 bpm. +2 pitting edema noted bilaterally in lower extremities. Client is alert and oriented x4.\nR: Admitted to telemetry unit for management of acute decompensated heart failure. Initiated IV furosemide and continuous oxygen."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 07:00",
+                        "text": "S: Client reports feeling increasingly anxious and states, \"I can't catch my breath.\"\nB: First dose of IV furosemide 40 mg was administered at 04:00. Urine output has been minimal at 40 mL over the past 3 hours. The client's history of living in a food desert makes adherence to a low-sodium diet challenging.\nA: Current vitals show worsening trend: HR 112 bpm, BP 168/94 mmHg, RR 28 breaths/min, SpO2 90% on 2L NC. Physical assessment reveals coarse crackles bilaterally throughout all lung fields. Client has a frequent, productive cough with pink-tinged sputum. Peripheral edema is now +3 pitting. Client is visibly anxious and restless.\nR: Recommend immediate physician notification for potential BiPAP initiation and an increased dose of IV diuretics. Continue to monitor respiratory status and titrate oxygen as needed. Prepare for possible transfer to ICU."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 138 mEq/L, K: 4.1 mEq/L, Cl: 100 mEq/L, BUN: 35 mg/dL, Creatinine: 1.8 mg/dL, Glucose: 110 mg/dL, BNP: 850 pg/mL (High), Troponin I: <0.03 ng/mL"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp",
+                        "HR",
+                        "RR",
+                        "BP (MAP)",
+                        "SpO₂"
+                    ],
+                    "rows": [
+                        [
+                            "03:00",
+                            "98.2°F (36.8°C)",
+                            "104 bpm",
+                            "24/min",
+                            "160/90 mmHg (113)",
+                            "92% on 2L NC"
+                        ],
+                        [
+                            "05:00",
+                            "98.6°F (37.0°C)",
+                            "110 bpm",
+                            "26/min",
+                            "164/92 mmHg (116)",
+                            "91% on 2L NC"
+                        ],
+                        [
+                            "07:00",
+                            "98.8°F (37.1°C)",
+                            "112 bpm",
+                            "28/min",
+                            "168/94 mmHg (119)",
+                            "90% on 2L NC"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Furosemide 40mg IVP q12h PRN fluid overload (Scheduled, Next dose due: 16:00), Metoprolol 25mg PO BID (Scheduled, Next dose due: 12:00), Lisinopril 10mg PO Daily (Scheduled, Next dose due: 12:00), Oxygen 2L NC (Continuous)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Sodium (Na)",
+                            "138",
+                            "mEq/L",
+                            "136-145",
+                            ""
+                        ],
+                        [
+                            "Potassium (K)",
+                            "4.1",
+                            "mEq/L",
+                            "3.5-5.0",
+                            ""
+                        ],
+                        [
+                            "BUN",
+                            "35",
+                            "mg/dL",
+                            "10-20",
+                            "High"
+                        ],
+                        [
+                            "Creatinine",
+                            "1.8",
+                            "mg/dL",
+                            "0.6-1.2",
+                            "High"
+                        ],
+                        [
+                            "BNP",
+                            "850",
+                            "pg/mL",
+                            "<100",
+                            "High"
+                        ],
+                        [
+                            "Troponin I",
+                            "<0.03",
+                            "ng/mL",
+                            "<0.04",
+                            ""
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 07:00 (Focused Assessment)",
+                        "findings": {
+                            "Cardiovascular": "S1, S2 heard. Tachycardia noted. No murmurs, rubs, or gallops. Capillary refill <3 seconds. +3 pitting edema bilateral lower extremities to mid-shin.",
+                            "Respiratory": "Increased work of breathing with use of accessory muscles. Coarse crackles auscultated bilaterally throughout all lung fields. Productive cough with pink, frothy sputum.",
+                            "Neurological": "Alert and oriented x4. Appears anxious and restless."
+                        }
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "type": "Chest X-ray (Portable, AP view)",
+                        "timestamp": "Day 1, 04:30",
+                        "report": "FINDINGS: The cardiac silhouette is enlarged. There are prominent interstitial markings and diffuse bilateral opacities consistent with pulmonary edema. Small bilateral pleural effusions are noted. No evidence of pneumothorax or consolidation.\n\nIMPRESSION: Findings are consistent with acute cardiogenic pulmonary edema."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": {
+                    "headers": [
+                        "Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 03:15",
+                            "Furosemide 40 mg IV",
+                            "STAT, then q12h"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Oxygen therapy, titrate to maintain SpO₂ >92%",
+                            "Continuous"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Cardiac diet, 2-gram sodium restriction",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Strict Intake & Output",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Daily weights",
+                            "Standing"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Furosemide",
+                            "40 mg",
+                            "IV Push",
+                            "q12h",
+                            "Day 1, 04:00"
+                        ],
+                        [
+                            "Metoprolol Tartrate",
+                            "25 mg",
+                            "PO",
+                            "BID",
+                            "Day 1, 09:00 (Scheduled)"
+                        ],
+                        [
+                            "Lisinopril",
+                            "10 mg",
+                            "PO",
+                            "Daily",
+                            "Day 1, 09:00 (Scheduled)"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Acute MI & Heart Failure"
+    "rationale": {
+        "correct": "A productive cough with pink-tinged, frothy sputum is a hallmark sign of severe acute pulmonary edema. This finding indicates that increased hydrostatic pressure in the pulmonary capillaries has forced fluid and red blood cells into the alveoli, severely impairing gas exchange. It represents a life-threatening progression of heart failure that requires immediate intervention to prevent respiratory collapse.",
+        "incorrect": "While the other findings are significant in the context of heart failure, they are not the most critical indicator of acute decompensation. High blood pressure contributes to cardiac workload, peripheral edema reflects systemic fluid overload but is less life-threatening than pulmonary edema, and an elevated BNP confirms the diagnosis but is not an acute assessment finding that signals imminent respiratory failure.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. This is the most critical finding. Pink, frothy sputum signifies capillary rupture within the lungs and fluid-filled alveoli (pulmonary edema), a medical emergency that directly compromises the airway and breathing."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. Severe hypertension is a major contributing factor to ADHF by increasing afterload, but it is not a direct measure of the most life-threatening complication, which is pulmonary fluid volume overload and impaired gas exchange."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. Pitting edema indicates peripheral fluid volume overload. While it is an important sign of heart failure, it is not as immediately life-threatening as the acute pulmonary congestion indicated by pink, frothy sputum."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. Brain Natriuretic Peptide (BNP) is a laboratory marker that is elevated due to ventricular stretch and confirms a diagnosis of heart failure. It is a diagnostic tool, not an acute physical assessment finding that indicates immediate respiratory compromise."
+            }
+        ],
+        "clinicalPearls": [
+            "Pink, frothy sputum is a classic sign of advanced pulmonary edema and requires immediate escalation of care, often including non-invasive positive pressure ventilation (BiPAP) or intubation.",
+            "In ADHF, restlessness and anxiety are often early indicators of cerebral hypoxia resulting from impaired gas exchange, not just psychological distress.",
+            "A poor diuretic response (i.e., minimal urine output after an IV dose of furosemide) is a sign of worsening renal perfusion or diuretic resistance and indicates the client's condition is deteriorating."
+        ],
+        "questionTrap": "A common trap is to focus on abnormal vital signs like hypertension or lab values like BNP. While important, the question asks for the most significant indicator of worsening failure. The most immediate threat to life in ADHF is respiratory compromise from pulmonary edema, making the pink sputum the priority finding.",
+        "mnemonic": {
+            "title": "FACES (Heart Failure Symptoms)",
+            "expansion": "F: Fatigue\nA: Activity limitation\nC: Chest congestion/Cough\nE: Edema (peripheral)\nS: Shortness of breath"
+        },
+        "reviewUnits": [
+            "Cardiovascular Disorders: Heart Failure",
+            "Fluid and Electrolyte Imbalances: Fluid Volume Excess",
+            "Pharmacology: Diuretics"
         ]
     },
-    "rationale": {
-        "correct": "Crackles bilaterally, productive cough with pink-tinged sputum, +3 pitting edema in his lower extremities, and anxious and restless are all indicative of fluid volume overload in ADHF. Crackles are caused by fluid in the alveoli, indicating pulmonary edema. Pink-tinged sputum suggests the presence of blood-tinged fluid in the lungs, further supporting pulmonary edema. Pitting edema is a classic sign of excess fluid in the interstitial space. Anxiety and restlessness can be early signs of hypoxia related to pulmonary congestion, as the patient struggles to breathe effectively due to fluid accumulation.",
-        "incorrect": "Elevated blood pressure (168/94 mmHg), while concerning and contributing to the workload of the heart, is not the most direct indicator of fluid volume overload in this context. While it contributes to the overall clinical picture, the other findings more specifically point to the acute problem of fluid accumulation. Sinus tachycardia is a compensatory mechanism to maintain cardiac output in the setting of decreased oxygenation and increased cardiac workload, but is not a direct indicator of fluid overload itself.",
-        "clinicalPearls": [
-            "Early recognition of fluid overload in ADHF is crucial to prevent respiratory failure and further cardiac decompensation. Prompt intervention can significantly improve patient outcomes.",
-            "Assess lung sounds, edema, sputum production, and oxygen saturation to evaluate fluid status comprehensively. These assessments provide a clear picture of the patient's condition.",
-            "Monitor vital signs and urine output closely to track the effectiveness of interventions and detect any worsening of fluid overload.",
-            "Elevated BNP supports the diagnosis of heart failure but is not, in itself, a direct sign of acute fluid overload. It indicates the presence of cardiac strain and dysfunction."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus on the elevated blood pressure or heart rate and miss the more specific signs of fluid overload. The relatively normal potassium level could also be distracting, leading to overlooking the primary problem.",
-            "howToOvercome": "Prioritize findings that directly relate to fluid accumulation in the lungs and peripheral tissues, such as crackles, edema, and sputum characteristics. Correlate the findings with the patient's history and medications to form a complete clinical picture. Focus on the immediate threat to the patient's respiratory status."
-        },
-        "mnemonic": {
-            "title": "DROWNING (for ADHF Fluid Overload Signs)",
-            "expansion": "D: Dyspnea, R: Restlessness, O: Orthopnea, W: Weakness, N: Nocturnal paroxysmal dyspnea, I: Increased heart rate, N: Nagging cough, G: Gaining weight (edema)"
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:43:36.239Z"
 }

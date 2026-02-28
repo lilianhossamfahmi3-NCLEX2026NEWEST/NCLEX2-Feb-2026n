@@ -1,77 +1,173 @@
 {
     "id": "New-v26-89a7b23c-4e6f-43a1-9d5a-72b3c8f0e123",
     "type": "highlight",
-    "stem": "The patient is at risk for further decompensation. Review the nurse's notes below. Identify and highlight the findings that indicate the patient's condition is worsening and requires immediate intervention.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "Review the 09:00 progress note in the Clinical Feed tab. Highlight all findings that indicate the patient's condition is acutely worsening and requires immediate intervention.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "being treated for ARDS secondary to aspiration pneumonia"
+        },
+        {
+            "id": "opt_02",
+            "text": "At 06:00, vitals were stable"
+        },
+        {
+            "id": "opt_03",
+            "text": "SpO2 decreased to 88% on 60% FiO2"
+        },
+        {
+            "id": "opt_04",
+            "text": "The respiratory rate has increased to 24/min with accessory muscle use noted"
+        },
+        {
+            "id": "opt_05",
+            "text": "diffuse bilateral crackles are now more pronounced"
+        },
+        {
+            "id": "opt_06",
+            "text": "blood pressure is now 90/60 mmHg (MAP 70)"
+        },
+        {
+            "id": "opt_07",
+            "text": "heart rate is tachycardic at 120 bpm"
+        },
+        {
+            "id": "opt_08",
+            "text": "Temperature has spiked to 101.8°F (38.8°C)"
+        },
+        {
+            "id": "opt_09",
+            "text": "Lactate is elevated at 3.5 mmol/L"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_03",
+        "opt_04",
+        "opt_05",
+        "opt_06",
+        "opt_07",
+        "opt_08",
+        "opt_09"
+    ],
     "itemContext": {
         "patient": {
             "name": "Jameson Tyrell",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ],
-            "isolation": "Airborne"
+            "isolation": "Droplet"
         },
-        "sbar": "S: Jameson Tyrell, 68-year-old male, admitted to ICU three days ago with ARDS secondary to aspiration pneumonia. History of COPD, hypertension, and GERD. B: Initially, PaO2/FiO2 ratio was 180, requiring mechanical ventilation and antibiotics. At 06:00, stable with FiO2 50%, PEEP 8, RR 16, SpO2 94%. A: At 09:00, SpO2 decreased to 88% despite FiO2 increase to 60%. RR increased to 24 with increased work of breathing. Auscultation revealed diffuse crackles bilaterally. ABG at 09:15: pH 7.28, PaCO2 55, PaO2 58, HCO3 24. BP is 90/60, HR 120, Temp 38.8°C. Lactate 3.5 mmol/L. R: Requesting urgent evaluation for possible interventions. Consider ventilator adjustments, proning, and possible escalation of care due to declining respiratory status and potential septic shock.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Jameson Tyrell, 68-year-old male, admitted to ICU three days ago with ARDS secondary to aspiration pneumonia. History of COPD, hypertension, and GERD. B: Initially, PaO2/FiO2 ratio was 180, requiring mechanical ventilation and antibiotics. At 06:00, stable with FiO2 50%, PEEP 8, RR 16, SpO2 94%. A: At 09:00, SpO2 decreased to 88% despite FiO2 increase to 60%. RR increased to 24 with increased work of breathing. Auscultation revealed diffuse crackles bilaterally. ABG at 09:15: pH 7.28, PaCO2 55, PaO2 58, HCO3 24. BP is 90/60, HR 120, Temp 38.8°C. Lactate 3.5 mmol/L. R: Requesting urgent evaluation for possible interventions. Consider ventilator adjustments, proning, and possible escalation of care due to declining respiratory status and potential septic shock."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<h3>Admission Note - Day 1, 14:00</h3><p><strong>S:</strong> 68-year-old male brought to ED with acute respiratory distress. Adult child reports a witnessed aspiration event at home this morning after which he became progressively short of breath.<br><strong>B:</strong> Patient has a significant medical history of COPD, hypertension, and GERD. In the ED, he required emergent intubation for profound hypoxemia and respiratory failure.<br><strong>A:</strong> On admission to ICU, patient is sedated and mechanically ventilated. Initial chest x-ray shows diffuse bilateral infiltrates. PaO2/FiO2 ratio is 180, consistent with moderate ARDS. Vital signs are BP 130/85 mmHg, HR 95 bpm, RR 18 (ventilator), Temp 101.1°F (38.4°C), SpO2 92% on FiO2 60%, PEEP 8 cm H2O. Broad-spectrum antibiotics were initiated for suspected aspiration pneumonia.<br><strong>R:</strong> Continue mechanical ventilation per ARDSnet protocol. Titrate sedation for ventilator synchrony. Monitor hemodynamics and fluid status closely. Blood cultures and sputum sample have been sent.</p><hr><h3>Progress Note - Day 3, 09:00</h3><p><strong>S:</strong> Update on Mr. Tyrell, who is [being treated for ARDS secondary to aspiration pneumonia](opt_01).<br><strong>B:</strong> Patient has been relatively stable for the past 48 hours on mechanical ventilation. [At 06:00, vitals were stable](opt_02).<br><strong>A:</strong> Over the last hour, patient's condition has declined. [SpO2 decreased to 88% on 60% FiO2](opt_03), despite an increase from 50%. [The respiratory rate has increased to 24/min with accessory muscle use noted](opt_04). On auscultation, [diffuse bilateral crackles are now more pronounced](opt_05). Hemodynamically, the [blood pressure is now 90/60 mmHg (MAP 70)](opt_06), and [heart rate is tachycardic at 120 bpm](opt_07). [Temperature has spiked to 101.8°F (38.8°C)](opt_08). Recent labs show a respiratory acidosis and a [Lactate is elevated at 3.5 mmol/L](opt_09).<br><strong>R:</strong> Recommend immediate physician re-evaluation. Suggest obtaining a new ABG and chest x-ray. Prepare for potential vasopressor support and further ventilator adjustments, including consideration for proning.</p>"
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Normal Range</th></tr></thead><tbody><tr><td>pH</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>55 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>58 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>18,000/mm3</td><td>4,500-11,000/mm3</td></tr><tr><td>Lactate</td><td>3.5 mmol/L</td><td>0.5-2.2 mmol/L</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<div class='table-responsive'><table class='table'><thead><tr><th>Time</th><th>Temp</th><th>HR (bpm)</th><th>RR (breaths/min)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>SpO2</th></tr></thead><tbody><tr><td>Day 1 @ 14:00</td><td>101.1°F (38.4°C)</td><td>95</td><td>18 (Vent)</td><td>130/85</td><td>100</td><td>92% on MV, FiO2 60%</td></tr><tr><td>Day 3 @ 06:00</td><td>99.5°F (37.5°C)</td><td>90</td><td>16 (Vent)</td><td>120/80</td><td>93</td><td>94% on MV, FiO2 50%</td></tr><tr><td>Day 3 @ 09:00</td><td>101.8°F (38.8°C)</td><td>120</td><td>24 (Vent)</td><td>90/60</td><td>70</td><td>88% on MV, FiO2 60%</td></tr></tbody></table></div>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>06:00</th><th>09:00</th></tr></thead><tbody><tr><td>BP</td><td>120/80</td><td>90/60</td></tr><tr><td>HR</td><td>90</td><td>120</td></tr><tr><td>RR</td><td>16</td><td>24</td></tr><tr><td>SpO2</td><td>94% (FiO2 50%)</td><td>88% (FiO2 60%)</td></tr><tr><td>Temp</td><td>37.5°C</td><td>38.8°C</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<div class='table-responsive'><table class='table'><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan='5'><strong>Arterial Blood Gas (09:15)</strong></td></tr><tr><td>pH</td><td>7.28</td><td></td><td>7.35 - 7.45</td><td>Low</td></tr><tr><td>PaCO2</td><td>55</td><td>mmHg</td><td>35 - 45</td><td>High</td></tr><tr><td>PaO2</td><td>58</td><td>mmHg</td><td>80 - 100</td><td>Low</td></tr><tr><td>HCO3</td><td>24</td><td>mEq/L</td><td>22 - 26</td><td>Normal</td></tr><tr><td colspan='5'><strong>Chemistry Panel (09:15)</strong></td></tr><tr><td>Lactate</td><td>3.5</td><td>mmol/L</td><td>0.5 - 2.2</td><td>High</td></tr><tr><td>WBC</td><td>18.5</td><td>x10³/μL</td><td>4.5 - 11.0</td><td>High</td></tr><tr><td>Hemoglobin</td><td>12.1</td><td>g/dL</td><td>13.5 - 17.5</td><td>Low</td></tr><tr><td>Creatinine</td><td>1.3</td><td>mg/dL</td><td>0.7 - 1.3</td><td>High</td></tr></tbody></table></div>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<h3>Focused Assessment - Day 3, 09:00</h3><ul><li><strong>Neurological:</strong> Sedated on propofol infusion, RASS -4 (deep sedation). Pupils equal, round, and reactive to light.</li><li><strong>Respiratory:</strong> Mechanically ventilated on AC mode. Tachypneic rate of 24/min with notable use of accessory muscles. Auscultation reveals diffuse bilateral crackles, more pronounced in the bases than previously noted.</li><li><strong>Cardiovascular:</strong> Tachycardic sinus rhythm on monitor. S1/S2 audible, no murmurs or gallops. Peripheral pulses are +1 and thready in all extremities. Capillary refill is 3 seconds. Extremities are cool to the touch.</li><li><strong>GI/GU:</strong> Abdomen soft, non-distended with hypoactive bowel sounds. Indwelling urinary catheter draining clear yellow urine, output 40 mL over the past hour.</li></ul>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<h3>Chest X-Ray Report - Day 3, 09:30</h3><p><strong>Type:</strong> Portable AP Chest X-ray<br><strong>Findings:</strong> There is a significant interval increase in diffuse, bilateral airspace opacities compared to the admission film from two days prior. The cardiac silhouette is not enlarged. Costophrenic angles are blunted. No evidence of pneumothorax or significant pleural effusion is seen.<br><strong>Impression:</strong> Radiographic findings are consistent with worsening Acute Respiratory Distress Syndrome (ARDS).</p>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td><td>08:00</td></tr><tr><td>Vancomycin</td><td>1.5g</td><td>IV</td><td>q12h</td><td>08:00</td></tr><tr><td>Pantoprazole</td><td>40mg</td><td>IV</td><td>q24h</td><td>08:00</td></tr><tr><td>Furosemide</td><td>20mg</td><td>IV</td><td>PRN</td><td>-</td></tr><tr><td>Morphine</td><td>2mg</td><td>IV</td><td>PRN</td><td>-</td></tr></tbody></table>"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<div class='table-responsive'><table class='table'><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 14:00</td><td>Mechanical Ventilation: Assist-Control (AC) mode, VT 6 mL/kg IBW, PEEP 8 cm H2O, Titrate FiO2 to maintain SpO2 > 92%</td><td>Standing</td></tr><tr><td>Day 1, 14:00</td><td>Propofol infusion, titrate for RASS -4 to -5</td><td>Standing</td></tr><tr><td>Day 1, 14:00</td><td>Enoxaparin 40 mg SUBQ</td><td>Daily</td></tr><tr><td>Day 1, 14:00</td><td>Pantoprazole 40 mg IV</td><td>Daily</td></tr><tr><td>Day 1, 14:00</td><td>Enteral nutrition via NG tube at goal rate</td><td>Standing</td></tr><tr><td>Day 1, 14:00</td><td>Norepinephrine infusion</td><td>PRN for MAP < 65 mmHg</td></tr></tbody></table></div>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<div class='table-responsive'><table class='table'><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td><td>Day 3, 08:00</td></tr><tr><td>Vancomycin</td><td>1.5g</td><td>IV</td><td>q12h</td><td>Day 3, 08:00</td></tr><tr><td>Pantoprazole</td><td>40mg</td><td>IV</td><td>q24h</td><td>Day 3, 08:00</td></tr><tr><td>Enoxaparin</td><td>40mg</td><td>SUBQ</td><td>q24h</td><td>Day 3, 09:00</td></tr><tr><td>Propofol</td><td>30 mcg/kg/min</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr></tbody></table></div>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
+    "rationale": {
+        "correct": "The combination of worsening hypoxemia (SpO2 88% on increased FiO2), increased work of breathing (tachypnea, accessory muscle use), worsening lung sounds (crackles), and signs of systemic inflammatory response/shock (hypotension, tachycardia, fever, elevated lactate) indicates acute decompensation from ARDS and progression to septic shock. These findings require immediate intervention to prevent cardiovascular collapse and further organ damage.",
+        "incorrect": "Information about the patient's diagnosis or their previously stable condition is historical context, not an indicator of acute worsening. While these facts are important to the overall case, they do not reflect the current, rapid decline in the patient's status.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Incorrect. This is the patient's established diagnosis and provides context, but it is not a new finding indicating an acute change in condition."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. This describes a past state of stability. The current task is to identify signs of current *worsening*, making this historical data a distractor."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. This is a classic sign of worsening ARDS known as refractory hypoxemia. The patient's oxygen saturation is falling despite an increase in supplemental oxygen, indicating severe ventilation/perfusion (V/Q) mismatch and intrapulmonary shunting."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. An increased respiratory rate and use of accessory muscles in a ventilated patient signify increased work of breathing. This can be caused by worsening lung compliance, increased airway resistance, or a heightened respiratory drive due to severe acidosis and hypoxemia."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. More pronounced crackles suggest increasing fluid accumulation in the alveoli (pulmonary edema), which is a hallmark of ARDS progression and contributes to worsening gas exchange."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. Hypotension (MAP < 65-70 mmHg) is a critical sign of hemodynamic instability. In the context of infection and inflammation, this points towards distributive shock (septic shock) due to systemic vasodilation and capillary leak."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. Tachycardia is a compensatory mechanism for hypotension and decreased tissue perfusion. The heart beats faster to try to maintain cardiac output. It is a key indicator of shock."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Correct. A fever spike indicates an ongoing or worsening infectious or inflammatory process. This increases metabolic demand and oxygen consumption, further stressing the already compromised cardiorespiratory system."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Correct. An elevated lactate level is a marker of anaerobic metabolism, which occurs when tissues are not receiving enough oxygen (tissue hypoxia). It is a critical indicator of shock and is associated with increased mortality."
+            }
+        ],
+        "clinicalPearls": [
+            "Refractory hypoxemia (a falling PaO2 or SpO2 despite an increasing FiO2) is the hallmark of ARDS and signals the need for advanced ventilator strategies like proning or higher PEEP.",
+            "The combination of hypotension, tachycardia, fever, and elevated lactate is highly suggestive of septic shock, a life-threatening emergency requiring immediate fluid resuscitation and vasopressor support.",
+            "In mechanically ventilated patients, always assess for signs of increased work of breathing (e.g., accessory muscle use, tachypnea) as it can indicate patient-ventilator asynchrony, worsening lung compliance, or acute distress.",
+            "A Mean Arterial Pressure (MAP) of at least 65 mmHg is generally required to perfuse vital organs. A drop below this threshold is a critical event."
+        ],
+        "questionTrap": "A common trap is to focus solely on the respiratory findings (like SpO2) and overlook the systemic signs of decompensation (hypotension, tachycardia, lactate). ARDS is a systemic inflammatory process, and failing to recognize its progression to septic shock can be fatal. Always perform a holistic assessment.",
+        "mnemonic": {
+            "title": "BERLIN Criteria for ARDS",
+            "expansion": "B: Bilateral opacities on CXR\nE: Edema not explained by cardiac failure\nR: Respiratory failure within 1 week of insult\nL: Low PaO2/FiO2 ratio (<300 mmHg)\nI: Increased PEEP needed (>5 cm H2O)\nN: No other explanation for the edema"
+        },
+        "reviewUnits": [
+            "Critical Care",
+            "Respiratory System",
+            "Hemodynamics",
+            "Acid-Base Balance"
         ]
     },
-    "rationale": {
-        "correct": "The worsening findings include: SpO2 decreased to 88% despite FiO2 increased to 60%, RR increased to 24, pH 7.28, PaCO2 55 mmHg, PaO2 58 mmHg, BP 90/60 mmHg, HR 120 bpm, Temp 38.8°C, and Lactate 3.5 mmol/L. These indicate worsening hypoxemia and respiratory acidosis despite increased oxygen support. The increasing RR and elevated temperature further suggest infection and increased metabolic demand. Hypotension, tachycardia, and elevated lactate indicate potential septic shock. The ABG values confirm acute respiratory acidosis and hypoxemia, reflecting a failure of the current ventilation strategy.",
-        "incorrect": "Ceftriaxone and Vancomycin administration at 08:00 are part of the patient's established treatment plan for pneumonia and do not indicate acute deterioration. While pantoprazole is important for GERD management, it doesn't directly reflect the acute respiratory decline. A WBC of 18,000/mm3 is elevated, but it was likely elevated at baseline due to the pneumonia. It doesn't represent an acute change without trending data. Furosemide and Morphine are PRN medications and their absence doesn't indicate deterioration.",
-        "clinicalPearls": [
-            "A decreasing PaO2/FiO2 ratio indicates worsening ARDS and the need for more aggressive respiratory support.",
-            "Hypotension in the context of ARDS and infection suggests potential septic shock, requiring immediate intervention.",
-            "Rising lactate levels often indicate anaerobic metabolism due to tissue hypoxia and are a critical indicator of shock.",
-            "Diffuse crackles bilaterally suggest pulmonary edema or worsening ARDS, indicating fluid accumulation in the lungs."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus solely on the respiratory parameters and miss the significance of the blood pressure, heart rate, temperature, and lactate changes, which are critical indicators of systemic compromise and potential septic shock.",
-            "howToOvercome": "Encourage a holistic assessment approach, considering all vital signs, lab values, and clinical observations in conjunction with the patient's respiratory status. Prioritize systemic stability and recognize early signs of shock."
-        },
-        "mnemonic": {
-            "title": "ARDS",
-            "expansion": "Acute Respiratory Distress Syndrome - Assess, Resuscitate, Diagnose, Stabilize. This mnemonic emphasizes the key steps in managing ARDS patients."
-        }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 7
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "analyze",
+        "cjmmStep": "recognizeCues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "sentinelStatus": "upgraded_v2026",
+    "correctOptionId": "opt_03",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:12:48.425Z"
 }

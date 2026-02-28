@@ -1,107 +1,388 @@
 {
     "id": "New-v26-9a2b3c4d-5e6f-4789-8012-34567890abcd",
     "type": "clozeDropdown",
-    "stem": "A patient with a T6 spinal cord injury is exhibiting signs of autonomic dysreflexia. Based on the assessment findings, prioritize the following interventions in the order they should be implemented.\n\n1. Immediately [cloze-1] the patient's blood pressure.\n2. Then, [cloze-2] the patient to a sitting position.\n3. Next, assess for and [cloze-3] the cause of the autonomic dysreflexia.\n4. Finally, administer [cloze-4] medication as prescribed if the blood pressure remains elevated after addressing the cause.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
+    "stem": "The nurse develops a plan of care for a client with a T6 spinal cord injury experiencing autonomic dysreflexia. The plan must prioritize interventions by stating the first action is to [cloze-1], then immediately [cloze-2]. The next step is to [cloze-3], and finally administer [cloze-4] if hypertension persists.",
+    "options": [
+        {
+            "id": "cloze-1",
+            "choices": [
+                "elevate the head of the bed",
+                "administer PRN hydralazine",
+                "perform a bladder scan",
+                "notify the healthcare provider"
+            ]
+        },
+        {
+            "id": "cloze-2",
+            "choices": [
+                "loosen tight clothing",
+                "obtain a 12-lead ECG",
+                "apply supplemental oxygen",
+                "insert an indwelling catheter"
+            ]
+        },
+        {
+            "id": "cloze-3",
+            "choices": [
+                "assess for a noxious stimulus",
+                "re-evaluate vital signs every 5 minutes",
+                "document the event in the EHR",
+                "provide emotional support"
+            ]
+        },
+        {
+            "id": "cloze-4",
+            "choices": [
+                "a rapid-acting antihypertensive",
+                "a long-acting beta-blocker",
+                "an osmotic diuretic",
+                "a PRN anxiolytic"
+            ]
+        }
+    ],
+    "correctResponses": {
+        "cloze-1": "elevate the head of the bed",
+        "cloze-2": "loosen tight clothing",
+        "cloze-3": "assess for a noxious stimulus",
+        "cloze-4": "a rapid-acting antihypertensive"
     },
     "itemContext": {
         "patient": {
             "name": "Jameson Reynolds",
-            "age": 42,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "42 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ],
-            "condition": "Autonomic Dysreflexia"
+            ]
         },
-        "sbar": "S: Jameson Reynolds, 42-year-old male with a T6 spinal cord injury, admitted 3 days ago for rehabilitation following a motor vehicle accident. B: Mr. Reynolds has been stable since admission. This morning, he reported a sudden onset of severe headache and blurred vision. A: At 0700, assessment revealed a significantly elevated blood pressure of 210/110 mmHg and a decreased heart rate of 52 bpm. He also presents with a flushed face and diaphoresis above the level of his injury. He denies bladder distention but reports feeling constipated. The patient is alert and oriented but anxious due to the sudden onset of symptoms. O: STAT! The patient is suspected of experiencing autonomic dysreflexia, a potentially life-threatening condition. Immediate orders are requested for blood pressure management and further intervention to identify and address the underlying cause. Prepare to administer PRN hydralazine as per protocol. Physician notified at 0705 and verbal orders received and transcribed. Continuous blood pressure monitoring initiated.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "0600: BP 120/80 mmHg, HR 70 bpm, RR 16, SpO2 98%; 0700: BP 210/110 mmHg, HR 52 bpm, RR 18, SpO2 99%"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 09:00",
+                        "text": "S: Jameson Reynolds is a 42-year-old male admitted for inpatient rehabilitation following a T6 spinal cord injury from a motor vehicle accident. B: History of hypertension, managed with lisinopril. Allergic to Penicillin. He is a high school teacher and lives alone in a rural area, expressing concern about managing his condition upon discharge due to distance from medical facilities. A: On admission, vital signs stable. Neurological assessment reveals complete loss of motor and sensory function below the T6 level. Skin is intact. Bowel and bladder program initiated. He is alert, oriented, and motivated for therapy. R: Plan is to begin physical and occupational therapy, continue bowel/bladder training, and provide education on preventing complications such as autonomic dysreflexia. Social work consult placed to address discharge planning and home support needs."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 3, 07:10",
+                        "text": "S: Calling to report a sudden change in Mr. Reynolds' condition. He is experiencing a severe, pounding headache and blurred vision. B: Admitted 3 days ago for T6 SCI rehab. Baseline BP is 120/80 mmHg. He has a PRN order for hydralazine for SBP >180 mmHg. He reported constipation yesterday. A: At 07:00, vitals were BP 210/110 mmHg (MAP 143), HR 52 bpm. He is diaphoretic and flushed above the T6 level, with cool, pale skin below. He is anxious and rates his headache as 9/10. Suspected autonomic dysreflexia. R: Have initiated continuous BP monitoring. I am currently elevating the head of the bed and loosening his gown. Will proceed to assess for bladder distention and fecal impaction. Requesting provider to the bedside for immediate evaluation and potential medication orders if BP does not respond to initial measures."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "CBC: WNL; BMP: WNL; UA: WNL"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "06:00",
+                        "Temp": "98.6°F (37.0°C)",
+                        "HR": "70",
+                        "BP": "122/78",
+                        "MAP": "93",
+                        "RR": "16",
+                        "SpO2": "98% on room air"
+                    },
+                    {
+                        "Time": "07:00",
+                        "Temp": "98.7°F (37.1°C)",
+                        "HR": "52",
+                        "BP": "210/110",
+                        "MAP": "143",
+                        "RR": "18",
+                        "SpO2": "99% on room air"
+                    },
+                    {
+                        "Time": "07:15",
+                        "Temp": "98.7°F (37.1°C)",
+                        "HR": "54",
+                        "BP": "198/102",
+                        "MAP": "134",
+                        "RR": "18",
+                        "SpO2": "98% on room air"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Hydralazine 20mg IV PRN for SBP > 180 mmHg; Docusate sodium 100mg PO daily; Bisacodyl suppository PRN for constipation"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Panel": "Basic Metabolic Panel (BMP)",
+                        "Results": [
+                            {
+                                "Test": "Sodium",
+                                "Result": "138",
+                                "Unit": "mEq/L",
+                                "Reference": "136-145",
+                                "Status": ""
+                            },
+                            {
+                                "Test": "Potassium",
+                                "Result": "4.1",
+                                "Unit": "mEq/L",
+                                "Reference": "3.5-5.0",
+                                "Status": ""
+                            },
+                            {
+                                "Test": "Chloride",
+                                "Result": "102",
+                                "Unit": "mEq/L",
+                                "Reference": "98-106",
+                                "Status": ""
+                            },
+                            {
+                                "Test": "BUN",
+                                "Result": "15",
+                                "Unit": "mg/dL",
+                                "Reference": "10-20",
+                                "Status": ""
+                            },
+                            {
+                                "Test": "Creatinine",
+                                "Result": "0.9",
+                                "Unit": "mg/dL",
+                                "Reference": "0.6-1.2",
+                                "Status": ""
+                            },
+                            {
+                                "Test": "Glucose",
+                                "Result": "95",
+                                "Unit": "mg/dL",
+                                "Reference": "74-106",
+                                "Status": ""
+                            }
+                        ]
+                    },
+                    {
+                        "Panel": "Complete Blood Count (CBC)",
+                        "Results": [
+                            {
+                                "Test": "WBC",
+                                "Result": "7.5",
+                                "Unit": "x10³/μL",
+                                "Reference": "4.5-11.0",
+                                "Status": ""
+                            },
+                            {
+                                "Test": "Hgb",
+                                "Result": "14.2",
+                                "Unit": "g/dL",
+                                "Reference": "14-18",
+                                "Status": ""
+                            },
+                            {
+                                "Test": "Hct",
+                                "Result": "42",
+                                "Unit": "%",
+                                "Reference": "42-52",
+                                "Status": ""
+                            },
+                            {
+                                "Test": "Platelets",
+                                "Result": "250",
+                                "Unit": "x10³/μL",
+                                "Reference": "150-450",
+                                "Status": ""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": {
+                    "Timestamp": "Day 3, 07:05",
+                    "Assessment": "Focused Assessment",
+                    "Findings": {
+                        "General": "Anxious, complaining of severe, pounding headache.",
+                        "Neurological": "Alert and oriented x4. Pupils equal, round, reactive to light. No change in motor/sensory function from baseline (absent below T6). Reports blurred vision.",
+                        "Cardiovascular": "Bradycardia with HR of 52 bpm. Blood pressure severely elevated at 210/110 mmHg. No murmurs or gallops.",
+                        "Respiratory": "Lungs clear to auscultation bilaterally. Respiratory rate 18, unlabored.",
+                        "Integumentary": "Marked diaphoresis and flushing of the face, neck, and upper chest (above T6). Skin below T6 is cool, pale, with goosebumps (piloerection)."
+                    }
+                }
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "Procedure": "CT Head without contrast",
+                    "Date": "Day 3, 07:45",
+                    "Indication": "Sudden onset severe headache with hypertensive crisis, rule out intracranial hemorrhage.",
+                    "Impression": "No evidence of acute intracranial hemorrhage, mass effect, or territorial infarction. Ventricles and sulci are normal in size and configuration for the patient's age. The visualized paranasal sinuses and mastoid air cells are clear. Bony structures are unremarkable. Conclusion: No acute intracranial process identified to explain the patient's symptoms."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 09:30",
+                        "Action": "Vital signs every 4 hours",
+                        "Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 09:30",
+                        "Action": "Bladder scan every 6 hours and post-void",
+                        "Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 09:30",
+                        "Action": "Bowel regimen: Docusate sodium daily, Bisacodyl suppository PRN",
+                        "Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 09:30",
+                        "Action": "Hydralazine 10 mg IV PRN for SBP > 180 mmHg",
+                        "Status": "PRN"
+                    },
+                    {
+                        "Order Date/Time": "Day 3, 07:10",
+                        "Action": "Continuous blood pressure monitoring",
+                        "Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 3, 07:10",
+                        "Action": "Elevate head of bed to 90 degrees",
+                        "Status": "STAT"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Docusate sodium",
+                        "Dose": "100 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Day 2, 09:00"
+                    },
+                    {
+                        "Medication": "Lisinopril",
+                        "Dose": "10 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Day 3, 06:00"
+                    },
+                    {
+                        "Medication": "Hydralazine",
+                        "Dose": "10 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN, SBP > 180",
+                        "Last Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Bisacodyl suppository",
+                        "Dose": "10 mg",
+                        "Route": "PR",
+                        "Frequency": "PRN, constipation",
+                        "Last Administered": "N/A"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Spinal Cord Injury & Autonomic Dysreflexia"
+    "rationale": {
+        "correct": "The correct sequence of interventions for autonomic dysreflexia follows a critical pathway to mitigate a life-threatening hypertensive crisis. The pathophysiology involves a noxious stimulus below the level of spinal cord injury (T6 or above) triggering an unopposed sympathetic reflex, causing severe vasoconstriction and hypertension. The first priority is to lower blood pressure non-pharmacologically by elevating the head of the bed to 90 degrees, which uses gravity to cause orthostatic hypotension. Concurrently, removing constrictive items (clothing, binders) eliminates potential skin pressure stimuli. The definitive treatment is to find and eliminate the underlying cause (e.g., bladder distention, bowel impaction). Pharmacological intervention with a rapid-acting antihypertensive is reserved for when these measures fail to control the blood pressure.",
+        "incorrect": "Incorrect sequencing can be fatal. Administering medication before attempting to remove the stimulus masks the problem and may not be necessary. Delaying the elevation of the head of the bed allows severe hypertension to persist, increasing the risk of stroke or seizure. Focusing on documentation or comfort measures before addressing the physiological crisis is a critical error in prioritization. While notifying the provider is important, it should not delay immediate, life-saving nursing actions.",
+        "answerBreakdown": [
+            {
+                "optionId": "cloze-1:elevate the head of the bed",
+                "content": "Correct. This is the immediate first action. It induces orthostatic hypotension by allowing blood to pool in the lower extremities, providing a rapid, non-pharmacological reduction in blood pressure."
+            },
+            {
+                "optionId": "cloze-1:administer PRN hydralazine",
+                "content": "Incorrect. Pharmacological intervention is not the first-line action. The priority is to attempt to resolve the hypertension by removing the cause and using physical measures first."
+            },
+            {
+                "optionId": "cloze-1:perform a bladder scan",
+                "content": "Incorrect. While assessing for the cause is critical, the immediate life-threat is the severe hypertension. Lowering the blood pressure must be initiated first or simultaneously."
+            },
+            {
+                "optionId": "cloze-1:notify the healthcare provider",
+                "content": "Incorrect. While the provider must be notified, the nurse must initiate immediate life-saving interventions first. This is a nursing emergency that does not require an order to begin."
+            },
+            {
+                "optionId": "cloze-2:loosen tight clothing",
+                "content": "Correct. This is a rapid intervention performed along with elevating the head of the bed to remove any potential skin-level noxious stimuli that could be causing or contributing to the episode."
+            },
+            {
+                "optionId": "cloze-2:obtain a 12-lead ECG",
+                "content": "Incorrect. While bradycardia is present, it is a secondary effect of the vagal response to hypertension. The priority is managing the hypertension, not extensive cardiac diagnostics at this moment."
+            },
+            {
+                "optionId": "cloze-2:apply supplemental oxygen",
+                "content": "Incorrect. The client's SpO2 is 99% on room air. There is no indication of hypoxia; therefore, oxygen is not a priority intervention."
+            },
+            {
+                "optionId": "cloze-2:insert an indwelling catheter",
+                "content": "Incorrect. This is a potential solution if bladder distention is the cause, but it should only be done after assessing for the cause. It is not an immediate second step before assessment."
+            },
+            {
+                "optionId": "cloze-3:assess for a noxious stimulus",
+                "content": "Correct. After initial BP management, the priority is to find and eliminate the cause. The most common causes are bladder distention and bowel impaction."
+            },
+            {
+                "optionId": "cloze-3:re-evaluate vital signs every 5 minutes",
+                "content": "Incorrect. While frequent monitoring is essential, it is an ongoing task, not the primary action after initial stabilization. The priority is to find and remove the cause."
+            },
+            {
+                "optionId": "cloze-3:document the event in the EHR",
+                "content": "Incorrect. Documentation is always important but is never the priority over direct patient intervention during an acute, life-threatening event."
+            },
+            {
+                "optionId": "cloze-3:provide emotional support",
+                "content": "Incorrect. While important for holistic care, providing emotional support does not resolve the underlying pathophysiology and is a lower priority than finding and removing the noxious stimulus."
+            },
+            {
+                "optionId": "cloze-4:a rapid-acting antihypertensive",
+                "content": "Correct. If non-pharmacological measures do not resolve the hypertension, a fast-acting agent like hydralazine or nifedipine is required to prevent end-organ damage."
+            },
+            {
+                "optionId": "cloze-4:a long-acting beta-blocker",
+                "content": "Incorrect. A long-acting agent is inappropriate for an acute crisis. Furthermore, a beta-blocker could worsen the reflex bradycardia."
+            },
+            {
+                "optionId": "cloze-4:an osmotic diuretic",
+                "content": "Incorrect. Diuretics are not the primary treatment for this type of hypertension, which is caused by massive vasoconstriction, not fluid overload."
+            },
+            {
+                "optionId": "cloze-4:a PRN anxiolytic",
+                "content": "Incorrect. The client's anxiety is a symptom of the physiological crisis. Treating the anxiety does not address the dangerously high blood pressure."
+            }
+        ],
+        "clinicalPearls": [
+            "Autonomic dysreflexia typically occurs in individuals with spinal cord injuries at or above the T6 level.",
+            "The most common causes are related to bladder (distention, UTI, catheter blockage) and bowel (impaction, constipation). Always check these first.",
+            "Key signs include sudden severe hypertension, pounding headache, bradycardia, and sweating/flushing above the level of injury with coolness/pallor below."
+        ],
+        "questionTrap": "The most common trap is prioritizing finding the cause over the initial management of severe hypertension. While finding the cause is the ultimate solution, the immediate danger is a stroke from the BP of 210/110 mmHg. Always act to lower the BP first with non-invasive measures.",
+        "mnemonic": {
+            "title": "REACT for Autonomic Dysreflexia",
+            "expansion": "R - Raise the head of the bed (90 degrees)\nE - Eliminate tight clothing/sheets\nA - Assess for the cause (bladder, bowel, skin)\nC - Correct the cause (catheterize, disimpact)\nT - Treat with antihypertensives if symptoms persist"
+        },
+        "reviewUnits": [
+            "Physiological Adaptation",
+            "Reduction of Risk Potential",
+            "Pharmacological and Parenteral Therapies"
         ]
     },
-    "rationale": {
-        "correct": "Autonomic dysreflexia is a medical emergency requiring immediate intervention. The priority is to lower the blood pressure to prevent stroke or other complications. Elevated blood pressure should be addressed before other interventions. Raising the head of the bed to a sitting position helps to lower blood pressure by promoting venous pooling. Identifying and removing the noxious stimulus is the next crucial step. Common causes include bladder distention, bowel impaction, or skin irritation. Medication should only be administered if non-pharmacological interventions are insufficient to control the blood pressure.",
-        "incorrect": "Delaying blood pressure monitoring or elevation of the patient's head could lead to a hypertensive crisis. Addressing the cause of the autonomic dysreflexia is important, but only after addressing the hypertension. Administering medication before attempting to identify and remove the cause may mask the underlying problem and lead to unnecessary medication use or complications.",
-        "clinicalPearls": [
-            "Autonomic dysreflexia can occur at any time after spinal shock subsides.",
-            "Patient education is key to preventing autonomic dysreflexia. Teach patients to recognize the symptoms and take preventative measures.",
-            "Always suspect autonomic dysreflexia in patients with spinal cord injuries above T6 who present with sudden hypertension and headache."
-        ],
-        "questionTrap": {
-            "trap": "Some might prioritize finding the cause before monitoring the blood pressure, thinking that addressing the root issue will resolve the problem faster. However, the immediate danger is the severe hypertension.",
-            "howToOvercome": "Remember your ABCs (Airway, Breathing, Circulation). In autonomic dysreflexia, circulation (specifically blood pressure) is the most immediate threat and must be addressed first."
-        },
-        "mnemonic": {
-            "title": "SIT UP",
-            "expansion": "Sit patient up; Investigate cause; Treat blood pressure; Use medication if needed; Prevent recurrence"
-        }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
     },
-    "options": [
-        {
-            "0": "monitor",
-            "1": "assess",
-            "2": "administer",
-            "3": "document",
-            "id": "cloze-1",
-            "text": "monitor,assess,administer,document"
-        },
-        {
-            "0": "transfer",
-            "1": "reposition",
-            "2": "ambulate",
-            "3": "massage",
-            "id": "cloze-2",
-            "text": "transfer,reposition,ambulate,massage"
-        },
-        {
-            "0": "treat",
-            "1": "alleviate",
-            "2": "identify",
-            "3": "prevent",
-            "id": "cloze-3",
-            "text": "treat,alleviate,identify,prevent"
-        },
-        {
-            "0": "antihypertensive",
-            "1": "analgesic",
-            "2": "antiemetic",
-            "3": "antipyretic",
-            "id": "cloze-4",
-            "text": "antihypertensive,analgesic,antiemetic,antipyretic"
-        }
-    ],
-    "correctResponses": {
-        "cloze-1": "monitor",
-        "cloze-2": "reposition",
-        "cloze-3": "identify",
-        "cloze-4": "antihypertensive"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
     },
-    "isolation": "droplet",
-    "sentinelStatus": "deep_healed_v2026"
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:53:51.346Z"
 }

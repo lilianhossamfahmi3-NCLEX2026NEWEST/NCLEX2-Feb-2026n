@@ -1,104 +1,253 @@
 {
     "id": "New-v26-8a2b9c3d-4e5f-6071-8293-a4b5c6d7e8f9",
-    "type": "clozeDropdown",
-    "stem": "Baby Michael, diagnosed with Tetralogy of Fallot, is experiencing a hypercyanotic spell. Based on the assessment data, the priority nursing intervention is to position Michael in a [cloze-1] position. This action helps to [cloze-2] systemic vascular resistance, which in turn [cloze-3] pulmonary blood flow. Administering [cloze-4] via mask as prescribed will help increase SpO2, while also calming him. The parents should also be educated about the importance of [cloze-5] to prevent future hypercyanotic spells and understand when to seek immediate medical attention.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 5
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is caring for a 6-month-old infant with Tetralogy of Fallot experiencing a hypercyanotic spell. Based on the clinical data in the electronic health record, which nursing action is the priority?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Place the infant in a knee-chest position."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer prescribed intravenous propranolol."
+        },
+        {
+            "id": "opt_03",
+            "text": "Prepare for immediate endotracheal intubation."
+        },
+        {
+            "id": "opt_04",
+            "text": "Establish a second large-bore intravenous line."
+        }
+    ],
+    "correctOptionId": "opt_01",
     "itemContext": {
         "patient": {
-            "name": "Michael",
-            "age": 6,
-            "gender": "Male",
-            "iso": "Infant",
-            "allergies": []
+            "age": "6 months",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "No Known Allergies"
+            ]
         },
-        "sbar": "SITUATION: Baby Michael, a 6-month-old male with Tetralogy of Fallot, was admitted for observation and is now experiencing a hypercyanotic spell. BACKGROUND: Michael has generally been stable, maintaining SpO2 levels between 80-85%. At 14:15 today, his mother reported a sudden increase in cyanosis and labored breathing. He has a history of similar episodes. ASSESSMENT: At 14:20, Michael's respiratory rate is 60 and labored. His SpO2 is 65%, and his heart rate is 180 bpm. He is crying inconsolably and presents with dusky skin. Prior to this episode, his vital signs were stable. His mother reports he had just finished feeding. Auscultation reveals a loud murmur, consistent with his known heart defect. Lab results show normal electrolytes but elevated hemoglobin (18 g/dL) and hematocrit (55%). The current medication order is Morphine Sulfate 0.1mg/kg IM PRN for hypercyanotic spells, and Oxygen 2L via face mask PRN. RECOMMENDATION: I recommend immediate intervention for this hypercyanotic spell. The priority is to place him in the knee-chest position, administer morphine as prescribed, and provide supplemental oxygen. We also need to educate the parents on managing these episodes at home, including recognizing early signs and symptoms and knowing when to seek emergency care. Continuous monitoring is essential.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "SITUATION: Baby Michael, a 6-month-old male with Tetralogy of Fallot, was admitted for observation and is now experiencing a hypercyanotic spell. BACKGROUND: Michael has generally been stable, maintaining SpO2 levels between 80-85%. At 14:15 today, his mother reported a sudden increase in cyanosis and labored breathing. He has a history of similar episodes. ASSESSMENT: At 14:20, Michael's respiratory rate is 60 and labored. His SpO2 is 65%, and his heart rate is 180 bpm. He is crying inconsolably and presents with dusky skin. Prior to this episode, his vital signs were stable. His mother reports he had just finished feeding. Auscultation reveals a loud murmur, consistent with his known heart defect. Lab results show normal electrolytes but elevated hemoglobin (18 g/dL) and hematocrit (55%). The current medication order is Morphine Sulfate 0.1mg/kg IM PRN for hypercyanotic spells, and Oxygen 2L via face mask PRN. RECOMMENDATION: I recommend immediate intervention for this hypercyanotic spell. The priority is to place him in the knee-chest position, administer morphine as prescribed, and provide supplemental oxygen. We also need to educate the parents on managing these episodes at home, including recognizing early signs and symptoms and knowing when to seek emergency care. Continuous monitoring is essential."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "13:30",
+                        "content": "SITUATION: A 6-month-old male with a known history of Tetralogy of Fallot (TOF) is admitted for observation following increased frequency of mild cyanotic episodes at home.\nBACKGROUND: Diagnosed with TOF at birth. Baseline SpO2 is typically 80-85% on room air. Parents report he has had brief, milder episodes at home, especially during feeding or crying. They live in a rural area with limited access to pediatric cardiology and rely on public transport, which can delay seeking care.\nASSESSMENT: On admission, infant is calm. HR 140, RR 30, SpO2 82% on room air. Mild perioral cyanosis noted. Weight is appropriate for age. Parents appear anxious but are receptive to teaching.\nRECOMMENDATION: Admit to pediatric unit for continuous cardiorespiratory monitoring. Plan for cardiology consult in the morning. Reinforce parental education on recognizing and managing hypercyanotic spells."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "14:25",
+                        "content": "SITUATION: The infant is experiencing an acute hypercyanotic spell.\nBACKGROUND: The episode began at approximately 14:15, following a feeding. The infant became acutely irritable, crying inconsolably, with rapidly deepening cyanosis.\nASSESSMENT: At 14:20, infant is in acute distress. HR 180, RR 60 with subcostal retractions. SpO2 dropped to 65% on room air. Skin is dusky and cool to the touch. A loud, harsh systolic murmur is audible at the left sternal border. The infant is not responding to soothing measures.\nRECOMMENDATION: Requesting immediate bedside intervention to manage this 'Tet spell' and prevent severe hypoxic injury. The primary nurse is at the bedside initiating emergency protocols."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "14:00: HR 140, RR 30, SpO2 82%, Temp 37.0°C (Axillary)\n14:20: HR 180, RR 60, SpO2 65%, Temp 37.2°C (Axillary)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "RR (breaths/min)",
+                        "SpO₂ (%)",
+                        "BP (mmHg)",
+                        "Temp °F (°C)"
+                    ],
+                    "rows": [
+                        [
+                            "14:00",
+                            "140",
+                            "30",
+                            "82% on RA",
+                            "80/45 (57)",
+                            "98.6 (37.0)"
+                        ],
+                        [
+                            "14:15",
+                            "165",
+                            "52",
+                            "74% on RA",
+                            "82/48 (60)",
+                            "98.8 (37.1)"
+                        ],
+                        [
+                            "14:20",
+                            "180",
+                            "60",
+                            "65% on RA",
+                            "85/50 (62)",
+                            "98.8 (37.1)"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Hemoglobin: 18 g/dL\nHematocrit: 55%\nSodium: 140 mEq/L\nPotassium: 4.0 mEq/L\nChloride: 100 mEq/L\nBicarbonate: 24 mEq/L"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "panel": "Complete Blood Count (CBC)",
+                    "results": [
+                        {
+                            "test": "Hemoglobin",
+                            "result": "18.1",
+                            "unit": "g/dL",
+                            "reference": "9.0-14.0",
+                            "status": "High"
+                        },
+                        {
+                            "test": "Hematocrit",
+                            "result": "55",
+                            "unit": "%",
+                            "reference": "28-42",
+                            "status": "High"
+                        },
+                        {
+                            "test": "WBC",
+                            "result": "8.5",
+                            "unit": "x10³/μL",
+                            "reference": "6.0-17.5",
+                            "status": "Normal"
+                        },
+                        {
+                            "test": "Platelets",
+                            "result": "250",
+                            "unit": "x10³/μL",
+                            "reference": "150-450",
+                            "status": "Normal"
+                        }
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Morphine Sulfate 0.1mg/kg IM PRN for hypercyanotic spells\nOxygen 2L via face mask PRN"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "General",
+                        "findings": "Irritable, crying inconsolably. Appears in acute distress."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardia with regular rhythm. Loud, harsh, grade IV/VI systolic ejection murmur at the left upper sternal border. Pulses palpable but diminished peripherally. Capillary refill 4 seconds."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Tachypneic with subcostal retractions. Lungs clear to auscultation bilaterally."
+                    },
+                    {
+                        "system": "Integumentary",
+                        "findings": "Marked central and peripheral cyanosis, dusky appearance. Clubbing of fingers and toes noted."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "report_type": "Chest X-ray (AP and Lateral)",
+                    "timestamp": "13:45",
+                    "findings": "The cardiac silhouette is enlarged. There is right ventricular prominence, giving the heart a characteristic 'boot-shaped' appearance. Pulmonary vascular markings are decreased. The aortic arch is right-sided. Lungs are clear.",
+                    "impression": "Findings are consistent with Tetralogy of Fallot."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "13:35",
+                        "action": "Continuous cardiorespiratory and pulse oximetry monitoring",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "13:35",
+                        "action": "Cluster care to minimize oxygen demand",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "13:35",
+                        "action": "Small, frequent, low-pressure feedings",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "13:35",
+                        "action": "Notify provider for SpO2 < 75% or signs of respiratory distress",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Morphine Sulfate",
+                        "dose": "0.1 mg/kg",
+                        "route": "IM",
+                        "frequency": "PRN, for hypercyanotic spell",
+                        "last_administered": "N/A"
+                    },
+                    {
+                        "medication": "Oxygen",
+                        "dose": "100%",
+                        "route": "Face Mask",
+                        "frequency": "PRN, for hypercyanotic spell",
+                        "last_administered": "N/A"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Pediatric: Congenital Heart Defects & Safety"
-        ]
-    },
     "rationale": {
-        "correct": "Placing the infant in a knee-chest position is crucial during a hypercyanotic spell (Tet spell) because it increases systemic vascular resistance. This increase diverts blood flow back to the lungs for oxygenation, thereby increasing pulmonary blood flow and improving oxygen saturation. Morphine helps reduce pulmonary vascular resistance and calms the infant, reducing oxygen demand. Educating parents on preventing triggers like dehydration or overexertion is crucial for home management and recognizing the need for emergency interventions. Quick intervention is vital to prevent severe hypoxia and potential neurological damage.",
-        "incorrect": "Other positions might hinder blood return to the heart or lungs. While oxygen is important, positioning takes precedence in this situation. Not understanding the pathophysiology of Tetralogy of Fallot can lead to incorrect interventions. Lack of parental education leaves them unprepared to manage future episodes and recognize emergency situations. Delaying intervention can have severe consequences.",
+        "correct": "The priority nursing action during a hypercyanotic ('Tet') spell is to place the infant in a knee-chest position. This maneuver increases systemic vascular resistance (SVR) by kinking the femoral arteries. The elevated SVR reduces the amount of deoxygenated blood shunting from the right ventricle to the left ventricle through the ventricular septal defect (VSD) and into the aorta. Consequently, more blood is directed into the pulmonary artery, improving pulmonary blood flow and oxygenation.",
+        "incorrect": "While other interventions may be necessary if the spell persists, they are not the immediate priority. Administering medications or preparing for intubation takes more time and is secondary to the rapid, effective positional change. Establishing a second IV line does not address the underlying pathophysiology of the right-to-left shunt causing the severe hypoxia.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. This is the fastest and most effective initial intervention. It directly addresses the pathophysiology of the spell by increasing SVR, which decreases the right-to-left shunting of deoxygenated blood and improves pulmonary circulation."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. Propranolol is a beta-blocker used for long-term management to prevent Tet spells by relaxing the right ventricular outflow tract. While morphine is the preferred sedative during an acute spell, neither is the first-line action. Positioning is the priority."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. Endotracheal intubation is a late-stage, rescue intervention for a refractory Tet spell that does not respond to initial measures like positioning, oxygen, and morphine. It is not the priority action."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. While IV access is important for administering fluids or medications, it is not the priority intervention. The immediate life threat is severe hypoxia from the shunt, which is best managed by positioning first."
+            }
+        ],
         "clinicalPearls": [
-            "Hypercyanotic spells (Tet spells) are characterized by a sudden increase in cyanosis, often triggered by crying, feeding, or defecation.",
-            "Knee-chest position is the first-line intervention for a Tet spell to increase systemic vascular resistance and pulmonary blood flow.",
-            "Elevated hemoglobin and hematocrit are common in children with cyanotic heart defects due to chronic hypoxemia, as the body attempts to compensate for low oxygen levels."
+            "Hypercyanotic spells are a medical emergency characterized by a sudden increase in cyanosis, often triggered by crying, feeding, or defecation in infants with TOF.",
+            "The four classic defects of Tetralogy of Fallot are: Ventricular Septal Defect (VSD), Pulmonary Stenosis, Overriding Aorta, and Right Ventricular Hypertrophy.",
+            "Chronic hypoxemia in children with cyanotic heart defects leads to compensatory polycythemia (elevated Hgb/Hct), which increases blood viscosity and the risk for thromboembolic events."
         ],
-        "questionTrap": {
-            "trap": "Focusing solely on oxygen administration without addressing the underlying physiological problem of decreased pulmonary blood flow.",
-            "howToOvercome": "Prioritize interventions that directly improve pulmonary blood flow, such as the knee-chest position. Oxygen alone may not be sufficient. Remember to consider the bigger picture, including calming the child and family education, to effectively manage the hypercyanotic spell."
-        },
-        "mnemonic": {
-            "title": "TETRA",
-            "expansion": "Treatment: Elevate knees, Tranquilize (Morphine), Transport, Reduce stimuli, Administer oxygen"
-        }
-    },
-    "responseProcessing": {
-        "orderMatters": false
-    },
-    "correctResponse": [
-        "knee-chest",
-        "increase",
-        "increases",
-        "oxygen",
-        "avoiding known triggers"
-    ],
-    "options": [
-        [
-            "supine",
-            "knee-chest",
-            "Trendelenburg"
-        ],
-        [
-            "decrease",
-            "increase",
-            "maintain"
-        ],
-        [
-            "decreases",
-            "increases",
-            "has no effect on"
-        ],
-        [
-            "epinephrine",
-            "oxygen",
-            "digoxin"
-        ],
-        [
-            "limiting fluid intake",
-            "avoiding known triggers",
-            "increasing physical activity"
+        "questionTrap": "The trap is choosing a pharmacological or advanced airway intervention before a simple, non-invasive, and highly effective positional maneuver. In pediatric emergencies, always consider the fastest, least invasive, and most effective intervention first. The knee-chest position directly counters the spell's pathophysiology.",
+        "mnemonic": "For managing a Tet Spell, remember 'KNEE':\n\n**K**nees to chest position\n**N**ormal saline bolus (if dehydrated)\n**E**nhance oxygenation (100% O2 via face mask)\n**E**valuate for medications (Morphine, Phenylephrine)",
+        "reviewUnits": [
+            "Pediatric Nursing",
+            "Cardiovascular Disorders",
+            "Pharmacology",
+            "Emergency Nursing"
         ]
-    ]
+    },
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:47:56.922Z"
 }

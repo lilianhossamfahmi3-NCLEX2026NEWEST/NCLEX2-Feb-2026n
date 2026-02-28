@@ -1,100 +1,120 @@
 {
     "id": "New-v26-8d9a4b2c-7e3f-4a1b-9c5d-6e8f7a3b2a10",
-    "type": "highlight",
-    "stem": "The patient is at risk for hypovolemic shock. Review the documentation in the EHR. Identify the findings that support this conclusion. Click on those findings to highlight them.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is analyzing trends in the client's electronic health record. Which finding is the most significant indicator that the client is progressing from compensated to decompensated hypovolemic shock?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Heart rate of 122/min."
+        },
+        {
+            "id": "opt_02",
+            "text": "Blood pressure of 88/52 mmHg."
+        },
+        {
+            "id": "opt_03",
+            "text": "Hemoglobin of 8.2 g/dL."
+        },
+        {
+            "id": "opt_04",
+            "text": "Urine output of 15 mL/hr."
+        }
+    ],
+    "correctOptionId": "opt_02",
     "itemContext": {
         "patient": {
             "name": "Jameson Tyrell",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "68",
+            "sex": "Male (he/him)",
             "allergies": [
                 "Penicillin"
-            ],
-            "airborne": false
+            ]
         },
-        "sbar": "S: Jameson Tyrell, 68-year-old male, post-operative day 1 from right hemicolectomy, showing possible hypovolemic shock signs. At 06:00, vitals stable. B: History: hypertension, type 2 diabetes, recent colon cancer resection. Received 2 units packed RBCs intraoperatively for blood loss. A: At 07:30, BP 88/52 mmHg, HR 122 bpm, RR 28 (shallow), SpO2 91% on 2L NC. Pale, diaphoretic, reports increased thirst. Foley output 15 mL/hr. Surgical dressing: moderate serosanguinous drainage. CVP 2 mmHg. IV fluid rate increased to 200 mL/hr per protocol. R: Recommend immediate evaluation for hypovolemic shock and further orders.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th><th>CVP</th><th>Urine Output</th></tr></thead><tbody><tr><td>06:00</td><td>120/78 mmHg</td><td>88 bpm</td><td>18</td><td>98% on RA</td><td>37.0°C</td><td>8 mmHg</td><td>45 mL/hr</td></tr><tr><td>07:30</td><td>88/52 mmHg</td><td>122 bpm</td><td>28</td><td>91% on 2L NC</td><td>37.2°C</td><td>2 mmHg</td><td>15 mL/hr</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Nurses' Notes",
+                "content": "Admission Note (Post-Op Day 0 @ 18:00)\nS: Client admitted from PACU post-right hemicolectomy.\nB: 68-year-old male with a history of hypertension and type 2 diabetes. Intraoperative blood loss was 800 mL; received 2 units PRBCs. Client lives alone in a rural area and expresses concern about managing his new colostomy without local support.\nA: Alert, oriented x4. Abdominal dressing clean, dry, intact. Jackson-Pratt drain with 50 mL serosanguinous output. Bowel sounds hypoactive. IV fluids infusing. Pain managed with PCA.\nR: Continue post-operative monitoring per protocol. Reinforce drain and stoma care education. Initiate case management consult regarding discharge planning and home health needs due to his social situation.\n\nProgress Note (Post-Op Day 1 @ 07:45)\nS: Called to bedside for client reporting dizziness and extreme thirst.\nB: Client was stable overnight. Last pain medication was 2 mg morphine IV at 06:00.\nA: Client is pale, cool, and diaphoretic. Tachycardic at 122/min, hypotensive at 88/52 mmHg, tachypneic at 28/min. SpO2 91% on 2L NC. CVP dropped from 8 to 2 mmHg. Urine output only 15 mL in the last hour. Abdominal dressing has a 10 cm area of fresh sanguineous drainage.\nR: Increased IV fluid rate to 200 mL/hr per standing order. Notified surgeon of acute change in status. Recommend STAT labs, including H&H and lactate, and prepare for possible fluid bolus or blood transfusion."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>8.2 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Hematocrit</td><td>24.6%</td><td>40-52%</td></tr><tr><td>Platelets</td><td>250,000/μL</td><td>150,000-450,000/μL</td></tr><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>BUN</td><td>28 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.4 mg/dL</td><td>0.7-1.3 mg/dL</td></tr><tr><td>Lactate</td><td>3.5 mmol/L</td><td>0.5-2.2 mmol/L</td></tr></tbody></table>"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th><th>CVP</th></tr></thead><tbody><tr><td>Day 0 @ 22:00</td><td>128/80 mmHg (96)</td><td>84/min</td><td>16/min</td><td>97% on Room Air</td><td>99.1°F (37.3°C)</td><td>8 mmHg</td></tr><tr><td>Day 1 @ 06:00</td><td>120/78 mmHg (92)</td><td>88/min</td><td>18/min</td><td>98% on Room Air</td><td>98.9°F (37.2°C)</td><td>8 mmHg</td></tr><tr><td>Day 1 @ 07:30</td><td>88/52 mmHg (64)</td><td>122/min</td><td>28/min</td><td>91% on 2L NC</td><td>99.0°F (37.2°C)</td><td>2 mmHg</td></tr></tbody></table>"
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>8.2</td><td>g/dL</td><td>13.5-17.5</td><td>Low</td></tr><tr><td>Hematocrit</td><td>24.6</td><td>%</td><td>40-52</td><td>Low</td></tr><tr><td>Platelets</td><td>250,000</td><td>/μL</td><td>150,000-450,000</td><td>Normal</td></tr><tr><td>Sodium</td><td>140</td><td>mEq/L</td><td>135-145</td><td>Normal</td></tr><tr><td>Potassium</td><td>3.8</td><td>mEq/L</td><td>3.5-5.0</td><td>Normal</td></tr><tr><td>BUN</td><td>28</td><td>mg/dL</td><td>8-20</td><td>High</td></tr><tr><td>Creatinine</td><td>1.4</td><td>mg/dL</td><td>0.7-1.3</td><td>High</td></tr><tr><td>Lactate</td><td>3.5</td><td>mmol/L</td><td>0.5-2.2</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Admission Assessment (Day 0 @ 18:00)\nNeurological: Alert and oriented x4. PERRLA.\nCardiovascular: S1, S2 audible. Rate regular. Capillary refill <3 seconds. Peripheral pulses 2+ bilaterally.\nRespiratory: Lungs clear to auscultation bilaterally. Breathing non-labored.\nIntegumentary: Skin warm, dry, and intact. Surgical dressing clean, dry, intact.\n\nFocused Assessment (Day 1 @ 07:30)\nNeurological: Reports dizziness, appears anxious.\nCardiovascular: Tachycardia noted. Pulses weak and thready. Capillary refill >3 seconds.\nIntegumentary: Skin pale, cool, and diaphoretic.\nGastrointestinal: Abdominal dressing with 10 cm diameter area of active sanguineous drainage."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "Chest X-ray (Portable, AP View) - Day 0 @ 19:00\n\nFINDINGS: Lungs are clear. No evidence of pneumothorax, consolidation, or pleural effusion. Cardiomediastinal silhouette is within normal limits.\n\nIMPRESSION: No acute cardiopulmonary process."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Morphine</td><td>2 mg</td><td>IV</td><td>q2h PRN pain</td><td>06:00</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IV</td><td>q6h PRN nausea</td><td>04:00</td></tr><tr><td>Lactated Ringers</td><td>1000 mL</td><td>IV</td><td>Continuous</td><td>Infusing at 200 mL/hr</td></tr><tr><td>Cefazolin</td><td>1 gram</td><td>IV</td><td>q8h</td><td>02:00</td></tr></tbody></table>"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 0 @ 18:00</td><td>Vital signs every 4 hours</td><td>Standing</td></tr><tr><td>Day 0 @ 18:00</td><td>Notify provider for SBP <90 mmHg, HR >120/min, or UOP <30 mL/hr</td><td>Standing</td></tr><tr><td>Day 0 @ 18:00</td><td>Lactated Ringers at 125 mL/hr</td><td>Standing</td></tr><tr><td>Day 0 @ 18:00</td><td>Increase IV fluids to 200 mL/hr for SBP <90 mmHg</td><td>Standing Protocol</td></tr><tr><td>Day 0 @ 18:00</td><td>Morphine 2 mg IV every 2 hours PRN for pain > 5/10</td><td>PRN</td></tr><tr><td>Day 1 @ 07:45</td><td>STAT Hemoglobin & Hematocrit, Lactate</td><td>STAT</td></tr></tbody></table>"
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Jameson Tyrell, 68-year-old male, post-operative day 1 from right hemicolectomy, showing possible hypovolemic shock signs. At 06:00, vitals stable. B: History: hypertension, type 2 diabetes, recent colon cancer resection. Received 2 units packed RBCs intraoperatively for blood loss. A: At 07:30, BP 88/52 mmHg, HR 122 bpm, RR 28 (shallow), SpO2 91% on 2L NC. Pale, diaphoretic, reports increased thirst. Foley output 15 mL/hr. Surgical dressing: moderate serosanguinous drainage. CVP 2 mmHg. IV fluid rate increased to 200 mL/hr per protocol. R: Recommend immediate evaluation for hypovolemic shock and further orders."
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Lactated Ringers</td><td>1000 mL</td><td>IV</td><td>Continuous</td><td>Currently infusing (Rate increased to 200 mL/hr at 07:30)</td></tr><tr><td>Morphine</td><td>2 mg</td><td>IV</td><td>q2h PRN</td><td>Day 1 @ 06:00</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IV</td><td>q6h PRN</td><td>Day 1 @ 04:00</td></tr><tr><td>Cefazolin</td><td>1 gram</td><td>IV</td><td>q8h</td><td>Day 1 @ 02:00</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
+    "rationale": {
+        "correct": "The drop in blood pressure to 88/52 mmHg (MAP 64) is the most critical indicator of decompensated shock. Initially, the body compensates for volume loss via tachycardia and systemic vascular resistance to maintain blood pressure. Hypotension is a late sign that signifies these compensatory mechanisms are failing, leading to inadequate perfusion of vital organs.",
+        "incorrect": "While tachycardia, low hemoglobin, and oliguria are all critical findings related to hypovolemic shock, they do not represent the point of decompensation as directly as hypotension does. Tachycardia is a compensatory mechanism, low hemoglobin is the underlying cause, and oliguria is a consequence of poor perfusion. The drop in blood pressure is the definitive sign that compensation has failed.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Incorrect. Tachycardia (HR 122/min) is a sign of compensated shock. It is the body's primary attempt to maintain cardiac output (CO = HR x SV) when stroke volume (SV) decreases due to volume loss. While it is a serious finding, it is an expected compensatory response, not the sign of decompensation itself."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. Hypotension (BP 88/52 mmHg) is the hallmark sign that the body's compensatory mechanisms (like tachycardia and vasoconstriction) are no longer sufficient to maintain adequate blood pressure and organ perfusion. This marks the critical transition from compensated to decompensated shock."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. A low hemoglobin of 8.2 g/dL indicates significant blood loss and is the likely cause of the hypovolemia. However, it is a laboratory value that explains the 'why' but does not directly measure the body's current hemodynamic state of failure. The blood pressure is the most direct indicator of perfusion status."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. Oliguria (urine output <30 mL/hr) is a serious sign of decreased renal perfusion and a key indicator of shock. However, the systemic hypotension is the overarching hemodynamic event that causes the poor renal perfusion. Therefore, hypotension is the more direct and immediate indicator of decompensation."
+            }
+        ],
+        "clinicalPearls": [
+            "Hypotension is a late sign in hypovolemic shock, indicating the failure of compensatory mechanisms. Early signs include tachycardia, anxiety, and cool, clammy skin.",
+            "Mean Arterial Pressure (MAP) is a critical indicator of organ perfusion. A MAP below 65 mmHg is generally considered insufficient to perfuse vital organs like the kidneys and brain.",
+            "In post-operative patients, a sudden increase in sanguineous drainage combined with signs of shock should immediately raise suspicion of an active hemorrhage.",
+            "The Shock Index (Heart Rate / Systolic Blood Pressure) can be a useful tool. An index >0.9 is highly suggestive of shock. In this case, 122 / 88 = 1.38, indicating severe shock."
+        ],
+        "questionTrap": "The trap is choosing a correct sign of shock (like tachycardia or oliguria) without analyzing which sign specifically indicates the failure of compensation. Candidates often select the first abnormal finding they see rather than the one that represents the most critical change in status from compensated to decompensated.",
+        "mnemonic": {
+            "title": "SHOCK Signs",
+            "expansion": "S: Skin (pale, cool, clammy)\nH: Hypotension (late sign) & Hypoxia\nO: Oliguria (decreased urine output)\nC: Confusion/Changes in LOC\nK: Kachycardia (Tachycardia) & Tachypnea"
+        },
+        "reviewUnits": [
+            "Cardiovascular Disorders",
+            "Perioperative Nursing Care",
+            "Fluid and Electrolyte Imbalances"
         ]
     },
-    "rationale": {
-        "correct": "The patient's vital signs at 07:30 indicate hypotension (88/52 mmHg) and tachycardia (122 bpm), which are classic signs of hypovolemic shock. The increased respiratory rate (28) reflects the body's attempt to compensate for decreased oxygen delivery. A low CVP (2 mmHg) also supports hypovolemia. The decreased urine output (15 mL/hr) suggests reduced renal perfusion due to decreased circulating volume. The hemoglobin of 8.2 g/dL indicates significant blood loss, contributing to the hypovolemia. Lactate of 3.5 mmol/L indicates anaerobic metabolism due to poor perfusion. These findings collectively point to a critical reduction in circulating volume and impaired tissue oxygenation.",
-        "incorrect": "While morphine administration might contribute to hypotension, it's unlikely the primary cause given the other significant indicators. Fluid replacement is the intervention, not a finding contributing to the shock. Elevated BUN and creatinine suggest dehydration but don't directly cause the acute hypovolemic state. Post-operative status increases risk but isn't a direct indicator. Electrolytes, platelets, and cefazolin have no direct bearing on the hypovolemic shock presentation. Focusing on these distracts from the key hemodynamic and perfusion deficits.",
-        "clinicalPearls": [
-            "Hypovolemic shock is characterized by decreased intravascular volume, leading to inadequate tissue perfusion and oxygen delivery.",
-            "Early recognition of hypovolemic shock is crucial for prompt intervention and improved patient outcomes; subtle changes in vital signs and urine output can be early indicators.",
-            "Urine output is a sensitive indicator of renal perfusion and overall fluid status; a significant decrease warrants immediate investigation."
-        ],
-        "questionTrap": {
-            "trap": "Selecting findings that are abnormal but do not directly contribute to the immediate hypovolemic shock presentation, such as pre-existing conditions or medications.",
-            "howToOvercome": "Focus on the data points that directly reflect the patient's current hemodynamic status and signs of hypoperfusion, differentiating between chronic issues and acute changes."
-        },
-        "mnemonic": {
-            "title": "THIRST",
-            "expansion": "Tachycardia, Hypotension, Increased RR, Skin (cool/clammy), Thirst, and Reduced Urine Output"
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "response": {
-        "18": "incorrect",
-        "28": "correct",
-        "06:00": "incorrect",
-        "07:30": "correct",
-        "88/52 mmHg": "correct",
-        "122 bpm": "correct",
-        "91% on 2L NC": "correct",
-        "2 mmHg": "correct",
-        "15 mL/hr": "correct",
-        "8.2 g/dL": "correct",
-        "3.5 mmol/L": "correct",
-        "120/78 mmHg": "incorrect",
-        "88 bpm": "incorrect",
-        "98% on RA": "incorrect",
-        "8 mmHg": "incorrect",
-        "45 mL/hr": "incorrect",
-        "24.6%": "incorrect",
-        "250,000/μL": "incorrect",
-        "140 mEq/L": "incorrect",
-        "3.8 mEq/L": "incorrect",
-        "28 mg/dL": "incorrect",
-        "1.4 mg/dL": "incorrect"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:17:14.056Z"
 }

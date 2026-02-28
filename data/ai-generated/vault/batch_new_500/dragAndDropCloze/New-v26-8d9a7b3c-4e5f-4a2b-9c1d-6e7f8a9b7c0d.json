@@ -1,106 +1,228 @@
 {
     "id": "New-v26-8d9a7b3c-4e5f-4a2b-9c1d-6e7f8a9b7c0d",
-    "type": "dragAndDropCloze",
-    "stem": "The patient is exhibiting signs of worsening respiratory failure. Based on the provided information, the most appropriate interventions in order of priority are:\n\n1. Increase the FiO2 to [________]%\n2. Prepare for possible [________] if the patient's condition continues to deteriorate.\n3. Administer [________] mg IV push.\n4. Obtain an order for a [________] to assess for improvement in oxygenation and ventilation.\n5. Monitor for signs of [________] such as decreased urine output and altered mental status.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 5
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse reviews the 07:30 clinical data. The patient is becoming less responsive with an increased work of breathing. Which action is the nurse's immediate priority?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Prepare for immediate endotracheal intubation."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer furosemide 20 mg IV push."
+        },
+        {
+            "id": "opt_03",
+            "text": "Increase the non-rebreather mask flow rate to 15 L/min."
+        },
+        {
+            "id": "opt_04",
+            "text": "Obtain a STAT blood culture and pan-culture the patient."
+        }
+    ],
+    "correctOptionId": "opt_01",
     "itemContext": {
         "patient": {
             "name": "Jameson Murphy",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: Jameson Murphy, a 68-year-old male, admitted two days prior for pneumonia, is now suspected of ARDS and is in the ICU.\nBackground: Mr. Murphy was admitted for pneumonia. Over the last 24 hours, his respiratory status has declined despite antibiotics. He has a history of hypertension and COPD.\nAssessment: At 07:00, the patient is restless, with SpO2 88% on 6L nasal cannula. Respiratory rate is 32 and labored, heart rate 110, and BP 100/60. Coarse crackles are auscultated bilaterally. At 07:15, SpO2 remains 88% on a non-rebreather mask. ABG ordered, results pending. At 07:30, he shows fatigue, becoming less responsive, and his work of breathing is increasing. Lactate is 3.5 mmol/L.\nRecommendation: Prepare for intubation and mechanical ventilation. The patient's condition is deteriorating rapidly, requiring immediate intervention to support oxygenation and ventilation. I suspect he needs escalation of care immediately.",
+        "sbar": "Nurses' Note - 07:30 (SBAR)\n\nSituation: Mr. Murphy's respiratory status is rapidly declining. He is now obtunded with severe work of breathing, failing non-invasive oxygen therapy.\n\nBackground: This is a 68-year-old male admitted two days ago for community-acquired pneumonia, now with suspected Acute Respiratory Distress Syndrome (ARDS). His medical history is significant for COPD and hypertension. He lives alone and has limited social support, which may complicate discharge planning.\n\nAssessment: At 07:30, the patient is difficult to arouse, responding only to painful stimuli. Respiratory rate is 36/min and shallow, with significant accessory muscle use. SpO₂ remains 88% on a 15L non-rebreather mask, indicating refractory hypoxemia. BP is 95/55 mmHg (MAP 68), HR 118 bpm. Skin is cool and clammy. Bilateral coarse crackles persist on auscultation. The most recent lactate is critically high at 3.5 mmol/L.\n\nRecommendation: I have requested immediate physician presence at the bedside and have the intubation kit ready. We need to proceed with emergent endotracheal intubation and mechanical ventilation to prevent imminent respiratory arrest.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG (Pending Result):\nCBC: WBC 18,000/uL\nBMP: Na 140, K 3.8, Cl 100, HCO3 22, BUN 30, Creatinine 1.8\nLactate: 3.5 mmol/L"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note - Day 1, 14:00\nPatient is a 68-year-old male presenting from home with a 3-day history of productive cough, fever, and shortness of breath. Diagnosed with community-acquired pneumonia. Initiated on IV antibiotics and supplemental oxygen via nasal cannula. Patient is alert and oriented x4. Maintains SpO2 94% on 4L NC.\n\nProgress Note - Day 3, 07:30\nSee SBAR note."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: BP 100/60, HR 110, RR 32, SpO2 88% on 6L NC, Temp 38.5°C\n07:15: BP 98/58, HR 115, RR 34, SpO2 88% on Non-Rebreather, Temp 38.6°C\n07:30: BP 95/55, HR 118, RR 36, SpO2 88% on Non-Rebreather, Temp 38.6°C"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "07:00",
+                        "HR": "110",
+                        "BP": "100/60 (MAP 73)",
+                        "RR": "32",
+                        "SpO2": "88% on 6L NC",
+                        "Temp": "101.5°F (38.6°C)"
+                    },
+                    {
+                        "Time": "07:15",
+                        "HR": "115",
+                        "BP": "98/58 (MAP 71)",
+                        "RR": "34",
+                        "SpO2": "88% on Non-Rebreather",
+                        "Temp": "101.5°F (38.6°C)"
+                    },
+                    {
+                        "Time": "07:30",
+                        "HR": "118",
+                        "BP": "95/55 (MAP 68)",
+                        "RR": "36",
+                        "SpO2": "88% on Non-Rebreather",
+                        "Temp": "101.5°F (38.6°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Scheduled:\nCeftriaxone 1g IV q24h\nAlbuterol/Ipratropium Neb q4h PRN\nPRN:\nFurosemide 20mg IV PRN for fluid overload\nMorphine 2mg IV PRN for pain"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "18.0",
+                        "Unit": "x 10^9/L",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "1.8",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate",
+                        "Result": "3.5",
+                        "Unit": "mmol/L",
+                        "Reference": "<2.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "ABG (07:15)",
+                        "Result": "pH 7.28 | PaCO2 55 mmHg | PaO2 58 mmHg | HCO3 24 mEq/L",
+                        "Unit": "",
+                        "Reference": "pH 7.35-7.45 | PaCO2 35-45 | PaO2 80-100 | HCO3 22-26",
+                        "Status": "Abnormal"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Assessment at 07:30:\nNeurological: Difficult to arouse, responds to painful stimuli only. GCS 9 (E2, V2, M5).\nRespiratory: Rate 36/min, shallow. Significant accessory muscle use (intercostal retractions). Bilateral coarse crackles throughout all lung fields.\nCardiovascular: Tachycardic at 118 bpm, regular rhythm. S1/S2 audible. Pulses +1 peripherally. Skin cool, clammy. Capillary refill >3 seconds."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "Chest X-ray, Portable AP View (Day 2, 22:00)\n\nFINDINGS: Diffuse, bilateral airspace opacities consistent with pulmonary edema. No pleural effusion or pneumothorax identified. Cardiomediastinal silhouette is within normal limits.\n\nIMPRESSION: Findings are highly suggestive of Acute Respiratory Distress Syndrome (ARDS)."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Titrate O2 to maintain SpO2 >92%",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Vital signs every 4 hours",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 3, 07:00",
+                        "Action": "Vital signs every 15 minutes",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Regular diet, as tolerated",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Bed rest with bathroom privileges",
+                        "Frequency/Status": "Standing"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "q24h",
+                        "Last Administered": "Day 3, 09:00"
+                    },
+                    {
+                        "Medication": "Albuterol/Ipratropium",
+                        "Dose": "3mL",
+                        "Route": "Nebulizer",
+                        "Frequency": "q4h PRN",
+                        "Last Administered": "Day 3, 04:00"
+                    },
+                    {
+                        "Medication": "Furosemide",
+                        "Dose": "20mg",
+                        "Route": "IV",
+                        "Frequency": "PRN",
+                        "Last Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650mg",
+                        "Route": "PO",
+                        "Frequency": "q6h PRN fever",
+                        "Last Administered": "Day 3, 06:00"
+                    }
+                ]
             }
-        ],
-        "condition": "Droplet",
-        "isolation": "Standard"
-    },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
         ]
     },
     "rationale": {
-        "correct": "Increasing FiO2 is the first step to improve oxygenation, aiming for a SpO2 >90%. Preparing for intubation is crucial if oxygenation does not improve with non-invasive methods. Morphine can help reduce the patient's work of breathing and anxiety, decreasing oxygen consumption. An ABG is needed to evaluate the effectiveness of the interventions and guide further management. Monitoring for signs of end-organ hypoperfusion, such as decreased urine output and altered mental status, is essential given the patient's deteriorating condition and elevated lactate levels. Early recognition and intervention are key in managing respiratory failure and preventing further complications.\n\nclinicalPearl: In acute respiratory failure, prioritize interventions based on the ABCs (Airway, Breathing, Circulation). Continuous monitoring and reassessment are crucial.\nquestionTrap: Students might prioritize administering furosemide due to the presence of crackles. However, the patient's hypotension and elevated lactate suggest hypoperfusion, making fluid removal potentially harmful. Addressing oxygenation and preparing for intubation are higher priorities.\nMnemonic: \"ROPE\" - Respiratory Optimization Prevents Escalation.",
-        "incorrect": "Prioritizing interventions for respiratory failure requires a systematic approach focusing on immediate life-threatening issues. Delaying oxygen titration or preparation for intubation can lead to further deterioration and irreversible organ damage. While other interventions may be appropriate, they are not the immediate priority in this scenario. Failing to recognize and address the underlying cause of the respiratory distress is also a critical error. Always consider the patient's overall clinical picture and prioritize interventions based on the severity of the condition and the potential for rapid deterioration.",
-        "clinicalPearls": [
-            "In acute respiratory failure, always prioritize oxygenation and ventilation.",
-            "Early recognition of ARDS and prompt intervention are crucial to improve patient outcomes.",
-            "Monitor trends in vital signs and laboratory results to assess the effectiveness of interventions."
+        "correct": "The patient is in acute respiratory failure with refractory hypoxemia (SpO2 88% despite a non-rebreather mask), hypercapnia (PaCO2 55), and acidosis (pH 7.28). His declining mental status and increased work of breathing signal impending respiratory arrest. The immediate, life-saving priority is to secure the airway via endotracheal intubation and initiate mechanical ventilation.",
+        "incorrect": "While other actions may be considered in the overall management of ARDS and sepsis, they do not address the immediate life-threat of airway compromise and respiratory collapse. Delaying intubation in a patient with this degree of deterioration can lead to cardiac arrest and poor neurological outcomes.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The combination of refractory hypoxemia, respiratory acidosis, fatigue, and decreased level of consciousness are classic indications for emergent intubation. This action directly addresses the failing airway and breathing (A & B of ABCs)."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. Although the patient has crackles, administering a diuretic is dangerous. The patient is hypotensive (MAP 68) with signs of hypoperfusion (high lactate, cool/clammy skin). Furosemide would cause further fluid loss, worsen hypotension, and exacerbate end-organ damage."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. The patient is already on a non-rebreather mask, which delivers a high FiO2. Simply increasing the flow rate will not correct the underlying physiological problem of shunting and alveolar collapse seen in ARDS. This is a futile measure that delays definitive airway management."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. Identifying the source of infection is important for managing sepsis, but it is not the immediate priority. The patient's airway is compromised and he is at risk of imminent respiratory arrest. Airway, Breathing, and Circulation (ABCs) must be stabilized before diagnostic procedures."
+            }
         ],
-        "questionTrap": {
-            "trap": "Students may be tempted to administer furosemide due to the crackles, but the patient's hypotension and signs of hypoperfusion indicate that volume depletion is more likely. Addressing oxygenation and preparing for intubation are higher priorities.",
-            "howToOvercome": "Carefully assess the patient's overall clinical picture, including vital signs, laboratory results, and physical assessment findings, before prioritizing interventions. Avoid jumping to conclusions based on a single finding."
-        },
-        "mnemonic": {
-            "title": "OPA",
-            "expansion": "Oxygenate, Prepare, Assess"
-        }
+        "clinicalPearls": [
+            "Refractory hypoxemia, where SpO2 does not improve despite high concentrations of supplemental oxygen, is a hallmark of ARDS and a key indicator for mechanical ventilation.",
+            "In a patient with signs of shock (hypotension, tachycardia, high lactate), be cautious with diuretics, even if crackles are present. The crackles in ARDS are from inflammatory exudate (protein-rich fluid), not just hydrostatic pressure.",
+            "A declining level of consciousness in a patient with respiratory distress is an ominous sign of severe hypercapnia and/or hypoxia and signals the need for immediate airway intervention."
+        ],
+        "questionTrap": "The primary trap is seeing 'crackles' and automatically thinking 'furosemide'. Always assess the patient's hemodynamic status first. In this case, the hypotension and elevated lactate point to distributive shock (likely septic), making fluid removal a harmful action. Prioritize ABCs over treating a single symptom.",
+        "mnemonic": "For ARDS priorities, think 'A-I-R':\n- A: Airway - Is it patent? Is the patient protecting it? (Prepare to intubate).\n- I: Inflammation - Is there a source? (Treat sepsis).\n- R: Recruitment - How can we open the alveoli? (PEEP, proning after ventilation).",
+        "reviewUnits": [
+            "Acute Respiratory Distress Syndrome (ARDS)",
+            "Mechanical Ventilation",
+            "Sepsis and Septic Shock",
+            "Arterial Blood Gas (ABG) Interpretation"
+        ]
     },
-    "solution": {
-        "1": "50-60",
-        "2": "intubation",
-        "3": "Morphine",
-        "4": "repeat ABG",
-        "5": "end-organ hypoperfusion"
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "distractors": [
-        "Furosemide",
-        "40-50",
-        "70-80",
-        "chest x-ray",
-        "blood culture",
-        "cardiac arrest",
-        "sepsis",
-        "nasal cannula",
-        "BiPAP"
-    ],
-    "rubric": {
-        "1": {
-            "50-60": 1
-        },
-        "2": {
-            "intubation": 1
-        },
-        "3": {
-            "Morphine": 1
-        },
-        "4": {
-            "repeat ABG": 1
-        },
-        "5": {
-            "end-organ hypoperfusion": 1
-        }
-    }
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:31:38.246Z"
 }

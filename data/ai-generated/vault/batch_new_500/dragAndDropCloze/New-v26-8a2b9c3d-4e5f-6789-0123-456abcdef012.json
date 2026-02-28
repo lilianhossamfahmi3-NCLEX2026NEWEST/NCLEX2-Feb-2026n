@@ -1,94 +1,312 @@
 {
     "id": "New-v26-8a2b9c3d-4e5f-6789-0123-456abcdef012",
-    "type": "dragAndDropCloze",
-    "stem": "The patient is experiencing autonomic dysreflexia. Based on the assessment findings and provided data, prioritize the following interventions in the order they should be implemented. Drag the interventions from the options below to the correct sequence. \n\n1. [Blank 1] \n2. [Blank 2] \n3. [Blank 3] \n4. [Blank 4]",
-    "scoring": {
-        "method": "linkage",
-        "maxPoints": 4
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client with a T6 spinal cord injury experiencing autonomic dysreflexia. Drag the four priority nursing actions from the options provided into the correct sequence, from first to last.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Elevate head of bed to 90 degrees."
+        },
+        {
+            "id": "opt_02",
+            "text": "Assess for and relieve bladder distension."
+        },
+        {
+            "id": "opt_03",
+            "text": "Administer prescribed PRN antihypertensive."
+        },
+        {
+            "id": "opt_04",
+            "text": "Assess for fecal impaction."
+        },
+        {
+            "id": "opt_05",
+            "text": "Lower the head of the bed to a supine position."
+        },
+        {
+            "id": "opt_06",
+            "text": "Administer a PRN opioid for the headache."
+        }
+    ],
+    "correctOrder": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04"
+    ],
     "itemContext": {
         "patient": {
             "name": "Jameson Riley",
-            "age": 34,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "34 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ],
-            "condition": "Droplet"
+            "codeStatus": "Full Code"
         },
-        "sbar": "16:00 SITUATION: Jameson Riley, a 34-year-old male with a T6 spinal cord injury from a motorcycle accident 5 years ago, reports a severe headache and blurred vision. His current pain level is 7/10. BACKGROUND: Mr. Riley has a history of autonomic dysreflexia. He was admitted for a routine urological workup. He typically self-manages his bowel program at 07:00 daily. ASSESSMENT: At 16:15, his BP is 210/110 mmHg, heart rate is 52 bpm. He is diaphoretic and flushed above the level of his injury. He reports feeling anxious and nauseated. A bladder scan reveals 600 mL of urine. Bowel sounds are present. He denies any recent bowel movement. RECOMMENDATION: I recommend immediate intervention for autonomic dysreflexia, including elevating the head of the bed, catheterization to relieve bladder distension, and further assessment to identify and eliminate any other potential triggers. Consider administering hydralazine if blood pressure remains elevated.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L\nK: 4.2 mEq/L\nCl: 100 mEq/L\nGlucose: 95 mg/dL\nBUN: 15 mg/dL\nCreatinine: 1.0 mg/dL"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 09:00",
+                        "noteType": "Admission Note",
+                        "content": "SITUATION: Mr. Riley is a 34-year-old male with a T6 spinal cord injury (paraplegia) sustained 5 years ago. He is admitted for a scheduled urological evaluation and management of recurrent urinary tract infections.\nBACKGROUND: Client manages his neurogenic bladder with intermittent self-catheterization and has a history of autonomic dysreflexia (AD), typically triggered by bladder distension. He reports good adherence to his bowel program. He lives alone in a second-floor apartment with no elevator, which he states is a barrier to consistent follow-up care. He is a reliable historian.\nASSESSMENT: On admission, client is alert and oriented x4. Vital signs are stable. Skin is warm, dry, and intact. He denies any current pain, headache, or other symptoms of AD. He is emotionally stable and expresses understanding of the plan of care.\nRECOMMENDATION: Proceed with the planned urological consult. Continue current medication regimen. Reinforce education on signs and symptoms of AD and UTI. Monitor vital signs per protocol."
+                    },
+                    {
+                        "timestamp": "Day 1, 16:15",
+                        "noteType": "Progress Note",
+                        "content": "SITUATION: Client used the call light to report a sudden, severe, pounding headache rated 8/10, accompanied by blurred vision and nausea.\nBACKGROUND: The client has a known history of autonomic dysreflexia secondary to his T6 spinal cord injury. His last self-catheterization was at 12:00, and he reports feeling a sense of urinary urgency. His last bowel movement was yesterday morning.\nASSESSMENT: Vital signs show acute hypertension at 210/112 mmHg (MAP 145) and bradycardia at 52 bpm. Client is visibly anxious, with marked diaphoresis and flushing on his face, neck, and upper chest. A bladder scan was performed at the bedside and revealed 650 mL of retained urine. Neurological status is otherwise at baseline.\nRECOMMENDATION: Immediate intervention for autonomic dysreflexia is required. The primary goal is to lower blood pressure by identifying and removing the noxious stimulus. Will elevate the head of bed immediately, prepare for straight catheterization, and have PRN hydralazine ready."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Hydralazine 10mg IVP for SBP > 180 mmHg PRN\nDocusate Sodium 100mg PO daily"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (br/min)",
+                        "SpO₂ (%)"
+                    ],
+                    "rows": [
+                        [
+                            "12:00",
+                            "98.4°F (36.9°C)",
+                            "70",
+                            "128/78",
+                            "95",
+                            "16",
+                            "98% on RA"
+                        ],
+                        [
+                            "16:00",
+                            "98.6°F (37.0°C)",
+                            "72",
+                            "130/80",
+                            "97",
+                            "16",
+                            "98% on RA"
+                        ],
+                        [
+                            "16:15",
+                            "98.8°F (37.1°C)",
+                            "52",
+                            "210/112",
+                            "145",
+                            "18",
+                            "99% on RA"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "16:00: BP 130/80 mmHg, HR 72 bpm, RR 16, SpO2 98%, Temp 98.6°F\n16:15: BP 210/110 mmHg, HR 52 bpm, RR 18, SpO2 99%, Temp 98.8°F"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "panel": "Basic Metabolic Panel (BMP)",
+                    "results": [
+                        {
+                            "lab": "Sodium (Na+)",
+                            "value": "140",
+                            "unit": "mEq/L",
+                            "range": "136-145",
+                            "status": "Normal"
+                        },
+                        {
+                            "lab": "Potassium (K+)",
+                            "value": "4.2",
+                            "unit": "mEq/L",
+                            "range": "3.5-5.0",
+                            "status": "Normal"
+                        },
+                        {
+                            "lab": "Chloride (Cl-)",
+                            "value": "100",
+                            "unit": "mEq/L",
+                            "range": "98-106",
+                            "status": "Normal"
+                        },
+                        {
+                            "lab": "Glucose",
+                            "value": "95",
+                            "unit": "mg/dL",
+                            "range": "74-106",
+                            "status": "Normal"
+                        },
+                        {
+                            "lab": "BUN",
+                            "value": "15",
+                            "unit": "mg/dL",
+                            "range": "10-20",
+                            "status": "Normal"
+                        },
+                        {
+                            "lab": "Creatinine",
+                            "value": "1.0",
+                            "unit": "mg/dL",
+                            "range": "0.6-1.2",
+                            "status": "Normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Neurological",
+                        "findings": "Alert and oriented x4. Complains of severe, pounding headache and blurred vision. Pupils equal, round, reactive to light. No focal deficits noted. Sensation absent below T6 level."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Bradycardia with HR of 52 bpm. S1, S2 heard. No murmurs. Pulses 2+ in upper extremities. Severe hypertension noted."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Respirations unlabored. Lungs clear to auscultation bilaterally."
+                    },
+                    {
+                        "system": "Integumentary",
+                        "findings": "Marked diaphoresis and flushing of skin above the level of the T6 injury (face, neck, shoulders). Skin below T6 is cool and pale. No rashes or lesions."
+                    },
+                    {
+                        "system": "Gastrointestinal/Genitourinary",
+                        "findings": "Abdomen soft, non-distended. Bowel sounds normoactive. Bladder is distended on palpation; bladder scan confirms 650 mL urine."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No recent radiology reports available."
+                "content": [
+                    {
+                        "type": "Urological Ultrasound",
+                        "date": "Day 1, 10:00",
+                        "report": "INDICATION: Evaluation of recurrent UTIs.\nFINDINGS: Kidneys are normal in size and echotexture. No evidence of hydronephrosis or renal calculi. Bladder wall appears mildly thickened, consistent with neurogenic bladder. No masses or stones identified.\nIMPRESSION: Mild bladder wall thickening. No acute abnormalities."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "orderDate": "Day 1, 09:00",
+                        "action": "Vital signs every 4 hours",
+                        "status": "Standing"
+                    },
+                    {
+                        "orderDate": "Day 1, 09:00",
+                        "action": "Bladder scan for suspected urinary retention",
+                        "status": "PRN"
+                    },
+                    {
+                        "orderDate": "Day 1, 09:00",
+                        "action": "Straight catheterization for residual volume >400 mL",
+                        "status": "PRN"
+                    },
+                    {
+                        "orderDate": "Day 1, 09:00",
+                        "action": "Notify provider for SBP >180 mmHg or DBP >110 mmHg",
+                        "status": "Standing"
+                    },
+                    {
+                        "orderDate": "Day 1, 09:00",
+                        "action": "Urology consult",
+                        "status": "Stat"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Hydralazine",
+                        "dose": "10 mg",
+                        "route": "IV Push",
+                        "frequency": "PRN, for SBP >180 mmHg",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "Docusate Sodium",
+                        "dose": "100 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 1, 09:00"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "650 mg",
+                        "route": "PO",
+                        "frequency": "q6h PRN for pain",
+                        "lastAdministered": "N/A"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Spinal Cord Injury & Autonomic Dysreflexia"
+    "rationale": {
+        "correct": "The correct sequence of interventions for autonomic dysreflexia (AD) prioritizes immediate reduction of severe hypertension and removal of the triggering noxious stimulus. First, elevating the head of the bed to 90 degrees uses gravity to cause orthostatic hypotension, providing the most rapid, non-invasive method to lower blood pressure. Second, addressing the most common trigger—bladder distension (confirmed by the 650 mL scan)—is critical. Third, if these measures do not resolve the hypertension, administering a rapid-acting antihypertensive like IV hydralazine is necessary to prevent complications like stroke. Finally, once the primary trigger is managed, assessing for other potential causes like fecal impaction is appropriate.",
+        "incorrect": "Lowering the head of the bed is contraindicated as it would exacerbate hypertension by increasing venous return to the heart. Administering an opioid for the headache treats a symptom but ignores the life-threatening cause (hypertension) and can mask changes in neurological status. While assessing for fecal impaction is part of the AD protocol, it is a lower priority than addressing the confirmed bladder distension, which is the most frequent cause.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. This is the first priority. Elevating the head of the bed immediately promotes venous pooling in the lower extremities, which decreases venous return and cardiac output, resulting in a rapid drop in blood pressure. It is the fastest, non-pharmacological intervention."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. This is the second priority. Bladder distension is the most common cause of AD. The bladder scan confirms a large volume of retained urine (650 mL), identifying it as the likely noxious stimulus. Relieving this distension via catheterization will remove the trigger and resolve the hypertensive crisis."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. This is the third priority. If elevating the head of the bed and relieving bladder distension do not promptly lower the blood pressure to a safe level, pharmacological intervention with a rapid-acting vasodilator like hydralazine is required to prevent end-organ damage, such as a hemorrhagic stroke."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. This is the fourth priority. After addressing the most likely cause (bladder), the nurse should investigate other potential triggers. Fecal impaction is the second most common cause. This assessment should only be performed after the bladder is emptied and if hypertension persists."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Incorrect. This action is dangerous and contraindicated. Lowering the head of the bed or placing the client in a supine position will increase venous return and further elevate the already dangerously high blood pressure, increasing the risk of seizure or stroke."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. The severe headache is a symptom of the extreme hypertension. Treating the symptom with an opioid without addressing the underlying cause is unsafe. The priority is to lower the blood pressure, which will in turn resolve the headache. Opioids can also mask a declining level of consciousness."
+            }
+        ],
+        "clinicalPearls": [
+            "Autonomic dysreflexia is a medical emergency that occurs in individuals with spinal cord injuries at or above the T6 level.",
+            "The classic triad of symptoms for AD is severe hypertension, bradycardia (a reflex response to the hypertension), and a pounding headache.",
+            "Any noxious stimulus below the level of injury can trigger AD. The most common causes are bladder distension (1st) and bowel impaction (2nd).",
+            "Never perform a digital rectal exam to check for impaction without first applying a topical anesthetic to the rectum, as the procedure itself can be a noxious stimulus that worsens AD."
+        ],
+        "questionTrap": "The trap is focusing on symptom management (the severe headache) rather than treating the underlying life-threatening condition (severe hypertension). A novice nurse might be tempted to give pain medication first, but the priority is always to find and eliminate the noxious stimulus causing the hypertensive crisis.",
+        "mnemonic": "For Autonomic Dysreflexia interventions, think 'HIGH':\n\n- H: Head of Bed Up (90 degrees)\n- I: Investigate & Intervene (Check bladder first, then bowel)\n- G: Give Antihypertensives (If needed)\n- H: Hang up tight clothing (Loosen constrictive items)",
+        "reviewUnits": [
+            "Neurological Disorders",
+            "Spinal Cord Injury",
+            "Emergency Nursing",
+            "Pharmacology: Antihypertensives"
         ]
     },
-    "rationale": {
-        "correct": "1. Elevate the head of the bed to 45 degrees or higher: This promotes orthostatic hypotension, which helps to reduce blood pressure and decrease the risk of complications from severe hypertension.\n2. Assess for and relieve bladder distension by catheterizing the patient: Bladder distension is a common trigger for autonomic dysreflexia. Relieving the pressure can quickly reduce the blood pressure.\n3. Monitor blood pressure every 5 minutes: Close monitoring allows for timely assessment of the patient's response to interventions and guides further treatment decisions.\n4. Administer prescribed antihypertensive medication (Hydralazine) if blood pressure remains elevated: Hydralazine is a vasodilator that can effectively lower blood pressure in cases of autonomic dysreflexia when other measures are insufficient.",
-        "incorrect": "Reclining the patient flat can worsen hypertension by increasing venous return and cardiac output. Waiting 30 minutes to catheterize delays the relief of a major trigger. Assessing for fecal impaction is important, but not the priority intervention given the lack of recent bowel movement and presence of bowel sounds. Administering docusate sodium is a preventative measure for constipation but is not indicated for the immediate treatment of autonomic dysreflexia.",
-        "clinicalPearls": [
-            "Autonomic dysreflexia is a medical emergency requiring immediate intervention to prevent severe complications such as stroke or seizure.",
-            "Elevating the head of the bed is a simple but crucial initial step to lower blood pressure.",
-            "Bladder distension is a frequent and easily reversible cause of autonomic dysreflexia; prompt catheterization is essential.",
-            "Hypertension in autonomic dysreflexia can be extreme and rapidly lead to end-organ damage if not promptly managed."
-        ],
-        "questionTrap": {
-            "trap": "Choosing interventions based on general knowledge of spinal cord injury care without prioritizing actions specific to autonomic dysreflexia. For example, focusing on bowel management before addressing the acute hypertension.",
-            "howToOvercome": "Focus on the immediate physiological threat (hypertension) and address the most likely triggers (bladder distension) before moving on to other assessments or interventions. Prioritize interventions that directly address the elevated blood pressure and its underlying causes."
-        },
-        "mnemonic": {
-            "title": "HEAD UP, BP DOWN",
-            "expansion": "Head elevation promotes orthostatic hypotension; Urgent bladder assessment and catheterization; Prompt blood pressure monitoring; Dilate vessels with antihypertensives; Obtain further information (assess for other triggers); Watch for complications; Never ignore symptoms."
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "possibleResponses": [
-        "Elevate the head of the bed to 45 degrees or higher.",
-        "Assess for and relieve bladder distension by catheterizing the patient.",
-        "Monitor blood pressure every 5 minutes.",
-        "Administer prescribed antihypertensive medication (Hydralazine) if blood pressure remains elevated.",
-        "Recline the patient flat to improve cerebral perfusion.",
-        "Wait 30 minutes and reassess the patient.",
-        "Assess for fecal impaction by performing a digital rectal exam.",
-        "Administer docusate sodium 100mg PO."
-    ],
-    "correctResponse": [
-        "Elevate the head of the bed to 45 degrees or higher.",
-        "Assess for and relieve bladder distension by catheterizing the patient.",
-        "Monitor blood pressure every 5 minutes.",
-        "Administer prescribed antihypertensive medication (Hydralazine) if blood pressure remains elevated."
-    ],
-    "blankIds": [
-        "Blank 1",
-        "Blank 2",
-        "Blank 3",
-        "Blank 4"
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Actions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:28:54.327Z"
 }

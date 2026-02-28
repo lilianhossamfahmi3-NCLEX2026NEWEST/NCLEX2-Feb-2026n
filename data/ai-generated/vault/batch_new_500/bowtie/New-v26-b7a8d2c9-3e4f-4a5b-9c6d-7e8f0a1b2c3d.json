@@ -1,144 +1,437 @@
 {
     "id": "New-v26-b7a8d2c9-3e4f-4a5b-9c6d-7e8f0a1b2c3d",
     "type": "bowtie",
-    "stem": "A 78-year-old male with a history of hypertension and type 2 diabetes mellitus is admitted to the ICU at 04:00 after being found unresponsive at home. Initial labs and vital signs are shown in the EHR. Based on the assessment findings, determine the MOST likely condition, TWO actions the nurse should take IMMEDIATELY, and TWO actions the nurse should anticipate.",
-    "scoring": {
-        "method": "linked",
-        "maxPoints": 5
+    "stem": "The nurse is caring for a 78-year-old client admitted for unresponsiveness. Based on the data in the electronic health record, identify two potential causes, the client's condition, two actions to take, and two parameters to monitor.",
+    "options": {
+        "potentialCauses": [
+            {
+                "id": "cause1",
+                "text": "Lisinopril therapy",
+                "correct": true
+            },
+            {
+                "id": "cause2",
+                "text": "Acute kidney injury",
+                "correct": true
+            },
+            {
+                "id": "cause3",
+                "text": "Metformin therapy",
+                "correct": false
+            },
+            {
+                "id": "cause4",
+                "text": "History of hypertension",
+                "correct": false
+            }
+        ],
+        "condition": [
+            {
+                "id": "cond1",
+                "text": "Severe Hyperkalemia",
+                "correct": true
+            },
+            {
+                "id": "cond2",
+                "text": "Septic Shock",
+                "correct": false
+            },
+            {
+                "id": "cond3",
+                "text": "Diabetic Ketoacidosis (DKA)",
+                "correct": false
+            },
+            {
+                "id": "cond4",
+                "text": "Chronic Kidney Disease (CKD) Exacerbation",
+                "correct": false
+            }
+        ],
+        "actionsToTake": [
+            {
+                "id": "action1",
+                "text": "Administer calcium gluconate IV STAT",
+                "correct": true
+            },
+            {
+                "id": "action2",
+                "text": "Initiate continuous cardiac monitoring",
+                "correct": true
+            },
+            {
+                "id": "action3",
+                "text": "Administer 1L Normal Saline bolus",
+                "correct": false
+            },
+            {
+                "id": "action4",
+                "text": "Administer sodium polystyrene sulfonate",
+                "correct": false
+            },
+            {
+                "id": "action5",
+                "text": "Prepare for endotracheal intubation",
+                "correct": false
+            }
+        ],
+        "parametersToMonitor": [
+            {
+                "id": "param1",
+                "text": "Cardiac rhythm on ECG",
+                "correct": true
+            },
+            {
+                "id": "param2",
+                "text": "Serum potassium level",
+                "correct": true
+            },
+            {
+                "id": "param3",
+                "text": "Urine output",
+                "correct": false
+            },
+            {
+                "id": "param4",
+                "text": "Blood glucose level",
+                "correct": false
+            },
+            {
+                "id": "param5",
+                "text": "Arterial blood pressure",
+                "correct": false
+            }
+        ]
     },
     "itemContext": {
         "patient": {
-            "name": "Robert Miller",
-            "age": 78,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "78",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: Robert Miller, a 78-year-old male, was admitted to the ICU at 04:00 after being found unresponsive at home. EMS estimates a 2-hour downtime.\nBackground: His wife reports a history of hypertension, type 2 diabetes, fatigue, and decreased urine output. Medications include Lisinopril, Metformin, and a multivitamin.\nAssessment: At 03:50, EMS vitals: BP 80/50 mmHg, HR 45 bpm, RR 10 and shallow, SpO2 85% on room air. Upon ICU arrival at 04:00, he is lethargic, responding only to painful stimuli. Current vitals: BP 78/48 mmHg, HR 42 bpm, RR 12 and shallow, SpO2 88% on 2L NC. Foley catheter draining minimal dark amber urine. Labs are pending but significant findings include bradycardia, hypotension, and oliguria.\nRecommendation: The patient's history and presentation suggest a possible acute decline in renal function. Immediate interventions for suspected hyperkalemia and AKI are warranted.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 130 mEq/L\nK: 7.8 mEq/L\nCl: 95 mEq/L\nHCO3: 18 mEq/L\nBUN: 65 mg/dL\nCreatinine: 6.2 mg/dL\nGlucose: 150 mg/dL\npH: 7.20\nPaCO2: 50 mmHg\nPaO2: 70 mmHg\nHgb: 14 g/dL\nHct: 42%\nWBC: 9,000/mm3"
+                "id": "clinical_feed",
+                "title": "Clinical Feed (Nurses' Notes)",
+                "content": [
+                    {
+                        "timestamp": "04:00",
+                        "noteType": "Admission Note",
+                        "note": "S: 78-year-old male client admitted to ICU at 04:00 from home after being found unresponsive by his adult child.\nB: History of hypertension and type 2 diabetes mellitus. Home medications include lisinopril and metformin. Adult child reports client has been fatigued with decreased urine output for 2 days. Client lives in a rural area, which delayed initial access to care.\nA: On arrival, client is lethargic, responding only to painful stimuli. GCS 8. Skin is cool and pale. Foley catheter placed, draining minimal dark amber urine. Cardiac monitor shows sinus bradycardia with peaked T waves. Vitals at 04:00: BP 78/48 (MAP 58), HR 42, RR 12 and shallow, SpO2 88% on 2L NC.\nR: Critical lab results confirm severe hyperkalemia and acute kidney injury. Recommend immediate cardiac stabilization and interventions to lower serum potassium. Prepare for potential emergent hemodialysis."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "04:00: BP 78/48 mmHg, HR 42 bpm, RR 12, SpO2 88% on 2L NC\n03:50 (EMS): BP 80/50 mmHg, HR 45 bpm, RR 10, SpO2 85% on room air"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:50 (EMS)",
+                        "Temp": "Not Assessed",
+                        "HR": "45",
+                        "RR": "10",
+                        "BP": "80/50",
+                        "MAP": "60",
+                        "SpO2": "85% on RA"
+                    },
+                    {
+                        "Time": "04:00",
+                        "Temp": "97.6°F (36.4°C)",
+                        "HR": "42",
+                        "RR": "12",
+                        "BP": "78/48",
+                        "MAP": "58",
+                        "SpO2": "88% on 2L NC"
+                    },
+                    {
+                        "Time": "04:15",
+                        "Temp": "97.7°F (36.5°C)",
+                        "HR": "40",
+                        "RR": "12",
+                        "BP": "76/46",
+                        "MAP": "56",
+                        "SpO2": "89% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Lisinopril 10mg PO daily\nMetformin 500mg PO BID\nMultivitamin PO daily"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Panel": "Basic Metabolic Panel (STAT)",
+                        "Results": [
+                            {
+                                "Result": "Sodium (Na)",
+                                "Value": "130",
+                                "Unit": "mEq/L",
+                                "Reference": "136-145",
+                                "Status": "Low"
+                            },
+                            {
+                                "Result": "Potassium (K)",
+                                "Value": "7.8",
+                                "Unit": "mEq/L",
+                                "Reference": "3.5-5.0",
+                                "Status": "High (Critical)"
+                            },
+                            {
+                                "Result": "Chloride (Cl)",
+                                "Value": "95",
+                                "Unit": "mEq/L",
+                                "Reference": "98-106",
+                                "Status": "Low"
+                            },
+                            {
+                                "Result": "Bicarbonate (HCO3)",
+                                "Value": "18",
+                                "Unit": "mEq/L",
+                                "Reference": "22-28",
+                                "Status": "Low"
+                            },
+                            {
+                                "Result": "BUN",
+                                "Value": "65",
+                                "Unit": "mg/dL",
+                                "Reference": "10-20",
+                                "Status": "High"
+                            },
+                            {
+                                "Result": "Creatinine",
+                                "Value": "6.2",
+                                "Unit": "mg/dL",
+                                "Reference": "0.6-1.2",
+                                "Status": "High"
+                            },
+                            {
+                                "Result": "Glucose",
+                                "Value": "150",
+                                "Unit": "mg/dL",
+                                "Reference": "70-110",
+                                "Status": "High"
+                            }
+                        ]
+                    },
+                    {
+                        "Panel": "Arterial Blood Gas (STAT)",
+                        "Results": [
+                            {
+                                "Result": "pH",
+                                "Value": "7.20",
+                                "Unit": "",
+                                "Reference": "7.35-7.45",
+                                "Status": "Low"
+                            },
+                            {
+                                "Result": "PaCO2",
+                                "Value": "50",
+                                "Unit": "mmHg",
+                                "Reference": "35-45",
+                                "Status": "High"
+                            },
+                            {
+                                "Result": "PaO2",
+                                "Value": "70",
+                                "Unit": "mmHg",
+                                "Reference": "80-100",
+                                "Status": "Low"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "Lethargic, responds only to painful stimuli (sternal rub). GCS 8 (E2, V2, M4). Pupils equal, round, and sluggishly reactive to light."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Sinus bradycardia on monitor. S1, S2 audible, no murmurs. Pulses +1 and weak in all extremities. Capillary refill > 3 seconds. Skin cool and pale."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Respirations shallow at 12/min. Lungs clear to auscultation bilaterally. No signs of increased work of breathing."
+                    },
+                    {
+                        "System": "Renal",
+                        "Findings": "Foley catheter in place, draining minimal (<10 mL/hr) dark amber urine. No CVA tenderness."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Type": "12-Lead ECG",
+                        "Timestamp": "04:05",
+                        "Report": "Rhythm: Sinus bradycardia\nHeart Rate: 42 bpm\nPR Interval: 0.24 seconds (prolonged)\nQRS Duration: 0.14 seconds (widened)\nQTc: 480 ms\nImpression: Findings are highly suggestive of severe hyperkalemia, including prominent peaked T waves in precordial leads, prolonged PR interval, and widened QRS complex. Urgent clinical correlation and intervention are required."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders & Interventions)",
+                "content": [
+                    {
+                        "Time": "04:05",
+                        "Action": "STAT 12-Lead ECG",
+                        "Status": "Completed"
+                    },
+                    {
+                        "Time": "04:05",
+                        "Action": "Continuous cardiac monitoring",
+                        "Status": "Active"
+                    },
+                    {
+                        "Time": "04:05",
+                        "Action": "STAT Basic Metabolic Panel, Arterial Blood Gas",
+                        "Status": "Results available"
+                    },
+                    {
+                        "Time": "04:05",
+                        "Action": "Strict Intake & Output",
+                        "Status": "Active"
+                    },
+                    {
+                        "Time": "04:05",
+                        "Action": "Bed rest",
+                        "Status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console (Medications)",
+                "content": [
+                    {
+                        "Medication": "Lisinopril",
+                        "Dose": "10mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Yesterday 09:00"
+                    },
+                    {
+                        "Medication": "Metformin",
+                        "Dose": "500mg",
+                        "Route": "PO",
+                        "Frequency": "BID",
+                        "Last Administered": "Yesterday 21:00"
+                    },
+                    {
+                        "Medication": "Multivitamin",
+                        "Dose": "1 tablet",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Yesterday 09:00"
+                    }
+                ]
             }
-        ]
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
-        "topicTags": [
-            "Renal: AKI vs CKD & Electrolyte Emergencies"
         ]
     },
     "rationale": {
-        "correct": "The patient is most likely experiencing Acute Kidney Injury (AKI) with Hyperkalemia. The elevated potassium (7.8 mEq/L), BUN (65 mg/dL), and creatinine (6.2 mg/dL) levels, combined with the patient's history, lethargy, bradycardia (HR 42 bpm), and oliguria, strongly suggest AKI. The metabolic acidosis (pH 7.20, HCO3 18 mEq/L) further supports this diagnosis. Immediate actions include administering calcium gluconate to stabilize the myocardium against the effects of hyperkalemia and initiating continuous cardiac monitoring to detect and manage arrhythmias. Anticipated actions include administering sodium polystyrene sulfonate (Kayexalate) to bind potassium in the GI tract and preparing for possible hemodialysis to remove excess potassium and correct the metabolic acidosis.\n\nclinicalPearl: Bradycardia in the setting of hyperkalemia is an ominous sign, indicating significant cardiac compromise.",
-        "incorrect": "While Chronic Kidney Disease (CKD) can present with similar lab values, the acute onset of symptoms and the rapid deterioration suggest AKI as the more immediate concern. While addressing the underlying hypertension and diabetes is crucial, the immediate threat is the hyperkalemia-induced cardiac instability. Other interventions might be necessary later, but addressing the life-threatening electrolyte imbalance must take precedence. Prioritizing fluid boluses without addressing the hyperkalemia can lead to fluid overload and exacerbate the patient's condition. Lastly, while a renal ultrasound might be ordered eventually, it's not an immediate priority in the face of life-threatening hyperkalemia.\n\nquestionTrap: Focusing solely on the respiratory distress (RR of 12 and SpO2 of 88%) might lead to prioritizing oxygen administration without addressing the underlying cause of the acidosis and hyperkalemia. Carefully analyze all available data, including lab values and patient history, to identify the primary problem (hyperkalemia and AKI) and then determine the appropriate interventions. Prioritize interventions based on the ABCs (Airway, Breathing, Circulation), but always consider the underlying cause.",
+        "correct": "The client's presentation of unresponsiveness, bradycardia, hypotension, oliguria, and metabolic acidosis, combined with laboratory findings of K+ 7.8 mEq/L, BUN 65 mg/dL, and Creatinine 6.2 mg/dL, points to a diagnosis of Severe Hyperkalemia secondary to Acute Kidney Injury (AKI). Lisinopril, an ACE inhibitor, is a common cause of hyperkalemia, especially in those with renal dysfunction. The immediate priority is to stabilize the myocardium to prevent fatal arrhythmia, which is achieved by administering IV calcium gluconate and initiating continuous cardiac monitoring. Monitoring the ECG for changes and tracking serum potassium levels are the most critical parameters to evaluate the client's response to treatment.",
+        "answerBreakdown": [
+            {
+                "optionId": "cause1",
+                "content": "Correct. Lisinopril is an ACE inhibitor, which blocks the conversion of angiotensin I to angiotensin II. This leads to decreased aldosterone secretion, which in turn reduces potassium excretion by the kidneys, predisposing the client to hyperkalemia, especially with underlying renal dysfunction."
+            },
+            {
+                "optionId": "cause2",
+                "content": "Correct. The client's elevated BUN (65) and creatinine (6.2) with oliguria are hallmark signs of AKI. The kidneys' inability to excrete potassium is the direct cause of the life-threatening hyperkalemia."
+            },
+            {
+                "optionId": "cause3",
+                "content": "Incorrect. Metformin is associated with lactic acidosis, particularly in renal impairment, but it does not directly cause hyperkalemia. While the client has acidosis, the primary life threat is the severe hyperkalemia."
+            },
+            {
+                "optionId": "cause4",
+                "content": "Incorrect. While uncontrolled hypertension is a major risk factor for kidney disease, it is the resulting kidney injury or the medications used to treat it (like lisinopril) that are the more direct causes of the acute hyperkalemic event, not the history of hypertension itself."
+            },
+            {
+                "optionId": "cond1",
+                "content": "Correct. A potassium level of 7.8 mEq/L is critically high and explains the ECG changes (peaked T waves, wide QRS), bradycardia, and lethargy. This is the most immediate life-threatening condition."
+            },
+            {
+                "optionId": "cond2",
+                "content": "Incorrect. The client is hypotensive, but there are no clear signs of infection (WBC is normal, no fever) to support a diagnosis of septic shock."
+            },
+            {
+                "optionId": "cond3",
+                "content": "Incorrect. The client has hyperglycemia (150 mg/dL) and acidosis, but the glucose level is not high enough for DKA, and there is no mention of ketones. The acidosis is metabolic, related to renal failure."
+            },
+            {
+                "optionId": "cond4",
+                "content": "Incorrect. While the client may have underlying CKD, the rapid onset of symptoms and severe lab abnormalities suggest an acute process (AKI) rather than a gradual exacerbation of a chronic condition."
+            },
+            {
+                "optionId": "action1",
+                "content": "Correct. Calcium gluconate is the first-line emergency treatment for hyperkalemia with ECG changes. It does not lower potassium but stabilizes the cardiac membrane, protecting against life-threatening arrhythmias."
+            },
+            {
+                "optionId": "action2",
+                "content": "Correct. Continuous cardiac monitoring is essential to detect and manage arrhythmias caused by severe hyperkalemia. The ECG provides real-time data on the electrical stability of the heart."
+            },
+            {
+                "optionId": "action3",
+                "content": "Incorrect. Administering a large fluid bolus to a client with AKI and oliguria can precipitate fluid volume overload and pulmonary edema. The cause of hypotension is likely cardiogenic from the hyperkalemia, not hypovolemia."
+            },
+            {
+                "optionId": "action4",
+                "content": "Incorrect. Sodium polystyrene sulfonate (Kayexalate) works slowly in the GI tract to remove potassium and is not an emergency intervention for life-threatening hyperkalemia. It is an anticipated, not immediate, action."
+            },
+            {
+                "optionId": "action5",
+                "content": "Incorrect. The client's respiratory rate is 12 and SpO2 is 88% on 2L NC. While concerning, there is no immediate indication for intubation. The priority is to correct the underlying metabolic derangement causing the altered mental status and cardiotoxicity."
+            },
+            {
+                "optionId": "param1",
+                "content": "Correct. The ECG is the most critical parameter to monitor as it reflects the immediate effect of hyperkalemia on the myocardium. Improvement in ECG findings (e.g., normalization of T-waves, narrowing of QRS) indicates effective treatment."
+            },
+            {
+                "optionId": "param2",
+                "content": "Correct. Serial potassium levels are essential to track the effectiveness of interventions aimed at lowering the total body potassium (e.g., insulin/dextrose, dialysis)."
+            },
+            {
+                "optionId": "param3",
+                "content": "Incorrect. While urine output is an important indicator of renal function, it is not the most critical parameter to monitor for the immediate life-threat of cardiac arrhythmia."
+            },
+            {
+                "optionId": "param4",
+                "content": "Incorrect. The client's glucose is elevated but not critically so. It will be monitored, especially if insulin is given, but it is not the primary parameter to track for the hyperkalemic emergency."
+            },
+            {
+                "optionId": "param5",
+                "content": "Incorrect. Blood pressure is important, but the direct threat to life is cardiac arrest. Correcting the hyperkalemia will likely improve cardiac output and, subsequently, blood pressure."
+            }
+        ],
         "clinicalPearls": [
-            "Hyperkalemia can cause life-threatening arrhythmias; rapid assessment and intervention are critical.",
-            "Calcium gluconate does not lower potassium levels but protects the heart from its effects.",
-            "AKI is characterized by a sudden decline in kidney function, while CKD is a gradual process.",
-            "Bradycardia in the setting of hyperkalemia is an ominous sign."
+            "Calcium gluconate is cardioprotective; it stabilizes the myocardial cell membrane but does not lower serum potassium.",
+            "Peaked T waves on an ECG are a classic, early sign of hyperkalemia. As it worsens, the PR interval prolongs, and the QRS complex widens, heralding ventricular fibrillation or asystole.",
+            "ACE inhibitors (like lisinopril) and ARBs are common culprits for hyperkalemia, especially in patients with renal impairment, diabetes, or dehydration."
         ],
-        "questionTrap": {
-            "trap": "Focusing solely on the respiratory distress (RR of 12 and SpO2 of 88%) might lead to prioritizing oxygen administration without addressing the underlying cause of the acidosis and hyperkalemia.",
-            "howToOvercome": "Carefully analyze all available data, including lab values and patient history, to identify the primary problem (hyperkalemia and AKI) and then determine the appropriate interventions. Prioritize interventions based on the ABCs (Airway, Breathing, Circulation), but always consider the underlying cause."
-        },
-        "mnemonic": {
-            "title": "Kayexalate Acronym",
-            "expansion": "K - Kills\nA - A lot of\nY - Your\nEX - Excess\nA - Amount of\nL - Lethal\nATE - Electrolyte (Potassium)"
-        }
-    },
-    "response": {
-        "condition": [
-            {
-                "id": "condition1",
-                "content": "Acute Kidney Injury (AKI) with Hyperkalemia",
-                "correct": true
-            },
-            {
-                "id": "condition2",
-                "content": "Chronic Kidney Disease (CKD) Exacerbation",
-                "correct": false
-            },
-            {
-                "id": "condition3",
-                "content": "Diabetic Ketoacidosis (DKA)",
-                "correct": false
-            },
-            {
-                "id": "condition4",
-                "content": "Sepsis with Multi-Organ Dysfunction",
-                "correct": false
-            }
-        ],
-        "intervention_immediate": [
-            {
-                "id": "immediate1",
-                "content": "Administer calcium gluconate IV",
-                "correct": true
-            },
-            {
-                "id": "immediate2",
-                "content": "Initiate continuous cardiac monitoring",
-                "correct": true
-            },
-            {
-                "id": "immediate3",
-                "content": "Administer furosemide IV",
-                "correct": false
-            },
-            {
-                "id": "immediate4",
-                "content": "Administer a bolus of normal saline",
-                "correct": false
-            },
-            {
-                "id": "immediate5",
-                "content": "Increase oxygen delivery to 4L via nasal cannula",
-                "correct": false
-            }
-        ],
-        "intervention_anticipated": [
-            {
-                "id": "anticipated1",
-                "content": "Administer sodium polystyrene sulfonate (Kayexalate)",
-                "correct": true
-            },
-            {
-                "id": "anticipated2",
-                "content": "Prepare for possible hemodialysis",
-                "correct": true
-            },
-            {
-                "id": "anticipated3",
-                "content": "Administer insulin and dextrose",
-                "correct": false
-            },
-            {
-                "id": "anticipated4",
-                "content": "Order a renal ultrasound",
-                "correct": false
-            },
-            {
-                "id": "anticipated5",
-                "content": "Consult with the patient's primary care physician",
-                "correct": false
-            }
+        "questionTrap": "The trap is focusing on the client's hypotension and selecting a fluid bolus as a priority action. While the client is hypotensive, the immediate life-threat is cardiac arrest from hyperkalemia. Administering fluids to an oliguric AKI patient without addressing the potassium can lead to fluid overload and pulmonary edema. Always treat the most immediate life-threat first.",
+        "mnemonic": "For emergency hyperkalemia treatment, remember 'C BIG K Drop':\nC - Calcium Gluconate (stabilizes heart)\nB - Bicarbonate / Beta-agonists (shifts K+ into cells)\nI - Insulin (shifts K+ into cells)\nG - Glucose (prevents hypoglycemia from insulin)\nK - Kayexalate (removes K+ via gut)\nDrop - Diuretics or Dialysis (removes K+ from body)",
+        "reviewUnits": [
+            "Renal and Urinary",
+            "Cardiovascular",
+            "Fluid and Electrolytes",
+            "Pharmacology"
         ]
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "rationale-linked",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "analyze",
+        "cjmmStep": "prioritizeHypotheses",
+        "nclexCategory": "Physiological Adaptation"
+    }
 }

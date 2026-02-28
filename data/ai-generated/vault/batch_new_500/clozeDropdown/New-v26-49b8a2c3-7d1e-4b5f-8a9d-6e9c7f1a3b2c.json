@@ -1,97 +1,393 @@
 {
     "id": "New-v26-49b8a2c3-7d1e-4b5f-8a9d-6e9c7f1a3b2c",
     "type": "clozeDropdown",
-    "stem": "Based on the assessment data, the patient is exhibiting signs of hepatic encephalopathy. Select the most appropriate intervention for each category to manage this complication.\n\nAdminister medication to reduce ammonia levels: {medication}\n\nInitiate dietary modifications: {diet}\n\nImplement neurological monitoring: {neuro}",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
-    },
+    "stem": "The nurse is planning care for a client with cirrhosis and worsening hepatic encephalopathy. For each category below, select the most appropriate intervention to manage the client's condition.",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "62 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: This is RN Jones calling from the medical-surgical unit at 14:00 regarding John Smith, a 62-year-old male admitted earlier today for acute pancreatitis secondary to alcohol abuse and a history of cirrhosis.\nBackground: Mr. Smith presented with abdominal pain. His vital signs are currently stable: BP 110/70 mmHg, HR 92 bpm, RR 20 breaths/min, and SpO2 96% on room air. Laboratory results are concerning for elevated ammonia levels. He has a history of alcohol abuse and cirrhosis.\nAssessment: The patient is now complaining of increased abdominal pain, rated 7/10. He is confused, disoriented, and increasingly agitated, and is picking at his IV site. Asterixis was noted during the assessment. Lactulose was ordered earlier but has not been effective yet, likely due to the escalating ammonia level. His ammonia level is currently 180 mcg/dL.\nRecommendation: The physician is aware of the lab results and the patient's condition. I am concerned about worsening hepatic encephalopathy and potential complications. I recommend close monitoring of his neurological status, continued lactulose administration, and a dietary consult for protein restriction. We should also consider further interventions to address his elevated ammonia levels if his condition does not improve.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Ammonia: 180 mcg/dL (High), ALT: 250 U/L (High), AST: 300 U/L (High), Total Bilirubin: 4.5 mg/dL (High), Albumin: 2.8 g/dL (Low), Sodium: 132 mEq/L (Low), Potassium: 3.4 mEq/L (Low)"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "08:00",
+                        "text": "S: Client is a 62-year-old male with a history of alcohol-induced cirrhosis and acute pancreatitis, admitted from the ED with chief complaints of worsening abdominal pain, nausea, and mild confusion. Adult child reports he has been 'not himself' for the past 48 hours.\nB: History of multiple hospitalizations for similar issues. Non-compliant with home medications and dietary restrictions. Lives alone in a rural area with limited access to consistent follow-up care. Allergic to Penicillin.\nA: On admission, client is awake, alert, and oriented to person only. Abdomen is distended and tender to palpation. Skin is jaundiced. IV access established. Labs drawn and sent. Lactulose and thiamine initiated as per protocol.\nR: Continue to monitor vital signs and neurological status. Administer medications as ordered. Provide comfort measures for abdominal pain. Place on fall precautions due to confusion."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "14:00",
+                        "text": "S: Client's mental status has declined over the past few hours. He is now increasingly agitated, disoriented to time and place, and was observed picking at his IV line. He rates his abdominal pain as 7/10.\nB: The client has a known history of alcohol-induced cirrhosis. His morning labs returned with a critically high ammonia level of 180 mcg/dL. He received a dose of lactulose at 08:30, but has not had a bowel movement yet. His adult child is at the bedside and is very concerned about the change in his father's behavior.\nA: Neurological assessment reveals disorientation, agitation, and positive asterixis ('liver flap'). Abdomen remains distended with hypoactive bowel sounds. Vital signs are stable but trending toward tachycardia. The current presentation is highly indicative of worsening Stage II hepatic encephalopathy secondary to hyperammonemia.\nR: Recommend continuing lactulose administration and considering adding rifaximin to decrease ammonia production. A dietary consult for protein restriction is crucial. Implement one-to-one observation for safety due to agitation and confusion. Continue frequent neurological checks."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "BP: 110/70 mmHg, HR: 92 bpm, RR: 20 breaths/min, SpO2: 96% on room air, Temp: 37.2°C (99.0°F), Pain: 7/10"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "08:00",
+                        "HR": "88 bpm",
+                        "BP": "118/74 mmHg (MAP 89)",
+                        "RR": "18/min",
+                        "SpO2": "97% on RA",
+                        "Temp": "99.0°F (37.2°C)"
+                    },
+                    {
+                        "Time": "12:00",
+                        "HR": "92 bpm",
+                        "BP": "114/72 mmHg (MAP 86)",
+                        "RR": "20/min",
+                        "SpO2": "96% on RA",
+                        "Temp": "99.1°F (37.3°C)"
+                    },
+                    {
+                        "Time": "14:00",
+                        "HR": "98 bpm",
+                        "BP": "110/70 mmHg (MAP 83)",
+                        "RR": "20/min",
+                        "SpO2": "96% on RA",
+                        "Temp": "99.2°F (37.3°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Lactulose 30 mL PO q6h PRN for elevated ammonia, Morphine 2mg IV q4h PRN for pain, Ondansetron 4mg IV q6h PRN for nausea, Thiamine 100mg IM daily, Furosemide 40mg IV daily"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Ammonia",
+                        "Value": "180",
+                        "Unit": "mcg/dL",
+                        "Reference": "15-45",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "ALT",
+                        "Value": "250",
+                        "Unit": "U/L",
+                        "Reference": "7-56",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "AST",
+                        "Value": "300",
+                        "Unit": "U/L",
+                        "Reference": "10-40",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Total Bilirubin",
+                        "Value": "4.5",
+                        "Unit": "mg/dL",
+                        "Reference": "0.1-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Albumin",
+                        "Value": "2.8",
+                        "Unit": "g/dL",
+                        "Reference": "3.5-5.5",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "INR",
+                        "Value": "1.8",
+                        "Unit": "",
+                        "Reference": "0.8-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Sodium",
+                        "Value": "132",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "Potassium",
+                        "Value": "3.4",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Low"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "type": "Admission Exam (08:00)",
+                        "findings": "GENERAL: Appears fatigued. Mildly jaundiced skin and sclera. NEUROLOGICAL: Alert, oriented to person only. Speech is slow but clear. No focal deficits. CARDIOVASCULAR: S1/S2 audible, regular rhythm. 2+ peripheral pulses. RESPIRATORY: Lungs clear to auscultation bilaterally. GASTROINTESTINAL: Abdomen distended, firm, with diffuse tenderness. Bowel sounds hypoactive. SKIN: Jaundice noted. No rashes or lesions. 1+ pitting edema in lower extremities."
+                    },
+                    {
+                        "type": "Focused Assessment (14:00)",
+                        "findings": "NEUROLOGICAL: Increased lethargy and agitation. Disoriented to time and place. Follows simple commands inconsistently. Asterixis present bilaterally upon wrist extension. GASTROINTESTINAL: Abdomen remains distended and tender. No bowel movement since admission."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No recent radiology reports available."
+                "content": [
+                    {
+                        "type": "Abdominal Ultrasound",
+                        "timestamp": "10:30",
+                        "report": "FINDINGS: The liver demonstrates a nodular contour and coarse echotexture, consistent with advanced cirrhosis. Moderate volume of ascites is present within the peritoneal cavity. The portal vein is patent with hepatofugal flow. The gallbladder and biliary ducts are unremarkable. The pancreas appears heterogeneous, consistent with acute on chronic pancreatitis.\n\nIMPRESSION: Findings are consistent with advanced cirrhosis with portal hypertension, moderate ascites, and pancreatitis. Clinical correlation is recommended."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Today @ 08:15",
+                        "Action": "Admit to Medical-Surgical Unit",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 08:15",
+                        "Action": "Fall precautions",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 08:15",
+                        "Action": "Neurological checks every 4 hours",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 08:15",
+                        "Action": "Dietary Consult for liver failure diet",
+                        "Frequency/Status": "Stat"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 08:15",
+                        "Action": "Daily weights",
+                        "Frequency/Status": "Standing"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lactulose",
+                        "Dose": "30 mL",
+                        "Route": "PO",
+                        "Frequency": "q6h",
+                        "Last Administered": "Today @ 08:30"
+                    },
+                    {
+                        "Medication": "Thiamine",
+                        "Dose": "100 mg",
+                        "Route": "IM",
+                        "Frequency": "daily",
+                        "Last Administered": "Today @ 08:30"
+                    },
+                    {
+                        "Medication": "Furosemide",
+                        "Dose": "40 mg",
+                        "Route": "IV",
+                        "Frequency": "daily",
+                        "Last Administered": "Today @ 09:00"
+                    },
+                    {
+                        "Medication": "Morphine",
+                        "Dose": "2 mg",
+                        "Route": "IV",
+                        "Frequency": "q4h PRN pain",
+                        "Last Administered": "Not Given"
+                    },
+                    {
+                        "Medication": "Ondansetron",
+                        "Dose": "4 mg",
+                        "Route": "IV",
+                        "Frequency": "q6h PRN nausea",
+                        "Last Administered": "Today @ 08:45"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Pharmacological and Parenteral Therapies",
-        "difficulty": 5,
-        "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
-        ]
-    },
-    "rationale": {
-        "correct": "Lactulose is a synthetic disaccharide that promotes the excretion of ammonia by converting it to ammonium, which is then eliminated through bowel movements. Restricting protein intake reduces the amount of nitrogenous waste available for conversion to ammonia in the gut. Frequent neurological assessments are essential to monitor the patient's level of consciousness and detect early signs of worsening encephalopathy, such as changes in mental status or the presence of asterixis. These interventions work synergistically to reduce ammonia levels and mitigate the effects of hepatic encephalopathy. \n\nclinicalPearl: Lactulose can cause diarrhea, so monitor the patient for dehydration and electrolyte imbalances. \nquestionTrap: Focusing solely on pain management or electrolyte imbalances without addressing the elevated ammonia levels will not effectively manage hepatic encephalopathy. \nmnemonic: ABC - Airway, Breathing, Circulation - always a priority, but in hepatic encephalopathy, think 'LOC' - Level of Consciousness.",
-        "incorrect": "Neomycin and Rifaximin are antibiotics that can reduce ammonia-producing bacteria in the gut, but they are not the first-line treatment for hepatic encephalopathy. A high-protein diet would increase the amount of nitrogenous waste available for conversion to ammonia, exacerbating hepatic encephalopathy. Monitoring vital signs hourly is important for overall patient assessment, but it does not directly address the neurological manifestations of hepatic encephalopathy. Potassium chloride addresses electrolyte imbalances, but it does not directly impact ammonia levels or hepatic encephalopathy. \n\nclinicalPearl: Monitor potassium levels when administering lactulose, as diarrhea can lead to potassium loss. \nquestionTrap: Selecting interventions focused solely on pain management or electrolyte imbalance without addressing the elevated ammonia levels will not effectively manage hepatic encephalopathy. \nmnemonic: HEAL - Hepatic Encephalopathy: Hydration, Electrolytes, Ammonia reduction, Level of consciousness.",
-        "clinicalPearls": [
-            "Hepatic encephalopathy is a neuropsychiatric complication of liver failure resulting from elevated ammonia levels, leading to altered mental status and neurological dysfunction.",
-            "Lactulose is a key medication for reducing ammonia levels by promoting its excretion through bowel movements, acting as a cathartic and trapping ammonia in the colon.",
-            "Dietary protein restriction is crucial in managing hepatic encephalopathy to minimize ammonia production during protein metabolism, preventing further increases in ammonia levels."
-        ],
-        "questionTrap": {
-            "trap": "Selecting interventions focused solely on pain management or electrolyte imbalance without addressing the elevated ammonia levels.",
-            "howToOvercome": "Prioritize interventions that directly target the underlying cause of hepatic encephalopathy (elevated ammonia) before addressing secondary symptoms or complications. Recognizing the primary problem is crucial."
+    "options": [
+        {
+            "id": "category1",
+            "label": "Administer medication to reduce ammonia levels:",
+            "choices": [
+                {
+                    "id": "choice1A",
+                    "text": "Lactulose"
+                },
+                {
+                    "id": "choice1B",
+                    "text": "Rifaximin"
+                },
+                {
+                    "id": "choice1C",
+                    "text": "Furosemide"
+                },
+                {
+                    "id": "choice1D",
+                    "text": "Potassium Chloride"
+                }
+            ]
         },
-        "mnemonic": {
-            "title": "HEAL",
-            "expansion": "Hepatic Encephalopathy: Assess Level of Consciousness; Evaluate Ammonia; Lactulose Administration; Low Protein Diet"
+        {
+            "id": "category2",
+            "label": "Initiate dietary modifications:",
+            "choices": [
+                {
+                    "id": "choice2A",
+                    "text": "Restrict protein intake"
+                },
+                {
+                    "id": "choice2B",
+                    "text": "High-protein diet"
+                },
+                {
+                    "id": "choice2C",
+                    "text": "Low-fat diet"
+                },
+                {
+                    "id": "choice2D",
+                    "text": "Increase sodium intake"
+                }
+            ]
+        },
+        {
+            "id": "category3",
+            "label": "Implement neurological monitoring:",
+            "choices": [
+                {
+                    "id": "choice3A",
+                    "text": "Frequent neurological assessment"
+                },
+                {
+                    "id": "choice3B",
+                    "text": "Monitor vital signs hourly"
+                },
+                {
+                    "id": "choice3C",
+                    "text": "Assess potassium levels daily"
+                },
+                {
+                    "id": "choice3D",
+                    "text": "Administer PRN morphine for agitation"
+                }
+            ]
         }
-    },
-    "responseOptions": {
-        "medication": [
-            "Lactulose",
-            "Neomycin",
-            "Metronidazole",
-            "Rifaximin",
-            "Potassium Chloride"
+    ],
+    "correctResponse": [
+        {
+            "category": "category1",
+            "choice": "choice1A"
+        },
+        {
+            "category": "category2",
+            "choice": "choice2A"
+        },
+        {
+            "category": "category3",
+            "choice": "choice3A"
+        }
+    ],
+    "rationale": {
+        "correct": "The client's deteriorating mental status, asterixis, and critically high ammonia level (180 mcg/dL) confirm worsening hepatic encephalopathy. The priority is to reduce ammonia levels. Lactulose achieves this by acidifying the colon, which traps ammonia as ammonium and promotes its excretion via catharsis. Restricting dietary protein is essential to decrease the substrate (nitrogen) for ammonia production by gut bacteria. Frequent neurological assessments are critical to monitor for further decline, evaluate the effectiveness of treatment, and ensure client safety.",
+        "incorrect": "Interventions that do not directly and immediately address the root cause of hepatic encephalopathy—hyperammonemia—are incorrect. While managing secondary issues like ascites (Furosemide) or electrolyte imbalances (Potassium Chloride) is important, they are not the primary intervention for acute neurological decline. Increasing protein or sodium would be directly harmful. Administering sedating medications like morphine would dangerously mask or worsen the encephalopathy.",
+        "answerBreakdown": [
+            {
+                "category": "category1",
+                "choice": "choice1A",
+                "content": "Correct. Lactulose is the first-line treatment. It lowers colonic pH, converting ammonia (NH3) to non-absorbable ammonium (NH4+), which is then excreted in the stool, directly lowering systemic ammonia levels."
+            },
+            {
+                "category": "category1",
+                "choice": "choice1B",
+                "content": "Incorrect. Rifaximin is a non-absorbable antibiotic that reduces ammonia-producing gut bacteria. It is often used as a second-line or adjunctive therapy, not the initial primary intervention."
+            },
+            {
+                "category": "category1",
+                "choice": "choice1C",
+                "content": "Incorrect. Furosemide is a loop diuretic used to manage ascites and edema common in cirrhosis. It does not have a direct effect on lowering ammonia levels and can worsen electrolyte imbalances."
+            },
+            {
+                "category": "category1",
+                "choice": "choice1D",
+                "content": "Incorrect. Potassium chloride is used to correct hypokalemia, which can be exacerbated by lactulose-induced diarrhea. While necessary, it does not treat the underlying hyperammonemia."
+            },
+            {
+                "category": "category2",
+                "choice": "choice2A",
+                "content": "Correct. Protein metabolism in the gut is a primary source of ammonia. Restricting protein intake reduces the nitrogenous load, thereby decreasing ammonia production and alleviating encephalopathy."
+            },
+            {
+                "category": "category2",
+                "choice": "choice2B",
+                "content": "Incorrect. A high-protein diet would significantly increase the nitrogen load, leading to higher ammonia production and a dangerous worsening of hepatic encephalopathy."
+            },
+            {
+                "category": "category2",
+                "choice": "choice2C",
+                "content": "Incorrect. While a balanced diet is important, fat intake is not the primary concern in managing acute hepatic encephalopathy. The focus must be on protein and nitrogen management."
+            },
+            {
+                "category": "category2",
+                "choice": "choice2D",
+                "content": "Incorrect. Clients with cirrhosis and ascites require sodium restriction to manage fluid retention. Increasing sodium intake would be contraindicated and harmful."
+            },
+            {
+                "category": "category3",
+                "choice": "choice3A",
+                "content": "Correct. Hepatic encephalopathy is a neuropsychiatric syndrome. Frequent, focused neurological assessments (e.g., checking orientation, for asterixis, level of consciousness) are essential to track disease progression and treatment response."
+            },
+            {
+                "category": "category3",
+                "choice": "choice3B",
+                "content": "Incorrect. While vital signs are important for overall stability, they are not specific indicators of neurological status in hepatic encephalopathy. A client can have stable vitals while becoming dangerously obtunded."
+            },
+            {
+                "category": "category3",
+                "choice": "choice3C",
+                "content": "Incorrect. Monitoring potassium is a component of care, especially with lactulose and diuretic use, but it is not a direct assessment of the client's primary neurological problem."
+            },
+            {
+                "category": "category3",
+                "choice": "choice3D",
+                "content": "Incorrect. Administering opioids like morphine is extremely dangerous in this client. They are metabolized by the liver and can precipitate or worsen hepatic encephalopathy, causing profound sedation and respiratory depression."
+            }
         ],
-        "diet": [
-            "Restrict protein intake",
-            "High-protein diet",
-            "Low-fat diet",
-            "Increase sodium intake",
-            "High-fiber diet"
+        "clinicalPearls": [
+            "The goal of lactulose therapy is to produce 2-3 soft stools per day. Titrate the dose to achieve this goal, while monitoring for dehydration and electrolyte depletion.",
+            "Asterixis, or 'liver flap,' is a classic sign of hepatic encephalopathy. It is a negative myoclonus characterized by an inability to maintain a sustained posture, observed as a flapping tremor at the wrist.",
+            "Safety is a top priority for clients with hepatic encephalopathy. Their confusion and agitation place them at high risk for falls and self-injury (e.g., pulling out IV lines). Implement fall precautions and consider a sitter."
         ],
-        "neuro": [
-            "Frequent neurological assessment",
-            "Monitor vital signs hourly",
-            "Assess potassium levels daily",
-            "Monitor fluid intake and output",
-            "Administer pain medication"
+        "questionTrap": "The trap is focusing on secondary problems (e.g., low potassium, abdominal pain) before addressing the life-threatening primary diagnosis of worsening hepatic encephalopathy. Always prioritize interventions that treat the underlying pathophysiology of the acute condition.",
+        "mnemonic": "For Hepatic Encephalopathy, remember 'L-A-S-T':\nL - Lactulose (to lower ammonia)\nA - Assess Neuro Status (frequently!)\nS - Safety (fall risk, confusion)\nT - Tone down Protein (restrict dietary intake)",
+        "reviewUnits": [
+            "Gastrointestinal",
+            "Pharmacology",
+            "Fluid & Electrolytes"
         ]
     },
-    "correctResponse": {
-        "medication": "Lactulose",
-        "diet": "Restrict protein intake",
-        "neuro": "Frequent neurological assessment"
-    }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
+    },
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:40:46.971Z"
 }

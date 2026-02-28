@@ -10,55 +10,134 @@
         "patient": {
             "name": "John Doe",
             "age": 68,
-            "gender": "Male",
+            "pronouns": "he/him",
+            "sex": "Male",
             "iso": "ICU",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Doe, 68-year-old male, post-op day 2 following a coronary artery bypass graft (CABG). He is currently intubated and mechanically ventilated. His pre-op history includes hypertension and mild COPD. B: Admitted for CABG after experiencing unstable angina. Surgery was uncomplicated. He was extubated briefly yesterday but required reintubation due to increasing respiratory distress. A: At 06:00, his vital signs were stable. Current settings: FiO2 40%, PEEP 5 cm H2O, tidal volume 450 mL, respiratory rate 14. At 07:30, the high-pressure alarm is sounding frequently. The patient appears increasingly agitated. His SpO2 has dropped from 98% to 91%. Auscultation reveals diminished breath sounds on the left side. ETCO2 is trending upward. O: Please assess and intervene as necessary. The current time is 07:45.",
         "tabs": [
             {
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 18:00",
+                        "text": "S: Client admitted to ICU from PACU post-coronary artery bypass graft (CABG) x3. Intubated and mechanically ventilated. B: 68-year-old male with a history of hypertension and mild COPD. Surgery was uncomplicated. Client was extubated in PACU but required reintubation for acute respiratory distress and hypoxemia prior to transfer. A: Currently sedated on a propofol infusion. Vital signs stable upon arrival. Bilateral chest tubes in situ, draining small amount of serosanguinous fluid. Breath sounds clear bilaterally with equal chest rise. Initial ventilator settings are stable. R: Continue current plan of care. Wean sedation as tolerated per protocol tomorrow morning. Monitor hemodynamics and respiratory status closely. Maintain chest tube drainage system integrity. Family has been updated on client's status."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 2, 07:45",
+                        "text": "S: High-pressure alarm is sounding continuously on the mechanical ventilator for the last 15 minutes. Client is acutely agitated. B: Post-op day 2 following CABG, reintubated yesterday for respiratory distress. Ventilator settings have been stable overnight. A: Client is tachycardic to 115 bpm and hypertensive at 155/95 mmHg. SpO2 has dropped from 98% to 91% on 40% FiO2. Client is restless, attempting to pull at ETT. Physical assessment reveals asymmetrical chest wall movement with diminished breath sounds over the entire left lung field. Trachea appears slightly deviated to the right. ETCO2 is trending up to 48 mmHg. R: Immediate physician notification for suspected left-sided tension pneumothorax. Recommend STAT portable chest x-ray. Prepare for emergent needle decompression and/or chest tube insertion. Increase sedation to prevent self-extubation."
+                    }
+                ]
+            },
+            {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>ETCO2</th></tr></thead><tbody><tr><td>06:00</td><td>82</td><td>130/80</td><td>14 (vent)</td><td>98%</td><td>35</td></tr><tr><td>07:00</td><td>88</td><td>135/85</td><td>14 (vent)</td><td>97%</td><td>37</td></tr><tr><td>07:30</td><td>95</td><td>145/90</td><td>14 (vent)</td><td>91%</td><td>42</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp</th><th>HR</th><th>BP (MAP)</th><th>RR (Vent)</th><th>SpO₂ (Source)</th><th>ETCO₂</th></tr></thead><tbody><tr><td>06:00</td><td>98.8°F (37.1°C)</td><td>82</td><td>130/80 mmHg (97)</td><td>14</td><td>98% (40% FiO₂ via ETT)</td><td>35 mmHg</td></tr><tr><td>07:00</td><td>98.9°F (37.2°C)</td><td>88</td><td>135/85 mmHg (102)</td><td>14</td><td>97% (40% FiO₂ via ETT)</td><td>37 mmHg</td></tr><tr><td>07:45</td><td>99.0°F (37.2°C)</td><td>115</td><td>155/95 mmHg (115)</td><td>14</td><td>91% (40% FiO₂ via ETT)</td><td>48 mmHg</td></tr></tbody></table>"
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>PaO2</td><td>85 mmHg</td><td>80-100 mmHg</td></tr><tr><td>PaCO2</td><td>40 mmHg</td><td>35-45 mmHg</td></tr><tr><td>pH</td><td>7.38</td><td>7.35-7.45</td></tr></tbody></table>"
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Arterial Blood Gas (ABG) - 06:00",
+                        "results": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>pH</td><td>7.38</td><td></td><td>7.35-7.45</td><td>Normal</td></tr><tr><td>PaCO₂</td><td>40</td><td>mmHg</td><td>35-45</td><td>Normal</td></tr><tr><td>PaO₂</td><td>95</td><td>mmHg</td><td>80-100</td><td>Normal</td></tr><tr><td>HCO₃⁻</td><td>24</td><td>mEq/L</td><td>22-26</td><td>Normal</td></tr></tbody></table>"
+                    },
+                    {
+                        "panel": "Basic Metabolic Panel (BMP) - 06:00",
+                        "results": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Sodium</td><td>138</td><td>mEq/L</td><td>135-145</td><td>Normal</td></tr><tr><td>Potassium</td><td>4.1</td><td>mEq/L</td><td>3.5-5.0</td><td>Normal</td></tr><tr><td>Chloride</td><td>102</td><td>mEq/L</td><td>98-106</td><td>Normal</td></tr><tr><td>BUN</td><td>18</td><td>mg/dL</td><td>10-20</td><td>Normal</td></tr><tr><td>Creatinine</td><td>0.9</td><td>mg/dL</td><td>0.6-1.2</td><td>Normal</td></tr><tr><td>Glucose</td><td>110</td><td>mg/dL</td><td>70-110</td><td>Normal</td></tr></tbody></table>"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 18:00 (Admission)",
+                        "findings": "<strong>Cardiovascular:</strong> S1, S2 audible. Rate tachycardic, rhythm regular. Pulses 2+ peripherally. No edema noted.<br><strong>Respiratory:</strong> Symmetrical chest rise. Breath sounds clear bilaterally on auscultation. Endotracheal tube secured at 23 cm at the lip.<br><strong>Neurological:</strong> Sedated, RASS -4. Pupils equal, round, reactive to light."
+                    },
+                    {
+                        "timestamp": "Day 2, 07:45 (Focused)",
+                        "findings": "<strong>Respiratory:</strong> Asymmetrical chest wall movement, left side has minimal rise. Absent breath sounds auscultated over the left lung fields. Trachea palpated and noted to be deviated to the right.<br><strong>Neurological:</strong> Agitated, RASS +2. Attempting to reach for ETT. Follows commands intermittently."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Chest X-ray, Portable AP",
+                        "timestamp": "Day 2, 01:00",
+                        "report": "<strong>INDICATION:</strong> Post-intubation placement check.<br><strong>FINDINGS:</strong> Endotracheal tube tip is appropriately positioned 3 cm superior to the carina. Bilateral chest tubes are in place. Lungs are expanded bilaterally with mild basilar atelectasis. No evidence of pneumothorax or significant pleural effusion. Cardiac silhouette is within normal limits for postoperative state.<br><strong>IMPRESSION:</strong> Appropriate placement of ETT. No acute cardiopulmonary process."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 18:00</td><td>Mechanical Ventilation: Assist-Control (AC) mode, RR 14, TV 450 mL, FiO₂ 40%, PEEP 5 cm H₂O</td><td>Standing</td></tr><tr><td>Day 1, 18:00</td><td>Continuous cardiac, SpO₂, and ETCO₂ monitoring</td><td>Standing</td></tr><tr><td>Day 1, 18:00</td><td>Vital signs every 1 hour</td><td>Standing</td></tr><tr><td>Day 1, 18:00</td><td>Propofol IV infusion, titrate to maintain RASS -2 to 0</td><td>Standing</td></tr><tr><td>Day 1, 18:00</td><td>Fentanyl 50 mcg IV Push</td><td>Every 1 hour PRN for pain/agitation</td></tr><tr><td>Day 2, 08:00</td><td>Obtain daily portable Chest X-ray</td><td>Standing</td></tr></tbody></table>"
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td></tr><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1hr PRN</td></tr></tbody></table>"
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous Infusion</td><td>N/A (Running)</td></tr><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1hr PRN</td><td>Day 2, 04:00</td></tr></tbody></table>"
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Management of Care",
+        "cjmmStep": "recognizeCues",
+        "nclexCategory": "Reduction of Risk Potential",
         "difficulty": 5,
         "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
+            "Respiratory: Mechanical Ventilation Safety",
+            "Critical Care",
+            "Barotrauma"
         ]
     },
     "rationale": {
-        "correct": "Diminished breath sounds on the left side, coupled with increasing agitation, rising ETCO2, and a drop in SpO2, strongly suggests a pneumothorax. The high-pressure alarm further supports this, as a pneumothorax increases airway resistance. Immediate intervention is required to alleviate the pressure and prevent further respiratory compromise and potential cardiac arrest.",
-        "incorrect": "While an elevated heart rate (HR) and blood pressure (BP) may indicate pain or anxiety, they are secondary to the more critical finding of a potential pneumothorax. Addressing the respiratory distress is the priority. Increasing the propofol infusion rate could address agitation, but without addressing the underlying cause of respiratory distress, it is not the priority and could mask worsening condition. The ETCO2 is trending upward, but the change from 35 to 42 requires investigation and intervention, not just monitoring. This change, combined with other clinical signs (drop in SpO2 and diminished breath sounds), indicates acute respiratory distress.",
+        "correct": "Diminished or absent breath sounds on one side in a mechanically ventilated client is the most critical finding, strongly indicating a life-threatening complication such as a tension pneumothorax. Positive pressure from the ventilator forces air into the pleural space, causing the lung to collapse. This leads to acute hypoxia, hemodynamic instability, and mediastinal shift (evidenced by tracheal deviation), which can rapidly progress to cardiac arrest if not treated immediately.",
+        "incorrect": "The other findings are symptoms of the underlying crisis but are not the primary diagnostic cue. Elevated heart rate, blood pressure, and agitation are all physiological responses to severe hypoxia and respiratory distress. The upward trend in ETCO2 indicates worsening ventilation but is a secondary data point. The unilateral absence of breath sounds is the definitive physical assessment finding that pinpoints the specific, life-threatening etiology (pneumothorax) and demands immediate intervention.",
+        "answerBreakdown": [
+            {
+                "optionId": "optionA",
+                "correct": true,
+                "content": "This is the correct answer. Unilateral diminished breath sounds signify a failure of ventilation to that lung. In a patient on positive-pressure ventilation, this is a hallmark sign of a pneumothorax, a medical emergency. The ventilator is forcing air into the pleural space, collapsing the lung and compromising gas exchange."
+            },
+            {
+                "optionId": "optionB",
+                "correct": false,
+                "content": "This is incorrect. Tachycardia and hypertension are nonspecific signs of distress. They are the body's compensatory response to hypoxia, pain, or anxiety. While they indicate a problem, they do not identify the specific cause. Addressing the root respiratory issue will resolve these vital sign changes."
+            },
+            {
+                "optionId": "optionC",
+                "correct": false,
+                "content": "This is incorrect. Agitation in a ventilated patient is often a sign of 'air hunger' due to severe hypoxia. It is a critical symptom, not the root problem. Treating the agitation with sedation without first correcting the underlying cause of respiratory failure is dangerous and can mask further deterioration."
+            },
+            {
+                "optionId": "optionD",
+                "correct": false,
+                "content": "This is incorrect. An upward trend in ETCO2 indicates inadequate ventilation and CO2 retention. While it is an important cue that gas exchange is failing, it is less specific and immediate than the physical finding of absent breath sounds, which points directly to the likely cause (pneumothorax)."
+            }
+        ],
         "clinicalPearls": [
-            "Always prioritize assessments based on the ABCs (Airway, Breathing, Circulation).",
-            "A sudden onset of respiratory distress in a mechanically ventilated patient should raise suspicion for a pneumothorax, especially with asymmetrical breath sounds.",
-            "High-pressure alarms often indicate increased airway resistance, which can be caused by pneumothorax, mucus plugging, or bronchospasm."
+            "In a mechanically ventilated patient, always assess the patient first, then the ventilator circuit, when an alarm sounds. Asymmetrical chest findings are a red flag for pneumothorax or endotracheal tube displacement.",
+            "A high-pressure alarm indicates increased airway resistance. The DOPE mnemonic (Displacement, Obstruction, Pneumothorax, Equipment failure) is a critical tool for troubleshooting.",
+            "Tracheal deviation is a late and ominous sign of a tension pneumothorax. It indicates significant mediastinal shift and impending cardiovascular collapse, requiring emergent needle decompression."
         ],
         "questionTrap": {
-            "trap": "The question trap lies in focusing solely on vital sign changes or agitation without considering the potential for a life-threatening complication like a pneumothorax. The ETCO2 change is subtle, and it might be overlooked.",
-            "howToOvercome": "Focus on the cluster of symptoms and prioritize assessments that point to a potential airway or breathing problem. Consider the possible causes of high-pressure alarms in mechanically ventilated patients."
+            "trap": "The trap is focusing on the electronic monitoring data (vital signs, ETCO2) or the patient's behavior (agitation) and failing to perform the rapid, hands-on physical assessment (auscultation) that reveals the life-threatening cause. Treating the symptoms (e.g., giving more sedation for agitation) would be a fatal error.",
+            "howToOvercome": "When a ventilated patient acutely decompensates, immediately perform a rapid ABC assessment. Auscultate breath sounds bilaterally at the first sign of trouble. A change in breath sounds is a high-priority cue that supersedes most other data points."
         },
         "mnemonic": {
-            "title": "DOPE",
-            "expansion": "Displacement (of the ET tube), Obstruction (mucus plug), Pneumothorax, Equipment failure."
+            "title": "DOPE for Ventilator Alarms",
+            "expansion": "D - Displacement (ET tube moved into right mainstem or esophagus)\nO - Obstruction (Mucus plug, kinked tubing)\nP - Pneumothorax (Collapsed lung)\nE - Equipment Failure (Ventilator malfunction)"
         }
     },
     "options": [
@@ -74,7 +153,7 @@
         },
         {
             "id": "optionC",
-            "text": "Increasing the propofol infusion rate.",
+            "text": "Patient is agitated and restless.",
             "correct": false
         },
         {
@@ -82,5 +161,7 @@
             "text": "The ETCO2 is trending upward.",
             "correct": false
         }
-    ]
+    ],
+    "correctOptionId": "optionA",
+    "sentinelStatus": "healed_v2026_v13"
 }

@@ -1,95 +1,174 @@
 {
     "id": "New-v26-9b9a8d7c-4f6a-4e3c-9b7d-5a7f9e8b7a6c",
     "type": "highlight",
-    "stem": "The nurse is caring for a client receiving mechanical ventilation. Review the nurse's notes below. Identify the findings that require immediate intervention. Click on those findings.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse reviews the 07:00 progress note for a client on mechanical ventilation post-CABG. Select the 4 findings in the note that indicate worsening respiratory status and require immediate action.",
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "HR 110/min"
+        },
+        {
+            "id": "opt_2",
+            "text": "BP 160/90 mmHg"
+        },
+        {
+            "id": "opt_3",
+            "text": "respiratory rate is 28/min"
+        },
+        {
+            "id": "opt_4",
+            "text": "SpO2 92% on FiO2 50%"
+        },
+        {
+            "id": "opt_5",
+            "text": "coarse crackles bilaterally"
+        },
+        {
+            "id": "opt_6",
+            "text": "Peak Inspiratory Pressure (PIP) has increased to 35 cm H2O"
+        },
+        {
+            "id": "opt_7",
+            "text": "pH 7.30"
+        },
+        {
+            "id": "opt_8",
+            "text": "PaCO2 55 mmHg"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_3",
+        "opt_6",
+        "opt_7",
+        "opt_8"
+    ],
     "itemContext": {
         "patient": {
             "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
-            "airborne": false,
-            "isolation": "standard",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ]
+            ],
+            "isolation": "Standard Precautions"
         },
-        "sbar": "Situation: John Smith, 68-year-old male, post-op day 1 following coronary artery bypass grafting (CABG), admitted to ICU at 18:00. He is currently on mechanical ventilation. Background: History of COPD and hypertension. He was extubated briefly this morning but exhibited increased work of breathing. Assessment: At 07:00, vital signs: HR 110 bpm, BP 160/90 mmHg, RR 28 breaths/min (ventilator rate 14), SpO2 92%, Temp 37.8°C. Auscultation reveals coarse crackles bilaterally. ET tube is secure at 22 cm at the lip. Peak inspiratory pressure (PIP) is 35 cm H2O. Client is restless and appears uncomfortable. ABG results from 06:00: pH 7.30, PaCO2 55 mmHg, PaO2 75 mmHg, HCO3 24 mEq/L. Receiving continuous IV sedation with propofol per protocol. Recommendation: Please assess respiratory status and consider adjusting ventilator settings. Consider suctioning for increased secretions.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>55 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>75 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>12,000/mm3</td><td>4,500-11,000/mm3</td></tr></tbody></table>"
+                "id": "nurses_notes",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 18:00",
+                        "header": "ICU Admission Note",
+                        "text": "S: Client admitted to ICU from PACU, post-op day 1 Coronary Artery Bypass Grafting (CABG) x3. B: 68-year-old male with a history of COPD, hypertension, and coronary artery disease. Extubated in PACU but required re-intubation for acute respiratory distress and increased work of breathing. A: Currently sedated on propofol, mechanically ventilated. Vital signs stable on admission. Chest tubes patent with minimal serosanguinous drainage. Sternal incision clean, dry, and intact. Peripheral pulses palpable. R: Continue ventilator support per protocol. Titrate sedation for comfort. Monitor hemodynamics, respiratory status, and chest tube output closely. Wean ventilator as tolerated."
+                    },
+                    {
+                        "timestamp": "Day 2, 07:00",
+                        "header": "ICU Progress Note",
+                        "text": "S: Client remains on mechanical ventilation. Overnight, required increased sedation for restlessness. B: Post-op day 2 CABG. History of COPD. ABGs at 06:00 showed worsening respiratory acidosis. A: Client is restless. [HR 110/min], [BP 160/90 mmHg]. The client's spontaneous [respiratory rate is 28/min], asynchronous with the ventilator's set rate of 14/min. [SpO2 92% on FiO2 50%]. Auscultation reveals [coarse crackles bilaterally]. [Peak Inspiratory Pressure (PIP) has increased to 35 cm H2O] from 30 cm H2O an hour ago. Recent ABG results show [pH 7.30] and [PaCO2 55 mmHg]. R: Recommend immediate respiratory therapy consult to adjust ventilator settings. Suction ET tube for possible secretions. Assess for pain or anxiety contributing to agitation. Notify surgeon of change in status."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>Temp</th><th>PIP</th></tr></thead><tbody><tr><td>07:00</td><td>110</td><td>160/90</td><td>28</td><td>92%</td><td>37.8°C</td><td>35 cm H2O</td></tr><tr><td>06:00</td><td>100</td><td>150/85</td><td>24</td><td>94%</td><td>37.5°C</td><td>30 cm H2O</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>HR (bpm)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>RR (/min)</th><th>SpO₂</th><th>Temp °F (°C)</th><th>PIP (cm H₂O)</th></tr></thead><tbody><tr><td>07:00</td><td>110</td><td>160/90</td><td>113</td><td>28</td><td>92% on 50% FiO₂</td><td>100.0 (37.8)</td><td>35</td></tr><tr><td>06:00</td><td>102</td><td>150/85</td><td>107</td><td>24</td><td>94% on 50% FiO₂</td><td>99.5 (37.5)</td><td>30</td></tr><tr><td>05:00</td><td>95</td><td>145/82</td><td>103</td><td>20</td><td>95% on 50% FiO₂</td><td>99.1 (37.3)</td><td>28</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Propofol</td><td>5 mcg/kg/min</td><td>IV</td><td>Continuous</td></tr><tr><td>Furosemide</td><td>20 mg</td><td>IV</td><td>PRN</td></tr><tr><td>Morphine</td><td>4 mg</td><td>IV</td><td>PRN Pain</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<h5>Arterial Blood Gas (06:00)</h5><table><thead><tr><th>Result</th><th>Value</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>pH</td><td>7.30</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>55</td><td>mmHg</td><td>35-45</td><td>High</td></tr><tr><td>PaO₂</td><td>75</td><td>mmHg</td><td>80-100</td><td>Low</td></tr><tr><td>HCO₃⁻</td><td>24</td><td>mEq/L</td><td>22-26</td><td>Normal</td></tr><tr><td>SaO₂</td><td>93</td><td>%</td><td>95-100</td><td>Normal</td></tr></tbody></table><h5>Complete Blood Count (06:00)</h5><table><thead><tr><th>Result</th><th>Value</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>WBC</td><td>12.5</td><td>x 10³/μL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Hgb</td><td>10.8</td><td>g/dL</td><td>13.5-17.5</td><td>Normal</td></tr><tr><td>Plt</td><td>180</td><td>x 10³/μL</td><td>150-450</td><td>Normal</td></tr></tbody></table>"
             },
             {
-                "id": "notes",
-                "title": "Nurse's Notes",
-                "content": "07:00: Client appears restless and uncomfortable. Vital signs as above. Auscultation reveals coarse crackles bilaterally. ET tube is secure at 22 cm at the lip. Peak inspiratory pressure (PIP) is 35 cm H2O. Suctioned small amount of thick, white secretions. ABG results from 06:00 reviewed: pH 7.30, PaCO2 55 mmHg, PaO2 75 mmHg, HCO3 24 mEq/L. Receiving continuous IV sedation with propofol per protocol. Increased respiratory rate to 28 breaths/min (ventilator setting 14)."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<h5>Admission (Day 1, 18:00)</h5><p><strong>Neurological:</strong> Sedated on propofol infusion, responds to painful stimuli. Pupils equal, round, reactive to light.<br><strong>Cardiovascular:</strong> Tachycardic rate, regular rhythm. S1/S2 audible. Peripheral pulses +2 in all extremities.<br><strong>Respiratory:</strong> Intubated with 7.5 ETT, secured at 22 cm at lip. Breath sounds diminished with scattered crackles at bases bilaterally.<br><strong>Gastrointestinal:</strong> Bowel sounds hypoactive in all four quadrants.<br><strong>Genitourinary:</strong> Foley catheter in place, draining clear yellow urine.<br><strong>Integumentary:</strong> Skin warm, dry. Sternal incision clean, dry, and intact. No edema noted.</p><h5>Focused Assessment (Day 2, 07:00)</h5><p><strong>Respiratory:</strong> Increased work of breathing noted, with use of accessory muscles. Asynchronous breathing pattern observed against ventilator breaths. Coarse crackles auscultated bilaterally. ET tube remains at 22 cm at lip, cuff pressure checked and appropriate. No audible air leak.</p>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<h5>Chest X-ray (Portable, Day 2, 07:30)</h5><p><strong>Indication:</strong> Acute respiratory distress, increased peak airway pressures.</p><p><strong>Findings:</strong> Endotracheal tube tip is appropriately positioned, 4 cm above the carina. Mild cardiomegaly is stable. There are bilateral diffuse opacities and signs of pulmonary edema, which appear worsened when compared to the initial post-operative film from yesterday. No evidence of pneumothorax or significant pleural effusion.</p><p><strong>Impression:</strong> Worsening pulmonary edema.</p>"
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 18:00</td><td>Mechanical Ventilation: Assist-Control (AC) mode, Rate 14/min, Tidal Volume 450 mL, FiO₂ 50%, PEEP 5 cm H₂O</td><td>Standing</td></tr><tr><td>Day 1, 18:00</td><td>Titrate Propofol infusion to maintain RASS -2 to -3</td><td>Standing</td></tr><tr><td>Day 1, 18:00</td><td>Arterial Blood Gas (ABG)</td><td>q6h and PRN</td></tr><tr><td>Day 1, 18:00</td><td>Continuous cardiac and SpO₂ monitoring</td><td>Standing</td></tr><tr><td>Day 1, 18:00</td><td>Suction ET tube</td><td>PRN for secretions or high-pressure alarms</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propofol 10 mg/mL Infusion</td><td>20 mL/hr</td><td>IV</td><td>Continuous</td><td>N/A (Running)</td></tr><tr><td>Furosemide</td><td>20 mg</td><td>IV</td><td>PRN</td><td>Day 1, 22:00</td></tr><tr><td>Morphine</td><td>4 mg</td><td>IV</td><td>PRN Pain</td><td>Day 2, 03:30</td></tr><tr><td>Cefazolin</td><td>1 g</td><td>IV</td><td>q8h</td><td>Day 2, 06:00</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
+    "rationale": {
+        "correct": "The combination of a low pH (7.30) and high PaCO2 (55 mmHg) confirms uncompensated respiratory acidosis, indicating inadequate alveolar ventilation. The elevated Peak Inspiratory Pressure (PIP) of 35 cm H2O signals increased airway resistance or decreased lung compliance, potentially due to bronchospasm, secretions, or worsening pulmonary edema, increasing the risk of barotrauma. The client's spontaneous respiratory rate of 28/min, significantly higher than the ventilator's set rate of 14/min, demonstrates severe respiratory distress and ventilator dyssynchrony. These four findings together paint a critical picture of impending respiratory failure that requires immediate intervention.",
+        "incorrect": "While tachycardia (HR 110/min) and hypertension (BP 160/90 mmHg) are concerning, they are likely secondary responses to the primary respiratory compromise (hypoxia, hypercapnia, and distress) and will likely improve once ventilation is corrected. Coarse crackles are an expected finding with pulmonary edema but are less specific for acute decompensation than the objective data from ABGs and ventilator pressures. An SpO2 of 92% is low but does not reveal the underlying cause of hypoxemia, which the ABGs clearly identify as ventilatory failure.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "content": "Incorrect. Tachycardia is a non-specific sign of distress. It is a response to the underlying problem, not the root cause. The priority is to address the cause of the distress, which is respiratory failure."
+            },
+            {
+                "optionId": "opt_2",
+                "content": "Incorrect. Hypertension is also a common physiological response to pain, anxiety, or respiratory distress. Correcting the ventilation and oxygenation is the priority and may resolve the hypertension."
+            },
+            {
+                "optionId": "opt_3",
+                "content": "Correct. A spontaneous respiratory rate of 28/min while the ventilator is set to 14/min indicates the client is 'breathing over the vent.' This is a sign of significant respiratory distress, air hunger, and inadequate ventilator support."
+            },
+            {
+                "optionId": "opt_4",
+                "content": "Incorrect. While an SpO2 of 92% is suboptimal, it is a lagging indicator and less precise than the ABG results. The ABGs provide definitive information about the acid-base status and the efficiency of gas exchange, making them a higher priority."
+            },
+            {
+                "optionId": "opt_5",
+                "content": "Incorrect. Coarse crackles indicate fluid or secretions in the larger airways. While this finding requires an intervention like suctioning, it is a physical sign, whereas the PIP, RR, and ABG values are objective data confirming the severity of the ventilatory failure."
+            },
+            {
+                "optionId": "opt_6",
+                "content": "Correct. A PIP of 35 cm H2O (and trending upward) is a critical finding. It suggests dangerously high pressure is required to ventilate the lungs, increasing the risk of ventilator-induced lung injury (barotrauma). The cause must be identified and corrected immediately."
+            },
+            {
+                "optionId": "opt_7",
+                "content": "Correct. A pH of 7.30 is acidotic and falls outside the normal range of 7.35-7.45. This level of acidosis can impair cellular function and myocardial contractility, representing a life-threatening state."
+            },
+            {
+                "optionId": "opt_8",
+                "content": "Correct. A PaCO2 of 55 mmHg is significantly elevated (normal 35-45 mmHg) and is the direct cause of the respiratory acidosis. This indicates the client is retaining CO2 due to inadequate ventilation, a critical problem requiring immediate ventilator adjustment."
+            }
+        ],
+        "clinicalPearls": [
+            "Ventilator dyssynchrony (patient fighting the vent) is a sign of inadequate sedation, pain, or inappropriate ventilator settings. Always assess the patient first, then the machine.",
+            "Peak Inspiratory Pressure (PIP) reflects the total pressure needed to overcome both airway resistance and lung/chest wall elasticity. A rising PIP is a red flag for problems like secretions, bronchospasm, pneumothorax, or worsening ARDS/edema.",
+            "In a patient with respiratory acidosis on a ventilator, the primary intervention is to increase minute ventilation. This is achieved by increasing either the respiratory rate or the tidal volume.",
+            "Post-CABG patients are at high risk for pulmonary complications, including atelectasis, pneumonia, and pulmonary edema, due to anesthesia, sternotomy, and cardiopulmonary bypass effects."
+        ],
+        "questionTrap": "The trap is focusing on the abnormal vital signs (tachycardia, hypertension) or the physical finding (crackles) over the more critical and specific data from the ABGs and ventilator readings. The ABGs and PIP provide direct evidence of life-threatening ventilatory failure.",
+        "mnemonic": {
+            "title": "DOPES Mnemonic for High Ventilator Pressures",
+            "expansion": "D: Dislodged tube\nO: Obstruction (secretions, kinked tube)\nP: Pneumothorax\nE: Equipment failure\nS: Stacking breaths (dyssynchrony)"
+        },
+        "reviewUnits": [
+            "Critical Care Nursing",
+            "Mechanical Ventilation Management",
+            "Arterial Blood Gas Interpretation",
+            "Postoperative Cardiovascular Care"
         ]
     },
-    "rationale": {
-        "correct": "A pH of 7.30 and a PaCO2 of 55 mmHg indicate respiratory acidosis, requiring immediate intervention to improve ventilation. The elevated PaCO2 indicates that the patient is not eliminating carbon dioxide effectively, leading to a decrease in pH. A peak inspiratory pressure (PIP) of 35 cm H2O is elevated, suggesting increased airway resistance or decreased lung compliance, such as from retained secretions, bronchospasm, or pulmonary edema. Increased PIP requires investigation and intervention to prevent lung injury. The respiratory rate of 28 breaths/min (ventilator rate 14) indicates that the patient is breathing over the set ventilator rate, meaning that the ventilator settings are not adequately supporting the patient's respiratory needs. This can indicate anxiety, pain, or inadequate sedation, and requires immediate assessment and adjustment of ventilator settings or addressing the underlying cause.",
-        "incorrect": "A heart rate of 110 bpm is elevated but may be related to the client's post-operative status, pain, or anxiety. While it should be monitored, it is not the priority compared to the respiratory issues. A blood pressure of 160/90 mmHg is elevated, but needs to be addressed after the immediate respiratory compromise. The patient's temperature of 37.8°C is slightly elevated but does not require immediate intervention compared to the respiratory issues. An SpO2 of 92% is acceptable on mechanical ventilation with underlying COPD, although further optimization of ventilation might be needed. Coarse crackles bilaterally warrants intervention, but the other values indicate a greater urgency.",
-        "clinicalPearls": [
-            "High PIP can indicate a need for suctioning, bronchodilators, or adjustments to ventilator settings. Always investigate the cause of elevated PIP to prevent barotrauma.",
-            "Respiratory acidosis in a mechanically ventilated patient often requires increasing the minute ventilation (tidal volume or respiratory rate). Monitor ABGs closely after making ventilator changes.",
-            "Always assess the client first, then the equipment. Ensure the ventilator is functioning correctly and that the settings are appropriate for the patient's condition."
-        ],
-        "questionTrap": {
-            "trap": "The question tempts you to focus on the blood pressure or heart rate, which are elevated but not as immediately life-threatening as the respiratory acidosis and increased PIP.",
-            "howToOvercome": "Prioritize findings that directly impact oxygenation and ventilation. Remember the ABCs (Airway, Breathing, Circulation) and address respiratory issues first. Look for trends and patterns in the data provided."
-        },
-        "mnemonic": {
-            "title": "VENT",
-            "expansion": "Ventilation Problems? Evaluate Numbers Thoroughly!"
-        }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 4,
+        "penalty": 1
     },
-    "response": [
-        {
-            "id": "pH",
-            "content": "pH 7.30"
-        },
-        {
-            "id": "PaCO2",
-            "content": "PaCO2 55 mmHg"
-        },
-        {
-            "id": "PIP",
-            "content": "PIP is 35 cm H2O"
-        },
-        {
-            "id": "RR",
-            "content": "respiratory rate to 28"
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Physiological Integrity",
+        "nclexSubCategory": "Reduction of Risk Potential"
+    },
+    "correctOptionId": "opt_3",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:26:37.424Z"
 }

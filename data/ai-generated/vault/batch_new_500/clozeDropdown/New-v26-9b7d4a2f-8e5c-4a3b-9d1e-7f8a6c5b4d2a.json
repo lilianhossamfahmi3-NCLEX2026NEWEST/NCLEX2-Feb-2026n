@@ -1,70 +1,249 @@
 {
     "id": "New-v26-9b7d4a2f-8e5c-4a3b-9d1e-7f8a6c5b4d2a",
     "type": "clozeDropdown",
-    "stem": "Based on the assessment data, the patient is most likely experiencing increased intracranial pressure (ICP) secondary to hepatic encephalopathy. Select the most appropriate interventions from the options below to manage this complication. The priority intervention is to [dropdown1] to reduce cerebral edema. It is also important to maintain the patient's head of bed at [dropdown2] degrees to promote venous drainage. Given the risk of increased ICP during nursing activities, it is crucial to [dropdown3] nursing interventions.",
+    "vault": {
+        "category": "/clozeDropdown",
+        "filename": "hepaticEncephalopathy_clozeDropdown_v1.json"
+    },
+    "stem": "The nurse is developing a plan of care for a client with hepatic encephalopathy and suspected increased intracranial pressure (ICP). Complete the following sentences by choosing the most appropriate options.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 3
     },
     "itemContext": {
         "patient": {
             "name": "John Smith",
             "age": 62,
-            "gender": "Male",
+            "sex": "Male",
+            "pronouns": "he/him",
             "iso": "Medical Unit",
             "allergies": [
                 "NKDA"
             ]
         },
-        "sbar": "S: John Smith, 62-year-old male with chronic alcohol abuse, admitted at 03:00 for acute pancreatitis. At 07:00, he showed increasing confusion. B: History includes chronic alcohol abuse, liver cirrhosis, and recent pancreatitis diagnosis. He's not responding appropriately. A: Disoriented to time/place, asterixis present. GCS is 11. Labs: ammonia 250 mcg/dL, PT/INR 2.1, sodium 130 mEq/L. Vitals: BP 160/90 mmHg, HR 110 bpm, RR 24 breaths/min, SpO2 92% on 2L NC, Temp 38.5°C. Neuro checks declining. R: Concerned about hepatic encephalopathy with increased ICP. Recommend frequent neuro monitoring, lactulose per order, consider hypertonic saline for cerebral edema, and potential ICU transfer. Assess gag reflex before meds.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Smith, 62-year-old male with chronic alcohol abuse, admitted at 03:00 for acute pancreatitis. At 07:00, he showed increasing confusion and lethargy. B: History includes chronic alcohol abuse, liver cirrhosis, and recent pancreatitis diagnosis. He's not responding appropriately to questions. A: Disoriented to time/place, asterixis present. GCS is 11. Labs: ammonia 250 mcg/dL, PT/INR 2.1, sodium 130 mEq/L. Vitals: BP 160/90 mmHg, HR 110 bpm, RR 24 breaths/min, SpO2 92% on 2L NC, Temp 38.5°C. Neuro checks declining. R: Concerned about hepatic encephalopathy with increased ICP. Recommend frequent neuro monitoring, lactulose per order, consider hypertonic saline for cerebral edema, and potential ICU transfer. Assess gag reflex before meds."
-            },
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Ammonia: 250 mcg/dL (Elevated), Sodium: 130 mEq/L (Decreased), Potassium: 3.8 mEq/L (Normal), PT/INR: 2.1 (Elevated), ALT: 300 U/L (Elevated), AST: 400 U/L (Elevated), Bilirubin: 5.0 mg/dL (Elevated)"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "timestamp": "Day 1, 03:00",
+                        "author": "RN",
+                        "type": "Admission Note",
+                        "content": "S: 62-year-old male brought to the ED by his adult child for worsening abdominal pain and confusion over the past 24 hours. B: Client has a known history of liver cirrhosis secondary to chronic alcohol abuse and was recently diagnosed with acute pancreatitis. The adult child reports the client lives alone and has poor adherence to his prescribed diet and medications. A: Client is lethargic but arousable to verbal stimuli. Mild jaundice noted on sclera and skin. Abdomen is distended, firm, and tender to palpation in the epigastric region. Oriented to person only. GCS 13 (E3, V4, M6). Vitals are stable. R: Admit to the medical unit for management of acute pancreatitis and monitoring for hepatic encephalopathy. Initiate continuous IV fluids, implement pain management protocol, and obtain baseline laboratory studies, including a serum ammonia level. Place on fall precautions."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "author": "RN",
+                        "type": "Progress Note",
+                        "content": "S: Client's neurological status has acutely declined over the last hour. B: The STAT ammonia level returned at 250 mcg/dL. The client has become increasingly agitated, followed by periods of deep lethargy, and is not responding to questions appropriately. A: GCS has declined to 11 (E2, V3, M6). Client is disoriented to time and place with pronounced asterixis (liver flap) present bilaterally. Vital signs are now concerning for Cushing's triad: BP 160/90 mmHg (MAP 113), HR 55 bpm, and RR 24 breaths/min with an irregular pattern. SpO₂ is 92% on 2L NC. R: High suspicion for acute cerebral edema and increased intracranial pressure (ICP) secondary to fulminant hepatic encephalopathy. Have notified the provider and recommended an immediate neurology consult. Preparing to administer hypertonic saline as ordered and will prepare for potential transfer to the ICU for invasive ICP monitoring."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "BP: 160/90 mmHg, HR: 110 bpm, RR: 24 breaths/min, SpO2: 92% on 2L NC, Temp: 38.5°C, GCS: 11"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "03:00",
+                        "HR (bpm)": "98",
+                        "BP (mmHg)": "134/82",
+                        "MAP (mmHg)": "99",
+                        "RR (breaths/min)": "18",
+                        "SpO₂ (%)": "95% on RA",
+                        "Temp °F (°C)": "99.1 (37.3)",
+                        "GCS": "13"
+                    },
+                    {
+                        "Time": "06:00",
+                        "HR (bpm)": "110",
+                        "BP (mmHg)": "148/88",
+                        "MAP (mmHg)": "108",
+                        "RR (breaths/min)": "22",
+                        "SpO₂ (%)": "93% on 2L NC",
+                        "Temp °F (°C)": "101.5 (38.6)",
+                        "GCS": "12"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR (bpm)": "55",
+                        "BP (mmHg)": "160/90",
+                        "MAP (mmHg)": "113",
+                        "RR (breaths/min)": "24 (Irregular)",
+                        "SpO₂ (%)": "92% on 2L NC",
+                        "Temp °F (°C)": "101.8 (38.8)",
+                        "GCS": "11"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "Test": "Ammonia",
+                        "Result": "250",
+                        "Unit": "mcg/dL",
+                        "Reference": "15-45",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Sodium",
+                        "Result": "130",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Potassium",
+                        "Result": "3.8",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "PT",
+                        "Result": "22.5",
+                        "Unit": "sec",
+                        "Reference": "11-13.5",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "INR",
+                        "Result": "2.1",
+                        "Unit": "",
+                        "Reference": "0.8-1.1",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "ALT",
+                        "Result": "300",
+                        "Unit": "U/L",
+                        "Reference": "7-56",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "AST",
+                        "Result": "400",
+                        "Unit": "U/L",
+                        "Reference": "10-40",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Bilirubin, Total",
+                        "Result": "5.0",
+                        "Unit": "mg/dL",
+                        "Reference": "0.1-1.2",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "assessments": [
+                    {
+                        "timestamp": "Day 1, 03:00 (Admission)",
+                        "findings": "GENERAL: Appears fatigued, mild jaundice.\nNEUROLOGICAL: GCS 13. Lethargic but arousable. Oriented to person only. Pupils equal, round, reactive to light. Moves all extremities spontaneously.\nCARDIOVASCULAR: S1, S2 audible. Tachycardic. No murmurs. Pulses 2+ peripherally.\nRESPIRATORY: Lungs clear to auscultation bilaterally. Breathing unlabored.\nGASTROINTESTINAL: Abdomen distended and firm, tender to palpation. Bowel sounds hypoactive."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00 (Focused)",
+                        "findings": "NEUROLOGICAL: GCS decreased to 11. Arouses to painful stimuli only. Does not follow commands. Pronounced asterixis present in both upper extremities. Pupils sluggish to react. Cushing's triad noted in vital signs, indicative of increased ICP."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "reports": [
+                    {
+                        "type": "CT Head without contrast",
+                        "timestamp": "Day 1, 07:30",
+                        "report": "INDICATION: Acute change in mental status, concern for increased intracranial pressure.\n\nFINDINGS: Diffuse loss of gray-white matter differentiation and effacement of the cerebral sulci, consistent with early cerebral edema. No evidence of acute intracranial hemorrhage, mass effect, or midline shift. Basal cisterns are patent.\n\nIMPRESSION: Findings suggestive of diffuse cerebral edema, likely secondary to metabolic encephalopathy (e.g., hepatic encephalopathy). Clinical correlation is strongly advised."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "Day 1, 03:15",
+                        "action": "Admit to Medical Unit. Fall precautions.",
+                        "frequency": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 03:15",
+                        "action": "0.9% Sodium Chloride continuous infusion at 100 mL/hr.",
+                        "frequency": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 03:15",
+                        "action": "Neurological checks every 4 hours.",
+                        "frequency": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:10",
+                        "action": "Upgrade to neurological checks every 1 hour.",
+                        "frequency": "STAT"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:10",
+                        "action": "Elevate head of bed to 30 degrees.",
+                        "frequency": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:10",
+                        "action": "Administer 3% Sodium Chloride (Hypertonic Saline) 100 mL IV over 30 minutes.",
+                        "frequency": "STAT"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "Lactulose 30 mL PO q6h PRN for elevated ammonia, Acetaminophen 650 mg PO q4h PRN for fever, Ondansetron 4 mg IV q6h PRN for nausea, Normal Saline 100 mL/hr continuous infusion"
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Lactulose",
+                        "dose": "30 mL",
+                        "route": "PO",
+                        "frequency": "q6h",
+                        "lastAdministered": "Day 1, 04:00"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "650 mg",
+                        "route": "PO",
+                        "frequency": "q4h PRN for fever >101°F",
+                        "lastAdministered": "Day 1, 06:15"
+                    },
+                    {
+                        "medication": "Ondansetron",
+                        "dose": "4 mg",
+                        "route": "IV",
+                        "frequency": "q6h PRN for nausea",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "0.9% Sodium Chloride",
+                        "dose": "100 mL/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "lastAdministered": "Ongoing"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "apply",
+        "cjmmStep": "generateSolutions",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
+            "GI/Hepatic: Liver Failure & Pancreatitis",
+            "Neurological: Increased ICP"
         ]
-    },
-    "rationale": {
-        "correct": "Administering hypertonic saline solution helps reduce cerebral edema by drawing fluid from brain tissue into the vasculature, decreasing ICP. Elevating the head of the bed to 30 degrees promotes venous drainage, reducing ICP. Spacing out nursing interventions minimizes stimulation and prevents sudden ICP increases.\n\nclinicalPearl: Monitor sodium levels closely when administering hypertonic saline to avoid rapid changes.",
-        "incorrect": "Administering hypotonic fluids can worsen cerebral edema. Lowering the head of the bed can increase ICP. Clustering nursing interventions can cause abrupt increases in ICP due to increased stimulation.\n\nclinicalPearl: Frequent neurological assessments are crucial to detect early signs of increased ICP.",
-        "clinicalPearls": [
-            "Neurological assessments are crucial in patients with liver failure to detect early signs of hepatic encephalopathy and increased ICP.",
-            "Lactulose is administered to reduce ammonia levels, a key factor in hepatic encephalopathy.",
-            "Monitor for signs of increased ICP such as changes in GCS, pupillary response, and vital signs."
-        ],
-        "questionTrap": {
-            "trap": "Students may choose actions that are generally good practice but not directly related to managing increased ICP. For example, administering lactulose is important for lowering ammonia, but not the priority for immediately addressing increased ICP.",
-            "howToOvercome": "Focus on interventions that directly address cerebral edema and intracranial pressure. Prioritize actions that stabilize the immediate threat to neurological function."
-        },
-        "mnemonic": {
-            "title": "ICP Mnemonic",
-            "expansion": "Elevate Head (30 degrees), Hypertonic Solutions, Space Activities, Monitor Neuro Status"
-        }
     },
     "responseOptions": {
         "dropdown1": [
@@ -87,6 +266,70 @@
         "dropdown1": "Administer hypertonic saline solution",
         "dropdown2": "30",
         "dropdown3": "space out"
+    },
+    "rationale": {
+        "correct": "The client's presentation with Cushing's triad (hypertension with widening pulse pressure, bradycardia, irregular respirations) and a declining GCS strongly indicates increased ICP. The priority is to reduce cerebral edema. Administering hypertonic saline creates an osmotic gradient, pulling fluid from the brain's interstitial space into the intravascular space. Elevating the head of the bed to 30 degrees facilitates venous outflow from the brain, reducing intracranial volume. Spacing out nursing interventions is critical to prevent iatrogenic spikes in ICP caused by excessive stimulation.",
+        "incorrect": "Administering hypotonic fluids would be catastrophic, as it would shift fluid into the brain cells, worsening cerebral edema. Lowering the head of bed flat (0 degrees) or too high (45 degrees) can impede venous drainage or arterial inflow, respectively, both negatively impacting ICP. Clustering care, while efficient, causes sustained periods of stimulation that can dangerously elevate ICP in a neurologically unstable client.",
+        "answerBreakdown": [
+            {
+                "option": "Administer hypertonic saline solution",
+                "isCorrect": true,
+                "explanation": "Correct. Hypertonic saline is an osmotic diuretic. Its high sodium concentration increases serum osmolality, creating a powerful osmotic gradient that pulls water from the edematous brain tissue into the cerebral vasculature, thereby reducing intracranial pressure."
+            },
+            {
+                "option": "Administer hypotonic fluids",
+                "isCorrect": false,
+                "explanation": "Incorrect. This is a life-threatening error. Hypotonic fluids (e.g., 0.45% NaCl) have a lower osmolality than blood, which would cause fluid to shift from the vasculature into the brain cells, exacerbating cerebral edema and rapidly increasing ICP."
+            },
+            {
+                "option": "Administer lactulose",
+                "isCorrect": false,
+                "explanation": "Incorrect. While lactulose is essential for treating the underlying hepatic encephalopathy by reducing ammonia levels, it is not the priority intervention for managing an acute, life-threatening increase in ICP. Its effect is not rapid enough to address cerebral edema."
+            },
+            {
+                "option": "30",
+                "isCorrect": true,
+                "explanation": "Correct. Elevating the head of the bed to 30 degrees is the standard of care. This position promotes venous drainage from the head via the jugular veins without compromising cerebral perfusion pressure, thus helping to lower ICP."
+            },
+            {
+                "option": "0",
+                "isCorrect": false,
+                "explanation": "Incorrect. A flat position (0 degrees) eliminates the effect of gravity on venous return from the brain, which increases cerebral blood volume and raises ICP. This position is contraindicated in patients with suspected increased ICP."
+            },
+            {
+                "option": "45",
+                "isCorrect": false,
+                "explanation": "Incorrect. While it may seem that a higher elevation is better, raising the head of the bed to 45 degrees or higher can cause flexion of the neck or hips, which can obstruct venous outflow and paradoxically increase ICP. It may also decrease cerebral perfusion pressure."
+            },
+            {
+                "option": "space out",
+                "isCorrect": true,
+                "explanation": "Correct. Spacing or distributing nursing activities (e.g., turning, suctioning, bathing) over time minimizes stimulation. This prevents the cumulative effect of multiple stimuli from causing a sustained and dangerous increase in ICP."
+            },
+            {
+                "option": "cluster",
+                "isCorrect": false,
+                "explanation": "Incorrect. Clustering care, while often promoted for efficiency, is dangerous in patients with high ICP. The prolonged stimulation from performing multiple tasks at once can lead to significant and sustained elevations in intracranial pressure, risking cerebral herniation."
+            },
+            {
+                "option": "delegate all",
+                "isCorrect": false,
+                "explanation": "Incorrect. This client is highly unstable with a critical neurological condition. Delegating all interventions to unlicensed assistive personnel (UAP) is unsafe and constitutes improper delegation. The RN must perform assessments and administer critical medications."
+            }
+        ],
+        "clinicalPearls": [
+            "Cushing's triad (widening pulse pressure, bradycardia, irregular respirations) is a late and ominous sign of significantly increased ICP and impending brainstem herniation.",
+            "While lactulose treats the root cause of hepatic encephalopathy (ammonia), hypertonic saline or mannitol are the first-line osmotic agents to treat the life-threatening complication of cerebral edema.",
+            "Maintaining the head in a neutral, midline position and avoiding hip flexion greater than 90 degrees are crucial positioning interventions to optimize venous drainage from the brain."
+        ],
+        "questionTrap": {
+            "trap": "The most common trap is selecting 'Administer lactulose' as the priority. While it's a correct medication for the patient's overall condition (hepatic encephalopathy), it does not address the immediate, life-threatening problem of increased intracranial pressure. The question requires prioritizing the acute complication over the underlying cause.",
+            "howToOvercome": "Recognize the signs of an acute neurological emergency (Cushing's triad, GCS drop). In emergencies, always choose the intervention that provides the most rapid stabilization. Hypertonic saline directly and quickly reduces cerebral edema, making it the priority over the slower-acting lactulose."
+        },
+        "mnemonic": {
+            "title": "ICP Management: PRESSURE",
+            "expansion": "P - Position (HOB 30°, neutral neck)\nR - Respiratory (Prevent hypoxia/hypercapnia, maintain patent airway)\nE - Elevated temperature (Control fever to decrease metabolic demand)\nS - Systems to monitor (Neuro checks, GCS, vitals)\nS - Straining/Stimulation avoidance (Space out care, limit suctioning)\nU - Unconscious care (Skin, eye, and joint protection)\nR - Rx (Osmotic diuretics like hypertonic saline, anticonvulsants)\nE - Edema management (Maintain cerebral perfusion pressure)"
+        }
     },
     "sentinelStatus": "deep_healed_v2026"
 }

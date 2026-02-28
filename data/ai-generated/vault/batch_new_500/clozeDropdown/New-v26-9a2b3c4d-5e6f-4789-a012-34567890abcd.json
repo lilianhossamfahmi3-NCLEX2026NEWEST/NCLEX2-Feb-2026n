@@ -1,71 +1,155 @@
 {
     "id": "New-v26-9a2b3c4d-5e6f-4789-a012-34567890abcd",
     "type": "clozeDropdown",
-    "stem": "The provider orders a continuous infusion of heparin at 18 units/kg/hour for DVT prophylaxis. The patient weighs 220 lbs. Available is heparin 25,000 units in 250 mL of 0.9% NaCl. First, calculate the patient's weight in kilograms: <cloze id='cloze1'/> kg. Next, calculate the units per hour to administer: <cloze id='cloze2'/> units/hour. Finally, calculate the infusion rate in mL/hour: <cloze id='cloze3'/> mL/hour. Round all answers to the nearest whole number.",
+    "stem": "The nurse is preparing to administer a continuous heparin infusion for a client with a deep vein thrombosis (DVT). Based on the client's weight and the provider's order, complete the dosage calculation table below. Round all answers to the nearest whole number.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
+        "pointsPerBlank": 1,
         "maxPoints": 3
     },
     "itemContext": {
         "patient": {
-            "name": "John Smith",
+            "name": "Johnathan Smith",
             "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
-            "allergies": [
-                "NKDA"
-            ]
+            "sex": "Male",
+            "pronouns": "he/him",
+            "weight": "220 lbs (100 kg)",
+            "allergies": "NKDA",
+            "iso": "Medical-Surgical Unit"
         },
-        "sbar": "Situation: John Smith, a 68-year-old male, was admitted to the ICU at 03:00 today due to shortness of breath and left leg pain. Background: Mr. Smith has a history of hypertension and underwent a total knee replacement surgery three weeks ago. He has been mostly sedentary since. Assessment: Patient reports leg pain as 8/10. Vital signs at 07:00 are: BP 160/90 mmHg, HR 110 bpm, RR 24 breaths/min, SpO2 92% on 2L nasal cannula, and Temp 37.2°C. A lower extremity ultrasound confirmed a deep vein thrombosis (DVT) in the left calf. Current home medications include lisinopril 20mg daily. Recommendation: The provider was notified at 07:15 regarding the patient's condition and has ordered a continuous heparin infusion at 18 units/kg/hour for DVT prophylaxis. STAT lab draws have been ordered. Please initiate the heparin infusion as prescribed. Ensure new orders for lab draws are completed, and titrate the heparin infusion per protocol once lab results are available.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>PTT</td><td>28 seconds</td><td>25-35 seconds</td></tr><tr><td>Platelets</td><td>250,000/μL</td><td>150,000-450,000/μL</td></tr><tr><td>Hemoglobin</td><td>14 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Hematocrit</td><td>42%</td><td>39-50%</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Heparin</td><td>18 units/kg/hour</td><td>IV</td><td>Continuous Infusion</td><td>Not Yet Administered</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "noteType": "Admission Note",
+                        "timestamp": "Day 1, 03:00",
+                        "body": "S: Client is a 68-year-old male admitted from home with a chief complaint of acute-onset shortness of breath and severe, cramping pain in his left calf that began yesterday.\nB: History of hypertension, hyperlipidemia, and a total left knee arthroplasty three weeks ago. Reports being largely sedentary since the surgery. Client lives alone in a second-floor apartment with no elevator, which has limited his mobility. Home medications include lisinopril and atorvastatin. No known drug allergies.\nA: Alert and oriented x4, appears anxious. Expresses pain as 8/10 in the left calf. Left lower leg is erythematous, warm to the touch, and exhibits 2+ pitting edema compared to the right. Lungs with fine crackles in the bases bilaterally. Tachycardia noted on monitor.\nR: Placed on continuous cardiac and pulse oximetry monitoring. Oxygen initiated at 2L via nasal cannula. STAT labs drawn and sent. Lower extremity venous Doppler ultrasound ordered to rule out DVT."
+                    },
+                    {
+                        "noteType": "Progress Note",
+                        "timestamp": "Day 1, 07:15",
+                        "body": "S: Client continues to report 8/10 left calf pain and feels 'winded' with minimal exertion.\nB: Venous Doppler ultrasound confirmed an extensive deep vein thrombosis in the left popliteal vein. D-dimer is significantly elevated. Client's vital signs show worsening tachycardia and tachypnea.\nA: Cardiovascular: Sinus tachycardia at 110 bpm. Respiratory: Tachypneic at 24 breaths/min, SpO2 92% on 2L NC. Extremities: Left calf remains swollen, tender, and erythematous. Homan's sign is positive. The clinical picture is highly suspicious for DVT with possible pulmonary embolism.\nR: Provider notified of diagnostic results and change in client status. New orders received for a continuous heparin infusion at 18 units/kg/hour. Will obtain baseline PTT and platelet count prior to initiation. Continue to monitor vital signs and neurovascular status of the affected limb closely. Prepare for possible CT angiography of the chest."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>03:00</td><td>150/85</td><td>98</td><td>20</td><td>94% on RA</td><td>37.0°C</td></tr><tr><td>07:00</td><td>160/90</td><td>110</td><td>24</td><td>92% on 2L NC</td><td>37.2°C</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp °F (°C)</th></tr></thead><tbody><tr><td>03:00</td><td>150/85 mmHg (107)</td><td>98</td><td>20</td><td>94% on RA</td><td>98.6°F (37.0°C)</td></tr><tr><td>07:00</td><td>160/90 mmHg (113)</td><td>110</td><td>24</td><td>92% on 2L NC</td><td>99.0°F (37.2°C)</td></tr><tr><td>07:30</td><td>158/88 mmHg (111)</td><td>112</td><td>24</td><td>93% on 2L NC</td><td>99.0°F (37.2°C)</td></tr></tbody></table>"
+            },
+            {
+                "id": "labDiagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Prothrombin Time (PT)</td><td>11.5</td><td>seconds</td><td>11-13.5</td><td></td></tr><tr><td>Partial Thromboplastin Time (PTT)</td><td>28</td><td>seconds</td><td>25-35</td><td></td></tr><tr><td>Platelet Count</td><td>250,000</td><td>/mcL</td><td>150,000-400,000</td><td></td></tr><tr><td>D-dimer</td><td>2.5</td><td>mcg/mL</td><td>&lt;0.50</td><td>High</td></tr><tr><td>Hemoglobin</td><td>14.0</td><td>g/dL</td><td>13.5-17.5</td><td></td></tr><tr><td>Hematocrit</td><td>42</td><td>%</td><td>39-50</td><td></td></tr></tbody></table>"
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "S1, S2 audible. Tachycardia noted. No murmurs, rubs, or gallops. Capillary refill <3 seconds in all extremities. Left lower extremity exhibits 2+ pitting edema from ankle to mid-calf. Pulses 2+ bilaterally in upper extremities and right lower extremity. Left dorsalis pedis and posterior tibial pulses are 1+ and difficult to palpate."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Increased respiratory effort noted. Breath sounds diminished with fine crackles at bilateral bases. Symmetrical chest expansion. Client reports dyspnea on exertion."
+                    },
+                    {
+                        "system": "Neurological",
+                        "findings": "Alert and oriented to person, place, time, and situation. Follows commands. No focal deficits noted."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "procedure": "Venous Doppler Ultrasound - Left Lower Extremity",
+                        "timestamp": "Day 1, 06:45",
+                        "report": "FINDINGS: Non-compressibility and lack of flow augmentation noted in the left popliteal vein, extending into the peroneal and posterior tibial veins. These findings are consistent with acute deep vein thrombosis.\n\nIMPRESSION: Acute deep vein thrombosis of the left lower extremity."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 07:15</td><td>Continuous IV Heparin Infusion at 18 units/kg/hour</td><td>STAT</td></tr><tr><td>Day 1, 07:15</td><td>Baseline PTT, PT/INR, Platelet Count</td><td>STAT, prior to heparin</td></tr><tr><td>Day 1, 07:15</td><td>Vital signs</td><td>Every 4 hours</td></tr><tr><td>Day 1, 07:15</td><td>Titrate O₂ to maintain SpO₂ ≥ 94%</td><td>Continuous</td></tr><tr><td>Day 1, 03:05</td><td>Bed rest with left leg elevated</td><td>Continuous</td></tr><tr><td>Day 1, 03:05</td><td>Lisinopril 20 mg PO</td><td>Daily</td></tr></tbody></table>"
+            },
+            {
+                "id": "marConsole",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Heparin</td><td>25,000 units in 250 mL 0.9% NaCl</td><td>IV</td><td>Continuous Infusion (18 units/kg/hr)</td><td>Not Yet Administered</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>Day 1, 06:00</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td><td>Day 1, 06:00</td></tr></tbody></table>"
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "Apply",
+        "cjmmStep": "generateSolutions",
         "nclexCategory": "Pharmacological and Parenteral Therapies",
         "difficulty": 5,
         "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
+            "Medication Calculation",
+            "High-Alert Medications",
+            "Anticoagulant Therapy",
+            "Venous Thromboembolism"
         ]
     },
     "rationale": {
-        "correct": "First, convert the patient's weight from pounds to kilograms by dividing by 2.2: 220 lbs / 2.2 = 100 kg. Next, calculate the total units of heparin to administer per hour by multiplying the weight in kg by the ordered dose: 100 kg * 18 units/kg/hour = 1800 units/hour. Finally, calculate the infusion rate in mL/hour using the available concentration. The concentration is 25,000 units in 250 mL, which simplifies to 100 units/mL. Divide the required units per hour by the concentration: 1800 units/hour / 100 units/mL = 18 mL/hour.",
-        "incorrect": "Incorrect calculations indicate a lack of understanding of unit conversions or medication concentration calculations. This can lead to significant dosing errors with high-alert medications like heparin. Re-review weight conversions, dosage calculations, and concentration calculations. Double check each step of your calculation.",
+        "correct": "Accurate calculation of heparin, a high-alert medication, is critical to prevent therapeutic failure or life-threatening hemorrhage. The calculation requires a three-step process: converting weight, determining the hourly dose, and calculating the infusion rate based on the available concentration. Errors at any step can lead to significant patient harm. The therapeutic goal is to achieve anticoagulation swiftly without causing bleeding complications, which necessitates precise dosing.",
+        "answerBreakdown": [
+            {
+                "id": "cloze1",
+                "step": "Weight Conversion",
+                "options": {
+                    "80": "Incorrect. This value may result from an arithmetic error or using an incorrect conversion factor. The standard conversion is 1 kg = 2.2 lbs.",
+                    "90": "Incorrect. This value may result from an arithmetic error. The correct calculation is 220 lbs ÷ 2.2 lbs/kg.",
+                    "100": "Correct. To convert pounds to kilograms, divide the weight in pounds by 2.2. Calculation: 220 lbs ÷ 2.2 = 100 kg.",
+                    "110": "Incorrect. This common error results from multiplying by 0.5 (220 lbs x 0.5 = 110 kg) instead of dividing by 2.2. This would lead to a significant overdose."
+                }
+            },
+            {
+                "id": "cloze2",
+                "step": "Hourly Dose Calculation",
+                "options": {
+                    "1620": "Incorrect. This value may result from using an incorrect weight, such as 90 kg (90 kg x 18 units/kg/hr = 1620 units/hr).",
+                    "1800": "Correct. Multiply the client's weight in kilograms by the prescribed dose per hour. Calculation: 100 kg × 18 units/kg/hour = 1800 units/hour.",
+                    "1980": "Incorrect. This results from using the incorrect weight of 110 kg from the previous step's common error (110 kg x 18 units/kg/hr = 1980 units/hr). This propagates the initial error, leading to an overdose.",
+                    "3960": "Incorrect. This critical error results from failing to convert the client's weight to kilograms and instead multiplying the weight in pounds by the dose (220 lbs x 18 units/kg/hr = 3960 units/hr)."
+                }
+            },
+            {
+                "id": "cloze3",
+                "step": "Infusion Rate Calculation",
+                "options": {
+                    "16": "Incorrect. This rate would result from an underdosing error in the previous step (e.g., calculating 1620 units/hr ÷ 100 units/mL = 16.2 mL/hr, rounded to 16).",
+                    "18": "Correct. First, determine the concentration: 25,000 units ÷ 250 mL = 100 units/mL. Then, divide the required hourly dose by the concentration. Calculation: 1800 units/hour ÷ 100 units/mL = 18 mL/hour.",
+                    "20": "Incorrect. This rate results from carrying forward the overdose error from the previous step (1980 units/hr ÷ 100 units/mL = 19.8 mL/hr, rounded to 20).",
+                    "72": "Incorrect. This error occurs from an incorrect formula setup, such as dividing the hourly dose by the total volume instead of the concentration (1800 units/hr ÷ 250 mL = 7.2 mL/hr)."
+                }
+            }
+        ],
         "clinicalPearls": [
-            "Always double-check medication calculations, especially for high-alert medications like heparin.",
-            "Use a standardized approach to medication calculations to minimize errors.",
-            "Ensure you understand the concentration of the medication available before calculating the infusion rate.",
-            "Weight-based dosing requires accurate weight measurements."
+            "Heparin is a high-alert medication. Always have a second nurse independently verify weight-based anticoagulant calculations before administration.",
+            "The therapeutic range for heparin infusions is monitored using activated partial thromboplastin time (aPTT), typically aiming for a level 1.5 to 2.5 times the baseline control.",
+            "Prior to initiating heparin, always confirm baseline platelet count. A significant drop in platelets (>50%) during therapy could indicate heparin-induced thrombocytopenia (HIT), a life-threatening complication."
         ],
         "questionTrap": {
-            "trap": "Many students struggle with converting pounds to kilograms or misinterpret the medication concentration.",
-            "howToOvercome": "Practice unit conversions and pay close attention to the units involved in each step of the calculation. Use dimensional analysis to ensure your units cancel out correctly."
+            "trap": "The most common trap is a multi-step calculation where an error in the first step (e.g., weight conversion) is carried through, making all subsequent answers incorrect. Test-takers may also miscalculate the drug concentration.",
+            "howToOvercome": "Treat each step as a separate problem. Write down the units for every number and use dimensional analysis to ensure they cancel out correctly. For concentration, always calculate units per ONE mL (e.g., 100 units/mL) to simplify the final step."
         },
         "mnemonic": {
-            "title": "Desired Over Have",
-            "expansion": "DOH: Desired dose / On hand amount * Quantity. This is a basic formula for dosage calculations, but ALWAYS verify your answer is appropriate and safe."
+            "title": "R-A-C-E for Calculations",
+            "expansion": "Recognize the question (what is it asking for?). Ask for the formula (e.g., Desired/Have x Quantity). Calculate the math. Evaluate the answer (does it make sense clinically?)."
         }
     },
     "response": [
         {
             "id": "cloze1",
             "type": "dropdown",
+            "prompt": "Client Weight (kg):",
             "options": [
                 "80",
                 "90",
@@ -77,22 +161,24 @@
         {
             "id": "cloze2",
             "type": "dropdown",
+            "prompt": "Units per Hour:",
             "options": [
-                "1600",
-                "1700",
+                "1620",
                 "1800",
-                "1900"
+                "1980",
+                "3960"
             ],
             "correctResponse": "1800"
         },
         {
             "id": "cloze3",
             "type": "dropdown",
+            "prompt": "Infusion Rate (mL/hour):",
             "options": [
                 "16",
-                "17",
                 "18",
-                "19"
+                "20",
+                "72"
             ],
             "correctResponse": "18"
         }

@@ -1,101 +1,160 @@
 {
-    "id": "New-v26-8a3b9c2d-4e5f-4012-b789-0abcdef01234",
-    "type": "highlight",
-    "stem": "Review the nurse's notes in the EHR. Identify the findings that require immediate intervention. Click on those findings.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "id": "v26-upgraded-8a3b9c2d-4e5f-4012-b789-0abcdef01234",
+    "type": "highlightText",
+    "stem": "The nurse is reviewing the client's most recent progress note. Click to highlight the findings that indicate a life-threatening complication requiring immediate intervention.",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "name": "Marcus Thorne",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
-                "Penicillin"
+                "Penicillin (rash)"
             ]
         },
-        "sbar": "1500 hours: Dr. Ramirez, this is Nurse Jones in ICU, reporting on John Smith, DOB 03/15/1956. He is post-op day 1 from a CABG. 1400 hours: He was stable until about 30 minutes ago when his SpO2 dropped to 88% despite being on FiO2 60% and PEEP of 5 cm H2O. His chest tube output has been minimal, approximately 15 mL in the last hour. 1505 hours: Current vital signs are HR 110, BP 90/60 mmHg, RR 28 (assisted), and Temp 37.5°C. Breath sounds are diminished on the left side. I suspect possible atelectasis or pneumothorax. He's becoming increasingly agitated. He is currently on propofol at 20 mcg/kg/min and fentanyl at 50 mcg/hr. I need orders for further evaluation and management. I am concerned about his declining respiratory status and hypotension.",
+        "highlightText": "S: Reporting on Marcus Thorne, 68-year-old male, post-op day 1 from CABG, who has had an acute decompensation.\nB: Admitted yesterday post-op. Was stable on mechanical ventilation overnight. Client lives alone in a rural area. No significant events until 14:30.\nA: At 15:00, client became acutely agitated. SpO2 dropped to [span id='opt1']88% on FiO2 60%[/span]. BP is now [span id='opt2']90/60 mmHg (MAP 70)[/span]. Heart rate is [span id='opt3']tachycardic at 115 bpm[/span]. On physical exam, there are [span id='opt4']diminished breath sounds on the left side[/span] and [span id='opt5']tracheal deviation to the right[/span]. The left side of his chest appears more prominent. [span id='opt6']Chest tube output has been minimal[/span], only 10 mL in the past hour. Client is [span id='opt7']diaphoretic and cool to the touch[/span]. [span id='opt8']Urine output has decreased to 15 mL/hr[/span].\nR: I am concerned about a possible tension pneumothorax. I have requested a stat portable chest x-ray and am calling the rapid response team. Recommend immediate physician evaluation at the bedside for needle decompression.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>Temp (°C)</th></tr></thead><tbody><tr><td>1400</td><td>90</td><td>120/80</td><td>16</td><td>98%</td><td>37.0</td></tr><tr><td>1430</td><td>95</td><td>115/75</td><td>18</td><td>95%</td><td>37.2</td></tr><tr><td>1500</td><td>110</td><td>90/60</td><td>28</td><td>88%</td><td>37.5</td></tr><tr><td>1515</td><td>115</td><td>85/55</td><td>30</td><td>85%</td><td>37.6</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (Day 0, 08:00)\nS: This is Marcus Thorne, a 68-year-old male, admitted to the ICU from the OR following a 4-vessel CABG.\nB: History of hypertension and coronary artery disease. Allergies to Penicillin. Client lives alone in a rural area, approximately 45 minutes from the nearest primary care provider. The procedure was uneventful.\nA: Currently intubated and sedated. Hemodynamically stable on low-dose norepinephrine. Chest tubes in place with minimal serosanguinous drainage. Dressings are clean, dry, and intact. Initial post-op labs are within expected limits.\nR: Plan is to continue mechanical ventilation, monitor hemodynamics closely, manage pain and sedation, and wean from vasopressors as tolerated. Will obtain a chest x-ray in the morning.\n\nProgress Note (Day 1, 15:00)\nS: Reporting on Marcus Thorne, who has had an acute decompensation.\nB: Was stable on mechanical ventilation overnight. No significant events until 14:30.\nA: At 15:00, client became acutely agitated. SpO2 dropped to 88% on FiO2 60%. BP is now 90/60 mmHg (MAP 70). Heart rate is tachycardic at 115 bpm. On physical exam, there are diminished breath sounds on the left side and tracheal deviation to the right. The left side of his chest appears more prominent. Chest tube output has been minimal, only 10 mL in the past hour. Client is diaphoretic and cool to the touch. Urine output has decreased to 15 mL/hr.\nR: I am concerned about a possible tension pneumothorax. I have requested a stat portable chest x-ray and am calling the rapid response team. Recommend immediate physician evaluation at the bedside for needle decompression."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>WBC</td><td>12,000</td><td>4,500-11,000</td></tr><tr><td>Hemoglobin</td><td>10.0</td><td>13.5-17.5</td></tr><tr><td>Platelets</td><td>150,000</td><td>150,000-400,000</td></tr><tr><td>PaO2</td><td>60</td><td>80-100</td></tr><tr><td>PaCO2</td><td>50</td><td>35-45</td></tr><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>HR (bpm)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>RR (breaths/min)</th><th>SpO₂</th><th>Temp °F (°C)</th></tr></thead><tbody><tr><td>14:00</td><td>90</td><td>120/80</td><td>93</td><td>16 (Vent)</td><td>98% on 4L NC</td><td>99.1 (37.3)</td></tr><tr><td>14:30</td><td>98</td><td>110/75</td><td>87</td><td>20 (Vent)</td><td>94% on FiO₂ 50%</td><td>99.3 (37.4)</td></tr><tr><td>15:00</td><td>115</td><td>90/60</td><td>70</td><td>28 (Vent Alarm)</td><td>88% on FiO₂ 60%</td><td>99.5 (37.5)</td></tr><tr><td>15:15</td><td>125</td><td>85/55</td><td>65</td><td>32 (Vent Alarm)</td><td>85% on FiO₂ 60%</td><td>99.5 (37.5)</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV Drip</td><td>Continuous</td><td>1510</td></tr><tr><td>Fentanyl</td><td>50 mcg/hr</td><td>IV Drip</td><td>Continuous</td><td>1510</td></tr><tr><td>Cefazolin</td><td>1 gram</td><td>IV</td><td>q8h</td><td>1000</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN</td><td>---</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan='5'><strong>Arterial Blood Gas (15:10)</strong></td></tr><tr><td>pH</td><td>7.28</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>55</td><td>mmHg</td><td>35-45</td><td>High</td></tr><tr><td>PaO₂</td><td>58</td><td>mmHg</td><td>80-100</td><td>Low</td></tr><tr><td>HCO₃⁻</td><td>24</td><td>mEq/L</td><td>22-26</td><td>Normal</td></tr><tr><td colspan='5'><strong>Complete Blood Count (14:00)</strong></td></tr><tr><td>WBC</td><td>12.5</td><td>x10³/μL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Hgb</td><td>10.1</td><td>g/dL</td><td>13.5-17.5</td><td>Low</td></tr><tr><td>Platelets</td><td>145</td><td>x10³/μL</td><td>150-400</td><td>Low</td></tr></tbody></table>"
             },
             {
-                "id": "notes",
-                "title": "Nurse's Notes",
-                "content": "1400: Patient stable, tolerating mechanical ventilation well. Vital signs within acceptable limits. Chest tube draining serosanguinous fluid. 1430: Routine assessment performed. No significant changes noted. 1500: Sudden decrease in SpO2 to 88%. Increased respiratory rate and agitation noted. Breath sounds diminished on the left side. Blood pressure trending downwards. Requesting urgent physician evaluation. Patient is diaphoretic."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<strong>Focused Assessment (15:00)</strong><br><strong>Cardiovascular:</strong> Tachycardia, S1/S2 audible but distant. Pulses weak and thready. Capillary refill >3 seconds. Skin is cool and diaphoretic.<br><strong>Respiratory:</strong> Asymmetrical chest wall movement, left side more prominent. Diminished breath sounds on the left. Tracheal deviation noted to the right. Ventilator high-pressure alarm sounding continuously.<br><strong>Neurological:</strong> Acutely agitated, attempting to pull at lines. RASS +2. Pupils equal and reactive to light."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<strong>Type:</strong> Chest X-ray (Portable, AP View)<br><strong>Date:</strong> Day 1, 15:10<br><strong>Indication:</strong> Acute respiratory distress, hypotension, and hypoxemia post-CABG.<br><strong>Findings:</strong> There is a large left-sided pneumothorax with evidence of tension, demonstrated by complete collapse of the left lung. There is a significant mediastinal shift and tracheal deviation to the right. The right lung is clear. Cardiomediastinal silhouette is displaced. The endotracheal tube and central venous catheter are in appropriate position.<br><strong>Impression:</strong> Left-sided tension pneumothorax requiring emergent intervention."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 0, 08:00</td><td>Mechanical Ventilation: AC mode, RR 12, TV 500mL, FiO₂ 40%, PEEP 5</td><td>Standing</td></tr><tr><td>Day 0, 08:00</td><td>Titrate Norepinephrine IV to maintain MAP > 65 mmHg</td><td>Standing</td></tr><tr><td>Day 0, 08:00</td><td>Vital signs every 15 minutes x 4, then every hour</td><td>Standing</td></tr><tr><td>Day 1, 15:05</td><td>Stat portable Chest X-ray</td><td>Stat</td></tr><tr><td>Day 1, 15:05</td><td>Notify physician for SBP < 90 mmHg or SpO₂ < 92%</td><td>Standing</td></tr><tr><td>Day 0, 08:00</td><td>Fentanyl 25-100 mcg IV push every 1 hour for pain</td><td>PRN</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propofol</td><td>30 mcg/kg/min</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Fentanyl</td><td>50 mcg/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Norepinephrine</td><td>8 mcg/min</td><td>IV</td><td>Continuous, Titratable</td><td>Ongoing</td></tr><tr><td>Cefazolin</td><td>1 gram</td><td>IV</td><td>Every 8 hours</td><td>Day 1, 10:00</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>Every 4 hours PRN</td><td>---</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "recognizeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
-        ]
-    },
-    "rationale": {
-        "correct": "The findings that require immediate intervention are: SpO2 of 88%, diminished breath sounds on the left side, and BP of 90/60 mmHg. A SpO2 of 88% indicates significant hypoxemia, necessitating immediate action to improve oxygenation. Diminished breath sounds on the left side suggest a possible pneumothorax or atelectasis, both of which compromise ventilation. Hypotension (BP of 90/60 mmHg) indicates hemodynamic instability, which can be exacerbated by respiratory distress and requires prompt attention to ensure adequate perfusion of vital organs.",
-        "incorrect": "While an elevated WBC, agitation, and increased respiratory rate are concerning, they are not the most immediate threats to the patient's life. An elevated WBC count indicates potential infection, which should be addressed, but does not require immediate intervention in the same way as hypoxemia and hypotension. Agitation is a symptom and can be due to multiple causes, including pain, anxiety, or hypoxemia; therefore, treating the underlying cause takes priority. An increased respiratory rate is a compensatory mechanism for hypoxia, but addressing the oxygenation issue is the priority.",
-        "clinicalPearls": [
-            "Sudden changes in respiratory status in mechanically ventilated patients warrant immediate investigation for causes such as pneumothorax, tube displacement, or equipment malfunction. Use the mnemonic DOPE (Displacement, Obstruction, Pneumothorax, Equipment) to guide assessment.",
-            "Hypotension in the setting of respiratory distress requires rapid assessment of preload, afterload, and contractility, and potential interventions to support blood pressure and cardiac output. Consider fluid boluses, vasopressors, and inotropic support as indicated."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on the respiratory rate and agitation without recognizing the hypoxemia and hypotension as the primary threats.",
-            "howToOvercome": "Prioritize findings based on their immediate impact on the patient's physiological stability. Always consider the ABCs (Airway, Breathing, Circulation) first."
-        },
-        "mnemonic": {
-            "title": "DOPE",
-            "expansion": "Displacement, Obstruction, Pneumothorax, Equipment failure. This mnemonic aids in remembering common causes of sudden respiratory distress in intubated patients."
-        }
-    },
-    "response": [
+    "options": [
         {
-            "id": "response1",
-            "text": "SpO2 of 88%",
-            "correct": true
+            "id": "opt1",
+            "text": "88% on FiO2 60%"
         },
         {
-            "id": "response2",
-            "text": "diminished breath sounds on the left side",
-            "correct": true
+            "id": "opt2",
+            "text": "90/60 mmHg (MAP 70)"
         },
         {
-            "id": "response3",
-            "text": "BP of 90/60",
-            "correct": true
+            "id": "opt3",
+            "text": "tachycardic at 115 bpm"
         },
         {
-            "id": "response4",
-            "text": "Increased respiratory rate",
-            "correct": false
+            "id": "opt4",
+            "text": "diminished breath sounds on the left side"
         },
         {
-            "id": "response5",
-            "text": "Patient is diaphoretic",
-            "correct": false
+            "id": "opt5",
+            "text": "tracheal deviation to the right"
+        },
+        {
+            "id": "opt6",
+            "text": "Chest tube output has been minimal"
+        },
+        {
+            "id": "opt7",
+            "text": "diaphoretic and cool to the touch"
+        },
+        {
+            "id": "opt8",
+            "text": "Urine output has decreased to 15 mL/hr"
         }
     ],
-    "sentinelStatus": "deep_healed_v2026"
+    "correctOptionIds": [
+        "opt1",
+        "opt2",
+        "opt3",
+        "opt4",
+        "opt5",
+        "opt7"
+    ],
+    "rationale": {
+        "correct": "The constellation of selected findings points to a tension pneumothorax, a life-threatening emergency. Pathophysiologically, air enters the pleural space and cannot escape, causing the lung to collapse. The increasing pressure shifts the mediastinum, compressing the heart and great vessels. This leads to decreased venous return (preload), causing severe hypotension and obstructive shock. The collapsed lung creates a massive ventilation-perfusion mismatch, resulting in profound hypoxemia. Immediate intervention (needle decompression followed by chest tube insertion) is required to relieve the pressure and prevent cardiovascular collapse.",
+        "incorrect": "The distractors, while abnormal, are not the primary diagnostic cues for the immediate life-threat. Minimal chest tube output is concerning for a blockage, which could be the cause, but it is not a direct sign of the resulting tension physiology. Decreased urine output is a sign of end-organ hypoperfusion resulting from shock; it is a consequence, not a primary cue for the underlying cause in this acute scenario.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1",
+                "content": "Correct. An SpO2 of 88% despite a high FiO2 of 60% indicates severe, refractory hypoxemia, a hallmark of a large ventilation-perfusion mismatch caused by lung collapse."
+            },
+            {
+                "optionId": "opt2",
+                "content": "Correct. A blood pressure of 90/60 mmHg represents sudden hypotension, characteristic of obstructive shock from mediastinal compression reducing cardiac preload and output."
+            },
+            {
+                "optionId": "opt3",
+                "content": "Correct. Tachycardia is a critical compensatory mechanism for shock. The heart beats faster to try to maintain cardiac output in the face of drastically reduced stroke volume."
+            },
+            {
+                "optionId": "opt4",
+                "content": "Correct. This is a classic physical exam finding indicating that air is not entering the left lung due to its collapse from the pneumothorax."
+            },
+            {
+                "optionId": "opt5",
+                "content": "Correct. This is a late but definitive sign of a tension pneumothorax. The high pressure in the left pleural space physically pushes the trachea and mediastinum to the opposite side."
+            },
+            {
+                "optionId": "opt6",
+                "content": "Incorrect. While a sudden cessation of chest tube drainage could indicate a clot and be the cause of the pneumothorax, the finding itself is less urgent than the direct signs of respiratory and circulatory collapse."
+            },
+            {
+                "optionId": "opt7",
+                "content": "Correct. Cool, diaphoretic skin is a sign of a systemic stress response and peripheral vasoconstriction, which are hallmarks of shock and hypoperfusion."
+            },
+            {
+                "optionId": "opt8",
+                "content": "Incorrect. Oliguria is a sign of renal hypoperfusion due to shock. It is a result of the hemodynamic instability, not a primary diagnostic cue for the cause. The other findings are more direct indicators of the immediate problem."
+            }
+        ],
+        "clinicalPearls": [
+            "Tension pneumothorax is a clinical diagnosis; treatment with needle decompression should not be delayed for radiologic confirmation in an unstable patient.",
+            "The classic triad of tension pneumothorax includes hypotension, jugular venous distention (JVD), and absent breath sounds on the affected side. Tracheal deviation is a very late and ominous sign.",
+            "In a ventilated patient, a sudden increase in peak airway pressure and a high-pressure alarm can be an early indicator of a developing pneumothorax or other airway obstruction.",
+            "Post-thoracic surgery patients are at high risk for pneumothorax. A sudden drop in chest tube output should raise suspicion for a tube occlusion, which can quickly lead to a tension pneumothorax."
+        ],
+        "questionTrap": "The primary trap is confusing cause, effect, and consequence. Decreased urine output and minimal chest tube drainage are highly concerning but are secondary to the primary life-threatening process. Focus on the ABCs (Airway, Breathing, Circulation) to identify the most direct evidence of collapse: hypoxemia, hypotension, and absent breath sounds.",
+        "mnemonic": "Use the mnemonic 'AIR RAID' for tension pneumothorax: Air hunger, Increased heart rate, Respiratory distress, Reduced breath sounds, Absent JVD (can be flat if hypovolemic), Hypotension, Distended neck veins (classic JVD), Deviation of trachea.",
+        "reviewUnits": [
+            "Respiratory Emergencies",
+            "Shock States",
+            "Postoperative Care",
+            "Mechanical Ventilation"
+        ]
+    },
+    "scoring": {
+        "method": "polytomousPlusMinus",
+        "maxPoints": 6
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "correctOptionId": "opt1",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:16:10.031Z"
 }

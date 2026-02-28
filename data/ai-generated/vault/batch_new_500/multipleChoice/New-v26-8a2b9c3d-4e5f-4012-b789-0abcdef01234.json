@@ -1,7 +1,7 @@
 {
     "id": "New-v26-8a2b9c3d-4e5f-4012-b789-0abcdef01234",
     "type": "multipleChoice",
-    "stem": "The patient's neurological status has changed. Based on the available data, which intervention is the MOST appropriate at this time?",
+    "stem": "The patient's neurological status has acutely declined. Based on the data in the electronic health record, which nursing intervention is the highest priority to implement immediately?",
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
@@ -10,44 +10,90 @@
         "patient": {
             "name": "John Smith",
             "age": 68,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "iso": "Neurology Step-Down Unit",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ],
             "conditions": [
-                "Possible Meningitis"
+                "Acute Ischemic Stroke",
+                "Increased Intracranial Pressure"
             ]
         },
-        "sbar": "S: John Smith, 68-year-old male, admitted 3 days ago for an acute ischemic stroke affecting the right hemisphere. B: History of hypertension, hyperlipidemia, and atrial fibrillation. Received tPA upon arrival. A: At 0700, patient was alert and oriented x3. At 0830, patient is now exhibiting left-sided weakness, decreased level of consciousness (responds to painful stimuli only), and unequal pupils (right pupil dilated and sluggish). Vitals: BP 190/110 mmHg, HR 52 bpm, RR 10, SpO2 92% on 2L NC. Temperature is 38.5 C. Considering the sudden change in mental status, elevated temperature, and recent stroke, meningitis cannot be ruled out at this time. R: I am concerned about increased intracranial pressure (ICP) and the possibility of meningitis. Request immediate evaluation, STAT blood cultures, and orders to rule out infection and manage ICP. Consider lumbar puncture if no contraindications.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>1.1 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Glucose</td><td>110 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>INR</td><td>1.2</td><td>0.8-1.1</td></tr><tr><td>PTT</td><td>30 seconds</td><td>25-35 seconds</td></tr><tr><td>Platelets</td><td>250,000/uL</td><td>150,000-400,000/uL</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Aspirin</td><td>81 mg</td><td>PO</td><td>Daily</td><td>08:00</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td><td>08:00</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>08:00</td></tr><tr><td>Docusate</td><td>100mg</td><td>PO</td><td>Daily</td><td>08:00</td></tr><tr><td>Heparin SubQ</td><td>5000 units</td><td>SubQ</td><td>q12h</td><td>08:00</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 09:00",
+                        "text": "Patient is a 68-year-old male with a history of hypertension, hyperlipidemia, and atrial fibrillation, who presented to the ED with sudden onset of left-sided weakness and facial droop. Onset of symptoms was 2 hours prior to arrival. Non-contrast head CT was negative for hemorrhage. Diagnosis of acute right-sided ischemic stroke was confirmed. Patient received alteplase (tPA) per protocol and was admitted to the Neurology Step-Down Unit for continuous monitoring. At time of admission, patient was alert and oriented x3 with moderate left hemiparesis. Neurological checks and vital signs ordered every hour. Placed on fall precautions. Adult child is at the bedside and serves as the primary contact."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 3, 08:30",
+                        "text": "S: Called to bedside by patient's adult child for a change in condition. \nB: 68-year-old male, day 3 post-tPA for a right-sided ischemic stroke. Has been stable until this morning. \nA: Patient is now difficult to arouse, responding only to painful stimuli. Pupils are unequal, with the right pupil dilated and sluggishly reactive. Vital signs show a widening pulse pressure (BP 190/110 mmHg), bradycardia (HR 52/min), and decreased respiratory rate (10/min). SpO₂ has dropped to 92% on 2L nasal cannula. Temperature is now 101.3°F (38.5°C). These findings are consistent with Cushing's triad, indicating a critical increase in intracranial pressure (ICP) and impending brainstem herniation. \nR: Requesting immediate provider evaluation at the bedside. Recommend preparing for ICP management interventions and potential airway support. Will implement immediate nursing measures to reduce ICP."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>07:00</td><td>160/90</td><td>70</td><td>16</td><td>98% on 2L NC</td><td>37.0°C</td></tr><tr><td>07:30</td><td>170/95</td><td>65</td><td>14</td><td>96% on 2L NC</td><td>37.1°C</td></tr><tr><td>08:00</td><td>180/100</td><td>60</td><td>12</td><td>94% on 2L NC</td><td>37.2°C</td></tr><tr><td>08:30</td><td>190/110</td><td>52</td><td>10</td><td>92% on 2L NC</td><td>37.3°C</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>07:00</td><td>160/90 mmHg (113)</td><td>70</td><td>16</td><td>98% on 2L NC</td><td>98.6°F (37.0°C)</td></tr><tr><td>07:30</td><td>170/95 mmHg (120)</td><td>65</td><td>14</td><td>96% on 2L NC</td><td>98.8°F (37.1°C)</td></tr><tr><td>08:00</td><td>180/100 mmHg (127)</td><td>60</td><td>12</td><td>94% on 2L NC</td><td>99.0°F (37.2°C)</td></tr><tr><td>08:30</td><td>190/110 mmHg (137)</td><td>52</td><td>10</td><td>92% on 2L NC</td><td>101.3°F (38.5°C)</td></tr></tbody></table>"
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>White Blood Cell Count</td><td>15.2</td><td>x10³/μL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Sodium</td><td>140</td><td>mEq/L</td><td>135-145</td><td></td></tr><tr><td>Potassium</td><td>4.2</td><td>mEq/L</td><td>3.5-5.0</td><td></td></tr><tr><td>Creatinine</td><td>1.1</td><td>mg/dL</td><td>0.6-1.2</td><td></td></tr><tr><td>Glucose, Random</td><td>125</td><td>mg/dL</td><td>70-140</td><td></td></tr><tr><td>INR</td><td>1.2</td><td></td><td>0.8-1.1</td><td>High</td></tr><tr><td>PTT</td><td>30</td><td>seconds</td><td>25-35</td><td></td></tr><tr><td>Platelets</td><td>250,000</td><td>/μL</td><td>150,000-400,000</td><td></td></tr></tbody></table>"
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "type": "Admission Assessment (Day 1, 09:00)",
+                        "findings": "Neurological: Alert and oriented x3. Speech clear. Moderate left-sided hemiparesis (3/5 strength in arm and leg). Pupils equal, round, and reactive to light (PERRLA). Cardiovascular: S1, S2 audible. Atrial fibrillation on monitor. Respiratory: Lungs clear to auscultation bilaterally. GI/GU: Abdomen soft, non-tender. Bowel sounds active. Integumentary: Skin warm, dry, and intact."
+                    },
+                    {
+                        "type": "Focused Assessment (Day 3, 08:30)",
+                        "findings": "Neurological: Responds to painful stimuli (trapezius squeeze) with non-purposeful movement. Does not open eyes or follow commands. GCS estimated at 6 (E1, V1, M4). Pupils unequal: Right pupil 5mm, sluggishly reactive; Left pupil 3mm, briskly reactive. Pronounced left-sided hemiplegia (0/5 strength). Respiratory: Shallow respirations. No obvious airway obstruction."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "CT Head without contrast",
+                        "timestamp": "Day 1, 08:15",
+                        "report": "FINDINGS: No evidence of acute intracranial hemorrhage, mass effect, or hydrocephalus. There is subtle loss of gray-white matter differentiation in the right middle cerebral artery (MCA) territory, consistent with early signs of an acute ischemic infarct. Basal cisterns are patent. \n\nIMPRESSION: Early evidence of acute ischemic stroke in the right MCA territory. No acute hemorrhage."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 09:15</td><td>Neurological assessment</td><td>Every 1 hour</td></tr><tr><td>Day 1, 09:15</td><td>Vital signs</td><td>Every 1 hour</td></tr><tr><td>Day 1, 09:15</td><td>Maintain head of bed at 15-30 degrees</td><td>Standing</td></tr><tr><td>Day 1, 09:15</td><td>Titrate O₂ to maintain SpO₂ >94%</td><td>Standing</td></tr><tr><td>Day 1, 09:15</td><td>NPO, pending swallow evaluation</td><td>Standing</td></tr><tr><td>Day 1, 09:15</td><td>Lorazepam 1 mg IV</td><td>PRN for severe agitation</td></tr><tr><td>Day 1, 09:15</td><td>Acetaminophen 650 mg PO/PR</td><td>PRN for Temp >100.4°F (38°C)</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Aspirin</td><td>81 mg</td><td>PO</td><td>Daily</td><td>Day 3, 08:00</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td><td>Day 3, 08:00</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>Day 3, 08:00</td></tr><tr><td>Heparin</td><td>5000 units</td><td>SubQ</td><td>q12h</td><td>Day 3, 08:00</td></tr></tbody></table>"
             }
-        ],
-        "isolation": "Airborne Precautions"
+        ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "Take Action",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
             "Neurological: Stroke & Increased ICP",
-            "Infection Control",
-            "Meningitis"
+            "Critical Care",
+            "Patient Safety"
         ]
     },
     "options": [
@@ -58,40 +104,40 @@
         },
         {
             "id": "optionB",
-            "text": "Elevate the head of the bed to 30 degrees and administer oxygen via non-rebreather mask.",
+            "text": "Elevate the head of the bed to 30 degrees and apply a non-rebreather mask.",
             "isCorrect": true
         },
         {
             "id": "optionC",
-            "text": "Increase the heparin infusion rate per protocol.",
+            "text": "Administer an additional dose of subcutaneous heparin.",
             "isCorrect": false
         },
         {
             "id": "optionD",
-            "text": "Prepare for immediate extubation and mechanical ventilation.",
+            "text": "Prepare for immediate intubation and mechanical ventilation.",
             "isCorrect": false
         }
     ],
     "rationale": {
-        "correct": "Elevating the head of the bed to 30 degrees promotes venous drainage from the brain, reducing ICP. Administering oxygen via non-rebreather mask addresses the hypoxemia, ensuring adequate oxygen delivery to the brain. The patient's deteriorating neurological status and vital signs indicate increased ICP and impending respiratory failure, making these interventions crucial. This will help decrease pressure and improve oxygenation while awaiting further orders. Given the concern for possible meningitis, droplet precautions are warranted until meningitis is ruled out.",
-        "incorrect": {
-            "optionA": "Lorazepam is a benzodiazepine that could further decrease the patient's level of consciousness and mask neurological changes. Agitation is likely a symptom of increased ICP and potential infection, not the primary problem to address.",
-            "optionC": "The patient is already receiving heparin. Increasing the infusion rate without further assessment and orders could lead to bleeding complications, especially with a recent stroke. The primary concern is managing the increased ICP and ruling out infectious causes.",
-            "optionD": "While mechanical ventilation might eventually be necessary, the priority is to address the increased ICP and hypoxemia first. Extubation is not indicated as the patient is not currently intubated. Attempting to increase oxygenation and decrease ICP should be the focus before resorting to intubation/ventilation. Furthermore, the patient may have increased secretions due to declining mental status and possible infection, so suctioning may be needed before intubation."
+        "correct": "The patient is exhibiting Cushing's triad (hypertension with widening pulse pressure, bradycardia, and irregular/decreased respirations), a late and ominous sign of severely increased intracranial pressure (ICP) and impending brainstem herniation. The highest priority is to implement immediate, non-invasive nursing actions to decrease ICP and improve cerebral oxygenation. Elevating the head of the bed to 30 degrees promotes venous drainage from the brain via the jugular veins, directly reducing ICP. Applying a non-rebreather mask will deliver a high concentration of oxygen to combat cerebral hypoxia, which can cause secondary brain injury and further increase ICP.",
+        "answerBreakdown": {
+            "optionA": "Administering lorazepam, a benzodiazepine, is contraindicated. It would cause further respiratory depression and sedation, masking crucial neurological changes and worsening the patient's hypoventilation and hypercapnia, which in turn increases ICP.",
+            "optionB": "This is the correct priority action. Both interventions are within the nurse's scope of practice, can be implemented immediately, and directly address the life-threatening pathophysiology of increased ICP and cerebral hypoxia.",
+            "optionC": "Administering heparin is incorrect and dangerous. The immediate life-threat is neurological, not thrombotic. Furthermore, with critically high ICP, there is a risk of hemorrhagic conversion of the stroke or bleeding from invasive procedures (like an ICP monitor), making anticoagulants unsafe.",
+            "optionD": "While the patient may ultimately require intubation, this is not the nurse's first, independent action. Preparing for the procedure is appropriate after initiating immediate life-saving measures. The interventions in option B must be done first to stabilize the patient while awaiting the provider and respiratory therapy."
         },
         "clinicalPearls": [
-            "Early recognition and management of increased ICP are critical to preventing irreversible brain damage.",
-            "The Cushing's triad (hypertension, bradycardia, and irregular respirations) is a late sign of increased ICP.",
-            "Maintaining adequate oxygenation is crucial in patients with neurological compromise.",
-            "A sudden change in neurological status can indicate increased ICP, stroke progression, or infection such as meningitis."
+            "Cushing's triad (hypertension, bradycardia, irregular respirations) is a late sign of increased ICP and signals an impending neurological emergency (brainstem herniation).",
+            "Hypercapnia (elevated CO2) from hypoventilation is a potent cerebral vasodilator and significantly increases intracranial pressure. Maintaining a patent airway and adequate oxygenation is critical.",
+            "In a patient with acute neurological decline, avoid administering sedative medications (opioids, benzodiazepines) as they can mask further deterioration and depress respiratory drive."
         ],
         "questionTrap": {
-            "trap": "The question trap is focusing on immediate actions while overlooking the underlying problem of increased ICP. Some options might seem reasonable in isolation but fail to address the root cause of the patient's deteriorating condition.",
-            "howToOvercome": "Prioritize interventions that directly address the increased ICP and ensure adequate oxygenation. Consider the potential consequences of each intervention in the context of the patient's overall clinical picture. Also consider potential infectious etiologies. "
+            "trap": "The trap is choosing a definitive medical procedure (intubation) or a medication for a symptom (lorazepam) over fundamental nursing interventions (positioning, oxygenation) that directly address the underlying pathophysiology of increased ICP. Nurses must act first with the most immediate, impactful, and independent actions.",
+            "howToOvercome": "When a patient is rapidly deteriorating, ask 'What can I do right now, without an order, that will directly counter the life-threatening process?' Positioning and oxygenation are almost always high-priority independent nursing actions in neurological and respiratory emergencies."
         },
         "mnemonic": {
-            "title": "ICP Management (Elevate)",
-            "expansion": "Elevate Head of Bed, Limit Stimulation, Evaluate Oxygenation, Ventilate if needed, Assess Neurological Status, Take Vital Signs, Evaluate Labs."
+            "title": "Signs of Increased ICP: MIND CRUSHED",
+            "expansion": "Mental status changes (early sign), Irregular breathing (Cheyne-Stokes, etc.), Nerve changes (pupils, vision), Decerebrate/Decorticate posturing, Cushing's triad (late sign), Reflex changes (Babinski), Unconscious (late), Seizures, Headache, Emesis (vomiting), Deterioration of motor function."
         }
     },
     "correctOptionId": "optionB"

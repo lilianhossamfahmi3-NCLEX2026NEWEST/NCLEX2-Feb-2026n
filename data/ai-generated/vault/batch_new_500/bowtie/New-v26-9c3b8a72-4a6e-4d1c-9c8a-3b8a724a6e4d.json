@@ -1,75 +1,367 @@
 {
     "id": "New-v26-9c3b8a72-4a6e-4d1c-9c8a-3b8a724a6e4d",
     "type": "bowtie",
-    "stem": "A 78-year-old male, Mr. Jones, is admitted to the ICU with suspected sepsis secondary to a urinary tract infection (UTI). He has a history of hypertension, type 2 diabetes, and chronic kidney disease. He is currently hypotensive and tachycardic despite an initial fluid bolus. Based on the information provided, select the THREE most appropriate actions the nurse should take FIRST, the THREE most likely conditions of the patient, and the THREE interventions the nurse should anticipate next.",
-    "scoring": {
-        "method": "linkage",
-        "maxPoints": 9
+    "stem": "The nurse is caring for a 78-year-old client who is not responding to an initial fluid bolus for suspected sepsis. Based on the client's data, complete the bowtie by selecting the 2 actions to take, the potential condition, and the 2 parameters to monitor.",
+    "actionsToTake": [
+        {
+            "id": "act_01",
+            "text": "Obtain blood cultures from two sites"
+        },
+        {
+            "id": "act_02",
+            "text": "Administer broad-spectrum antibiotics"
+        },
+        {
+            "id": "act_03",
+            "text": "Administer a second 1L fluid bolus"
+        },
+        {
+            "id": "act_04",
+            "text": "Administer PRN acetaminophen for fever"
+        },
+        {
+            "id": "act_05",
+            "text": "Request a social work consult for discharge planning"
+        }
+    ],
+    "potentialCondition": [
+        {
+            "id": "cond_01",
+            "text": "Septic Shock"
+        },
+        {
+            "id": "cond_02",
+            "text": "Cardiogenic Shock"
+        },
+        {
+            "id": "cond_03",
+            "text": "Acute Kidney Injury"
+        }
+    ],
+    "parametersToMonitor": [
+        {
+            "id": "param_01",
+            "text": "Mean Arterial Pressure (MAP)"
+        },
+        {
+            "id": "param_02",
+            "text": "Urine Output"
+        },
+        {
+            "id": "param_03",
+            "text": "Temperature"
+        },
+        {
+            "id": "param_04",
+            "text": "White Blood Cell count"
+        },
+        {
+            "id": "param_05",
+            "text": "Capillary refill time"
+        }
+    ],
+    "correctAnswer": {
+        "actionsToTake": [
+            "act_01",
+            "act_02"
+        ],
+        "potentialCondition": "cond_01",
+        "parametersToMonitor": [
+            "param_01",
+            "param_02"
+        ]
     },
     "itemContext": {
         "patient": {
-            "name": "Mr. Jones",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact and Droplet",
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Mr. Jones is a 78-year-old male admitted to the ICU at 03:00 with altered mental status and suspected UTI. Family reported increasing confusion at home. B: History includes hypertension, type 2 diabetes, and chronic kidney disease. He has an indwelling urinary catheter due to urinary retention. He received a 1-liter normal saline bolus in the ED. A: Current vitals: BP 88/52 mmHg, HR 122 bpm, RR 28 breaths/min, SpO2 91% on 2L NC, Temp 38.9°C (102°F). Labs: WBC 18,000/µL, lactate 3.5 mmol/L, creatinine 2.8 mg/dL, BUN 60 mg/dL. Urine is cloudy with a foul odor. He is confused and lethargic. Orders include ceftriaxone 1 gram IV q24h and IV fluids. R: I'm concerned about sepsis, potentially leading to septic shock, and a possible multi-drug resistant organism (MDRO) infection given his catheter, recent hospitalization, and antibiotic exposure. He needs immediate intervention to stabilize BP, address the infection, and prevent deterioration. At 04:00, his condition remains unstable despite the fluid bolus. A central line may be needed if hypotension persists.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/µL (High); Lactate: 3.5 mmol/L (High); Creatinine: 2.8 mg/dL (High); BUN: 60 mg/dL (High); Urine Culture: Pending; Blood Culture: Pending"
+                "id": "clinical_feed",
+                "title": "Clinical Feed (Nurses' Notes)",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 03:00",
+                        "text": "S: 78-year-old male brought to ED by adult child for increasing confusion over 24 hours. B: History of Type 2 Diabetes, Hypertension, and Chronic Kidney Disease (Stage 3). Has an indwelling urinary catheter for benign prostatic hyperplasia. Client lives alone in a rural area and relies on his adult child for transportation to appointments. A: Client is lethargic, oriented to person only. Temperature 38.9°C (102°F), HR 122/min, RR 28/min, BP 88/52 mmHg, SpO2 91% on 2L nasal cannula. Urine from catheter is cloudy with a foul odor. Labs drawn, cultures pending. R: Suspected urosepsis. Initiated sepsis protocol with a 1000 mL 0.9% sodium chloride IV bolus. Admitting to ICU for hemodynamic monitoring and further management."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 04:00",
+                        "text": "S: Reassessing client post-fluid bolus. B: 1000 mL 0.9% sodium chloride IV bolus completed at 03:30. A: Client remains lethargic. BP 88/52 mmHg (MAP 64 mmHg), HR 122/min, RR 28/min, SpO2 91% on 2L NC. Temperature is now 39.1°C (102.4°F). Serum lactate resulted at 3.5 mmol/L. Urine output is minimal since admission. R: Client is not responding to initial fluid resuscitation, meeting criteria for septic shock. Recommend initiating vasopressor support to maintain MAP >65 mmHg. Will obtain blood cultures now, prior to administering first dose of broad-spectrum antibiotics as ordered."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "03:00: BP 88/52 mmHg, HR 122 bpm, RR 28, SpO2 91% on 2L NC, Temp 38.9°C (102°F); 03:30: BP 90/55 mmHg, HR 120 bpm, RR 26, SpO2 92% on 2L NC, Temp 39.0°C (102.2°F); 04:00: BP 88/52 mmHg, HR 122 bpm, RR 28, SpO2 91% on 2L NC, Temp 39.1°C (102.4°F)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:00",
+                        "HR": "122",
+                        "BP": "88/52",
+                        "MAP": "64",
+                        "RR": "28",
+                        "SpO2": "91% on 2L NC",
+                        "Temp": "102°F (38.9°C)"
+                    },
+                    {
+                        "Time": "03:30",
+                        "HR": "120",
+                        "BP": "90/55",
+                        "MAP": "67",
+                        "RR": "26",
+                        "SpO2": "92% on 2L NC",
+                        "Temp": "102.2°F (39.0°C)"
+                    },
+                    {
+                        "Time": "04:00",
+                        "HR": "122",
+                        "BP": "88/52",
+                        "MAP": "64",
+                        "RR": "28",
+                        "SpO2": "91% on 2L NC",
+                        "Temp": "102.4°F (39.1°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 1g IV q24h (Scheduled, Next dose due: 03:00 tomorrow); Acetaminophen 650mg PO q4h PRN for fever >38.5°C (PRN); Normal Saline 1L bolus (Completed 03:30); Famotidine 20mg IV BID (Scheduled, Next dose due: 12:00)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "18.5",
+                        "Unit": "x 10^9/L",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate, Serum",
+                        "Result": "3.5",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "2.8",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "60",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "4.2",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.15",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Blood Culture",
+                        "Result": "Pending",
+                        "Unit": "",
+                        "Reference": "No Growth",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "Lethargic, oriented to person only. GCS 13 (E4, V4, M5)."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Tachycardic with regular rhythm. S1/S2 audible. Peripheral pulses +1 bilaterally. Capillary refill >3 seconds. No JVD."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Tachypneic with symmetrical chest expansion. Lungs clear to auscultation bilaterally."
+                    },
+                    {
+                        "System": "Gastrointestinal",
+                        "Findings": "Abdomen soft, non-tender. Bowel sounds normoactive in all four quadrants."
+                    },
+                    {
+                        "System": "Genitourinary",
+                        "Findings": "Indwelling urinary catheter in place, draining cloudy, foul-smelling urine."
+                    },
+                    {
+                        "System": "Integumentary",
+                        "Findings": "Skin is warm and flushed."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "Procedure": "Chest X-ray (Portable, AP)",
+                        "Date": "Day 1, 03:15",
+                        "Impression": "No acute cardiopulmonary process. No evidence of consolidation, effusion, or pulmonary edema. Cardiomediastinal silhouette is within normal limits."
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR content."
+                "id": "care_plan",
+                "title": "Care Plan (Orders & Interventions)",
+                "content": [
+                    {
+                        "Date/Time": "Day 1, 03:05",
+                        "Action": "1000 mL 0.9% Sodium Chloride IV Bolus",
+                        "Frequency/Status": "STAT - Completed at 03:30"
+                    },
+                    {
+                        "Date/Time": "Day 1, 03:05",
+                        "Action": "Obtain Blood Cultures x 2 sites",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Date/Time": "Day 1, 03:05",
+                        "Action": "Ceftriaxone 1 gram IV",
+                        "Frequency/Status": "STAT, then q24h"
+                    },
+                    {
+                        "Date/Time": "Day 1, 03:05",
+                        "Action": "Acetaminophen 650 mg PO for Temp >38.5°C",
+                        "Frequency/Status": "PRN q4h"
+                    },
+                    {
+                        "Date/Time": "Day 1, 03:05",
+                        "Action": "Initiate Norepinephrine infusion, titrate to maintain MAP >65 mmHg",
+                        "Frequency/Status": "STAT"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console (Medications)",
+                "content": [
+                    {
+                        "Medication": "0.9% Sodium Chloride",
+                        "Dose": "1000 mL",
+                        "Route": "IV",
+                        "Frequency": "STAT",
+                        "Last Administered": "Day 1, 03:30"
+                    },
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1 g",
+                        "Route": "IV",
+                        "Frequency": "q24h",
+                        "Last Administered": "Not yet administered"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "q4h PRN",
+                        "Last Administered": "Not yet administered"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Infection Control and Safety",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+    "rationale": {
+        "correct": "The client's persistent hypotension (MAP <65 mmHg) despite adequate fluid resuscitation, coupled with signs of organ dysfunction (elevated lactate, creatinine, altered mental status), is the hallmark of septic shock. The priority actions are guided by the Surviving Sepsis Campaign: obtain blood cultures before starting antibiotics to identify the pathogen, and then administer broad-spectrum antibiotics immediately to control the source of infection. Key parameters to monitor are Mean Arterial Pressure (MAP), the primary target for vasopressor therapy, and urine output, a critical indicator of end-organ (renal) perfusion.",
+        "answerBreakdown": [
+            {
+                "optionId": "act_01",
+                "content": "Correct. Obtaining blood cultures before administering antibiotics is a critical step in sepsis management. This allows for identification of the causative organism and targeted antibiotic therapy, which is essential for effective treatment and antimicrobial stewardship."
+            },
+            {
+                "optionId": "act_02",
+                "content": "Correct. Early administration of broad-spectrum antibiotics is one of the most effective interventions for reducing mortality in sepsis and septic shock. Delays in antibiotic administration are associated with increased mortality."
+            },
+            {
+                "optionId": "act_03",
+                "content": "Incorrect. The client's blood pressure did not improve after the first bolus, indicating they are likely no longer fluid responsive. In a client with CKD, additional fluid could increase the risk of fluid overload and pulmonary edema without improving perfusion."
+            },
+            {
+                "optionId": "act_04",
+                "content": "Incorrect. While managing fever is important for comfort and reducing metabolic demand, it is a symptomatic treatment. It is not a priority over life-saving interventions like source control (antibiotics) and hemodynamic support (vasopressors)."
+            },
+            {
+                "optionId": "act_05",
+                "content": "Incorrect. Social work and discharge planning are important aspects of care but are not the immediate priority for a client with acute hemodynamic instability and life-threatening septic shock."
+            },
+            {
+                "optionId": "cond_01",
+                "content": "Correct. Septic shock is defined by sepsis-induced hypotension that persists despite adequate fluid resuscitation, requiring vasopressors to maintain a MAP ≥65 mmHg, along with a serum lactate >2 mmol/L. This client meets all criteria."
+            },
+            {
+                "optionId": "cond_02",
+                "content": "Incorrect. There is no evidence of a primary cardiac cause for the shock (e.g., chest pain, ECG changes, JVD). The shock is distributive, caused by systemic vasodilation from the infection, not pump failure."
+            },
+            {
+                "optionId": "cond_03",
+                "content": "Incorrect. While the client has an acute kidney injury (evidenced by high creatinine), this is a consequence of the septic shock and hypoperfusion. The overarching, life-threatening condition that must be managed is the septic shock itself."
+            },
+            {
+                "optionId": "param_01",
+                "content": "Correct. MAP is the most critical parameter to monitor for organ perfusion. The goal of vasopressor therapy in septic shock is to titrate the dose to achieve a target MAP, typically ≥65 mmHg, to ensure adequate blood flow to vital organs."
+            },
+            {
+                "optionId": "param_02",
+                "content": "Correct. Urine output is a direct indicator of renal perfusion and overall fluid status. A decrease in urine output is an early sign of worsening shock and inadequate resuscitation. Monitoring hourly output is essential."
+            },
+            {
+                "optionId": "param_03",
+                "content": "Incorrect. Temperature is important for tracking the infectious process, but it does not provide real-time data on the effectiveness of hemodynamic resuscitation efforts like MAP and urine output do."
+            },
+            {
+                "optionId": "param_04",
+                "content": "Incorrect. The WBC count is a diagnostic marker that changes slowly over hours to days. It is not used for minute-to-minute or hourly monitoring of a client's response to acute interventions like vasopressors."
+            },
+            {
+                "optionId": "param_05",
+                "content": "Incorrect. While capillary refill is a useful part of the physical assessment for perfusion, it is a subjective measure. MAP and urine output are objective, quantifiable parameters that are central to guiding therapy in septic shock."
+            }
+        ],
+        "clinicalPearls": [
+            "In septic shock, if hypotension persists after initial fluid resuscitation (typically 30 mL/kg), vasopressors like norepinephrine should be started promptly to maintain a MAP ≥65 mmHg.",
+            "The 'Hour-1 Bundle' for sepsis management emphasizes obtaining lactate and blood cultures, administering broad-spectrum antibiotics, beginning fluid resuscitation, and applying vasopressors if hypotensive during or after fluids.",
+            "Always suspect septic shock in a patient with a known or suspected infection who develops persistent hypotension and signs of organ dysfunction, such as altered mental status or oliguria.",
+            "The presence of a Social Determinant of Health, such as living alone in a rural area, can impact follow-up care and early detection of illness, potentially leading to more severe presentations like this one."
+        ],
+        "questionTrap": "A common trap is to continue giving fluid boluses when a patient is not responding. Recognizing the transition from sepsis to septic shock requires the nurse to shift focus from fluid administration to vasopressor support to correct the distributive shock pathophysiology.",
+        "mnemonic": {
+            "title": "SEPSIS SHOCK Priorities",
+            "expansion": "S: Start Antibiotics (after cultures) | O: Oxygenate | V: Vasopressors (for MAP <65) | F: Fluids (judiciously) | L: Lactate (monitor clearance)"
+        },
+        "reviewUnits": [
+            "Sepsis and Septic Shock",
+            "Hemodynamic Monitoring",
+            "Pharmacology: Vasopressors",
+            "Infection Control"
         ]
     },
-    "rationale": {
-        "correct": "Prioritizing interventions in sepsis requires a rapid and systematic approach to prevent further deterioration. Measuring serum lactate levels is crucial to assess the severity of sepsis and guide treatment; elevated lactate indicates tissue hypoperfusion. Obtaining blood cultures before administering antibiotics is essential for identifying the causative organism and determining antibiotic sensitivities, preventing resistance. Administering a vasopressor, such as norepinephrine, is indicated for patients with persistent hypotension despite fluid resuscitation to maintain adequate blood pressure and organ perfusion, ensuring oxygen delivery to vital organs. The patient's elevated WBC count, fever, and potential source of infection (UTI) strongly suggest sepsis, a life-threatening condition. Given his history of chronic kidney disease and the lack of improvement after the initial fluid bolus, septic shock is a likely condition characterized by profound circulatory and cellular/metabolic abnormalities. Considering the patient's recent hospitalization and catheter use, multi-drug resistant organism (MDRO) infection is also a possibility, complicating treatment. Anticipated interventions include the administration of broad-spectrum antibiotics to cover potential pathogens while awaiting culture results, crucial for source control. Monitoring urine output is crucial for assessing renal function and the effectiveness of fluid resuscitation, reflecting end-organ perfusion. Finally, preparing for central line insertion is necessary for administering vasopressors and monitoring central venous pressure (CVP), guiding fluid management.",
-        "incorrect": "Administering antipyretics alone will not address the underlying infection and hemodynamic instability, only treating the symptom of fever. Ordering a chest x-ray is not the immediate priority in this scenario, as the primary concern is sepsis secondary to a UTI; respiratory symptoms are not the primary concern. Administering a second fluid bolus without assessing fluid responsiveness could lead to fluid overload, especially in a patient with chronic kidney disease, potentially causing pulmonary edema. Hypovolemic shock is less likely given the fluid bolus already administered; the hypotension is likely distributive due to sepsis. Cardiogenic shock is less likely given the absence of specific cardiac symptoms; sepsis is the more likely etiology. Hypoglycemia is not supported by the presented data and would require a blood glucose check; focus on the data provided. Initiating comfort measures alone does not address the life-threatening condition of sepsis; it's a supportive, not primary, intervention. Restricting fluids is contraindicated in sepsis, as fluid resuscitation is a critical component of treatment; unless there is evidence of fluid overload. Administering a diuretic would worsen the patient's hypotension and is contraindicated in sepsis; it would further deplete intravascular volume.",
-        "clinicalPearls": [
-            "Early recognition and treatment of sepsis are crucial for improving patient outcomes; use the Surviving Sepsis Campaign guidelines.",
-            "Blood cultures should always be obtained before initiating antibiotic therapy to guide antibiotic selection and prevent resistance.",
-            "Fluid resuscitation is a cornerstone of sepsis management, but caution is warranted in patients with underlying cardiac or renal disease; monitor for fluid overload."
-        ],
-        "questionTrap": {
-            "trap": "The question focuses on *prioritization* and *anticipation*. Many options seem reasonable, but the trap lies in selecting interventions that are not the most immediate or critical for stabilizing the patient and addressing the underlying sepsis. Focus on interventions that directly address the pathophysiology of sepsis and septic shock.",
-            "howToOvercome": "Focus on the ABCs (Airway, Breathing, Circulation) and the immediate threats to the patient's life. Consider the patient's history, current presentation, and the likely progression of sepsis to identify the most critical interventions and potential complications. Think about the underlying pathophysiology of sepsis and how each intervention will impact the patient's condition."
-        },
-        "mnemonic": {
-            "title": "SEPSIS",
-            "expansion": "Source identification, Early antibiotics, Pressors (if needed), Support organ function, Individualized treatment, Serial Lactate measurements"
-        }
+    "scoring": {
+        "method": "rationale",
+        "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyzing",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:26:05.331Z"
 }

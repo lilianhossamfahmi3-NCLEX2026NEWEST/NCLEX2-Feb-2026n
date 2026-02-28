@@ -1,76 +1,159 @@
 {
     "id": "New-v26-9a8b7c2d-3e4f-5061-7283-94a5b6c7d8e9",
     "type": "highlight",
-    "stem": "The nurse is caring for a 68-year-old male patient admitted with acute decompensated heart failure (ADHF). Review the patient information and identify the findings that indicate the patient is experiencing fluid overload. Click on those findings.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse reviews the 08:00 admission note in the Clinical Feed. Click to highlight the findings that are direct indicators of fluid volume excess.",
+    "options": [
+        {
+            "id": "opt1",
+            "text": "heart rate 110/min and regular"
+        },
+        {
+            "id": "opt2",
+            "text": "blood pressure of 170/100 mmHg"
+        },
+        {
+            "id": "opt3",
+            "text": "SpO2 is 88% on room air"
+        },
+        {
+            "id": "opt4",
+            "text": "coarse crackles auscultated bilaterally"
+        },
+        {
+            "id": "opt5",
+            "text": "productive cough with pink, frothy sputum"
+        },
+        {
+            "id": "opt6",
+            "text": "S3 heart sound auscultated"
+        },
+        {
+            "id": "opt7",
+            "text": "3+ pitting edema in lower extremities"
+        },
+        {
+            "id": "opt8",
+            "text": "weight gain of 4 kg since admission"
+        }
+    ],
+    "correctOptionIds": [
+        "opt4",
+        "opt5",
+        "opt6",
+        "opt7",
+        "opt8"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: I am calling to give a report on John Smith, a 68-year-old male admitted two days ago for acute decompensated heart failure (ADHF) following a STEMI five days prior. B: Mr. Smith has a history of hypertension, hyperlipidemia, and type 2 diabetes. His current medications include metoprolol, lisinopril, aspirin, and insulin. A: At 06:00, the patient reported increased shortness of breath. His oxygen saturation is 88% on room air, with a respiratory rate of 28 and labored breathing. Coarse crackles are auscultated bilaterally. He has 2+ lower extremity edema and a productive cough with pink, frothy sputum. His BP is 170/100 mmHg, heart rate is 110 bpm with an S3 gallop. Urine output has been 30 mL/hr for the past two hours, and his weight has increased by 4 kg since admission. P: Orders include furosemide 40 mg IV push STAT, oxygen to maintain SpO2 > 92%, strict I&O monitoring, and notification to the provider for SBP > 180 or SpO2 < 90% despite oxygen. Continue cardiac monitoring and frequent vital sign assessment. Elevate the head of the bed.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>BNP</td><td>850 pg/mL</td><td><100 pg/mL</td></tr><tr><td>Sodium</td><td>132 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.0 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Troponin I</td><td>0.1 ng/mL</td><td><0.04 ng/mL</td></tr><tr><td>Hemoglobin</td><td>14.5 g/dL</td><td>13.5-17.5 g/dL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "### Admission Note\n**08:00 SBAR Note**\n**Situation:** This is a 68-year-old male client admitted from the emergency department with an acute exacerbation of heart failure. The client reports progressively worsening shortness of breath and fatigue over the past 3 days.\n\n**Background:** The client has a known history of hypertension, type 2 diabetes mellitus, and a STEMI 2 years prior. He reports difficulty adhering to a low-sodium diet due to financial constraints and limited access to fresh groceries. He lives alone and has decreased mobility.\n\n**Assessment:** Client is alert, anxious, and in respiratory distress. Vital signs show a [heart rate 110/min and regular] with a [blood pressure of 170/100 mmHg]. [SpO2 is 88% on room air]. Respiratory assessment reveals labored breathing at 28/min with [coarse crackles auscultated bilaterally] in the lower lobes. A [productive cough with pink, frothy sputum] is noted. Cardiovascular exam reveals a distinct [S3 heart sound auscultated] at the apex. There is [3+ pitting edema in lower extremities], extending to the mid-calf. The client's [weight gain of 4 kg since admission] from the ED weigh-in is significant.\n\n**Recommendation:** Continue continuous cardiac and pulse oximetry monitoring. Administer STAT diuretics as ordered. Maintain head of bed elevated. Strict intake and output monitoring. Notify provider of any worsening respiratory distress.\n\n### Progress Note\n**10:00 Progress Note**\nFurosemide 40 mg IV administered at 08:30. Client diuresed 500 mL clear yellow urine. Respiratory rate decreased to 22/min, still with fine crackles in bases. SpO2 improved to 94% on 2L NC. Client reports feeling 'a little less breathless.' BP 158/92 mmHg. Will continue to monitor response."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>04:00</td><td>160/90</td><td>98</td><td>24</td><td>90% RA</td><td>37.0°C</td></tr><tr><td>05:00</td><td>165/95</td><td>102</td><td>26</td><td>89% RA</td><td>37.2°C</td></tr><tr><td>06:00</td><td>170/100</td><td>110</td><td>28</td><td>88% RA</td><td>37.3°C</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>08:00</td><td>170/100 mmHg (123)</td><td>110</td><td>28</td><td>88% on room air</td><td>99.1°F (37.3°C)</td></tr><tr><td>09:00</td><td>165/95 mmHg (118)</td><td>104</td><td>26</td><td>92% on 2L NC</td><td>99.0°F (37.2°C)</td></tr><tr><td>10:00</td><td>158/92 mmHg (114)</td><td>98</td><td>22</td><td>94% on 2L NC</td><td>99.1°F (37.3°C)</td></tr></tbody></table>"
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>BNP</td><td>850</td><td>pg/mL</td><td><100</td><td>High</td></tr><tr><td>Sodium</td><td>132</td><td>mEq/L</td><td>135-145</td><td>Low</td></tr><tr><td>Potassium</td><td>4.0</td><td>mEq/L</td><td>3.5-5.0</td><td>WNL</td></tr><tr><td>Creatinine</td><td>1.8</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>Troponin I</td><td>0.1</td><td>ng/mL</td><td><0.04</td><td>High</td></tr><tr><td>Hemoglobin</td><td>14.5</td><td>g/dL</td><td>13.5-17.5</td><td>WNL</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "**08:00 Focused Assessment**\n*   **Neurological:** Alert and oriented x3, anxious.\n*   **Cardiovascular:** Tachycardic with regular rhythm. S1, S2, and S3 heart sounds auscultated. Capillary refill >3 seconds. Pulses 2+ in upper extremities, 1+ in lower extremities.\n*   **Respiratory:** Tachypneic with use of accessory muscles. Coarse crackles auscultated bilaterally throughout lower lung fields. Productive cough noted.\n*   **Gastrointestinal:** Bowel sounds normoactive in all four quadrants.\n*   **Integumentary/Extremities:** Skin is cool and clammy. 3+ pitting edema noted bilaterally from feet to mid-calves."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "**Chest X-ray (Portable, AP View) - 08:15**\n\n**Findings:** There are bilateral interstitial and alveolar opacities consistent with pulmonary edema. Small bilateral pleural effusions are noted, blunting the costophrenic angles. The cardiac silhouette is enlarged, consistent with cardiomegaly.\n\n**Impression:** Radiographic findings are indicative of acute congestive heart failure with significant pulmonary edema."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Metoprolol</td><td>25 mg</td><td>PO</td><td>BID</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td></tr><tr><td>Aspirin</td><td>81 mg</td><td>PO</td><td>Daily</td></tr><tr><td>Insulin Aspart</td><td>Varies</td><td>SubQ</td><td>AC & HS</td></tr><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>PRN</td></tr><tr><td>Morphine Sulfate</td><td>2 mg</td><td>IV</td><td>PRN</td></tr></tbody></table>"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Today 08:10</td><td>Furosemide 40 mg IV</td><td>STAT</td></tr><tr><td>Today 08:10</td><td>Oxygen therapy, titrate to maintain SpO₂ > 92%</td><td>Continuous</td></tr><tr><td>Today 08:10</td><td>Continuous cardiac and pulse oximetry monitoring</td><td>Continuous</td></tr><tr><td>Today 08:10</td><td>Daily weights</td><td>Daily at 06:00</td></tr><tr><td>Today 08:10</td><td>Strict Intake & Output</td><td>Every 1 hour</td></tr><tr><td>Today 08:10</td><td>1500 mL Fluid Restriction</td><td>Per 24 hours</td></tr><tr><td>Today 08:10</td><td>Low Sodium Diet (2g/day)</td><td>With meals</td></tr><tr><td>Today 08:10</td><td>Morphine Sulfate 2 mg IV</td><td>PRN every 2 hours for dyspnea/anxiety</td></tr></tbody></table>"
             },
             {
-                "id": "notes",
-                "title": "Nurses Notes",
-                "content": "06:00: Patient reports increased shortness of breath. Coarse crackles auscultated bilaterally. Productive cough with pink, frothy sputum. Lower extremity edema 2+. Urine output 30 mL/hr for the past 2 hours. Weight increased by 4 kg since admission."
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Metoprolol Succinate</td><td>25 mg</td><td>PO</td><td>Daily</td><td>Yesterday 09:00</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>Yesterday 09:00</td></tr><tr><td>Aspirin</td><td>81 mg</td><td>PO</td><td>Daily</td><td>Yesterday 09:00</td></tr><tr><td>Insulin Aspart</td><td>Sliding Scale</td><td>SubQ</td><td>AC & HS</td><td>Yesterday 21:00</td></tr><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>STAT</td><td>Today 08:30</td></tr><tr><td>Morphine Sulfate</td><td>2 mg</td><td>IV</td><td>PRN q2h</td><td>Not Applicable</td></tr></tbody></table>"
             }
         ]
+    },
+    "rationale": {
+        "correct": "The selected findings are direct indicators of fluid volume excess (hypervolemia) secondary to acute decompensated heart failure. The failing heart cannot effectively pump blood forward, leading to backward pressure and fluid accumulation in the pulmonary and systemic circuits. This manifests as crackles, pink frothy sputum, an S3 heart sound, peripheral edema, and rapid weight gain.",
+        "incorrect": "The unselected findings, while abnormal and related to the client's condition, are not direct measures of fluid volume. Tachycardia and hypertension are compensatory mechanisms triggered by the sympathetic nervous system in response to decreased cardiac output. Hypoxemia (low SpO2) is a consequence of fluid filling the alveoli, but the fluid itself is the primary finding (crackles, sputum).",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1",
+                "content": "Incorrect. Tachycardia is a compensatory response to maintain cardiac output when stroke volume is low. While common in ADHF, it is a sign of cardiac stress, not a direct measure of fluid volume."
+            },
+            {
+                "optionId": "opt2",
+                "content": "Incorrect. Hypertension in ADHF is often due to increased systemic vascular resistance from neurohormonal activation (e.g., RAAS). It contributes to the workload of the heart but is not a direct sign of fluid accumulation."
+            },
+            {
+                "optionId": "opt3",
+                "content": "Incorrect. Low SpO2 indicates impaired gas exchange. In this case, it is a result of fluid in the alveoli (pulmonary edema), but the more direct finding of that fluid is the presence of crackles and frothy sputum."
+            },
+            {
+                "optionId": "opt4",
+                "content": "Correct. Coarse crackles are adventitious lung sounds caused by air moving through fluid-filled alveoli. This is a hallmark sign of pulmonary edema resulting from left-sided heart failure."
+            },
+            {
+                "optionId": "opt5",
+                "content": "Correct. Pink, frothy sputum is a classic, ominous sign of severe pulmonary edema. It occurs when high pulmonary capillary pressure forces fluid, plasma proteins, and red blood cells into the alveoli."
+            },
+            {
+                "optionId": "opt6",
+                "content": "Correct. An S3 heart sound ('ventricular gallop') in an adult is caused by the rapid filling of a noncompliant, volume-overloaded ventricle. It is a key auscultatory finding in heart failure."
+            },
+            {
+                "optionId": "opt7",
+                "content": "Correct. Pitting edema is the accumulation of excess fluid in the interstitial spaces of the systemic circulation, caused by increased hydrostatic pressure from right-sided heart failure."
+            },
+            {
+                "optionId": "opt8",
+                "content": "Correct. Rapid weight gain is the most sensitive indicator of fluid retention. A gain of 1 kg (2.2 lbs) corresponds to approximately 1 liter of retained fluid. A 4 kg gain is a significant and direct measure of fluid overload."
+            }
+        ],
+        "clinicalPearls": [
+            "Daily weights, taken at the same time with the same scale and clothing, are the most reliable method for monitoring fluid status in clients with heart failure.",
+            "An S3 heart sound in an adult over 40 is almost always pathological and indicative of ventricular volume overload and systolic dysfunction.",
+            "Pink, frothy sputum is a sign of advanced pulmonary edema and constitutes a medical emergency requiring immediate intervention to improve gas exchange and reduce preload.",
+            "The presence of Social Determinants of Health (SDOH) barriers, such as food insecurity or financial constraints, directly impacts a client's ability to manage chronic conditions like heart failure and increases the risk of exacerbations."
+        ],
+        "questionTrap": "The primary trap is confusing consequences or compensatory mechanisms with direct signs of fluid overload. Tachycardia, hypertension, and hypoxia are critical data points, but they are the body's reaction to the problem. The question asks for direct indicators of the problem itself, which is the excess fluid located in the lungs (crackles, sputum), heart (S3), and periphery (edema, weight).",
+        "mnemonic": {
+            "title": "ADHF Treatment: LMNOP",
+            "expansion": "**L**asix (Furosemide) to diurese excess fluid.\n**M**orphine to reduce preload, anxiety, and work of breathing.\n**N**itrates (e.g., Nitroglycerin) to vasodilate and reduce preload/afterload.\n**O**xygen to correct hypoxemia.\n**P**osition (High-Fowler's) to decrease venous return and improve lung expansion."
+        },
+        "reviewUnits": [
+            "Cardiovascular Disorders: Heart Failure",
+            "Fluid and Electrolyte Imbalances: Fluid Volume Excess",
+            "Pharmacology: Diuretics, Vasodilators"
+        ]
+    },
+    "scoring": {
+        "method": "polytomous_highlight",
+        "maxPoints": 5
     },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "recognizeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Acute MI & Heart Failure"
-        ]
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
     },
-    "rationale": {
-        "correct": "The findings that indicate fluid overload include: **coarse crackles auscultated bilaterally**, which are caused by fluid in the alveoli; **productive cough with pink, frothy sputum**, indicative of pulmonary edema; and **lower extremity edema 2+**, demonstrating peripheral fluid accumulation. These signs are classic manifestations of ADHF. The elevated BNP (Brain Natriuretic Peptide) of 850 pg/mL also supports the diagnosis of heart failure, as BNP is released in response to ventricular stretching.",
-        "incorrect": "Selecting findings unrelated to fluid overload would be incorrect. For example, while elevated heart rate and blood pressure may accompany ADHF, they are not direct indicators of fluid accumulation. Similarly, while decreased sodium (hyponatremia) can sometimes occur in heart failure, it is not a primary indicator of fluid overload itself, but rather a consequence of the body's attempt to regulate fluid balance. Elevated creatinine suggests kidney dysfunction, possibly related to the heart failure, but not a direct marker of fluid overload. Troponin I elevation indicates myocardial damage, related to the recent STEMI, but not directly to fluid overload.",
-        "clinicalPearls": [
-            "Monitor trends in weight, intake, and output to assess fluid balance.",
-            "Elevate the head of the bed to improve breathing in patients with pulmonary edema.",
-            "Auscultate lung sounds frequently to detect changes in fluid status.",
-            "BNP levels are useful in differentiating between cardiac and respiratory causes of dyspnea."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus on abnormal vital signs (BP, HR) or lab values (sodium, creatinine, troponin) without recognizing the specific findings directly related to fluid accumulation. The key is to differentiate between symptoms *caused by* fluid overload versus symptoms that *accompany* it or are related to the underlying cardiac condition.",
-            "howToOvercome": "Carefully analyze each assessment finding and determine if it is a direct consequence of excess fluid volume in the body. Consider the pathophysiology of heart failure and how it manifests clinically. Focus on signs of pulmonary congestion and peripheral edema."
-        },
-        "mnemonic": {
-            "title": "LMNOP",
-            "expansion": "Lasix (furosemide), Morphine, Nitrates, Oxygen, Position (high Fowler's). This mnemonic outlines the initial treatment for ADHF."
-        }
-    },
-    "sentinelStatus": "deep_healed_v2026"
+    "correctOptionId": "opt4",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:45:37.959Z"
 }

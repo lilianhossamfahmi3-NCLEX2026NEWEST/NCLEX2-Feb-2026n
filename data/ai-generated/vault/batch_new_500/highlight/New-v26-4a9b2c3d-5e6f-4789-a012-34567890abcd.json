@@ -1,65 +1,327 @@
 {
     "id": "New-v26-4a9b2c3d-5e6f-4789-a012-34567890abcd",
     "type": "highlight",
-    "stem": "The nurse is reviewing the medication administration record (MAR) for J.B., a 78-year-old patient admitted for heart failure exacerbation. Based on the information in the provided tabs (Labs, MAR, Vitals), identify all findings that warrant immediate notification of the healthcare provider. Click on each concerning finding to highlight it.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse reviews the 14:00 progress note for a client with heart failure. Highlight the findings that require immediate notification of the healthcare provider.",
     "itemContext": {
         "patient": {
-            "name": "J.B.",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Medical Unit",
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "14:00 SBAR for J.B., a 78-year-old male, admitted at 06:00 for heart failure exacerbation. PMH: hypertension, hyperlipidemia, type 2 diabetes. At 14:00, reports increased SOB and lower extremity edema. O2 @ 2L NC. Meds: furosemide 40mg IV BID, lisinopril 20mg PO daily, metoprolol 50mg PO BID, insulin glargine 20 units SubQ at 20:00. Furosemide given at 08:00. Assessment: bibasilar crackles, 2+ pitting edema bilaterally. UOP since admission ~300mL. 14:00 vitals: BP 90/50 mmHg, HR 110 bpm, RR 28, SpO2 92% on 2L NC, Temp 37.2°C. Labs drawn at 13:30 available. Next furosemide dose due at 20:00. Complains of dizziness when sitting up.",
+        "highlightableText": "14:00 - S: Client reports increased shortness of breath and dizziness upon sitting up. B: 78-year-old male admitted at 06:00 for heart failure exacerbation. PMH of HTN, T2DM. Lives alone in a third-floor walk-up apartment, reports difficulty affording fresh vegetables. Received furosemide 40 mg IV at 08:00. A: Alert and oriented x3. Respirations are labored with bibasilar crackles noted. Exhibits [2+ pitting edema bilaterally] to the mid-shin. [Urine output is 300 mL over the past 8 hours]. Vital signs show a concerning trend; [BP is now 90/50 mmHg] (MAP 63), [heart rate is 110/min] and regular, and [respiratory rate of 28/min]. SpO₂ is 92% on 2L NC. Critical lab from 13:30 shows a [potassium of 3.2 mEq/L]. R: Will notify provider of current status and critical lab value. Continue to monitor.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Lab Results (Drawn at 13:30):\nSodium: 130 mEq/L (135-145 mEq/L)\nPotassium: 3.2 mEq/L (3.5-5.0 mEq/L)\nChloride: 95 mEq/L (98-106 mEq/L)\nBUN: 35 mg/dL (10-20 mg/dL)\nCreatinine: 1.8 mg/dL (0.6-1.2 mg/dL)\nGlucose: 150 mg/dL (70-110 mg/dL)\nDigoxin Level: 1.8 ng/mL (0.5-2.0 ng/mL)\nMagnesium: 1.6 mg/dL (1.7-2.2 mg/dL)"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 06:00",
+                        "note_type": "Admission Note",
+                        "content": "S: Client presents to ED with a 3-day history of worsening dyspnea, orthopnea, and a 10 lb weight gain. Reports feeling 'puffy' and unable to walk to his mailbox without getting breathless. B: 78-year-old male with a history of heart failure (ejection fraction 35%), hypertension, hyperlipidemia, and type 2 diabetes. Client lives alone in a third-floor walk-up apartment and reports difficulty affording fresh vegetables, relying on canned soups. A: Awake, alert, and oriented x3. Appears anxious. Bilateral crackles in lower lung bases. S1/S2 audible with an S3 gallop. 2+ pitting edema in lower extremities. Abdomen soft, non-distended. Skin warm and dry. R: Admitted to the medical unit for management of acute decompensated heart failure. Placed on 2L O₂ via nasal cannula. IV established. Labs drawn and chest x-ray ordered. Awaiting provider orders for diuretics and other medications."
+                    },
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "note_type": "Progress Note",
+                        "content": "S: Client reports increased shortness of breath and dizziness upon sitting up. B: 78-year-old male admitted at 06:00 for heart failure exacerbation. PMH of HTN, T2DM. Lives alone in a third-floor walk-up apartment, reports difficulty affording fresh vegetables. Received furosemide 40 mg IV at 08:00. A: Alert and oriented x3. Respirations are labored with bibasilar crackles noted. Exhibits 2+ pitting edema bilaterally to the mid-shin. Urine output is 300 mL over the past 8 hours. Vital signs show a concerning trend; BP is now 90/50 mmHg (MAP 63), heart rate is 110/min and regular, and respiratory rate of 28/min. SpO₂ is 92% on 2L NC. Critical lab from 13:30 shows a potassium of 3.2 mEq/L. R: Will notify provider of current status and critical lab value. Continue to monitor."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Medication Administration Record:\nFurosemide 40mg IV BID (Scheduled - Next dose due 20:00)\nLisinopril 20mg PO daily (Scheduled - Given 09:00)\nMetoprolol 50mg PO BID (Scheduled - Given 09:00 & 17:00)\nInsulin Glargine 20 units SubQ at 20:00 (Scheduled)\nPotassium Chloride 20 mEq PO BID (Scheduled - Given 10:00)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp",
+                        "HR",
+                        "RR",
+                        "BP (MAP)",
+                        "SpO₂"
+                    ],
+                    "rows": [
+                        [
+                            "14:00",
+                            "99.0°F (37.2°C)",
+                            "110",
+                            "28",
+                            "90/50 (63)",
+                            "92% on 2L NC"
+                        ],
+                        [
+                            "10:00",
+                            "98.6°F (37.0°C)",
+                            "90",
+                            "22",
+                            "110/70 (83)",
+                            "95% on 2L NC"
+                        ],
+                        [
+                            "06:00",
+                            "98.2°F (36.8°C)",
+                            "85",
+                            "20",
+                            "120/80 (93)",
+                            "96% on Room Air"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "Vital Signs:\n14:00: BP 90/50 mmHg, HR 110 bpm, RR 28, SpO2 92% on 2L NC, Temp 37.2°C\n10:00: BP 110/70 mmHg, HR 90 bpm, RR 22, SpO2 95% on 2L NC, Temp 37.0°C\n06:00: BP 120/80 mmHg, HR 85 bpm, RR 20, SpO2 96% on Room Air, Temp 36.8°C"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "panel": "Basic Metabolic Panel (13:30)",
+                    "results": [
+                        {
+                            "test": "Sodium",
+                            "value": "130",
+                            "unit": "mEq/L",
+                            "range": "135-145",
+                            "status": "Low"
+                        },
+                        {
+                            "test": "Potassium",
+                            "value": "3.2",
+                            "unit": "mEq/L",
+                            "range": "3.5-5.0",
+                            "status": "Low"
+                        },
+                        {
+                            "test": "Chloride",
+                            "value": "95",
+                            "unit": "mEq/L",
+                            "range": "98-106",
+                            "status": "Low"
+                        },
+                        {
+                            "test": "BUN",
+                            "value": "35",
+                            "unit": "mg/dL",
+                            "range": "10-20",
+                            "status": "High"
+                        },
+                        {
+                            "test": "Creatinine",
+                            "value": "1.8",
+                            "unit": "mg/dL",
+                            "range": "0.6-1.2",
+                            "status": "High"
+                        },
+                        {
+                            "test": "Glucose",
+                            "value": "150",
+                            "unit": "mg/dL",
+                            "range": "70-110",
+                            "status": "High"
+                        },
+                        {
+                            "test": "Magnesium",
+                            "value": "1.6",
+                            "unit": "mg/dL",
+                            "range": "1.7-2.2",
+                            "status": "Low"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 06:00 (Admission)",
+                        "findings": "GENERAL: Appears fatigued, speaks in short sentences. CARDIOVASCULAR: Tachycardic, S3 gallop present. 2+ pitting edema bilateral lower extremities. RESPIRATORY: Tachypneic with use of accessory muscles. Bibasilar crackles. NEUROLOGICAL: Alert and oriented x3. GI/GU: Abdomen soft, non-distended, bowel sounds active."
+                    },
+                    {
+                        "timestamp": "Day 1, 14:00 (Focused)",
+                        "findings": "CARDIOVASCULAR: Tachycardic, rate 110/min. BP 90/50. Client reports dizziness on sitting. RESPIRATORY: Respiratory rate 28/min, labored. Bibasilar crackles persist. SpO2 92% on 2L NC."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "report_type": "Chest X-ray (PA and Lateral)",
+                    "timestamp": "Day 1, 07:30",
+                    "findings": "Lungs show evidence of moderate pulmonary vascular congestion and small bilateral pleural effusions, consistent with pulmonary edema. The cardiac silhouette is enlarged, suggesting cardiomegaly. No evidence of focal consolidation, pneumothorax, or acute bony abnormality.",
+                    "impression": "Findings are consistent with acute decompensated heart failure."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "Day 1, 06:30",
+                        "action": "Admit to Medical Unit",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 06:30",
+                        "action": "Cardiac diet, 2-gram sodium restriction",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 06:30",
+                        "action": "Strict Intake & Output",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 06:30",
+                        "action": "Daily weights",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 06:30",
+                        "action": "Furosemide 40 mg IV BID",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 06:30",
+                        "action": "Lisinopril 20 mg PO daily",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 06:30",
+                        "action": "Metoprolol 50 mg PO BID",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 06:30",
+                        "action": "Potassium Chloride 20 mEq PO BID",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Furosemide",
+                        "dose": "40 mg",
+                        "route": "IV",
+                        "frequency": "BID",
+                        "last_administered": "Day 1, 08:00"
+                    },
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "20 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "last_administered": "Day 1, 09:00"
+                    },
+                    {
+                        "medication": "Metoprolol",
+                        "dose": "50 mg",
+                        "route": "PO",
+                        "frequency": "BID",
+                        "last_administered": "Day 1, 09:00"
+                    },
+                    {
+                        "medication": "Potassium Chloride",
+                        "dose": "20 mEq",
+                        "route": "PO",
+                        "frequency": "BID",
+                        "last_administered": "Day 1, 10:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "2+ pitting edema bilaterally"
+        },
+        {
+            "id": "opt_2",
+            "text": "Urine output is 300 mL over the past 8 hours"
+        },
+        {
+            "id": "opt_3",
+            "text": "BP is now 90/50 mmHg"
+        },
+        {
+            "id": "opt_4",
+            "text": "heart rate is 110/min"
+        },
+        {
+            "id": "opt_5",
+            "text": "respiratory rate of 28/min"
+        },
+        {
+            "id": "opt_6",
+            "text": "potassium of 3.2 mEq/L"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_3",
+        "opt_4",
+        "opt_5",
+        "opt_6"
+    ],
+    "rationale": {
+        "correct": "The combination of hypotension (BP 90/50 mmHg), tachycardia (HR 110/min), tachypnea (RR 28/min), and critical hypokalemia (K+ 3.2 mEq/L) indicates acute hemodynamic instability and a high risk for life-threatening complications. These findings suggest the client is not tolerating the aggressive diuresis and vasodilatory effects of their medications, leading to poor perfusion, respiratory distress, and a risk of fatal cardiac arrhythmias. These are priority findings requiring immediate provider notification for intervention.",
+        "incorrect": "While 2+ pitting edema and a urine output of 300 mL in 8 hours are important data points, they do not represent an immediate life threat. Edema is an expected finding in a heart failure exacerbation. The urine output, while modest (37.5 mL/hr), is still within the minimally acceptable range (>30 mL/hr) and indicates the diuretic is working to some degree. The priority is to address the critical ABCs (Airway, Breathing, Circulation) and electrolyte imbalances first.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "content": "Incorrect. Bilateral pitting edema is an expected clinical manifestation of fluid volume excess in heart failure. While it confirms the diagnosis and needs to be monitored, it is not an acute change that requires immediate notification compared to hemodynamic instability."
+            },
+            {
+                "optionId": "opt_2",
+                "content": "Incorrect. A urine output of 300 mL over 8 hours (37.5 mL/hr) is adequate, though not robust. It indicates some response to the diuretic. This finding requires continued monitoring but is not as immediately life-threatening as the client's vital signs or critical potassium level."
+            },
+            {
+                "optionId": "opt_3",
+                "content": "Correct. A blood pressure of 90/50 mmHg (MAP 63) indicates significant hypotension. This compromises perfusion to vital organs, including the brain (causing dizziness) and kidneys. It is a direct adverse effect of the client's diuretic and antihypertensive medications and requires immediate intervention."
+            },
+            {
+                "optionId": "opt_4",
+                "content": "Correct. A heart rate of 110/min is tachycardia, a compensatory response to decreased stroke volume and potential hypovolemia from diuresis. This sustained high rate increases myocardial oxygen demand on an already stressed heart, increasing the risk for ischemia and further decompensation."
+            },
+            {
+                "optionId": "opt_5",
+                "content": "Correct. A respiratory rate of 28/min indicates significant respiratory distress, likely due to worsening pulmonary edema that is impairing gas exchange. This is a sign of impending respiratory failure and is a critical finding that must be addressed immediately."
+            },
+            {
+                "optionId": "opt_6",
+                "content": "Correct. A potassium level of 3.2 mEq/L is hypokalemia, a critical and dangerous side effect of the potassium-wasting diuretic (furosemide). Hypokalemia alters cardiac myocyte electrical stability, placing the client at high risk for life-threatening arrhythmias, such as ventricular tachycardia."
+            }
+        ],
+        "clinicalPearls": [
+            "In heart failure, the triad of hypotension, tachycardia, and tachypnea often signals cardiogenic shock or severe decompensation and requires urgent intervention.",
+            "Always check potassium levels before administering a loop diuretic like furosemide. Hypokalemia can be fatal and must be corrected promptly.",
+            "A MAP below 65 mmHg is generally considered the threshold for inadequate organ perfusion. Always calculate the MAP when assessing a client with a low blood pressure.",
+            "Social determinants of health, such as food insecurity (inability to afford fresh vegetables rich in potassium) and living situation (third-floor walk-up), can directly impact a heart failure client's ability to manage their condition and should be incorporated into the plan of care."
+        ],
+        "questionTrap": "The trap is focusing on expected findings (edema) or borderline-acceptable data (urine output) instead of prioritizing the cluster of critical data points that signal immediate danger to the client's airway, breathing, and circulation (ABCs).",
+        "mnemonic": {
+            "title": "HF SHOCK",
+            "expansion": "For Heart Failure red flags, look for:\nS - Systolic < 90 (Hypotension)\nH - Heart Rate > 100 (Tachycardia)\nO - O₂ Sats dropping / RR > 24 (Tachypnea)\nC - Critical Labs (especially Potassium)\nK - Kidney function worsening"
+        },
+        "reviewUnits": [
+            "Cardiovascular Disorders: Heart Failure",
+            "Fluid and Electrolyte Imbalances: Hypokalemia",
+            "Pharmacology: Diuretics, ACE Inhibitors, Beta-Blockers",
+            "Reduction of Risk Potential"
         ]
     },
-    "rationale": {
-        "correct": "The patient's blood pressure of 90/50 mmHg warrants immediate notification due to potential hypotension, possibly exacerbated by furosemide and lisinopril, increasing the risk of falls and inadequate organ perfusion. A heart rate of 110 bpm indicates tachycardia, potentially due to hypovolemia or heart failure exacerbation, requiring prompt evaluation. The respiratory rate of 28 is elevated, indicating tachypnea, suggesting respiratory distress possibly related to fluid overload and pulmonary edema. A potassium level of 3.2 mEq/L indicates hypokalemia, a dangerous side effect of furosemide, increasing the risk of cardiac arrhythmias and muscle weakness. Prompt intervention is needed to prevent life-threatening complications.",
-        "incorrect": "While other findings are important, they do not require *immediate* notification. A sodium level of 130 mEq/L indicates hyponatremia, but is not immediately life-threatening unless neurological symptoms are present. Elevated BUN (35 mg/dL) and creatinine (1.8 mg/dL) suggest renal impairment, but the change is not acute. A digoxin level of 1.8 ng/mL is within the therapeutic range. A magnesium level of 1.6 mg/dL is slightly below normal, but less critical than K+ and BP. Metoprolol was administered as scheduled.",
-        "clinicalPearls": [
-            "Monitor vital signs closely, especially BP and HR, after administering diuretics and antihypertensives in heart failure patients.",
-            "Hypokalemia is a common and potentially dangerous side effect of loop diuretics. Monitor potassium levels and administer supplements as prescribed to prevent cardiac arrhythmias.",
-            "Hypotension can be exacerbated by diuretics and ACE inhibitors. Assess for dizziness and orthostatic hypotension. Be prepared to hold medications or adjust dosages based on patient response.",
-            "Assess for signs and symptoms of fluid overload (e.g., edema, crackles) and electrolyte imbalances (e.g., muscle weakness, arrhythmias)."
-        ],
-        "questionTrap": {
-            "trap": "The question focuses on 'immediate' notification, tempting test-takers to select all abnormal findings instead of prioritizing those posing the most immediate threat to patient safety. Test-takers may be distracted by multiple abnormal lab values.",
-            "howToOvercome": "Focus on the immediacy of the threat. Ask yourself, 'Which of these findings requires immediate intervention to prevent a potentially life-threatening situation?' Prioritize vital signs and electrolyte imbalances that directly impact cardiac function and respiratory status. Think ABCs (Airway, Breathing, Circulation)."
-        },
-        "mnemonic": {
-            "title": "KNOW the Vitals",
-            "expansion": "K+ (Potassium): Know if low, notify provider; BP (Blood Pressure): Be aware of hypotension; RR (Respiratory Rate): Rapid rate indicates distress; Other findings: Observe, but prioritize K+, BP, and RR."
-        }
-    }
+    "scoring": {
+        "method": "+/- 1.0 Penalty",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Reduction of Risk Potential"
+    },
+    "correctOptionId": "opt_3",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:59:53.631Z"
 }

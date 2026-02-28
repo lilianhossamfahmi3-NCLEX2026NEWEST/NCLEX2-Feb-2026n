@@ -1,97 +1,359 @@
 {
     "id": "New-v26-9a7b8c6d-4e3f-4a2b-8c1d-5e6f7a8b9c01",
     "type": "clozeDropdown",
-    "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the EHR data, the nurse should immediately report the following findings to the provider: A sustained increase in peak inspiratory pressure (PIP) above [dropdown1], a decrease in SpO2 to [dropdown2] despite an FiO2 of 60%, and the presence of [dropdown3] in the endotracheal tube aspirate.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
+    "stem": "The nurse analyzes the client's data and concludes that immediate provider notification is required for a sustained peak inspiratory pressure (PIP) above [1], an SpO2 below [2] on 60% FiO2, and the new onset of [3] secretions.",
+    "options": {
+        "1": [
+            {
+                "id": "opt_1a",
+                "text": "30 cm H2O"
+            },
+            {
+                "id": "opt_1b",
+                "text": "40 cm H2O"
+            },
+            {
+                "id": "opt_1c",
+                "text": "50 cm H2O"
+            }
+        ],
+        "2": [
+            {
+                "id": "opt_2a",
+                "text": "95%"
+            },
+            {
+                "id": "opt_2b",
+                "text": "92%"
+            },
+            {
+                "id": "opt_2c",
+                "text": "90%"
+            },
+            {
+                "id": "opt_2d",
+                "text": "85%"
+            }
+        ],
+        "3": [
+            {
+                "id": "opt_3a",
+                "text": "thin, clear secretions"
+            },
+            {
+                "id": "opt_3b",
+                "text": "small amount of blood"
+            },
+            {
+                "id": "opt_3c",
+                "text": "purulent secretions"
+            }
+        ]
+    },
+    "correctResponse": {
+        "1": "opt_1b",
+        "2": "opt_2c",
+        "3": "opt_3c"
     },
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: John Smith, a 68-year-old male, admitted for pneumonia, intubated and mechanically ventilated since 04:00 today. Background: COPD and hypertension complicate his respiratory status. Current vent settings: FiO2 60%, Tidal Volume 450 mL, Respiratory Rate 16, PEEP 5 cm H2O. Assessment: At 08:00, PIP increased from 25 to 35 cm H2O; SpO2 decreased from 94% to 89% (FiO2 60%). Coarse crackles bilaterally. Restless, uncomfortable. Last suction at 07:30 yielded thin, clear secretions. Vitals at 08:00: HR 110, BP 160/90, RR (vent) 16, SpO2 89%, Temp 38.5°C. Recommendation: Requesting orders to investigate increased PIP and desaturation. Consider immediate suctioning, bronchodilators, and chest x-ray to rule out pneumothorax or worsening pneumonia. Evaluate ABGs.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "Situation: John Smith, a 68-year-old male, admitted for pneumonia, intubated and mechanically ventilated since 04:00 today. Background: COPD and hypertension complicate his respiratory status. Current vent settings: FiO2 60%, Tidal Volume 450 mL, Respiratory Rate 16, PEEP 5 cm H2O. Assessment: At 08:00, PIP increased from 25 to 35 cm H2O; SpO2 decreased from 94% to 89% (FiO2 60%). Coarse crackles bilaterally. Restless, uncomfortable. Last suction at 07:30 yielded thin, clear secretions. Vitals at 08:00: HR 110, BP 160/90, RR (vent) 16, SpO2 89%, Temp 38.5°C. Recommendation: Requesting orders to investigate increased PIP and desaturation. Consider immediate suctioning, bronchodilators, and chest x-ray to rule out pneumothorax or worsening pneumonia. Evaluate ABGs."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 04:00",
+                        "text": "S: Client is a 68-year-old male brought to the ED by his adult child with a 3-day history of productive cough, fever, and worsening shortness of breath. \nB: History of COPD and hypertension. Client lives alone in a rural area with limited access to transportation, which delayed seeking care. Diagnosed with severe community-acquired pneumonia. \nA: Client was hypoxic (SpO2 84% on non-rebreather mask) and in severe respiratory distress with accessory muscle use. Decision made to intubate for airway protection and mechanical ventilation. Client transferred to ICU. \nR: Placed on mechanical ventilation per protocol. Initiated IV fluids and broad-spectrum antibiotics after blood cultures were drawn. Awaiting chest x-ray results. Plan to monitor hemodynamics and respiratory status closely."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 08:00",
+                        "text": "S: Acute worsening of respiratory status over the last hour. Client is restless and appears agitated despite sedation.\nB: 68-year-old male with COPD/HTN, intubated at 04:00 for pneumonia. Current vent settings: AC mode, FiO2 60%, TV 450 mL, RR 16, PEEP 5 cm H2O. Last suctioned at 07:30 with thin, clear secretions noted.\nA: Peak inspiratory pressure (PIP) has trended up from 25 to a sustained 35 cm H2O. SpO2 has dropped from 94% to 89%. Tachycardic at 110 bpm, BP 160/90 mmHg, Temp 101.3°F (38.5°C). Auscultation reveals coarse crackles bilaterally. No spontaneous respiratory effort over the set rate.\nR: Recommend immediate chest x-ray to rule out pneumothorax, obtain stat ABG to assess gas exchange, perform deep suctioning for potential mucous plug, and notify provider of acute change with suspicion for VAP or ARDS development."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG (07:00): pH 7.32, PaCO2 55 mmHg, PaO2 70 mmHg, HCO3 26 mEq/L, SaO2 93%. WBC: 14,000/mm3."
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp °F (°C)",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (breaths/min)",
+                        "SpO₂ (%)"
+                    ],
+                    "rows": [
+                        [
+                            "07:00",
+                            "100.4 (38.0)",
+                            "98",
+                            "140/80",
+                            "100",
+                            "16 (Vent)",
+                            "94% on 60% FiO₂"
+                        ],
+                        [
+                            "07:30",
+                            "100.8 (38.2)",
+                            "102",
+                            "145/85",
+                            "105",
+                            "16 (Vent)",
+                            "92% on 60% FiO₂"
+                        ],
+                        [
+                            "08:00",
+                            "101.3 (38.5)",
+                            "110",
+                            "160/90",
+                            "113",
+                            "16 (Vent)",
+                            "89% on 60% FiO₂"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: HR 98, BP 140/80, RR (vent) 16, SpO2 94%, Temp 38.0°C\n07:30: HR 102, BP 145/85, RR (vent) 16, SpO2 92%, Temp 38.2°C\n08:00: HR 110, BP 160/90, RR (vent) 16, SpO2 89%, Temp 38.5°C"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Arterial Blood Gas (07:00)",
+                        "results": [
+                            {
+                                "test": "pH",
+                                "value": "7.32",
+                                "unit": "",
+                                "range": "7.35-7.45",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "PaCO₂",
+                                "value": "55",
+                                "unit": "mmHg",
+                                "range": "35-45",
+                                "status": "High"
+                            },
+                            {
+                                "test": "PaO₂",
+                                "value": "70",
+                                "unit": "mmHg",
+                                "range": "80-100",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "HCO₃⁻",
+                                "value": "26",
+                                "unit": "mEq/L",
+                                "range": "22-26",
+                                "status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Complete Blood Count (07:00)",
+                        "results": [
+                            {
+                                "test": "WBC",
+                                "value": "14.5",
+                                "unit": "x 10³/μL",
+                                "range": "4.5-11.0",
+                                "status": "High"
+                            },
+                            {
+                                "test": "Hgb",
+                                "value": "13.8",
+                                "unit": "g/dL",
+                                "range": "13.5-17.5",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "Platelets",
+                                "value": "250",
+                                "unit": "x 10³/μL",
+                                "range": "150-400",
+                                "status": "Normal"
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 1g IV q24h (scheduled), Albuterol 2.5mg via nebulizer q4h PRN wheezing (next due 10:00), Famotidine 20mg IV q12h (scheduled)."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Neurological",
+                        "timestamp": "08:00",
+                        "findings": "Richmond Agitation-Sedation Scale (RASS) +1 (Anxious, apprehensive, but not physically aggressive). Pupils equal, round, reactive to light. Follows commands when sedation is lightened."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "timestamp": "08:00",
+                        "findings": "Endotracheal tube secure at 23 cm at the lip. Coarse crackles auscultated bilaterally, diminished in the bases. Symmetrical chest rise with ventilated breaths. No spontaneous respirations noted above the set rate."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "timestamp": "08:00",
+                        "findings": "Tachycardia with regular rhythm. S1, S2 audible. No murmurs. Capillary refill <3 seconds. Peripheral pulses 2+ bilaterally."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No recent radiology reports available."
+                "content": [
+                    {
+                        "type": "Chest X-ray (Portable, AP)",
+                        "timestamp": "Day 1, 04:30",
+                        "report": "INDICATION: Hypoxic respiratory failure, rule out pneumonia.\n\nFINDINGS: Endotracheal tube tip is appropriately positioned 4 cm above the carina. Diffuse bilateral lower lobe airspace opacities are present, greater on the right than the left. No clear evidence of a large pleural effusion or pneumothorax. The cardiac silhouette is within normal limits.\n\nIMPRESSION: Findings are consistent with multifocal pneumonia. Recommend follow-up imaging to assess for progression or complications."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "category": "Ventilator Orders",
+                        "orders": [
+                            "Mode: Assist-Control (AC)",
+                            "FiO₂: 60%",
+                            "Tidal Volume (TV): 450 mL",
+                            "Respiratory Rate (RR): 16 breaths/min",
+                            "Positive End-Expiratory Pressure (PEEP): 5 cm H₂O",
+                            "Suction ETT every 4 hours and PRN for secretions"
+                        ]
+                    },
+                    {
+                        "category": "Medication Orders",
+                        "orders": [
+                            "Ceftriaxone 1g IV every 24 hours",
+                            "Famotidine 20mg IV every 12 hours",
+                            "Albuterol 2.5mg via nebulizer every 4 hours PRN wheezing or increased PIP"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Ceftriaxone",
+                            "1 g",
+                            "IV",
+                            "Every 24 hours",
+                            "Day 1, 04:15"
+                        ],
+                        [
+                            "Famotidine",
+                            "20 mg",
+                            "IV",
+                            "Every 12 hours",
+                            "Day 1, 04:15"
+                        ],
+                        [
+                            "Albuterol",
+                            "2.5 mg",
+                            "Nebulizer",
+                            "Every 4 hours PRN",
+                            "Not administered"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Management of Care",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
-        ]
-    },
     "rationale": {
-        "correct": "Increased PIP can indicate bronchospasm, increased secretions, or decreased lung compliance (e.g., pneumothorax). A sustained increase warrants immediate investigation. SpO2 below 90% is concerning, especially with high FiO2, indicating inadequate oxygenation. Purulent secretions suggest infection, such as ventilator-associated pneumonia (VAP), requiring prompt treatment. Elevated WBC count supports this suspicion. ClinicalPearl: Always assess the patient first before adjusting ventilator settings based solely on alarms; consider the patient's clinical presentation. ClinicalPearl: Monitor trends in vital signs and ventilator parameters to identify subtle changes that may indicate developing problems and require intervention. ClinicalPearl: Elevated PIP can indicate issues with the patient (e.g., bronchospasm, secretions, pneumothorax) or the equipment (e.g., kinked tubing, obstruction). A systematic approach to troubleshooting is essential.",
-        "incorrect": "Small PIP and SpO2 fluctuations are expected, but sustained increases and significant SpO2 drops are concerning. Clear secretions are usually normal. Normal PIP range depends on lung compliance and tidal volume, but a significant increase from baseline is a red flag. Stable SpO2 above 90% on high FiO2 may be acceptable, but not with sudden decline and respiratory distress. Clear secretions are expected; purulent secretions indicate potential infection. QuestionTrap: Focusing solely on one isolated finding (e.g., the increased PIP) without considering the other clinical data (e.g., SpO2, secretions, WBC count) can lead to an incomplete assessment and delayed intervention. HowToOvercome: Consider the entire clinical picture, including the patient's history, vital signs, ventilator parameters, physical assessment findings, and lab results, to prioritize the most critical interventions and determine the underlying cause of the patient's deterioration.",
+        "correct": "The combination of a sustained PIP above 40 cm H2O, SpO2 below 90%, and new purulent secretions indicates a critical decline. High PIP suggests decreased lung compliance or increased airway resistance, risking barotrauma. Hypoxemia (SpO2 < 90%) on a high FiO2 (60%) signifies severe V/Q mismatch or shunting. Purulent secretions, along with fever and leukocytosis, are hallmark signs of ventilator-associated pneumonia (VAP). This clinical triad requires immediate provider notification for intervention.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1a",
+                "content": "Incorrect. While the client's PIP has risen to 35 cm H2O, a reporting threshold of 30 is too low. This value has already been surpassed, and setting this as the limit does not reflect the acuity or standard alarm parameters."
+            },
+            {
+                "optionId": "opt_1b",
+                "content": "Correct. A sustained peak inspiratory pressure above 40 cm H2O is a critical threshold. It indicates dangerously high pressure in the lungs, which can lead to barotrauma (e.g., pneumothorax). This finding requires immediate investigation and reporting."
+            },
+            {
+                "optionId": "opt_1c",
+                "content": "Incorrect. Waiting for the PIP to exceed 50 cm H2O is unsafe and delays intervention. Significant lung injury can occur well below this level, and action should be taken at a lower, more cautious threshold like 40 cm H2O."
+            },
+            {
+                "optionId": "opt_2a",
+                "content": "Incorrect. An SpO2 below 95% is not an immediate critical finding for a client with severe pneumonia on mechanical ventilation. While the goal is to maintain adequate oxygenation, a value of 93-94% is often acceptable in this context."
+            },
+            {
+                "optionId": "opt_2b",
+                "content": "Incorrect. An SpO2 below 92% warrants attention and intervention (like suctioning or position changes), but the universally recognized threshold for significant hypoxemia requiring immediate provider notification is typically 90%."
+            },
+            {
+                "optionId": "opt_2c",
+                "content": "Correct. An SpO2 persistently below 90% indicates hypoxemia and failure of the current ventilator settings to provide adequate oxygenation. This is a critical finding that must be reported immediately to the provider for changes in management."
+            },
+            {
+                "optionId": "opt_2d",
+                "content": "Incorrect. While an SpO2 of 85% is a severe finding, the critical reporting threshold is crossed at 90%. The nurse should report the desaturation as soon as it falls below 90%, not wait for it to decline further to 85%."
+            },
+            {
+                "optionId": "opt_3a",
+                "content": "Incorrect. The nurses' note from 07:30 indicates that thin, clear secretions were the client's baseline. A continuation of this finding would not explain the acute deterioration and is not a new, reportable sign."
+            },
+            {
+                "optionId": "opt_3b",
+                "content": "Incorrect. While blood in the secretions is abnormal and could indicate tracheal trauma from suctioning, it is less specific to the client's overall decline (fever, high WBC, hypoxemia) than purulent secretions, which strongly suggest infection."
+            },
+            {
+                "optionId": "opt_3c",
+                "content": "Correct. The development of purulent (thick, yellow/green) secretions is a key indicator of a new or worsening bacterial infection, such as ventilator-associated pneumonia (VAP). This finding, combined with the fever and high WBC, is a critical piece of data to report."
+            }
+        ],
         "clinicalPearls": [
-            "Always assess the patient first before adjusting ventilator settings based solely on alarms; consider the patient's clinical presentation.",
-            "Monitor trends in vital signs and ventilator parameters to identify subtle changes that may indicate developing problems and require intervention.",
-            "Elevated PIP can indicate issues with the patient (e.g., bronchospasm, secretions, pneumothorax) or the equipment (e.g., kinked tubing, obstruction). A systematic approach to troubleshooting is essential."
+            "High peak inspiratory pressures (PIP) can be caused by patient-related factors (bronchospasm, secretions, pneumothorax, ARDS) or ventilator-related factors (kinked tubing). Always assess the client first, starting from the client and working back to the machine.",
+            "Refractory hypoxemia (low SpO2 despite high FiO2) is a hallmark of Acute Respiratory Distress Syndrome (ARDS), a potential complication of severe pneumonia.",
+            "Ventilator-Associated Pneumonia (VAP) prevention is a key nursing responsibility and includes strict hand hygiene, oral care with chlorhexidine, and maintaining the head of the bed at 30-45 degrees."
         ],
-        "questionTrap": {
-            "trap": "Focusing solely on one isolated finding (e.g., the increased PIP) without considering the other clinical data (e.g., SpO2, secretions, WBC count) can lead to an incomplete assessment and delayed intervention.",
-            "howToOvercome": "Consider the entire clinical picture, including the patient's history, vital signs, ventilator parameters, physical assessment findings, and lab results, to prioritize the most critical interventions and determine the underlying cause of the patient's deterioration."
-        },
+        "questionTrap": "The trap is focusing on a single abnormal value instead of synthesizing the trend and combination of findings. A rising PIP alone could be a simple mucous plug, but when combined with worsening hypoxemia and signs of infection, it points to a more systemic and severe process like VAP or ARDS.",
         "mnemonic": {
-            "title": "DOPE (for Ventilator Troubleshooting)",
-            "expansion": "D - Dislodgement (of ETT), O - Obstruction (e.g., secretions, kinked tube), P - Pneumothorax, E - Equipment failure"
-        }
-    },
-    "responseOptions": {
-        "dropdown1": [
-            "30 cm H2O",
-            "40 cm H2O",
-            "50 cm H2O"
-        ],
-        "dropdown2": [
-            "95%",
-            "92%",
-            "90%",
-            "85%"
-        ],
-        "dropdown3": [
-            "thin, clear secretions",
-            "small amount of blood",
-            "purulent secretions"
+            "title": "DOPE (Ventilator Alarm Troubleshooting)",
+            "expansion": "D - Displacement (of the endotracheal tube), O - Obstruction (secretions, kinked tube), P - Pneumothorax, E - Equipment failure."
+        },
+        "reviewUnits": [
+            "Respiratory: Mechanical Ventilation",
+            "Respiratory: Acute Respiratory Distress Syndrome (ARDS)",
+            "Infection Control: Ventilator-Associated Pneumonia (VAP)"
         ]
     },
-    "correctResponse": {
-        "dropdown1": "40 cm H2O",
-        "dropdown2": "90%",
-        "dropdown3": "purulent secretions"
-    }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:55:51.376Z"
 }

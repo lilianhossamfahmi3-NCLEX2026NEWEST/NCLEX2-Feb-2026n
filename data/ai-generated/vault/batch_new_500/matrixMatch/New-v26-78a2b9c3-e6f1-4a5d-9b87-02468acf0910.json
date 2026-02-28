@@ -1,88 +1,88 @@
 {
     "id": "New-v26-78a2b9c3-e6f1-4a5d-9b87-02468acf0910",
     "type": "matrixMatch",
-    "stem": "The patient is exhibiting signs of respiratory distress. Based on the information provided in the patient's chart, indicate whether each intervention is indicated, contraindicated, or neither.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is evaluating potential interventions for a client in respiratory distress. Based on the clinical data, for each intervention below, specify if it is Indicated, Contraindicated, or Non-Essential.",
     "itemContext": {
         "patient": {
             "name": "Jameson Tyrell",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Airborne",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
-            ]
+            ],
+            "isolation": "Standard Precautions"
         },
-        "sbar": "S: Jameson Tyrell, a 68-year-old male, is on post-operative day 2 following a laparoscopic cholecystectomy. His history includes COPD. He was admitted electively but required post-operative intubation due to respiratory depression. B: Mr. Tyrell has a history of COPD and underwent elective surgery. Post-operatively, he needed intubation for respiratory depression. A: At 07:00, SpO2 is 88% on FiO2 60%, PEEP 5 cm H2O. Ventilator settings: rate 14 breaths/min, tidal volume 450 mL. ABG results: pH 7.28, PaCO2 58 mmHg, PaO2 65 mmHg, HCO3 25 mEq/L. Bilateral diminished breath sounds are noted. PIP is elevated at 35 cm H2O. The patient is agitated, attempting to remove the endotracheal tube. R: I'm concerned about respiratory acidosis, hypoxemia, and potential VILI due to elevated PIP. I request orders for immediate ventilator adjustments, including increased tidal volume and PEEP changes, along with sedation to improve oxygenation and ventilation. A bronchodilator may also be beneficial.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>pH</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>58 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>65 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>25 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>12,000/μL</td><td>4,500-11,000/μL</td></tr></tbody></table>"
+                "id": "nurses_notes",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Post-Op Day 0, 18:00",
+                        "note_type": "Admission Note",
+                        "content": "Client admitted to ICU post-laparoscopic cholecystectomy. Required intubation in PACU for respiratory depression secondary to anesthesia. History of moderate COPD. Placed on mechanical ventilation per protocol. Client is sedated on a continuous propofol infusion. Adult child was notified of transfer to ICU and plans to visit tomorrow. Client lives alone in a rural area, approximately 2 hours from the hospital, which may present a barrier for family support during recovery. Initial vital signs stable, SpO2 95% on FiO2 40%. Abdominal dressing is clean, dry, and intact. Awaiting initial post-intubation chest x-ray and ABG results. Plan is to monitor respiratory status closely, manage sedation, and begin weaning from ventilation as tolerated in the morning. VTE prophylaxis initiated."
+                    },
+                    {
+                        "timestamp": "Post-Op Day 2, 07:00",
+                        "note_type": "Progress Note (SBAR)",
+                        "content": "S: Reporting on Jameson Tyrell, 68-year-old male, post-op day 2, intubated for respiratory failure. B: History of COPD. Has been difficult to wean from ventilation. Over the last two hours, respiratory status has declined. A: At 07:00, client is agitated, triggering high-pressure alarms on the ventilator. Peak inspiratory pressure (PIP) is 35 cm H2O. SpO2 has dropped to 88% on FiO2 60% and PEEP of 5 cm H2O. Heart rate is tachycardic at 105 bpm, BP 145/90. Breath sounds are diminished bilaterally. Most recent ABG at 06:30 shows acute respiratory acidosis: pH 7.28, PaCO2 58, PaO2 65. R: Recommend immediate intervention to improve ventilation and oxygenation. Suggest obtaining a stat chest x-ray, administering an aerosolized bronchodilator, and considering increased sedation or neuromuscular blockade to improve ventilator synchrony. Respiratory therapy has been notified."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>92</td><td>130/80</td><td>14 (Vent)</td><td>92%</td><td>37.5°C</td></tr><tr><td>07:00</td><td>105</td><td>145/90</td><td>14 (Vent)</td><td>88%</td><td>37.8°C</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>HR (bpm)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>RR (/min)</th><th>SpO₂</th><th>Temp °F (°C)</th><th>PIP (cm H₂O)</th></tr></thead><tbody><tr><td>05:00</td><td>88</td><td>128/78</td><td>95</td><td>14 (Vent)</td><td>94% on 50% FiO₂</td><td>99.1 (37.3)</td><td>28</td></tr><tr><td>06:00</td><td>92</td><td>130/80</td><td>97</td><td>14 (Vent)</td><td>92% on 60% FiO₂</td><td>99.5 (37.5)</td><td>31</td></tr><tr><td>07:00</td><td>105</td><td>145/90</td><td>108</td><td>14 (Vent)</td><td>88% on 60% FiO₂</td><td>100.0 (37.8)</td><td>35</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1hr PRN pain</td></tr><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td></tr><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24hr</td></tr><tr><td>Pantoprazole</td><td>40mg</td><td>IV</td><td>q24hr</td></tr></tbody></table>"
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan=5><b>Arterial Blood Gas (06:30)</b></td></tr><tr><td>pH</td><td>7.28</td><td></td><td>7.35 - 7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>58</td><td>mmHg</td><td>35 - 45</td><td>High</td></tr><tr><td>PaO₂</td><td>65</td><td>mmHg</td><td>80 - 100</td><td>Low</td></tr><tr><td>HCO₃⁻</td><td>25</td><td>mEq/L</td><td>22 - 26</td><td>Normal</td></tr><tr><td>SaO₂</td><td>91</td><td>%</td><td>95 - 100</td><td>Low</td></tr><tr><td colspan=5><b>Complete Blood Count (06:00)</b></td></tr><tr><td>WBC</td><td>12.5</td><td>x10³/μL</td><td>4.5 - 11.0</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<table><thead><tr><th>System</th><th>Findings (07:00)</th></tr></thead><tbody><tr><td>Neurological</td><td>Agitated, attempting to pull at ETT despite propofol infusion. Richmond Agitation-Sedation Scale (RASS) +2. Pupils equal and reactive to light.</td></tr><tr><td>Respiratory</td><td>Symmetrical chest rise. Endotracheal tube secured at 22 cm at the lip. Bilateral diminished breath sounds throughout all lung fields. No wheezing or rhonchi auscultated. Use of accessory muscles noted.</td></tr><tr><td>Cardiovascular</td><td>Tachycardic S1/S2. No murmurs. Capillary refill <3 seconds. Peripheral pulses 2+ bilaterally.</td></tr></tbody></table>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<b>Type:</b> Chest X-Ray (Portable AP)<br><b>Date:</b> Post-Op Day 2 @ 07:15<br><b>Findings:</b> Endotracheal tube tip is appropriately positioned, 4 cm superior to the carina. There are diffuse, bilateral airspace opacities and evidence of basilar atelectasis. Heart size is within normal limits. No evidence of pneumothorax or significant pleural effusion.<br><b>Impression:</b> Findings are consistent with developing Acute Respiratory Distress Syndrome (ARDS)."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 0, 18:00</td><td>Mechanical Ventilation: Volume Control, Rate 14/min, Tidal Volume 450 mL, FiO₂ 60%, PEEP 5 cm H₂O</td><td>Standing</td></tr><tr><td>Day 0, 18:00</td><td>Titrate FiO₂ to maintain SpO₂ > 92%</td><td>Standing</td></tr><tr><td>Day 0, 18:00</td><td>Arterial Blood Gas (ABG) every 6 hours and 30 minutes after ventilator changes</td><td>Standing</td></tr><tr><td>Day 0, 18:00</td><td>Propofol infusion at 20 mcg/kg/min, titrate for RASS -2 to 0</td><td>Standing</td></tr><tr><td>Day 0, 18:00</td><td>Fentanyl 50 mcg IV push</td><td>q1hr PRN for pain or agitation</td></tr><tr><td>Day 0, 18:00</td><td>Albuterol 2.5 mg via nebulizer</td><td>q4hr PRN for wheezing or high PIP</td></tr><tr><td>Day 0, 18:00</td><td>Heparin 5000 units SubQ</td><td>q8hr</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td><td>N/A (Continuous)</td></tr><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1hr PRN</td><td>05:30</td></tr><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>q24hr</td><td>Day 1, 21:00</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>q24hr</td><td>Day 1, 21:00</td></tr><tr><td>Heparin</td><td>5000 units</td><td>SubQ</td><td>q8hr</td><td>06:00</td></tr><tr><td>Albuterol</td><td>2.5 mg</td><td>Nebulizer</td><td>q4hr PRN</td><td>Not yet given</td></tr></tbody></table>"
             }
         ]
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Respiratory",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
-        ]
-    },
-    "rationale": {
-        "correct": "Increasing the tidal volume will improve ventilation, decreasing PaCO2. Increasing FiO2 improves oxygenation, raising PaO2. A neuromuscular blocking agent reduces agitation and oxygen demand, aiding effective ventilation. Addressing elevated PIP with a bronchodilator is also important. ABGs, vitals, and patient presentation indicate hypoventilation and respiratory acidosis. The patient's elevated PaCO2 (58 mmHg) indicates inadequate ventilation. Increasing the tidal volume will help to eliminate CO2 more effectively. The low PaO2 (65 mmHg) indicates hypoxemia, and increasing the FiO2 will increase the fraction of inspired oxygen, thereby improving oxygenation. The elevated PIP (35 cm H2O) suggests increased airway resistance or decreased lung compliance. A bronchodilator can help to reduce airway resistance. Neuromuscular blocking agents can reduce patient agitation and improve synchrony with the ventilator.",
-        "incorrect": "Decreasing PEEP can cause alveolar collapse, worsening oxygenation. Decreasing tidal volume worsens ventilation, increasing PaCO2. Decreasing FiO2 worsens oxygenation, decreasing PaO2. Restricting fluids doesn't address respiratory issues and can cause dehydration. Decreasing PEEP could lead to alveolar collapse and worsen oxygenation. PEEP helps to keep the alveoli open at the end of expiration, and reducing it could lead to atelectasis. Decreasing the tidal volume would worsen ventilation and further increase the PaCO2 level. Restricting fluids would not address the underlying respiratory issues and could lead to dehydration.",
-        "clinicalPearls": [
-            "Monitor ABGs closely after ventilator changes.",
-            "Assess patient tolerance of ventilator settings.",
-            "Address pain and anxiety to optimize ventilation."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus solely on the low SpO2 and choose interventions that only address oxygenation, neglecting the critical importance of addressing the elevated PaCO2 and respiratory acidosis.",
-            "howToOvercome": "Emphasize assessing both oxygenation (PaO2 and SpO2) and ventilation (PaCO2) when interpreting ABGs and managing mechanically ventilated patients. Consider the overall clinical picture and prioritize interventions addressing the underlying cause of respiratory distress."
-        },
-        "mnemonic": {
-            "title": "DOPE",
-            "expansion": "Displacement, Obstruction, Pneumothorax, Equipment"
-        }
     },
     "matrixMatch": {
         "rows": [
             {
                 "id": "increaseTidalVolume",
-                "label": "Increase Tidal Volume"
+                "label": "Increase tidal volume"
             },
             {
                 "id": "increaseFiO2",
-                "label": "Increase FiO2"
+                "label": "Increase FiO₂"
             },
             {
                 "id": "administerNeuromuscularBlocker",
-                "label": "Administer Neuromuscular Blocking Agent"
+                "label": "Administer a neuromuscular blocking agent"
             },
             {
                 "id": "administerBronchodilator",
-                "label": "Administer Bronchodilator"
+                "label": "Administer an aerosolized bronchodilator"
+            },
+            {
+                "id": "increasePEEP",
+                "label": "Increase PEEP"
             }
         ],
         "columns": [
@@ -95,14 +95,14 @@
                 "label": "Contraindicated"
             },
             {
-                "id": "neither",
-                "label": "Neither"
+                "id": "nonEssential",
+                "label": "Non-Essential"
             }
         ],
         "matches": [
             {
                 "row": "increaseTidalVolume",
-                "column": "indicated"
+                "column": "contraindicated"
             },
             {
                 "row": "increaseFiO2",
@@ -115,8 +115,64 @@
             {
                 "row": "administerBronchodilator",
                 "column": "indicated"
+            },
+            {
+                "row": "increasePEEP",
+                "column": "indicated"
             }
         ]
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "rationale": {
+        "correct": "The client is experiencing acute hypoxemic respiratory failure with respiratory acidosis, consistent with developing ARDS. The priorities are to improve oxygenation without causing further lung injury (VILI) and to improve ventilator synchrony. Increasing FiO2 and PEEP directly addresses hypoxemia. Administering a bronchodilator and a neuromuscular blocker addresses high airway pressures and patient-ventilator dyssynchrony. Increasing tidal volume is contraindicated due to the already elevated PIP, which would increase the risk of barotrauma.",
+        "answerBreakdown": [
+            {
+                "optionId": "increaseTidalVolume",
+                "content": "This is Contraindicated. The client's Peak Inspiratory Pressure (PIP) is 35 cm H₂O, which is at the upper limit of safety. Increasing the tidal volume would further elevate this pressure, significantly increasing the risk of ventilator-induced lung injury (VILI), specifically barotrauma. Lung-protective ventilation strategies for ARDS prioritize low tidal volumes."
+            },
+            {
+                "optionId": "increaseFiO2",
+                "content": "This is Indicated. The client's PaO₂ is 65 mmHg and SpO₂ is 88%, indicating significant hypoxemia. Increasing the fraction of inspired oxygen (FiO₂) is a direct and necessary immediate action to improve arterial oxygen saturation and prevent tissue hypoxia."
+            },
+            {
+                "optionId": "administerNeuromuscularBlocker",
+                "content": "This is Indicated. The client is agitated (RASS +2) and fighting the ventilator, causing dyssynchrony and high-pressure alarms. This increases oxygen consumption and airway pressure. A neuromuscular blocking agent would eliminate this resistance, improve chest wall compliance, and allow for more effective mechanical ventilation."
+            },
+            {
+                "optionId": "administerBronchodilator",
+                "content": "This is Indicated. With a history of COPD and a high PIP of 35 cm H₂O, bronchospasm is a likely contributing factor to increased airway resistance. An aerosolized bronchodilator (like albuterol) can relax bronchial smooth muscle, decrease resistance, lower PIP, and improve gas exchange."
+            },
+            {
+                "optionId": "increasePEEP",
+                "content": "This is Indicated. The chest x-ray shows atelectasis and findings of ARDS. Increasing Positive End-Expiratory Pressure (PEEP) helps recruit collapsed alveoli, increases functional residual capacity, and improves V/Q matching. This is a key strategy for improving oxygenation in ARDS."
+            }
+        ],
+        "clinicalPearls": [
+            "In ARDS management, the goal is to maintain adequate oxygenation (PaO₂ 55-80 mmHg or SpO₂ 88-95%) using the lowest possible FiO₂ to avoid oxygen toxicity.",
+            "Peak Inspiratory Pressure (PIP) should be maintained <35 cm H₂O and Plateau Pressure (Pplat) <30 cm H₂O to minimize the risk of barotrauma.",
+            "Patient-ventilator dyssynchrony is a common cause of high-pressure alarms and must be addressed by treating the underlying cause (e.g., pain, anxiety, bronchospasm) before escalating to neuromuscular blockade."
+        ],
+        "questionTrap": "A common trap is to focus only on correcting the high PaCO₂ (respiratory acidosis) by increasing tidal volume. However, the nurse must prioritize safety and recognize that a high PIP is a contraindication to this action, necessitating alternative strategies like increasing respiratory rate or addressing airway resistance.",
+        "mnemonic": {
+            "title": "Ventilator Alarms: DOPE",
+            "expansion": "D - Displacement (of the ETT), O - Obstruction (secretions, bronchospasm), P - Pneumothorax, E - Equipment failure. A systematic check for these common causes is essential when a ventilated patient's status declines."
+        }
+    },
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Application",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation",
+        "topicTags": [
+            "Mechanical Ventilation",
+            "ARDS",
+            "Respiratory Failure",
+            "Critical Care"
+        ]
+    },
+    "sentinelStatus": "deep_healed_v2026",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:04:35.718Z"
 }

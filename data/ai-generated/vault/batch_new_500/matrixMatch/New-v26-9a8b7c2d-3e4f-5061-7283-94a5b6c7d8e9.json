@@ -1,52 +1,214 @@
 {
     "id": "New-v26-9a8b7c2d-3e4f-5061-7283-94a5b6c7d8e9",
     "type": "matrixMatch",
-    "stem": "The nurse is caring for a patient at imminent risk for suicide. Based on the assessment data, indicate which nursing interventions are indicated for each identified nursing diagnosis.",
+    "stem": "For each nursing diagnosis, select all appropriate nursing interventions based on the client's clinical data.",
     "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 6
+        "method": "0/1 per row",
+        "maxPoints": 3
     },
     "itemContext": {
         "patient": {
             "name": "Jordan Smith",
-            "age": 28,
-            "gender": "Male",
-            "iso": "Medical Unit",
+            "age": "28 years",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "iso": "Medical-Psychiatric Unit",
             "allergies": [
                 "NKDA"
             ]
         },
-        "sbar": "S: Jordan Smith, 28-year-old male, admitted to the medical unit at 02:00 following a suicide attempt via acetaminophen overdose, discovered by his roommate. History of major depressive disorder, non-compliant with medication. R: Recent job loss and relationship breakup exacerbated his mental state. Previous suicide attempts noted. A: At 08:00, patient expressed hopelessness and active suicidal ideation, planning to hang himself in the bathroom. Restless, pacing, tearful. Denies physical distress from overdose. Vitals stable (see Vitals tab). Continuous cardiac monitoring due to overdose. O: Immediate interventions: suicide precautions, constant direct observation, removal of harmful objects, psychiatrist notification for evaluation. Social worker consult for resource/discharge planning. Medical team aware of overdose; labs indicate no immediate medical intervention needed.",
         "tabs": [
             {
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 02:30",
+                        "author": "ED Nurse, RN",
+                        "note": "S: Client is a 28-year-old male brought to the ED by his roommate after an intentional acetaminophen overdose. Roommate found an empty bottle of extra-strength acetaminophen. Client states, 'I just wanted it to end.'\nB: History of Major Depressive Disorder, non-adherent with sertraline for the past 2 months. Significant psychosocial stressors include recent job loss and a relationship breakup. Client lives in an apartment with a roommate and reports feelings of social isolation. This is his second documented suicide attempt in 5 years.\nA: Alert and oriented x4, but affect is flat and mood is depressed. Expresses profound hopelessness. Denies current physical pain. Initial vitals are stable. N-acetylcysteine (NAC) protocol initiated per toxicology consult.\nR: Admitted to the medical-psychiatric unit for medical management of overdose and psychiatric stabilization. Placed on suicide precautions and 1:1 constant observation."
+                    },
+                    {
+                        "timestamp": "Day 1, 08:00",
+                        "author": "Unit Nurse, RN",
+                        "note": "S: Client is awake, restless, and tearful. States, 'I still wish I wasn't here. I know how I'll do it next time.'\nB: Client has not slept. Refused breakfast tray. NAC infusion is ongoing via peripheral IV in the right forearm.\nA: Client is expressing active suicidal ideation with a specific plan (hanging). Pacing in the room. Appears anxious, with notable hand-wringing and increased respiratory rate. Vitals show increasing tachycardia and tachypnea. No signs of acute hepatotoxicity at this time.\nR: Maintained 1:1 constant observation. Removed all potential ligatures (e.g., shoelaces, hoodie strings). Notified psychiatrist of escalating suicidal ideation and acute anxiety. Recommended PRN anxiolytic medication. Continue to monitor vitals and labs closely."
+                    }
+                ]
+            },
+            {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "08:00: BP: 130/80 mmHg, HR: 98 bpm, RR: 22, SpO2: 98% on room air, Temp: 98.8°F (37.1°C)"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "02:30",
+                        "HR": "98",
+                        "BP": "130/80 (97)",
+                        "RR": "20",
+                        "SpO2": "98% on RA",
+                        "Temp": "98.8°F (37.1°C)"
+                    },
+                    {
+                        "Time": "08:00",
+                        "HR": "110",
+                        "BP": "138/84 (102)",
+                        "RR": "24",
+                        "SpO2": "97% on RA",
+                        "Temp": "98.9°F (37.2°C)"
+                    },
+                    {
+                        "Time": "09:00",
+                        "HR": "114",
+                        "BP": "140/88 (105)",
+                        "RR": "26",
+                        "SpO2": "96% on RA",
+                        "Temp": "99.0°F (37.2°C)"
+                    }
+                ]
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "Acetaminophen Level (03:00): 25 mcg/mL (Therapeutic range: 10-20 mcg/mL), AST: 35 U/L, ALT: 40 U/L"
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Panel": "Toxicology",
+                        "Result": "Acetaminophen",
+                        "Value": "160",
+                        "Unit": "mcg/mL",
+                        "Reference": "10-30",
+                        "Status": "High"
+                    },
+                    {
+                        "Panel": "Liver Function",
+                        "Result": "Aspartate Aminotransferase (AST)",
+                        "Value": "55",
+                        "Unit": "U/L",
+                        "Reference": "10-40",
+                        "Status": "High"
+                    },
+                    {
+                        "Panel": "Liver Function",
+                        "Result": "Alanine Aminotransferase (ALT)",
+                        "Value": "62",
+                        "Unit": "U/L",
+                        "Reference": "7-56",
+                        "Status": "High"
+                    },
+                    {
+                        "Panel": "Liver Function",
+                        "Result": "Total Bilirubin",
+                        "Value": "0.8",
+                        "Unit": "mg/dL",
+                        "Reference": "0.1-1.2",
+                        "Status": ""
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Acetaminophen 325mg PO PRN for pain. Last dose given: N/A"
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological/Psychiatric",
+                        "Findings": "Alert and oriented x4. Affect is congruent with mood: depressed, tearful. Expresses active suicidal ideation with a specific, lethal plan. Thought process is logical but content is dominated by themes of hopelessness and worthlessness. Judgment and insight are impaired. Cooperative with assessment but maintains poor eye contact."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Tachycardia noted on monitor and palpation. S1, S2 audible. No murmurs, rubs, or gallops. Capillary refill <3 seconds."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Tachypneic. Lungs clear to auscultation bilaterally. No wheezes, rales, or rhonchi."
+                    },
+                    {
+                        "System": "Gastrointestinal",
+                        "Findings": "Abdomen soft, non-tender, non-distended. Bowel sounds normoactive in all four quadrants. Denies nausea or vomiting."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "Procedure": "CT Head without contrast",
+                        "Date": "Day 1, 03:00",
+                        "Impression": "No evidence of acute intracranial hemorrhage, mass effect, or territorial infarct. Ventricles and sulci are normal for age. No acute findings."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan (Orders)",
+                "content": [
+                    {
+                        "Date/Time": "Day 1, 02:45",
+                        "Action": "Admit to Medical-Psychiatric Unit",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Day 1, 02:45",
+                        "Action": "Suicide Precautions: Constant 1:1 observation",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Day 1, 02:45",
+                        "Action": "N-acetylcysteine (NAC) IV Protocol for Acetaminophen Toxicity",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Day 1, 02:45",
+                        "Action": "Consult Psychiatry for evaluation",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Day 1, 02:45",
+                        "Action": "Lorazepam 1 mg IV PRN every 4 hours for severe anxiety/agitation",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Day 1, 02:45",
+                        "Action": "Regular diet, encourage fluids",
+                        "Status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "N-acetylcysteine Infusion",
+                        "Dose": "Per Protocol",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last Administered": "Day 1, 02:50 (Ongoing)"
+                    },
+                    {
+                        "Medication": "Lorazepam",
+                        "Dose": "1 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN q4h",
+                        "Last Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Sertraline",
+                        "Dose": "50 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Held"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "apply",
+        "cjmmStep": "generateSolutions",
         "nclexCategory": "Psychological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Mental Health: Suicide Risk & Crisis Management"
+            "Mental Health: Suicide Risk & Crisis Management",
+            "Safety",
+            "Pharmacology"
         ]
     },
     "stemObject": {
@@ -56,45 +218,59 @@
             "Ineffective Coping"
         ],
         "columns": [
-            "Remove potentially harmful objects from the patient's environment.",
+            "Remove potentially harmful objects from the client's environment.",
             "Administer prescribed anti-anxiety medication.",
-            "Encourage the patient to express feelings and concerns.",
-            "Maintain continuous observation of the patient.",
-            "Teach the patient relaxation techniques.",
-            "Assist the patient in identifying coping mechanisms."
+            "Encourage the client to express feelings and concerns.",
+            "Maintain continuous observation of the client.",
+            "Teach the client relaxation techniques.",
+            "Assist the client in identifying coping mechanisms."
         ]
     },
     "response": {
         "matrix": {
             "Risk for Suicide": [
-                "Remove potentially harmful objects from the patient's environment.",
-                "Maintain continuous observation of the patient."
+                "Remove potentially harmful objects from the client's environment.",
+                "Maintain continuous observation of the client."
             ],
             "Anxiety": [
                 "Administer prescribed anti-anxiety medication.",
-                "Teach the patient relaxation techniques."
+                "Teach the client relaxation techniques."
             ],
             "Ineffective Coping": [
-                "Encourage the patient to express feelings and concerns.",
-                "Assist the patient in identifying coping mechanisms."
+                "Encourage the client to express feelings and concerns.",
+                "Assist the client in identifying coping mechanisms."
             ]
         }
     },
     "rationale": {
-        "correct": "For Risk for Suicide, removing potentially harmful objects and maintaining continuous observation are crucial for patient safety and preventing self-harm. These actions directly mitigate the immediate threat. For Anxiety, administering prescribed anti-anxiety medication (as ordered) alleviates physiological and psychological symptoms. Teaching relaxation techniques empowers the patient to manage anxiety independently. For Ineffective Coping, encouraging expression of feelings validates the patient's experience and explores underlying issues. Assisting with identifying coping mechanisms fosters healthier emotional regulation and problem-solving, promoting long-term resilience.",
-        "incorrect": "Incorrect selections do not directly address immediate safety concerns or the underlying psychological distress. For example, encouraging expression of feelings is valuable but not the primary intervention for imminent suicide risk. Similarly, assisting with coping mechanisms is beneficial long-term but doesn't address immediate anxiety or suicidal ideation. Prioritizing immediate relief and safety is paramount.",
+        "correct": "This client presents an imminent risk of self-harm, requiring a multi-faceted nursing approach that prioritizes immediate safety while addressing underlying psychological distress. Interventions must be correctly matched to the specific nursing diagnosis to be effective. Safety measures are paramount for 'Risk for Suicide,' while a combination of pharmacological and non-pharmacological strategies is best for 'Anxiety.' Therapeutic communication and skill-building are essential for 'Ineffective Coping.'",
+        "answerBreakdown": [
+            {
+                "row": "Risk for Suicide",
+                "explanation": "Correct: The highest priority is client safety. Removing harmful objects (environmental control) and maintaining continuous 1:1 observation directly prevent the client from acting on suicidal ideations. These actions interrupt the pathway from thought to lethal action. Incorrect: While other interventions are therapeutic, they do not provide the immediate, hard physical safety required for a client with an active, lethal plan. For example, teaching relaxation does not stop a determined client from self-harm."
+            },
+            {
+                "row": "Anxiety",
+                "explanation": "Correct: The client's tachycardia, tachypnea, and restlessness are physiological manifestations of severe anxiety. Administering a prescribed anxiolytic (Lorazepam) provides rapid relief. Teaching relaxation techniques (e.g., deep breathing) is a non-pharmacological intervention that empowers the client with a self-management skill. Incorrect: While continuous observation is in place for suicide risk, it does not directly treat the physiological symptoms of anxiety. Identifying coping mechanisms is a higher-level cognitive process that is difficult for a client in a state of acute anxiety to engage in."
+            },
+            {
+                "row": "Ineffective Coping",
+                "explanation": "Correct: This diagnosis addresses the client's underlying inability to manage psychosocial stressors, which led to the suicide attempt. Encouraging the expression of feelings (therapeutic communication) helps the client process emotions and reduces feelings of isolation. Assisting in identifying new, healthier coping mechanisms is a foundational step in building resilience and preventing future crises. Incorrect: Administering medication addresses acute symptoms (anxiety) but not the root coping deficit. Removing harmful objects is a safety measure for suicide risk, not a therapeutic intervention for coping."
+            }
+        ],
         "clinicalPearls": [
-            "Imminent suicide risk necessitates immediate safety measures: hazard removal and continuous observation.",
-            "Anxiety exacerbates suicidal ideation; addressing anxiety with medication and coping strategies is crucial.",
-            "Effective coping strategies are essential for long-term mental health and preventing future crises. Empowering the patient promotes self-efficacy and hope."
+            "For clients with active suicidal ideation and a plan, safety interventions (like 1:1 observation and environmental control) always supersede psychosocial or teaching interventions.",
+            "Anxiety and suicidal ideation are often linked. Effectively treating the client's anxiety can decrease the intensity of suicidal urges.",
+            "The nursing care plan for a suicidal client must address both immediate safety and the long-term skills (like coping mechanisms) needed to manage underlying mental health conditions.",
+            "Always check the MAR and Orders to confirm what interventions are available. An option to 'Administer prescribed medication' is only valid if a corresponding PRN or scheduled order exists."
         ],
         "questionTrap": {
-            "trap": "Selecting interventions generally helpful in mental health but not specifically targeted to the immediate risk or specific symptoms.",
-            "howToOvercome": "Prioritize interventions based on the immediacy of the threat and specific symptoms. Consider the patient's current state and select actions providing immediate relief, safety, and therapeutic benefit. Differentiate between long-term management interventions and crucial crisis interventions."
+            "trap": "Failing to differentiate between immediate safety priorities and long-term therapeutic goals. All options are 'good' nursing actions, but they must be matched to the correct, most urgent problem.",
+            "howToOvercome": "Use a 'safety first' hierarchy. For a diagnosis like 'Risk for Suicide,' scan for the options that physically prevent harm. Then, for diagnoses like 'Anxiety' or 'Ineffective Coping,' consider interventions that address those specific problems."
         },
         "mnemonic": {
-            "title": "IS PATH WARM",
-            "expansion": "Ideation, Substance abuse, Purposelessness, Anxiety, Trapped, Hopelessness, Withdrawal, Anger, Recklessness, Mood change"
+            "title": "SAD PERSONS Scale",
+            "expansion": "Sex (Male), Age (<19 or >45), Depression, Previous attempt, Ethanol/drug use, Rational thinking loss, Social supports lacking, Organized plan, No spouse, Sickness. A score is calculated to assess suicide risk."
         }
     },
     "sentinelStatus": "deep_healed_v2026"

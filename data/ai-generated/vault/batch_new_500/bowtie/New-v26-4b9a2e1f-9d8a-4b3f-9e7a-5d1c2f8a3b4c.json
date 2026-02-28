@@ -1,168 +1,365 @@
 {
     "id": "New-v26-4b9a2e1f-9d8a-4b3f-9e7a-5d1c2f8a3b4c",
     "type": "bowtie",
-    "stem": "A 6-month-old infant, diagnosed with Tetralogy of Fallot, is admitted to the pediatric unit. The infant is cyanotic and irritable, with a respiratory rate of 60 and oxygen saturation of 78%. The mother reports the infant had a crying episode prior to admission. Based on the information provided, determine the priority actions the nurse should take.",
-    "scoring": {
-        "method": "linked",
-        "maxPoints": 5
+    "stem": "The nurse is caring for a 6-month-old infant with Tetralogy of Fallot experiencing a hypercyanotic spell. Based on the clinical data, complete the bowtie to identify the priority condition, necessary actions, and parameters to monitor.",
+    "actionsToTake": [
+        {
+            "id": "a1",
+            "text": "Place infant in knee-chest position"
+        },
+        {
+            "id": "a2",
+            "text": "Administer morphine sulfate IV"
+        },
+        {
+            "id": "a3",
+            "text": "Prepare for immediate surgical correction"
+        },
+        {
+            "id": "a4",
+            "text": "Administer a diuretic"
+        },
+        {
+            "id": "a5",
+            "text": "Initiate chest compressions"
+        }
+    ],
+    "potentialConditions": [
+        {
+            "id": "pc1",
+            "text": "Hypercyanotic \"Tet\" Spell"
+        },
+        {
+            "id": "pc2",
+            "text": "Septic Shock"
+        },
+        {
+            "id": "pc3",
+            "text": "Acute Respiratory Distress Syndrome"
+        },
+        {
+            "id": "pc4",
+            "text": "Congestive Heart Failure"
+        },
+        {
+            "id": "pc5",
+            "text": "Methemoglobinemia"
+        }
+    ],
+    "parametersToMonitor": [
+        {
+            "id": "p1",
+            "text": "Oxygen saturation"
+        },
+        {
+            "id": "p2",
+            "text": "Systemic vascular resistance"
+        },
+        {
+            "id": "p3",
+            "text": "Urine output"
+        },
+        {
+            "id": "p4",
+            "text": "Core body temperature"
+        },
+        {
+            "id": "p5",
+            "text": "Blood glucose level"
+        }
+    ],
+    "correctResponse": {
+        "conditionId": "pc1",
+        "actionIds": [
+            "a1",
+            "a2"
+        ],
+        "parameterIds": [
+            "p1",
+            "p2"
+        ]
     },
     "itemContext": {
         "patient": {
-            "name": "Oliver Thompson",
-            "age": 6,
-            "gender": "Male",
-            "iso": "PICU",
-            "allergies": []
+            "age": "6 months",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "No Known Allergies"
+            ]
         },
-        "sbar": "S: Oliver Thompson, 6-month-old male, diagnosed with Tetralogy of Fallot, admitted at 14:00. Mother reports increased cyanosis and irritability after a crying episode. O2 sat 78% on room air. Respiratory rate 60, HR 180, Temp 37.5°C. Weight 7 kg.\nB: Diagnosed with Tetralogy of Fallot at 2 months. No other significant medical history. Mother is anxious and concerned about \"blue spells.\"\nA: Infant is experiencing a hypercyanotic spell (Tet spell). Respiratory distress is evident. Interventions: knee-chest position, oxygen via face mask. Vitals monitored closely. Labs show elevated Hgb/Hct.\nR: Request immediate evaluation by pediatric cardiologist and respiratory therapy. Prepare morphine sulfate 0.1mg/kg IV and propranolol 0.01mg/kg IV per protocol. Consider fluid bolus if indicated by assessment. Anticipate repeat lab draws.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Hgb</td><td>18 g/dL</td><td>11-14 g/dL</td></tr><tr><td>Hct</td><td>54%</td><td>33-42%</td></tr><tr><td>WBC</td><td>10,000/mm3</td><td>5,000-10,000/mm3</td></tr><tr><td>Na</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>K</td><td>4.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Glucose</td><td>90 mg/dL</td><td>70-110 mg/dL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "header": "Admission Note",
+                        "body": "S: This is a 6-month-old male with a known history of Tetralogy of Fallot (TOF), admitted from home for increasing episodes of cyanosis. The mother reports the infant becomes dusky and irritable after crying, which has worsened over the past 24 hours.\nB: Diagnosed with TOF at 2 months. The family lives in a rural area, approximately 3 hours from the nearest pediatric cardiology center, which has created barriers to consistent specialist follow-up. Mother is the primary caregiver and expresses significant anxiety about managing his condition at home.\nA: On arrival, the infant is irritable, tachypneic at 45 breaths/min, with visible central and perioral cyanosis. SpO₂ is 85% on room air. A loud, harsh systolic murmur is audible. Weight 7 kg.\nR: Admit to the pediatric intensive care unit for continuous cardiorespiratory monitoring. Maintain IV access. Consult pediatric cardiology STAT. Provide parental support and education on hypercyanotic spells."
+                    },
+                    {
+                        "timestamp": "Day 1, 14:15",
+                        "header": "Progress Note",
+                        "body": "S: Infant experienced an acute decompensation during assessment.\nB: Following a bout of crying, the infant became markedly cyanotic, limp, and agitated.\nA: SpO₂ dropped to 78% on room air. Respiratory rate increased to 60/min with significant retractions. Heart rate is 180/min. The clinical presentation is consistent with a severe hypercyanotic 'Tet' spell.\nR: Initiated Tet spell protocol. Placed infant in a knee-chest position and applied oxygen via non-rebreather mask. Notified pediatric cardiologist and respiratory therapist to come to the bedside immediately. Preparing PRN medications."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Status</th></tr></thead><tbody><tr><td>Oxygen</td><td>As Needed</td><td>Face Mask</td><td>PRN</td><td>Active</td></tr><tr><td>Morphine Sulfate</td><td>0.7 mg</td><td>IV</td><td>PRN for Tet Spell</td><td>Pending Order</td></tr><tr><td>Propranolol</td><td>0.07 mg</td><td>IV</td><td>PRN for Tet Spell</td><td>Pending Order</td></tr><tr><td>Normal Saline</td><td>20 mL/kg</td><td>IV</td><td>PRN for dehydration</td><td>Standing Order</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "RR (breaths/min)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "SpO₂ (%)",
+                        "Temp °F (°C)"
+                    ],
+                    "rows": [
+                        [
+                            "14:00",
+                            "150",
+                            "45",
+                            "88/55",
+                            "66",
+                            "85% on Room Air",
+                            "99.5 (37.5)"
+                        ],
+                        [
+                            "14:15",
+                            "180",
+                            "60",
+                            "90/60",
+                            "70",
+                            "78% on Room Air",
+                            "99.5 (37.5)"
+                        ],
+                        [
+                            "14:30",
+                            "160",
+                            "50",
+                            "92/58",
+                            "69",
+                            "88% on 10L NRB",
+                            "99.5 (37.5)"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>Value</th></tr></thead><tbody><tr><td>Heart Rate</td><td>180 bpm</td></tr><tr><td>Respiratory Rate</td><td>60 bpm</td></tr><tr><td>Oxygen Saturation</td><td>78%</td></tr><tr><td>Temperature</td><td>37.5°C</td></tr><tr><td>Blood Pressure</td><td>90/60 mmHg</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Hemoglobin (Hgb)",
+                            "18.0",
+                            "g/dL",
+                            "10.5-13.5",
+                            "High"
+                        ],
+                        [
+                            "Hematocrit (Hct)",
+                            "54",
+                            "%",
+                            "31-39",
+                            "High"
+                        ],
+                        [
+                            "WBC Count",
+                            "9.5",
+                            "x 10³/μL",
+                            "6.0-17.5",
+                            ""
+                        ],
+                        [
+                            "Sodium (Na)",
+                            "138",
+                            "mEq/L",
+                            "135-145",
+                            ""
+                        ],
+                        [
+                            "Potassium (K)",
+                            "4.2",
+                            "mEq/L",
+                            "3.5-5.1",
+                            ""
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "General",
+                        "findings": "Irritable, cries with stimulation. Becomes calm when held."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardic. Loud, harsh systolic ejection murmur at the left upper sternal border. 2+ peripheral pulses. Capillary refill 3 seconds."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Tachypneic with subcostal retractions. Lungs clear to auscultation bilaterally."
+                    },
+                    {
+                        "system": "Integumentary",
+                        "findings": "Central and perioral cyanosis present. Distinct clubbing of fingers and toes noted."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "type": "Chest X-ray",
+                        "timestamp": "Day 1, 14:10",
+                        "report": "FINDINGS: The cardiac silhouette is enlarged and demonstrates a characteristic 'boot-shaped' appearance (coeur en sabot), secondary to right ventricular hypertrophy and an upturned cardiac apex. Pulmonary vascular markings appear decreased throughout both lung fields.\n\nIMPRESSION: Radiographic findings are highly consistent with the known diagnosis of Tetralogy of Fallot."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 14:05",
+                            "Continuous cardiac and pulse oximetry monitoring",
+                            "Active"
+                        ],
+                        [
+                            "Day 1, 14:05",
+                            "Strict Intake and Output",
+                            "Active"
+                        ],
+                        [
+                            "Day 1, 14:05",
+                            "Oxygen therapy to maintain SpO₂ > 85%",
+                            "PRN"
+                        ],
+                        [
+                            "Day 1, 14:05",
+                            "Morphine Sulfate 0.1 mg/kg IV for hypercyanotic spell",
+                            "PRN, Stat"
+                        ],
+                        [
+                            "Day 1, 14:05",
+                            "Propranolol 0.01 mg/kg IV for hypercyanotic spell",
+                            "PRN, Stat"
+                        ],
+                        [
+                            "Day 1, 14:05",
+                            "Pediatric Cardiology consult",
+                            "Stat"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Morphine Sulfate",
+                            "0.7 mg",
+                            "IV",
+                            "PRN for hypercyanotic spell",
+                            "N/A"
+                        ],
+                        [
+                            "Propranolol",
+                            "0.07 mg",
+                            "IV",
+                            "PRN for hypercyanotic spell",
+                            "N/A"
+                        ],
+                        [
+                            "Normal Saline",
+                            "10 mL/hr",
+                            "IV",
+                            "Continuous",
+                            "14:05"
+                        ]
+                    ]
+                }
             }
-        ]
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Pediatric: Congenital Heart Defects & Safety"
         ]
     },
     "rationale": {
-        "correct": "The infant is experiencing a hypercyanotic spell (Tet spell), a common complication of Tetralogy of Fallot. The priority is to reduce the infant's oxygen demand and increase systemic vascular resistance to shunt blood back to the lungs. Placing the infant in a knee-chest position decreases venous return from the legs, increasing systemic vascular resistance. Administering oxygen can help improve oxygen saturation, although it may not be fully effective due to the right-to-left shunting. Calming the infant reduces oxygen consumption. Morphine can help to decrease pulmonary vascular resistance, promoting pulmonary blood flow. Propranolol is a beta-blocker that can decrease heart rate and contractility, further reducing oxygen demand. A fluid bolus may be necessary if dehydration is present, as polycythemia increases the risk of stroke.",
-        "incorrect": "Monitoring the infant's temperature is important for overall assessment but is not the immediate priority during a Tet spell. Preparing the parents for potential surgery is a longer-term consideration; immediate stabilization is key. Documenting the event is essential but follows the immediate interventions. Decreasing blood volume would worsen the hypercyanotic spell.",
+        "correct": "The infant's presentation of acute, severe cyanosis and irritability following a crying episode is classic for a hypercyanotic or 'Tet' spell in Tetralogy of Fallot. This is a medical emergency caused by a sudden spasm of the right ventricular outflow tract, which drastically reduces pulmonary blood flow and causes a massive right-to-left shunt of deoxygenated blood into the systemic circulation. Immediate interventions must aim to reverse this pathophysiology by increasing systemic vascular resistance (SVR) and decreasing pulmonary vascular resistance. The knee-chest position increases SVR, while morphine provides sedation to reduce oxygen demand and relax the infundibular spasm. Monitoring oxygen saturation and SVR (via BP and perfusion) are critical to evaluate the effectiveness of these interventions.",
+        "answerBreakdown": [
+            {
+                "optionId": "pc1",
+                "content": "Correct. A hypercyanotic spell is the central condition. The infant has a known history of TOF and is exhibiting the hallmark signs (acute cyanosis, tachypnea, irritability) precipitated by crying, which decreases SVR."
+            },
+            {
+                "optionId": "a1",
+                "content": "Correct. Placing the infant in a knee-chest position is a primary, non-pharmacological intervention. This position increases systemic vascular resistance by 'kinking' the femoral arteries, which makes it harder for blood to enter the aorta and preferentially shunts deoxygenated blood into the pulmonary artery, improving oxygenation."
+            },
+            {
+                "optionId": "a2",
+                "content": "Correct. Morphine sulfate is a key medication. Its primary benefits are sedation, which calms the infant and reduces oxygen consumption, and its effect on relaxing the smooth muscle of the right ventricular infundibulum, which alleviates the spasm and improves blood flow to the lungs."
+            },
+            {
+                "optionId": "p1",
+                "content": "Correct. Oxygen saturation is the most direct and immediate parameter to monitor the effectiveness of interventions. A rising SpO₂ indicates improved pulmonary blood flow and successful management of the spell."
+            },
+            {
+                "optionId": "p2",
+                "content": "Correct. Systemic vascular resistance is the key physiological parameter being manipulated by the knee-chest position. While not measured directly, it is assessed through blood pressure and peripheral perfusion. Monitoring the response is crucial to understanding if the primary intervention is working."
+            }
+        ],
         "clinicalPearls": [
-            "Tet spells are characterized by sudden marked cyanosis, hyperpnea, and irritability.",
-            "Knee-chest position is a crucial initial intervention for Tet spells.",
-            "Morphine and propranolol are commonly used medications to manage Tet spells.",
-            "Polycythemia is common in Tetralogy of Fallot due to chronic hypoxemia, increasing the risk of hyperviscosity and stroke."
+            "Tetralogy of Fallot consists of four defects: Pulmonary stenosis, Right ventricular hypertrophy, Overriding aorta, and a Ventricular septal defect (PROVe).",
+            "Hypercyanotic spells are often precipitated by events that decrease systemic vascular resistance or increase pulmonary vascular resistance, such as crying, defecation, fever, or dehydration.",
+            "Chronic hypoxemia in TOF stimulates erythropoiesis, leading to polycythemia (elevated Hgb/Hct). This increases blood viscosity and places the infant at high risk for thromboembolic events, like a stroke."
         ],
-        "questionTrap": {
-            "trap": "The question trap is focusing solely on oxygen saturation without considering the underlying pathophysiology of Tetralogy of Fallot and the need to reduce oxygen demand and increase systemic vascular resistance.",
-            "howToOvercome": "Focus on the underlying problem (Tet spell) and the interventions that address the pathophysiology: reducing oxygen demand, increasing systemic vascular resistance, and promoting pulmonary blood flow. Consider the impact of polycythemia."
-        },
-        "mnemonic": {
-            "title": "TET Spell Management",
-            "expansion": "Knee-Chest Position (KCP): Decreases venous return. Oxygen (O2): Increase available oxygen. Morphine (M): Decreases pulmonary vascular resistance. Propranolol (P): Decrease heart rate and contractility. Fluids (F): Increase blood volume, especially important due to polycythemia."
-        }
-    },
-    "mapping": {
-        "etiology": [
-            {
-                "option": "Increased oxygen demand",
-                "target": "actions",
-                "mappings": [
-                    "Place the infant in a knee-chest position",
-                    "Administer oxygen via face mask",
-                    "Calm the infant",
-                    "Administer morphine sulfate",
-                    "Administer propranolol"
-                ]
-            },
-            {
-                "option": "Increased venous return",
-                "target": "actions",
-                "mappings": [
-                    "Place the infant in a knee-chest position"
-                ]
-            }
-        ],
-        "actions": [
-            {
-                "option": "Place the infant in a knee-chest position",
-                "target": "findings",
-                "mappings": [
-                    "Increased systemic vascular resistance"
-                ]
-            },
-            {
-                "option": "Administer oxygen via face mask",
-                "target": "findings",
-                "mappings": [
-                    "Increased oxygen saturation"
-                ]
-            },
-            {
-                "option": "Calm the infant",
-                "target": "findings",
-                "mappings": [
-                    "Decreased irritability",
-                    "Decreased respiratory rate"
-                ]
-            },
-            {
-                "option": "Administer morphine sulfate",
-                "target": "findings",
-                "mappings": [
-                    "Decreased respiratory rate",
-                    "Decreased irritability"
-                ]
-            },
-            {
-                "option": "Administer propranolol",
-                "target": "findings",
-                "mappings": [
-                    "Decreased heart rate"
-                ]
-            }
+        "questionTrap": "The primary trap is focusing solely on administering oxygen without addressing the underlying shunt pathophysiology. While oxygen is necessary, it is less effective if blood is not flowing to the lungs. The priority is to implement measures like the knee-chest position that mechanically alter circulation to improve pulmonary blood flow.",
+        "mnemonic": "For Tet Spell Management, remember 'KNEE-O-MORPH':\n- KNEE-chest position: Increases Systemic Vascular Resistance (SVR).\n- Oxygen: Improves saturation of any blood that reaches the lungs.\n- MORPHine: Calms the infant and relaxes the infundibular spasm.",
+        "reviewUnits": [
+            "Pediatric Nursing",
+            "Cardiovascular Disorders",
+            "Pharmacology"
         ]
     },
+    "scoring": {
+        "method": "triad",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Prioritize Hypotheses",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
     "sentinelStatus": "deep_healed_v2026",
-    "actions": [
-        {
-            "id": "a1",
-            "text": "Place the infant in a knee-chest position"
-        },
-        {
-            "id": "a2",
-            "text": "Administer oxygen via face mask"
-        },
-        {
-            "id": "a3",
-            "text": "Monitor the infant's temperature"
-        },
-        {
-            "id": "a4",
-            "text": "Prepare the parents for potential surgery"
-        },
-        {
-            "id": "a5",
-            "text": "Administer a fluid bolus"
-        },
-        {
-            "id": "a6",
-            "text": "Calm the infant"
-        },
-        {
-            "id": "a7",
-            "text": "Administer morphine sulfate"
-        },
-        {
-            "id": "a8",
-            "text": "Administer propranolol"
-        },
-        {
-            "id": "a9",
-            "text": "Document the event"
-        }
-    ]
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:15:09.553Z"
 }

@@ -1,130 +1,336 @@
 {
     "id": "New-v26-e9b7a3c1-5f82-4d6a-9e14-76a922b8c0d5",
     "type": "bowtie",
-    "stem": "A 78-year-old male patient, Mr. Jones, is admitted to the ICU with suspected sepsis. Based on the assessment data, prioritize the interventions to address the patient's immediate needs.",
-    "scoring": {
-        "method": "linkage",
-        "maxPoints": 6
+    "stem": "The nurse is caring for a client in the intensive care unit. Based on the provided clinical data, drag the options below to complete the diagram, identifying potential causes, the primary condition, and essential nursing actions.",
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "Administer 30 mL/kg crystalloid fluid bolus"
+        },
+        {
+            "id": "opt_2",
+            "text": "Monitor serum lactate levels"
+        },
+        {
+            "id": "opt_3",
+            "text": "Untreated Urinary Tract Infection"
+        },
+        {
+            "id": "opt_4",
+            "text": "Immunosenescence"
+        },
+        {
+            "id": "opt_5",
+            "text": "Septic Shock"
+        },
+        {
+            "id": "opt_6",
+            "text": "Chronic Hypertension"
+        },
+        {
+            "id": "opt_7",
+            "text": "Administer furosemide 40 mg IV push"
+        },
+        {
+            "id": "opt_8",
+            "text": "Prepare for immediate intubation"
+        }
+    ],
+    "correctResponse": {
+        "actions": [
+            "opt_1",
+            "opt_2"
+        ],
+        "condition": "opt_5",
+        "causes": [
+            "opt_3",
+            "opt_4"
+        ]
     },
     "itemContext": {
         "patient": {
-            "name": "Mr. Jones",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact Precautions",
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Mr. Jones, a 78-year-old male, was admitted from the Emergency Department at 03:00 with altered mental status and suspected sepsis. His blood pressure is 90/50 mmHg, heart rate 120 bpm, respiratory rate 28, and temperature 102.5°F (39.2°C). Oxygen saturation is 90% on room air. He has a recent history of a urinary tract infection treated with amoxicillin.\nB: The patient resides in a long-term care facility and has a medical history of hypertension and type 2 diabetes mellitus. He also has a history of MRSA colonization.\nA: The patient is lethargic and only responds to painful stimuli. Lab results show an elevated WBC count (18,000/µL), elevated lactate level (4.0 mmol/L), creatinine 2.1 mg/dL, and BUN 35 mg/dL. Urine culture is pending. Assessment reveals diffuse crackles in both lungs. A central line was placed at 04:00.\nR: I anticipate orders for broad-spectrum antibiotics, aggressive fluid resuscitation, and vasopressors if needed. I will closely monitor vital signs, reassess the patient frequently, and monitor cardiac rhythm continuously. Strict monitoring of intake and output is also required.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/µL\nLactate: 4.0 mmol/L\nCreatinine: 2.1 mg/dL\nBUN: 35 mg/dL\nBlood Cultures: Pending\nUrine Culture: Pending\nProcalcitonin: 3.5 ng/mL\nPlatelets: 140,000/uL"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 03:00",
+                        "text": "S: Client is a 78-year-old male admitted from a long-term care facility with an acute change in mental status. He is minimally responsive.\nB: History of hypertension, type 2 diabetes mellitus, and a recent urinary tract infection treated with ciprofloxacin. Known penicillin allergy. The long-term care facility reports recent staffing shortages, which may have delayed recognition of his symptoms. He has a history of MRSA colonization.\nA: On arrival, client is lethargic, responding only to painful stimuli. Vital signs show significant instability: BP 90/50 mmHg, HR 120/min, RR 28/min, Temp 102.5°F (39.2°C), SpO₂ 90% on room air. Skin is flushed and warm. Labs drawn in the ED show leukocytosis and elevated lactate, suggesting severe infection and tissue hypoperfusion.\nR: Recommend immediate initiation of sepsis protocol, including central line placement for fluid resuscitation and vasopressor administration. Need to obtain blood cultures and start broad-spectrum antibiotics promptly."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 04:30",
+                        "text": "S: Client's hemodynamic status remains unstable despite initial interventions.\nB: A triple-lumen central venous catheter was successfully placed in the right internal jugular vein at 04:00. Oxygen initiated via nasal cannula.\nA: Client remains lethargic. Current vitals: BP 88/48 mmHg, HR 125/min, RR 30/min, SpO₂ 92% on 2L NC. Physical assessment reveals diffuse crackles in bilateral lung bases. Skin is now cool and clammy with a capillary refill of 4 seconds. Urine output via new indwelling catheter is minimal. The combination of persistent hypotension, tachycardia, and signs of poor perfusion indicates worsening shock.\nR: Recommend immediate administration of a 30 mL/kg crystalloid fluid bolus. Continue to monitor vital signs and MAP every 15 minutes. Prepare for norepinephrine infusion if MAP remains below 65 mmHg after fluid challenge. Re-check lactate level in 2 hours."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "03:00: BP 90/50 mmHg, HR 120 bpm, RR 28, Temp 102.5°F (39.2°C), SpO2 90% RA\n03:30: BP 92/52 mmHg, HR 118 bpm, RR 26, Temp 102.3°F (39.1°C), SpO2 91% RA\n04:00: BP 88/48 mmHg, HR 125 bpm, RR 30, Temp 102.7°F (39.3°C), SpO2 92% on 2L NC"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp",
+                        "HR",
+                        "RR",
+                        "BP",
+                        "MAP",
+                        "SpO₂"
+                    ],
+                    "rows": [
+                        [
+                            "03:00",
+                            "102.5°F (39.2°C)",
+                            "120",
+                            "28",
+                            "90/50 mmHg",
+                            "63",
+                            "90% on RA"
+                        ],
+                        [
+                            "03:30",
+                            "102.3°F (39.1°C)",
+                            "118",
+                            "26",
+                            "92/52 mmHg",
+                            "65",
+                            "91% on RA"
+                        ],
+                        [
+                            "04:30",
+                            "102.7°F (39.3°C)",
+                            "125",
+                            "30",
+                            "88/48 mmHg",
+                            "61",
+                            "92% on 2L NC"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Normal Saline bolus 500mL IV bolus STAT (ordered)\nAcetaminophen 650mg PO PRN for fever (ordered)\nVancomycin 1.5g IVPB (to be ordered)\nLevophed (norepinephrine) infusion (to be ordered if fluid resuscitation is ineffective)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "WBC",
+                            "18.5",
+                            "x10³/µL",
+                            "4.5 - 11.0",
+                            "High"
+                        ],
+                        [
+                            "Lactate, Venous",
+                            "4.2",
+                            "mmol/L",
+                            "0.5 - 2.2",
+                            "Critical High"
+                        ],
+                        [
+                            "Creatinine",
+                            "2.1",
+                            "mg/dL",
+                            "0.6 - 1.2",
+                            "High"
+                        ],
+                        [
+                            "BUN",
+                            "35",
+                            "mg/dL",
+                            "7 - 20",
+                            "High"
+                        ],
+                        [
+                            "Procalcitonin",
+                            "3.5",
+                            "ng/mL",
+                            "< 0.15",
+                            "High"
+                        ],
+                        [
+                            "Platelets",
+                            "140",
+                            "x10³/µL",
+                            "150 - 450",
+                            "Low"
+                        ],
+                        [
+                            "Blood Cultures",
+                            "Pending",
+                            "",
+                            "No growth",
+                            ""
+                        ]
+                    ]
+                }
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR in Patient Information"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 04:30",
+                        "assessment": {
+                            "Neurological": "Lethargic, responds to painful stimuli with localization. GCS 9 (E2, V2, M5).",
+                            "Cardiovascular": "Tachycardic with S1/S2 audible. Pulses +1 peripherally. Capillary refill 4 seconds. Skin is cool and clammy.",
+                            "Respiratory": "Tachypneic with shallow respirations. Diffuse crackles auscultated in bilateral lower lung fields.",
+                            "Gastrointestinal": "Bowel sounds hypoactive in all four quadrants.",
+                            "Genitourinary": "Indwelling urinary catheter placed, 10 mL dark amber urine returned initially."
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Chest X-ray (Portable, AP View)",
+                        "timestamp": "Day 1, 04:15",
+                        "report": "FINDINGS: Lungs show bilateral, diffuse interstitial and alveolar opacities, consistent with significant pulmonary edema. No discrete consolidation, pneumothorax, or pleural effusion is identified. The cardiac silhouette is at the upper limits of normal.\n\nIMPRESSION: Findings are highly suggestive of non-cardiogenic pulmonary edema, likely secondary to Acute Respiratory Distress Syndrome (ARDS) in the setting of sepsis."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 03:15",
+                            "Obtain blood cultures x 2 sites",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Administer Normal Saline 30 mL/kg IV bolus",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Initiate Vancomycin and Piperacillin-Tazobactam",
+                            "STAT, after cultures"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Monitor intake and output",
+                            "Hourly"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Acetaminophen 650 mg PO/PR",
+                            "q4h PRN for Temp > 101.5°F"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Initiate Norepinephrine infusion if MAP < 65 mmHg post-bolus",
+                            "Standing"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Vancomycin",
+                            "1.5 g",
+                            "IVPB",
+                            "STAT",
+                            "Not yet administered"
+                        ],
+                        [
+                            "Piperacillin-Tazobactam",
+                            "4.5 g",
+                            "IVPB",
+                            "STAT",
+                            "Not yet administered"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "650 mg",
+                            "PR",
+                            "q4h PRN",
+                            "Not yet administered"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
-        ]
-    },
     "rationale": {
-        "correct": "The patient presents with signs of septic shock, including hypotension, tachycardia, fever, and elevated lactate. Rapid interventions are crucial. Administering a fluid bolus addresses hypovolemia and supports blood pressure. Obtaining blood cultures before administering antibiotics is essential to identify the causative organism. Initiating broad-spectrum antibiotics promptly improves the chance of survival in septic patients. Applying oxygen supports oxygenation, which is compromised due to increased metabolic demand and potential respiratory dysfunction. Monitoring urine output assesses renal perfusion and response to fluid resuscitation. Titrating vasopressors (if fluids are not enough) maintains adequate blood pressure and tissue perfusion.\n\nReasoning for the order: Septic shock protocol emphasizes early goal-directed therapy. Fluid resuscitation is first-line, followed by antibiotics and vasopressors if needed. Cultures should be obtained before antibiotics whenever possible without significantly delaying antibiotic administration. Oxygen is crucial for hypoxia. Monitoring urine output provides vital information about renal perfusion.",
-        "incorrect": "Delaying fluid resuscitation in a hypotensive patient with sepsis can lead to organ damage and death. Administering antibiotics without obtaining blood cultures can hinder accurate diagnosis and appropriate antibiotic selection. Waiting for lab results before intervening can significantly worsen the patient's prognosis. While pain management is important, it is not the immediate priority in this scenario. Placing the patient in Trendelenburg position is no longer recommended and can worsen respiratory function. Administering antipyretics without addressing the underlying infection only masks the symptom and doesn't treat the cause. A restrictive fluid strategy can be detrimental in sepsis, where hypovolemia is a major concern.",
+        "correct": "The client's presentation of hypotension (MAP < 65 mmHg), tachycardia, fever, altered mental status, and a serum lactate > 4 mmol/L in the presence of a suspected infection (UTI) is definitive for septic shock. Septic shock is a distributive shock state where massive vasodilation and capillary leakage, triggered by a dysregulated host response to infection, lead to severe tissue hypoperfusion and organ dysfunction. The primary goals are to restore intravascular volume, maintain adequate mean arterial pressure (MAP) for organ perfusion, and control the source of infection.",
+        "incorrect": "Chronic Hypertension is a background medical condition, not an acute cause of shock; the client is currently hypotensive. Administering furosemide, a diuretic, would be catastrophic as it would exacerbate hypovolemia and worsen hypotension. While the client is tachypneic and has crackles, preparing for immediate intubation is premature. The priority is to address the circulatory collapse with fluids and vasopressors, which may improve respiratory status by improving perfusion to respiratory muscles. Intubation is reserved for worsening respiratory failure unresponsive to initial resuscitation.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "content": "Correct Action. The Surviving Sepsis Campaign guidelines mandate early, aggressive fluid resuscitation with a 30 mL/kg crystalloid bolus for hypotension. This intervention aims to rapidly expand intravascular volume to counteract vasodilation and capillary leak, thereby improving cardiac output and MAP."
+            },
+            {
+                "optionId": "opt_2",
+                "content": "Correct Parameter. Serum lactate is a critical biomarker of tissue hypoxia. An elevated level indicates anaerobic metabolism due to hypoperfusion. Monitoring lactate levels (and their clearance) is essential for assessing the adequacy of resuscitation and the client's response to therapy."
+            },
+            {
+                "optionId": "opt_5",
+                "content": "Correct Condition. The client meets the Sepsis-3 criteria for septic shock: a suspected infection plus the need for vasopressors to maintain a MAP ≥ 65 mmHg and a serum lactate level > 2 mmol/L after fluid resuscitation. All clinical data points to this life-threatening condition."
+            },
+            {
+                "optionId": "opt_3",
+                "content": "Correct Cause. The client has a recent history of a urinary tract infection. Urosepsis is a common cause of septic shock, especially in older adults residing in long-term care facilities. The infection likely progressed without adequate or timely treatment, leading to systemic invasion."
+            },
+            {
+                "optionId": "opt_4",
+                "content": "Correct Cause. Immunosenescence, the age-related decline of the immune system, makes older adults more susceptible to infections and less able to mount an effective response. This diminishes their physiological reserves, allowing infections like a UTI to rapidly escalate to septic shock."
+            }
+        ],
         "clinicalPearls": [
-            "Early recognition and treatment of sepsis are critical for improving patient outcomes.",
-            "The Surviving Sepsis Campaign guidelines provide evidence-based recommendations for sepsis management.",
-            "Always obtain blood cultures before administering antibiotics whenever possible.",
-            "Monitor for signs of fluid overload during resuscitation."
+            "The 'Sepsis Six' bundle should be initiated within one hour of recognition: Give high-flow oxygen, take blood cultures, give broad-spectrum antibiotics, give intravenous fluid challenges, measure lactate, and measure urine output.",
+            "Mean Arterial Pressure (MAP) is a more reliable indicator of organ perfusion than systolic blood pressure alone. A MAP of ≥ 65 mmHg is the initial target in septic shock resuscitation.",
+            "In older adults, altered mental status may be the first and sometimes only sign of a severe infection or sepsis. A high index of suspicion is crucial."
         ],
-        "questionTrap": {
-            "trap": "The question might trick you into focusing on less critical aspects of care, such as pain management or solely on temperature control, overlooking the urgent need for fluid resuscitation and antibiotics.",
-            "howToOvercome": "Focus on the 'sepsis' aspect of the case and the physiological derangements (hypotension, hypoxia, elevated lactate) that need immediate attention. Remember the sepsis bundle components."
-        },
-        "mnemonic": {
-            "title": "SEPSIS",
-            "expansion": "Source Identification, Early Antibiotics, Pressors (if needed), Support Oxygenation, IV Fluids, Serial Lactate"
-        }
+        "questionTrap": "The presence of crackles in the lungs might tempt you to select a diuretic like furosemide. However, in septic shock, these crackles are often due to ARDS (capillary leak in the lungs), not fluid volume overload. Giving a diuretic would worsen the shock state.",
+        "mnemonic": "SEPSIS BUNDLE: BUFALO\nB - Blood Cultures (before antibiotics)\nU - Urine Output (monitor hourly)\nF - Fluids (30 mL/kg bolus)\nA - Antibiotics (broad-spectrum within 1 hour)\nL - Lactate (measure and trend)\nO - Oxygen (maintain saturation)"
     },
-    "response": {
-        "preStem": "Select the FIRST action the nurse should take:",
-        "A": "Administer normal saline bolus 500 mL IV.",
-        "B": "Obtain blood cultures from two different sites.",
-        "C": "Initiate broad-spectrum antibiotics.",
-        "D": "Apply oxygen via nasal cannula at 2 L/min.",
-        "E": "Monitor urine output hourly.",
-        "F": "Titrate vasopressors to maintain MAP >65 mmHg.",
-        "postStem": "Match the nursing actions to the appropriate category:",
-        "outcome1": "Implement Interventions",
-        "outcome2": "Monitor Patient"
+    "scoring": {
+        "method": "rationale-triad",
+        "maxPoints": 5
     },
-    "distractors": {
-        "order": [
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F"
-        ],
-        "rationale": {
-            "A": "Administering fluids is crucial for addressing hypotension.",
-            "B": "Obtaining cultures helps identify the causative organism.",
-            "C": "Broad-spectrum antibiotics combat the infection.",
-            "D": "Oxygen supports oxygenation.",
-            "E": "Urine output reflects renal perfusion.",
-            "F": "Vasopressors maintain blood pressure."
-        },
-        "mapping": {
-            "A": "Implement Interventions",
-            "B": "Implement Interventions",
-            "C": "Implement Interventions",
-            "D": "Implement Interventions",
-            "E": "Monitor Patient",
-            "F": "Implement Interventions"
-        }
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
     },
-    "correctResponse": {
-        "preStem": "A",
-        "A": "Implement Interventions",
-        "B": "Implement Interventions",
-        "C": "Implement Interventions",
-        "D": "Implement Interventions",
-        "E": "Monitor Patient",
-        "F": "Implement Interventions",
-        "postStem": {
-            "Implement Interventions": [
-                "A",
-                "B",
-                "C",
-                "D",
-                "F"
-            ],
-            "Monitor Patient": [
-                "E"
-            ]
-        }
-    },
-    "sentinelStatus": "deep_healed_v2026"
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:39:02.443Z"
 }

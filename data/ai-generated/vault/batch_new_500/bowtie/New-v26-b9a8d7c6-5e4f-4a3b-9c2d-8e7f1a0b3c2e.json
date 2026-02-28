@@ -1,164 +1,368 @@
 {
     "id": "New-v26-b9a8d7c6-5e4f-4a3b-9c2d-8e7f1a0b3c2e",
     "type": "bowtie",
-    "stem": "A 78-year-old male patient, Mr. Johnson, is admitted to the ICU with suspected sepsis. Based on the information provided in the patient's chart, select the MOST appropriate nursing actions for each category.",
-    "scoring": {
-        "method": "linked",
-        "maxPoints": 5
+    "stem": "The nurse is evaluating a 78-year-old client with a deteriorating condition. Drag the two most likely causes, the client's primary condition, and the two priority actions to the correct targets below.",
+    "actionsToTake": [
+        {
+            "id": "A1",
+            "text": "Mean Arterial Pressure (MAP) 62 mmHg"
+        },
+        {
+            "id": "A2",
+            "text": "Serum Lactate 4.0 mmol/L"
+        },
+        {
+            "id": "A3",
+            "text": "Temperature 39.0°C (102.2°F)"
+        },
+        {
+            "id": "A4",
+            "text": "WBC 18.0 x 10^9/L"
+        },
+        {
+            "id": "A5",
+            "text": "Productive cough with purulent sputum"
+        }
+    ],
+    "potentialCondition": [
+        {
+            "id": "B1",
+            "text": "Septic Shock"
+        },
+        {
+            "id": "B2",
+            "text": "Acute Respiratory Distress Syndrome (ARDS)"
+        },
+        {
+            "id": "B3",
+            "text": "Anaphylactic Reaction"
+        }
+    ],
+    "parametersToMonitor": [
+        {
+            "id": "C1",
+            "text": "Prepare for initiation of norepinephrine infusion"
+        },
+        {
+            "id": "C2",
+            "text": "Notify provider of Piperacillin/Tazobactam administration"
+        },
+        {
+            "id": "C3",
+            "text": "Administer PRN acetaminophen for fever"
+        },
+        {
+            "id": "C4",
+            "text": "Place client in a high-Fowler's position"
+        },
+        {
+            "id": "C5",
+            "text": "Obtain repeat blood cultures"
+        }
+    ],
+    "correctResponse": {
+        "actionsToTake": [
+            "A1",
+            "A2"
+        ],
+        "potentialCondition": "B1",
+        "parametersToMonitor": [
+            "C1",
+            "C2"
+        ]
     },
     "itemContext": {
         "patient": {
-            "name": "Johnson, Robert",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact and Droplet",
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin",
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "S: Robert Johnson, 78-year-old male, admitted from the Emergency Department (ED) at 03:30. He presents with a fever of 39.1°C (102.4°F), altered mental status, and a productive cough yielding purulent sputum. The patient has a history of COPD and a recent UTI treated with ciprofloxacin.\nB: His vital signs include a blood pressure of 90/50 mmHg, heart rate of 110 bpm, respiratory rate of 28 breaths/min, and SpO2 of 90% on 2L nasal cannula. Urine output has been 20 mL/hr for the last 2 hours. The patient has a documented penicillin allergy; however, Piperacillin/Tazobactam (Zosyn) was administered at 04:00.\nA: Sepsis is suspected secondary to pneumonia. Blood cultures, urinalysis, and chest X-ray have been obtained. Broad-spectrum antibiotics (Vancomycin and Zosyn) were initiated per sepsis protocol. The patient is hypotensive and requires fluid resuscitation.\nR: Continue to closely monitor vital signs and administer fluid resuscitation as prescribed. Assess the patient's response to treatment and administer medications as ordered. Immediately notify the provider regarding the administration of Zosyn, given the reported penicillin allergy. Anticipate the potential need for vasopressors if hypotension persists.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "03:30: BP 90/50 mmHg, HR 110 bpm, RR 28 breaths/min, SpO2 90% on 2L NC, Temp 39.1°C (102.4°F)\n04:00: BP 88/48 mmHg, HR 112 bpm, RR 29 breaths/min, SpO2 91% on 2L NC, Temp 39.2°C (102.6°F)\n04:30: BP 95/55 mmHg, HR 108 bpm, RR 27 breaths/min, SpO2 92% on 2L NC, Temp 39.0°C (102.2°F)"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 03:30",
+                        "text": "S: 78-year-old male admitted from ED with fever, altered mental status, and productive cough.\nB: History of COPD and recent UTI. Client lives alone in a rural area and reports delaying care for 3 days due to transportation issues. Known allergies to Penicillin and Sulfa drugs.\nA: On arrival, T 39.1°C, HR 110, RR 28, BP 90/50 mmHg (MAP 63), SpO2 90% on 2L NC. Client is confused, oriented to person only. Skin is warm and flushed. Auscultation reveals crackles in the right lower lobe. Suspected community-acquired pneumonia progressing to sepsis.\nR: Initiate sepsis protocol. Obtain blood cultures, lactate, and CBC. Administer 30 mL/kg crystalloid bolus. Start broad-spectrum antibiotics per protocol after cultures are drawn. Transfer to ICU for continuous monitoring and hemodynamic support."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 04:30",
+                        "text": "S: Client remains hypotensive despite initial 500mL NS bolus.\nB: Sepsis protocol initiated. Vancomycin and Piperacillin/Tazobactam started at 04:00. Client has a documented Penicillin allergy.\nA: Current vitals: T 39.0°C, HR 108, RR 27, BP 95/55 mmHg (MAP 68), SpO2 92% on 2L NC. Client remains confused. Repeat lactate is 4.0 mmol/L. Urine output is low at <0.5 mL/kg/hr. The client's hypotension is refractory to initial fluid resuscitation, indicating septic shock.\nR: Continue fluid resuscitation as ordered. Immediately notify provider of Piperacillin/Tazobactam administration given penicillin allergy and monitor for adverse reaction. Anticipate order for vasopressor therapy (norepinephrine) to maintain MAP ≥ 65 mmHg. Continue hourly I&O and vital sign monitoring."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/mm3 (High)\nLactate: 4.0 mmol/L (High)\nCreatinine: 2.1 mg/dL (High)\nBUN: 35 mg/dL (High)\nPlatelets: 100,000/mm3 (Low)\nProcalcitonin: 15 ng/mL (High)\nBlood Cultures: Pending\nUA: Positive for Leukocyte Esterase and Nitrites\nSputum Gram Stain: Gram-negative rods present"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:30",
+                        "Temp": "102.4°F (39.1°C)",
+                        "HR": "110",
+                        "RR": "28",
+                        "BP": "90/50 mmHg (MAP 63)",
+                        "SpO2": "90% on 2L NC"
+                    },
+                    {
+                        "Time": "04:00",
+                        "Temp": "102.6°F (39.2°C)",
+                        "HR": "112",
+                        "RR": "29",
+                        "BP": "88/48 mmHg (MAP 61)",
+                        "SpO2": "91% on 2L NC"
+                    },
+                    {
+                        "Time": "04:30",
+                        "Temp": "102.2°F (39.0°C)",
+                        "HR": "108",
+                        "RR": "27",
+                        "BP": "92/48 mmHg (MAP 62)",
+                        "SpO2": "92% on 2L NC"
+                    }
+                ]
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "18.0",
+                        "Unit": "x 10^9/L",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate",
+                        "Result": "4.0",
+                        "Unit": "mmol/L",
+                        "Reference": "<2.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "2.1",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "35",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "100",
+                        "Unit": "x 10^9/L",
+                        "Reference": "150-450",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "15",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.5",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 04:30",
+                        "system": "Neurological",
+                        "findings": "GCS 13 (E4, V4, M5). Confused to time and place, oriented to person. Pupils equal, round, reactive to light."
+                    },
+                    {
+                        "timestamp": "Day 1, 04:30",
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardic with regular rhythm. S1, S2 audible. Peripheral pulses 1+ and weak. Capillary refill >3 seconds."
+                    },
+                    {
+                        "timestamp": "Day 1, 04:30",
+                        "system": "Respiratory",
+                        "findings": "Tachypneic with shallow respirations. Coarse crackles auscultated in right lower lobe. Receiving O2 at 2L via nasal cannula."
+                    },
+                    {
+                        "timestamp": "Day 1, 04:30",
+                        "system": "Skin",
+                        "findings": "Warm, flushed, and dry to touch."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-Ray: Results pending. Order placed at 03:45."
+                "content": [
+                    {
+                        "type": "Chest X-ray (PA and Lateral)",
+                        "timestamp": "Day 1, 04:15",
+                        "report": "FINDINGS: The cardiomediastinal silhouette is within normal limits. There is a dense consolidation in the right lower lobe, consistent with airspace disease. The pleural spaces are clear. No pneumothorax is identified.\n\nIMPRESSION: Right lower lobe pneumonia."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Vancomycin 1.5g IV q12h (Started 04:00)\nPiperacillin/Tazobactam (Zosyn) 4.5g IV q6h (Started 04:00)\nAcetaminophen 650mg PO q4h PRN for Fever\nNormal Saline 0.9% 500mL bolus (Completed 04:30)\nNormal Saline 0.9% 1000mL IV over 4 hours (Starting 04:30)\nOxygen 2L NC"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "03:45",
+                        "action": "Sepsis Protocol",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "03:45",
+                        "action": "Blood Cultures x2 sites",
+                        "status": "STAT, Completed 03:55"
+                    },
+                    {
+                        "order_time": "03:45",
+                        "action": "Vancomycin 1.5g IV",
+                        "status": "STAT, Administered 04:00"
+                    },
+                    {
+                        "order_time": "03:45",
+                        "action": "Piperacillin/Tazobactam 4.5g IV",
+                        "status": "STAT, Administered 04:00"
+                    },
+                    {
+                        "order_time": "03:45",
+                        "action": "Normal Saline 0.9% 500mL IV bolus",
+                        "status": "STAT, Completed 04:30"
+                    },
+                    {
+                        "order_time": "04:30",
+                        "action": "Normal Saline 0.9% at 150 mL/hr",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "03:45",
+                        "action": "Vital signs every 15 minutes",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Vancomycin",
+                        "dose": "1.5g",
+                        "route": "IV",
+                        "frequency": "q12h",
+                        "last_administered": "Day 1, 04:00"
+                    },
+                    {
+                        "medication": "Piperacillin/Tazobactam",
+                        "dose": "4.5g",
+                        "route": "IV",
+                        "frequency": "q6h",
+                        "last_administered": "Day 1, 04:00"
+                    },
+                    {
+                        "medication": "Normal Saline 0.9%",
+                        "dose": "500mL Bolus",
+                        "route": "IV",
+                        "frequency": "STAT",
+                        "last_administered": "Day 1, 04:30"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "650mg",
+                        "route": "PO",
+                        "frequency": "q4h PRN Fever >101.5°F",
+                        "last_administered": "N/A"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment: Infection Control",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
-        ]
-    },
     "rationale": {
-        "correct": "Managing a patient with sepsis requires a multifaceted approach focusing on early identification, source control, hemodynamic support, and antibiotic administration. The interventions selected directly address these priorities, including addressing the potential medication error related to the penicillin allergy. Addressing the source of infection and preventing its spread are crucial. Monitoring the patient's response to treatment and preventing complications are also vital. Rapid intervention and comprehensive care are essential to improve patient outcomes in sepsis. The administration of Zosyn, despite the patient's penicillin allergy, needs immediate attention.\n\n*Clinical Pearl:* Always prioritize addressing medication errors immediately to prevent adverse patient outcomes.",
-        "incorrect": "Incorrect choices often reflect a misunderstanding of the urgency and complexity of sepsis management or a failure to recognize the potential adverse effects of medications. Some actions may be appropriate in other contexts but are less critical in the acute phase of sepsis. Prioritizing less important tasks over critical interventions or failing to recognize the need for immediate action can lead to poorer patient outcomes. The incorrect options might address symptoms without addressing the underlying cause or could delay critical interventions. Ignoring the potential medication error related to the penicillin allergy could lead to serious harm.\n\n*Clinical Pearl:* In sepsis, time is tissue. Rapid and appropriate interventions are crucial for improving patient survival.",
-        "clinicalPearls": [
-            "Early recognition of sepsis is crucial. Use screening tools like qSOFA or SIRS criteria.",
-            "Administer antibiotics within one hour of sepsis identification to improve survival rates, but always check allergies.",
-            "Fluid resuscitation is essential for maintaining adequate perfusion. Monitor for fluid overload.",
-            "Vasopressors may be necessary if hypotension persists despite fluid resuscitation.",
-            "Monitor lactate levels as an indicator of tissue perfusion and response to treatment.",
-            "Always double-check medication allergies before administering any medication, especially antibiotics."
+        "correct": "The client's clinical presentation of persistent hypotension (MAP < 65 mmHg) despite fluid resuscitation and elevated serum lactate (>2 mmol/L) are the defining characteristics of septic shock. This state of circulatory collapse requires immediate intervention to restore tissue perfusion. The priority actions are to address the hemodynamic instability with vasopressors (norepinephrine is the first-line agent) and to ensure patient safety by immediately reporting the potential medication error of administering a penicillin-derivative (Piperacillin/Tazobactam) to a client with a known penicillin allergy.",
+        "answerBreakdown": [
+            {
+                "optionId": "A1",
+                "content": "Correct. A Mean Arterial Pressure (MAP) below 65 mmHg indicates inadequate organ perfusion. When this persists after initial fluid boluses, it defines shock and is a primary indicator for starting vasopressor therapy."
+            },
+            {
+                "optionId": "A2",
+                "content": "Correct. A serum lactate level of 4.0 mmol/L signifies widespread anaerobic metabolism due to tissue hypoxia. It is a critical marker of organ hypoperfusion and a key diagnostic criterion for septic shock."
+            },
+            {
+                "optionId": "A3",
+                "content": "Incorrect. Fever is a sign of the systemic inflammatory response to infection (sepsis), but it does not differentiate sepsis from septic shock. Managing perfusion is a higher priority than managing temperature."
+            },
+            {
+                "optionId": "A4",
+                "content": "Incorrect. An elevated WBC count (leukocytosis) confirms the presence of an infection and inflammation but is not a specific indicator of the circulatory collapse seen in septic shock."
+            },
+            {
+                "optionId": "A5",
+                "content": "Incorrect. The productive cough indicates the source of the infection (pneumonia), but it is a localized finding and does not reflect the systemic severity of the client's hemodynamic collapse."
+            },
+            {
+                "optionId": "B1",
+                "content": "Correct. Septic shock is a subset of sepsis with profound circulatory, cellular, and metabolic abnormalities, characterized by persistent hypotension requiring vasopressors to maintain a MAP ≥ 65 mmHg and a serum lactate level >2 mmol/L despite adequate volume resuscitation."
+            },
+            {
+                "optionId": "B2",
+                "content": "Incorrect. While sepsis is a major risk factor for ARDS, the client's primary problem is circulatory failure (shock), not primarily respiratory failure characterized by bilateral opacities and severe hypoxemia."
+            },
+            {
+                "optionId": "B3",
+                "content": "Incorrect. Anaphylactic shock also causes distributive shock, but it is an IgE-mediated allergic reaction. The client's presentation with fever, productive cough, and high inflammatory markers points to an infectious etiology, not an acute allergic one."
+            },
+            {
+                "optionId": "C1",
+                "content": "Correct. Since the client's MAP remains low despite fluid administration, the next step in managing septic shock is to initiate a vasopressor, like norepinephrine, to increase systemic vascular resistance and raise blood pressure to perfuse vital organs."
+            },
+            {
+                "optionId": "C2",
+                "content": "Correct. Administering a beta-lactam antibiotic to a client with a penicillin allergy is a potentially life-threatening medication error. The nurse's primary responsibility is patient safety, which requires immediate notification of the provider to address the error and monitor for an adverse reaction."
+            },
+            {
+                "optionId": "C3",
+                "content": "Incorrect. While treating fever can decrease metabolic demand, it is a comfort and secondary measure. The priority is restoring organ perfusion, which is a life-saving intervention."
+            },
+            {
+                "optionId": "C4",
+                "content": "Incorrect. A high-Fowler's position is used to improve oxygenation in conditions like heart failure or ARDS. For a hypotensive client, this position can worsen hypotension by promoting venous pooling in the lower extremities. The client should be kept supine."
+            },
+            {
+                "optionId": "C5",
+                "content": "Incorrect. Blood cultures should be obtained *before* administering antibiotics. While repeat cultures may be ordered later to assess for clearance, it is not an immediate priority action in the face of hemodynamic collapse."
+            }
         ],
-        "questionTrap": {
-            "trap": "The question traps students into focusing on isolated symptoms (e.g., fever) rather than the overall clinical picture of sepsis and the necessary interventions, including recognizing and addressing medication errors. Students might prioritize comfort measures or less critical assessments over immediate life-saving interventions or overlook the significance of the penicillin allergy.",
-            "howToOvercome": "To overcome this, students should consider the entire clinical scenario, prioritize interventions based on urgency and potential impact on patient outcomes, focus on addressing the underlying pathophysiology of sepsis, and meticulously review patient allergies and medication orders."
-        },
-        "mnemonic": {
-            "title": "SEPSIS",
-            "expansion": "Source Identification, Early Antibiotics (with allergy awareness), Pressors if needed, Support Oxygenation, Initiate Fluids, Serum Lactate Monitoring"
-        }
+        "clinicalPearls": [
+            "Septic shock is defined by persistent hypotension requiring vasopressors to maintain MAP ≥ 65 mmHg and a serum lactate > 2 mmol/L despite adequate fluid resuscitation.",
+            "Norepinephrine is the first-choice vasopressor for septic shock as it potently increases systemic vascular resistance with less risk of tachyarrhythmias compared to dopamine.",
+            "Always verify allergies before administering any medication. If an error occurs, the nurse's first duty is to assess the patient, ensure safety, and report the error immediately to the provider."
+        ],
+        "questionTrap": "The primary trap is focusing on the signs of infection (fever, high WBC) rather than the signs of organ hypoperfusion and shock (low MAP, high lactate). While the infection is the cause, the immediate life-threat is the circulatory collapse.",
+        "mnemonic": "SEPSIS BUNDLE (Hour-1):\n- Measure Lactate level (and remeasure if initial >2).\n- Obtain Blood cultures before administering antibiotics.\n- Administer Broad-spectrum antibiotics.\n- Begin rapid administration of 30 mL/kg crystalloid for hypotension or lactate ≥4.\n- Apply Vasopressors if hypotensive during or after fluid resuscitation to maintain a MAP ≥ 65 mmHg."
     },
-    "stemSections": [
-        {
-            "sectionType": "PRECONDITION",
-            "content": "The patient is hypotensive and febrile, with elevated lactate and creatinine levels, indicating septic shock and potential acute kidney injury. The patient has a documented Penicillin allergy, but Piperacillin/Tazobactam (Zosyn) was administered."
-        },
-        {
-            "sectionType": "SCENARIO",
-            "content": "The nurse is caring for Mr. Johnson in the ICU and must prioritize interventions to stabilize his condition, prevent further complications, and address the potential medication error."
-        }
-    ],
-    "optionGroups": [
-        {
-            "id": "cause",
-            "options": [
-                {
-                    "id": "cause_a",
-                    "content": "Sepsis secondary to pneumonia.",
-                    "correct": true
-                },
-                {
-                    "id": "cause_b",
-                    "content": "Adverse reaction to ciprofloxacin.",
-                    "correct": false
-                },
-                {
-                    "id": "cause_c",
-                    "content": "Exacerbation of COPD.",
-                    "correct": false
-                }
-            ],
-            "title": "Likely Cause"
-        },
-        {
-            "id": "actions",
-            "options": [
-                {
-                    "id": "action_a",
-                    "content": "Administer prescribed antibiotics (Vancomycin & Zosyn).",
-                    "correct": false
-                },
-                {
-                    "id": "action_b",
-                    "content": "Continue fluid resuscitation with normal saline.",
-                    "correct": true
-                },
-                {
-                    "id": "action_c",
-                    "content": "Administer acetaminophen for fever.",
-                    "correct": false
-                },
-                {
-                    "id": "action_d",
-                    "content": "Obtain repeat blood cultures after antibiotic administration.",
-                    "correct": false
-                },
-                {
-                    "id": "action_e",
-                    "content": "Monitor urine output hourly.",
-                    "correct": true
-                },
-                {
-                    "id": "action_f",
-                    "content": "Immediately notify the provider about the administration of Zosyn despite the reported Penicillin allergy and monitor for signs of an allergic reaction.",
-                    "correct": true
-                }
-            ],
-            "title": "Actions to Take"
-        },
-        {
-            "id": "outcomes",
-            "options": [
-                {
-                    "id": "outcome_a",
-                    "content": "Improved blood pressure and urine output.",
-                    "correct": true
-                },
-                {
-                    "id": "outcome_b",
-                    "content": "Decreased white blood cell count.",
-                    "correct": false
-                },
-                {
-                    "id": "outcome_c",
-                    "content": "Resolution of altered mental status.",
-                    "correct": true
-                }
-            ],
-            "title": "Desired Outcomes"
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "linked",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:38:08.685Z"
 }

@@ -1,102 +1,387 @@
 {
     "id": "New-v26-8a2b9c3d-4e5f-6789-0123-456789abcdef",
     "type": "clozeDropdown",
-    "stem": "The nurse is assessing a patient receiving mechanical ventilation. Based on the provided information, select the most appropriate intervention for each assessment finding. \n\nPatient is exhibiting decreasing oxygen saturation, increased respiratory rate, and audible wheezing. The FiO2 is currently set at 60%. The ventilator mode is Assist-Control (AC). The peak inspiratory pressure (PIP) has increased from 25 cm H2O to 35 cm H2O over the last hour. \n\nInterventions:\n1. Increase FiO2\n2. Suction the airway\n3. Administer a bronchodilator\n4. Check ventilator circuit for kinks\n5. Manually ventilate with bag-valve-mask\n\nAssessment Findings:\nDecreasing Oxygen Saturation: {1:CHOICE1}\nIncreased Respiratory Rate: {2:CHOICE2}\nIncreased Peak Inspiratory Pressure (PIP): {3:CHOICE3}",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
+    "stem": "The nurse analyzes clinical data for a client on mechanical ventilation experiencing respiratory distress. Complete the following table by selecting the most likely underlying cause for each assessment finding from the dropdown menus.",
+    "table": {
+        "headers": [
+            "Assessment Finding",
+            "Most Likely Cause"
+        ],
+        "rows": [
+            {
+                "cells": [
+                    "Audible wheezing and decreasing SpO₂",
+                    "{dropdown1}"
+                ]
+            },
+            {
+                "cells": [
+                    "Increased work of breathing and tachypnea",
+                    "{dropdown2}"
+                ]
+            },
+            {
+                "cells": [
+                    "Peak Inspiratory Pressure (PIP) increase from 25 to 35 cm H₂O",
+                    "{dropdown3}"
+                ]
+            }
+        ]
+    },
+    "dropdownOptions": {
+        "dropdown1": [
+            {
+                "id": "opt-1",
+                "text": "Bronchospasm"
+            },
+            {
+                "id": "opt-2",
+                "text": "Mucus plugging"
+            },
+            {
+                "id": "opt-3",
+                "text": "Tension pneumothorax"
+            },
+            {
+                "id": "opt-4",
+                "text": "Ventilator circuit leak"
+            },
+            {
+                "id": "opt-5",
+                "text": "Pulmonary edema"
+            }
+        ],
+        "dropdown2": [
+            {
+                "id": "opt-1",
+                "text": "Bronchospasm"
+            },
+            {
+                "id": "opt-2",
+                "text": "Mucus plugging"
+            },
+            {
+                "id": "opt-3",
+                "text": "Tension pneumothorax"
+            },
+            {
+                "id": "opt-4",
+                "text": "Ventilator circuit leak"
+            },
+            {
+                "id": "opt-5",
+                "text": "Pulmonary edema"
+            }
+        ],
+        "dropdown3": [
+            {
+                "id": "opt-1",
+                "text": "Bronchospasm"
+            },
+            {
+                "id": "opt-2",
+                "text": "Mucus plugging"
+            },
+            {
+                "id": "opt-3",
+                "text": "Tension pneumothorax"
+            },
+            {
+                "id": "opt-4",
+                "text": "Ventilator circuit leak"
+            },
+            {
+                "id": "opt-5",
+                "text": "Pulmonary edema"
+            }
+        ]
+    },
+    "correctMapping": {
+        "dropdown1": "opt-1",
+        "dropdown2": "opt-1",
+        "dropdown3": "opt-1"
     },
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Contact & Droplet",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "14:15 SBAR for John Smith, a 68-year-old male (DOB 03/15/1956), admitted yesterday for pneumonia. He's on Assist-Control (AC) ventilation, FiO2 60%, respiratory rate 16, tidal volume 500 mL. At 13:00, vitals: BP 140/80, HR 92, SpO2 94%. At 14:00, vitals: BP 138/78, HR 96, SpO2 88%, RR 24. He's restless with audible wheezing. Peak inspiratory pressure (PIP) rose from 25 to 35 cm H2O in the last hour. Auscultation: diminished breath sounds in bases, wheezing throughout. Albuterol nebulizer given at 10:00. No recent suctioning. He needs immediate assessment/intervention for declining respiratory status and increased PIP. Penicillin allergy requires medication review. Please ensure prescribed medications are safe, given his penicillin allergy.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "14:15 SBAR for John Smith, a 68-year-old male (DOB 03/15/1956), admitted yesterday for pneumonia. He's on Assist-Control (AC) ventilation, FiO2 60%, respiratory rate 16, tidal volume 500 mL. At 13:00, vitals: BP 140/80, HR 92, SpO2 94%. At 14:00, vitals: BP 138/78, HR 96, SpO2 88%, RR 24. He's restless with audible wheezing. Peak inspiratory pressure (PIP) rose from 25 to 35 cm H2O in the last hour. Auscultation: diminished breath sounds in bases, wheezing throughout. Albuterol nebulizer given at 10:00. No recent suctioning. He needs immediate assessment/intervention for declining respiratory status and increased PIP. Penicillin allergy requires medication review. Please ensure prescribed medications are safe, given his penicillin allergy."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Yesterday, 18:00",
+                        "note_type": "Admission Note",
+                        "content": "S: 68-year-old male presents to the ED with a 3-day history of productive cough, fever, and worsening shortness of breath. Reports feeling 'too weak to get out of bed.'\nB: History of COPD. Admitted for community-acquired pneumonia. Lives alone in a second-floor apartment with no elevator, which poses a barrier to accessing follow-up care. Allergic to Penicillin. Intubated in the ED due to acute hypoxemic respiratory failure.\nA: Alert and oriented x2, sedated on propofol. Placed on Assist-Control mechanical ventilation. Bilateral crackles in lower lobes on admission. SpO₂ 89% on 15L non-rebreather mask prior to intubation. Initial chest x-ray confirms right lower lobe infiltrate. Placed on contact and droplet precautions.\nR: Transfer to ICU for continued ventilatory support and management of severe pneumonia. Initiate IV fluids and broad-spectrum antibiotics after reviewing allergies. Monitor hemodynamics and respiratory status closely."
+                    },
+                    {
+                        "timestamp": "Today, 14:15",
+                        "note_type": "Progress Note",
+                        "content": "S: High-pressure alarm sounding on the ventilator.\nB: Client has been stable overnight. Last dose of PRN albuterol was at 10:00. No suctioning performed in the last 4 hours.\nA: Client is restless and tachypneic. SpO₂ has dropped from 94% to 88% over the last hour. Audible expiratory wheezing is now present. Peak inspiratory pressure (PIP) has trended up from 25 to 35 cm H₂O. Vital signs show increasing tachypnea and stable hemodynamics. The constellation of wheezing, increased PIP, and hypoxemia points towards acute bronchoconstriction.\nR: Immediate intervention is required to address airway resistance. Recommend administering an in-line nebulized bronchodilator. Will notify the respiratory therapist and physician of the client's acute change in status. Continue to monitor ventilator parameters and vital signs closely."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG (13:30): pH 7.32, PaCO2 55, PaO2 70, HCO3 26. CBC: WBC 14,000."
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (breaths/min)",
+                        "SpO₂ (%)",
+                        "Temp °F (°C)",
+                        "PIP (cm H₂O)"
+                    ],
+                    "rows": [
+                        [
+                            "12:00",
+                            "90",
+                            "142/82",
+                            "102",
+                            "16 (Vent)",
+                            "95% on 60% FiO₂",
+                            "100.8 (38.2)",
+                            "25"
+                        ],
+                        [
+                            "13:00",
+                            "92",
+                            "140/80",
+                            "100",
+                            "16 (Vent)",
+                            "94% on 60% FiO₂",
+                            "100.9 (38.3)",
+                            "28"
+                        ],
+                        [
+                            "14:00",
+                            "96",
+                            "138/78",
+                            "98",
+                            "24 (Client)",
+                            "88% on 60% FiO₂",
+                            "101.1 (38.4)",
+                            "35"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "13:00: BP 140/80, HR 92, RR 16, SpO2 94%, Temp 38.2°C. 14:00: BP 138/78, HR 96, RR 24, SpO2 88%, Temp 38.3°C. PIP: 35 cm H2O."
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Arterial Blood Gas (ABG) - Today at 13:30",
+                        "results": [
+                            {
+                                "name": "pH",
+                                "value": "7.32",
+                                "unit": "",
+                                "range": "7.35-7.45",
+                                "status": "Low"
+                            },
+                            {
+                                "name": "PaCO₂",
+                                "value": "55",
+                                "unit": "mmHg",
+                                "range": "35-45",
+                                "status": "High"
+                            },
+                            {
+                                "name": "PaO₂",
+                                "value": "70",
+                                "unit": "mmHg",
+                                "range": "80-100",
+                                "status": "Low"
+                            },
+                            {
+                                "name": "HCO₃⁻",
+                                "value": "26",
+                                "unit": "mEq/L",
+                                "range": "22-26",
+                                "status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Complete Blood Count (CBC) - Today at 06:00",
+                        "results": [
+                            {
+                                "name": "WBC",
+                                "value": "14.5",
+                                "unit": "x 10³/μL",
+                                "range": "4.5-11.0",
+                                "status": "High"
+                            },
+                            {
+                                "name": "Hgb",
+                                "value": "13.8",
+                                "unit": "g/dL",
+                                "range": "13.5-17.5",
+                                "status": "Normal"
+                            },
+                            {
+                                "name": "Platelets",
+                                "value": "250",
+                                "unit": "x 10³/μL",
+                                "range": "150-450",
+                                "status": "Normal"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Neurological",
+                        "findings": "Sedated, RASS -3. Moves all extremities to painful stimuli. Pupils equal, round, and reactive to light."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Endotracheal tube in place, secured. Symmetrical chest rise. Diminished breath sounds bilaterally in lower lobes. Expiratory wheezing audible throughout all lung fields. Increased work of breathing noted with use of accessory muscles."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "S1, S2 audible. Tachycardic rhythm. No murmurs, rubs, or gallops. Capillary refill less than 3 seconds. Peripheral pulses 2+."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray (Yesterday): Infiltrate in the right lower lobe."
+                "content": [
+                    {
+                        "type": "Chest X-ray (Portable AP)",
+                        "timestamp": "Yesterday, 18:30",
+                        "report": "FINDINGS: Endotracheal tube tip is appropriately positioned 4 cm superior to the carina. Lungs show a dense opacity in the right lower lobe, consistent with consolidation. No evidence of pneumothorax or significant pleural effusion. Cardiomediastinal silhouette is within normal limits.\n\nIMPRESSION: Right lower lobe pneumonia. No acute cardiopulmonary process otherwise identified."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Albuterol 2.5mg Neb q4h PRN wheezing (Last dose: 10:00). Acetaminophen 650mg PO q4h PRN pain. Piperacillin/Tazobactam 4.5g IV q6h (Next dose: 18:00)."
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "category": "Ventilator Settings",
+                        "orders": [
+                            "Mode: Assist-Control (AC)",
+                            "FiO₂: 60%",
+                            "Tidal Volume (Vt): 500 mL",
+                            "Respiratory Rate (RR): 16 breaths/min",
+                            "Positive End-Expiratory Pressure (PEEP): 5 cm H₂O"
+                        ]
+                    },
+                    {
+                        "category": "Nursing Interventions",
+                        "orders": [
+                            "Continuous cardiac and SpO₂ monitoring.",
+                            "Titrate sedation to maintain RASS -3 to -4.",
+                            "Perform endotracheal suctioning PRN for secretions.",
+                            "Head of bed elevated 30-45 degrees.",
+                            "Perform oral care with chlorhexidine every 12 hours."
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Propofol",
+                            "30 mcg/kg/min",
+                            "IV",
+                            "Continuous Infusion",
+                            "Ongoing"
+                        ],
+                        [
+                            "Piperacillin/Tazobactam",
+                            "4.5 g",
+                            "IV",
+                            "Every 6 hours",
+                            "Today, 12:00"
+                        ],
+                        [
+                            "Albuterol",
+                            "2.5 mg",
+                            "Nebulizer",
+                            "Every 4 hours PRN",
+                            "Today, 10:00"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "650 mg",
+                            "PO/PR",
+                            "Every 4 hours PRN",
+                            "N/A"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Respiratory",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
-        ]
-    },
     "rationale": {
-        "correct": "Decreasing Oxygen Saturation: Administer a bronchodilator. The likely cause of decreasing oxygen saturation in the presence of wheezing is bronchospasm. A bronchodilator will help to open the airways and improve oxygenation.\nIncreased Respiratory Rate: Administer a bronchodilator. Increased respiratory rate often occurs due to increased airway resistance or difficulty breathing. Administering a bronchodilator will address the underlying bronchospasm and reduce the work of breathing.\nIncreased Peak Inspiratory Pressure (PIP): Administer a bronchodilator. Increased PIP suggests increased airway resistance or decreased lung compliance. In this scenario, bronchospasm is the most likely cause, and a bronchodilator should be administered. If PIP remains elevated after bronchodilator administration, further investigation into other causes (e.g., mucus plugging) should be pursued.",
-        "incorrect": "Increasing the FiO2 alone will not address the underlying bronchospasm and may not effectively improve oxygenation if the airways remain constricted. Suctioning might be considered if there's suspected mucus plugging, but wheezing suggests bronchospasm is the primary issue. Checking the ventilator circuit is important, but less immediate than addressing the bronchospasm. Manually ventilating is a rescue intervention and not the first step in this situation; addressing the bronchospasm is more appropriate initially.",
+        "correct": "The client's clinical presentation—audible wheezing, rapidly increasing peak inspiratory pressure (PIP), and decreasing oxygen saturation—is a classic triad for acute bronchospasm in a mechanically ventilated patient. Wheezing is caused by the narrowing of the lower airways, which increases airway resistance. This resistance requires the ventilator to generate higher pressures (increased PIP) to deliver the set tidal volume. The narrowed airways also impair gas exchange, leading to hypoxemia (decreased SpO₂), and cause an increased work of breathing (tachypnea).",
+        "answerBreakdown": [
+            {
+                "optionId": "opt-1",
+                "content": "Correct. Bronchospasm is the most likely cause. The key indicator is the new onset of audible wheezing, which directly points to the narrowing of the bronchioles. This narrowing increases airway resistance, causing the PIP to rise and impairing gas exchange, which results in hypoxemia and tachypnea."
+            },
+            {
+                "optionId": "opt-2",
+                "content": "Incorrect. While mucus plugging can increase PIP and cause hypoxemia, it typically presents with coarse rhonchi or diminished breath sounds in a specific lung area, not diffuse wheezing. Suctioning would be the primary intervention for mucus plugging."
+            },
+            {
+                "optionId": "opt-3",
+                "content": "Incorrect. A tension pneumothorax is a life-threatening emergency that would cause a much more dramatic and sudden decompensation, including severe hypotension, tracheal deviation, and absent breath sounds on the affected side, none of which are present."
+            },
+            {
+                "optionId": "opt-4",
+                "content": "Incorrect. A ventilator circuit leak would cause a *low-pressure* alarm, not a high-pressure alarm (increased PIP). The delivered tidal volume would also be lower than the set volume."
+            },
+            {
+                "optionId": "opt-5",
+                "content": "Incorrect. Pulmonary edema (fluid overload) would cause hypoxemia and increased PIP due to decreased lung compliance, but the characteristic lung sound would be crackles (rales), not wheezing."
+            }
+        ],
         "clinicalPearls": [
-            "Wheezing in a ventilated patient often indicates bronchospasm.",
-            "Increased PIP can be a sign of increased airway resistance or decreased lung compliance.",
-            "Always assess the patient holistically and consider multiple factors before intervening."
+            "In a ventilated patient, the triad of wheezing, increased peak inspiratory pressure (PIP), and hypoxemia strongly suggests bronchospasm.",
+            "Differentiating the cause of a high-pressure ventilator alarm is critical: wheezing points to bronchospasm, rhonchi to secretions/mucus plugging, and crackles to fluid/edema.",
+            "Always verify medication allergies. This client has a penicillin allergy but is receiving Piperacillin/Tazobactam, a penicillin-class antibiotic. This is a serious medication error that must be addressed immediately, although it is not the cause of the acute respiratory event.",
+            "The client's respiratory rate of 24 is their own spontaneous rate, overriding the ventilator's set rate of 16. This is a sign of significant respiratory distress, as the client is attempting to compensate for poor gas exchange."
         ],
-        "questionTrap": {
-            "trap": "The question trap here is assuming the decreased SpO2 is solely due to pneumonia and increasing FiO2 is the best immediate action. Students might overlook the wheezing, leading them to focus only on oxygenation issues instead of bronchospasm.",
-            "howToOvercome": "Pay close attention to all assessment findings, not just one. Consider the context of the patient's condition and how different findings relate to each other. Prioritize interventions based on the most immediate threat to the patient's well-being."
-        },
-        "mnemonic": {
-            "title": "PIPES",
-            "expansion": "Peak Inspiratory Pressure Elevation Steps: Position, Bronchodilator, Evaluate, Suction."
-        }
+        "questionTrap": "The primary trap is failing to synthesize all the data points. Focusing only on the high PIP might lead one to consider mucus plugging, while focusing only on the low SpO₂ might suggest a worsening of the underlying pneumonia. The key is that audible wheezing is the most specific sign pointing directly to bronchospasm as the unifying cause for all the other abnormal findings.",
+        "mnemonic": "For causes of high-pressure ventilator alarms, remember **DOPES**: \n- **D**isplacement (of the ET tube)\n- **O**bstruction (mucus plug, bronchospasm)\n- **P**neumothorax\n- **E**quipment failure (ventilator)\n- **S**tacking breaths (auto-PEEP)"
     },
-    "validResponse": {
-        "1": "3",
-        "2": "3",
-        "3": "3"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
     },
-    "responseOptions": {
-        "1": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
-        ],
-        "2": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
-        ],
-        "3": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
-        ]
-    }
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:48:47.017Z"
 }

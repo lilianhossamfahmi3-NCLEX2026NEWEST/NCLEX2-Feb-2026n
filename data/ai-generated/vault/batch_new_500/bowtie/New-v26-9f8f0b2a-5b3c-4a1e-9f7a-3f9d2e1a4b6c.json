@@ -1,71 +1,204 @@
 {
     "id": "New-v26-9f8f0b2a-5b3c-4a1e-9f7a-3f9d2e1a4b6c",
     "type": "bowtie",
-    "stem": "A 72-year-old male is admitted to the ICU following a hemorrhagic stroke. Based on the assessment findings and provided data, prioritize the interventions and potential conditions for this patient.",
-    "scoring": {
-        "method": "linked",
-        "maxPoints": 6
+    "stem": "The nurse is caring for a client with a hemorrhagic stroke. Based on the clinical data, drag the choices to the diagram to identify the priority actions, the condition the client is developing, and the essential parameters to monitor.",
+    "dropZones": [
+        {
+            "id": "dz-action",
+            "title": "Actions to Take",
+            "maxItems": 2
+        },
+        {
+            "id": "dz-condition",
+            "title": "Potential Condition",
+            "maxItems": 1
+        },
+        {
+            "id": "dz-parameter",
+            "title": "Parameters to Monitor",
+            "maxItems": 2
+        }
+    ],
+    "draggableOptions": [
+        {
+            "id": "opt-01",
+            "text": "Elevate head of bed to 30 degrees"
+        },
+        {
+            "id": "opt-02",
+            "text": "Administer mannitol 25g IV as prescribed"
+        },
+        {
+            "id": "opt-03",
+            "text": "Administer hypotonic IV fluids"
+        },
+        {
+            "id": "opt-04",
+            "text": "Place client in a supine position"
+        },
+        {
+            "id": "opt-05",
+            "text": "Increased Intracranial Pressure (ICP)"
+        },
+        {
+            "id": "opt-06",
+            "text": "Syndrome of Inappropriate Antidiuretic Hormone (SIADH)"
+        },
+        {
+            "id": "opt-07",
+            "text": "Hypovolemic shock"
+        },
+        {
+            "id": "opt-08",
+            "text": "Continuous ICP monitoring via external ventricular drain (EVD)"
+        },
+        {
+            "id": "opt-09",
+            "text": "Serum osmolality every 6 hours"
+        },
+        {
+            "id": "opt-10",
+            "text": "Daily weights"
+        }
+    ],
+    "correctResponse": {
+        "dz-action": [
+            "opt-01",
+            "opt-02"
+        ],
+        "dz-condition": [
+            "opt-05"
+        ],
+        "dz-parameter": [
+            "opt-08",
+            "opt-09"
+        ]
     },
     "itemContext": {
         "patient": {
-            "name": "Robert Miller",
-            "age": 72,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "72",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Sulfa"
-            ],
-            "airborne": false
+            ]
         },
-        "sbar": "S: Robert Miller, 72-year-old male, admitted to the ICU at 03:00 today after being found unresponsive at home. Last known well was 18:00 yesterday. His wife reports a history of hypertension and atrial fibrillation.\nB: CT scan confirmed a right-sided hemorrhagic stroke with midline shift. The patient was intubated in the ED for airway protection. NIHSS score was 22 on arrival.\nA: Currently, the patient is on mechanical ventilation and receiving propofol and fentanyl drips for sedation. Pupils are unequal (right dilated and sluggish). GCS is 6 (E1, V1, M4). BP is 180/100 mmHg. HR is 55 bpm. Temperature is 37.8°C. Mannitol 25g IV was administered at 04:00. Urine output has been minimal since admission.\nR: Anticipate further interventions to manage increased ICP and prevent secondary brain injury. Monitor neurological status closely. Contact neurosurgery to discuss possible interventions.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Sodium</td><td>148 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>102 mEq/L</td><td>98-106 mEq/L</td></tr><tr><td>Glucose</td><td>160 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>INR</td><td>1.3</td><td>0.8-1.2</td></tr><tr><td>Platelets</td><td>180,000/uL</td><td>150,000-400,000/uL</td></tr><tr><td>ABG pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>ABG PaCO2</td><td>50 mmHg</td><td>35-45 mmHg</td></tr><tr><td>ABG PaO2</td><td>95 mmHg</td><td>80-100 mmHg</td></tr><tr><td>ABG HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Today at 03:00",
+                        "note": "Client is a 72-year-old male brought to the ED by ambulance after being found unresponsive at home by his adult child. Last known well was approximately 18:00 yesterday. History of hypertension and atrial fibrillation, non-compliant with medications. On arrival, client was unresponsive to verbal stimuli, posturing to painful stimuli. Pupils were unequal, with the right pupil dilated and sluggishly reactive. Airway was compromised, and the client was intubated for protection. Non-contrast head CT revealed a large right-sided intraparenchymal hemorrhage with significant midline shift. Neurosurgery was consulted. Client transferred to ICU for continuous neurological monitoring and management of intracranial pressure. Family is at the bedside and has been updated on the client's critical condition."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Today at 06:00",
+                        "note": "S: Client remains intubated and sedated in the ICU for management of a large hemorrhagic stroke. B: Admitted at 03:00. CT showed a large right-sided hemorrhage with a 5mm midline shift. Mannitol 25g IV was administered at 04:00. Client has a history of hypertension and atrial fibrillation. Lives alone in a second-floor apartment, which may pose a barrier to discharge planning. A: Neurologically, GCS remains 6T. Right pupil remains dilated and sluggish. Vitals show a widening pulse pressure (BP 165/85, MAP 112) and bradycardia (HR 48), consistent with Cushing's triad. Temperature is trending up to 100.4°F (38.0°C). Serum sodium is now 148 mEq/L, and osmolality is elevated post-mannitol. ABG shows respiratory acidosis. R: Continue close neurological monitoring. Maintain head of bed at 30 degrees. Monitor serum osmolality and sodium closely. Awaiting neurosurgery for potential EVD placement for ICP monitoring and CSF drainage."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th><th>GCS</th></tr></thead><tbody><tr><td>03:00</td><td>190/110</td><td>60</td><td>12 (ventilated)</td><td>98%</td><td>37.5°C</td><td>6</td></tr><tr><td>04:00</td><td>180/100</td><td>55</td><td>12 (ventilated)</td><td>99%</td><td>37.8°C</td><td>6</td></tr><tr><td>05:00</td><td>170/90</td><td>50</td><td>12 (ventilated)</td><td>99%</td><td>37.9°C</td><td>6</td></tr><tr><td>06:00</td><td>165/85</td><td>48</td><td>12 (ventilated)</td><td>99%</td><td>38.0°C</td><td>6</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>03:00</td><td>190/110 mmHg (137)</td><td>60</td><td>12 (Ventilated)</td><td>98% on FiO₂ 40%</td><td>99.5°F (37.5°C)</td></tr><tr><td>04:00</td><td>180/100 mmHg (127)</td><td>55</td><td>12 (Ventilated)</td><td>99% on FiO₂ 40%</td><td>100.0°F (37.8°C)</td></tr><tr><td>05:00</td><td>170/90 mmHg (117)</td><td>50</td><td>12 (Ventilated)</td><td>99% on FiO₂ 40%</td><td>100.2°F (37.9°C)</td></tr><tr><td>06:00</td><td>165/85 mmHg (112)</td><td>48</td><td>12 (Ventilated)</td><td>99% on FiO₂ 40%</td><td>100.4°F (38.0°C)</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td></tr><tr><td>Fentanyl</td><td>50 mcg/hr</td><td>IV</td><td>Continuous</td></tr><tr><td>Mannitol</td><td>25g</td><td>IV</td><td>Single dose at 04:00</td></tr><tr><td>Labetalol</td><td>10 mg</td><td>IV</td><td>PRN for SBP > 180 mmHg</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>Daily</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Sodium</td><td>148</td><td>mEq/L</td><td>135-145</td><td>High</td></tr><tr><td>Potassium</td><td>3.8</td><td>mEq/L</td><td>3.5-5.0</td><td>WNL</td></tr><tr><td>Serum Osmolality</td><td>315</td><td>mOsm/kg</td><td>275-295</td><td>High</td></tr><tr><td>Glucose</td><td>160</td><td>mg/dL</td><td>70-110</td><td>High</td></tr><tr><td>Creatinine</td><td>1.8</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>INR</td><td>1.3</td><td></td><td>0.8-1.2</td><td>High</td></tr><tr><td>ABG pH</td><td>7.30</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>ABG PaCO₂</td><td>50</td><td>mmHg</td><td>35-45</td><td>High</td></tr><tr><td>ABG PaO₂</td><td>95</td><td>mmHg</td><td>80-100</td><td>WNL</td></tr><tr><td>ABG HCO₃⁻</td><td>24</td><td>mEq/L</td><td>22-26</td><td>WNL</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<h5>Admission Assessment (03:00)</h5><p><strong>Neurological:</strong> Unresponsive to verbal stimuli. Decorticate posturing to painful stimuli. GCS 6 (E1, V1T, M4). Right pupil 5mm and sluggish, left pupil 3mm and reactive. Corneal reflex absent on the right.</p><p><strong>Cardiovascular:</strong> S1, S2 present. Bradycardic rhythm. Pulses 2+ peripherally.</p><p><strong>Respiratory:</strong> Intubated with ETT secured. Coarse rhonchi bilaterally. Ventilator delivering breaths at a rate of 12/min.</p>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>CT scan of the head without contrast performed at 02:45 shows a large right-sided intraparenchymal hemorrhage with surrounding edema and a 5mm midline shift to the left. No other acute findings are noted.</p>"
+                "content": "<h5>CT Head without contrast (Today at 02:45)</h5><p><strong>Findings:</strong> Large intraparenchymal hematoma is identified within the right temporal and parietal lobes, measuring approximately 6 cm in diameter. There is significant surrounding vasogenic edema. Mass effect is noted with effacement of the adjacent sulci and compression of the right lateral ventricle. There is a 5 mm leftward subfalcine herniation (midline shift).</p><p><strong>Impression:</strong> Acute large right-sided intraparenchymal hemorrhage with significant mass effect and early signs of herniation, consistent with a hemorrhagic stroke.</p>"
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Today 03:10</td><td>Admit to ICU</td><td>Standing</td></tr><tr><td>Today 03:10</td><td>NPO</td><td>Standing</td></tr><tr><td>Today 03:10</td><td>Neurological checks</td><td>Every 1 hour</td></tr><tr><td>Today 03:10</td><td>Elevate head of bed to 30 degrees, maintain neutral head alignment</td><td>Standing</td></tr><tr><td>Today 03:15</td><td>Mannitol 25g IV</td><td>STAT</td></tr><tr><td>Today 03:15</td><td>Labetalol 10 mg IV for SBP > 180 mmHg</td><td>PRN</td></tr><tr><td>Today 03:20</td><td>Propofol infusion, titrate to RASS -4</td><td>Continuous</td></tr><tr><td>Today 03:20</td><td>Fentanyl infusion, titrate for comfort</td><td>Continuous</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Fentanyl</td><td>50 mcg/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Mannitol</td><td>25g</td><td>IV</td><td>STAT</td><td>Today at 04:00</td></tr><tr><td>Labetalol</td><td>10 mg</td><td>IV</td><td>PRN SBP > 180</td><td>Today at 03:15</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>Daily</td><td>Not yet administered</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Stroke & Increased ICP"
+    "rationale": {
+        "correct": "The client's CT scan showing a large hemorrhage with midline shift, combined with the clinical presentation of unequal pupils, low GCS, and Cushing's triad (widening pulse pressure, bradycardia), strongly indicates the development of Increased Intracranial Pressure (ICP). The primary goal is to reduce ICP to prevent brain herniation. Key actions include elevating the head of the bed to 30 degrees to promote venous drainage from the brain and administering an osmotic diuretic like mannitol to pull fluid from the cerebral tissue into the vasculature. Critical monitoring includes direct ICP measurement via an EVD and frequent assessment of serum osmolality to guide osmotic therapy and prevent severe dehydration.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt-01",
+                "content": "Correct Action. Elevating the head of the bed to 30 degrees uses gravity to promote venous outflow from the brain, which decreases cerebral blood volume and lowers ICP. This is a fundamental, non-pharmacological intervention."
+            },
+            {
+                "optionId": "opt-02",
+                "content": "Correct Action. Mannitol is an osmotic diuretic that creates an osmotic gradient, drawing edematous fluid from the brain tissue into the intravascular space to be excreted by the kidneys. This directly reduces cerebral edema and ICP."
+            },
+            {
+                "optionId": "opt-03",
+                "content": "Incorrect Action. Administering hypotonic fluids (e.g., 0.45% NaCl) would be catastrophic. These fluids have a lower osmolality than blood, causing fluid to shift from the vasculature into the brain cells, worsening cerebral edema and increasing ICP."
+            },
+            {
+                "optionId": "opt-04",
+                "content": "Incorrect Action. Placing the client supine (flat) or in a Trendelenburg position impedes venous drainage from the head, which would acutely increase ICP and risk herniation."
+            },
+            {
+                "optionId": "opt-05",
+                "content": "Correct Condition. All signs point to increased ICP: the large hematoma with midline shift on CT, decreased GCS, unequal pupils, and the development of Cushing's triad (hypertension, bradycardia, and irregular respirations, though the latter is masked by the ventilator)."
+            },
+            {
+                "optionId": "opt-06",
+                "content": "Incorrect Condition. SIADH is characterized by fluid retention and dilutional hyponatremia. This client has hypernatremia (148 mEq/L) and elevated serum osmolality (315 mOsm/kg), which is the opposite of SIADH and is likely due to the administration of mannitol."
+            },
+            {
+                "optionId": "opt-07",
+                "content": "Incorrect Condition. Hypovolemic shock is characterized by hypotension and tachycardia. This client is severely hypertensive (165/85 mmHg) and bradycardic (HR 48), which are classic signs of increased ICP, not hypovolemia."
+            },
+            {
+                "optionId": "opt-08",
+                "content": "Correct Parameter. An EVD is the gold standard for managing severe ICP. It provides continuous, direct measurement of intracranial pressure, allowing for precise titration of therapies, and can also be used to drain cerebrospinal fluid (CSF) to lower pressure."
+            },
+            {
+                "optionId": "opt-09",
+                "content": "Correct Parameter. When administering osmotic diuretics like mannitol, it is crucial to monitor serum osmolality. The therapeutic goal is typically to maintain osmolality between 300-320 mOsm/kg. Values above this range indicate excessive dehydration and increase the risk of acute kidney injury."
+            },
+            {
+                "optionId": "opt-10",
+                "content": "Incorrect Parameter. While fluid status is important, daily weights are a less sensitive and less immediate indicator of the acute fluid shifts occurring with osmotic therapy compared to serum osmolality. The priority is monitoring the direct effects on blood concentration."
+            }
+        ],
+        "clinicalPearls": [
+            "Cushing's triad (hypertension with widening pulse pressure, bradycardia, and irregular respirations) is a late and ominous sign of severely increased ICP, often heralding brainstem compression.",
+            "Maintaining normothermia is critical in brain-injured patients, as fever increases the brain's metabolic rate, which can worsen secondary injury and increase ICP.",
+            "Hyperventilation (to a target PaCO₂ of 30-35 mmHg) can be used as a temporary, emergency measure to lower ICP by causing cerebral vasoconstriction, but it is not a long-term solution due to the risk of ischemia."
+        ],
+        "questionTrap": "Do not confuse the signs of increased ICP with shock. The bradycardia and hypertension of Cushing's triad are the opposite of the tachycardia and hypotension seen in most forms of shock. Recognizing this pattern is key to identifying the correct underlying condition.",
+        "mnemonic": {
+            "title": "ICP Management: PRESSURE",
+            "expansion": "P - Position (HOB 30-45°)\nR - Respiratory (Avoid hypoxia/hypercapnia)\nE - Elevated Temp (Prevent fever)\nS - Systems (Monitor neuro/GCS)\nS - Straining (Avoid Valsalva, give stool softeners)\nU - Unconscious care (Protect airway, skin)\nR - Rx (Mannitol, sedatives)\nE - Edema (Monitor osmolality)"
+        },
+        "reviewUnits": [
+            "Neurological Disorders",
+            "Pharmacology",
+            "Critical Care"
         ]
     },
-    "rationale": {
-        "correct": "Interventions:\n- Administer stool softener: Prevents straining, which increases ICP. Straining during bowel movements (Valsalva maneuver) can acutely elevate ICP, which is detrimental in a patient with a hemorrhagic stroke and increased ICP. \n- Elevate head of bed to 30 degrees: Promotes venous drainage and reduces ICP. Elevating the head of the bed facilitates venous return from the brain, reducing cerebral blood volume and, consequently, ICP.\n- Monitor serum sodium levels: Hypernatremia can result from mannitol administration and needs correction. Mannitol is an osmotic diuretic that can lead to hypernatremia. Monitoring and correcting sodium levels is crucial to prevent further neurological complications.\nPotential Conditions:\n- Cerebral edema: A common complication following hemorrhagic stroke, contributing to increased ICP. Cerebral edema is a natural consequence of tissue damage from the hemorrhage, leading to increased ICP and potential herniation.\n- Increased Intracranial Pressure (ICP): The primary concern given the patient's presentation and diagnosis, driving many interventions. The patient's decreased level of consciousness, unequal pupils, and CT scan findings all point to significantly elevated ICP, which is life-threatening.\n- Syndrome of Inappropriate Antidiuretic Hormone (SIADH): Can occur following brain injury, leading to fluid retention and hyponatremia. While the patient currently has hypernatremia, SIADH is a potential complication that can develop, especially as the body responds to the initial injury and treatment.",
-        "incorrect": "Interventions:\n- Administer hypotonic IV fluids: Hypotonic fluids can exacerbate cerebral edema by drawing fluid into brain cells. Hypotonic solutions cause fluid to shift into cells, worsening cerebral edema and increasing ICP.\n- Lower head of bed to supine: Supine position increases ICP by impeding venous drainage. Lying flat impedes venous return from the brain, increasing cerebral blood volume and ICP.\n- Initiate active range of motion exercises: While important long-term, active ROM can increase ICP in the acute phase. Active ROM can increase metabolic demand and potentially elevate ICP in the acute phase of a hemorrhagic stroke.\nPotential Conditions:\n- Hypovolemic shock: Not supported by the patient's current vital signs (BP is elevated, not low). The patient is likely hypervolemic from mannitol administration. The patient's elevated blood pressure and administration of mannitol make hypovolemic shock unlikely.\n- Hypothermia: The patient is currently experiencing a fever, not hypothermia. Inducing hypothermia is sometimes used as a neuroprotective strategy, but is not indicated given the current temperature. The patient's elevated temperature suggests a possible infectious or inflammatory process, making hypothermia an incorrect choice.\n- Spinal Cord Injury: The scenario focuses on a hemorrhagic stroke and increased ICP, with no indication of spinal cord injury. The patient's presentation is consistent with a stroke affecting the brain, not the spinal cord.",
-        "clinicalPearls": [
-            "Hypertension management in acute stroke is complex. Permissive hypertension may be necessary initially to maintain cerebral perfusion, but excessive hypertension increases the risk of re-bleeding.",
-            "Unequal pupils in the setting of increased ICP can indicate impending herniation, requiring immediate intervention.",
-            "Mannitol is an osmotic diuretic used to reduce ICP, but it can cause dehydration and electrolyte imbalances, necessitating close monitoring."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on the stroke without considering the secondary complications of increased ICP can lead to incorrect choices.",
-            "howToOvercome": "Prioritize interventions and potential conditions that directly address the patient's elevated ICP, as this is the most immediate threat to the patient's well-being."
-        },
-        "mnemonic": {
-            "title": "ICP Mnemonic",
-            "expansion": "I - Identify cause; C - Control BP; P - Position (HOB elevated); M - Monitor electrolytes; A - Avoid Valsalva; N - Neuro checks; A - Administer medications (mannitol); G - Glucose control; E - Evaluate temperature."
-        }
+    "scoring": {
+        "method": "triad",
+        "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    }
 }

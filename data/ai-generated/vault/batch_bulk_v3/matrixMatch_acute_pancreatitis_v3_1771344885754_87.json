@@ -1,7 +1,7 @@
 {
-    "id": "mat-pancreatitis-001",
-    "caseId": "case-pancreatitis-001",
-    "questionType": "matrixMatch",
+    "id": "mat-pancreatitis-001-upgraded",
+    "type": "matrixMultipleChoice",
+    "stem": "A 45-year-old client has acute pancreatitis. For each clinical finding, select the most appropriate nursing action category. Each finding corresponds to only one action category.",
     "rows": [
         {
             "id": "row-001",
@@ -60,135 +60,293 @@
             "columnId": "col-001"
         }
     ],
+    "itemContext": {
+        "patient": {
+            "age": "45 years",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "No Known Allergies"
+            ]
+        },
+        "sbar": {
+            "id": "sbar_note_1",
+            "timestamp": "08:00",
+            "content": "S: This is the nurse for the 45-year-old male client in Room 302 with acute pancreatitis. He is reporting a significant increase in pain and appears more distressed than he was two hours ago. B: The client was admitted 12 hours ago from the ED with severe epigastric pain, nausea, and vomiting. Diagnosis of acute pancreatitis was confirmed by elevated lipase and CT scan. He has a history of gallstones and reports social alcohol use. He lives alone in a rural area, which may present a barrier to follow-up care. He is currently NPO with IV Lactated Ringer's infusing. His last dose of PRN morphine was four hours ago. A: Vital signs are trending towards instability: HR 118, BP 102/68, RR 24, SpO2 89% on room air. He is guarding his abdomen, which is distended. Pain is now 9/10, described as constant and boring. Auscultation reveals new-onset fine crackles in bilateral lower lobes. A positive Chvostek's sign was just elicited. R: I will apply supplemental oxygen, reposition the client, and administer the available PRN morphine now. I am requesting you come to the bedside to assess for potential ARDS and hemorrhagic complications."
+        },
+        "tabs": [
+            {
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "04:00",
+                        "HR (bpm)": "102",
+                        "BP (mmHg)": "110/72 (85)",
+                        "RR (breaths/min)": "20",
+                        "SpO₂ (%)": "94% on RA",
+                        "Temp °F (°C)": "100.4 (38.0)"
+                    },
+                    {
+                        "Time": "06:00",
+                        "HR (bpm)": "110",
+                        "BP (mmHg)": "106/70 (82)",
+                        "RR (breaths/min)": "22",
+                        "SpO₂ (%)": "91% on RA",
+                        "Temp °F (°C)": "100.8 (38.2)"
+                    },
+                    {
+                        "Time": "08:00",
+                        "HR (bpm)": "118",
+                        "BP (mmHg)": "102/68 (79)",
+                        "RR (breaths/min)": "24",
+                        "SpO₂ (%)": "89% on RA",
+                        "Temp °F (°C)": "101.1 (38.4)"
+                    }
+                ]
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "16.5",
+                        "Unit": "x 10³/μL",
+                        "Reference Range": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Amylase",
+                        "Result": "250",
+                        "Unit": "U/L",
+                        "Reference Range": "30-110",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lipase",
+                        "Result": "400",
+                        "Unit": "U/L",
+                        "Reference Range": "0-160",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Calcium, Total",
+                        "Result": "7.8",
+                        "Unit": "mg/dL",
+                        "Reference Range": "8.6-10.3",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Glucose",
+                        "Result": "180",
+                        "Unit": "mg/dL",
+                        "Reference Range": "70-110",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": {
+                    "Timestamp": "08:00",
+                    "General": "Anxious male client in acute distress, diaphoretic.",
+                    "Neurological": "Alert and oriented x3. Positive Chvostek's sign elicited on left side.",
+                    "Cardiovascular": "Tachycardic with regular rhythm. S1/S2 audible. No murmurs. Capillary refill 3 seconds.",
+                    "Respiratory": "Tachypneic with shallow respirations. Fine crackles auscultated in bilateral lower lung bases.",
+                    "Gastrointestinal": "Abdomen is distended and tender to light palpation in epigastric region with guarding. Bowel sounds hypoactive in all four quadrants. Bluish discoloration noted around the umbilicus."
+                }
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "Procedure": "CT Abdomen/Pelvis with Contrast",
+                    "Date": "Yesterday",
+                    "Impression": "Findings are consistent with acute interstitial edematous pancreatitis, characterized by diffuse pancreatic enlargement and peripancreatic fat stranding. There is no evidence of pancreatic necrosis or pseudocyst formation at this time. Small bilateral pleural effusions are noted. The gallbladder contains multiple small calculi without evidence of acute cholecystitis."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Yesterday 20:00",
+                        "Action": "NPO",
+                        "Frequency/Status": "Continuous"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 20:00",
+                        "Action": "IV Fluids: Lactated Ringer's",
+                        "Frequency/Status": "125 mL/hr continuous infusion"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 20:00",
+                        "Action": "Morphine",
+                        "Frequency/Status": "2 mg IV every 2 hours PRN for severe pain (rated 7-10)"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 20:00",
+                        "Action": "Ondansetron",
+                        "Frequency/Status": "4 mg IV every 6 hours PRN for nausea"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday 20:00",
+                        "Action": "Bed rest with bathroom privileges",
+                        "Frequency/Status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lactated Ringer's",
+                        "Dose": "125 mL/hr",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last Administered": "Ongoing"
+                    },
+                    {
+                        "Medication": "Morphine",
+                        "Dose": "2 mg",
+                        "Route": "IV",
+                        "Frequency": "Every 2 hours PRN",
+                        "Last Administered": "04:00"
+                    },
+                    {
+                        "Medication": "Ondansetron",
+                        "Dose": "4 mg",
+                        "Route": "IV",
+                        "Frequency": "Every 6 hours PRN",
+                        "Last Administered": "02:00"
+                    }
+                ]
+            }
+        ]
+    },
     "rationale": {
-        "correct": "The nurse must differentiate between expected findings, acute complications requiring immediate nursing action, and severe complications requiring collaboration and anticipation of provider orders. Severe pain, signs of hypocalcemia (Chvostek's), and respiratory compromise (crackles, hypoxia) warrant immediate nursing interventions to ensure client safety and comfort. Signs of retroperitoneal hemorrhage (Cullen's sign) indicate a life-threatening complication where the nurse must prepare for and anticipate provider-driven interventions like massive fluid or blood product resuscitation. Expected laboratory findings, while confirming the diagnosis, are monitored to assess the client's response to treatment.",
-        "incorrect": "Incorrect selections fail to prioritize nursing actions based on the urgency and nature of the clinical finding. For example, selecting 'Monitor/Assess Trend' for respiratory distress or severe pain would be unsafe and neglect the nurse's duty to act. Selecting 'Immediate Intervention' for an expected lab value is incorrect as no new, specific action is triggered by the number alone. Selecting 'Anticipate Provider Order' for severe pain is also suboptimal, as PRN analgesics are typically already ordered, making the immediate action the administration of the existing order.",
+        "correct": "The nurse must correctly categorize clinical findings to prioritize care. Findings that pose an immediate threat to safety, airway, breathing, or circulation and can be addressed with independent nursing actions (based on existing orders) require 'Immediate Intervention'. Findings indicating a severe, life-threatening complication that requires new medical directives for treatment fall under 'Anticipate Provider Order'. Expected diagnostic markers that confirm the disease process but do not trigger a new action are categorized as 'Monitor/Assess Trend'.",
+        "incorrect": "Incorrectly categorizing these findings leads to unsafe care. Classifying hypoxia, severe pain, or seizure risk as 'Monitor' constitutes a failure to rescue. Classifying a sign of internal hemorrhage as an 'Immediate Intervention' is also incorrect because the definitive treatments (e.g., blood products, vasopressors) are outside the nurse's independent scope and must be ordered by a provider. Mistaking an expected lab value for a finding that requires a new, immediate action leads to inefficient and unnecessary care.",
         "answerBreakdown": [
             {
                 "rowId": "row-001",
                 "columnId": "col-001",
                 "isCorrect": true,
-                "rationale": "A positive Chvostek's sign indicates hypocalcemia, a potential complication of acute pancreatitis due to fat necrosis and calcium saponification. This increases neuromuscular excitability, raising the risk for tetany and seizures. Immediate intervention involves implementing seizure precautions (padded side rails, suction equipment at bedside) to ensure client safety. The pathophysiology involves the release of pancreatic enzymes that damage pancreatic tissue, leading to the release of fatty acids. These fatty acids bind to calcium, decreasing serum calcium levels. ClinicalPearl: Monitor for Trousseau's sign (carpopedal spasm with BP cuff inflation) as another indicator of hypocalcemia.",
-                "SBAR": "S: Client with acute pancreatitis exhibiting positive Chvostek's sign. B: Admitted for acute pancreatitis secondary to gallstones. History of hyperlipidemia. A: Positive Chvostek's sign indicates hypocalcemia, increasing seizure risk. R: Implement seizure precautions immediately. Notify provider at 0800 for possible calcium replacement order."
+                "rationale": "Correct. A positive Chvostek's sign indicates hypocalcemia, a complication of pancreatitis where fat necrosis binds with calcium. This creates a high risk for seizures due to neuromuscular irritability. The most immediate, independent nursing action is to implement seizure precautions to ensure client safety."
             },
             {
                 "rowId": "row-001",
                 "columnId": "col-002",
                 "isCorrect": false,
-                "rationale": "While anticipating an order for IV calcium gluconate is appropriate, the *most* immediate and independent nursing action is ensuring client safety through seizure precautions. This action precedes and is independent of obtaining a new provider order.",
-                "SBAR": "S: N/A. B: N/A. A: N/A. R: N/A."
+                "rationale": "Incorrect. While the nurse should anticipate an order for IV calcium gluconate, the priority action is ensuring immediate patient safety. Seizure precautions are an independent nursing intervention that must be implemented first."
             },
             {
                 "rowId": "row-001",
                 "columnId": "col-003",
                 "isCorrect": false,
-                "rationale": "Merely monitoring a positive Chvostek's sign is unsafe. This critical finding signals imminent risk (seizures) and requires immediate protective action.",
-                "SBAR": "S: N/A. B: N/A. A: N/A. R: N/A."
+                "rationale": "Incorrect. A positive Chvostek's sign is a critical finding indicating an imminent safety risk. Passively monitoring this sign without taking protective action is unsafe."
             },
             {
                 "rowId": "row-002",
                 "columnId": "col-001",
                 "isCorrect": true,
-                "rationale": "Severe pain is a hallmark of acute pancreatitis, often caused by pancreatic inflammation, edema, and autodigestion. This pain causes significant physiological stress (increased metabolic rate, tachycardia, hypertension). The immediate nursing intervention is to administer prescribed analgesics (typically opioids) as ordered and position the client for comfort (e.g., side-lying with knees flexed) to reduce intra-abdominal pressure. ClinicalPearl: Pain management is crucial; uncontrolled pain can exacerbate pancreatic inflammation.",
-                "SBAR": "S: Client with acute pancreatitis reporting severe epigastric pain (9/10) radiating to the back. B: Admitted for acute pancreatitis. Pain unrelieved by current PRN analgesic. A: Severe pain indicates ongoing pancreatic inflammation and requires immediate intervention. R: Administer prescribed opioid analgesic at 0800. Reassess pain level in 30 minutes. Consider contacting provider if pain remains uncontrolled."
+                "rationale": "Correct. Severe pain (9/10) is a physiological stressor that increases metabolic demand and can worsen pancreatic inflammation. Based on the MAR, a PRN order for morphine is available. The immediate nursing intervention is to administer the existing analgesic order."
             },
             {
                 "rowId": "row-002",
                 "columnId": "col-002",
                 "isCorrect": false,
-                "rationale": "The nurse should already have an order for PRN analgesia for a client with acute pancreatitis. Therefore, the action is to intervene with the existing order, not to wait to anticipate a new one.",
-                "SBAR": "S: N/A. B: N/A. A: N/A. R: N/A."
+                "rationale": "Incorrect. The care plan already includes an order for PRN analgesia. The nurse's role is to implement the existing order, not wait to anticipate a new one."
             },
             {
                 "rowId": "row-002",
                 "columnId": "col-003",
                 "isCorrect": false,
-                "rationale": "Pain rated 9/10 is a high-priority problem demanding immediate intervention, not passive monitoring. Effective pain management is crucial for patient recovery and to reduce metabolic stress.",
-                "SBAR": "S: N/A. B: N/A. A: N/A. R: N/A."
+                "rationale": "Incorrect. Pain rated 9/10 is a high-priority symptom requiring active intervention, not passive monitoring. Uncontrolled pain is detrimental to the client's recovery."
             },
             {
                 "rowId": "row-003",
                 "columnId": "col-003",
                 "isCorrect": true,
-                "rationale": "Elevated serum amylase and lipase are key diagnostic markers for acute pancreatitis, indicating pancreatic cell damage and enzyme release. Amylase typically rises within hours of symptom onset, while lipase remains elevated longer. Once the diagnosis is established, these values are monitored to assess the trend and the client's response to treatment (e.g., NPO status, IV fluids). A single elevated value does not trigger a specific, new immediate action. ClinicalPearl: Lipase is more specific to pancreatic damage than amylase.",
-                "SBAR": "S: Client with acute pancreatitis. B: Admitted for acute pancreatitis. Serum amylase 250 U/L, serum lipase 400 U/L. A: Elevated amylase and lipase confirm pancreatic inflammation. R: Continue to monitor trends in amylase and lipase levels. Report significant increases to the provider at 0800."
+                "rationale": "Correct. Elevated amylase and lipase are the hallmark diagnostic indicators of acute pancreatitis. Once the diagnosis is confirmed, these values are trended to evaluate the client's response to treatment (e.g., NPO status, IV fluids). A single set of expected high values does not trigger a new, immediate action."
             },
             {
                 "rowId": "row-003",
                 "columnId": "col-001",
                 "isCorrect": false,
-                "rationale": "This is an expected laboratory finding for this diagnosis and does not, in itself, require an immediate, independent nursing action beyond the established plan of care.",
-                "SBAR": "S: N/A. B: N/A. A: N/A. R: N/A."
+                "rationale": "Incorrect. These lab values are an expected finding for the client's diagnosis. They confirm the problem but do not require a new, independent nursing action beyond the established plan of care."
             },
             {
                 "rowId": "row-003",
                 "columnId": "col-002",
                 "isCorrect": false,
-                "rationale": "The provider is already aware of these diagnostic labs. The nurse's role is to monitor the trend and report significant changes, not to anticipate a new order based on this expected finding.",
-                "SBAR": "S: N/A. B: N/A. A: N/A. R: N/A."
+                "rationale": "Incorrect. The provider is aware of these diagnostic labs. The nurse's role is to monitor the trend and report significant changes, not to anticipate a new order based on this expected finding."
             },
             {
                 "rowId": "row-004",
                 "columnId": "col-002",
                 "isCorrect": true,
-                "rationale": "Bluish discoloration around the umbilicus (Cullen's sign) indicates retroperitoneal hemorrhage, a life-threatening complication. This occurs due to pancreatic enzyme leakage and subsequent blood tracking along tissue planes. The nurse must immediately assess for signs of shock (hypotension, tachycardia, altered mental status) and anticipate provider orders for aggressive interventions such as large-volume IV fluids, blood products, and vasopressors. ClinicalPearl: Cullen's sign is a late sign of severe pancreatitis.",
-                "SBAR": "S: Client with acute pancreatitis exhibiting Cullen's sign (bluish discoloration around the umbilicus). B: Admitted for acute pancreatitis. A: Cullen's sign indicates retroperitoneal hemorrhage and potential hypovolemic shock. R: Immediately assess vital signs and prepare for fluid resuscitation. Notify provider at 0800 for immediate orders."
+                "rationale": "Correct. Bluish discoloration around the umbilicus (Cullen's sign) is a late sign of retroperitoneal hemorrhage, a life-threatening complication. The nurse must immediately assess for shock and anticipate provider orders for aggressive resuscitation with IV fluids, blood products, and vasopressors."
             },
             {
                 "rowId": "row-004",
                 "columnId": "col-001",
                 "isCorrect": false,
-                "rationale": "While the nurse will immediately perform an assessment (e.g., vital signs), the definitive management of hemorrhagic shock requires interventions that are not within the independent scope of nursing practice. The most appropriate category is anticipating the necessary medical orders.",
-                "SBAR": "S: N/A. B: N/A. A: N/A. R: N/A."
+                "rationale": "Incorrect. While the nurse will immediately assess vital signs, the definitive management of hemorrhagic shock requires interventions (e.g., ordering blood products) that are outside the independent scope of nursing practice. The primary role is to prepare for and anticipate medical orders."
             },
             {
                 "rowId": "row-004",
                 "columnId": "col-003",
                 "isCorrect": false,
-                "rationale": "Cullen's sign is an ominous finding indicating a severe, acute complication. It requires more than just monitoring; it requires preparation for imminent, life-saving medical interventions.",
-                "SBAR": "S: N/A. B: N/A. A: N/A. R: N/A."
+                "rationale": "Incorrect. Cullen's sign is an ominous finding indicating a severe, acute complication. It requires preparation for imminent, life-saving medical interventions, not passive monitoring."
             },
             {
                 "rowId": "row-005",
                 "columnId": "col-001",
                 "isCorrect": true,
-                "rationale": "Crackles and an SpO2 of 89% indicate impaired gas exchange and are early signs of Acute Respiratory Distress Syndrome (ARDS), a leading cause of death in acute pancreatitis. Pancreatic enzymes can damage the alveolar-capillary membrane, leading to increased permeability and pulmonary edema. The nurse must take immediate action by raising the head of the bed to at least 30 degrees, applying oxygen to maintain SpO2 > 92%, and notifying the provider. ClinicalPearl: Monitor for signs of respiratory failure, including increased work of breathing and cyanosis.",
-                "SBAR": "S: Client with acute pancreatitis exhibiting fine crackles bilaterally and SpO2 of 89% on room air. B: Admitted for acute pancreatitis. A: Crackles and hypoxia indicate potential ARDS. R: Elevate head of bed, apply oxygen to maintain SpO2 > 92%, and notify provider at 0800 for further orders (e.g., ABGs, chest X-ray)."
+                "rationale": "Correct. Crackles and an SpO2 of 89% indicate impaired gas exchange, a sign of developing Acute Respiratory Distress Syndrome (ARDS), a major cause of mortality in pancreatitis. The nurse must take immediate, independent actions such as raising the head of the bed and applying oxygen to stabilize the client."
             },
             {
                 "rowId": "row-005",
                 "columnId": "col-002",
                 "isCorrect": false,
-                "rationale": "The nurse must perform immediate, independent actions (positioning, applying oxygen) to stabilize the client before and while anticipating further provider orders like BiPAP or mechanical ventilation.",
-                "SBAR": "S: N/A. B: N/A. A: N/A. R: N/A."
+                "rationale": "Incorrect. While the nurse will also anticipate orders for ABGs or a chest x-ray, the most immediate priority is to perform independent actions (positioning, applying oxygen) to address the life-threatening hypoxia."
             },
             {
                 "rowId": "row-005",
                 "columnId": "col-003",
                 "isCorrect": false,
-                "rationale": "Hypoxia is an urgent and potentially life-threatening finding. Passively monitoring this situation is unsafe and would constitute a failure to rescue.",
-                "SBAR": "S: N/A. B: N/A. A: N/A. R: N/A."
+                "rationale": "Incorrect. Hypoxia (SpO2 89%) is an urgent, life-threatening finding. Passively monitoring this situation is unsafe and constitutes a failure to rescue."
             }
-        ]
+        ],
+        "clinicalPearls": [
+            "ARDS is a leading cause of mortality in acute pancreatitis. Any sign of respiratory compromise (crackles, hypoxia, tachypnea) must be addressed immediately as a top priority.",
+            "Hypocalcemia (evidenced by Chvostek's or Trousseau's sign) is a classic complication due to fat necrosis and saponification, where free fatty acids bind to calcium. The immediate priority is seizure precautions to ensure client safety.",
+            "Cullen's sign (periumbilical ecchymosis) and Grey Turner's sign (flank ecchymosis) indicate retroperitoneal hemorrhage. These are late, ominous signs requiring rapid preparation for massive fluid and/or blood resuscitation."
+        ],
+        "questionTrap": "The trap is distinguishing between an 'Immediate Intervention' and 'Anticipate Provider Order'. An immediate intervention is an action the nurse can perform independently based on existing orders or standard protocols (e.g., apply O2, administer PRN pain meds, implement safety precautions). 'Anticipate Order' is for situations requiring new medical directives to manage a life-threatening complication (e.g., blood products for hemorrhage).",
+        "mnemonic": "To recall the causes of acute pancreatitis, use the mnemonic 'I GET SMASHED': Idiopathic, Gallstones, Ethanol, Trauma, Steroids, Mumps, Autoimmune disease, Scorpion sting, Hypercalcemia/Hypertriglyceridemia, ERCP, Drugs. This helps in anticipating potential complications based on the client's history."
+    },
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 5
     },
     "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
         "nclexCategory": "Physiological Adaptation",
-        "difficulty": 4,
+        "difficulty": "Hard",
         "topicTags": [
             "Acute Pancreatitis",
             "Gastrointestinal",
             "Fluid and Electrolytes",
-            "Respiratory",
+            "Respiratory Compromise",
             "Prioritization"
         ]
     },
-    "sentinelStatus": "deep_healed_v2026",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
-    "type": "matrixMatch",
-    "stem": "The nurse is caring for a 45-year-old client admitted with acute pancreatitis. For each clinical finding, select the most appropriate nursing action category. Each finding is associated with only one action category."
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:04:44.556Z"
 }

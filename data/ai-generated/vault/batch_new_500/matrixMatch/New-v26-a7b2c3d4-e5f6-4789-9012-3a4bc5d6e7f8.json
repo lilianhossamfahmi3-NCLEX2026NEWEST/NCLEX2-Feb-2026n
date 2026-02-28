@@ -1,42 +1,227 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-9012-3a4bc5d6e7f8",
     "type": "matrixMatch",
-    "stem": "The nurse is caring for Mr. Hernandez. Based on the information provided in the EHR, determine whether each finding is consistent with Acute Kidney Injury (AKI), Chronic Kidney Disease (CKD), or a condition that could be present in BOTH AKI and CKD. Select one option for each finding.",
+    "stem": "The nurse reviews the client's electronic health record. For each clinical finding, determine if it is most consistent with Acute Kidney Injury (AKI), Chronic Kidney Disease (CKD), or can be present in both conditions. Select one option per finding.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 5
     },
     "itemContext": {
         "patient": {
             "name": "Jose Hernandez",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Hispanic/Latino",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Mr. Jose Hernandez, a 68-year-old male, was admitted at 03:00 today. B: He has a history of hypertension and type 2 diabetes, both poorly controlled. He presented with fatigue, decreased urine output, and lower extremity edema. The patient reports missing several dialysis appointments over the past month. O: At 07:00, assessment revealed BP 180/100 mmHg, HR 98 bpm, RR 24, SpO2 92% on room air, and urine output 30 mL/hr. Labs are pending. +3 pitting edema was noted bilaterally in his lower extremities. A: Possible fluid overload and worsening renal function. Differential diagnoses include AKI versus exacerbation of CKD. Electrolyte imbalances are suspected. R: Monitor urine output closely, administer furosemide 40 mg IV as ordered, and notify the provider of any significant changes. Review the pending lab results and contact nephrology for an urgent consult if indicated. Ensure patient safety and comfort. The patient is currently oriented to person, place, and time.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>BUN</td><td>85 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Creatinine</td><td>6.2 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Potassium</td><td>6.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>130 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Hemoglobin</td><td>9.5 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>GFR (estimated)</td><td>12 mL/min/1.73 m2</td><td>>90 mL/min/1.73 m2</td></tr><tr><td>Phosphate</td><td>6.0 mg/dL</td><td>2.5-4.5 mg/dL</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>STAT, then BID</td></tr><tr><td>Insulin Aspart</td><td>Sliding Scale</td><td>Subcutaneous</td><td>AC and HS</td></tr><tr><td>Sevelamer</td><td>800 mg</td><td>PO</td><td>TID with meals</td></tr><tr><td>Sodium Polystyrene Sulfonate</td><td>15 g</td><td>PO</td><td>Once Daily</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 03:00",
+                        "type": "Admission Note",
+                        "author": "ED Nurse, RN",
+                        "note": "S: Client is a 68-year-old male presenting with progressive fatigue, decreased urine output over 24 hours, and bilateral leg swelling.\nB: History of poorly controlled hypertension and type 2 diabetes mellitus. Client has end-stage renal disease and reports missing several scheduled hemodialysis appointments over the past month due to transportation difficulties. He lives alone in a rural area with limited public transit.\nA: Alert and oriented x3. Appears fatigued. Vital signs notable for hypertension and tachypnea. Physical exam reveals jugular venous distention and significant peripheral edema. Appears to be in a state of severe fluid volume overload.\nR: Admit to the medical-telemetry unit for management of acute-on-chronic renal failure and hyperkalemia. Initiate continuous cardiac monitoring. Obtain STAT labs and ECG. Prepare for urgent nephrology consultation."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "type": "Progress Note",
+                        "author": "Primary Nurse, RN",
+                        "note": "S: Client reports feeling 'more tired' and slightly short of breath. Denies chest pain.\nB: Admitted from ED at 03:00 for acute-on-chronic renal failure. History of ESRD, missed dialysis. Critical lab results from 06:00 show severe azotemia (BUN 85, Cr 6.2), critical hyperkalemia (K+ 6.8), and significant anemia (Hgb 9.5).\nO: BP remains elevated at 180/100 mmHg. SpO2 is 92% on room air. Urine output is minimal at 30 mL/hr. Cardiac monitor shows peaked T waves. Bibasilar crackles are auscultated.\nA: Client is experiencing complications of end-stage renal disease, including severe fluid overload and life-threatening hyperkalemia. The profound anemia is consistent with his chronic condition. The peaked T waves are an ominous sign of cardiac membrane instability from hyperkalemia.\nR: Administered STAT furosemide 40 mg IV and sodium polystyrene sulfonate 15 g PO as ordered. Notified nephrologist of critical lab values and ECG changes. Continue continuous cardiac monitoring. Prepare for potential urgent hemodialysis."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Urine Output (mL/hr)</th></tr></thead><tbody><tr><td>03:00</td><td>170/95</td><td>92</td><td>22</td><td>94%</td><td>40</td></tr><tr><td>05:00</td><td>175/98</td><td>95</td><td>23</td><td>93%</td><td>35</td></tr><tr><td>07:00</td><td>180/100</td><td>98</td><td>24</td><td>92%</td><td>30</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:00",
+                        "BP": "170/95 mmHg (MAP 120)",
+                        "HR": "92 bpm",
+                        "RR": "22/min",
+                        "SpO2": "94% on room air",
+                        "Temp": "98.6°F (37.0°C)",
+                        "Urine Output": "40 mL/hr"
+                    },
+                    {
+                        "Time": "05:00",
+                        "BP": "175/98 mmHg (MAP 124)",
+                        "HR": "95 bpm",
+                        "RR": "23/min",
+                        "SpO2": "93% on room air",
+                        "Temp": "98.7°F (37.1°C)",
+                        "Urine Output": "35 mL/hr"
+                    },
+                    {
+                        "Time": "07:00",
+                        "BP": "180/100 mmHg (MAP 127)",
+                        "HR": "98 bpm",
+                        "RR": "24/min",
+                        "SpO2": "92% on room air",
+                        "Temp": "98.8°F (37.1°C)",
+                        "Urine Output": "30 mL/hr"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "BUN",
+                        "Value": "85",
+                        "Unit": "mg/dL",
+                        "Reference": "8-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "6.2",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Potassium",
+                        "Value": "6.8",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Critical"
+                    },
+                    {
+                        "Result": "Sodium",
+                        "Value": "130",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "Hemoglobin",
+                        "Value": "9.5",
+                        "Unit": "g/dL",
+                        "Reference": "13.5-17.5",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "GFR (estimated)",
+                        "Value": "12",
+                        "Unit": "mL/min/1.73m²",
+                        "Reference": ">60",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "Phosphate",
+                        "Value": "6.0",
+                        "Unit": "mg/dL",
+                        "Reference": "2.5-4.5",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 03:00 (Admission)",
+                        "findings": "GENERAL: Fatigued but alert and cooperative.\nCARDIOVASCULAR: Tachycardic, S1/S2 regular. Jugular venous distention present at 45 degrees. Capillary refill >3 seconds.\nRESPIRATORY: Tachypneic with bibasilar crackles on auscultation.\nEXTREMITIES: 3+ pitting edema to bilateral lower extremities, extending to mid-shin.\nSKIN: Pale, cool, and dry with poor turgor."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00 (Focused)",
+                        "findings": "RESPIRATORY: Crackles now audible halfway up posterior lung fields. Client using accessory muscles for respiration.\nCARDIOVASCULAR: Heart rate remains tachycardic. Telemetry shows sinus tachycardia with prominent peaked T waves."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "type": "Renal Ultrasound",
+                        "timestamp": "Day 1, 04:30",
+                        "report": "INDICATION: Evaluate renal size and for hydronephrosis in setting of acute-on-chronic renal failure.\nFINDINGS: The right kidney measures 8.5 cm and the left kidney measures 8.8 cm in length. Both kidneys demonstrate increased cortical echogenicity and significant parenchymal thinning. There is no evidence of hydronephrosis or renal calculi.\nIMPRESSION: Bilateral small, echogenic kidneys. Findings are consistent with chronic renal parenchymal disease (nephrosclerosis), suggesting a chronic, long-standing process."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "orderDate": "Day 1, 07:10",
+                        "action": "Furosemide 40 mg IV",
+                        "status": "STAT"
+                    },
+                    {
+                        "orderDate": "Day 1, 07:10",
+                        "action": "Sodium Polystyrene Sulfonate 15 g PO",
+                        "status": "STAT"
+                    },
+                    {
+                        "orderDate": "Day 1, 03:15",
+                        "action": "Continuous cardiac monitoring",
+                        "status": "Standing"
+                    },
+                    {
+                        "orderDate": "Day 1, 03:15",
+                        "action": "Strict Intake & Output monitoring",
+                        "status": "Standing"
+                    },
+                    {
+                        "orderDate": "Day 1, 03:15",
+                        "action": "Daily weights",
+                        "status": "Standing"
+                    },
+                    {
+                        "orderDate": "Day 1, 03:15",
+                        "action": "Renal Diet: 2g Sodium, 2g Potassium, 1g Phosphorus restriction",
+                        "status": "Standing"
+                    },
+                    {
+                        "orderDate": "Day 1, 03:15",
+                        "action": "Nephrology Consult",
+                        "status": "STAT"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Furosemide",
+                        "dose": "40 mg",
+                        "route": "IV",
+                        "frequency": "STAT",
+                        "lastAdministered": "Day 1, 07:15"
+                    },
+                    {
+                        "medication": "Sodium Polystyrene Sulfonate",
+                        "dose": "15 g",
+                        "route": "PO",
+                        "frequency": "STAT",
+                        "lastAdministered": "Day 1, 07:20"
+                    },
+                    {
+                        "medication": "Insulin Aspart",
+                        "dose": "Sliding Scale",
+                        "route": "Subcutaneous",
+                        "frequency": "AC and HS",
+                        "lastAdministered": "Day 0, 21:00"
+                    },
+                    {
+                        "medication": "Sevelamer",
+                        "dose": "800 mg",
+                        "route": "PO",
+                        "frequency": "TID with meals",
+                        "lastAdministered": "Day 0, 18:00"
+                    }
+                ]
             }
         ]
     },
@@ -46,24 +231,55 @@
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Renal: AKI vs CKD & Electrolyte Emergencies"
+            "Renal Failure",
+            "AKI vs CKD",
+            "Electrolyte Imbalances",
+            "Fluid and Electrolytes"
         ]
     },
     "rationale": {
-        "correct": "Elevated BUN and creatinine, decreased GFR, hyperkalemia, and hyponatremia are commonly observed in BOTH AKI and CKD due to impaired kidney function. Anemia is typically associated with CKD due to decreased erythropoietin production by the kidneys. However, a history of missed dialysis appointments strongly suggests the patient has underlying CKD which has now acutely worsened, exhibiting signs of AKI.",
-        "incorrect": "AKI typically presents with a sudden decline in kidney function, whereas CKD is a progressive and irreversible condition. While some lab values and symptoms overlap, the patient's history and the chronicity of findings help differentiate the two. Failing to recognize shared findings and attributing all findings solely to one condition is incorrect.",
+        "correct": "The client's presentation is a classic example of acute-on-chronic renal failure. The presence of long-standing anemia and small, echogenic kidneys on ultrasound are definitive signs of Chronic Kidney Disease (CKD). The other findings—azotemia, decreased GFR, hyperkalemia, and hyponatremia—are consequences of severe renal dysfunction and can be seen in both acute and chronic settings. The client's missed dialysis appointments precipitated an acute crisis on top of his underlying chronic condition.",
+        "incorrect": "Attributing all findings to only AKI or only CKD is an incomplete analysis. AKI alone would not explain the chronic anemia or the structural kidney changes seen on ultrasound. Conversely, while the client has CKD, his current state with rapidly worsening vitals, oliguria, and critical hyperkalemia represents an acute decompensation, not just the baseline chronic state.",
+        "answerBreakdown": [
+            {
+                "option": "Elevated BUN and Creatinine",
+                "classification": "Both AKI and CKD",
+                "explanation": "Pathophysiology: Azotemia (elevated BUN and creatinine) is the hallmark of renal failure. It occurs when damaged nephrons, whether from an acute insult or chronic disease, are unable to filter these nitrogenous waste products from the blood, leading to their accumulation."
+            },
+            {
+                "option": "Decreased Estimated GFR",
+                "classification": "Both AKI and CKD",
+                "explanation": "Pathophysiology: Glomerular Filtration Rate (GFR) is the most accurate measure of overall kidney function. Any significant loss of functioning nephrons, whether sudden (AKI) or gradual and progressive (CKD), will result in a decreased GFR."
+            },
+            {
+                "option": "Hyperkalemia",
+                "classification": "Both AKI and CKD",
+                "explanation": "Pathophysiology: The kidneys are responsible for approximately 90% of the body's potassium excretion. In both AKI and advanced CKD, damaged renal tubules lose their ability to secrete potassium into the urine, leading to its retention and potentially life-threatening hyperkalemia."
+            },
+            {
+                "option": "Anemia",
+                "classification": "Chronic Kidney Disease (CKD)",
+                "explanation": "Pathophysiology: This is the key differentiator. Healthy kidneys produce erythropoietin (EPO), a hormone that stimulates red blood cell production. In CKD, the progressive destruction of kidney tissue over months to years leads to decreased EPO production and subsequent normocytic, normochromic anemia. This is not a feature of early or uncomplicated AKI."
+            },
+            {
+                "option": "Hyponatremia",
+                "classification": "Both AKI and CKD",
+                "explanation": "Pathophysiology: Failing kidneys are unable to excrete free water effectively, leading to fluid retention and volume overload. This excess water in the intravascular space dilutes the serum sodium concentration, resulting in a dilutional hyponatremia."
+            }
+        ],
         "clinicalPearls": [
-            "Distinguishing between AKI and CKD requires a comprehensive assessment, including patient history, lab values, and clinical presentation.",
-            "Electrolyte imbalances, particularly hyperkalemia and hyponatremia, are life-threatening complications of both AKI and CKD and require prompt management.",
-            "Medication reconciliation is crucial in patients with renal impairment to avoid drug-induced nephrotoxicity or accumulation."
+            "Anemia of chronic disease in CKD is typically normocytic and normochromic and does not usually develop until the GFR falls below 45 mL/min/1.73m².",
+            "Renal ultrasound is a critical diagnostic tool to differentiate AKI from CKD. Small, shrunken, echogenic kidneys are indicative of a chronic, irreversible process.",
+            "Peaked T waves on an ECG are an early and critical sign of hyperkalemia-induced cardiotoxicity and represent a medical emergency requiring immediate intervention.",
+            "Recognizing Social Determinants of Health, such as transportation barriers leading to missed dialysis, is crucial for understanding the root cause of a patient's acute decompensation and for planning effective discharge."
         ],
         "questionTrap": {
-            "trap": "Many students may quickly jump to AKI due to the acute presentation (decreased urine output, edema) without considering the patient's history of poorly controlled diabetes and missed dialysis, which are significant risk factors for CKD.",
-            "howToOvercome": "Carefully analyze the patient's history and all available data (labs, MAR, vitals) to differentiate between acute and chronic conditions. Consider the time course of the illness and pre-existing conditions."
+            "trap": "Focusing solely on the acute presentation (oliguria, worsening labs) and selecting 'AKI' for all findings, while ignoring the strong historical evidence (anemia, missed dialysis) and diagnostic data (ultrasound) that confirm an underlying chronic condition.",
+            "howToOvercome": "Synthesize data from all EHR tabs. A single lab value is a snapshot; trends and corroborating evidence from imaging and patient history are required to form a complete clinical picture. Look for the finding that does not fit the acute picture—in this case, the chronic anemia."
         },
         "mnemonic": {
-            "title": "AEIOU (for dialysis indications)",
-            "expansion": "A: Acidosis (severe metabolic acidosis). E: Electrolyte imbalances (severe hyperkalemia). I: Intoxication (certain drug overdoses). O: Overload (fluid overload unresponsive to diuretics). U: Uremia (symptomatic uremia, such as encephalopathy or pericarditis)."
+            "title": "AEIOU (Indications for Urgent Dialysis)",
+            "expansion": "A: Acidosis (severe, refractory metabolic acidosis)\nE: Electrolyte Imbalances (severe, refractory hyperkalemia)\nI: Intoxications (specific dialyzable toxins like salicylates, lithium, methanol)\nO: Overload (fluid overload refractory to diuretics)\nU: Uremia (symptomatic, e.g., uremic encephalopathy or pericarditis)"
         }
     },
     "matrixMatchOptions": {

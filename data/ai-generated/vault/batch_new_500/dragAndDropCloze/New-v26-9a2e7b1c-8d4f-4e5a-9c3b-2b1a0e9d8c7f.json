@@ -1,83 +1,229 @@
 {
     "id": "New-v26-9a2e7b1c-8d4f-4e5a-9c3b-2b1a0e9d8c7f",
-    "type": "dragAndDropCloze",
-    "stem": "Review the EHR. The provider prescribed a heparin infusion for DVT prophylaxis. Based on the order and available information, calculate the infusion rate in mL/hour. The heparin concentration available is 25,000 units in 250 mL NS. The order is for a heparin infusion at 500 units/hour. Place the correct values into the blanks below:\n\nThe infusion rate should be set to {infusionRate} mL/hour. At this rate, the patient will receive {unitsPerHour} units/hour, which is {therapeutic} to the prescribed dose. The nurse should {monitor} the patient closely for signs of bleeding or other adverse effects.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is preparing to initiate a continuous heparin infusion for a client with a deep vein thrombosis. Based on the data in the electronic health record, at what rate in mL/hour should the nurse program the infusion pump?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "2.5 mL/hour"
+        },
+        {
+            "id": "opt_02",
+            "text": "5 mL/hour"
+        },
+        {
+            "id": "opt_03",
+            "text": "10 mL/hour"
+        },
+        {
+            "id": "opt_04",
+            "text": "50 mL/hour"
+        }
+    ],
+    "correctOptionId": "opt_02",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "S: Mr. Smith is a 68-year-old male admitted at 07:00 today with a right lower extremity DVT. He reports 7/10 pain in his right calf.\n\nB: History of hypertension and hyperlipidemia. He was diagnosed with a DVT via ultrasound this morning.\n\nA: Currently, patient is alert and oriented x3, vital signs are stable (see vitals tab). He is receiving oxygen at 2L via nasal cannula with SpO2 at 98%. Pain is currently 6/10 after 4mg IV morphine at 08:00. Labs are drawn and pending.\n\nR: The provider ordered a heparin infusion at 500 units/hour for DVT prophylaxis. Please verify the order and initiate the infusion. The heparin concentration available is 25,000 units in 250 mL NS. Monitor patient for bleeding.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "PTT: 32 seconds (Normal: 25-35 seconds), INR: 1.0 (Normal: 0.8-1.2), Platelets: 250,000/mcL (Normal: 150,000-400,000/mcL)"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "note_type": "Admission Note",
+                        "content": "S: Client is a 68-year-old male who presents to the ED with a chief complaint of acute-onset right calf pain and swelling over the past 24 hours, rated 8/10. He states, 'It just blew up overnight and hurts to walk on.'\nB: Client has a history of hypertension and hyperlipidemia. He works as a long-haul truck driver and just completed a 5-day cross-country trip involving prolonged sitting. Reports living alone, which presents a barrier to consistent meal preparation and follow-up care. No prior history of VTE.\nA: Alert and oriented x4. Right calf is visibly swollen, erythematous, and warm to the touch with 3+ pitting edema. Right calf circumference is 45 cm, left is 42 cm. Pedal pulses are 2+ bilaterally. Sensation is intact.\nR: Plan is to obtain a STAT venous Doppler ultrasound of the right lower extremity to rule out DVT. Baseline coagulation studies (aPTT, INR, Platelets) and D-dimer have been drawn. Client placed on bed rest with the right leg elevated."
+                    },
+                    {
+                        "timestamp": "Day 1, 09:00",
+                        "note_type": "Progress Note",
+                        "content": "S: Client reports pain has decreased to 6/10 following administration of 4 mg IV morphine at 08:00. He is resting in bed and verbalizes understanding of activity restrictions.\nB: The STAT venous Doppler ultrasound results are back and confirm an extensive deep vein thrombosis in the right popliteal vein. The healthcare provider has been notified of the critical finding.\nA: Vital signs remain stable. Neurovascular checks of the right lower extremity are unchanged: capillary refill <3 seconds, sensation intact, able to wiggle toes. Client appears anxious about the diagnosis.\nR: Provider has entered orders for a continuous heparin infusion to be initiated at 500 units/hour. Will perform an independent double-check of the medication calculation and pump settings with a second RN prior to initiation. Continue to monitor for signs of bleeding and assess pain."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Morphine 4mg IV q4h PRN pain (last dose 08:00), Heparin 25,000 units in 250 mL NS, infuse at 500 units/hour (Order pending verification)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "07:00",
+                        "BP": "142/88 (MAP 106)",
+                        "HR": "92",
+                        "RR": "18",
+                        "SpO2": "98% on RA",
+                        "Temp": "98.8°F (37.1°C)"
+                    },
+                    {
+                        "Time": "09:00",
+                        "BP": "140/80 (MAP 100)",
+                        "HR": "88",
+                        "RR": "18",
+                        "SpO2": "98% on 2L NC",
+                        "Temp": "98.6°F (37.0°C)"
+                    },
+                    {
+                        "Time": "11:00",
+                        "BP": "138/78 (MAP 98)",
+                        "HR": "86",
+                        "RR": "16",
+                        "SpO2": "97% on 2L NC",
+                        "Temp": "98.7°F (37.1°C)"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "09:00: BP 140/80 mmHg, HR 88 bpm, RR 18, SpO2 98% on 2L NC, Temp 98.6°F (oral), Pain 6/10"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "aPTT",
+                        "Result": "32",
+                        "Unit": "seconds",
+                        "Reference Range": "25-35",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "INR",
+                        "Result": "1.0",
+                        "Unit": "",
+                        "Reference Range": "0.8-1.2",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Platelet Count",
+                        "Result": "250,000",
+                        "Unit": "/mcL",
+                        "Reference Range": "150,000-400,000",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "D-dimer",
+                        "Result": "2.5",
+                        "Unit": "mcg/mL",
+                        "Reference Range": "<0.50",
+                        "Status": "High"
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Mr. Smith is a 68-year-old male admitted at 07:00 today with a right lower extremity DVT. He reports 7/10 pain in his right calf.\n\nB: History of hypertension and hyperlipidemia. He was diagnosed with a DVT via ultrasound this morning.\n\nA: Currently, patient is alert and oriented x3, vital signs are stable (see vitals tab). He is receiving oxygen at 2L via nasal cannula with SpO2 at 98%. Pain is currently 6/10 after 4mg IV morphine at 08:00. Labs are drawn and pending.\n\nR: The provider ordered a heparin infusion at 500 units/hour for DVT prophylaxis. Please verify the order and initiate the infusion. The heparin concentration available is 25,000 units in 250 mL NS. Monitor patient for bleeding."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 07:00 (Admission)",
+                        "system": "Cardiovascular",
+                        "findings": "S1S2 audible, regular rate and rhythm. Right lower extremity with 3+ pitting edema from ankle to mid-calf. Right calf is erythematous, warm, and tender to palpation. Right calf circumference 45 cm, left 42 cm. Homan's sign not assessed as it is an unreliable indicator."
+                    },
+                    {
+                        "timestamp": "Day 1, 09:15 (Focused)",
+                        "system": "Neurological/Vascular",
+                        "findings": "Right lower extremity: Sensation to light touch intact. Able to dorsiflex and plantarflex foot. Capillary refill in right great toe is < 3 seconds. Dorsalis pedis pulse 2+."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "report_type": "Venous Doppler Ultrasound, Right Lower Extremity",
+                    "timestamp": "Day 1, 08:45",
+                    "findings": "Real-time imaging of the right lower extremity venous system was performed. There is non-compressibility of the right popliteal vein with absent flow augmentation, consistent with acute deep vein thrombosis. The common femoral, superficial femoral, and posterior tibial veins demonstrate normal compressibility and flow.",
+                    "impression": "1. Acute deep vein thrombosis (DVT) of the right popliteal vein."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "09:05",
+                        "action": "Heparin 25,000 units in 250 mL Normal Saline. Initiate continuous IV infusion at 500 units/hour.",
+                        "status": "STAT"
+                    },
+                    {
+                        "order_time": "07:15",
+                        "action": "Bed rest with bathroom privileges.",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "07:15",
+                        "action": "Elevate right lower extremity on two pillows.",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "07:20",
+                        "action": "Morphine 2-4 mg IV every 4 hours PRN for severe pain (rated 7-10).",
+                        "status": "PRN"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Heparin Infusion (25,000 units/250 mL)",
+                        "dose": "500 units/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "last_administered": "Not Yet Started"
+                    },
+                    {
+                        "medication": "Morphine Sulfate",
+                        "dose": "4 mg",
+                        "route": "IV",
+                        "frequency": "q4h PRN",
+                        "last_administered": "Day 1, 08:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
-        ]
-    },
     "rationale": {
-        "correct": "The correct infusion rate is 5 mL/hour. This rate delivers 500 units/hour, aligning with the prescribed dose for DVT prophylaxis. It is crucial to closely monitor the patient for any signs of bleeding or adverse reactions, as heparin is a high-alert medication. Regular monitoring of PTT and other coagulation studies is also necessary to ensure the therapeutic effect and prevent complications.\n\nclinicalPearl: Always double-check high-alert medication calculations with another nurse.",
-        "incorrect": "Incorrect answers indicate a misunderstanding of medication calculation principles or the heparin order. Heparin requires precise dosing to achieve the desired therapeutic effect while minimizing the risk of bleeding. Double-checking calculations with another nurse and understanding the available concentration of the medication are crucial safety steps.\n\nclinicalPearl: Understand the concentration of the medication available before calculating the infusion rate.",
-        "clinicalPearls": [
-            "Monitor patients closely for signs of bleeding when administering heparin."
+        "correct": "The correct infusion rate is 5 mL/hour. This is calculated using dimensional analysis to ensure the ordered dose of 500 units/hour is delivered accurately. The available concentration is 25,000 units in 250 mL, which simplifies to 100 units/mL. Dividing the desired dose (500 units/hr) by the concentration (100 units/mL) yields the correct rate of 5 mL/hr. Administering the correct rate is critical for achieving a therapeutic anticoagulant effect while minimizing bleeding risk.",
+        "incorrect": "Any other rate is incorrect and poses a significant safety risk. A lower rate results in a subtherapeutic dose, increasing the risk of thrombus extension and pulmonary embolism. A higher rate results in an overdose, placing the client at high risk for spontaneous bleeding and hemorrhage. Precise calculation for high-alert medications like heparin is a fundamental nursing responsibility.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Incorrect. A rate of 2.5 mL/hour would deliver only 250 units/hour. This is a subtherapeutic dose that would be ineffective in treating the DVT and preventing a pulmonary embolism."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. Calculation: (Desired Dose / Available Dose) x Volume = Rate. (500 units/hr / 25,000 units) x 250 mL = 5 mL/hr. This rate accurately delivers the prescribed therapeutic dose."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. A rate of 10 mL/hour would deliver 1000 units/hour. This is double the prescribed dose and significantly increases the client's risk for adverse bleeding events."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. A rate of 50 mL/hour would deliver 5000 units/hour, a massive overdose that could lead to life-threatening hemorrhage. This rate may result from a significant calculation error, such as dividing the total units (25,000) by the hourly rate (500)."
+            }
         ],
-        "questionTrap": {
-            "trap": "Confusing the total volume with the desired infusion rate or misinterpreting the concentration of the heparin solution.",
-            "howToOvercome": "Carefully review the order, the available concentration, and use dimensional analysis to ensure accurate calculation."
-        },
-        "mnemonic": {
-            "title": "DR. TIP",
-            "expansion": "Dosage, Route, Time, Individual, Preparation."
-        }
+        "clinicalPearls": [
+            "Heparin is a high-alert medication; an independent double-check by a second nurse is required before initiation and with any rate change.",
+            "The antidote for heparin overdose is protamine sulfate, which should be readily available on the unit.",
+            "Baseline coagulation studies (aPTT, platelets) are essential before starting a heparin infusion to identify any pre-existing coagulopathies.",
+            "The therapeutic range for a heparin infusion is typically monitored using aPTT, with a goal of 1.5 to 2.5 times the baseline control value."
+        ],
+        "questionTrap": "The most common trap is misplacing a decimal or inverting the concentration fraction during calculation. To avoid this, always use dimensional analysis and write out the units: (mL/hr) = (mL/units) x (units/hr). This ensures the units cancel correctly, leading to the right answer.",
+        "mnemonic": "HEPARIN Safety:\nH - Have antidote (protamine sulfate) ready\nE - Evaluate aPTT (typically q6h until therapeutic)\nP - Pump must be used (never gravity drip)\nA - Assess for bleeding (gums, stool, urine, bruising)\nR - Review order with another RN (independent double-check)\nI - Inform client of bleeding precautions\nN - Never give IM (risk of hematoma)"
     },
-    "solution": {
-        "infusionRate": "5",
-        "unitsPerHour": "500",
-        "therapeutic": "equal",
-        "monitor": "closely"
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "distractors": [
-        "2.5",
-        "10",
-        "higher",
-        "lower",
-        "rarely",
-        "frequently",
-        "ignore"
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Pharmacological and Parenteral Therapies"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:48:17.981Z"
 }

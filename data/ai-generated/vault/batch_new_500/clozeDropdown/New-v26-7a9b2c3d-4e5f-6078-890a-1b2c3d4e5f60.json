@@ -3,40 +3,79 @@
     "type": "clozeDropdown",
     "stem": "Based on the patient's presentation and available data, the most likely underlying cause of the respiratory distress is [dropdown1]. The priority intervention should be to [dropdown2]. This intervention aims to improve [dropdown3] and prevent further deterioration.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "zeroOne",
         "maxPoints": 3
     },
     "itemContext": {
         "patient": {
             "name": "Jameson Weber",
             "age": 68,
-            "gender": "Male",
+            "sex": "Male",
+            "pronouns": "he/him",
             "iso": "Airborne Infection Isolation",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Jameson Weber, 68-year-old male with a history of COPD, admitted 3 days ago for community-acquired pneumonia. He initially responded well to antibiotics but is now exhibiting increased work of breathing and altered mental status. O: At 0700, the patient is restless and confused, RR is 34 and labored with accessory muscle use. SpO2 is 88% on 6L nasal cannula. HR is 122, BP is 102/60. Coarse crackles and diminished breath sounds are auscultated bilaterally. A: Suspect worsening respiratory failure, likely secondary to ARDS and possible secondary bacterial infection. ABG reveals acute respiratory acidosis with hypoxemia. New-onset confusion is concerning for hypoxemia or sepsis. R: I recommend immediate evaluation by the intensivist, arterial blood gas (ABG) to assess respiratory status, STAT chest X-ray to rule out pneumothorax or worsening infiltrates, and consideration for intubation and mechanical ventilation. Obtain sputum and blood cultures to assess for secondary infection. Consider transfer to ICU if not already there. Monitor urine output. I'm concerned about his declining oxygen saturation, mental status changes, and overall respiratory decompensation. I will continue to monitor vital signs and respiratory effort closely. I have placed him on continuous cardiac monitoring and pulse oximetry. I have also alerted the respiratory therapist to assess his respiratory status and provide further support.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>pH</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>60 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>55 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>14,000/uL</td><td>4,500-11,000/uL</td></tr><tr><td>CRP</td><td>150 mg/L</td><td>&lt;10 mg/L</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 08:00",
+                        "note": "S: Patient is a 68-year-old male with a significant history of COPD and a 20-pack-year smoking history, presenting with a 3-day history of productive cough, fever, and increasing shortness of breath.\nB: He lives alone in a rural community with known transportation barriers, which delayed him seeking care. He has a penicillin allergy. He has been non-compliant with his home inhaler regimen recently.\nA: On arrival, he is febrile and tachypneic. Auscultation reveals decreased breath sounds and crackles in the right lower lobe. SpO2 is 91% on room air. Chest X-ray confirms a right lower lobe infiltrate consistent with community-acquired pneumonia (CAP).\nR: Recommend admission to the medical floor for IV antibiotics (Ceftriaxone and Azithromycin), supplemental oxygen, and respiratory treatments. Plan to monitor respiratory status closely and provide education on medication compliance before discharge."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 3, 07:00",
+                        "note": "S: Called to bedside for acute change in patient status. Patient is experiencing severe respiratory distress.\nB: He was admitted 3 days ago for CAP and was showing slow improvement until this morning. Last dose of IV antibiotics was administered yesterday evening.\nA: Patient is now agitated, confused, and using accessory muscles to breathe. Respiratory rate is 34/min and labored. SpO2 has dropped to 88% despite being on a 6L nasal cannula. Vital signs show tachycardia (122 bpm) and hypotension (102/60 mmHg). Auscultation reveals coarse crackles bilaterally. A STAT ABG shows severe hypoxemic respiratory failure with respiratory acidosis.\nR: This presentation is highly concerning for developing Acute Respiratory Distress Syndrome (ARDS). Recommend immediate intensivist consultation for emergency intubation and initiation of mechanical ventilation. Plan for immediate transfer to the Intensive Care Unit for advanced monitoring and respiratory support."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2 (RA)</th><th>Temp</th></tr></thead><tbody><tr><td>0300</td><td>110</td><td>110/70</td><td>24</td><td>92%</td><td>38.2°C</td></tr><tr><td>0500</td><td>115</td><td>105/65</td><td>28</td><td>90%</td><td>38.5°C</td></tr><tr><td>0700</td><td>122</td><td>102/60</td><td>34</td><td>88% (6L NC)</td><td>38.7°C</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>HR (bpm)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>RR (breaths/min)</th><th>SpO₂</th><th>Temp °F (°C)</th></tr></thead><tbody><tr><td>03:00</td><td>110</td><td>110/70</td><td>83</td><td>24</td><td>92% on 2L NC</td><td>100.8°F (38.2°C)</td></tr><tr><td>05:00</td><td>115</td><td>105/65</td><td>78</td><td>28</td><td>90% on 4L NC</td><td>101.3°F (38.5°C)</td></tr><tr><td>07:00</td><td>122</td><td>102/60</td><td>74</td><td>34</td><td>88% on 6L NC</td><td>101.7°F (38.7°C)</td></tr></tbody></table>"
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan=5><b>Arterial Blood Gas (ABG) - Timed 07:05</b></td></tr><tr><td>pH</td><td>7.28</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>60</td><td>mmHg</td><td>35-45</td><td>High</td></tr><tr><td>PaO₂</td><td>55</td><td>mmHg</td><td>80-100</td><td>Low</td></tr><tr><td>HCO₃⁻</td><td>24</td><td>mEq/L</td><td>22-26</td><td>Normal</td></tr><tr><td colspan=5><b>Inflammatory Markers</b></td></tr><tr><td>WBC</td><td>14.0</td><td>x 10³/μL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>C-Reactive Protein (CRP)</td><td>150</td><td>mg/L</td><td>&lt;10</td><td>High</td></tr><tr><td>Procalcitonin</td><td>2.5</td><td>ng/mL</td><td>&lt;0.1</td><td>High</td></tr><tr><td colspan=5><b>Metabolic Panel</b></td></tr><tr><td>Lactate</td><td>2.8</td><td>mmol/L</td><td>0.5-2.2</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "type": "Admission Exam (Day 1, 08:30)",
+                        "findings": "GENERAL: Alert and oriented x3, appears fatigued.\nCARDIOVASCULAR: Tachycardic, regular rhythm, no murmurs. Capillary refill <3 seconds.\nRESPIRATORY: Tachypneic with mild dyspnea on exertion. Decreased breath sounds and crackles auscultated at right lung base. Sputum is thick and yellow.\nNEUROLOGICAL: GCS 15. No focal deficits.\nSKIN: Warm, dry, intact."
+                    },
+                    {
+                        "type": "Focused Assessment (Day 3, 07:00)",
+                        "findings": "GENERAL: Agitated, restless, not following commands consistently.\nCARDIOVASCULAR: Sinus tachycardia at 122 bpm. Pulses are +1 and thready.\nRESPIRATORY: Labored breathing with prominent use of intercostal and sternocleidomastoid muscles. Diffuse coarse crackles auscultated bilaterally. No audible wheezing.\nNEUROLOGICAL: Acute confusion, GCS estimated at 13 (E4, V4, M5).\nSKIN: Cool peripheries, central cyanosis noted around the lips."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray shows bilateral infiltrates consistent with ARDS."
+                "content": {
+                    "type": "Chest X-ray (Portable, AP View)",
+                    "timestamp": "Day 3, 07:15",
+                    "report": "FINDINGS: Comparison is made to the admission study from 3 days prior. There is a significant interval change. The previously noted right lower lobe consolidation has progressed. There are now extensive, diffuse bilateral ground-glass opacities and airspace consolidations, creating a 'white-out' appearance that obscures the cardiac and diaphragmatic borders. Air bronchograms are noted. No evidence of pneumothorax or significant pleural effusion.\n\nIMPRESSION: Radiographic findings are highly suggestive of Acute Respiratory Distress Syndrome (ARDS), likely secondary to severe pneumonia."
+                }
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 08:15</td><td>Ceftriaxone 1g in 50mL NS</td><td>IV, Every 24 hours</td></tr><tr><td>Day 1, 08:15</td><td>Azithromycin 500mg in 250mL D5W</td><td>IV, Every 24 hours</td></tr><tr><td>Day 1, 08:15</td><td>Normal Saline 0.9%</td><td>IV, Continuous at 50 mL/hr</td></tr><tr><td>Day 1, 08:15</td><td>Albuterol 2.5mg via nebulizer</td><td>Every 4 hours, PRN for wheezing</td></tr><tr><td>Day 1, 08:20</td><td>Oxygen via Nasal Cannula</td><td>Titrate to keep SpO₂ >92%</td></tr><tr><td>Day 3, 07:05</td><td>STAT Arterial Blood Gas</td><td>Once, Now</td></tr><tr><td>Day 3, 07:10</td><td>STAT Portable Chest X-ray</td><td>Once, Now</td></tr></tbody></table>"
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td></tr><tr><td>Azithromycin</td><td>500mg</td><td>IV</td><td>q24h</td></tr><tr><td>Albuterol</td><td>2.5mg</td><td>Neb</td><td>q4h PRN</td></tr><tr><td>Normal Saline</td><td>1000 mL</td><td>IV</td><td>Continuous at 50 mL/hr</td></tr></tbody></table>"
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>Daily</td><td>Day 2, 08:15</td></tr><tr><td>Azithromycin</td><td>500mg</td><td>IV</td><td>Daily</td><td>Day 2, 08:15</td></tr><tr><td>Albuterol</td><td>2.5mg</td><td>Nebulizer</td><td>q4h PRN</td><td>Day 3, 04:00</td></tr><tr><td>Normal Saline 0.9%</td><td>1000 mL Bag</td><td>IV</td><td>50 mL/hr</td><td>Continuous</td></tr></tbody></table>"
             }
         ]
     },
@@ -48,24 +87,6 @@
         "topicTags": [
             "Respiratory: Respiratory Failure & ARDS"
         ]
-    },
-    "rationale": {
-        "correct": "The patient's ABG results (low pH, high PaCO2, low PaO2) indicate acute respiratory acidosis and hypoxemia, strongly suggesting acute respiratory failure. The elevated WBC and CRP, along with the history of pneumonia and bilateral infiltrates on chest x-ray, point towards ARDS as a likely underlying cause. The priority intervention is to intubate and mechanically ventilate the patient to support oxygenation and ventilation. This aims to improve oxygen delivery to tissues and prevent further respiratory compromise and potential organ damage. The patient's declining respiratory status despite initial antibiotic treatment necessitates immediate and aggressive respiratory support.",
-        "incorrect": "Delaying intubation could lead to worsening hypoxemia and acidosis, potentially resulting in cardiac arrest. While antibiotics are important for treating the underlying infection, they won't immediately address the respiratory failure. Increasing the FiO2 via nasal cannula alone is unlikely to be sufficient to correct the severe hypoxemia and may delay necessary interventions. Diuretics are not indicated at this stage, as the primary problem is impaired gas exchange, not fluid overload. The ABG values are the most important data to consider.",
-        "clinicalPearls": [
-            "Early recognition of respiratory distress and prompt intervention are crucial in preventing ARDS progression and improving patient outcomes.",
-            "Serial ABGs are essential for monitoring respiratory status and guiding treatment decisions.",
-            "ARDS is characterized by refractory hypoxemia, decreased lung compliance, and bilateral pulmonary infiltrates.",
-            "Consider the PaO2/FiO2 ratio to assess the severity of ARDS. A ratio less than 200 indicates moderate to severe ARDS."
-        ],
-        "questionTrap": {
-            "trap": "Many students may focus solely on the pneumonia aspect and miss the signs of developing ARDS and respiratory failure, opting for less aggressive interventions like increasing oxygen or administering more antibiotics.",
-            "howToOvercome": "Carefully analyze the ABG results in conjunction with the patient's clinical presentation. Recognize that the patient's condition is deteriorating despite antibiotic therapy, indicating a need for more aggressive respiratory support. Prioritize interventions based on the most immediate threat to the patient's life, which in this case is respiratory failure."
-        },
-        "mnemonic": {
-            "title": "ARDS",
-            "expansion": "A: Acute onset; R: Respiratory distress; D: Diffuse alveolar damage; S: Severe hypoxemia"
-        }
     },
     "responseOptions": {
         "dropdown1": [
@@ -91,6 +112,44 @@
         "dropdown1": "Acute respiratory failure secondary to ARDS",
         "dropdown2": "Intubate and mechanically ventilate the patient",
         "dropdown3": "Oxygen delivery to tissues"
+    },
+    "rationale": {
+        "correct": "The patient's clinical picture demonstrates classic signs of Acute Respiratory Distress Syndrome (ARDS) leading to acute respiratory failure. The key evidence includes refractory hypoxemia (SpO2 88% on 6L NC, PaO2 55 mmHg), combined with bilateral infiltrates on the chest x-ray and an acute onset following pneumonia. The ABG confirms severe respiratory acidosis (pH 7.28) and hypercapnia (PaCO2 60 mmHg), indicating ventilatory failure. The priority intervention is immediate intubation and mechanical ventilation. This action secures the airway, reduces the excessive work of breathing causing muscle fatigue, and allows for precise control of oxygenation (FiO2) and ventilation using positive pressure (PEEP) to recruit collapsed alveoli. The ultimate physiological goal of this intervention is to restore adequate oxygen delivery to the tissues (DO2) and prevent the progression to multi-organ dysfunction syndrome (MODS).",
+        "incorrect": "Distractors represent common but incorrect pathways. Anxiety would cause respiratory alkalosis, not acidosis. A pulmonary embolism is less likely given the diffuse bilateral infiltrates and high inflammatory markers. Fluid overload is not supported as the primary cause in the context of sepsis-induced lung injury. Interventions like diuretics are inappropriate and potentially harmful, while simply increasing oxygen via a low-flow device is insufficient for refractory hypoxemia. While antibiotics are necessary, they do not address the immediate life-threat of respiratory collapse.",
+        "answerBreakdown": {
+            "dropdown1": {
+                "Acute respiratory failure secondary to ARDS": "Correct. The patient meets the Berlin criteria for ARDS: acute onset, bilateral opacities on imaging not explained by heart failure, and severe hypoxemia (PaO2/FiO2 ratio is low). The ABG confirms respiratory failure (hypoxemia and hypercapnia).",
+                "Anxiety-related hyperventilation": "Incorrect. Hyperventilation due to anxiety would lead to blowing off excess CO2, causing respiratory alkalosis (low PaCO2, high pH). This patient's ABG shows respiratory acidosis (high PaCO2, low pH).",
+                "Pulmonary embolism": "Incorrect. While a PE causes hypoxemia, it typically does not present with diffuse bilateral infiltrates on chest x-ray. Furthermore, the high inflammatory markers (WBC, CRP, Procalcitonin) strongly point to an infectious/inflammatory etiology like ARDS.",
+                "Fluid overload": "Incorrect. This condition, often from heart failure, can cause similar symptoms. However, the patient's high fever and significantly elevated inflammatory markers are classic signs of sepsis-induced ARDS, where the primary pathology is alveolar-capillary membrane damage, not hydrostatic pressure."
+            },
+            "dropdown2": {
+                "Intubate and mechanically ventilate the patient": "Correct. This is the definitive intervention for ARDS with refractory hypoxemia and impending respiratory muscle fatigue. It secures the airway, reduces work of breathing, and allows for lung-protective ventilation strategies with PEEP to improve gas exchange.",
+                "Administer a diuretic": "Incorrect. Diuretics are used for fluid overload (cardiogenic pulmonary edema). In ARDS, the patient is often hypotensive and intravascularly depleted. Administering a diuretic would likely worsen hypotension and tissue perfusion without addressing the underlying inflammatory lung injury.",
+                "Increase the FiO2 via nasal cannula": "Incorrect. A nasal cannula is a low-flow oxygen device. The patient's hypoxemia is refractory, meaning it does not respond to simple increases in oxygen concentration. This action would dangerously delay definitive airway management.",
+                "Administer more antibiotics": "Incorrect. While treating the underlying infection is crucial, it is not the priority action. The immediate life-threat is respiratory collapse from failed gas exchange. Airway and breathing must be stabilized first (ABC's)."
+            },
+            "dropdown3": {
+                "Oxygen delivery to tissues": "Correct. The primary physiological goal of mechanical ventilation is to improve gas exchange (increase PaO2, decrease PaCO2) to restore adequate systemic oxygen delivery (DO2). This prevents cellular hypoxia, anaerobic metabolism, and multi-organ dysfunction syndrome (MODS).",
+                "Fluid balance": "Incorrect. While maintaining a neutral or negative fluid balance is a key management strategy in ARDS, it is not the primary purpose of intubation itself. The immediate goal of ventilation is to correct life-threatening hypoxemia and acidosis.",
+                "Anxiety levels": "Incorrect. Sedation is used to facilitate mechanical ventilation and will reduce anxiety, but the therapeutic goal of the intervention is physiological (improving gas exchange), not psychological.",
+                "Antibiotic effectiveness": "Incorrect. Mechanical ventilation provides life support while antibiotics treat the infection. It does not directly enhance the mechanism of action of antimicrobial agents."
+            }
+        },
+        "clinicalPearls": [
+            "The PaO2/FiO2 ratio is a critical tool for classifying ARDS severity. A ratio <300 indicates mild, <200 moderate, and <100 severe ARDS.",
+            "In ARDS, the primary problem is damage to the alveolar-capillary membrane, leading to protein-rich fluid flooding the alveoli. This is different from cardiogenic pulmonary edema, which is caused by increased hydrostatic pressure.",
+            "Early recognition of respiratory muscle fatigue (accessory muscle use, paradoxical breathing, rapid shallow breaths) is a key indicator for the need for mechanical ventilation before complete collapse occurs.",
+            "When a patient with pneumonia acutely decompensates with worsening bilateral infiltrates and refractory hypoxemia, ARDS should be the top differential diagnosis."
+        ],
+        "questionTrap": {
+            "trap": "Focusing on the initial diagnosis of pneumonia and choosing an intervention that treats infection (antibiotics) or provides minimal respiratory support (increasing O2 on cannula) instead of recognizing the evolution to a new, more severe condition (ARDS) that requires immediate, aggressive airway management.",
+            "howToOvercome": "Synthesize the trend data. The patient is worsening despite standard pneumonia treatment. The combination of refractory hypoxemia, new bilateral infiltrates, and signs of respiratory muscle fatigue signals a shift in pathology. Prioritize the most immediate life threat based on Airway, Breathing, and Circulation (ABC) principles."
+        },
+        "mnemonic": {
+            "title": "ARDS Criteria (Berlin Definition)",
+            "expansion": "A: Acute onset (within 1 week of insult)\nR: Respiratory failure not fully explained by cardiac failure/fluid overload\nD: Diffuse bilateral opacities on imaging\nS: Severe hypoxemia (PaO2/FiO2 ratio < 300 mmHg)"
+        }
     },
     "sentinelStatus": "deep_healed_v2026"
 }

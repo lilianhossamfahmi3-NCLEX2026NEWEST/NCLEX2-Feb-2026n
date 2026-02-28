@@ -1,7 +1,21 @@
 {
     "id": "New-v26-e7a2b3c4-d5e6-4f78-a90b-123456789abc",
-    "type": "dragAndDropCloze",
-    "stem": "Based on the patient's presentation and lab results, the patient is likely experiencing acute respiratory distress syndrome (ARDS). Prioritize the following interventions in the order of importance. Drag the interventions from the options below and drop them into the corresponding boxes.\n\n1. Initiate [ventilatorSettings] with low tidal volume ventilation (LTVV).\n2. Administer [neuromuscularBlockade] to improve ventilator synchrony.\n3. Monitor [hemodynamicStatus] closely and administer vasopressors if needed.\n4. Prone [positioningTherapy] to improve oxygenation and reduce mortality.\n5. Provide [sedationAnalgesia] to maintain patient comfort and reduce anxiety.",
+    "type": "orderedResponse",
+    "stem": "The nurse is preparing the plan of care for a client just intubated for Acute Respiratory Distress Syndrome (ARDS). Drag and drop the interventions into the correct priority order, with the highest priority at the top.",
+    "options": [
+        "Initiate low tidal volume ventilation (LTVV) per protocol.",
+        "Provide continuous sedation and analgesia.",
+        "Monitor hemodynamic status and titrate vasopressors.",
+        "Administer neuromuscular blocking agents (NMBAs).",
+        "Implement prone positioning therapy."
+    ],
+    "correctResponse": [
+        "Initiate low tidal volume ventilation (LTVV) per protocol.",
+        "Provide continuous sedation and analgesia.",
+        "Monitor hemodynamic status and titrate vasopressors.",
+        "Administer neuromuscular blocking agents (NMBAs).",
+        "Implement prone positioning therapy."
+    ],
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 5
@@ -10,60 +24,262 @@
         "patient": {
             "name": "Jameson Cole",
             "age": 62,
-            "gender": "Male",
+            "pronouns": "he/him",
+            "sex": "Male",
             "iso": "ICU",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "07:00 S: Jameson Cole, 62-year-old male, admitted 3 days ago for pneumonia, now with increased work of breathing. SpO2 88% on 6L nasal cannula.\n07:05 B: History of COPD, hypertension, and type 2 diabetes. Admitted for pneumonia, treated with antibiotics and oxygen.\n07:10 A: Respiratory status rapidly deteriorating. ABG: pH 7.28, PaCO2 60 mmHg, PaO2 55 mmHg, HCO3 25 mEq/L. Chest X-ray: bilateral infiltrates. Respiratory rate 32, using accessory muscles. 07:15 Patient increasingly agitated and restless.\n07:20 R: Requesting immediate intubation and mechanical ventilation. Anticipate ARDS management. Need ventilator settings, sedation levels, and positioning strategies. Consider neuromuscular blockade for ventilator synchrony. Continuous hemodynamic monitoring is crucial. Please address promptly; condition is critical.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG: pH 7.28, PaCO2 60 mmHg, PaO2 55 mmHg, HCO3 25 mEq/L; CBC: WBC 15,000/mm3, Hemoglobin 14 g/dL, Platelets 200,000/mm3; Lactate: 3.5 mmol/L; BNP: 150 pg/mL"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "header": "Admission Note",
+                        "body": "S: Client is a 62-year-old male presenting to the ED with a 5-day history of productive cough, fever, and worsening shortness of breath. Reports feeling 'too sick to work.'\nB: History of COPD, hypertension, and type 2 diabetes. Client is a gig-economy driver with no primary care provider and has been using over-the-counter cold medicine. Lives alone in a low-income housing unit. Delayed seeking care due to fear of losing income.\nA: Alert and oriented x3, in moderate respiratory distress. SpO₂ 91% on room air. Lungs with coarse crackles in bilateral lower lobes. Productive cough with purulent sputum. Skin is warm and flushed. Diagnosed with community-acquired pneumonia.\nR: Admit to medical-surgical unit. Initiate IV antibiotics, supplemental oxygen via nasal cannula, and obtain blood cultures. Monitor vital signs and respiratory status closely."
+                    },
+                    {
+                        "timestamp": "Day 3, 07:00",
+                        "header": "ICU Transfer Note",
+                        "body": "S: Client's respiratory status has acutely worsened over the last 4 hours. Now requiring 100% FiO₂ via high-flow nasal cannula with minimal improvement. SpO₂ is 88%. Client is agitated and confused.\nB: Despite 48 hours of IV ceftriaxone and vancomycin for pneumonia, client developed refractory hypoxemia. Chest x-ray shows worsening bilateral opacities consistent with ARDS. Client has a history of COPD and hypertension.\nA: Tachycardic (130 bpm), tachypneic (34/min), and hypotensive (90/55 mmHg). Using accessory muscles to breathe. Arterial blood gas shows severe hypoxemia and respiratory acidosis. PaO₂/FiO₂ ratio is 85.\nR: Transfer to ICU for immediate intubation and mechanical ventilation. Initiate ARDSnet protocol. Place arterial line for continuous blood pressure monitoring and frequent ABG sampling. Begin vasopressor support. This is a critical situation requiring immediate escalation of care."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "HR: 120 bpm, RR: 32 breaths/min, BP: 100/60 mmHg, SpO2: 88% on 6L NC, Temp: 38.5°C (101.3°F)"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:00",
+                        "HR": "110 bpm",
+                        "BP": "110/70 mmHg (MAP 83)",
+                        "RR": "28/min",
+                        "SpO2": "90% on 15L HFNC",
+                        "Temp": "101.8°F (38.8°C)"
+                    },
+                    {
+                        "Time": "05:00",
+                        "HR": "125 bpm",
+                        "BP": "98/60 mmHg (MAP 73)",
+                        "RR": "32/min",
+                        "SpO2": "88% on 15L HFNC",
+                        "Temp": "102.1°F (38.9°C)"
+                    },
+                    {
+                        "Time": "07:00 (Current)",
+                        "HR": "130 bpm",
+                        "BP": "90/55 mmHg (MAP 67)",
+                        "RR": "34/min",
+                        "SpO2": "88% on 100% FiO₂ HFNC",
+                        "Temp": "102.4°F (39.1°C)"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Arterial Blood Gas (ABG)",
+                        "Result": "pH 7.25, PaCO₂ 62 mmHg, PaO₂ 55 mmHg, HCO₃⁻ 26 mEq/L",
+                        "Unit": "",
+                        "Reference": "pH 7.35-7.45, PaCO₂ 35-45, PaO₂ 80-100, HCO₃⁻ 22-26",
+                        "Status": "Critical"
+                    },
+                    {
+                        "Test": "WBC Count",
+                        "Result": "18.5",
+                        "Unit": "x 10³/μL",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate",
+                        "Result": "4.1",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "12.2",
+                        "Unit": "ng/mL",
+                        "Reference": "< 0.15",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "D-dimer",
+                        "Result": "1,200",
+                        "Unit": "ng/mL",
+                        "Reference": "< 500",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "BNP",
+                        "Result": "150",
+                        "Unit": "pg/mL",
+                        "Reference": "< 100",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "Agitated, restless. Follows simple commands intermittently. GCS 13 (E4, V4, M5)."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Tachypneic with significant use of accessory muscles. Coarse crackles auscultated throughout all lung fields. Endotracheal tube secured at 23 cm at the lip."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Tachycardia with S1/S2 audible, no murmurs. Pulses +2 peripherally. Capillary refill 3 seconds. Skin is warm and flushed."
+                    },
+                    {
+                        "System": "Integumentary",
+                        "Findings": "Skin warm, diaphoretic. No rashes or lesions noted."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray reveals bilateral infiltrates."
+                "content": [
+                    {
+                        "Procedure": "Chest X-ray (Portable, AP view)",
+                        "Date": "Day 3, 06:30",
+                        "Findings": "Interval worsening of diffuse, bilateral airspace opacities compared to admission film. The heart size is normal. No evidence of large pleural effusions. The findings are consistent with non-cardiogenic pulmonary edema.",
+                        "Impression": "Diffuse bilateral infiltrates, highly suggestive of Acute Respiratory Distress Syndrome (ARDS). Cardiogenic pulmonary edema is less likely given the normal cardiac silhouette."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan (Orders)",
+                "content": [
+                    {
+                        "Date/Time": "Day 3, 07:15",
+                        "Action": "Intubate and initiate mechanical ventilation.",
+                        "Status": "STAT"
+                    },
+                    {
+                        "Date/Time": "Day 3, 07:15",
+                        "Action": "Place arterial line, right radial artery.",
+                        "Status": "STAT"
+                    },
+                    {
+                        "Date/Time": "Day 3, 07:15",
+                        "Action": "Norepinephrine infusion, titrate to maintain MAP > 65 mmHg.",
+                        "Status": "Standing"
+                    },
+                    {
+                        "Date/Time": "Day 3, 07:15",
+                        "Action": "Propofol infusion for sedation, titrate to RASS -4 to -5.",
+                        "Status": "Standing"
+                    },
+                    {
+                        "Date/Time": "Day 3, 07:15",
+                        "Action": "Fentanyl infusion for analgesia.",
+                        "Status": "Standing"
+                    },
+                    {
+                        "Date/Time": "Day 3, 07:15",
+                        "Action": "Obtain daily chest x-ray.",
+                        "Status": "Standing"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 2g IV q24h; Vancomycin 1g IV q12h; Furosemide 20mg IV PRN; Lorazepam for agitation PRN."
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "2g",
+                        "Route": "IV",
+                        "Frequency": "q24h",
+                        "Last Administered": "Day 3, 09:00"
+                    },
+                    {
+                        "Medication": "Vancomycin",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "q12h",
+                        "Last Administered": "Day 3, 09:00"
+                    },
+                    {
+                        "Medication": "Lorazepam",
+                        "Dose": "2mg",
+                        "Route": "IV",
+                        "Frequency": "PRN agitation",
+                        "Last Administered": "Day 3, 06:45"
+                    },
+                    {
+                        "Medication": "Furosemide",
+                        "Dose": "20mg",
+                        "Route": "IV",
+                        "Frequency": "PRN",
+                        "Last Administered": "Day 2, 18:00"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "apply",
+        "cjmmStep": "generateSolutions",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
+            "Respiratory: Respiratory Failure & ARDS",
+            "Critical Care",
+            "Ventilator Management"
         ]
     },
     "rationale": {
-        "correct": "The correct order reflects the immediate priorities in managing ARDS. Initiating low tidal volume ventilation (LTVV) minimizes ventilator-induced lung injury by preventing overdistension of alveoli. Neuromuscular blockade can improve ventilator synchrony and oxygenation by reducing patient-ventilator asynchrony. Hemodynamic monitoring and vasopressors address potential hypotension, ensuring adequate perfusion. Prone positioning improves oxygenation by redistributing lung perfusion and reducing atelectasis. Sedation/analgesia ensures comfort and reduces oxygen consumption. This sequence addresses the immediate respiratory compromise and supports hemodynamic stability while preparing for advanced interventions. \n\nclinicalPearl: Early implementation of lung-protective ventilation strategies is crucial in ARDS to minimize ventilator-induced lung injury (VILI).",
-        "incorrect": "Incorrect ordering could lead to further deterioration. Delaying LTVV risks further lung injury. Neglecting hemodynamic support can lead to shock. Omitting prone positioning reduces the chance of improving oxygenation. Inadequate sedation increases oxygen demand and patient distress. Prioritizing comfort over physiological stabilization can compromise the patient's overall outcome.\n\nquestionTrap: Students may prioritize interventions based solely on improving oxygen saturation without considering the broader picture of lung-protective ventilation and hemodynamic stability. \n\nclinicalPearl: Hemodynamic instability is common in ARDS due to sepsis, inflammation, and mechanical ventilation. Continuous monitoring and timely intervention are essential.",
+        "correct": "The correct sequence prioritizes immediate life-sustaining interventions according to the pathophysiology of ARDS. First, establishing lung-protective ventilation (LTVV) is paramount to prevent ventilator-induced lung injury (VILI). Second, sedation and analgesia are crucial to ensure ventilator synchrony and reduce metabolic demand. Third, hemodynamic stability must be secured, as sedation and positive pressure ventilation often cause hypotension. Fourth, NMBAs are used only if sedation is insufficient to achieve synchrony. Finally, prone positioning is a key therapy to improve oxygenation but is implemented after initial stabilization.",
+        "incorrect": "An incorrect order jeopardizes patient safety. For example, proning a hemodynamically unstable or poorly sedated patient is dangerous. Delaying LTVV exposes the fragile lungs to barotrauma and volutrauma. Administering NMBAs before adequate sedation is unethical and distressing for the patient. Failing to address hypotension while initiating positive pressure ventilation can lead to cardiovascular collapse. This logical, step-wise approach ensures that foundational stability is achieved before implementing more advanced or adjunctive therapies.",
+        "answerBreakdown": [
+            {
+                "option": "Initiate low tidal volume ventilation (LTVV) per protocol.",
+                "rationale": "Highest priority. The core pathophysiology of ARDS involves alveolar inflammation and edema, making the lungs stiff and prone to injury. LTVV (4-6 mL/kg of ideal body weight) is the single most important intervention to prevent VILI by minimizing alveolar overdistension and barotrauma."
+            },
+            {
+                "option": "Provide continuous sedation and analgesia.",
+                "rationale": "Second priority. After establishing safe ventilation parameters, the patient must be able to tolerate the ventilator. Sedation and analgesia decrease oxygen consumption, reduce anxiety, and prevent patient-ventilator asynchrony, which can worsen lung injury and hemodynamic instability."
+            },
+            {
+                "option": "Monitor hemodynamic status and titrate vasopressors.",
+                "rationale": "Third priority. Positive pressure ventilation and sedation frequently cause hypotension by decreasing venous return and systemic vascular resistance. Ensuring adequate mean arterial pressure (MAP > 65 mmHg) is critical for organ perfusion and must be addressed concurrently with respiratory stabilization."
+            },
+            {
+                "option": "Administer neuromuscular blocking agents (NMBAs).",
+                "rationale": "Fourth priority. NMBAs are not a first-line therapy. They are reserved for patients with severe ARDS who have persistent ventilator dyssynchrony or refractory hypoxemia despite deep sedation. This intervention is considered after foundational therapies are in place."
+            },
+            {
+                "option": "Implement prone positioning therapy.",
+                "rationale": "Fifth priority. Proning improves oxygenation by recruiting dependent alveoli and improving ventilation-perfusion matching. However, it is a complex procedure that requires a stable patient. It is performed after the patient is adequately sedated, hemodynamically stable, and safely on the ventilator."
+            }
+        ],
         "clinicalPearls": [
-            "ARDS requires a multi-faceted approach targeting both respiratory and hemodynamic stabilization.",
-            "Early recognition and intervention are crucial to improving patient outcomes in ARDS.",
-            "Ventilator management in ARDS prioritizes lung-protective strategies to minimize further damage."
+            "The cornerstone of ARDS management is not just oxygenation, but preventing further lung injury with low tidal volume ventilation (LTVV). This is a 'lung-protective' strategy.",
+            "Hypotension is an expected complication of initiating mechanical ventilation in septic patients due to sedation and increased intrathoracic pressure reducing preload. Proactive hemodynamic support is essential.",
+            "Prone positioning is a powerful tool for severe ARDS (P/F ratio < 150), but it requires a coordinated team and a hemodynamically stable patient to be performed safely."
         ],
         "questionTrap": {
-            "trap": "The question traps students who focus solely on oxygenation without considering the broader picture of lung-protective ventilation and hemodynamic stability.",
-            "howToOvercome": "Prioritize interventions that address the underlying pathophysiology of ARDS, including lung-protective ventilation, hemodynamic support, and strategies to improve oxygenation."
+            "trap": "Candidates may incorrectly prioritize interventions that seem to directly increase SpO₂ (like proning) over foundational safety measures like LTVV and hemodynamic stabilization. ARDS management is a step-wise process of stabilization.",
+            "howToOvercome": "Always follow the 'stabilize first' principle. Secure the airway and ventilation parameters (LTVV), ensure sedation and hemodynamic stability, and only then move to advanced adjunctive therapies like NMBAs or proning."
         },
         "mnemonic": {
-            "title": "ARDS Management",
-            "expansion": "LUNG - Low Tidal Volume, Underlying Cause Treat, Neuromuscular Blockade (if needed), Give Oxygen, Hemodynamic Support"
+            "title": "ARDS Priority Pyramid",
+            "expansion": "V-S-P-N-P: Ventilate (LTVV first!), Sedate (comfort & synchrony), Perfuse (vasopressors for MAP), Neuromuscular blockade (if needed), Prone (after stable)."
         }
     },
     "sentinelStatus": "deep_healed_v2026"

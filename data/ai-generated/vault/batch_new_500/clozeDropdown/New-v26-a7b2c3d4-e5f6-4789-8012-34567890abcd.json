@@ -1,100 +1,428 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-8012-34567890abcd",
     "type": "clozeDropdown",
-    "stem": "Based on the patient's presentation, the most likely diagnosis is [DIAGNOSIS]. The priority nursing intervention is to administer [INTERVENTION] and monitor for signs of [COMPLICATION]. The expected outcome of this intervention is [OUTCOME].",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
-    },
+    "stem": "The nurse analyzes the client's data. The client is most likely experiencing [Condition]. The priority is to correct the client's [Physiological State] while closely monitoring for [Complication].",
+    "dropdowns": [
+        {
+            "id": "Condition",
+            "options": [
+                {
+                    "id": "cond_1",
+                    "text": "Diabetic Ketoacidosis (DKA)"
+                },
+                {
+                    "id": "cond_2",
+                    "text": "Hyperosmolar Hyperglycemic State (HHS)"
+                },
+                {
+                    "id": "cond_3",
+                    "text": "Septic Shock"
+                },
+                {
+                    "id": "cond_4",
+                    "text": "Respiratory Failure"
+                }
+            ],
+            "correctOptionId": "cond_1"
+        },
+        {
+            "id": "Physiological State",
+            "options": [
+                {
+                    "id": "phys_1",
+                    "text": "acid-base imbalance"
+                },
+                {
+                    "id": "phys_2",
+                    "text": "fluid volume deficit"
+                },
+                {
+                    "id": "phys_3",
+                    "text": "hyperglycemia"
+                },
+                {
+                    "id": "phys_4",
+                    "text": "hypoxemia"
+                }
+            ],
+            "correctOptionId": "phys_1"
+        },
+        {
+            "id": "Complication",
+            "options": [
+                {
+                    "id": "comp_1",
+                    "text": "hypokalemia"
+                },
+                {
+                    "id": "comp_2",
+                    "text": "cerebral edema"
+                },
+                {
+                    "id": "comp_3",
+                    "text": "hypoglycemia"
+                },
+                {
+                    "id": "comp_4",
+                    "text": "fluid volume overload"
+                }
+            ],
+            "correctOptionId": "comp_1"
+        }
+    ],
     "itemContext": {
         "patient": {
             "name": "Ava Johnson",
-            "age": 68,
-            "gender": "Female",
-            "iso": "Medical ICU",
+            "age": "68 years",
+            "sex": "Female",
+            "pronouns": "She/Her",
+            "weight": "70 kg",
+            "height": "165 cm",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Ava Johnson, 68-year-old female with a history of pneumonia admitted three days ago, now exhibiting altered mental status and elevated respiratory rate. B: Patient has a history of Type 2 Diabetes Mellitus, managed with oral hypoglycemic agents. At 06:00, she was found unresponsive by nursing staff. A: Current vital signs: Respiratory Rate 36 breaths per minute, labored; Heart Rate 135 beats per minute; Blood Pressure 90/60 mmHg; Temperature 38.9°C (102°F); SpO2 90% on 2L nasal cannula. Laboratory values: Glucose 650 mg/dL, Potassium 3.1 mEq/L, Sodium 130 mEq/L, Bicarbonate 10 mEq/L, BUN 45 mg/dL, Creatinine 2.0 mg/dL, arterial pH 7.25, PaCO2 28 mmHg. Urine analysis positive for ketones. Patient was alert and oriented prior. R: STAT orders: Initiate insulin drip at 0.1 unit/kg/hr, administer 1L normal saline bolus over 1 hour, commence continuous cardiac monitoring, repeat Basic Metabolic Panel (BMP) every 2 hours, insert Foley catheter to monitor urine output.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Ava Johnson, 68-year-old female with a history of pneumonia admitted three days ago, now exhibiting altered mental status and elevated respiratory rate. B: Patient has a history of Type 2 Diabetes Mellitus, managed with oral hypoglycemic agents. At 06:00, she was found unresponsive by nursing staff. A: Current vital signs: Respiratory Rate 36 breaths per minute, labored; Heart Rate 135 beats per minute; Blood Pressure 90/60 mmHg; Temperature 38.9°C (102°F); SpO2 90% on 2L nasal cannula. Laboratory values: Glucose 650 mg/dL, Potassium 3.1 mEq/L, Sodium 130 mEq/L, Bicarbonate 10 mEq/L, BUN 45 mg/dL, Creatinine 2.0 mg/dL, arterial pH 7.25, PaCO2 28 mmHg. Urine analysis positive for ketones. Patient was alert and oriented prior. R: STAT orders: Initiate insulin drip at 0.1 unit/kg/hr, administer 1L normal saline bolus over 1 hour, commence continuous cardiac monitoring, repeat Basic Metabolic Panel (BMP) every 2 hours, insert Foley catheter to monitor urine output."
+                "id": "nurses_notes",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "note_type": "Admission Note",
+                        "text": "S: Client is a 68-year-old female admitted from her primary care provider's office with a 4-day history of productive cough, fever, and shortness of breath.\nB: History of Type 2 Diabetes Mellitus for 15 years, managed with metformin. Reports recent financial strain, causing difficulty affording medications and glucose testing supplies. Lives alone in a senior apartment complex. Allergic to Penicillin.\nA: On admission, client is alert and oriented x3. Lungs with coarse crackles in the right lower lobe. SpO2 92% on room air. Chest X-ray confirms right lower lobe pneumonia. Blood glucose 188 mg/dL.\nR: Admitted to the medical-surgical unit. Started on levofloxacin IV. Placed on 2L nasal cannula. Will monitor vital signs, oxygen saturation, and blood glucose levels. Case management consulted regarding medication affordability."
+                    },
+                    {
+                        "timestamp": "Day 3, 06:15",
+                        "note_type": "Progress Note",
+                        "text": "S: Called to bedside by the nursing assistant for a change in the client's mental status. Client is now unresponsive to verbal stimuli.\nB: The client has been treated for community-acquired pneumonia for the past 48 hours. Her blood glucose levels have been trending upwards, with the last check at 04:00 being 350 mg/dL. The client's adult child was notified of the change in condition.\nA: Vital signs: T 102.0°F (38.9°C), HR 135 bpm (sinus tachycardia), RR 36/min (deep, rapid Kussmaul respirations), BP 90/60 mmHg (MAP 70), SpO2 90% on 2L NC. A distinct fruity odor is noted on the client's breath. Skin is warm, flushed, and dry with poor turgor. STAT fingerstick glucose >600 mg/dL. STAT labs drawn and sent.\nR: Rapid response team activated. Recommend transfer to ICU for management of suspected Diabetic Ketoacidosis (DKA). Preparing to initiate fluid resuscitation and an insulin infusion per protocol."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Glucose: 650 mg/dL; K+: 3.1 mEq/L; Na+: 130 mEq/L; HCO3-: 10 mEq/L; BUN: 45 mg/dL; Creatinine: 2.0 mg/dL; pH: 7.25; PaCO2: 28 mmHg; Urine Ketones: Positive"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Date/Time",
+                        "Temp °F (°C)",
+                        "HR (bpm)",
+                        "RR (/min)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "SpO₂ (%)"
+                    ],
+                    "rows": [
+                        [
+                            "Day 3 @ 02:00",
+                            "100.8 (38.2)",
+                            "110",
+                            "24",
+                            "110/70",
+                            "83",
+                            "93% on 2L NC"
+                        ],
+                        [
+                            "Day 3 @ 04:00",
+                            "101.5 (38.6)",
+                            "122",
+                            "28",
+                            "102/65",
+                            "77",
+                            "91% on 2L NC"
+                        ],
+                        [
+                            "Day 3 @ 06:00",
+                            "102.0 (38.9)",
+                            "135",
+                            "36",
+                            "90/60",
+                            "70",
+                            "90% on 2L NC"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: RR 36, labored; HR 135, BP 90/60, Temp 38.9°C (102°F), SpO2 90% on 2L NC"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Chemistry Panel (STAT - Day 3 @ 06:00)",
+                        "results": [
+                            {
+                                "test": "Glucose",
+                                "result": "650",
+                                "unit": "mg/dL",
+                                "reference": "70-110",
+                                "status": "High"
+                            },
+                            {
+                                "test": "Sodium (Na+)",
+                                "result": "130",
+                                "unit": "mEq/L",
+                                "reference": "135-145",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "Potassium (K+)",
+                                "result": "3.1",
+                                "unit": "mEq/L",
+                                "reference": "3.5-5.0",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "Bicarbonate (HCO3-)",
+                                "result": "10",
+                                "unit": "mEq/L",
+                                "reference": "22-28",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "BUN",
+                                "result": "45",
+                                "unit": "mg/dL",
+                                "reference": "10-20",
+                                "status": "High"
+                            },
+                            {
+                                "test": "Creatinine",
+                                "result": "2.0",
+                                "unit": "mg/dL",
+                                "reference": "0.6-1.2",
+                                "status": "High"
+                            },
+                            {
+                                "test": "Anion Gap",
+                                "result": "24",
+                                "unit": "mEq/L",
+                                "reference": "8-16",
+                                "status": "High"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Arterial Blood Gas (STAT - Day 3 @ 06:00)",
+                        "results": [
+                            {
+                                "test": "pH",
+                                "result": "7.25",
+                                "unit": "",
+                                "reference": "7.35-7.45",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "PaCO2",
+                                "result": "28",
+                                "unit": "mmHg",
+                                "reference": "35-45",
+                                "status": "Low"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Urinalysis (STAT - Day 3 @ 06:00)",
+                        "results": [
+                            {
+                                "test": "Ketones",
+                                "result": "Large",
+                                "unit": "",
+                                "reference": "Negative",
+                                "status": "High"
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Orders: Insulin Regular IV 0.1 unit/kg/hr; NS 1L bolus over 1 hour; Potassium Chloride 40 mEq IVPB (pending lab results); Continuous cardiac monitoring"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00 (Admission)",
+                        "findings": "GENERAL: Alert and oriented x3, in mild respiratory distress. HEENT: Mucous membranes moist. RESPIRATORY: Tachypneic. Coarse crackles auscultated in right lower lobe. CARDIOVASCULAR: Tachycardia, regular rhythm. No murmurs. ABDOMEN: Soft, non-tender. NEUROLOGICAL: Grossly intact. SKIN: Warm and dry."
+                    },
+                    {
+                        "timestamp": "Day 3, 06:00 (Focused)",
+                        "findings": "NEUROLOGICAL: Unresponsive to verbal stimuli, responds to painful stimuli by withdrawing. RESPIRATORY: Deep, rapid respirations (Kussmaul breathing). Fruity odor on breath. CARDIOVASCULAR: Sinus tachycardia. Pulses +1 peripherally. Hypotensive. SKIN: Flushed, warm, and dry. Poor skin turgor. Dry mucous membranes."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "report_type": "Chest X-ray (PA and Lateral)",
+                    "timestamp": "Day 1, 14:30",
+                    "indication": "Fever, cough, hypoxia.",
+                    "findings": "Opacity and consolidation are noted in the right lower lobe, consistent with lobar pneumonia. The cardiomediastinal silhouette is within normal limits. There is no evidence of pleural effusion or pneumothorax. The visualized bony structures are unremarkable.",
+                    "impression": "1. Right lower lobe pneumonia."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Date/Time",
+                        "Action",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 14:00",
+                            "Admit to medical-surgical unit",
+                            "Active"
+                        ],
+                        [
+                            "Day 1, 14:00",
+                            "Levofloxacin 750 mg IV",
+                            "Daily"
+                        ],
+                        [
+                            "Day 1, 14:00",
+                            "Oxygen via nasal cannula to maintain SpO2 >92%",
+                            "Active"
+                        ],
+                        [
+                            "Day 3, 06:30",
+                            "Transfer to ICU",
+                            "STAT"
+                        ],
+                        [
+                            "Day 3, 06:30",
+                            "Initiate 0.9% Sodium Chloride at 1 L/hr for 1 hour",
+                            "STAT"
+                        ],
+                        [
+                            "Day 3, 06:30",
+                            "Start Regular Insulin infusion at 0.1 units/kg/hr",
+                            "STAT"
+                        ],
+                        [
+                            "Day 3, 06:30",
+                            "Continuous cardiac monitoring",
+                            "STAT"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Levofloxacin",
+                            "750 mg",
+                            "IV",
+                            "Daily",
+                            "Day 2 @ 14:00"
+                        ],
+                        [
+                            "Metformin",
+                            "500 mg",
+                            "PO",
+                            "BID",
+                            "Day 1 @ 08:00 (Held on admission)"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "650 mg",
+                            "PO",
+                            "PRN q4h (Fever >101°F)",
+                            "Day 3 @ 04:15"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
-        ]
-    },
     "rationale": {
-        "correct": "The patient's presentation (marked hyperglycemia, metabolic acidosis with low bicarbonate and pH, ketonuria, and altered mental status) strongly suggests Diabetic Ketoacidosis (DKA). The primary nursing intervention is to initiate an insulin drip to gradually correct the hyperglycemia and associated acidosis, alongside aggressive fluid resuscitation. Close monitoring for hypokalemia is crucial, as insulin administration can exacerbate this condition by shifting potassium intracellularly. The expected outcome is a restoration of acid-base balance, reflected by an increase in bicarbonate and pH levels, and a gradual decrease in blood glucose.\n\nclinicalPearl: Always assess and correct hypokalemia before or concurrently with insulin administration in DKA to prevent cardiac arrhythmias.",
-        "incorrect": "Delaying insulin administration in DKA can lead to a worsening of the acidosis and electrolyte imbalances, potentially resulting in life-threatening complications. While fluid resuscitation is important for addressing dehydration, it is not the sole or initial priority in DKA management. Solely focusing on potassium replacement without addressing the underlying hyperglycemia will not resolve the root cause of DKA and may lead to further complications. Monitoring solely for hyperglycemia neglects the critical need to assess for and manage potential electrolyte imbalances, particularly hypokalemia, which can be precipitated by insulin therapy.\n\nclinicalPearl: Monitor blood glucose and electrolyte levels frequently (typically every 1-2 hours) during DKA management to guide treatment adjustments.",
+        "correct": "The client's presentation of severe hyperglycemia (>600 mg/dL), metabolic acidosis (pH 7.25, HCO3- 10 mEq/L), and ketonuria in the context of a physiological stressor (pneumonia) is the classic triad for Diabetic Ketoacidosis (DKA). The primary goal of treatment is to correct the life-threatening metabolic acidosis by administering insulin. Insulin stops the breakdown of fats for energy (ketogenesis), allowing cells to use glucose and resolving the acidosis. As insulin drives potassium into the cells along with glucose, the client is at high risk for developing severe hypokalemia, which can cause fatal cardiac dysrhythmias. Therefore, monitoring potassium levels is a critical safety priority.",
+        "answerBreakdown": [
+            {
+                "optionId": "cond_1",
+                "content": "Correct. The triad of hyperglycemia, ketosis, and metabolic acidosis confirms DKA."
+            },
+            {
+                "optionId": "cond_2",
+                "content": "Incorrect. HHS is characterized by more profound hyperglycemia and hyperosmolality but minimal to no ketosis and acidosis, which is inconsistent with the client's large ketones and low pH."
+            },
+            {
+                "optionId": "cond_3",
+                "content": "Incorrect. While the client's pneumonia is a likely trigger and she shows signs of shock (hypotension, tachycardia), the primary metabolic derangement is DKA, not septic shock."
+            },
+            {
+                "optionId": "cond_4",
+                "content": "Incorrect. The client's Kussmaul respirations are a compensatory mechanism for metabolic acidosis, not a primary respiratory failure. The low PaCO2 indicates the lungs are trying to blow off acid."
+            },
+            {
+                "optionId": "phys_1",
+                "content": "Correct. The most life-threatening aspect of DKA is the severe metabolic acidosis. Insulin therapy is the definitive treatment to stop ketone production and correct this imbalance."
+            },
+            {
+                "optionId": "phys_2",
+                "content": "Incorrect. While severe dehydration is present and requires aggressive fluid resuscitation, correcting the underlying metabolic acidosis with insulin is the primary pathophysiological priority."
+            },
+            {
+                "optionId": "phys_3",
+                "content": "Incorrect. Hyperglycemia is a key feature, but lowering it too quickly can cause cerebral edema. The focus is on slowly correcting glucose while resolving the acidosis."
+            },
+            {
+                "optionId": "phys_4",
+                "content": "Incorrect. The client's hypoxemia is related to the underlying pneumonia and is being treated with oxygen; it is not the primary problem in the DKA crisis."
+            },
+            {
+                "optionId": "comp_1",
+                "content": "Correct. Insulin administration causes an intracellular shift of potassium. The client's potassium is already low (3.1 mEq/L), and starting insulin will worsen it, risking cardiac arrest. This is the most immediate complication to monitor."
+            },
+            {
+                "optionId": "comp_2",
+                "content": "Incorrect. Cerebral edema is a serious but less common complication, typically occurring later in treatment, especially if glucose and osmolality are corrected too rapidly."
+            },
+            {
+                "optionId": "comp_3",
+                "content": "Incorrect. Hypoglycemia is a risk of insulin therapy, but it is not the immediate concern when starting the infusion with a glucose level of 650 mg/dL."
+            },
+            {
+                "optionId": "comp_4",
+                "content": "Incorrect. Fluid volume overload is a risk of aggressive rehydration, but the client is currently severely dehydrated, making hypokalemia the more immediate and life-threatening risk."
+            }
+        ],
         "clinicalPearls": [
-            "Regularly assess the patient's mental status and neurological function during DKA management, as changes can indicate cerebral edema or other complications."
+            "Never administer an insulin drip to a client in DKA if their serum potassium is less than 3.3 mEq/L. The potassium must be corrected first to prevent life-threatening cardiac dysrhythmias.",
+            "The anion gap (Na+ - [Cl- + HCO3-]) is a critical lab value to monitor in DKA. An elevated anion gap indicates metabolic acidosis. The goal of therapy is to 'close the gap,' which signifies resolution of the acidosis.",
+            "When blood glucose levels fall to around 200-250 mg/dL during DKA treatment, the IV fluids should be changed to a dextrose-containing solution (e.g., D5 1/2 NS) to prevent hypoglycemia while the insulin infusion continues to correct the acidosis."
         ],
-        "questionTrap": {
-            "trap": "Selecting fluid bolus alone as the primary intervention. While crucial for rehydration, it does not address the underlying cause of DKA – the insulin deficiency and hyperglycemia.",
-            "howToOvercome": "Prioritize interventions based on the ABCs (Airway, Breathing, Circulation) and the underlying pathophysiology. In DKA, addressing the hyperglycemia and acidosis with insulin is paramount, alongside fluid resuscitation and electrolyte management."
-        },
+        "questionTrap": "The trap is focusing solely on hyperglycemia or dehydration. While both are critical components of DKA, the most immediate life-threatening condition is the metabolic acidosis, and the most immediate iatrogenic risk from treatment is hypokalemia. Prioritize the pathophysiology: insulin stops the acid production, but it also shifts potassium.",
         "mnemonic": {
-            "title": "DKA Treatment",
-            "expansion": "DKA: D - Dehydration (IV fluids), K - K+ Replacement (if needed), A - Acidosis (Insulin)"
-        }
-    },
-    "responseOptions": {
-        "DIAGNOSIS": [
-            "Diabetic Ketoacidosis (DKA)",
-            "Hyperosmolar Hyperglycemic State (HHS)",
-            "Thyroid Storm",
-            "Pneumonia"
-        ],
-        "INTERVENTION": [
-            "Insulin drip",
-            "Fluid bolus",
-            "Potassium replacement",
-            "Oxygen administration"
-        ],
-        "COMPLICATION": [
-            "Hypokalemia",
-            "Hyperglycemia",
-            "Fluid overload",
-            "Hypertension"
-        ],
-        "OUTCOME": [
-            "Improved acid-base balance",
-            "Decreased respiratory rate",
-            "Increased blood pressure",
-            "Decreased urine output"
+            "title": "DKA Management: SICK DAYS",
+            "expansion": "S - Saline (fluids first), I - Insulin (corrects acidosis), C - Check potassium, K - K+ replacement (before/with insulin if needed), D - Dextrose (add when glucose <250), A - Anion gap (monitor for closure), Y - Yield to protocols, S - Search for cause (e.g., infection)."
+        },
+        "reviewUnits": [
+            "Endocrine Disorders",
+            "Fluid and Electrolyte Imbalances",
+            "Acid-Base Balance",
+            "Pharmacological and Parenteral Therapies"
         ]
     },
-    "correctResponse": {
-        "DIAGNOSIS": "Diabetic Ketoacidosis (DKA)",
-        "INTERVENTION": "Insulin drip",
-        "COMPLICATION": "Hypokalemia",
-        "OUTCOME": "Improved acid-base balance"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:03:15.385Z"
 }

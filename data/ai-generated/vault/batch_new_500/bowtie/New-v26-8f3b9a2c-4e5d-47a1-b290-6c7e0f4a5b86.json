@@ -1,103 +1,166 @@
 {
     "id": "New-v26-8f3b9a2c-4e5d-47a1-b290-6c7e0f4a5b86",
     "type": "bowtie",
-    "stem": "A 68-year-old male patient is admitted to the cardiac care unit (CCU) with a diagnosis of acute myocardial infarction (MI) and new-onset heart failure. Based on the EHR data, determine the appropriate interventions, the likely conditions, and the potential complications for this patient.",
-    "scoring": {
-        "method": "linkage",
-        "maxPoints": 6
+    "stem": "The nurse is developing the plan of care for a client admitted with an acute myocardial infarction. Based on the client's data, complete the diagram by selecting appropriate actions, the most likely potential condition, and key parameters to monitor.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Administer furosemide 40 mg IV push"
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer a 500 mL normal saline bolus"
+        },
+        {
+            "id": "opt_03",
+            "text": "Titrate oxygen to maintain SpO2 >94%"
+        },
+        {
+            "id": "opt_04",
+            "text": "Encourage ambulation to improve circulation"
+        },
+        {
+            "id": "opt_05",
+            "text": "Cardiogenic Shock"
+        },
+        {
+            "id": "opt_06",
+            "text": "Pulmonary Embolism"
+        },
+        {
+            "id": "opt_07",
+            "text": "Hypovolemic Shock"
+        },
+        {
+            "id": "opt_08",
+            "text": "Urine output"
+        },
+        {
+            "id": "opt_09",
+            "text": "Mean Arterial Pressure (MAP)"
+        },
+        {
+            "id": "opt_10",
+            "text": "Serum glucose level"
+        },
+        {
+            "id": "opt_11",
+            "text": "Abdominal girth"
+        }
+    ],
+    "correctOptionIds": {
+        "action1": "opt_01",
+        "action2": "opt_03",
+        "condition": "opt_05",
+        "parameter1": "opt_08",
+        "parameter2": "opt_09"
     },
     "itemContext": {
         "patient": {
-            "name": "Robert Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "USA",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Sulfa Drugs"
-            ],
-            "isolation": "Airborne"
+            ]
         },
-        "sbar": "S: Robert Smith, 68-year-old male, admitted at 08:00 today to the CCU. Reports severe chest pain radiating to the left arm, rated 8/10. History of hypertension and hyperlipidemia. B: Patient found unresponsive at home by his wife. EMS reported a possible MI. EKG shows ST elevation in leads II, III, and aVF. Patient has a history of smoking and a sedentary lifestyle. O: At 09:15, patient is on 2L NC, SpO2 92%. BP 90/60 mmHg, HR 110 bpm, RR 24 breaths/min. Crackles auscultated bilaterally. Received aspirin 325mg PO at 07:45 and morphine 4mg IVP at 08:30 in the ED. Troponin I elevated at 1.8 ng/mL. Urine output is decreased. Patient is anxious and diaphoretic. A: Acute MI complicated by acute heart failure. R: Continue O2, titrate to maintain SpO2 > 92%. Monitor vital signs closely, including urine output. Prepare for possible administration of diuretics and further cardiac interventions, such as PCI. Cardiology consult stat. Continuous cardiac monitoring and 12-lead EKG. Assess pain level and medicate accordingly. Implement airborne precautions until further notice.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Troponin I</td><td>1.8 ng/mL</td><td><0.04 ng/mL</td></tr><tr><td>CK-MB</td><td>9.5 ng/mL</td><td><5.0 ng/mL</td></tr><tr><td>BNP</td><td>600 pg/mL</td><td><100 pg/mL</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Creatinine</td><td>1.2 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 08:00",
+                        "content": "S: Client is a 68-year-old male brought to the ED by ambulance after his adult child found him clutching his chest at home. He reports severe, crushing substernal chest pain (8/10) radiating to his left arm, accompanied by diaphoresis and nausea.\nB: History of hypertension and hyperlipidemia, non-compliant with medications. 40-pack-year smoking history. Client expresses anxiety about missing work as he is the sole provider for his household. EMS administered aspirin 325 mg PO en route. Initial 12-lead ECG in the field showed ST-segment elevation in leads II, III, and aVF.\nA: On arrival, client is pale and anxious. Skin is cool and clammy. Tachycardic with an S3 gallop noted on auscultation. Bilateral crackles auscultated in lower lung bases. SpO2 is 92% on room air.\nR: Placed on continuous cardiac monitoring. Oxygen initiated via nasal cannula at 2 L/min. IV access established. STAT labs drawn, including cardiac enzymes. Cardiology consulted for emergent cardiac catheterization."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 09:30",
+                        "content": "S: Client reports feeling increasingly short of breath. Chest pain is now 4/10 after 4 mg morphine IVP.\nB: Since admission to the cardiac unit, blood pressure has been trending downward, with MAP now at 70 mmHg. Heart rate remains elevated. Urine output via new indwelling catheter is minimal over the last hour (20 mL).\nA: Client is showing signs of worsening heart failure and decreased perfusion, consistent with early cardiogenic shock secondary to inferior wall MI. The hypotension, tachycardia, crackles, low SpO2, and oliguria are all significant findings. The elevated BNP confirms significant ventricular stretch and fluid overload despite the low blood pressure.\nR: Continue to titrate oxygen to maintain SpO2 >94%. Administer diuretic as ordered to decrease preload. Prepare for potential initiation of vasopressor support. Continue hourly monitoring of vital signs and urine output. Notify cardiologist of hemodynamic instability."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>08:00</td><td>80/50</td><td>120</td><td>28</td><td>88%</td></tr><tr><td>08:30</td><td>90/60</td><td>115</td><td>26</td><td>90%</td></tr><tr><td>09:00</td><td>90/60</td><td>110</td><td>24</td><td>92%</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp</th><th>HR</th><th>BP</th><th>MAP</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>08:00</td><td>98.8°F (37.1°C)</td><td>120 bpm</td><td>110/70 mmHg</td><td>83 mmHg</td><td>28/min</td><td>92% on RA</td></tr><tr><td>09:00</td><td>98.6°F (37.0°C)</td><td>115 bpm</td><td>98/62 mmHg</td><td>74 mmHg</td><td>26/min</td><td>93% on 2L NC</td></tr><tr><td>09:30</td><td>98.7°F (37.1°C)</td><td>112 bpm</td><td>90/60 mmHg</td><td>70 mmHg</td><td>24/min</td><td>92% on 2L NC</td></tr></tbody></table><p>Telemetry: Sinus tachycardia with frequent premature ventricular contractions (PVCs).</p>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Given</th></tr></thead><tbody><tr><td>Aspirin</td><td>325 mg</td><td>PO</td><td>Once</td><td>07:45</td></tr><tr><td>Morphine Sulfate</td><td>4 mg</td><td>IVP</td><td>PRN q2h</td><td>08:30</td></tr><tr><td>Oxygen</td><td>2 L</td><td>Nasal Cannula</td><td>Continuous</td><td>-</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Value</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Troponin I</td><td>1.80</td><td>ng/mL</td><td><0.04</td><td>High</td></tr><tr><td>CK-MB</td><td>9.5</td><td>ng/mL</td><td>0.6 - 6.3</td><td>High</td></tr><tr><td>BNP</td><td>650</td><td>pg/mL</td><td><100</td><td>High</td></tr><tr><td>Potassium</td><td>3.8</td><td>mEq/L</td><td>3.5 - 5.1</td><td></td></tr><tr><td>Sodium</td><td>138</td><td>mEq/L</td><td>136 - 145</td><td></td></tr><tr><td>Creatinine</td><td>1.3</td><td>mg/dL</td><td>0.7 - 1.3</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<ul><li><strong>Neurological:</strong> Alert and oriented x3, anxious.</li><li><strong>Cardiovascular:</strong> Tachycardia, S3 gallop auscultated at apex. Distant heart sounds. Capillary refill 4 seconds. Peripheral pulses +1 bilaterally.</li><li><strong>Respiratory:</strong> Crackles auscultated in bilateral lower lobes, halfway up the posterior chest. Labored respiratory effort.</li><li><strong>Integumentary:</strong> Skin is pale, cool, and diaphoretic.</li><li><strong>GI/GU:</strong> Bowel sounds hypoactive. Indwelling urinary catheter placed, 20 mL of clear yellow urine in the last hour.</li></ul>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<h4>Chest X-ray (Portable, AP View) - Day 1, 09:15</h4><p><strong>Findings:</strong> Cephalization of pulmonary vessels is noted. Bilateral interstitial and alveolar opacities are present, consistent with pulmonary edema. The cardiac silhouette is mildly enlarged. No pneumothorax or pleural effusion identified.</p><p><strong>Impression:</strong> Findings consistent with moderate pulmonary edema, likely secondary to acute cardiac decompensation.</p>"
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR above."
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 08:15</td><td>Continuous cardiac monitoring</td><td>Standing</td></tr><tr><td>Day 1, 08:15</td><td>Oxygen therapy, titrate to maintain SpO2 >94%</td><td>Standing</td></tr><tr><td>Day 1, 08:15</td><td>Furosemide 40 mg IV push</td><td>STAT, one time</td></tr><tr><td>Day 1, 08:15</td><td>Morphine Sulfate 2-4 mg IV push</td><td>PRN q2h for chest pain</td></tr><tr><td>Day 1, 08:15</td><td>Insert indwelling urinary catheter</td><td>STAT</td></tr><tr><td>Day 1, 08:15</td><td>Hourly intake and output monitoring</td><td>Standing</td></tr><tr><td>Day 1, 08:15</td><td>Cardiology consult</td><td>STAT</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Aspirin</td><td>325 mg</td><td>PO</td><td>Once</td><td>Day 1, 07:45 (en route)</td></tr><tr><td>Morphine Sulfate</td><td>4 mg</td><td>IVP</td><td>PRN q2h</td><td>Day 1, 08:30</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>(On hold due to hypotension)</td></tr><tr><td>Atorvastatin</td><td>80 mg</td><td>PO</td><td>Daily</td><td>(Not yet administered)</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Acute MI & Heart Failure"
-        ]
-    },
     "rationale": {
-        "correct": "The patient's elevated Troponin I and CK-MB levels confirm myocardial damage, indicating an acute MI. The elevated BNP, crackles in the lungs, and decreased oxygen saturation suggest the development of heart failure. Administering oxygen is essential to improve oxygen saturation and reduce hypoxemia, thereby reducing myocardial workload. Furosemide is indicated to reduce fluid overload associated with heart failure, alleviating pulmonary congestion and improving breathing by decreasing preload. Monitoring intake and output is crucial to assess the effectiveness of diuretic therapy and prevent dehydration or electrolyte imbalances, especially hypokalemia. The most likely conditions are acute myocardial infarction and heart failure, supported by the clinical and laboratory findings. A potential complication is cardiogenic shock, indicated by the patient's hypotension, tachycardia, and signs of poor perfusion, requiring immediate intervention to support cardiac output. Airborne precautions should be implemented due to the initial presentation and to rule out any respiratory infections, protecting both the patient and healthcare providers. \n\nclinicalPearl: Early recognition and management of heart failure in the setting of acute MI can significantly improve patient outcomes and reduce mortality.",
-        "incorrect": "Incorrect options fail to recognize the significance of the patient's lab values, vital signs, and clinical presentation. For instance, withholding oxygen in the presence of hypoxemia can worsen myocardial ischemia and compromise tissue oxygenation, increasing the risk of further myocardial damage. Restricting fluids can exacerbate hypotension and reduce cardiac output, worsening perfusion to vital organs. Encouraging ambulation can increase myocardial oxygen demand and potentially worsen ischemia. Delaying diuretic administration can exacerbate pulmonary congestion and increase the risk of respiratory distress. Not monitoring intake and output prevents the nurse from accurately assessing the patient's fluid balance and response to treatment, potentially leading to complications such as dehydration or electrolyte imbalances. Incorrectly identifying the conditions or potential complications indicates a lack of understanding of the pathophysiology of MI and heart failure. Focusing on only one aspect of the patient's condition (e.g., only the MI without recognizing the heart failure) leads to incomplete or inappropriate interventions. Failing to implement airborne precautions could lead to potential transmission of infectious diseases to other healthcare workers and patients, especially given the patient's initial presentation and unknown respiratory status.\n\nclinicalPearl: A holistic assessment is crucial to differentiate between various potential complications and tailor interventions accordingly.",
+        "correct": "The client's presentation of an acute MI is complicated by rapidly developing heart failure, leading to cardiogenic shock. This is evidenced by hypotension (MAP 70 mmHg), tachycardia, cool/clammy skin, bilateral crackles, elevated BNP (650 pg/mL), and oliguria (20 mL/hr). The primary goals are to reduce preload and improve oxygenation. Administering furosemide will reduce the fluid overload causing pulmonary edema. Titrating oxygen will address the hypoxemia. The central condition is cardiogenic shock, where the heart fails as a pump. Consequently, the most critical parameters to monitor are urine output (as an indicator of renal perfusion) and MAP (to assess overall tissue perfusion).",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The client has significant signs of fluid overload (bilateral crackles, elevated BNP, CXR showing pulmonary edema). Furosemide, a loop diuretic, is essential to reduce preload by promoting diuresis, which will alleviate pulmonary congestion and improve gas exchange."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. The client's SpO2 is 92% on 2L NC and he is experiencing shortness of breath. The MI increases myocardial oxygen demand while the pulmonary edema impairs gas exchange. Titrating oxygen to maintain SpO2 >94% is a priority to improve tissue oxygenation and reduce cardiac workload."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. This is the most likely underlying condition. Cardiogenic shock is a state of inadequate tissue perfusion due to cardiac dysfunction. The client's hypotension (MAP 70), tachycardia, cool/clammy skin, oliguria, and altered mental status (anxiety) are classic signs of this life-threatening complication of MI."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Correct. Urine output is a critical indicator of renal and systemic perfusion. In cardiogenic shock, decreased cardiac output leads to reduced blood flow to the kidneys, causing oliguria (<30 mL/hr). Monitoring this parameter is vital to assess the client's response to interventions like diuretics and vasopressors."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Correct. Mean Arterial Pressure (MAP) is the average pressure in the arteries during one cardiac cycle and is a better indicator of tissue perfusion than systolic BP alone. A MAP below 65 mmHg is generally considered insufficient to perfuse vital organs. Monitoring the MAP trend is crucial for titrating medications and evaluating the client's hemodynamic stability."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. Although the client is hypotensive, the cause is pump failure (cardiogenic), not volume loss (hypovolemic). Administering a fluid bolus would increase preload on an already failing heart, worsening the pulmonary edema and respiratory distress."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. Hypovolemic shock is caused by insufficient circulating volume. This client's problem is pump failure with fluid overload, as evidenced by the elevated BNP and pulmonary edema. The treatment for these two types of shock is opposite."
+            }
+        ],
         "clinicalPearls": [
-            "In patients with acute MI and heart failure, prioritize interventions that improve oxygenation, reduce cardiac workload, and prevent complications such as cardiogenic shock.",
-            "Serial monitoring of cardiac enzymes (Troponin I, CK-MB) and BNP is essential to assess the extent of myocardial damage and the severity of heart failure, guiding treatment decisions.",
-            "Careful fluid management is crucial in patients with heart failure to avoid fluid overload and pulmonary edema, optimizing cardiac function.",
-            "Airborne precautions are essential until respiratory infections are ruled out, ensuring the safety of both the patient and healthcare personnel."
+            "In cardiogenic shock, hypotension is treated with vasopressors and inotropes, not fluid boluses, as increased volume will worsen pulmonary congestion and cardiac strain.",
+            "An S3 heart sound in an older adult is an early and specific sign of heart failure, representing the tensing of the chordae tendineae during rapid ventricular filling into a noncompliant ventricle.",
+            "Urine output is one of the most sensitive indicators of end-organ perfusion. Oliguria (<0.5 mL/kg/hr) is an ominous sign in a patient with suspected shock and requires immediate intervention.",
+            "A Mean Arterial Pressure (MAP) of at least 65 mmHg is typically required to perfuse the coronary arteries, kidneys, and brain. It is a primary target in the management of shock states."
         ],
-        "questionTrap": {
-            "trap": "The question trap is to focus solely on the MI and miss the signs of developing heart failure (crackles, elevated BNP). Alternatively, one might overlook the need for airborne precautions given the initial presentation.",
-            "howToOvercome": "Carefully assess all data points, including vital signs, lab results, auscultation findings, and the patient's history, to develop a comprehensive understanding of the patient's condition. Consider all potential risks and implement appropriate safety measures."
-        },
-        "mnemonic": {
-            "title": "LMNOP",
-            "expansion": "Lasix (Furosemide), Morphine, Nitrates, Oxygen, Position (Upright). This mnemonic helps recall the initial interventions for acute heart failure, but remember to consider the patient's specific needs and contraindications."
-        }
+        "questionTrap": "The primary trap is misinterpreting the cause of hypotension. Seeing a low blood pressure often triggers the thought of administering fluids. However, in the context of an MI with signs of fluid overload (crackles, high BNP), giving fluids is contraindicated and harmful. The nurse must recognize the signs of pump failure.",
+        "mnemonic": "For signs of Cardiogenic Shock, remember the acronym 'PUMPING FAILED':\n\nP - Pale, cool skin\nU - Urine output decreased (<30 mL/hr)\nM - MAP <65 mmHg, Mentation altered\nP - Pulmonary congestion (crackles)\nI - Increased HR (tachycardia)\nN - Nausea/vomiting\nG - Gallop rhythm (S3/S4)\n\nF - Faint peripheral pulses\nA - Anxiety/Agitation\nI - Increased respiratory rate\nL - Low cardiac output\nE - Elevated BNP/cardiac enzymes\nD - Diaphoresis"
     },
-    "outcomeLine": {
-        "outcomeA": [
-            "Administer oxygen via nasal cannula.",
-            "Administer furosemide IV.",
-            "Monitor intake and output."
-        ],
-        "outcomeB": [
-            "Withhold oxygen administration.",
-            "Restrict fluids.",
-            "Encourage ambulation."
-        ],
-        "condition": [
-            "Acute Myocardial Infarction",
-            "Hypervolemia",
-            "Hypokalemia",
-            "Heart Failure",
-            "Pulmonary Embolism"
-        ],
-        "complication": [
-            "Cardiogenic Shock",
-            "Hypovolemic Shock",
-            "Pulmonary Edema",
-            "Cardiac Tamponade",
-            "Atrial Fibrillation"
-        ]
+    "scoring": {
+        "method": "triad",
+        "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    }
 }

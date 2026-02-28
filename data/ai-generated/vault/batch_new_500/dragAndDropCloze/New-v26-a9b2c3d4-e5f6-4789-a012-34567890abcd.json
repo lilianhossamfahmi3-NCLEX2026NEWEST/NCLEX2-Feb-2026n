@@ -1,118 +1,268 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-4789-a012-34567890abcd",
-    "type": "dragAndDropCloze",
-    "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the provided information, complete the following statements regarding ventilator alarms and appropriate nursing interventions.\n\nIf the **[1]** alarm sounds, the nurse should first **[2]**. This may be due to **[3]**. If the **[4]** alarm sounds, the nurse should assess for **[5]**, which could be caused by **[6]**.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 6
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is caring for a 68-year-old client with ARDS on mechanical ventilation. The high-pressure alarm is sounding. Based on the clinical data provided in the chart, which action should the nurse take immediately?",
+    "options": [
+        {
+            "id": "A",
+            "text": "Notify the provider of a suspected pneumothorax and prepare for chest tube insertion."
+        },
+        {
+            "id": "B",
+            "text": "Perform deep endotracheal suctioning to clear potential secretions."
+        },
+        {
+            "id": "C",
+            "text": "Administer a PRN dose of intravenous morphine for suspected agitation."
+        },
+        {
+            "id": "D",
+            "text": "Increase the PEEP setting on the ventilator to improve oxygenation."
+        }
+    ],
+    "correctOptionId": "A",
     "itemContext": {
         "patient": {
-            "name": "Robert Jones",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68 years",
+            "sex": "Male (he/him)",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "SBAR: This is a report for Robert Jones, a 68-year-old male, admitted to the ICU for pneumonia complicated by ARDS. He is currently intubated and mechanically ventilated. His 0600 report indicates that he remains intubated and mechanically ventilated with the following settings: FiO2 50%, PEEP 8 cm H2O, Rate 14, Tidal Volume 450 mL. At 0615, the high-pressure alarm sounded. I performed suctioning, which resolved the alarm briefly, but it quickly returned. At 0630, I noted decreased breath sounds on the left side. His current vital signs are BP 140/88, HR 98, RR 14 (ventilated), SpO2 92%. ABGs from 0600 show: pH 7.32, PaCO2 55, PaO2 65, HCO3 26. At 0645, I noticed asymmetrical chest rise. The doctor was notified, and I am concerned about a possible pneumothorax. At 0700, a new order was received to obtain a chest x-ray STAT.",
+        "sbar": "S: At 07:00, the high-pressure ventilator alarm for Robert Jones began sounding persistently. His SpO2 has dropped to 91% on 50% FiO2.\nB: Mr. Jones is a 68-year-old male admitted 3 days ago for severe pneumonia, which progressed to ARDS requiring intubation. He has a history of COPD. The client is experiencing housing insecurity, which delayed his initial presentation to the emergency department and complicated his pneumonia. Current ventilator settings are Assist-Control, FiO2 50%, PEEP 8 cm H2O, Rate 14, Tidal Volume 450 mL.\nA: On assessment, I noted asymmetrical chest expansion with decreased breath sounds over the entire left lung field. He is tachycardic at 110 bpm. Suctioning was performed with minimal return and did not resolve the alarm.\nR: I suspect a left-sided tension pneumothorax. I need the provider to come to the bedside immediately. I am preparing for a potential chest tube insertion.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "0600 ABGs: pH 7.32, PaCO2 55 mmHg, PaO2 65 mmHg, HCO3 26 mEq/L\n WBC: 14,000/uL"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 4, 07:00",
+                        "note": "High-pressure ventilator alarm sounds. SpO2 decreased to 91%. Client is tachycardic. Performed endotracheal suctioning with minimal clear secretions returned; alarm did not resolve. Physical assessment reveals asymmetrical chest expansion, absent breath sounds over left lung field. Provider paged STAT for suspected tension pneumothorax. Preparing for emergent chest tube insertion at bedside. Client's adult child at bedside, updated on change in status."
+                    },
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "note": "Admission Note: Client is a 68-year-old male with a history of COPD admitted from the ED with severe community-acquired pneumonia and hypoxemic respiratory failure. Client reports delaying care due to unstable housing. On admission, client was lethargic with labored breathing. Intubated in ED for acute respiratory distress syndrome (ARDS) and transferred to ICU. Placed on mechanical ventilation. Plan is to continue ventilatory support, administer IV antibiotics, and monitor hemodynamics. Penicillin allergy noted."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Scheduled:\nCeftriaxone 1g IV q24h - Last dose: 0600\nAlbuterol/Ipratropium Neb q6h - Last dose: 0400\nPRN:\nAlbuterol Neb q4h PRN wheezing\nMorphine 2mg IV q2h PRN pain (hold if RR < 12)"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp",
+                        "HR",
+                        "BP (MAP)",
+                        "RR",
+                        "SpO2"
+                    ],
+                    "rows": [
+                        [
+                            "06:00",
+                            "101.1°F (38.4°C)",
+                            "96/min",
+                            "142/90 mmHg (107)",
+                            "14 (Vent)",
+                            "93% on 50% FiO2"
+                        ],
+                        [
+                            "06:30",
+                            "101.0°F (38.3°C)",
+                            "98/min",
+                            "140/88 mmHg (105)",
+                            "14 (Vent)",
+                            "92% on 50% FiO2"
+                        ],
+                        [
+                            "07:00",
+                            "100.9°F (38.3°C)",
+                            "110/min",
+                            "138/86 mmHg (103)",
+                            "14 (Vent)",
+                            "91% on 50% FiO2"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "0600: BP 142/90, HR 96, RR 14 (ventilated), SpO2 93%\n0615: BP 140/88, HR 98, RR 14 (ventilated), SpO2 92%\n0630: BP 140/88, HR 98, RR 14 (ventilated), SpO2 92%"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "result": "Arterial Blood Gas (ABG) Panel @ 06:00",
+                        "unit": "",
+                        "reference": "",
+                        "status": ""
+                    },
+                    {
+                        "result": "pH",
+                        "unit": "",
+                        "reference": "7.35-7.45",
+                        "status": "Low",
+                        "value": "7.32"
+                    },
+                    {
+                        "result": "PaCO2",
+                        "unit": "mmHg",
+                        "reference": "35-45",
+                        "status": "High",
+                        "value": "55"
+                    },
+                    {
+                        "result": "PaO2",
+                        "unit": "mmHg",
+                        "reference": "80-100",
+                        "status": "Low",
+                        "value": "65"
+                    },
+                    {
+                        "result": "HCO3",
+                        "unit": "mEq/L",
+                        "reference": "22-26",
+                        "status": "Normal",
+                        "value": "26"
+                    },
+                    {
+                        "result": "Complete Blood Count (CBC) @ 06:00",
+                        "unit": "",
+                        "reference": "",
+                        "status": ""
+                    },
+                    {
+                        "result": "WBC",
+                        "unit": "x10³/μL",
+                        "reference": "4.5-11.0",
+                        "status": "High",
+                        "value": "14.5"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Respiratory (07:00)",
+                        "findings": "Asymmetrical chest expansion, greater rise on the right. Trachea appears midline. Absent breath sounds auscultated over the left anterior and posterior lung fields. Diminished but clear sounds on the right. Client on mechanical ventilation, rate 14."
+                    },
+                    {
+                        "system": "Cardiovascular (07:00)",
+                        "findings": "Tachycardia with regular rhythm. S1, S2 audible. No murmurs. Capillary refill <3 seconds. Pulses 2+ peripherally."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "report": "Chest X-ray, Portable AP",
+                        "timestamp": "Day 4, 07:05",
+                        "status": "Ordered (STAT)",
+                        "indication": "Acute respiratory decompensation, rule out pneumothorax.",
+                        "impression": "Pending."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "Day 4, 07:05",
+                        "action": "Chest X-ray, Portable, 1 view",
+                        "status": "STAT"
+                    },
+                    {
+                        "order_time": "Day 1, 15:00",
+                        "action": "Mechanical Ventilation: Assist-Control, FiO2 50%, PEEP 8 cm H2O, Rate 14, TV 450 mL",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "Day 1, 15:00",
+                        "action": "Activity: Bed rest, turn and reposition every 2 hours",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "Day 1, 15:00",
+                        "action": "Diet: NPO, initiate enteral nutrition via NG tube",
+                        "status": "Standing"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Ceftriaxone",
+                        "dose": "1g",
+                        "route": "IV",
+                        "frequency": "q24h",
+                        "last_administered": "Day 4, 06:00"
+                    },
+                    {
+                        "medication": "Albuterol/Ipratropium",
+                        "dose": "3mL",
+                        "route": "Nebulizer",
+                        "frequency": "q6h",
+                        "last_administered": "Day 4, 04:00"
+                    },
+                    {
+                        "medication": "Morphine",
+                        "dose": "2mg",
+                        "route": "IV",
+                        "frequency": "q2h PRN pain/agitation",
+                        "last_administered": "Day 3, 22:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Management of Care",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
-        ]
-    },
     "rationale": {
-        "correct": "If the high-pressure alarm sounds, the nurse should first assess the patient's airway for obstruction. This may be due to increased secretions, biting the ET tube, or bronchospasm. If the low-pressure alarm sounds, the nurse should assess for a leak in the system, which could be caused by a disconnected ventilator circuit, a cuff leak in the ET tube, or a dislodged ET tube.",
-        "incorrect": "Incorrect answer choices indicate a lack of understanding of the immediate actions required when ventilator alarms sound, as well as the common causes of these alarms. These actions are critical for ensuring patient safety and preventing complications associated with mechanical ventilation. Failing to recognize the urgency and potential dangers of these alarms can lead to adverse patient outcomes.",
+        "correct": "The correct action is to notify the provider and prepare for chest tube insertion. The client's presentation—a high-pressure alarm, asymmetrical chest rise, and absent breath sounds on one side—are classic signs of a tension pneumothorax. This is a life-threatening complication of positive pressure ventilation, especially in clients with ARDS. Air enters the pleural space and cannot escape, causing the lung to collapse and shifting the mediastinum, which compromises cardiac output. Immediate decompression is required.",
+        "incorrect": "Repeating an intervention (suctioning) that has already failed is inappropriate and delays life-saving treatment. Administering morphine is dangerous as it can mask neurological changes and cause respiratory depression; the client's distress is due to a physiological crisis, not agitation. Increasing PEEP is contraindicated as it would worsen the air leak into the pleural space, increasing the tension and accelerating cardiovascular collapse.",
+        "answerBreakdown": [
+            {
+                "optionId": "A",
+                "content": "Correct. This action addresses the probable diagnosis of a tension pneumothorax, a medical emergency. The nurse correctly synthesizes the cues (alarm, physical exam) and takes the critical first step toward definitive treatment."
+            },
+            {
+                "optionId": "B",
+                "content": "Incorrect. The nurse's note indicates suctioning was already attempted without success. Persisting with this action wastes critical time when a life-threatening condition like a pneumothorax is evident."
+            },
+            {
+                "optionId": "C",
+                "content": "Incorrect. The client's tachycardia and distress are signs of severe hypoxemia and physiological compromise from the suspected pneumothorax, not agitation. Sedation would be harmful and could mask further deterioration."
+            },
+            {
+                "optionId": "D",
+                "content": "Incorrect. Increasing PEEP (positive end-expiratory pressure) would force more air into the pleural space, worsening the tension pneumothorax and potentially causing obstructive shock and cardiac arrest. This action is extremely dangerous in this context."
+            }
+        ],
         "clinicalPearls": [
-            "Always assess the patient first when a ventilator alarm sounds.",
-            "High-pressure alarms often indicate an obstruction, while low-pressure alarms suggest a leak.",
-            "Regular suctioning and monitoring of ET tube cuff pressure can help prevent ventilator alarms."
+            "Asymmetrical chest rise combined with a high-pressure alarm in a ventilated patient is a critical finding that strongly suggests a pneumothorax until proven otherwise.",
+            "In any ventilator alarm situation, always assess the patient first, then the ventilator circuit, and finally the machine itself. Physical exam findings often reveal the root cause.",
+            "Barotrauma (lung injury from pressure) is a significant risk in patients with ARDS on mechanical ventilation, making them highly susceptible to pneumothorax."
         ],
-        "questionTrap": {
-            "trap": "Many students focus on the ventilator settings first, neglecting the immediate need to assess the patient. They may also confuse the causes of high-pressure and low-pressure alarms, leading to incorrect interventions.",
-            "howToOvercome": "Emphasize the importance of prioritizing patient assessment over equipment adjustments. Review the common causes of high-pressure and low-pressure alarms and the appropriate nursing interventions for each."
-        },
-        "mnemonic": {
-            "title": "DOPE",
-            "expansion": "Displacement, Obstruction, Pneumothorax, Equipment failure – a mnemonic to remember potential causes of sudden respiratory distress in intubated patients."
-        }
-    },
-    "possibleResponses": {
-        "1": [
-            "high-pressure",
-            "low-pressure"
-        ],
-        "2": [
-            "assess the patient's airway for obstruction",
-            "check ventilator settings",
-            "increase FiO2"
-        ],
-        "3": [
-            "increased secretions, biting the ET tube, or bronchospasm",
-            "a disconnected ventilator circuit",
-            "decreased respiratory effort"
-        ],
-        "4": [
-            "high-pressure",
-            "low-pressure"
-        ],
-        "5": [
-            "a leak in the system",
-            "patient agitation",
-            "hypotension"
-        ],
-        "6": [
-            "a disconnected ventilator circuit, a cuff leak in the ET tube, or a dislodged ET tube",
-            "increased airway resistance",
-            "pulmonary edema"
+        "questionTrap": "The primary trap is focusing only on the most common causes of a high-pressure alarm, such as secretions or the client biting the tube, while ignoring the new, overriding physical assessment data (asymmetrical chest rise, absent breath sounds) that point to a more severe, life-threatening complication.",
+        "mnemonic": "For sudden decompensation in a ventilated patient, use DOPE: D - Displacement (of the ET tube), O - Obstruction (secretions, kink), P - Pneumothorax, E - Equipment failure.",
+        "reviewUnits": [
+            "Mechanical Ventilation: Complications",
+            "Acute Respiratory Distress Syndrome (ARDS)",
+            "Management of Pneumothorax"
         ]
     },
-    "responseOptions": [
-        "high-pressure",
-        "low-pressure",
-        "assess the patient's airway for obstruction",
-        "check ventilator settings",
-        "increase FiO2",
-        "increased secretions, biting the ET tube, or bronchospasm",
-        "a disconnected ventilator circuit",
-        "decreased respiratory effort",
-        "a leak in the system",
-        "patient agitation",
-        "hypotension",
-        "a disconnected ventilator circuit, a cuff leak in the ET tube, or a dislodged ET tube",
-        "increased airway resistance",
-        "pulmonary edema"
-    ],
-    "correctResponse": {
-        "1": "high-pressure",
-        "2": "assess the patient's airway for obstruction",
-        "3": "increased secretions, biting the ET tube, or bronchospasm",
-        "4": "low-pressure",
-        "5": "a leak in the system",
-        "6": "a disconnected ventilator circuit, a cuff leak in the ET tube, or a dislodged ET tube"
-    }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:55:54.701Z"
 }

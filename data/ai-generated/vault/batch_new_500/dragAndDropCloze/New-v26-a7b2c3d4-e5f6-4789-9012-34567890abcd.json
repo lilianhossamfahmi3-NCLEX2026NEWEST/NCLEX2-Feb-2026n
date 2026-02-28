@@ -1,80 +1,275 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-9012-34567890abcd",
-    "type": "dragAndDropCloze",
-    "stem": "The physician orders a continuous heparin infusion for Mr. Jones. The order reads: \"Heparin 25,000 units in 500 mL D5W, infuse at 1200 units/hour.\" The available heparin concentration is 10,000 units/mL. \n\nBased on the order and available information, calculate the following and drag the correct answers into the corresponding blank spaces. \n\n1. To prepare the IV solution, you will add [ ] mL of heparin to the 500 mL D5W bag.\n2. The infusion rate should be set to [ ] mL/hour to deliver the prescribed dose.\n3. At the prescribed infusion rate, the heparin dose Mr. Jones will receive per minute is [ ] units.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is preparing a continuous heparin infusion based on the provider's orders. The available heparin is 10,000 units/mL. At what rate, in mL/hour, should the nurse program the infusion pump to deliver the prescribed dose?",
+    "options": [
+        {
+            "id": "opt_A",
+            "text": "12 mL/hour"
+        },
+        {
+            "id": "opt_B",
+            "text": "24 mL/hour"
+        },
+        {
+            "id": "opt_C",
+            "text": "30 mL/hour"
+        },
+        {
+            "id": "opt_D",
+            "text": "48 mL/hour"
+        }
+    ],
+    "correctOptionId": "opt_B",
     "itemContext": {
         "patient": {
-            "name": "Ricardo Jones",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "He/him",
             "allergies": [
                 "Penicillin"
-            ],
-            "condition": [
-                "DVT"
             ]
         },
-        "sbar": "07:30 S: Ricardo Jones, 68-year-old male, admitted at 06:00 with a DVT in the left leg. He reports pain as 7/10. \nB: History of hypertension and hyperlipidemia. Left total knee arthroplasty 3 years ago. Medications include lisinopril and atorvastatin. \nA: Heparin infusion ordered at 07:30. Initial vitals: BP 160/90, HR 98, RR 22, SpO2 94% on 2L NC. Labs pending. Patient anxious and diaphoretic. 08:00 vitals: BP 158/88, HR 96, RR 20, SpO2 95% on 2L NC. \nR: Clarification needed on heparin infusion rate. Order states 1200 units/hour. Confirm correct infusion rate in mL/hour. Preparing IV; need to know how many mL of heparin to add to the IV bag. Patient reports increased pain despite morphine 2mg IV at 07:00.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR in Item Context"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 06:00",
+                        "note_type": "Admission Note",
+                        "content": "S: 68-year-old male admitted from ED with acute onset of left leg pain, swelling, and redness. B: History of hypertension, hyperlipidemia, and left total knee arthroplasty 3 years ago. Client lives alone in a third-floor walk-up apartment, expressing concern about managing stairs upon discharge. A: Left calf is erythematous, warm, and edematous. Calf circumference is 3 cm greater than the right. Reports pain as 8/10. Doppler ultrasound confirmed DVT in the left popliteal vein. R: Initiate anticoagulant therapy per protocol. Maintain strict bed rest with the left leg elevated on two pillows. Provide adequate pain management and monitor for signs of pulmonary embolism, including shortness of breath or chest pain. Consult physical therapy for future mobility planning."
+                    },
+                    {
+                        "timestamp": "Day 1, 08:00",
+                        "note_type": "Progress Note",
+                        "content": "S: Client is awaiting initiation of a continuous heparin infusion. Reports persistent left leg pain at 7/10 despite receiving morphine 2mg IV at 07:00. B: Heparin infusion ordered at 07:30. Baseline aPTT is 30 seconds. Client appears anxious about his condition and the new medication. A: Vitals remain stable. Neurovascular checks of the left lower extremity are unchanged. No signs of bleeding or adverse effects from morphine. The client verbalizes understanding of the need for anticoagulation but is worried about potential side effects. R: Prepare and initiate the heparin infusion as ordered. Re-educate the client on the purpose of heparin and signs of bleeding to report. Reassess pain in 30 minutes and notify provider if uncontrolled."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>PT</td><td>13 seconds</td><td>11-13.5 seconds</td></tr><tr><td>aPTT</td><td>30 seconds</td><td>30-40 seconds</td></tr><tr><td>INR</td><td>1.1</td><td>0.8-1.1</td></tr><tr><td>Platelets</td><td>250,000/μL</td><td>150,000-400,000/μL</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp °F (°C)",
+                        "HR (bpm)",
+                        "RR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "SpO₂ (%)"
+                    ],
+                    "rows": [
+                        [
+                            "06:00",
+                            "98.8 (37.1)",
+                            "98",
+                            "22",
+                            "160/90",
+                            "113",
+                            "94% on 2L NC"
+                        ],
+                        [
+                            "07:30",
+                            "99.0 (37.2)",
+                            "96",
+                            "20",
+                            "158/88",
+                            "111",
+                            "95% on 2L NC"
+                        ],
+                        [
+                            "08:00",
+                            "98.9 (37.2)",
+                            "94",
+                            "20",
+                            "155/86",
+                            "109",
+                            "95% on 2L NC"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>07:30</td><td>160/90</td><td>98</td><td>22</td><td>94% (2L NC)</td></tr><tr><td>08:00</td><td>158/88</td><td>96</td><td>20</td><td>95% (2L NC)</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "panel": "Coagulation Studies",
+                    "timestamp": "Day 1, 06:30",
+                    "results": [
+                        {
+                            "test": "aPTT",
+                            "result": "30",
+                            "unit": "seconds",
+                            "reference": "30-40",
+                            "status": "Normal"
+                        },
+                        {
+                            "test": "PT",
+                            "result": "13",
+                            "unit": "seconds",
+                            "reference": "11-13.5",
+                            "status": "Normal"
+                        },
+                        {
+                            "test": "INR",
+                            "result": "1.1",
+                            "unit": "",
+                            "reference": "0.8-1.1",
+                            "status": "Normal"
+                        },
+                        {
+                            "test": "Platelet Count",
+                            "result": "250,000",
+                            "unit": "/mm³",
+                            "reference": "150,000-400,000",
+                            "status": "Normal"
+                        },
+                        {
+                            "test": "D-dimer",
+                            "result": "2.5",
+                            "unit": "mcg/mL",
+                            "reference": "<0.5",
+                            "status": "High"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 06:00 (Admission)",
+                        "findings": "Cardiovascular: S1, S2 audible. Tachycardia noted. No murmurs. Pulses 2+ in all extremities except left dorsalis pedis, which is 1+. Capillary refill <3 seconds. \nRespiratory: Lungs clear to auscultation bilaterally. Breathing unlabored. \nNeurological: Alert and oriented x4. Follows commands. \nExtremities: Left calf erythematous, warm to touch, and edematous. Circumference 3 cm greater than right. 2+ pitting edema. Reports 8/10 sharp pain on palpation."
+                    },
+                    {
+                        "timestamp": "Day 1, 08:00 (Focused)",
+                        "findings": "Cardiovascular: Heart rate decreased slightly, remains tachycardic. \nExtremities: No change in left lower extremity assessment. Continues to report pain. Neurovascular status remains intact."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": {
+                    "report_type": "Left Lower Extremity Venous Doppler Ultrasound",
+                    "timestamp": "Day 1, 05:45",
+                    "findings": "Real-time grayscale and color Doppler imaging of the left lower extremity venous system was performed. There is non-compressibility of the left popliteal vein with absent flow augmentation, consistent with acute thrombus. The common femoral, superficial femoral, and posterior tibial veins are patent and compressible.",
+                    "impression": "Acute deep vein thrombosis (DVT) of the left popliteal vein."
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td></tr><tr><td>Heparin</td><td>25,000 units in 500 mL D5W</td><td>IV</td><td>Continuous infusion at 1200 units/hour</td></tr><tr><td>Morphine</td><td>2 mg</td><td>IV</td><td>q2hr PRN pain</td></tr></tbody></table>"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "07:30",
+                        "action": "Heparin 25,000 units in 500 mL D5W, infuse at 1200 units/hour.",
+                        "status": "Stat"
+                    },
+                    {
+                        "order_time": "06:15",
+                        "action": "Strict bed rest with left leg elevated on two pillows.",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "06:15",
+                        "action": "Vital signs every 4 hours.",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "06:15",
+                        "action": "Baseline aPTT, PT/INR, CBC. Repeat aPTT 6 hours after heparin initiation.",
+                        "status": "Stat"
+                    },
+                    {
+                        "order_time": "06:15",
+                        "action": "Morphine 2 mg IV every 2 hours as needed for pain > 6/10.",
+                        "status": "PRN"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "20 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "last_administered": "Day 1, 08:00"
+                    },
+                    {
+                        "medication": "Atorvastatin",
+                        "dose": "40 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "last_administered": "Day 1, 08:00"
+                    },
+                    {
+                        "medication": "Heparin Infusion",
+                        "dose": "1200 units/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "last_administered": "Not Started"
+                    },
+                    {
+                        "medication": "Morphine",
+                        "dose": "2 mg",
+                        "route": "IV",
+                        "frequency": "PRN q2h",
+                        "last_administered": "Day 1, 07:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
+    "rationale": {
+        "correct": "The correct infusion rate is 24 mL/hour. This calculation ensures the client receives the precise therapeutic dose of heparin to treat the DVT while minimizing the risk of bleeding. Accurate dosage calculation is a critical safety competency for administering high-alert medications.",
+        "incorrect": "Incorrect infusion rates can lead to severe adverse outcomes. A rate that is too low (subtherapeutic) increases the risk of clot extension or pulmonary embolism. A rate that is too high (supratherapeutic) significantly increases the risk of life-threatening hemorrhage.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_A",
+                "content": "Incorrect. A rate of 12 mL/hour would deliver only 600 units/hour, which is half the prescribed dose. This subtherapeutic rate would fail to adequately anticoagulate the client, increasing the risk of the DVT propagating or embolizing."
+            },
+            {
+                "optionId": "opt_B",
+                "content": "Correct. First, calculate the concentration of the IV solution: 25,000 units / 500 mL = 50 units/mL. Next, use the prescribed dose to find the rate: (1200 units/hour) / (50 units/mL) = 24 mL/hour."
+            },
+            {
+                "optionId": "opt_C",
+                "content": "Incorrect. This rate does not correspond to a common calculation error but is a plausible distractor. It is crucial to perform the calculation methodically rather than estimating."
+            },
+            {
+                "optionId": "opt_D",
+                "content": "Incorrect. A rate of 48 mL/hour would deliver 2400 units/hour, which is double the prescribed dose. This significant overdose places the client at high risk for spontaneous bleeding and hemorrhage."
+            }
+        ],
+        "clinicalPearls": [
+            "Heparin is a high-alert medication. Institutional policy typically requires an independent double-check by two licensed nurses before initiation or rate change.",
+            "The therapeutic range for a heparin infusion is typically monitored using the aPTT, with a goal of 1.5 to 2.5 times the baseline control value.",
+            "The antidote for heparin overdose is protamine sulfate. The nurse should always be aware of its location and the protocol for its administration in case of emergency."
+        ],
+        "questionTrap": "The most common trap in dosage calculation is a simple arithmetic error or misplacing a decimal. To avoid this, write out every step of the formula (e.g., dimensional analysis) and use a calculator. Always re-read the order and the medication label to ensure you are using the correct numbers.",
+        "mnemonic": "For IV rate calculations, use the formula: (Desired Dose per hour / Concentration on Hand) = Volume per hour (mL/hr). In this case: (1200 units/hr) / (50 units/mL) = 24 mL/hr.",
+        "reviewUnits": [
+            "Dosage Calculation",
+            "Pharmacological and Parenteral Therapies",
+            "Anticoagulant Therapy"
         ]
     },
-    "rationale": {
-        "correct": "1. To prepare the IV solution, you need to add 2.5 mL of heparin to the 500 mL D5W bag. Calculation: (25,000 units) / (10,000 units/mL) = 2.5 mL. This step ensures the correct concentration of heparin in the IV solution. \n2. The infusion rate should be set to 24 mL/hour to deliver the prescribed dose. Calculation: (1200 units/hour) / (25,000 units/500 mL) = 24 mL/hour. Accurate infusion rate is crucial for therapeutic effect and preventing complications.\n3. At the prescribed infusion rate, the heparin dose Mr. Jones will receive per minute is 20 units. Calculation: (1200 units/hour) / (60 minutes/hour) = 20 units/minute. Knowing the per-minute dose helps in understanding the immediate effect of the medication.",
-        "incorrect": "Incorrect answers indicate a misunderstanding of medication calculation principles, unit conversions, or the application of ratios and proportions. It is essential to double-check each step of the calculation and ensure the correct units are being used. Reviewing the order and available concentration is crucial to prevent medication errors. Incorrect calculations can lead to subtherapeutic or toxic heparin levels, increasing the risk of clot progression or bleeding.",
-        "clinicalPearls": [
-            "Always double-check medication calculations, especially for high-alert medications like heparin. Errors can have serious consequences.",
-            "Use a systematic approach to medication calculations to minimize errors. Dimensional analysis can be helpful.",
-            "Verify the concentration of the medication available before preparing the solution. Confirm with another nurse if possible.",
-            "Ensure the infusion pump is programmed correctly with the calculated rate. Double-check the settings.",
-            "Monitor the patient closely for signs of bleeding or other adverse effects. Regularly assess aPTT levels."
-        ],
-        "questionTrap": {
-            "trap": "Students may misinterpret the concentration or calculate based on the total volume of the bag instead of focusing on the desired dose. They might also confuse units or skip steps in the calculation.",
-            "howToOvercome": "Emphasize the importance of carefully reading the medication order and verifying the available concentration before performing any calculations. Breaking down the problem into smaller steps can help avoid errors. Use dimensional analysis to ensure correct units."
-        },
-        "mnemonic": {
-            "title": "Desired Over Have",
-            "expansion": "DOH: Desired dose/quantity OVER Have on hand = Amount to administer. This mnemonic helps in remembering the basic formula for medication calculations. Remember to double-check your work!"
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Pharmacological and Parenteral Therapies"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:52:50.042Z"
 }

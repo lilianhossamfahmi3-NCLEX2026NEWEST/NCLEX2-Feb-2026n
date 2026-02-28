@@ -1,48 +1,249 @@
 {
     "id": "New-v26-f9a3b2c8-1d4e-4f7a-9b8c-3e5d2a1f0674",
     "type": "clozeDropdown",
-    "stem": "The physician orders a continuous infusion of heparin sodium at 18 units/kg/hour for a patient weighing 176 lbs. The heparin is available as 25,000 units in 500 mL of D5W. Calculate the infusion rate in mL/hour. First, convert the patient's weight from pounds to kilograms. The patient weighs [weight_kg] kg. Next, calculate the units per hour needed: [units_per_hour] units/hour. Finally, determine the infusion rate in mL/hour: [infusion_rate] mL/hour. Round each answer to the nearest tenth.",
+    "stem": "The nurse is preparing to administer a continuous heparin infusion for a client with a DVT. Based on the client's clinical data, complete the following calculation table. Round each answer to the nearest tenth.",
+    "clozeTable": {
+        "headers": [
+            "Calculation Step",
+            "Value",
+            "Unit"
+        ],
+        "rows": [
+            {
+                "step": "Client Weight",
+                "dropdownId": "weight_kg",
+                "unit": "kg"
+            },
+            {
+                "step": "Total Units per Hour",
+                "dropdownId": "units_per_hour",
+                "unit": "units/hour"
+            },
+            {
+                "step": "Final Infusion Rate",
+                "dropdownId": "infusion_rate",
+                "unit": "mL/hour"
+            }
+        ]
+    },
     "scoring": {
-        "method": "dichotomous",
+        "method": "zeroOne",
         "maxPoints": 3
     },
     "itemContext": {
         "patient": {
             "name": "Eleanor Vance",
             "age": 68,
-            "gender": "Female",
+            "sex": "Female",
+            "pronouns": "She/Her",
             "iso": "ICU",
             "allergies": [
                 "Sulfa Drugs"
-            ]
+            ],
+            "weight": "176 lbs"
         },
-        "sbar": "10:00 SBAR: Eleanor Vance is a 68-year-old female admitted to the ICU at 06:00 today, diagnosed with a deep vein thrombosis (DVT) in her left leg confirmed by ultrasound. Her history includes atrial fibrillation and hypertension, both managed with medications. At 07:30, her vital signs were: BP 160/92 mmHg, HR 110 bpm (irregular), RR 22 breaths/min, SpO2 94% on room air, and temperature 37.2°C. She's on telemetry. At 08:00, heparin infusion orders were received for the DVT. Eleanor reports left leg pain of 6/10, described as throbbing. She is alert and oriented x3. The heparin infusion should be initiated per protocol, with close monitoring for bleeding signs, including vital sign or mental status changes. Document baseline neurological and lower extremity assessments before starting the infusion. Ensure aPTT is drawn per protocol. Notify the physician for any concerns.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Hgb: 12.8 g/dL, Hct: 38%, Platelets: 220,000/mcL, aPTT: 32 seconds, PT: 12 seconds, INR: 1.0"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "1. Acetaminophen 650mg PO q4h PRN for pain; 2. Metoprolol 25mg PO BID; 3. Heparin Sodium 25,000 units in 500mL D5W - Initiate at 18 units/kg/hour continuous IV infusion"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "timestamp": "06:00",
+                        "type": "Admission Note",
+                        "content": "Client is a 68-year-old female, Eleanor Vance, admitted directly from the ED with a diagnosis of an acute deep vein thrombosis (DVT) in her left popliteal vein. She presented to the ED with a two-day history of worsening left leg pain, swelling, and redness. She has a history of atrial fibrillation (on metoprolol, not anticoagulated) and hypertension. Client lives alone in a third-floor walk-up apartment, which may complicate discharge planning and follow-up. She reports her pain as a 6/10, described as a constant, deep ache. She is alert and oriented to person, place, and time. Initial assessment reveals significant edema and erythema of the left lower leg. She is anxious about her diagnosis and the potential for complications. Placed on bed rest with the left leg elevated."
+                    },
+                    {
+                        "timestamp": "10:00",
+                        "type": "Progress Note (SBAR)",
+                        "content": "S: Client reports continued left leg pain, rated 6/10. States, 'It feels tight and throbbing.' Denies chest pain or shortness of breath. B: 68-year-old female admitted at 06:00 with acute left DVT. History of atrial fibrillation and hypertension. Provider orders for a continuous heparin infusion have been received and verified. Baseline aPTT is 32 seconds. A: Client is hemodynamically stable but remains tachycardic and hypertensive, likely due to pain and anxiety. Neurovascular checks of the left lower extremity are intact. High risk for pulmonary embolism. R: Initiate heparin infusion per protocol after completing baseline assessments. Educate client on bleeding precautions. Continue to monitor vital signs and assess for signs of PE, such as dyspnea, tachypnea, or pleuritic chest pain. Re-assess pain after infusion is initiated."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "07:30 - BP: 160/92 mmHg, HR: 110 bpm (irregular), RR: 22 breaths/min, SpO2: 94% on room air, Temp: 37.2°C, Pain: 6/10 (left leg)"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "06:15",
+                        "BP (MAP)": "162/94 (117)",
+                        "HR": "112 (A-fib)",
+                        "RR": "22",
+                        "SpO₂": "94% on RA",
+                        "Temp": "99.0°F (37.2°C)"
+                    },
+                    {
+                        "Time": "08:00",
+                        "BP (MAP)": "160/92 (115)",
+                        "HR": "110 (A-fib)",
+                        "RR": "22",
+                        "SpO₂": "94% on RA",
+                        "Temp": "99.1°F (37.3°C)"
+                    },
+                    {
+                        "Time": "10:00",
+                        "BP (MAP)": "158/90 (113)",
+                        "HR": "108 (A-fib)",
+                        "RR": "20",
+                        "SpO₂": "95% on RA",
+                        "Temp": "99.0°F (37.2°C)"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "panels": [
+                    {
+                        "name": "Coagulation Panel (Baseline)",
+                        "results": [
+                            {
+                                "test": "aPTT",
+                                "result": "32",
+                                "unit": "seconds",
+                                "range": "25-35",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "PT",
+                                "result": "12.1",
+                                "unit": "seconds",
+                                "range": "11-13.5",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "INR",
+                                "result": "1.0",
+                                "unit": "",
+                                "range": "0.8-1.2",
+                                "status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Complete Blood Count (CBC)",
+                        "results": [
+                            {
+                                "test": "Hemoglobin (Hgb)",
+                                "result": "12.8",
+                                "unit": "g/dL",
+                                "range": "12.0-15.5",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "Hematocrit (Hct)",
+                                "result": "38",
+                                "unit": "%",
+                                "range": "36-48",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "Platelets",
+                                "result": "220",
+                                "unit": "x10³/mcL",
+                                "range": "150-450",
+                                "status": "Normal"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "findings": [
+                    {
+                        "system": "Cardiovascular",
+                        "assessment": "Tachycardic with an irregularly irregular rhythm. S1, S2 audible. No murmurs, rubs, or gallops. Capillary refill <3 seconds in all extremities."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "assessment": "Lungs clear to auscultation bilaterally. Respirations even and unlabored."
+                    },
+                    {
+                        "system": "Peripheral Vascular",
+                        "assessment": "Left lower extremity warm, erythematous, and edematous from knee to ankle. +2 pitting edema present. Calf circumference: Left 42 cm, Right 39 cm. Dorsalis pedis and posterior tibial pulses 2+ bilaterally."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Ultrasound of the left leg confirmed the presence of a deep vein thrombosis (DVT) in the popliteal vein."
+                "reports": [
+                    {
+                        "type": "Venous Doppler Ultrasound, Left Lower Extremity",
+                        "timestamp": "07:30",
+                        "content": "FINDINGS: Non-compressibility and lack of flow augmentation noted within the left popliteal vein, extending slightly into the distal superficial femoral vein. The common femoral, greater saphenous, and tibial veins are patent and compressible. No evidence of superficial thrombophlebitis.\n\nIMPRESSION: Acute deep vein thrombosis (DVT) of the left popliteal vein."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "10:00",
+                        "action": "Heparin Sodium 25,000 units in 500 mL D5W. Initiate continuous IV infusion at 18 units/kg/hour.",
+                        "status": "New"
+                    },
+                    {
+                        "timestamp": "10:00",
+                        "action": "Check aPTT 6 hours after initiation of infusion and adjust per anticoagulation protocol.",
+                        "status": "New"
+                    },
+                    {
+                        "timestamp": "06:15",
+                        "action": "Bed rest with left leg elevated on two pillows.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "06:15",
+                        "action": "Vital signs every 4 hours.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "06:15",
+                        "action": "Continuous cardiac monitoring.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "06:15",
+                        "action": "Obtain baseline aPTT, PT/INR, and CBC prior to starting heparin.",
+                        "status": "Completed"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Heparin Sodium in D5W",
+                        "dose": "25,000 units/500 mL",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "Metoprolol Tartrate",
+                        "dose": "25 mg",
+                        "route": "PO",
+                        "frequency": "BID",
+                        "lastAdministered": "08:00"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "650 mg",
+                        "route": "PO",
+                        "frequency": "q4h PRN pain",
+                        "lastAdministered": "N/A"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "Generate Solutions",
         "nclexCategory": "Pharmacological and Parenteral Therapies",
         "difficulty": 5,
         "topicTags": [
@@ -50,20 +251,40 @@
         ]
     },
     "rationale": {
-        "correct": "First, convert the patient's weight from pounds to kilograms: 176 lbs / 2.2 lbs/kg = 80 kg. Next, calculate the required heparin dose per hour: 18 units/kg/hour * 80 kg = 1440 units/hour. Finally, determine the infusion rate in mL/hour: (1440 units/hour) / (25000 units / 500 mL) = 28.8 mL/hour. Therefore, the correct answers are 80 kg, 1440 units/hour, and 28.8 mL/hour. This ensures the patient receives the correct heparin dosage to prevent further clot formation while minimizing the risk of bleeding.",
-        "incorrect": "Incorrect calculations can lead to subtherapeutic or toxic heparin levels. Failing to convert weight correctly, miscalculating the hourly dose, or incorrectly determining the infusion rate will all lead to an incorrect answer. Double-check each step of the calculation process and ensure the correct units are used in each step. Subtherapeutic levels may not prevent clot progression, while toxic levels increase the risk of hemorrhage.",
+        "correct": "The calculation correctly determines the infusion rate required to achieve a therapeutic level of anticoagulation. Heparin works by potentiating the action of antithrombin III, which inactivates thrombin and factor Xa, preventing the conversion of fibrinogen to fibrin. This stops the propagation of the existing DVT and reduces the risk of a life-threatening pulmonary embolism.",
+        "incorrect": "Incorrect calculations pose a significant safety risk. An infusion rate that is too low (subtherapeutic) fails to prevent clot extension, increasing the risk of pulmonary embolism. An infusion rate that is too high (supratherapeutic) places the client at high risk for severe bleeding, including intracranial hemorrhage or gastrointestinal bleeding.",
+        "answerBreakdown": {
+            "weight_kg": {
+                "80.0": "Correct. The client's weight in pounds (176 lbs) is correctly converted to kilograms by dividing by 2.2 (176 / 2.2 = 80 kg). This is the essential first step for weight-based dosing.",
+                "70.0": "Incorrect. This value would be derived from an incorrect weight or a calculation error. Using this weight would lead to a subtherapeutic dose.",
+                "75.0": "Incorrect. This value represents a miscalculation during the conversion from pounds to kilograms. This would result in underdosing the client.",
+                "85.0": "Incorrect. This value represents a miscalculation during the conversion from pounds to kilograms. This would result in overdosing the client."
+            },
+            "units_per_hour": {
+                "1260": "Incorrect. This value is calculated using an incorrect weight of 70 kg (70 kg * 18 units/kg/hr). This would result in a subtherapeutic infusion rate.",
+                "1440": "Correct. The client's weight in kg (80) is multiplied by the ordered dose (18 units/kg/hour), resulting in 1440 units/hour (80 * 18 = 1440).",
+                "1530": "Incorrect. This value is calculated using an incorrect weight of 85 kg (85 kg * 18 units/kg/hr). This would result in a supratherapeutic infusion rate.",
+                "3168": "Incorrect. This value results from failing to convert the client's weight from pounds to kilograms (176 lbs * 18 units/kg/hr). This would lead to a significant overdose and high risk of hemorrhage."
+            },
+            "infusion_rate": {
+                "28.8": "Correct. The total units per hour (1440) is divided by the concentration of the solution (25,000 units / 500 mL = 50 units/mL). 1440 units/hr / 50 units/mL = 28.8 mL/hour.",
+                "25.2": "Incorrect. This infusion rate is derived from an incorrect hourly dose of 1260 units/hr (1260 / 50 = 25.2). This would be a subtherapeutic rate.",
+                "30.6": "Incorrect. This infusion rate is derived from an incorrect hourly dose of 1530 units/hr (1530 / 50 = 30.6). This would be a supratherapeutic rate.",
+                "63.4": "Incorrect. This infusion rate is derived from the grossly incorrect hourly dose of 3168 units/hr (3168 / 50 = 63.36, rounded to 63.4). This would be a dangerously high, toxic infusion rate."
+            }
+        },
         "clinicalPearls": [
-            "Heparin is a high-alert medication; independent double-checks by two nurses are crucial before administration to ensure accuracy.",
-            "Monitor the patient closely for signs of bleeding, such as hematuria, melena, bruising, and changes in mental status. Prompt detection and intervention can prevent severe complications.",
-            "Regularly monitor aPTT levels to ensure the patient is within the therapeutic range (typically 1.5-2.5 times the control value). Adjust the infusion rate based on aPTT results to maintain therapeutic anticoagulation."
+            "Heparin is a high-alert medication. Always perform an independent double-check with another licensed nurse before initiating or changing the infusion rate.",
+            "The therapeutic range for aPTT on heparin is typically 1.5 to 2.5 times the baseline control. For a baseline of 32 seconds, the target range would be 48-80 seconds.",
+            "The antidote for heparin overdose is protamine sulfate. Ensure it is readily available on the unit when administering a heparin infusion."
         ],
         "questionTrap": {
-            "trap": "Students often forget to convert pounds to kilograms, leading to a significantly incorrect dose. They may also miscalculate the units per hour if they do not account for the patient's weight or the concentration of the heparin solution.",
-            "howToOvercome": "Always convert patient weight to kilograms before calculating medication dosages. Double-check each step of the calculation and ensure that the units are consistent throughout the process. Use dimensional analysis to verify the final units are correct."
+            "trap": "The most common error is failing to convert the client's weight from pounds to kilograms, leading to a grossly inaccurate and dangerous dose. A secondary trap is miscalculating the drug concentration (units per mL).",
+            "howToOvercome": "Always perform weight conversion as the first step in any weight-based calculation. Use dimensional analysis to ensure units cancel out correctly, and write down each step of the calculation to prevent errors."
         },
         "mnemonic": {
-            "title": "HAT",
-            "expansion": "H: Heparin calculation (ensure accuracy), A: aPTT monitoring (therapeutic range), T: Thrombosis assessment (signs of bleeding)"
+            "title": "HEPARIN Safety Check",
+            "expansion": "H: Height/Weight check (kg!), E: Evaluate for bleeding, P: PTT/aPTT monitoring, A: Antidote (Protamine Sulfate) available, R: Review order (double-check), I: Infusion pump settings, N: Notify provider for critical labs/bleeding."
         }
     },
     "responseOptions": {
@@ -74,16 +295,16 @@
             "85.0"
         ],
         "units_per_hour": [
-            "1200",
-            "1340",
+            "1260",
             "1440",
-            "1540"
+            "1530",
+            "3168"
         ],
         "infusion_rate": [
-            "24.0",
-            "26.8",
+            "25.2",
             "28.8",
-            "30.0"
+            "30.6",
+            "63.4"
         ]
     },
     "sentinelStatus": "deep_healed_v2026"

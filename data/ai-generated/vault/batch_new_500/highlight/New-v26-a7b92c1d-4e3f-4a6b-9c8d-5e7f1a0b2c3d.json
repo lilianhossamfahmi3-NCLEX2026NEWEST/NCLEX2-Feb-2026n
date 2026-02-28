@@ -1,103 +1,284 @@
 {
     "id": "New-v26-a7b92c1d-4e3f-4a6b-9c8d-5e7f1a0b2c3d",
     "type": "highlight",
-    "stem": "The patient is exhibiting signs of septic shock secondary to a suspected multi-drug resistant organism. Based on the provided information, highlight the findings that are MOST indicative of septic shock and warrant immediate intervention.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is reviewing the 07:00 progress note in the Clinical Feed. Highlight the findings in the note that are MOST indicative of septic shock requiring immediate intervention.",
     "itemContext": {
         "patient": {
             "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact & Droplet Precautions",
+            "age": "78",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ]
+            ],
+            "iso": "Contact & Droplet Precautions"
         },
-        "sbar": "S: John Smith, 78-year-old male, admitted 3 days ago for pneumonia. Currently on IV fluids and antibiotics. B: Developed a cough and fever yesterday. Recent labs show elevated WBC and lactate. Patient has a history of MRSA colonization and recent antibiotic use, raising suspicion for a multi-drug resistant organism. A: At 07:00, the patient is hypotensive with a blood pressure of 88/52 mmHg, tachycardic with a heart rate of 135 bpm, and tachypneic with a respiratory rate of 32. Urine output has decreased significantly to 15 mL/hr. Skin is cool and clammy to the touch. The patient is alert and oriented to person only, indicating a change in mental status. At 07:15, new onset confusion is noted. Oxygen saturation is 90% on 6L nasal cannula despite increased respiratory effort. Concern for septic shock is high given the constellation of symptoms. Orders have been received for a fluid bolus and blood cultures to evaluate for infection and guide treatment. We are closely monitoring his response to interventions. R: Please address hypotension and decreased urine output immediately. Consider repeating blood cultures and adjusting antibiotic regimen based on culture results.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 110/70 mmHg, HR 100 bpm, RR 22, SpO2 94% on 2L NC, Temp 38.5°C (101.3°F)\n07:00: BP 88/52 mmHg, HR 135 bpm, RR 32, SpO2 90% on 6L NC, Temp 38.8°C (101.8°F), Urine Output: 15 mL/hr"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (Day 1, 14:00)\nS: 78-year-old male admitted from a long-term care facility with a productive cough, fever of 101.5°F (38.6°C), and increasing shortness of breath over the past 48 hours.\nB: History of hypertension, COPD, and known MRSA colonization. Patient has an allergy to Penicillin. Lives in a senior apartment complex with limited family support, making follow-up care a potential challenge.\nA: On admission, vitals were stable. He was alert and oriented x4. Physical exam revealed coarse crackles in the right lower lobe. Chest X-ray confirmed right lower lobe pneumonia. IV access established.\nA: Started on IV normal saline at 75 mL/hr and broad-spectrum antibiotics per protocol. Placed on Contact & Droplet precautions due to MRSA history.\nR: Continue current treatment plan. Monitor respiratory status, vital signs, and response to antibiotics closely. Consult social work regarding discharge planning and support systems.\n\nProgress Note (Day 3, 07:00)\nS: Reporting an acute change in the patient's condition.\nB: The patient is a 78-year-old male on day 3 of treatment for pneumonia. His history is significant for MRSA colonization.\nA: At 07:00, the patient is acutely hypotensive with a [blood pressure of 88/52 mmHg]. He is tachycardic with a [heart rate of 135 bpm] and tachypneic with a [respiratory rate of 32]. [Urine output has decreased to 15 mL/hr] over the past hour. His [temperature is 101.8°F (38.8°C)]. Neurologically, he is now [alert and oriented to person only]. Skin is cool and clammy. Recent labs show a [WBC count of 22,000/mm³] and a serum [Lactate of 4.5 mmol/L].\nR: Recommend immediate fluid resuscitation, obtaining new blood cultures, and notifying the provider for potential vasopressor support and antibiotic escalation. High concern for septic shock."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 22,000/mm3 (High), Lactate: 4.5 mmol/L (High), Creatinine: 2.1 mg/dL (High), BUN: 35 mg/dL (High), Platelets: 100,000/mm3 (Low), Procalcitonin: 15 ng/mL (High), Blood Cultures: Pending"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "04:00",
+                        "Temp": "101.3°F (38.5°C)",
+                        "HR": "105 bpm",
+                        "RR": "24",
+                        "BP": "108/68 mmHg (81)",
+                        "SpO2": "94% on 2L NC"
+                    },
+                    {
+                        "Time": "06:00",
+                        "Temp": "101.5°F (38.6°C)",
+                        "HR": "118 bpm",
+                        "RR": "28",
+                        "BP": "98/60 mmHg (73)",
+                        "SpO2": "92% on 4L NC"
+                    },
+                    {
+                        "Time": "07:00",
+                        "Temp": "101.8°F (38.8°C)",
+                        "HR": "135 bpm",
+                        "RR": "32",
+                        "BP": "88/52 mmHg (64)",
+                        "SpO2": "90% on 6L NC"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 2g IV q12h (Last dose: 06:00), Vancomycin 1g IV q12h (Scheduled for 08:00), Normal Saline 1000 mL bolus (Ordered at 07:15), Acetaminophen 650mg PO q4h PRN for fever (Last dose: 04:00)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "22.0",
+                        "Unit": "x 10³/mm³",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate",
+                        "Result": "4.5",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "2.1",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "35",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "100",
+                        "Unit": "x 10³/mm³",
+                        "Reference": "150-450",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "15.0",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.5",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Blood Cultures",
+                        "Result": "Pending",
+                        "Unit": "",
+                        "Reference": "No growth",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Focused Assessment (07:00)\nCardiovascular: Tachycardia, S1S2 audible, peripheral pulses +1, capillary refill >3 seconds.\nRespiratory: Tachypnea, labored breathing. Coarse crackles persist in right lower lobe.\nNeurological: Acute change from baseline. Alert and oriented to person only. Sluggish response to questions.\nIntegumentary: Skin is cool, clammy, and pale.\nRenal: Oliguria noted via Foley catheter, 15 mL in the last hour."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray (3 days ago): Infiltrate in the right lower lobe, consistent with pneumonia. No pleural effusion or pneumothorax noted."
+                "content": "Report Type: Chest X-ray (PA and Lateral)\nDate: Day 1, 14:30\n\nFindings: There is a dense consolidation in the right lower lobe, consistent with pneumonia. The cardiac silhouette and mediastinum are within normal limits. No evidence of pleural effusion or pneumothorax.\n\nImpression: Right lower lobe infiltrate, consistent with pneumonia."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Date/Time": "Day 1, 14:15",
+                        "Action": "Initiate Contact & Droplet Precautions",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Date/Time": "Day 1, 14:15",
+                        "Action": "IV Normal Saline at 75 mL/hr",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Date/Time": "Day 3, 07:15",
+                        "Action": "Administer 1000 mL Normal Saline bolus over 30 minutes",
+                        "Frequency/Status": "Stat"
+                    },
+                    {
+                        "Date/Time": "Day 3, 07:15",
+                        "Action": "Obtain 2 sets of blood cultures from separate sites",
+                        "Frequency/Status": "Stat"
+                    },
+                    {
+                        "Date/Time": "Day 3, 07:15",
+                        "Action": "Notify provider of vital signs and patient status",
+                        "Frequency/Status": "Stat"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "2g",
+                        "Route": "IV",
+                        "Frequency": "q12h",
+                        "Last Administered": "Day 3, 06:00"
+                    },
+                    {
+                        "Medication": "Vancomycin",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "q12h",
+                        "Last Administered": "Day 2, 20:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650mg",
+                        "Route": "PO",
+                        "Frequency": "q4h PRN for fever >101°F",
+                        "Last Administered": "Day 3, 04:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
-        ]
-    },
-    "rationale": {
-        "correct": "Hypotension (88/52 mmHg) is a critical indicator of septic shock due to systemic vasodilation and decreased vascular resistance. Tachycardia (HR 135 bpm) is a compensatory mechanism to increase cardiac output in response to hypotension and maintain tissue perfusion. Tachypnea (RR 32) reflects the body's attempt to compensate for metabolic acidosis resulting from tissue hypoxia and increased oxygen demand. Decreased urine output (15 mL/hr) signifies impaired renal perfusion secondary to hypovolemia and hypotension, indicating end-organ dysfunction.",
-        "incorrect": "Elevated temperature (38.8°C) is a common sign of infection but less indicative of the acute perfusion compromise associated with septic shock itself. While elevated WBC (22,000/mm3) and lactate (4.5 mmol/L) are significant findings confirming infection and tissue hypoxia, the immediate perfusion issues (hypotension, tachycardia, oliguria) are more critical for identifying and managing septic shock. Confusion can be a sign of decreased cerebral perfusion, but it is a later manifestation compared to the more immediate physiological indicators of shock; addressing the perfusion deficits is paramount.",
-        "clinicalPearls": [
-            "Early recognition of septic shock and prompt initiation of treatment are crucial for improving patient survival.",
-            "Sepsis is defined as life-threatening organ dysfunction caused by a dysregulated host response to infection.",
-            "The Surviving Sepsis Campaign provides evidence-based guidelines for the management of sepsis and septic shock, emphasizing early antibiotic administration and fluid resuscitation.",
-            "Continuous monitoring of urine output is essential as an indicator of renal perfusion and overall hemodynamic status in patients at risk for or experiencing septic shock."
-        ],
-        "questionTrap": {
-            "trap": "Selecting elevated temperature or WBC count alone can be misleading, as these are general signs of infection, but not specific indicators of *shock*.",
-            "howToOvercome": "Prioritize findings that directly reflect compromised tissue perfusion and organ dysfunction. Focus on the clinical definition of shock: inadequate tissue perfusion leading to cellular hypoxia and organ damage. Look for hypotension, altered mental status, and decreased urine output."
-        },
-        "mnemonic": {
-            "title": "I HATE SHOCK",
-            "expansion": "I: Infection suspected, H: Hypotension, A: Altered mental status, T: Tachycardia, E: Elevated lactate, S: Shivering/fever, H: Hypotension, O: Oliguria, C: Clammy skin, K: Known infection"
-        }
-    },
-    "response": [
+    "options": [
         {
-            "id": "vitals-0700-bp",
-            "text": "BP 88/52 mmHg",
-            "correct": true,
-            "feedback": "Hypotension is a key indicator of septic shock due to vasodilation and decreased vascular resistance."
+            "id": "span-1",
+            "text": "blood pressure of 88/52 mmHg",
+            "correct": true
         },
         {
-            "id": "vitals-0700-hr",
-            "text": "HR 135 bpm",
-            "correct": true,
-            "feedback": "Tachycardia is a compensatory mechanism to maintain cardiac output in response to hypotension."
+            "id": "span-2",
+            "text": "heart rate of 135 bpm",
+            "correct": true
         },
         {
-            "id": "vitals-0700-rr",
-            "text": "RR 32",
-            "correct": true,
-            "feedback": "Tachypnea reflects the body's attempt to compensate for metabolic acidosis and increased oxygen demand."
+            "id": "span-3",
+            "text": "respiratory rate of 32",
+            "correct": true
         },
         {
-            "id": "vitals-0700-urine",
-            "text": "Urine Output: 15 mL/hr",
-            "correct": true,
-            "feedback": "Decreased urine output signifies impaired renal perfusion secondary to hypovolemia and hypotension."
+            "id": "span-4",
+            "text": "Urine output has decreased to 15 mL/hr",
+            "correct": true
         },
         {
-            "id": "vitals-0700-temp",
-            "text": "Temp 38.8°C (101.8°F)",
-            "correct": false,
-            "feedback": "Elevated temperature is a common sign of infection but less indicative of the acute perfusion compromise of septic shock."
+            "id": "span-5",
+            "text": "temperature is 101.8°F (38.8°C)",
+            "correct": false
+        },
+        {
+            "id": "span-6",
+            "text": "alert and oriented to person only",
+            "correct": true
+        },
+        {
+            "id": "span-7",
+            "text": "WBC count of 22,000/mm³",
+            "correct": false
+        },
+        {
+            "id": "span-8",
+            "text": "Lactate of 4.5 mmol/L",
+            "correct": true
         }
     ],
-    "sentinelStatus": "deep_healed_v2026"
+    "rationale": {
+        "correct": "The combination of hypotension, tachycardia, tachypnea, oliguria, altered mental status, and elevated lactate are hallmark signs of septic shock. These findings indicate a systemic inflammatory response to infection leading to massive vasodilation, decreased tissue perfusion, and subsequent end-organ dysfunction. Immediate intervention is required to restore perfusion and prevent irreversible organ damage.",
+        "incorrect": "While fever and an elevated WBC count are signs of a significant underlying infection (sepsis), they do not, by themselves, define the state of shock. Shock is a state of circulatory failure. Therefore, the most critical findings are those that demonstrate inadequate tissue perfusion (hypotension, oliguria, altered mental status, high lactate) and the body's compensatory responses (tachycardia, tachypnea).",
+        "answerBreakdown": [
+            {
+                "optionId": "span-1",
+                "content": "Correct. A systolic BP <100 mmHg or MAP <65 mmHg is a key criterion for septic shock. This level of hypotension indicates profound vasodilation and an inability to maintain adequate pressure to perfuse vital organs."
+            },
+            {
+                "optionId": "span-2",
+                "content": "Correct. Tachycardia is a primary compensatory mechanism where the heart beats faster to increase cardiac output in response to systemic vasodilation and hypotension, attempting to maintain organ perfusion."
+            },
+            {
+                "optionId": "span-3",
+                "content": "Correct. Tachypnea is a compensatory response to the metabolic acidosis caused by elevated lactate from anaerobic metabolism. The body attempts to blow off CO2 to raise pH."
+            },
+            {
+                "optionId": "span-4",
+                "content": "Correct. Urine output less than 0.5 mL/kg/hr (or <30 mL/hr for an average adult) is a sensitive indicator of decreased renal perfusion and is a sign of acute kidney injury, a form of end-organ dysfunction in shock."
+            },
+            {
+                "optionId": "span-5",
+                "content": "Incorrect. Fever is a sign of the underlying infection (sepsis) but is not a direct indicator of the circulatory collapse that defines shock. Some patients in septic shock may even be hypothermic."
+            },
+            {
+                "optionId": "span-6",
+                "content": "Correct. An acute change in mental status, such as new-onset confusion or disorientation, is a critical sign of decreased cerebral perfusion and end-organ dysfunction."
+            },
+            {
+                "optionId": "span-7",
+                "content": "Incorrect. A high WBC count (leukocytosis) confirms the presence of a significant infection but does not differentiate sepsis from septic shock. It is a marker of inflammation, not perfusion failure."
+            },
+            {
+                "optionId": "span-8",
+                "content": "Correct. A lactate level >2 mmol/L indicates cellular hypoxia and a shift to anaerobic metabolism due to inadequate tissue perfusion. It is a key biomarker for identifying and managing septic shock."
+            }
+        ],
+        "clinicalPearls": [
+            "The qSOFA (quick Sepsis-related Organ Failure Assessment) score uses three criteria: altered mental status (GCS <15), respiratory rate ≥22/min, and systolic BP ≤100 mmHg. A score of ≥2 suggests a high risk for poor outcomes in patients with suspected infection.",
+            "The 'Surviving Sepsis Campaign' one-hour bundle emphasizes immediate fluid resuscitation (30 mL/kg crystalloid), obtaining blood cultures before antibiotics, administering broad-spectrum antibiotics, and applying vasopressors if hypotensive during or after fluid resuscitation to maintain a MAP ≥65 mmHg.",
+            "In septic shock, persistent hypotension requiring vasopressors to maintain MAP ≥65 mmHg AND a serum lactate level >2 mmol/L despite adequate fluid resuscitation are the defining characteristics."
+        ],
+        "questionTrap": "The primary trap is confusing signs of infection (fever, high WBC) with signs of shock (hypoperfusion). To avoid this, always prioritize the 'ABCs' of circulation: findings that directly reflect inadequate blood pressure, organ perfusion, and oxygen delivery.",
+        "mnemonic": {
+            "title": "SEPSIS SHOCK",
+            "expansion": "S: Systolic BP <100 mmHg\nE: Elevated Lactate >2 mmol/L\nP: Perfusion is poor (cool, clammy skin, oliguria)\nS: Sensorium altered (confusion, lethargy)\nI: Infection is the source\nS: Systemic Inflammatory Response (tachycardia, tachypnea, fever)"
+        },
+        "reviewUnits": [
+            "Pathophysiology of Shock States",
+            "Sepsis and Septic Shock Management",
+            "Hemodynamic Monitoring",
+            "Pharmacology: Vasopressors and Antibiotics"
+        ]
+    },
+    "scoring": {
+        "method": "polytomous-plus-minus",
+        "maxPoints": 6
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:51:54.814Z"
 }

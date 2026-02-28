@@ -1,90 +1,343 @@
 {
     "id": "New-v26-8a2b9c3d-4e5f-4012-b789-012345678abc",
     "type": "matrixMatch",
-    "stem": "The patient is exhibiting signs and symptoms related to their current hemodynamic status. Based on the provided information, match each assessment finding to the most likely underlying cause. Each cause may be used once, more than once, or not at all.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
+    "stem": "The nurse is analyzing cues for a client with suspected septic shock. Match each assessment finding to its underlying pathophysiological cause. Each cause may be used more than once.",
+    "matrixRows": [
+        {
+            "id": "row1",
+            "text": "Increased Heart Rate (HR)"
+        },
+        {
+            "id": "row2",
+            "text": "Elevated White Blood Cell (WBC) Count"
+        },
+        {
+            "id": "row3",
+            "text": "Decreased Urine Output"
+        },
+        {
+            "id": "row4",
+            "text": "Low Central Venous Pressure (CVP)"
+        }
+    ],
+    "matrixColumns": [
+        {
+            "id": "col1",
+            "text": "Hypovolemia"
+        },
+        {
+            "id": "col2",
+            "text": "Infection"
+        },
+        {
+            "id": "col3",
+            "text": "Compensatory Mechanism"
+        },
+        {
+            "id": "col4",
+            "text": "Impaired Renal Perfusion"
+        }
+    ],
+    "correctResponse": {
+        "row1": "col3",
+        "row2": "col2",
+        "row3": "col4",
+        "row4": "col1"
     },
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "S: John Smith is a 68-year-old male admitted two days ago for pneumonia. He is now exhibiting altered mental status and decreased urine output. B: He has a history of hypertension and COPD and was treated for pneumonia with IV antibiotics. O: At 07:00, his BP is 80/50 mmHg, HR is 120 bpm, RR is 32, SpO2 is 90% on 4L NC. His temperature is 38.9°C (102°F). CVP is 2 mmHg, and urine output is 20 mL/hr. Lab results show a lactate level of 4.5 mmol/L and a WBC count of 18,000/uL. A: I suspect septic shock secondary to pneumonia. He is currently on standard and droplet precautions. P: I recommend continuing antibiotics, starting vasopressors (norepinephrine), administering a bolus of crystalloid fluids, and closely monitoring vital signs and urine output. Please notify me of any changes.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/uL (High)\nLactate: 4.5 mmol/L (High)\nCreatinine: 1.8 mg/dL (High)\nBUN: 30 mg/dL (High)\nHemoglobin: 14 g/dL\nHematocrit: 42%\nPlatelets: 150,000/uL\nBlood culture pending"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1 - 14:30",
+                        "text": "S: Client is a 68-year-old male presenting to the ED with a 3-day history of productive cough, fever, and shortness of breath. Reports feeling progressively weaker.\nB: History of hypertension and COPD. Client lives alone in a rural area with limited access to transportation for follow-up care. He is a former smoker, quit 10 years ago. Takes lisinopril for HTN.\nA: Vitals on admission: BP 138/88, HR 95, RR 22, SpO2 93% on room air, Temp 101.5°F (38.6°C). Coarse crackles noted in the right lower lobe. Appears fatigued but is alert and oriented x4. Chest x-ray confirms right lower lobe pneumonia.\nR: Admitted to the medical-surgical unit. Plan is to start IV antibiotics, supplemental oxygen via nasal cannula, and antipyretics. Will monitor vital signs and respiratory status closely."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 3 - 07:30",
+                        "text": "S: Called to bedside for acute change in mental status. Client is lethargic and difficult to arouse. Experiencing hypotension and oliguria.\nB: 68-year-old male admitted two days ago for pneumonia. History of HTN and COPD. Lives alone in a rural area. Has been receiving IV ceftriaxone. Vitals at 06:00 were concerning and have worsened significantly.\nA: Vitals at 07:00: BP 80/50 mmHg (MAP 60), HR 120 bpm, RR 32/min, SpO2 90% on 4L NC, Temp 102.0°F (38.9°C). CVP is 2 mmHg. Urine output is 20 mL/hr. Labs show leukocytosis (WBC 18.5 x 10^9/L) and severe lactic acidosis (Lactate 4.5 mmol/L). Clinical picture is highly indicative of septic shock secondary to unresolved pneumonia.\nR: Initiated sepsis protocol. A 500 mL Normal Saline bolus and a norepinephrine infusion are infusing. Recommend obtaining new blood cultures, continuing hourly monitoring, and requesting a critical care consult."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 90/60 mmHg, HR 100 bpm, RR 24, SpO2 94% on 2L NC, Temp 38.5°C (101.3°F), Urine output 40 mL/hr\n07:00: BP 80/50 mmHg, HR 120 bpm, RR 32, SpO2 90% on 4L NC, Temp 38.9°C (102°F), CVP 2 mmHg, Urine output 20 mL/hr"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "BP (MAP)",
+                        "HR",
+                        "RR",
+                        "SpO₂",
+                        "Temp °F (°C)",
+                        "CVP (mmHg)",
+                        "Urine Output (mL/hr)"
+                    ],
+                    "rows": [
+                        [
+                            "05:00",
+                            "110/70 (83)",
+                            "98",
+                            "22",
+                            "95% on 2L NC",
+                            "101.1 (38.4)",
+                            "5",
+                            "50"
+                        ],
+                        [
+                            "06:00",
+                            "90/60 (70)",
+                            "110",
+                            "28",
+                            "94% on 2L NC",
+                            "101.3 (38.5)",
+                            "4",
+                            "40"
+                        ],
+                        [
+                            "07:00",
+                            "80/50 (60)",
+                            "120",
+                            "32",
+                            "90% on 4L NC",
+                            "102.0 (38.9)",
+                            "2",
+                            "20"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 2g IV q24h (last dose 06:00)\nAcetaminophen 650mg PO q4h PRN for fever (last dose 04:00)\nNorepinephrine infusion 2 mcg/min (started 07:15)\nNormal Saline 500 mL bolus (started 07:15)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "WBC",
+                            "18.5",
+                            "x 10^9/L",
+                            "4.5 - 11.0",
+                            "High"
+                        ],
+                        [
+                            "Lactate",
+                            "4.5",
+                            "mmol/L",
+                            "0.5 - 2.2",
+                            "High"
+                        ],
+                        [
+                            "Creatinine",
+                            "1.8",
+                            "mg/dL",
+                            "0.6 - 1.2",
+                            "High"
+                        ],
+                        [
+                            "BUN",
+                            "30",
+                            "mg/dL",
+                            "7 - 20",
+                            "High"
+                        ],
+                        [
+                            "Hemoglobin",
+                            "14.0",
+                            "g/dL",
+                            "13.5 - 17.5",
+                            ""
+                        ],
+                        [
+                            "Platelets",
+                            "155",
+                            "x 10^9/L",
+                            "150 - 450",
+                            ""
+                        ],
+                        [
+                            "Blood Culture",
+                            "Pending",
+                            "",
+                            "No growth",
+                            ""
+                        ]
+                    ]
+                }
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Smith is a 68-year-old male admitted two days ago for pneumonia. He is now exhibiting altered mental status and decreased urine output. B: He has a history of hypertension and COPD and was treated for pneumonia with IV antibiotics. O: At 07:00, his BP is 80/50 mmHg, HR is 120 bpm, RR is 32, SpO2 is 90% on 4L NC. His temperature is 38.9°C (102°F). CVP is 2 mmHg, and urine output is 20 mL/hr. Lab results show a lactate level of 4.5 mmol/L and a WBC count of 18,000/uL. A: I suspect septic shock secondary to pneumonia. He is currently on standard and droplet precautions. P: I recommend continuing antibiotics, starting vasopressors (norepinephrine), administering a bolus of crystalloid fluids, and closely monitoring vital signs and urine output. Please notify me of any changes."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "exam_type": "Admission Assessment (Day 1 - 14:30)",
+                        "findings": "GENERAL: Appears fatigued but in no acute distress. Alert and oriented x4.\nCARDIOVASCULAR: S1, S2 audible. Tachycardic but regular rhythm. No murmurs. Capillary refill <3 seconds.\nRESPIRATORY: Coarse crackles in right lower lobe. Labored breathing with mild use of accessory muscles. Productive cough with yellow sputum.\nNEUROLOGICAL: GCS 15. Moves all extremities purposefully.\nSKIN: Warm and dry."
+                    },
+                    {
+                        "exam_type": "Focused Assessment (Day 3 - 07:00)",
+                        "findings": "GENERAL: Lethargic, arouses to loud verbal stimuli but quickly drifts back to sleep. Disoriented to time and place.\nCARDIOVASCULAR: Tachycardic, pulses are thready. Capillary refill is delayed at 4 seconds.\nRESPIRATORY: Tachypneic and shallow respirations. Diminished breath sounds in right lower lobe.\nNEUROLOGICAL: GCS 12 (E3, V4, M5). Sluggish pupillary response.\nSKIN: Skin is warm and flushed."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "report_type": "Chest X-ray (PA and Lateral)",
+                    "date": "Day 1 - 15:00",
+                    "findings": "Lungs are well-expanded. The cardiomediastinal silhouette is within normal limits. There is a dense consolidation in the right lower lobe, consistent with lobar pneumonia. No evidence of pleural effusion or pneumothorax.",
+                    "impression": "Right lower lobe pneumonia."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 3 / 07:15",
+                            "Norepinephrine infusion, titrate to maintain MAP > 65 mmHg",
+                            "STAT"
+                        ],
+                        [
+                            "Day 3 / 07:15",
+                            "Administer 500 mL 0.9% Sodium Chloride bolus over 30 minutes",
+                            "STAT"
+                        ],
+                        [
+                            "Day 3 / 07:10",
+                            "Insert central venous catheter",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1 / 15:00",
+                            "Ceftriaxone 2g IV",
+                            "Standing, q24h"
+                        ],
+                        [
+                            "Day 1 / 15:00",
+                            "Oxygen therapy, titrate to maintain SpO2 > 92%",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1 / 15:00",
+                            "Acetaminophen 650mg PO for Temp > 101°F (38.3°C)",
+                            "PRN, q4h"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Ceftriaxone",
+                            "2g",
+                            "IV",
+                            "q24h",
+                            "Day 3 / 06:00"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "650mg",
+                            "PO",
+                            "q4h PRN Fever",
+                            "Day 3 / 04:00"
+                        ],
+                        [
+                            "Norepinephrine",
+                            "2 mcg/min",
+                            "IV Infusion",
+                            "Continuous",
+                            "Day 3 / 07:15 (Started)"
+                        ],
+                        [
+                            "0.9% Sodium Chloride",
+                            "500 mL",
+                            "IV Bolus",
+                            "STAT",
+                            "Day 3 / 07:15 (Started)"
+                        ]
+                    ]
+                }
             }
-        ],
-        "isolation": "droplet"
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
         ]
     },
     "rationale": {
-        "correct": "Increased heart rate is a compensatory mechanism to maintain cardiac output in the face of decreased blood pressure and tissue perfusion. Elevated WBC count indicates an active infection, further supporting the diagnosis of septic shock. Decreased urine output reflects inadequate renal perfusion due to hypotension and reduced cardiac output. Low CVP suggests hypovolemia or inadequate venous return, common in septic shock.",
-        "incorrect": "Normal platelet count does not directly explain the patient's hypotension, tachycardia, or oliguria. Anemia (low hemoglobin) is not indicated by the lab results and therefore not the most relevant explanation for the patient's presentation. Hypervolemia would be indicated by elevated CVP, not the observed low CVP. Hypothermia is not present; the patient has a fever.",
+        "correct": "The correct matching of findings to their causes demonstrates an understanding of the complex pathophysiology of septic shock. This condition involves a systemic inflammatory response to infection, leading to massive vasodilation, capillary leakage, and impaired tissue perfusion, which triggers compensatory mechanisms and ultimately causes end-organ dysfunction.",
+        "incorrect": "Incorrectly matching these clinical cues would indicate a failure to connect the systemic effects of sepsis with their underlying causes. For example, attributing tachycardia to infection alone, rather than as a compensatory response to hypotension, misses a critical step in hemodynamic analysis and could delay appropriate interventions like fluid resuscitation and vasopressor support.",
+        "answerBreakdown": [
+            {
+                "optionId": "row1_col3",
+                "content": "Correct. In response to profound vasodilation and decreased systemic vascular resistance (SVR) from sepsis, blood pressure falls. The body's baroreceptors detect this hypotension and trigger a sympathetic nervous system response, releasing catecholamines. This results in tachycardia as a compensatory mechanism to increase cardiac output (CO = HR x SV) and maintain organ perfusion."
+            },
+            {
+                "optionId": "row2_col2",
+                "content": "Correct. The patient's pneumonia is the infectious source. Invading pathogens trigger a systemic inflammatory response syndrome (SIRS). The bone marrow increases production and release of neutrophils, leading to an elevated white blood cell count (leukocytosis), a hallmark sign of a significant bacterial infection."
+            },
+            {
+                "optionId": "row3_col4",
+                "content": "Correct. Septic shock causes systemic hypotension and shunting of blood away from non-vital organs, including the kidneys. This reduced renal blood flow leads to a decreased glomerular filtration rate (GFR), resulting in oliguria (urine output < 0.5 mL/kg/hr), a key indicator of acute kidney injury (AKI) from hypoperfusion."
+            },
+            {
+                "optionId": "row4_col1",
+                "content": "Correct. Sepsis causes widespread endothelial damage and capillary leak, allowing fluid to shift from the intravascular to the interstitial space. This, combined with profound vasodilation, creates a state of relative and absolute hypovolemia. Central Venous Pressure (CVP) measures right atrial pressure (preload), so a low CVP directly reflects this decreased venous return to the heart."
+            }
+        ],
         "clinicalPearls": [
-            "Early recognition and treatment of septic shock are crucial to improve patient outcomes.",
-            "Hemodynamic monitoring, including CVP, is essential in managing patients with shock.",
-            "Elevated lactate levels indicate anaerobic metabolism due to tissue hypoperfusion."
+            "The qSOFA (Quick Sepsis-related Organ Failure Assessment) score—using respiratory rate ≥22/min, altered mentation, and systolic BP ≤100 mmHg—is a bedside tool to identify patients with suspected infection who are at greater risk for poor outcomes.",
+            "Lactate clearance, or the percentage decrease in lactate levels over time (e.g., 2-4 hours) after resuscitation, is a key indicator of the effectiveness of treatment and improved tissue perfusion.",
+            "The primary goal in early septic shock management is to achieve a Mean Arterial Pressure (MAP) of ≥ 65 mmHg through fluid resuscitation and, if necessary, vasopressors like norepinephrine."
         ],
-        "questionTrap": {
-            "trap": "Students may focus solely on the fever and assume it's a simple infection, overlooking the signs of shock.",
-            "howToOvercome": "Encourage a comprehensive assessment that considers all vital signs, lab values, and clinical presentation to identify the underlying cause of the patient's condition."
-        },
-        "mnemonic": {
-            "title": "VIP",
-            "expansion": "Vital signs instability, Infection suspected, Perfusion deficit (lactate, urine output)"
-        }
-    },
-    "matrixMatchOptions": {
-        "rows": [
-            "Increased Heart Rate (HR)",
-            "Elevated White Blood Cell (WBC) Count",
-            "Decreased Urine Output",
-            "Low Central Venous Pressure (CVP)"
-        ],
-        "columns": [
-            "Hypovolemia",
-            "Infection",
-            "Compensatory Mechanism",
-            "Impaired Renal Perfusion"
+        "questionTrap": "A common trap is confusing the cause and effect in shock states. For example, students might incorrectly link low CVP directly to impaired renal perfusion, when in fact, low CVP (hypovolemia) is the *cause* of the hypotension that *leads* to impaired renal perfusion. It is essential to trace the pathophysiological sequence accurately.",
+        "mnemonic": "For signs of septic shock, remember 'LACTATE':\nL - Lactate elevation (>2 mmol/L)\nA - Altered mental status\nC - Capillary refill delayed\nT - Tachycardia and Tachypnea\nA - Arterial hypotension (MAP <65 mmHg)\nT - Temperature dysregulation (fever or hypothermia)\nE - Elevated WBC count",
+        "reviewUnits": [
+            "Pathophysiology of Shock States",
+            "Hemodynamic Monitoring (CVP, MAP)",
+            "Sepsis and Septic Shock Management",
+            "Pharmacology: Vasopressors"
         ]
     },
-    "correctResponse": {
-        "Increased Heart Rate (HR)": "Compensatory Mechanism",
-        "Elevated White Blood Cell (WBC) Count": "Infection",
-        "Decreased Urine Output": "Impaired Renal Perfusion",
-        "Low Central Venous Pressure (CVP)": "Hypovolemia"
-    }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:08:02.963Z"
 }

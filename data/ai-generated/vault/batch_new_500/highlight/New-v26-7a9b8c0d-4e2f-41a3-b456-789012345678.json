@@ -1,87 +1,375 @@
 {
     "id": "New-v26-7a9b8c0d-4e2f-41a3-b456-789012345678",
     "type": "highlight",
-    "stem": "The patient is exhibiting signs of acute respiratory distress syndrome (ARDS). Review the physician's orders and patient data below. Highlight the findings that support the diagnosis of ARDS.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is reviewing the 08:00 progress note. Click to highlight the findings in the note that are most consistent with a diagnosis of Acute Respiratory Distress Syndrome (ARDS).",
+    "textForHighlighting": "Patient's respiratory status has acutely worsened. He is demonstrating [refractory hypoxemia with an SpO2 of 85% on a 6L nasal cannula], despite the increased oxygen support. Assessment reveals a [respiratory rate of 34/min with accessory muscle use] and significant dyspnea. On auscultation, [bilateral coarse crackles are heard throughout all lung fields]. [Chest x-ray from 07:30 shows new bilateral diffuse infiltrates], consistent with non-cardiogenic pulmonary edema. The [heart rate is tachycardic at 125/min] and [blood pressure is 95/55 mmHg]. Lab review shows the [WBC count is elevated at 15,000/mcL]. The patient continues [receiving ceftriaxone for community-acquired pneumonia]. Attending physician notified of critical change.",
+    "options": [
+        {
+            "id": "opt-1",
+            "text": "refractory hypoxemia with an SpO2 of 85% on a 6L nasal cannula"
+        },
+        {
+            "id": "opt-2",
+            "text": "respiratory rate of 34/min with accessory muscle use"
+        },
+        {
+            "id": "opt-3",
+            "text": "bilateral coarse crackles are heard throughout all lung fields"
+        },
+        {
+            "id": "opt-4",
+            "text": "Chest x-ray from 07:30 shows new bilateral diffuse infiltrates"
+        },
+        {
+            "id": "opt-5",
+            "text": "heart rate is tachycardic at 125/min"
+        },
+        {
+            "id": "opt-6",
+            "text": "blood pressure is 95/55 mmHg"
+        },
+        {
+            "id": "opt-7",
+            "text": "WBC count is elevated at 15,000/mcL"
+        },
+        {
+            "id": "opt-8",
+            "text": "receiving ceftriaxone for community-acquired pneumonia"
+        }
+    ],
+    "correctOptionIds": [
+        "opt-1",
+        "opt-2",
+        "opt-3",
+        "opt-4"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Airborne Isolation",
+            "age": "62",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, a 62-year-old male, admitted three days prior for pneumonia, is exhibiting increased work of breathing. At 07:00, he showed signs of respiratory distress, including accessory muscle use and nasal flaring. B: He has a history of COPD and is a current smoker with a significant pack-year history. Initially treated with antibiotics for pneumonia, he showed some improvement, but his respiratory status has deteriorated rapidly over the past 12 hours. O: At 07:00, vital signs include SpO2 of 88% on 6L nasal cannula, respiratory rate of 32 breaths per minute, heart rate of 120 beats per minute, and blood pressure of 100/60 mmHg. Auscultation reveals coarse crackles bilaterally. An arterial blood gas (ABG) shows pH 7.30, PaCO2 55 mmHg, PaO2 55 mmHg, and HCO3 24 mEq/L. A recent chest X-ray (CXR) reveals bilateral infiltrates. A: Possible ARDS superimposed on pneumonia and COPD. Refractory hypoxemia, hypercapnia, and bilateral infiltrates are concerning. P: Requesting immediate orders for intubation and mechanical ventilation. Recommend increasing FiO2 prior to intubation. Notify the attending physician immediately to discuss the patient's critical condition and further management strategies. Rule out other potential causes, but ARDS is the primary concern.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>55 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>55 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>15,000/uL</td><td>4,500-11,000/uL</td></tr><tr><td>Lactate</td><td>2.8 mmol/L</td><td>0.5-2.2 mmol/L</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 14:00",
+                        "note": "S: 62-year-old male presents to the ED with a 3-day history of productive cough, fever, and shortness of breath. B: History of COPD, 40-pack-year smoking history. Lives alone in a rural area with limited access to primary care, which delayed his seeking treatment. Diagnosed with community-acquired pneumonia. A: Temp 101.5°F, HR 105, RR 24, BP 130/80, SpO2 94% on 2L NC. Coarse crackles in the right lower lobe. Alert and oriented x4. Appears fatigued but in no acute distress. Labs show leukocytosis. R: Admitted to the medical floor for IV antibiotics, oxygen therapy, and respiratory monitoring. Plan includes ceftriaxone and supportive care. Will monitor for any signs of respiratory decompensation given his COPD history and delayed presentation. Social work consult initiated to address post-discharge care coordination and transportation barriers."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 3, 08:00",
+                        "note": "Patient's respiratory status has acutely worsened. He is demonstrating refractory hypoxemia with an SpO2 of 85% on a 6L nasal cannula, despite the increased oxygen support. Assessment reveals a respiratory rate of 34/min with accessory muscle use and significant dyspnea. On auscultation, bilateral coarse crackles are heard throughout all lung fields. Chest x-ray from 07:30 shows new bilateral diffuse infiltrates, consistent with non-cardiogenic pulmonary edema. The heart rate is tachycardic at 125/min and blood pressure is 95/55 mmHg. Lab review shows the WBC count is elevated at 15,000/mcL. The patient continues receiving ceftriaxone for community-acquired pneumonia. Attending physician notified of critical change."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>110/70</td><td>110</td><td>28</td><td>92% (6L NC)</td><td>37.8°C</td></tr><tr><td>07:00</td><td>100/60</td><td>120</td><td>32</td><td>88% (6L NC)</td><td>37.9°C</td></tr><tr><td>08:00</td><td>95/55</td><td>125</td><td>34</td><td>85% (6L NC)</td><td>38.0°C</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "BP (MAP)",
+                        "HR",
+                        "RR",
+                        "SpO₂",
+                        "Temp"
+                    ],
+                    "rows": [
+                        [
+                            "Day 3, 04:00",
+                            "115/75 (88)",
+                            "105",
+                            "26",
+                            "93% on 6L NC",
+                            "100.2°F (37.9°C)"
+                        ],
+                        [
+                            "Day 3, 06:00",
+                            "110/70 (83)",
+                            "110",
+                            "28",
+                            "92% on 6L NC",
+                            "100.4°F (38.0°C)"
+                        ],
+                        [
+                            "Day 3, 08:00",
+                            "95/55 (68)",
+                            "125",
+                            "34",
+                            "85% on 6L NC",
+                            "100.6°F (38.1°C)"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "cxr",
-                "title": "CXR Report",
-                "content": "CXR reveals bilateral diffuse infiltrates consistent with pulmonary edema or ARDS. No pneumothorax identified."
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Arterial Blood Gas (07:15)",
+                        "results": [
+                            {
+                                "name": "pH",
+                                "result": "7.30",
+                                "unit": "",
+                                "reference": "7.35-7.45",
+                                "status": "Low"
+                            },
+                            {
+                                "name": "PaCO₂",
+                                "result": "55",
+                                "unit": "mmHg",
+                                "reference": "35-45",
+                                "status": "High"
+                            },
+                            {
+                                "name": "PaO₂",
+                                "result": "55",
+                                "unit": "mmHg",
+                                "reference": "80-100",
+                                "status": "Low"
+                            },
+                            {
+                                "name": "HCO₃⁻",
+                                "result": "24",
+                                "unit": "mEq/L",
+                                "reference": "22-26",
+                                "status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Complete Blood Count (07:15)",
+                        "results": [
+                            {
+                                "name": "WBC",
+                                "result": "15.0",
+                                "unit": "x 10³/mcL",
+                                "reference": "4.5-11.0",
+                                "status": "High"
+                            },
+                            {
+                                "name": "Hgb",
+                                "result": "14.5",
+                                "unit": "g/dL",
+                                "reference": "13.5-17.5",
+                                "status": "Normal"
+                            },
+                            {
+                                "name": "Platelets",
+                                "result": "250",
+                                "unit": "x 10³/mcL",
+                                "reference": "150-450",
+                                "status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Metabolic Panel (07:15)",
+                        "results": [
+                            {
+                                "name": "Lactate",
+                                "result": "2.8",
+                                "unit": "mmol/L",
+                                "reference": "0.5-2.2",
+                                "status": "High"
+                            },
+                            {
+                                "name": "BNP",
+                                "result": "85",
+                                "unit": "pg/mL",
+                                "reference": "<100",
+                                "status": "Normal"
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q12h</td></tr><tr><td>Albuterol</td><td>2.5mg</td><td>Neb</td><td>q4h PRN</td></tr><tr><td>Ipratropium</td><td>0.5mg</td><td>Neb</td><td>q4h PRN</td></tr><tr><td>Furosemide</td><td>20mg</td><td>IV</td><td>BID</td></tr></tbody></table>"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "General",
+                        "findings": "Patient is in acute respiratory distress, anxious, and diaphoretic. Using accessory muscles to breathe."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Tachypneic with a rate of 34/min. Labored breathing pattern. Bilateral coarse crackles auscultated throughout all lung fields. No wheezing."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Sinus tachycardia on monitor with a rate of 125/min. S1 and S2 are audible. No murmurs, rubs, or gallops. Capillary refill is 3 seconds."
+                    }
+                ]
             },
             {
-                "id": "orders",
-                "title": "Orders",
-                "content": "1. Ceftriaxone 1g IV q12h.\n2. Albuterol 2.5mg Neb q4h PRN.\n3. Ipratropium 0.5mg Neb q4h PRN.\n4. Furosemide 20mg IV BID.\n5. Oxygen 6L via nasal cannula.\n6. Continuous cardiac monitoring.\n7. Monitor respiratory status q1h.\n8. Obtain ABG stat.\n9. CXR stat.\n10. Consult pulmonary."
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "report_type": "Chest X-ray, Portable AP",
+                    "timestamp": "Day 3, 07:30",
+                    "body": "FINDINGS: Extensive, bilateral, diffuse airspace opacities are present, consistent with alveolar infiltrates. There is no evidence of cardiomegaly or significant pleural effusion. The findings have significantly worsened compared to the admission film from two days prior, which showed a focal right lower lobe consolidation.\n\nIMPRESSION: The radiographic findings of diffuse bilateral infiltrates in the setting of acute hypoxemia are highly suspicious for Acute Respiratory Distress Syndrome (ARDS). Cardiogenic pulmonary edema is less likely given the normal cardiac silhouette."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 14:30",
+                            "Ceftriaxone 1g IV",
+                            "q12h"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Albuterol 2.5mg / Ipratropium 0.5mg Nebulizer",
+                            "q4h PRN for wheezing"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Furosemide 20mg IV",
+                            "BID"
+                        ],
+                        [
+                            "Day 3, 06:30",
+                            "Increase Oxygen to 6L via nasal cannula",
+                            "Continuous"
+                        ],
+                        [
+                            "Day 3, 07:10",
+                            "Obtain Arterial Blood Gas",
+                            "STAT"
+                        ],
+                        [
+                            "Day 3, 07:15",
+                            "Obtain Portable Chest X-ray",
+                            "STAT"
+                        ],
+                        [
+                            "Day 3, 08:10",
+                            "Prepare for endotracheal intubation",
+                            "STAT"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Ceftriaxone",
+                            "1g",
+                            "IV",
+                            "q12h",
+                            "Day 2, 21:00"
+                        ],
+                        [
+                            "Albuterol/Ipratropium",
+                            "2.5mg/0.5mg",
+                            "Nebulizer",
+                            "q4h PRN",
+                            "Not administered in last 24h"
+                        ],
+                        [
+                            "Furosemide",
+                            "20mg",
+                            "IV",
+                            "BID",
+                            "Day 3, 06:00"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
-        ]
-    },
     "rationale": {
-        "correct": "A PaO2 of 55 mmHg on 6L of nasal cannula indicates refractory hypoxemia, a hallmark of ARDS. In ARDS, oxygen therapy alone is insufficient to maintain adequate oxygenation due to alveolar damage and impaired gas exchange. A PaCO2 of 55 mmHg indicates hypercapnic respiratory failure, suggesting the patient cannot effectively eliminate carbon dioxide. Bilateral diffuse infiltrates on the CXR are consistent with pulmonary edema and alveolar damage seen in ARDS, indicating widespread inflammation and fluid leakage into the alveoli. An increased respiratory rate of 32 indicates the body's attempt to compensate for hypoxemia and hypercapnia by increasing minute ventilation. An ABG pH of 7.30 indicates respiratory acidosis due to CO2 retention, further supporting the diagnosis of respiratory failure.",
-        "incorrect": "An elevated WBC (15,000/uL) suggests infection, but it's not specific to ARDS, although infection can be a cause. ARDS is characterized by an overwhelming inflammatory response, which may or may not be triggered by infection. Ceftriaxone is treatment for the underlying infection, not ARDS itself. While addressing the underlying infection is important, it does not directly address the ARDS pathology. Furosemide addresses fluid overload; while possibly present, it isn't a primary ARDS diagnostic criterion. ARDS is characterized by increased permeability of the alveolar-capillary membrane, leading to pulmonary edema, but diuretics are not the primary treatment. An increased HR of 120 is a non-specific indicator of distress and compensation for hypoxemia and hypercapnia but is not specific enough to ARDS. Tachycardia is a common response to hypoxemia and increased metabolic demand but does not confirm ARDS.",
+        "correct": "The diagnosis of ARDS is supported by a constellation of findings indicating acute, diffuse, inflammatory lung injury leading to increased pulmonary vascular permeability, increased lung weight, and a loss of aerated lung tissue. The key features are refractory hypoxemia, bilateral infiltrates on imaging not explained by cardiac failure, and an acute onset.",
+        "incorrect": "Distractors represent non-specific signs of distress (tachycardia, hypotension) or findings related to the underlying cause (leukocytosis from pneumonia) rather than the direct pathophysiological consequences of ARDS itself. While clinically relevant, they are not the defining diagnostic criteria for ARDS.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt-1",
+                "content": "Correct. Refractory hypoxemia is a hallmark of ARDS. The severe inflammation and fluid in the alveoli create a ventilation-perfusion (V/Q) mismatch and intrapulmonary shunting, where blood passes through non-ventilated parts of the lung. This makes it difficult to correct hypoxemia with supplemental oxygen alone."
+            },
+            {
+                "optionId": "opt-2",
+                "content": "Correct. Increased respiratory rate and use of accessory muscles indicate severe respiratory distress and increased work of breathing. This is caused by decreased lung compliance (stiff lungs) from the widespread edema and inflammation, requiring greater effort to achieve adequate ventilation."
+            },
+            {
+                "optionId": "opt-3",
+                "content": "Correct. Bilateral coarse crackles are the audible manifestation of fluid (exudate) filling the alveoli across both lungs. This finding is consistent with the diffuse pulmonary edema characteristic of ARDS."
+            },
+            {
+                "optionId": "opt-4",
+                "content": "Correct. The Berlin definition for ARDS requires bilateral opacities (infiltrates) on chest imaging that are not fully explained by cardiac failure. This finding directly reflects the widespread alveolar flooding from capillary leak."
+            },
+            {
+                "optionId": "opt-5",
+                "content": "Incorrect. Tachycardia is a non-specific compensatory response to hypoxemia, fever, and systemic stress. While expected in a critically ill patient, it is not a specific diagnostic criterion for ARDS and can be present in many other conditions."
+            },
+            {
+                "optionId": "opt-6",
+                "content": "Incorrect. Hypotension can occur with ARDS, often due to underlying sepsis or the effects of mechanical ventilation, but it is not a primary diagnostic criterion for the lung injury itself. It is a sign of systemic instability, not a defining feature of ARDS pathophysiology."
+            },
+            {
+                "optionId": "opt-7",
+                "content": "Incorrect. An elevated WBC count indicates an underlying infection or inflammatory process (in this case, pneumonia), which is a common *cause* of ARDS. However, it is not a direct finding *of* ARDS. The focus for diagnosis is on the resulting lung injury, not the trigger."
+            },
+            {
+                "optionId": "opt-8",
+                "content": "Incorrect. This describes a treatment for the underlying pneumonia. While managing the precipitating cause of ARDS is critical, the medication itself is not a clinical finding or diagnostic marker of the syndrome."
+            }
+        ],
         "clinicalPearls": [
-            "ARDS diagnosis requires: acute onset, bilateral infiltrates on CXR not fully explained by heart failure/fluid overload, and PaO2/FiO2 ratio < 300. The Berlin definition provides specific criteria for ARDS diagnosis.",
-            "Refractory hypoxemia is key: oxygenation does not improve with increasing FiO2. This is due to the alveolar-capillary membrane damage and intrapulmonary shunting."
+            "The Berlin Definition is the standard for diagnosing ARDS, requiring: 1) Onset within 1 week of a known insult, 2) Bilateral opacities on imaging not explained by other causes, 3) Respiratory failure not fully explained by cardiac failure or fluid overload, and 4) A PaO₂/FiO₂ ratio <300 mmHg.",
+            "A key differentiator between ARDS and cardiogenic pulmonary edema is the absence of cardiac dysfunction. A normal B-type Natriuretic Peptide (BNP) level (<100 pg/mL) and a normal cardiac silhouette on x-ray strongly suggest a non-cardiogenic cause like ARDS.",
+            "Management of ARDS focuses on treating the underlying cause, supportive care, and a lung-protective ventilation strategy using low tidal volumes (4-6 mL/kg of ideal body weight) and optimal Positive End-Expiratory Pressure (PEEP) to prevent further lung injury (ventilator-induced lung injury)."
         ],
-        "questionTrap": {
-            "trap": "Focusing solely on the pneumonia history might lead to overlooking the ARDS development. Students may incorrectly assume the patient's condition is solely due to worsening pneumonia and not recognize the evolving ARDS picture.",
-            "howToOvercome": "Carefully evaluate all data points, including lab values, CXR, and vital signs, to identify patterns consistent with ARDS, differentiating it from simple pneumonia progression. Look for the constellation of findings that define ARDS."
-        },
+        "questionTrap": "Distinguishing the Cause from the Effect. Students often highlight findings related to the underlying cause of ARDS (like an elevated WBC for sepsis/pneumonia) instead of the direct pathophysiological manifestations of ARDS itself (like refractory hypoxemia or bilateral infiltrates). Always focus on the criteria that define the syndrome.",
         "mnemonic": {
-            "title": "ARDS Criteria (Berlin)",
-            "expansion": "Acute onset, Respiratory Distress, Bilateral infiltrates, Severe hypoxemia (PaO2/FiO2 <300)."
-        }
-    },
-    "response": {
-        "correct": [
-            "PaO2",
-            "PaCO2",
-            "CXR reveals bilateral diffuse infiltrates",
-            "RR"
-        ],
-        "incorrect": [
-            "WBC",
-            "Ceftriaxone",
-            "Furosemide",
-            "HR"
+            "title": "ARDS Criteria",
+            "expansion": "A: Acute onset; R: Radiography (bilateral opacities); D: Decreased PaO₂/FiO₂ ratio (<300); S: Swan-Ganz or Echo to rule out cardiac cause."
+        },
+        "reviewUnits": [
+            "Respiratory Failure",
+            "Acid-Base Balance",
+            "Hemodynamic Monitoring",
+            "Critical Care Nursing"
         ]
-    }
+    },
+    "scoring": {
+        "method": "plusMinus",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "correctOptionId": "opt-1",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:11:36.022Z"
 }

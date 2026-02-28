@@ -1,87 +1,162 @@
 {
-    "id": "New-v26-b84a92c7-8e21-4a5f-839d-7a9b1c0e2f51",
-    "type": "highlight",
-    "stem": "The patient is exhibiting signs of sepsis. Based on the information in the patient's chart, identify the findings that MOST strongly support a diagnosis of septic shock.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "id": "NGN-2026-b84a92c7-8e21-4a5f-839d-7a9b1c0e2f51",
+    "type": "highlightText",
+    "stem": "The nurse is reviewing the client's progress note. Highlight the findings that most strongly indicate the client is developing septic shock.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Client is now confused and lethargic"
+        },
+        {
+            "id": "opt_02",
+            "text": "Blood pressure is 88/52 mmHg"
+        },
+        {
+            "id": "opt_03",
+            "text": "Heart rate is 135/min"
+        },
+        {
+            "id": "opt_04",
+            "text": "Respiratory rate is 28/min"
+        },
+        {
+            "id": "opt_05",
+            "text": "Temperature is 102.4°F (39.1°C)"
+        },
+        {
+            "id": "opt_06",
+            "text": "Skin is warm and flushed"
+        },
+        {
+            "id": "opt_07",
+            "text": "Serum lactate is 4.8 mmol/L"
+        },
+        {
+            "id": "opt_08",
+            "text": "Urine output has decreased to <0.5 mL/kg/hr"
+        },
+        {
+            "id": "opt_09",
+            "text": "Lung sounds remain clear bilaterally"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_07",
+        "opt_08"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Eleanor Vance",
-            "age": 78,
-            "gender": "Female",
-            "iso": "Airborne and Contact Precautions",
+            "age": "78 years",
+            "sex": "Female",
+            "pronouns": "she/her",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Eleanor Vance, a 78-year-old female, was admitted at 03:00 with a suspected urinary tract infection (UTI). She reports dysuria, flank pain, and increased urinary frequency. B: Her history includes hypertension and type 2 diabetes, managed with medications. She completed a cephalexin course for a UTI last month, raising antibiotic resistance concerns. A: At 10:00, her condition deteriorated. BP is 88/52 mmHg, HR 135 bpm, and temperature 39.1°C. Urine culture is pending. She's confused, lethargic, and disoriented, with SpO2 92% on 2L NC. Auscultation reveals clear lung sounds, but she has a non-productive cough. Labs show elevated WBC and lactate. R: I recommend initiating the sepsis protocol immediately. Obtain blood and repeat urine cultures for antibiotic guidance. Administer broad-spectrum IV antibiotics, considering cephalexin resistance. Aggressive fluid resuscitation is needed for hypotension. Closely monitor mental status and urine output. Consider ICU transfer if no improvement.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>WBC</td><td>18,500/µL</td><td>4,500-11,000/µL</td></tr><tr><td>Lactate</td><td>4.8 mmol/L</td><td>0.5-2.2 mmol/L</td></tr><tr><td>Creatinine</td><td>2.1 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>7-20 mg/dL</td></tr><tr><td>Platelets</td><td>140,000/µL</td><td>150,000-400,000/µL</td></tr><tr><td>Procalcitonin</td><td>9.5 ng/mL</td><td>&lt;0.15 ng/mL</td></tr><tr><td>Blood Glucose</td><td>210 mg/dL</td><td>70-110 mg/dL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed (Nurses' Notes)",
+                "content": "Admission Note (Day 1, 03:00)\nS: Client is a 78-year-old female admitted from home with a suspected urinary tract infection. Reports dysuria, flank pain, and increased urinary frequency for 2 days.\nB: History of hypertension and type 2 diabetes mellitus. Completed a course of cephalexin for a UTI one month ago. Lives alone in a senior apartment complex with limited mobility, which is a barrier to accessing fresh foods.\nA: Alert and oriented to person, place, and time. Skin warm and dry. Vitals stable on admission. Suprapubic tenderness noted on palpation. Urine is cloudy and malodorous.\nR: Obtain urine and blood cultures as per protocol. Start 0.9% sodium chloride IV. Administer empiric antibiotics after cultures are drawn. Monitor vital signs and urine output closely.\n\nProgress Note (Day 1, 10:00)\nS: Called to bedside for an acute change in client's mental status.\nB: Admitted at 03:00 for UTI. IV fluids running at 125 mL/hr. Urine and blood cultures are pending.\nA: [Client is now confused and lethargic]. [Blood pressure is 88/52 mmHg]. [Heart rate is 135/min] and regular. [Respiratory rate is 28/min] and unlabored. [Temperature is 102.4°F (39.1°C)]. [Skin is warm and flushed]. [Serum lactate is 4.8 mmol/L]. [Urine output has decreased to <0.5 mL/kg/hr] over the last 2 hours. [Lung sounds remain clear bilaterally].\nR: Recommend initiating sepsis protocol immediately. Administer 30 mL/kg crystalloid bolus. Administer broad-spectrum IV antibiotics STAT. Prepare for potential vasopressor therapy and transfer to ICU."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP (mmHg)</th><th>HR (bpm)</th><th>RR (breaths/min)</th><th>Temp (°C)</th><th>SpO2 (%)</th></tr></thead><tbody><tr><td>03:00</td><td>140/80</td><td>90</td><td>18</td><td>37.8</td><td>95% on RA</td></tr><tr><td>06:00</td><td>130/75</td><td>95</td><td>20</td><td>38.3</td><td>94% on RA</td></tr><tr><td>09:00</td><td>95/60</td><td>120</td><td>24</td><td>38.8</td><td>92% on 2L NC</td></tr><tr><td>10:00</td><td>88/52</td><td>135</td><td>28</td><td>39.1</td><td>92% on 2L NC</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp °F (°C)</th><th>HR (bpm)</th><th>RR (breaths/min)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>SpO₂</th></tr></thead><tbody><tr><td>03:00</td><td>100.0 (37.8)</td><td>90</td><td>18</td><td>140/80</td><td>100</td><td>95% on room air</td></tr><tr><td>06:00</td><td>100.9 (38.3)</td><td>95</td><td>20</td><td>130/75</td><td>93</td><td>94% on room air</td></tr><tr><td>09:00</td><td>101.8 (38.8)</td><td>120</td><td>24</td><td>95/60</td><td>72</td><td>92% on 2L NC</td></tr><tr><td>10:00</td><td>102.4 (39.1)</td><td>135</td><td>28</td><td>88/52</td><td>64</td><td>92% on 2L NC</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN Fever</td><td>08:00</td></tr><tr><td>Insulin Aspart</td><td>Varies</td><td>SubQ</td><td>AC and HS per sliding scale</td><td>07:30</td></tr><tr><td>Cephalexin</td><td>500 mg</td><td>PO</td><td>q6h</td><td>04:00 (held due to hypotension)</td></tr><tr><td>Normal Saline</td><td>500 mL</td><td>IV</td><td>Bolus</td><td>Not Yet Administered</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Value</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>White Blood Cell Count (WBC)</td><td>18.5</td><td>x10³/µL</td><td>4.5 - 11.0</td><td>High</td></tr><tr><td>Lactate</td><td>4.8</td><td>mmol/L</td><td>0.5 - 2.2</td><td>High</td></tr><tr><td>Creatinine</td><td>2.1</td><td>mg/dL</td><td>0.6 - 1.2</td><td>High</td></tr><tr><td>Blood Urea Nitrogen (BUN)</td><td>35</td><td>mg/dL</td><td>7 - 20</td><td>High</td></tr><tr><td>Platelets</td><td>140</td><td>x10³/µL</td><td>150 - 400</td><td>Low</td></tr><tr><td>Procalcitonin</td><td>9.5</td><td>ng/mL</td><td>&lt;0.15</td><td>High</td></tr><tr><td>Blood Glucose</td><td>210</td><td>mg/dL</td><td>70 - 110</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Admission (Day 1, 03:00):\nNeurological: Alert and oriented x3, follows commands.\nCardiovascular: S1S2 audible, regular rate and rhythm, peripheral pulses +2.\nRespiratory: Lungs clear to auscultation bilaterally, respirations unlabored.\nGI/GU: Abdomen soft, non-distended, bowel sounds active. Suprapubic tenderness on palpation.\nSkin: Warm, dry, intact, no edema.\n\nFocused (Day 1, 10:00):\nNeurological: Lethargic, responds to verbal stimuli but is disoriented to time and place.\nCardiovascular: Tachycardic, S1S2 audible. Peripheral pulses +1 and thready.\nRespiratory: Tachypneic, lungs remain clear to auscultation.\nSkin: Warm, flushed, diaphoretic."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No radiology reports available.</p>"
+                "content": "CHEST X-RAY, PA AND LATERAL (Day 1, 04:30)\n\nINDICATION: Fever, suspected infection.\n\nFINDINGS: The lungs are clear. There is no evidence of consolidation, effusion, or pneumothorax. The cardiomediastinal silhouette is within normal limits for age.\n\nIMPRESSION: No acute cardiopulmonary process."
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "<p>See SBAR in the Item Context.</p>"
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 03:15</td><td>Blood cultures x2 sites</td><td>STAT</td></tr><tr><td>Day 1, 03:15</td><td>Urinalysis and urine culture</td><td>STAT</td></tr><tr><td>Day 1, 03:15</td><td>Sepsis lab panel (CBC, CMP, Lactate, Procalcitonin)</td><td>STAT</td></tr><tr><td>Day 1, 03:20</td><td>Start 0.9% Sodium Chloride at 125 mL/hr</td><td>Standing</td></tr><tr><td>Day 1, 03:20</td><td>Acetaminophen 650 mg PO</td><td>q4h PRN for temp >101°F</td></tr><tr><td>Day 1, 10:05</td><td>Administer 0.9% Sodium Chloride 30 mL/kg IV bolus over 1 hour</td><td>STAT</td></tr><tr><td>Day 1, 10:05</td><td>Piperacillin-tazobactam 3.375 g IV now</td><td>STAT</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>0.9% Sodium Chloride</td><td>125 mL/hr</td><td>IV</td><td>Continuous</td><td>Started Day 1, 03:20</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN Temp >101°F</td><td>Day 1, 08:00</td></tr><tr><td>Insulin Aspart</td><td>Sliding Scale</td><td>SubQ</td><td>AC/HS</td><td>Day 1, 07:30</td></tr><tr><td>Piperacillin-tazobactam</td><td>3.375 g</td><td>IV</td><td>STAT</td><td>Not Yet Administered</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Infection Control",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+    "rationale": {
+        "correct": "Septic shock is a subset of sepsis characterized by profound circulatory, cellular, and metabolic abnormalities. The diagnosis is supported by evidence of sepsis (presumed infection plus organ dysfunction) combined with persistent hypotension requiring vasopressors to maintain a MAP ≥65 mmHg and a serum lactate level >2 mmol/L despite adequate fluid resuscitation. The client's confusion, hypotension (MAP 64), elevated lactate, and oliguria are the four most definitive signs of this life-threatening state.",
+        "incorrect": "Tachycardia, tachypnea, and fever are components of the Systemic Inflammatory Response Syndrome (SIRS) and are expected findings in sepsis. However, they are not specific to the progression into septic shock, which is defined by hemodynamic collapse and severe tissue hypoperfusion. Warm, flushed skin is characteristic of the early hyperdynamic ('warm shock') phase but is less specific than the core criteria of hypotension and hyperlactatemia.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. An acute change in mental status (confusion, lethargy) is a key sign of end-organ dysfunction, specifically cerebral hypoperfusion, and is a critical component of the qSOFA score for identifying sepsis."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. A systolic blood pressure <100 mmHg (or MAP <65 mmHg) is a defining hemodynamic criterion for shock. This finding indicates circulatory failure and inadequate tissue perfusion."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. Tachycardia is a compensatory mechanism for hypotension and fever. While it is a sign of sepsis, it is not a specific indicator that differentiates sepsis from the more severe state of septic shock."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. Tachypnea (RR >22/min) is a criterion for sepsis (qSOFA) and a compensatory response to metabolic acidosis. However, like tachycardia, it is not specific to the shock state itself."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Incorrect. Fever is a hallmark sign of infection and the systemic inflammatory response. It does not, by itself, indicate the circulatory collapse characteristic of septic shock. Patients in shock can also be normothermic or hypothermic."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. Warm, flushed skin is due to peripheral vasodilation in the early, hyperdynamic phase of septic shock. While a relevant finding, it is less specific and less critical for diagnosis than hypotension and lactate levels."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. A serum lactate level >2 mmol/L is a critical indicator of tissue hypoperfusion and anaerobic metabolism. It is a key diagnostic marker for septic shock and is associated with increased mortality."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Correct. Decreased urine output (oliguria) is a sign of acute kidney injury due to renal hypoperfusion. This is a major indicator of end-organ damage, a hallmark of severe sepsis and septic shock."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Incorrect. This is a normal respiratory finding. It helps to rule out a pulmonary source of infection like pneumonia but does not support the diagnosis of septic shock."
+            }
+        ],
+        "clinicalPearls": [
+            "Septic shock is defined by sepsis with persistent hypotension (requiring vasopressors for MAP ≥65) and a serum lactate >2 mmol/L despite adequate fluid resuscitation.",
+            "The qSOFA (quick Sepsis-related Organ Failure Assessment) score uses three criteria: altered mental status (GCS <15), fast respiratory rate (≥22/min), and low blood pressure (SBP ≤100 mmHg). A score of ≥2 suggests a high risk for poor outcomes.",
+            "Early, aggressive fluid resuscitation (30 mL/kg crystalloid) is a cornerstone of sepsis management, but vasopressors are needed if hypotension persists, indicating septic shock."
+        ],
+        "questionTrap": "Do not confuse the signs of sepsis with the specific criteria for septic shock. Many test-takers will correctly identify fever and tachycardia as signs of infection but fail to select the more critical findings of hypotension and hyperlactatemia that define the shock state.",
+        "mnemonic": "For septic shock criteria, remember 'L-O-H-A': Lactate (>2 mmol/L), Oliguria (<0.5 mL/kg/hr), Hypotension (MAP <65), Altered mental status.",
+        "reviewUnits": [
+            "Physiological Adaptation",
+            "Reduction of Risk Potential",
+            "Pharmacological and Parenteral Therapies"
         ]
     },
-    "rationale": {
-        "correct": "The patient's elevated WBC count (18,500/µL) indicates a significant inflammatory response, likely due to infection. A lactate level of 4.8 mmol/L suggests tissue hypoperfusion and anaerobic metabolism, a hallmark of septic shock. The elevated creatinine (2.1 mg/dL) and BUN (35 mg/dL) indicate acute kidney injury, a common complication of sepsis. Procalcitonin level of 9.5 ng/mL strongly supports a bacterial infection. The patient's hypotension (88/52 mmHg) despite fluid resuscitation efforts (as evidenced by the order for a NS bolus) is a key indicator of septic shock, reflecting impaired vascular tone and myocardial dysfunction.  \n\nclinicalPearl: Remember that septic shock is defined as sepsis with persistent hypotension requiring vasopressors to maintain a MAP ≥65 mm Hg and a serum lactate level >2 mmol/L despite adequate volume resuscitation.",
-        "incorrect": "While elevated blood glucose (210 mg/dL) can occur in sepsis due to stress hyperglycemia, it is not a primary diagnostic criterion for septic shock. Platelet count of 140,000/µL is slightly low, but not a primary indicator of septic shock. It may indicate developing DIC, but requires additional data. The patient's respiratory rate is elevated, and SpO2 is decreased, but this is less specific than the other findings in supporting septic shock, although indicative of the body's compensation for hypoxemia and metabolic acidosis. \n\nclinicalPearl: Hyperglycemia is common in sepsis due to the release of counter-regulatory hormones like cortisol and glucagon, but it's a secondary effect, not a primary diagnostic criterion for septic shock.",
-        "clinicalPearls": [
-            "Sepsis is a life-threatening condition caused by the body's overwhelming response to an infection.",
-            "Septic shock is a severe form of sepsis characterized by hypotension despite adequate fluid resuscitation and evidence of tissue hypoperfusion.",
-            "Early recognition and treatment of sepsis are crucial to improve patient outcomes.",
-            "Consider antibiotic resistance when a patient recently completed antibiotics and is not improving."
-        ],
-        "questionTrap": {
-            "trap": "The test-taker might focus only on the vital signs and overlook the lab values, or vice versa, leading to an incomplete assessment of the patient's condition.",
-            "howToOvercome": "Emphasize the importance of integrating data from all available sources (vitals, labs, MAR) to form a comprehensive understanding of the patient's status. Look for trends and correlations between different data points."
-        },
-        "mnemonic": {
-            "title": "I C SHOCK",
-            "expansion": "Infection, Confusion, SBP <90, Hyperlactatemia, Oliguria, Cytopenia, Kidney Failure."
-        }
+    "scoring": {
+        "method": "plusMinus",
+        "maxPoints": 4
     },
-    "response": [
-        "WBC 18,500/µL",
-        "Lactate 4.8 mmol/L",
-        "Creatinine 2.1 mg/dL",
-        "BUN 35 mg/dL",
-        "Procalcitonin 9.5 ng/mL",
-        "BP 88/52 mmHg",
-        "Blood Glucose 210 mg/dL",
-        "Platelets 140,000/µL",
-        "RR 28 breaths/min",
-        "SpO2 92% on 2L NC"
-    ]
+    "pedagogy": {
+        "bloomLevel": "Analyzing",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:58:29.969Z"
 }

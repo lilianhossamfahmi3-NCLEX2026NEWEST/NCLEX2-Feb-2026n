@@ -1,70 +1,263 @@
 {
     "id": "New-v26-89a7b2c3-4d5e-4f1a-9b8c-670123456789",
-    "type": "dragAndDropCloze",
-    "stem": "A patient is developing ARDS. Based on the ABG results and clinical presentation, the nurse anticipates the following interventions. Drag and drop the appropriate interventions into the order they should be implemented, starting with the FIRST intervention. \n\n[Drag and Drop Area]\n\nAvailable Options:\n* Increase FiO2 to 60%\n* Administer a bolus of normal saline\n* Initiate mechanical ventilation with low tidal volumes\n* Position the patient prone\n* Administer furosemide",
-    "scoring": {
-        "method": "linkage",
-        "maxPoints": 1
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client developing Acute Respiratory Distress Syndrome (ARDS). Based on the clinical data, drag the four appropriate nursing actions into the correct sequence of implementation, from first to last.",
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "Administer a 500 mL bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "opt_2",
+            "text": "Increase oxygen delivery via a non-rebreather mask."
+        },
+        {
+            "id": "opt_3",
+            "text": "Prepare for emergent endotracheal intubation."
+        },
+        {
+            "id": "opt_4",
+            "text": "Position the client prone after stabilization."
+        }
+    ],
+    "correctOrder": [
+        "opt_1",
+        "opt_2",
+        "opt_3",
+        "opt_4"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Jameson Walker",
-            "age": 62,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "62 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Jameson Walker is a 62-year-old male admitted two days ago with a diagnosis of pneumonia. He is currently in the ICU and is exhibiting signs of worsening respiratory distress. At 06:00, his SpO2 was 88% on 4L via nasal cannula. By 06:15, he demonstrated increased work of breathing, including the use of accessory muscles.\nB: Mr. Walker has a medical history significant for hypertension and COPD. He has been treated for pneumonia with intravenous ceftriaxone. He has no known drug allergies other than penicillin.\nA: At 06:30, arterial blood gas (ABG) results revealed a pH of 7.30, PaCO2 of 55 mmHg, PaO2 of 58 mmHg, and HCO3 of 24 mEq/L. A chest X-ray (CXR) showed bilateral infiltrates consistent with Acute Respiratory Distress Syndrome (ARDS). His blood pressure is 100/60 mmHg, and his heart rate is 120 bpm. Lung auscultation reveals diffuse crackles. The patient is increasingly agitated and confused, indicating declining mental status.\nR: I am highly concerned about impending respiratory failure and the development of ARDS. I am requesting orders for immediate mechanical ventilation with lung-protective strategies and further management of ARDS. The patient requires immediate intervention to improve oxygenation, ventilation, and hemodynamic stability. We need to act quickly to prevent further deterioration.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG (06:30):\npH: 7.30\nPaCO2: 55 mmHg\nPaO2: 58 mmHg\nHCO3: 24 mEq/L\nSaO2: 88%"
+                "id": "nurses_notes",
+                "title": "Clinical Feed (Nurses' Notes)",
+                "content": "Admission Note (2 days ago):\nClient admitted from the emergency department with a diagnosis of community-acquired pneumonia. Reports a 4-day history of productive cough, fever, and dyspnea. History of COPD and hypertension. Alert and oriented x4. Lungs with coarse crackles in the right lower lobe. SpO2 93% on 2L NC. Plan is to admit for IV antibiotics and respiratory support.\n\nProgress Note (Today, 06:30):\nS: Client's respiratory status has acutely declined. At 06:30, he is agitated with severe dyspnea and use of accessory muscles. His SpO2 is 88% despite being on a 15L/min non-rebreather mask, indicating refractory hypoxemia.\nB: He is a 62-year-old male admitted two days ago for pneumonia, with a history of COPD and hypertension. He is allergic to Penicillin. The client lives alone in a rural area, which may pose challenges for post-discharge follow-up.\nA: Current vitals are BP 100/60 mmHg (MAP 73), HR 120 bpm, RR 32/min. Lung auscultation reveals diffuse bilateral crackles. A stat ABG shows severe hypoxemic respiratory failure with respiratory acidosis: pH 7.30, PaO2 58, PaCO2 55. He is becoming increasingly confused.\nR: I am concerned for impending respiratory failure from ARDS. I recommend immediate fluid resuscitation for his hypotension, followed by emergent endotracheal intubation and initiation of mechanical ventilation with lung-protective strategies."
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00:\nBP: 110/70 mmHg\nHR: 110 bpm\nRR: 28 bpm\nSpO2: 88% on 4L NC\nTemp: 38.5°C\n\n06:30:\nBP: 100/60 mmHg\nHR: 120 bpm\nRR: 32 bpm\nSpO2: 88% on 4L NC\nTemp: 38.6°C"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "04:00",
+                        "Temp": "101.1°F (38.4°C)",
+                        "HR": "110 bpm",
+                        "RR": "28/min",
+                        "BP": "110/70 mmHg (MAP 83)",
+                        "SpO2": "90% on 4L NC"
+                    },
+                    {
+                        "Time": "06:00",
+                        "Temp": "101.5°F (38.6°C)",
+                        "HR": "115 bpm",
+                        "RR": "30/min",
+                        "BP": "105/65 mmHg (MAP 78)",
+                        "SpO2": "88% on 10L Face Mask"
+                    },
+                    {
+                        "Time": "06:30",
+                        "Temp": "101.7°F (38.7°C)",
+                        "HR": "120 bpm",
+                        "RR": "32/min",
+                        "BP": "100/60 mmHg (MAP 73)",
+                        "SpO2": "88% on 15L NRB"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Panel": "Arterial Blood Gas (ABG) - 06:30",
+                        "Results": [
+                            {
+                                "Test": "pH",
+                                "Result": "7.30",
+                                "Unit": "",
+                                "Reference": "7.35-7.45",
+                                "Status": "Low"
+                            },
+                            {
+                                "Test": "PaCO2",
+                                "Result": "55",
+                                "Unit": "mmHg",
+                                "Reference": "35-45",
+                                "Status": "High"
+                            },
+                            {
+                                "Test": "PaO2",
+                                "Result": "58",
+                                "Unit": "mmHg",
+                                "Reference": "80-100",
+                                "Status": "Low"
+                            },
+                            {
+                                "Test": "HCO3",
+                                "Result": "24",
+                                "Unit": "mEq/L",
+                                "Reference": "22-26",
+                                "Status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "Panel": "Basic Metabolic Panel (BMP) - 06:30",
+                        "Results": [
+                            {
+                                "Test": "Sodium",
+                                "Result": "138",
+                                "Unit": "mEq/L",
+                                "Reference": "135-145",
+                                "Status": "Normal"
+                            },
+                            {
+                                "Test": "Potassium",
+                                "Result": "4.1",
+                                "Unit": "mEq/L",
+                                "Reference": "3.5-5.0",
+                                "Status": "Normal"
+                            },
+                            {
+                                "Test": "BUN",
+                                "Result": "25",
+                                "Unit": "mg/dL",
+                                "Reference": "7-20",
+                                "Status": "High"
+                            },
+                            {
+                                "Test": "Creatinine",
+                                "Result": "1.3",
+                                "Unit": "mg/dL",
+                                "Reference": "0.6-1.2",
+                                "Status": "High"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Admission Exam:\nGeneral: Awake, alert, oriented x4. Appears fatigued.\nCardiovascular: S1, S2 audible. Tachycardic but regular rhythm. No murmurs.\nRespiratory: Increased work of breathing. Coarse crackles in RLL. Symmetrical chest expansion.\nNeurological: GCS 15. No focal deficits.\n\nFocused Assessment (Today, 06:30):\nGeneral: Agitated and confused. Appears anxious and in severe respiratory distress.\nRespiratory: Labored breathing with use of sternocleidomastoid and intercostal muscles. Diffuse bilateral crackles on auscultation. Tachypneic.\nNeurological: GCS 13 (E4, V4, M5). Restless. Unable to follow complex commands."
             },
             {
                 "id": "radiology",
-                "title": "Radiology",
-                "content": "Chest X-Ray (06:30): Bilateral infiltrates consistent with ARDS."
+                "title": "Radiology (Imaging & Diagnostics)",
+                "content": "Type: Chest X-Ray (Portable, AP view)\nDate: Today, 06:30\n\nFindings: Comparison is made to the study from two days prior. The previously noted right lower lobe consolidation persists. There are now new, diffuse, bilateral airspace opacities, consistent with pulmonary edema. The cardiac silhouette is not enlarged. Pleural effusions are not visualized.\n\nImpression: Worsening bilateral airspace disease. Findings are highly suggestive of developing Acute Respiratory Distress Syndrome (ARDS) in the clinical setting of pneumonia and sepsis. Non-cardiogenic pulmonary edema is suspected."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders & Interventions)",
+                "content": [
+                    {
+                        "Time": "Current",
+                        "Action": "Continuous cardiac and pulse oximetry monitoring",
+                        "Frequency": "Continuous"
+                    },
+                    {
+                        "Time": "Current",
+                        "Action": "Oxygen therapy to maintain SpO2 > 90%",
+                        "Frequency": "Standing"
+                    },
+                    {
+                        "Time": "Current",
+                        "Action": "0.9% Sodium Chloride at 75 mL/hr",
+                        "Frequency": "Continuous"
+                    },
+                    {
+                        "Time": "Current",
+                        "Action": "0.9% Sodium Chloride 500 mL bolus",
+                        "Frequency": "PRN for SBP < 90 mmHg"
+                    },
+                    {
+                        "Time": "Current",
+                        "Action": "Albuterol nebulizer treatment",
+                        "Frequency": "PRN for wheezing"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 1g IV q24h (scheduled)\nFurosemide 20mg IV PRN edema (last administered 24 hours ago)\nNormal Saline 500mL bolus IV PRN hypotension (not administered)"
+                "title": "MAR Console (Medications)",
+                "content": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "q24h",
+                        "Last Administered": "Yesterday 09:00"
+                    },
+                    {
+                        "Medication": "Lisinopril",
+                        "Dose": "10mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Yesterday 09:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650mg",
+                        "Route": "PO",
+                        "Frequency": "q6h PRN fever/pain",
+                        "Last Administered": "Today 04:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
+    "rationale": {
+        "correct": "The correct sequence prioritizes stabilizing hemodynamics before initiating positive pressure ventilation, which can worsen hypotension. The sequence is: 1) Fluid resuscitation, 2) Maximizing non-invasive oxygenation as a bridge, 3) Definitive airway management for respiratory failure, and 4) Adjunctive ARDS therapy once stabilized.",
+        "incorrect": "An incorrect sequence poses significant risk. Intubating a hypotensive client without fluid resuscitation can cause cardiovascular collapse. Delaying intubation after non-invasive measures fail leads to worsening acidosis and potential cardiac arrest. Prone positioning is only appropriate after the airway is secured and the client is hemodynamically stable.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "content": "Correct, Step 1. The client is hypotensive (100/60 mmHg). Positive pressure ventilation, a necessary upcoming intervention, decreases preload and can cause severe hypotension. Administering a fluid bolus first is critical to optimize circulatory volume and prevent cardiovascular collapse during intubation."
+            },
+            {
+                "optionId": "opt_2",
+                "content": "Correct, Step 2. While preparing for intubation and while the fluid bolus is infusing, the nurse should maximize non-invasive oxygen delivery. This is a temporizing measure to combat severe hypoxemia (PaO2 58 mmHg) and serves as a bridge to definitive airway management."
+            },
+            {
+                "optionId": "opt_3",
+                "content": "Correct, Step 3. The client's refractory hypoxemia, hypercapnia (PaCO2 55), acidosis (pH 7.30), and declining mental status are definitive indications for mechanical ventilation. After attempting to stabilize hemodynamics, securing the airway is the highest priority to manage respiratory failure."
+            },
+            {
+                "optionId": "opt_4",
+                "content": "Correct, Step 4. Prone positioning is an evidence-based intervention for moderate to severe ARDS that improves ventilation-perfusion matching. However, it is performed only after the client is intubated, sedated, and hemodynamically stable. It is not an initial life-saving measure."
+            }
+        ],
+        "clinicalPearls": [
+            "Always assess and address hemodynamic stability (the 'C' in ABCs) before initiating positive pressure ventilation, as it can precipitate hypotension.",
+            "Refractory hypoxemia, defined as low SpO2 despite high FiO2, is a hallmark sign of ARDS and a key indication for mechanical ventilation.",
+            "Lung-protective ventilation (low tidal volumes, adequate PEEP) is the cornerstone of managing ARDS to prevent ventilator-induced lung injury (VILI).",
+            "The PaO2/FiO2 ratio is used to classify ARDS severity. This client's ratio is 58 / 1.0 = 58, indicating severe ARDS (<100)."
+        ],
+        "questionTrap": "The most common trap is prioritizing the airway (intubation) over circulation (hypotension). While the respiratory failure is severe, the act of intubating a hemodynamically unstable patient is extremely dangerous. Always think about the physiological consequences of your interventions.",
+        "mnemonic": "ARDS Interventions: 'VENT'\nV - Ventilate with low tidal volumes\nE - Ensure hemodynamic stability (fluids/pressors)\nN - Nutrition and sedation optimization\nT - Turn to prone position",
+        "reviewUnits": [
+            "Respiratory Failure",
+            "ARDS Pathophysiology",
+            "Mechanical Ventilation",
+            "Hemodynamic Monitoring"
         ]
     },
-    "rationale": {
-        "correct": "The correct order of interventions is:\n1. Administer a bolus of normal saline: The patient's blood pressure is low (100/60 mmHg) and needs to be addressed before escalating oxygen delivery. Hypotension can worsen oxygen delivery to tissues. Addressing hypotension is paramount to ensure adequate tissue perfusion before escalating oxygen delivery.\n2. Increase FiO2 to 60%: The patient's SpO2 is low (88%) despite 4L of oxygen. Increasing the FiO2 is the next logical step to attempt to improve oxygenation non-invasively. This aims to increase the partial pressure of oxygen in the alveoli, facilitating better oxygen diffusion into the bloodstream.\n3. Initiate mechanical ventilation with low tidal volumes: Given the ABG results (pH 7.30, PaCO2 55 mmHg, PaO2 58 mmHg) and signs of respiratory distress, the patient requires mechanical ventilation to improve oxygenation and ventilation. Low tidal volumes are crucial in ARDS to prevent ventilator-induced lung injury (VILI). ARDS impairs lung compliance, making it susceptible to damage from high tidal volumes.\n4. Position the patient prone: Prone positioning can improve oxygenation in ARDS by redistributing lung perfusion and ventilation, reducing shunting. This position helps to equalize the ventilation-perfusion ratio in the lungs, improving gas exchange.\n5. Administer furosemide: This would be appropriate for fluid overload, but the patient's low blood pressure suggests hypovolemia. Furosemide would likely worsen the hypotension. Administering a diuretic in the presence of hypovolemia can further compromise blood pressure and tissue perfusion.",
-        "incorrect": "Incorrect orders of interventions will not address the patient's immediate needs and could potentially worsen their condition. For example, initiating mechanical ventilation without addressing the hypotension could lead to further hemodynamic instability. Administering furosemide without assessing fluid status could worsen hypovolemia.",
-        "clinicalPearls": [
-            "ARDS management focuses on protecting the lungs while improving oxygenation and ventilation.",
-            "Low tidal volume ventilation is a cornerstone of ARDS treatment.",
-            "Prone positioning is a valuable adjunct therapy in moderate to severe ARDS."
-        ],
-        "questionTrap": {
-            "trap": "Many students might prioritize increasing FiO2 or initiating mechanical ventilation immediately due to the low SpO2 and ABG values. However, addressing the patient's hypotension is crucial before escalating respiratory support to ensure adequate tissue perfusion.",
-            "howToOvercome": "Carefully assess all vital signs and lab results before determining the appropriate order of interventions. Prioritize interventions that address the most immediate threats to the patient's stability, such as hypotension."
-        },
-        "mnemonic": {
-            "title": "ARDS Management",
-            "expansion": "A: Airway Management (consider intubation)\nR: Reduce Tidal Volume (prevent VILI)\nD: Diuretics with caution (assess fluid status)\nS: Support Oxygenation (FiO2, PEEP, Prone)"
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 4
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Actions",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:25:48.707Z"
 }

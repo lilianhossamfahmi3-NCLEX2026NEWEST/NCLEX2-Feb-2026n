@@ -1,107 +1,359 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-4789-a01b-23456789cdef",
     "type": "clozeDropdown",
-    "stem": "Based on the patient's presentation and available data, the most likely underlying cause of the respiratory distress is [cloze-1]. The priority nursing intervention at this time is to [cloze-2]. Following this intervention, the nurse should closely monitor for [cloze-3] to assess the patient's response to treatment.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
+    "stem": "The nurse analyzes the client's deteriorating status. Complete the following sentence by choosing from the dropdown lists. The client's presentation is most consistent with [cloze-1], requiring the nurse to prioritize [cloze-2]. The nurse must then monitor for [cloze-3] as a potential complication.",
+    "options": [
+        {
+            "id": "cloze-1",
+            "options": [
+                {
+                    "id": "opt_1_1",
+                    "text": "pneumonia"
+                },
+                {
+                    "id": "opt_1_2",
+                    "text": "COPD exacerbation"
+                },
+                {
+                    "id": "opt_1_3",
+                    "text": "acute respiratory distress syndrome (ARDS)"
+                },
+                {
+                    "id": "opt_1_4",
+                    "text": "pulmonary embolism"
+                }
+            ]
+        },
+        {
+            "id": "cloze-2",
+            "options": [
+                {
+                    "id": "opt_2_1",
+                    "text": "administering scheduled antibiotics"
+                },
+                {
+                    "id": "opt_2_2",
+                    "text": "initiating non-invasive positive pressure ventilation (NIPPV)"
+                },
+                {
+                    "id": "opt_2_3",
+                    "text": "preparing for intubation and mechanical ventilation"
+                },
+                {
+                    "id": "opt_2_4",
+                    "text": "increasing the oxygen flow rate via nasal cannula"
+                }
+            ]
+        },
+        {
+            "id": "cloze-3",
+            "options": [
+                {
+                    "id": "opt_3_1",
+                    "text": "improvement in white blood cell count"
+                },
+                {
+                    "id": "opt_3_2",
+                    "text": "signs of ventilator-associated pneumonia"
+                },
+                {
+                    "id": "opt_3_3",
+                    "text": "development of pneumothorax or worsening oxygenation"
+                },
+                {
+                    "id": "opt_3_4",
+                    "text": "resolution of bilateral infiltrates on chest X-ray"
+                }
+            ]
+        }
+    ],
+    "correctResponses": {
+        "cloze-1": "opt_1_3",
+        "cloze-2": "opt_2_3",
+        "cloze-3": "opt_3_3"
     },
     "itemContext": {
         "patient": {
             "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, 68-year-old male with COPD and hypertension, admitted 2 days ago for pneumonia. B: Initially treated with antibiotics and supportive care. At 06:00, patient became restless and confused. Respiratory rate is 32 and labored; SpO2 88% on 6L nasal cannula. O: Assessment reveals worsening respiratory distress. ABG results: pH 7.28, PaCO2 60 mmHg, PaO2 55 mmHg, HCO3 25 mEq/L. Chest X-ray shows bilateral infiltrates consistent with ARDS. BP 100/60 mmHg, HR 110 bpm. Labs: WBC 15,000/mm3, Lactate 3.0 mmol/L. MAR: Ceftriaxone 1g IV q24h, Albuterol/Ipratropium nebulizer q4h PRN, Acetaminophen 650mg PO q4h PRN, Famotidine 20mg IV BID. R: Requesting orders for possible intubation and mechanical ventilation due to deteriorating respiratory status. Need recommendations for initial ventilator settings (tidal volume, FiO2) and ongoing management to optimize oxygenation and prevent ventilator-induced lung injury. Advise on appropriate sedation and pain management during mechanical ventilation.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Smith, 68-year-old male with COPD and hypertension, admitted 2 days ago for pneumonia. B: Initially treated with antibiotics and supportive care. At 06:00, patient became restless and confused. Respiratory rate is 32 and labored; SpO2 88% on 6L nasal cannula. O: Assessment reveals worsening respiratory distress. ABG results: pH 7.28, PaCO2 60 mmHg, PaO2 55 mmHg, HCO3 25 mEq/L. Chest X-ray shows bilateral infiltrates consistent with ARDS. BP 100/60 mmHg, HR 110 bpm. Labs: WBC 15,000/mm3, Lactate 3.0 mmol/L. MAR: Ceftriaxone 1g IV q24h, Albuterol/Ipratropium nebulizer q4h PRN, Acetaminophen 650mg PO q4h PRN, Famotidine 20mg IV BID. R: Requesting orders for possible intubation and mechanical ventilation due to deteriorating respiratory status. Need recommendations for initial ventilator settings (tidal volume, FiO2) and ongoing management to optimize oxygenation and prevent ventilator-induced lung injury. Advise on appropriate sedation and pain management during mechanical ventilation."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "note_type": "Admission Note",
+                        "content": "S: Client is a 68-year-old male with a history of COPD and hypertension, brought to the ED by his adult child with a 3-day history of productive cough, fever, and shortness of breath. B: Client reports worsening dyspnea despite using his home albuterol inhaler. He lives alone in a rural area with limited access to transportation, which delayed seeking care. A: On admission, diagnosed with community-acquired pneumonia. Alert and oriented x3. Lungs with coarse crackles in the right lower lobe. SpO2 92% on 2L NC. IV fluids and antibiotics initiated. R: Admit to medical-surgical unit for continued monitoring, IV antibiotics, and respiratory support. Plan to consult social work regarding discharge needs and transportation barriers."
+                    },
+                    {
+                        "timestamp": "Day 3, 06:15",
+                        "note_type": "Progress Note",
+                        "content": "S: Called to bedside for acute change in status. Client is restless and confused. B: Admitted 2 days ago for pneumonia. Status has acutely declined over the last 2 hours with progressive hypoxemia despite increased oxygen support. A: Vital signs: BP 100/60 mmHg (MAP 73), HR 110 bpm, RR 32/min and labored, SpO2 88% on 6L NC, Temp 101.1°F (38.4°C). Respiratory assessment reveals bilateral coarse crackles throughout all lung fields and use of accessory muscles. Arterial blood gas shows severe hypoxemic respiratory failure with acidosis. Chest x-ray from 05:30 shows diffuse bilateral infiltrates. The client's refractory hypoxemia is consistent with a progression from pneumonia to ARDS. R: Recommend immediate critical care consultation for intubation and initiation of mechanical ventilation. Continue to monitor hemodynamic stability closely."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG: pH 7.28, PaCO2 60 mmHg, PaO2 55 mmHg, HCO3 25 mEq/L; WBC: 15,000/mm3; Lactate: 3.0 mmol/L"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "02:00",
+                        "HR": "95 bpm",
+                        "BP": "118/76 mmHg (MAP 90)",
+                        "RR": "22/min",
+                        "SpO2": "91% on 4L NC",
+                        "Temp": "100.4°F (38.0°C)"
+                    },
+                    {
+                        "Time": "04:00",
+                        "HR": "105 bpm",
+                        "BP": "110/70 mmHg (MAP 83)",
+                        "RR": "28/min",
+                        "SpO2": "89% on 6L NC",
+                        "Temp": "100.9°F (38.3°C)"
+                    },
+                    {
+                        "Time": "06:00",
+                        "HR": "110 bpm",
+                        "BP": "100/60 mmHg (MAP 73)",
+                        "RR": "32/min",
+                        "SpO2": "88% on 6L NC",
+                        "Temp": "101.1°F (38.4°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 1g IV q24h; Albuterol/Ipratropium nebulizer q4h prn; Acetaminophen 650mg PO q4h prn; Famotidine 20mg IV BID"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Panel": "Arterial Blood Gas (ABG)",
+                        "Result": "pH: 7.28",
+                        "Unit": "",
+                        "Reference Range": "7.35-7.45",
+                        "Status": "Low"
+                    },
+                    {
+                        "Panel": "Arterial Blood Gas (ABG)",
+                        "Result": "PaCO2: 60",
+                        "Unit": "mmHg",
+                        "Reference Range": "35-45",
+                        "Status": "High"
+                    },
+                    {
+                        "Panel": "Arterial Blood Gas (ABG)",
+                        "Result": "PaO2: 55",
+                        "Unit": "mmHg",
+                        "Reference Range": "80-100",
+                        "Status": "Critical Low"
+                    },
+                    {
+                        "Panel": "Arterial Blood Gas (ABG)",
+                        "Result": "HCO3: 25",
+                        "Unit": "mEq/L",
+                        "Reference Range": "22-26",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Panel": "Complete Blood Count (CBC)",
+                        "Result": "WBC: 15.0",
+                        "Unit": "x10³/mm³",
+                        "Reference Range": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Panel": "Chemistry",
+                        "Result": "Lactate: 3.0",
+                        "Unit": "mmol/L",
+                        "Reference Range": "0.5-2.2",
+                        "Status": "High"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 100/60 mmHg, HR 110 bpm, RR 32, SpO2 88% on 6L NC, Temp 38.5°C"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "Day 3, 06:00: Acutely restless and confused. Not following commands consistently."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Day 3, 06:00: Respirations are 32/min, labored, with use of sternocleidomastoid muscles. Bilateral coarse crackles auscultated throughout all lung fields. No wheezing."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Day 3, 06:00: Tachycardia with S1, S2 audible. No murmurs. Capillary refill 3 seconds. Pulses 2+ peripherally."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray indicates bilateral infiltrates consistent with Acute Respiratory Distress Syndrome (ARDS)."
+                "content": [
+                    {
+                        "Procedure": "Chest X-ray (Portable, AP)",
+                        "Date": "Day 3, 05:30",
+                        "Indication": "Worsening hypoxemia, increased work of breathing.",
+                        "Findings": "Comparison is made to admission film from Day 1. There is a significant interval development of diffuse, bilateral airspace opacities. The cardiac silhouette is not enlarged. No evidence of large pleural effusions.",
+                        "Impression": "Findings are highly suggestive of acute respiratory distress syndrome (ARDS), representing a significant worsening from the prior examination's focal pneumonia."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Ceftriaxone 1g in 50mL NS IV",
+                        "Frequency/Status": "Every 24 hours"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Oxygen via Nasal Cannula, titrate to keep SpO2 >90%",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Albuterol/Ipratropium nebulizer treatment",
+                        "Frequency/Status": "Every 4 hours PRN for wheezing/SOB"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Acetaminophen 650mg PO",
+                        "Frequency/Status": "Every 4 hours PRN for Temp >100.4°F or pain"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "Every 24 hours",
+                        "Last Administered": "Day 2, 14:30"
+                    },
+                    {
+                        "Medication": "Albuterol/Ipratropium",
+                        "Dose": "3mL",
+                        "Route": "Nebulizer",
+                        "Frequency": "Every 4 hours PRN",
+                        "Last Administered": "Day 3, 04:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650mg",
+                        "Route": "PO",
+                        "Frequency": "Every 4 hours PRN",
+                        "Last Administered": "Day 3, 02:15"
+                    },
+                    {
+                        "Medication": "Famotidine",
+                        "Dose": "20mg",
+                        "Route": "IV",
+                        "Frequency": "Every 12 hours",
+                        "Last Administered": "Day 2, 21:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
-        ]
-    },
     "rationale": {
-        "correct": "The patient's clinical presentation, including a history of pneumonia, ABG results indicating acute respiratory acidosis with hypoxemia, and chest X-ray findings of bilateral infiltrates, strongly suggests ARDS. The rapid deterioration in respiratory status necessitates immediate intervention. Preparing for intubation and mechanical ventilation is crucial to provide adequate oxygenation and ventilation support. Monitoring for complications like pneumothorax, hypotension, or worsening oxygenation is essential to ensure patient safety and to evaluate the effectiveness of the treatment. This proactive approach will allow for timely intervention and optimization of ventilator settings.\n\nclinicalPearl: Early recognition and intervention in ARDS are critical to improving patient outcomes. The Berlin Definition of ARDS is commonly used to classify the severity of ARDS based on the degree of hypoxemia and PEEP requirements.",
-        "incorrect": "Choosing incorrect options indicates a misunderstanding of the underlying pathophysiology of ARDS, the critical need for immediate respiratory support, or the potential complications associated with mechanical ventilation. For instance, administering antibiotics alone, without addressing the impaired gas exchange, will not resolve the patient's acute respiratory failure. Similarly, solely increasing the oxygen flow rate may not be sufficient and could lead to further complications. Failing to recognize the importance of monitoring for complications such as pneumothorax can lead to delayed intervention and potentially adverse patient outcomes.\n\nquestionTrap: Selecting options that focus on treating the underlying infection without addressing the immediate respiratory compromise. While the patient has a history of pneumonia, the immediate threat is the acute respiratory failure and hypoxemia caused by ARDS. Prioritizing treatment of the pneumonia over securing the airway and providing adequate ventilation will lead to further deterioration of the patient's condition.",
-        "clinicalPearls": [
-            "ARDS is characterized by diffuse alveolar damage, increased pulmonary capillary permeability, and subsequent pulmonary edema, leading to impaired gas exchange and hypoxemia.",
-            "Mechanical ventilation is a critical intervention in ARDS to support oxygenation and ventilation, but it also carries the risk of ventilator-induced lung injury (VILI).",
-            "Low tidal volume ventilation (6-8 mL/kg of ideal body weight) is a key strategy to minimize VILI in patients with ARDS.",
-            "Prone positioning can improve oxygenation in some ARDS patients by redistributing lung perfusion and ventilation.",
-            "Close monitoring of hemodynamic status, including blood pressure and cardiac output, is essential during mechanical ventilation."
+        "correct": "The client's rapid deterioration, refractory hypoxemia (SpO2 88% on 6L NC), bilateral infiltrates on chest x-ray, and an inciting event (pneumonia) are hallmark signs of ARDS. The priority action is to secure the airway via intubation and mechanical ventilation, as the client is in acute respiratory failure and cannot maintain adequate oxygenation. Following intubation, the nurse must monitor for immediate complications of positive pressure ventilation, such as barotrauma leading to pneumothorax.",
+        "answerBreakdown": [
+            {
+                "clozeId": "cloze-1",
+                "optionId": "opt_1_1",
+                "content": "Incorrect. While pneumonia was the initial diagnosis and precipitating event, the client's condition has evolved. The development of diffuse bilateral infiltrates and severe, refractory hypoxemia indicates a systemic inflammatory response affecting both lungs, which is characteristic of ARDS, not just a worsening focal pneumonia."
+            },
+            {
+                "clozeId": "cloze-1",
+                "optionId": "opt_1_2",
+                "content": "Incorrect. A COPD exacerbation typically presents with wheezing and responds to bronchodilators. This client's primary findings are bilateral crackles and refractory hypoxemia, not bronchospasm, making ARDS the more likely diagnosis."
+            },
+            {
+                "clozeId": "cloze-1",
+                "optionId": "opt_1_3",
+                "content": "Correct. The acute onset, severe hypoxemia (PaO2 55 mmHg) despite supplemental oxygen, and bilateral opacities on imaging following a known risk factor (pneumonia) fulfill the clinical criteria for ARDS."
+            },
+            {
+                "clozeId": "cloze-1",
+                "optionId": "opt_1_4",
+                "content": "Incorrect. A pulmonary embolism is a possibility for acute dyspnea, but it typically does not present with diffuse bilateral infiltrates on a chest x-ray. The findings are more consistent with alveolar flooding seen in ARDS."
+            },
+            {
+                "clozeId": "cloze-2",
+                "optionId": "opt_2_1",
+                "content": "Incorrect. While treating the underlying infection is important, it is not the immediate priority. The client is in acute respiratory failure; securing the airway and supporting ventilation (Breathing) is the priority over addressing the infection according to ABCs."
+            },
+            {
+                "clozeId": "cloze-2",
+                "optionId": "opt_2_2",
+                "content": "Incorrect. NIPPV is contraindicated in clients with altered mental status (confusion, restlessness) and hemodynamic instability due to the risk of aspiration and inability to protect their airway. The severity of hypoxemia also suggests NIPPV will be insufficient."
+            },
+            {
+                "clozeId": "cloze-2",
+                "optionId": "opt_2_3",
+                "content": "Correct. The client is in acute respiratory failure with severe hypoxemia and acidosis. Immediate intubation and mechanical ventilation are required to provide adequate oxygenation, reduce the work of breathing, and prevent further deterioration."
+            },
+            {
+                "clozeId": "cloze-2",
+                "optionId": "opt_2_4",
+                "content": "Incorrect. The client is already on a high flow of oxygen (6L NC) with an SpO2 of 88%. This is refractory hypoxemia. Simply increasing the flow rate via nasal cannula will not correct the underlying gas exchange problem (shunting) caused by ARDS."
+            },
+            {
+                "clozeId": "cloze-3",
+                "optionId": "opt_3_1",
+                "content": "Incorrect. Improvement in WBC count is a long-term indicator of response to antibiotic therapy and would not be an immediate post-intervention assessment priority."
+            },
+            {
+                "clozeId": "cloze-3",
+                "optionId": "opt_3_2",
+                "content": "Incorrect. Ventilator-associated pneumonia (VAP) is a potential complication, but it typically develops after 48 hours of mechanical ventilation. It is not an immediate complication to monitor for."
+            },
+            {
+                "clozeId": "cloze-3",
+                "optionId": "opt_3_3",
+                "content": "Correct. Mechanical ventilation delivers positive pressure to the lungs, which can cause barotrauma or volutrauma, leading to a pneumothorax. This is an acute, life-threatening complication. Worsening oxygenation would be an early sign of this or other ventilation issues."
+            },
+            {
+                "clozeId": "cloze-3",
+                "optionId": "opt_3_4",
+                "content": "Incorrect. Resolution of infiltrates is a long-term goal of treatment and indicates recovery from ARDS. It takes days to weeks and is not an immediate post-intubation monitoring parameter."
+            }
         ],
-        "questionTrap": {
-            "trap": "Selecting options that focus on treating the underlying infection without addressing the immediate respiratory compromise. While the patient has a history of pneumonia, the immediate threat is the acute respiratory failure and hypoxemia caused by ARDS. Prioritizing treatment of the pneumonia over securing the airway and providing adequate ventilation will lead to further deterioration of the patient's condition.",
-            "howToOvercome": "Prioritize interventions based on the ABCs (Airway, Breathing, Circulation). Recognize that the patient's immediate life-threatening problem is the respiratory failure, and interventions should be focused on securing the airway and improving oxygenation and ventilation. While treating the underlying infection is important, it is a secondary priority to addressing the acute respiratory compromise."
-        },
+        "clinicalPearls": [
+            "ARDS is defined by the Berlin Criteria: acute onset (within 1 week of insult), bilateral opacities on imaging not explained by other causes, and hypoxemia as measured by the PaO2/FiO2 ratio.",
+            "Refractory hypoxemia, a key feature of ARDS, occurs because of intrapulmonary shunting where blood passes through non-ventilated, fluid-filled alveoli, making it unresponsive to increases in supplemental oxygen alone.",
+            "Lung-protective ventilation (LPV) is the standard of care for ARDS. It involves using low tidal volumes (4-6 mL/kg of ideal body weight) and maintaining a plateau pressure <30 cm H2O to minimize ventilator-induced lung injury (VILI)."
+        ],
+        "questionTrap": "The primary trap is choosing a less invasive intervention, such as NIPPV or increasing oxygen, when the client's clinical data (severe hypoxemia, acidosis, altered mental status) clearly indicates profound respiratory failure requiring definitive airway management. Always prioritize the most critical intervention based on the ABCs.",
         "mnemonic": {
-            "title": "ARDS Management - VENTILATE",
-            "expansion": "VENTILATE: Ventilation (Mechanical ventilation), Evaluate ABGs, Neuromuscular blockade (if needed), Titrate FiO2 and PEEP, Improve oxygenation, Lung protective strategies (low tidal volume), Avoid complications (VILI), Treatment of underlying cause, Evaluate fluid balance."
+            "title": "ARDS Criteria",
+            "expansion": "A - Acute onset (< 7 days)\nR - Ratio (PaO2/FiO2 < 300)\nD - Diffuse bilateral opacities\nS - Swan-Ganz/PCWP < 18 mmHg or no clinical evidence of left atrial hypertension (non-cardiogenic)"
         }
     },
-    "options": [
-        {
-            "0": "pneumonia",
-            "1": "COPD exacerbation",
-            "2": "ARDS",
-            "3": "pulmonary embolism",
-            "id": "cloze-1",
-            "text": "pneumonia,COPD exacerbation,ARDS,pulmonary embolism"
-        },
-        {
-            "0": "administer antibiotics",
-            "1": "initiate non-invasive positive pressure ventilation (NIPPV)",
-            "2": "prepare for intubation and mechanical ventilation",
-            "3": "increase the oxygen flow rate",
-            "id": "cloze-2",
-            "text": "administer antibiotics,initiate non-invasive positive pressure ventilation (NIPPV),prepare for intubation and mechanical ventilation,increase the oxygen flow rate"
-        },
-        {
-            "0": "improvement in white blood cell count",
-            "1": "signs of ventilator-associated pneumonia",
-            "2": "development of pneumothorax or worsening oxygenation",
-            "3": "resolution of bilateral infiltrates on chest X-ray",
-            "id": "cloze-3",
-            "text": "improvement in white blood cell count,signs of ventilator-associated pneumonia,development of pneumothorax or worsening oxygenation,resolution of bilateral infiltrates on chest X-ray"
-        }
-    ],
-    "correctResponses": {
-        "cloze-1": "ARDS",
-        "cloze-2": "prepare for intubation and mechanical ventilation",
-        "cloze-3": "development of pneumothorax or worsening oxygenation"
-    }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:09:45.149Z"
 }

@@ -1,102 +1,375 @@
 {
-    "id": "New-v26-9a7b8c6d-4e3f-4a2b-8c1d-9e0f1a2b3c4d",
+    "id": "v26-upgraded-9a7b8c6d-4e3f-4a2b-8c1d-9e0f1a2b3c4d",
     "type": "clozeDropdown",
-    "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the assessment data, the nurse should prioritize interventions to address the patient's potential for ventilator-associated pneumonia (VAP). Select the most appropriate option from each dropdown to complete the following sentences.\n\nTo minimize the risk of VAP, the nurse should maintain the head of the bed at a minimum of [dropdown1] degrees. Oral care with [dropdown2] should be performed at least every [dropdown3] hours. The nurse should also assess the patient's readiness for [dropdown4] daily.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is creating the plan of care for a client on mechanical ventilation. Based on the client's record, the nurse must complete the documentation for the Ventilator-Associated Pneumonia (VAP) prevention bundle. Select the most appropriate option from each dropdown.",
+    "prompt": "To minimize the risk of VAP, the nurse should maintain the head of the bed at a minimum of [dropdown1] degrees. Oral care with [dropdown2] should be performed at least every [dropdown3] hours. The nurse should also assess the client's readiness for [dropdown4] daily.",
+    "dropdowns": [
+        {
+            "id": "dropdown1",
+            "options": [
+                {
+                    "id": "d1_opt1",
+                    "text": "10-20"
+                },
+                {
+                    "id": "d1_opt2",
+                    "text": "30-45"
+                },
+                {
+                    "id": "d1_opt3",
+                    "text": "60-75"
+                },
+                {
+                    "id": "d1_opt4",
+                    "text": "90"
+                }
+            ],
+            "correctOptionId": "d1_opt2"
+        },
+        {
+            "id": "dropdown2",
+            "options": [
+                {
+                    "id": "d2_opt1",
+                    "text": "sterile water"
+                },
+                {
+                    "id": "d2_opt2",
+                    "text": "normal saline"
+                },
+                {
+                    "id": "d2_opt3",
+                    "text": "chlorhexidine"
+                },
+                {
+                    "id": "d2_opt4",
+                    "text": "hydrogen peroxide"
+                }
+            ],
+            "correctOptionId": "d2_opt3"
+        },
+        {
+            "id": "dropdown3",
+            "options": [
+                {
+                    "id": "d3_opt1",
+                    "text": "2"
+                },
+                {
+                    "id": "d3_opt2",
+                    "text": "4"
+                },
+                {
+                    "id": "d3_opt3",
+                    "text": "6"
+                },
+                {
+                    "id": "d3_opt4",
+                    "text": "8"
+                }
+            ],
+            "correctOptionId": "d3_opt1"
+        },
+        {
+            "id": "dropdown4",
+            "options": [
+                {
+                    "id": "d4_opt1",
+                    "text": "sedation"
+                },
+                {
+                    "id": "d4_opt2",
+                    "text": "suctioning"
+                },
+                {
+                    "id": "d4_opt3",
+                    "text": "extubation"
+                },
+                {
+                    "id": "d4_opt4",
+                    "text": "repositioning"
+                }
+            ],
+            "correctOptionId": "d4_opt3"
+        }
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Contact",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, a 68-year-old male, admitted three days ago with pneumonia, is intubated and mechanically ventilated. Current vitals at 07:00: HR 98, BP 132/78, RR 16 (ventilator), SpO2 96% (FiO2 40%, PEEP 5).\nB: History of COPD and hypertension complicates respiratory status. Admitted for pneumonia.\nA: At 07:00 assessment: increased work of breathing, coarse crackles bilaterally, yellow-tinged sputum. Oral temperature 38.6°C (101.5°F), WBC 14,000/mm3. Ventilator settings: assist-control, rate 12, tidal volume 500 mL. Suctioned at 06:00, moderate thick secretions.\nO: Concern for ventilator-associated pneumonia (VAP). Prioritize pulmonary hygiene, prevent complications, obtain sputum culture and sensitivity as ordered. Requires vigilant monitoring and VAP prevention protocol adherence. Consider infectious disease consult if no improvement.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 14,000/mm3 (High), Sputum Gram Stain: Gram-negative bacilli present, Sputum Culture: Pending"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "note_type": "Admission Note",
+                        "note": "S: Client is a 68-year-old male with a history of COPD and hypertension, admitted from a local shelter with acute respiratory distress. Reports worsening cough, fever, and shortness of breath over 4 days.\nB: Client is unhoused, which delayed him seeking care. Diagnosed with severe community-acquired pneumonia. Due to progressive hypoxemia and respiratory muscle fatigue, the client was intubated and placed on mechanical ventilation in the ICU.\nA: Alert and oriented to person only before sedation. Lungs with bilateral coarse crackles. Vital signs unstable, requiring vasopressor support initially. Initial chest x-ray shows dense bilateral infiltrates. Labs show significant leukocytosis.\nA: Initiate mechanical ventilation per protocol. Administer broad-spectrum antibiotics after cultures are drawn. Begin VAP prevention bundle immediately. Provide supportive care, including nutritional support and DVT prophylaxis. Monitor hemodynamics and respiratory status closely."
+                    },
+                    {
+                        "timestamp": "Day 3, 08:00",
+                        "note_type": "Progress Note",
+                        "note": "S: Client remains intubated and sedated. Overnight, there was an increase in sputum production and a rise in temperature.\nB: On day 3 of mechanical ventilation for severe pneumonia. History of COPD. Currently receiving Cefepime. VAP prevention bundle is in place.\nA: Temp is 101.5°F (38.6°C). WBC count has increased from 12,500 to 14,000/mm³. Sputum is now thicker and yellow-tinged. Auscultation reveals persistent coarse crackles bilaterally. SpO₂ is 95% on 40% FiO₂ and PEEP of 5 cm H₂O. Ventilator settings are stable. No signs of hemodynamic instability.\nR: Continue VAP bundle protocol meticulously. Obtain sputum for culture and sensitivity to rule out secondary infection or VAP. Continue current antibiotic regimen pending culture results. Monitor for further signs of sepsis. Assess for sedation vacation and readiness to wean daily."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: HR 98, BP 132/78, RR 16 (Ventilator), SpO2 96% (FiO2 40%, PEEP 5), Temp 38.6°C (101.5°F)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "Day 3, 04:00",
+                        "HR (bpm)": "95",
+                        "BP (MAP) mmHg": "128/76 (93)",
+                        "RR (/min)": "16 (Vent)",
+                        "SpO₂ % (Source)": "96% (40% FiO₂)",
+                        "Temp °F (°C)": "100.2 (37.9)"
+                    },
+                    {
+                        "Time": "Day 3, 08:00",
+                        "HR (bpm)": "98",
+                        "BP (MAP) mmHg": "132/78 (96)",
+                        "RR (/min)": "16 (Vent)",
+                        "SpO₂ % (Source)": "95% (40% FiO₂)",
+                        "Temp °F (°C)": "101.5 (38.6)"
+                    },
+                    {
+                        "Time": "Day 3, 12:00",
+                        "HR (bpm)": "102",
+                        "BP (MAP) mmHg": "130/80 (97)",
+                        "RR (/min)": "16 (Vent)",
+                        "SpO₂ % (Source)": "94% (40% FiO₂)",
+                        "Temp °F (°C)": "101.8 (38.8)"
+                    }
+                ]
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC Count",
+                        "Result": "14.0",
+                        "Unit": "x10³/mm³",
+                        "Reference Range": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "2.5",
+                        "Unit": "ng/mL",
+                        "Reference Range": "< 0.15",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Sputum Gram Stain",
+                        "Result": "Gram-negative bacilli",
+                        "Unit": "",
+                        "Reference Range": "No organisms seen",
+                        "Status": "Abnormal"
+                    },
+                    {
+                        "Test": "Sputum Culture",
+                        "Result": "Pending",
+                        "Unit": "",
+                        "Reference Range": "No growth",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Symmetrical chest rise. Endotracheal tube secure at 23 cm at the lip. Coarse crackles auscultated bilaterally. Moderate amount of thick, yellow sputum suctioned via ETT. Ventilator rate set to 16, client not over-breathing."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Heart rate regular. S1, S2 audible. No murmurs. Capillary refill <3 seconds. Peripheral pulses 2+ bilaterally."
+                    },
+                    {
+                        "System": "Neurological",
+                        "Findings": "Client is sedated. RASS -4. Pupils equal, round, and reactive to light."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray (Yesterday): Bilateral infiltrates consistent with pneumonia."
+                "content": {
+                    "type": "Chest X-ray (Portable AP)",
+                    "date": "Day 2, 11:30",
+                    "report": "FINDINGS: Endotracheal tube tip is appropriately positioned 4 cm above the carina. Diffuse bilateral airspace opacities are again noted, consistent with the known diagnosis of pneumonia and ARDS. No evidence of a large pneumothorax or pleural effusion.\n\nIMPRESSION: Persistent bilateral infiltrates with no significant interval change compared to the previous study. Findings are consistent with ongoing severe pneumonia."
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Cefepime 2g IV q12h (Ordered, Not yet administered), Acetaminophen 650mg PO q4h PRN (Last dose: 04:00), Famotidine 20mg IV q12h (Last dose: 06:00)"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "VAP Prevention Bundle",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Maintain head of bed 30-45 degrees",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Oral care with Chlorhexidine",
+                        "Frequency/Status": "Every 2 hours"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Daily sedation vacation and extubation readiness assessment",
+                        "Frequency/Status": "Daily"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:30",
+                        "Action": "Suction endotracheal tube",
+                        "Frequency/Status": "PRN for secretions"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Cefepime",
+                        "Dose": "2g",
+                        "Route": "IV",
+                        "Frequency": "q12h",
+                        "Last Administered": "Day 3, 06:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650mg",
+                        "Route": "PO/Tube",
+                        "Frequency": "q4h PRN Fever/Pain",
+                        "Last Administered": "Day 3, 04:00"
+                    },
+                    {
+                        "Medication": "Famotidine",
+                        "Dose": "20mg",
+                        "Route": "IV",
+                        "Frequency": "q12h",
+                        "Last Administered": "Day 3, 06:00"
+                    },
+                    {
+                        "Medication": "Propofol Infusion",
+                        "Dose": "30 mcg/kg/min",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last Administered": "Ongoing"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
-        ]
-    },
     "rationale": {
-        "correct": "Maintaining the head of the bed at 30-45 degrees minimizes aspiration risk, a key VAP factor. This position reduces gastric content reflux into the airway. Chlorhexidine oral care reduces oral bacteria, significantly lowering VAP risk by decreasing bacterial colonization. Oral care every 2 hours removes secretions and bacterial buildup, preventing pathogen proliferation. Daily extubation readiness assessment minimizes ventilation duration and VAP risk. Prolonged ventilation increases VAP likelihood.",
-        "incorrect": "Incorrect answers indicate a lack of understanding of evidence-based VAP prevention. Lower head-of-bed angles increase aspiration risk. Inappropriate solutions or infrequent oral care promote bacterial colonization and increase VAP risk. Neglecting daily extubation readiness prolongs ventilation, increasing VAP likelihood. These interventions are crucial for preventing VAP in mechanically ventilated patients.",
+        "correct": "The evidence-based VAP prevention bundle includes: maintaining the head of the bed at 30-45 degrees to use gravity to prevent aspiration of gastric contents; performing oral care with chlorhexidine, an antimicrobial agent that reduces bacterial colonization in the oropharynx; providing oral care every 2 hours to prevent the buildup of plaque and pathogenic biofilms; and performing a daily assessment for extubation readiness to minimize the duration of mechanical ventilation, which is the single greatest risk factor for VAP.",
+        "answerBreakdown": [
+            {
+                "optionId": "d1_opt1",
+                "content": "Incorrect. An angle of 10-20 degrees is too low and does not provide sufficient gravitational force to prevent the reflux and subsequent aspiration of oropharyngeal or gastric secretions into the lungs."
+            },
+            {
+                "optionId": "d1_opt2",
+                "content": "Correct. Maintaining the head of the bed at 30-45 degrees is the standard of care. This semi-recumbent position has been proven to significantly reduce the risk of aspiration and VAP."
+            },
+            {
+                "optionId": "d1_opt3",
+                "content": "Incorrect. While a 60-75 degree angle would prevent aspiration, it is often not tolerated hemodynamically and significantly increases the risk for sacral and heel pressure injuries due to shearing forces."
+            },
+            {
+                "optionId": "d1_opt4",
+                "content": "Incorrect. A 90-degree angle (high Fowler's) is impractical for long-term positioning, increases pressure injury risk, and is not superior to 30-45 degrees for VAP prevention."
+            },
+            {
+                "optionId": "d2_opt1",
+                "content": "Incorrect. Sterile water provides moisture but has no antimicrobial properties. It is ineffective at reducing the bacterial load in the oropharynx, which is a primary goal of oral care in VAP prevention."
+            },
+            {
+                "optionId": "d2_opt2",
+                "content": "Incorrect. Normal saline is isotonic and can help clean debris, but like water, it lacks antimicrobial action and does not effectively decrease the colonization of pathogenic bacteria."
+            },
+            {
+                "optionId": "d2_opt3",
+                "content": "Correct. Chlorhexidine is an oral antiseptic rinse that is the evidence-based standard for oral care in ventilated patients. It significantly reduces the incidence of VAP by decreasing microbial colonization."
+            },
+            {
+                "optionId": "d2_opt4",
+                "content": "Incorrect. Hydrogen peroxide can cause tissue irritation and damage to the oral mucosa, which can create a portal of entry for bacteria, paradoxically increasing infection risk. It is not recommended."
+            },
+            {
+                "optionId": "d3_opt1",
+                "content": "Correct. A frequency of every 2 hours is recommended for oral care in ventilated patients to consistently suppress bacterial growth and remove secretions before they can be aspirated."
+            },
+            {
+                "optionId": "d3_opt2",
+                "content": "Incorrect. Performing oral care only every 4 hours allows for significant bacterial biofilm formation and regrowth between cleanings, increasing the risk of VAP."
+            },
+            {
+                "optionId": "d3_opt3",
+                "content": "Incorrect. A 6-hour interval is too long and considered substandard care. It allows for a high bacterial load to accumulate in the oropharynx, significantly increasing aspiration risk."
+            },
+            {
+                "optionId": "d3_opt4",
+                "content": "Incorrect. An 8-hour interval (once per shift) is grossly inadequate and places the patient at a very high risk for developing VAP due to uncontrolled bacterial colonization."
+            },
+            {
+                "optionId": "d4_opt1",
+                "content": "Incorrect. While sedation levels are assessed daily (sedation vacation), the goal is to determine readiness for extubation, not just to assess sedation itself. Sedation is a means, not the end goal."
+            },
+            {
+                "optionId": "d4_opt2",
+                "content": "Incorrect. Suctioning is a routine, as-needed intervention, not a daily readiness assessment. It manages secretions but does not address the primary risk factor, which is the duration of ventilation."
+            },
+            {
+                "optionId": "d4_opt3",
+                "content": "Correct. The ultimate goal is to remove the endotracheal tube as soon as safely possible. A daily, systematic assessment of the client's ability to be extubated is a core component of the VAP bundle."
+            },
+            {
+                "optionId": "d4_opt4",
+                "content": "Incorrect. Repositioning is important for preventing pressure injuries and mobilizing secretions (q2h), but it is not the specific daily *readiness assessment* that is a key part of the VAP bundle."
+            }
+        ],
         "clinicalPearls": [
-            "VAP is a serious mechanical ventilation complication, increasing morbidity, mortality, and healthcare costs.",
-            "Strict VAP prevention bundle adherence (head-of-bed elevation, chlorhexidine oral care, early extubation assessment) optimizes outcomes.",
-            "Effective communication and collaboration are crucial for consistent VAP prevention implementation."
+            "The VAP prevention 'bundle' is a set of evidence-based practices that, when implemented together, significantly decrease the incidence of ventilator-associated pneumonia.",
+            "The duration of mechanical ventilation is the single most significant risk factor for VAP. Therefore, all interventions are ultimately aimed at safe and early extubation.",
+            "Subglottic suctioning via a specialized endotracheal tube is another advanced intervention that can continuously remove secretions pooled above the cuff, further reducing aspiration risk."
         ],
-        "questionTrap": {
-            "trap": "Students may choose less frequent oral care or overlook head-of-bed elevation. Some may neglect daily extubation assessment, focusing solely on respiratory parameters. These oversights can compromise patient safety and increase VAP risk.",
-            "howToOvercome": "Emphasize evidence-based VAP prevention guidelines and the rationale behind each intervention. Highlight the link between prolonged ventilation and VAP risk. Prioritize actions that directly reduce aspiration and bacterial colonization."
-        },
+        "questionTrap": "A common trap is confusing routine care (like suctioning or repositioning) with the specific, bundled interventions for VAP prevention. The key is to identify the evidence-based components that directly target the pathophysiology of VAP: aspiration and bacterial colonization.",
         "mnemonic": {
-            "title": "VAP BUNDLE",
-            "expansion": "Ventilator Associated Pneumonia Bundle: **H**ead of Bed Elevation, **O**ral Care (Chlorhexidine), **P**ulmonary Hygiene (Suctioning), **D**aily Sedation Vacation, **E**xtubation Assessment"
-        }
-    },
-    "responseOptions": {
-        "dropdown1": [
-            "10-20",
-            "30-45",
-            "60-75",
-            "90"
-        ],
-        "dropdown2": [
-            "sterile water",
-            "normal saline",
-            "chlorhexidine",
-            "hydrogen peroxide"
-        ],
-        "dropdown3": [
-            "2",
-            "4",
-            "6",
-            "8"
-        ],
-        "dropdown4": [
-            "sedation",
-            "suctioning",
-            "extubation",
-            "repositioning"
+            "title": "VAP BUNDLE: 'HOB UP & CLEAN'",
+            "expansion": "Head Of Bed UP (30-45°), Oral care (Chlorhexidine q2h), Break from sedation (daily assessment), Liberate from vent (daily extubation assessment), Early mobility, And No unnecessary intubation, DVT/PUD prophylaxis."
+        },
+        "reviewUnits": [
+            "Critical Care",
+            "Respiratory Disorders",
+            "Infection Control"
         ]
     },
-    "correctResponse": {
-        "dropdown1": "30-45",
-        "dropdown2": "chlorhexidine",
-        "dropdown3": "2",
-        "dropdown4": "extubation"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Safe and Effective Care Environment"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T13:56:49.346Z"
 }

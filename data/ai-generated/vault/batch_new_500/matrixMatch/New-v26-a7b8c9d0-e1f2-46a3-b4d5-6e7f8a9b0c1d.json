@@ -1,103 +1,327 @@
 {
     "id": "New-v26-a7b8c9d0-e1f2-46a3-b4d5-6e7f8a9b0c1d",
     "type": "matrixMatch",
-    "stem": "The nurse is preparing to administer medications to Mr. Jones. Based on the provided information, determine if each medication order is safe, unsafe, or requires further clarification before administration. Consider the patient's current status, lab values, and medication history.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
-    "itemContext": {
-        "patient": {
-            "name": "Robert Jones",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical Unit",
-            "isolation": "Droplet",
-            "allergies": [
-                "Sulfa drugs"
-            ]
-        },
-        "sbar": "S: Mr. Jones is a 72-year-old male admitted at 06:00 for heart failure exacerbation. He has a history of hypertension, diabetes, and chronic kidney disease (CKD). B: His baseline medications include Lisinopril 10mg PO daily, Metoprolol 25mg PO BID, Digoxin 0.125mg PO daily, and Potassium Chloride 20mEq PO BID. O: At 06:00, the patient reported increased shortness of breath and lower extremity edema. His vital signs are: BP 160/90 mmHg, HR 110 bpm, RR 28 breaths/min, and SpO2 90% on 2L NC. Labs show: Na 132 mEq/L, K 3.2 mEq/L, Cl 98 mEq/L, BUN 45 mg/dL, Creatinine 2.5 mg/dL, Glucose 180 mg/dL, Digoxin level 0.6 ng/mL. Weight is 80kg. A: The patient is experiencing a heart failure exacerbation with fluid overload, complicated by CKD and hypokalemia. The hypoxemia is concerning. R: At 06:15, the physician was notified and new orders were received: Furosemide 40mg IVP now, Lisinopril 10mg PO now, Metoprolol 25mg PO now, and Digoxin 0.125mg PO now. Continue current home medications. The patient is alert and oriented but distressed due to breathing difficulties. Droplet precautions are in place due to a recent respiratory infection.",
-        "tabs": [
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 132 mEq/L, K: 3.2 mEq/L, Cl: 98 mEq/L, BUN: 45 mg/dL, Creatinine: 2.5 mg/dL, Glucose: 180 mg/dL, Digoxin level: 0.6 ng/mL"
-            },
-            {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "04:00: BP 150/85, HR 98, RR 24, SpO2 92% on RA.\n05:00: BP 155/88, HR 104, RR 26, SpO2 91% on 2L NC.\n06:00: BP 160/90, HR 110, RR 28, SpO2 90% on 2L NC. Temp: 37.2 C"
-            },
-            {
-                "id": "radiology",
-                "title": "Radiology",
-                "content": "No radiology reports available."
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Furosemide 40mg IVP daily, Lisinopril 10mg PO daily, Metoprolol 25mg PO BID, Digoxin 0.125mg PO daily, Potassium Chloride 20mEq PO BID (last dose given 00:00)"
-            }
-        ]
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
-        ]
-    },
-    "rationale": {
-        "correct": "Furosemide is unsafe due to the patient's hypokalemia (K 3.2 mEq/L). Furosemide, a loop diuretic, promotes potassium excretion, which can exacerbate hypokalemia, leading to cardiac arrhythmias, especially dangerous with concurrent Digoxin use. Lisinopril is unsafe because the patient's elevated creatinine (2.5 mg/dL) indicates impaired kidney function. ACE inhibitors like Lisinopril can further impair kidney function by reducing glomerular filtration. Metoprolol is safe because, despite the elevated heart rate, Metoprolol is indicated for heart failure to reduce cardiac workload. However, the physician should be notified of the elevated heart rate. Digoxin requires clarification because while the digoxin level (0.6 ng/mL) is within the therapeutic range (0.5-2 ng/mL), hypokalemia increases the risk of digoxin toxicity, even at therapeutic levels. The provider should be consulted before administration.",
-        "incorrect": "Incorrect responses indicate a failure to integrate the patient's electrolyte imbalances, kidney function, and medication profiles to determine medication safety. Failing to recognize the risks associated with administering furosemide with hypokalemia or lisinopril with elevated creatinine demonstrates a lack of understanding of medication safety principles and patient-specific considerations. Incorrectly assessing metoprolol or digoxin shows a misunderstanding of their indications, contraindications, and potential interactions.",
-        "clinicalPearls": [
-            "Always assess potassium levels before administering loop diuretics like furosemide to prevent cardiac arrhythmias.",
-            "Monitor kidney function (BUN and creatinine) before and during ACE inhibitor therapy to prevent acute kidney injury.",
-            "Hypokalemia increases the risk of digoxin toxicity, even within the therapeutic range.",
-            "Consider the patient's complete clinical picture, including vital signs, lab values, and medication history, before administering any medication to ensure patient safety."
-        ],
-        "questionTrap": {
-            "trap": "The question trap is focusing on a single data point (e.g., elevated heart rate) without considering the broader clinical context (e.g., electrolyte imbalances, kidney function, heart failure exacerbation).",
-            "howToOvercome": "To overcome this trap, systematically analyze all available data (SBAR, labs, MAR, vitals) to identify potential interactions and contraindications before making a decision about medication administration. Prioritize patient safety by addressing electrolyte imbalances and kidney function issues before administering medications that could exacerbate these problems."
-        },
-        "mnemonic": {
-            "title": "KID SAFE Meds",
-            "expansion": "Know allergies, Identify Drug Interactions, Dose Appropriately, Safety First, Assess Labs, Evaluate Vitals, Medicate Carefully"
-        }
-    },
+    "stem": "The nurse is reviewing new STAT medication orders for a client admitted with heart failure exacerbation. For each medication, determine if the order is appropriate, requires clarification, or is contraindicated based on the client's electronic health record.",
     "matrix": {
         "rows": [
-            "Furosemide 40mg IVP",
-            "Lisinopril 10mg PO",
-            "Metoprolol 25mg PO",
-            "Digoxin 0.125mg PO"
+            "Furosemide 40mg IV STAT",
+            "Lisinopril 10mg PO STAT",
+            "Metoprolol 25mg PO STAT",
+            "Digoxin 0.125mg PO STAT"
         ],
         "columns": [
-            "Safe",
-            "Unsafe",
-            "Requires Clarification"
+            "Appropriate",
+            "Requires Clarification",
+            "Contraindicated"
         ]
     },
     "answerKey": [
         {
-            "row": "Furosemide 40mg IVP",
-            "column": "Unsafe"
+            "row": "Furosemide 40mg IV STAT",
+            "column": "Contraindicated"
         },
         {
-            "row": "Lisinopril 10mg PO",
-            "column": "Unsafe"
+            "row": "Lisinopril 10mg PO STAT",
+            "column": "Contraindicated"
         },
         {
-            "row": "Metoprolol 25mg PO",
-            "column": "Safe"
+            "row": "Metoprolol 25mg PO STAT",
+            "column": "Appropriate"
         },
         {
-            "row": "Digoxin 0.125mg PO",
+            "row": "Digoxin 0.125mg PO STAT",
             "column": "Requires Clarification"
         }
     ],
-    "sentinelStatus": "deep_healed_v2026"
+    "itemContext": {
+        "patient": {
+            "age": "72 years",
+            "sex": "Male",
+            "pronouns": "He/Him",
+            "allergies": [
+                "Sulfa drugs"
+            ]
+        },
+        "tabs": [
+            {
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 06:00",
+                        "type": "Admission Note",
+                        "note": "S: 72-year-old male admitted from home with acute decompensated heart failure. Reports worsening dyspnea, orthopnea, and significant bilateral lower extremity swelling over the past 48 hours. States he 'can't catch his breath.'\nB: History of hypertension, type 2 diabetes mellitus, and stage 3 chronic kidney disease (CKD). Home medications include lisinopril, metoprolol, and digoxin. The client lives alone in a second-floor apartment without an elevator, which has become increasingly difficult for him to manage.\nA: Alert, oriented x3, in moderate respiratory distress. Bibasilar crackles auscultated halfway up posterior lung fields. Tachycardic with an S3 gallop. SpO₂ is 90% on 2L NC. Labs show hypokalemia and acute-on-chronic kidney injury.\nR: Admitted to the medical telemetry unit for management of fluid overload and cardiac monitoring. Awaiting provider orders."
+                    },
+                    {
+                        "timestamp": "Day 1, 06:15",
+                        "type": "Progress Note",
+                        "note": "S: Provider at bedside and notified of client's status and critical lab values.\nB: Client remains anxious and tachypneic, reporting no improvement in breathing.\nA: New STAT orders received for immediate intervention to address fluid overload and cardiac strain.\nR: Nurse to prepare and administer STAT medications as ordered. Continue to monitor vital signs, cardiac rhythm, and urine output closely. Reinforce need to remain on bedrest."
+                    }
+                ]
+            },
+            {
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp",
+                        "HR (bpm)",
+                        "RR (breaths/min)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "SpO₂ (%)"
+                    ],
+                    "rows": [
+                        [
+                            "04:00",
+                            "99.0°F (37.2°C)",
+                            "98",
+                            "24",
+                            "150/85",
+                            "107",
+                            "92% on RA"
+                        ],
+                        [
+                            "05:00",
+                            "99.1°F (37.3°C)",
+                            "104",
+                            "26",
+                            "155/88",
+                            "110",
+                            "91% on 2L NC"
+                        ],
+                        [
+                            "06:00",
+                            "99.0°F (37.2°C)",
+                            "110",
+                            "28",
+                            "160/90",
+                            "113",
+                            "90% on 2L NC"
+                        ]
+                    ],
+                    "telemetry": "Sinus Tachycardia"
+                }
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "result": "Sodium (Na+)",
+                        "value": "132",
+                        "unit": "mEq/L",
+                        "range": "136-145",
+                        "status": "Low"
+                    },
+                    {
+                        "result": "Potassium (K+)",
+                        "value": "3.2",
+                        "unit": "mEq/L",
+                        "range": "3.5-5.0",
+                        "status": "Low"
+                    },
+                    {
+                        "result": "Chloride (Cl-)",
+                        "value": "98",
+                        "unit": "mEq/L",
+                        "range": "98-106",
+                        "status": "Normal"
+                    },
+                    {
+                        "result": "BUN",
+                        "value": "45",
+                        "unit": "mg/dL",
+                        "range": "10-20",
+                        "status": "High"
+                    },
+                    {
+                        "result": "Creatinine",
+                        "value": "2.5",
+                        "unit": "mg/dL",
+                        "range": "0.6-1.2",
+                        "status": "High"
+                    },
+                    {
+                        "result": "Glucose",
+                        "value": "180",
+                        "unit": "mg/dL",
+                        "range": "74-106",
+                        "status": "High"
+                    },
+                    {
+                        "result": "Digoxin Level",
+                        "value": "0.6",
+                        "unit": "ng/mL",
+                        "range": "0.5-2.0",
+                        "status": "Normal"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "General",
+                        "findings": "Anxious male in moderate respiratory distress. Appears fatigued."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardia with regular rhythm. S1, S2, and S3 gallop auscultated. Pulses 2+ peripherally. 3+ pitting edema noted bilaterally from feet to mid-shin."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Tachypneic with use of accessory muscles. Bibasilar crackles auscultated halfway up posterior lung fields."
+                    },
+                    {
+                        "system": "Neurological",
+                        "findings": "Alert and oriented to person, place, and time. Follows commands."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "reportType": "Chest X-ray (PA and Lateral)",
+                    "timestamp": "Day 1, 06:30",
+                    "findings": "Significant cardiomegaly is noted. There is evidence of pulmonary vascular congestion with cephalization of the pulmonary vessels. Bilateral pleural effusions and interstitial edema with Kerley B lines are present.",
+                    "impression": "Findings are consistent with acute pulmonary edema secondary to congestive heart failure exacerbation."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 06:15",
+                        "order": "Admit to Medical Telemetry Unit.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 06:15",
+                        "order": "Continuous cardiac monitoring.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 06:15",
+                        "order": "Vital signs every 4 hours.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 06:15",
+                        "order": "2-gram sodium diet, 1500 mL/day fluid restriction.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 06:15",
+                        "order": "Furosemide 40mg IV STAT.",
+                        "status": "New"
+                    },
+                    {
+                        "timestamp": "Day 1, 06:15",
+                        "order": "Lisinopril 10mg PO STAT.",
+                        "status": "New"
+                    },
+                    {
+                        "timestamp": "Day 1, 06:15",
+                        "order": "Metoprolol 25mg PO STAT.",
+                        "status": "New"
+                    },
+                    {
+                        "timestamp": "Day 1, 06:15",
+                        "order": "Digoxin 0.125mg PO STAT.",
+                        "status": "New"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Furosemide 40mg IV",
+                        "frequency": "STAT",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "Lisinopril 10mg PO",
+                        "frequency": "STAT",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "Metoprolol 25mg PO",
+                        "frequency": "STAT",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "Digoxin 0.125mg PO",
+                        "frequency": "STAT",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "Potassium Chloride 20mEq PO",
+                        "frequency": "BID",
+                        "lastAdministered": "Day 0, 20:00"
+                    }
+                ]
+            }
+        ]
+    },
+    "rationale": {
+        "correct": "The nurse must critically evaluate each STAT medication order against the client's current clinical data. Furosemide and Lisinopril are contraindicated due to severe electrolyte and renal abnormalities. Metoprolol is appropriate for managing cardiac workload in heart failure. Digoxin requires clarification because the risk of toxicity is significantly increased by the client's hypokalemia, despite a therapeutic serum level.",
+        "incorrect": "Failing to identify contraindications demonstrates a critical gap in medication safety. Administering furosemide would worsen life-threatening hypokalemia. Administering lisinopril would exacerbate the acute kidney injury. Withholding metoprolol misses an opportunity to reduce myocardial oxygen demand. Administering digoxin without clarifying the hypokalemia risk with the provider would be unsafe practice.",
+        "answerBreakdown": [
+            {
+                "row": "Furosemide 40mg IV STAT",
+                "column": "Contraindicated",
+                "content": "This is correct. Furosemide is a potent loop diuretic that causes potassium excretion. The client's potassium is already critically low at 3.2 mEq/L. Administering furosemide would exacerbate hypokalemia, increasing the risk of fatal cardiac dysrhythmias, particularly in a client also taking digoxin."
+            },
+            {
+                "row": "Lisinopril 10mg PO STAT",
+                "column": "Contraindicated",
+                "content": "This is correct. Lisinopril, an ACE inhibitor, can decrease glomerular filtration pressure and worsen renal function. The client has an acute-on-chronic kidney injury, evidenced by a high creatinine of 2.5 mg/dL. Administering an ACE inhibitor in this state is contraindicated as it can precipitate further renal failure."
+            },
+            {
+                "row": "Metoprolol 25mg PO STAT",
+                "column": "Appropriate",
+                "content": "This is correct. Metoprolol is a beta-blocker indicated in heart failure to reduce cardiac workload, decrease myocardial oxygen consumption, and block the effects of excessive sympathetic stimulation. Despite the tachycardia (a compensatory mechanism), administering the beta-blocker is a cornerstone of heart failure management."
+            },
+            {
+                "row": "Digoxin 0.125mg PO STAT",
+                "column": "Requires Clarification",
+                "content": "This is correct. While the client's digoxin level (0.6 ng/mL) is within the therapeutic range, hypokalemia (K+ 3.2 mEq/L) significantly increases myocardial sensitivity to digoxin. This potentiates the risk of digoxin toxicity (e.g., arrhythmias, visual disturbances) even at therapeutic serum levels. The nurse must contact the provider to address the hypokalemia before administering this medication."
+            }
+        ],
+        "clinicalPearls": [
+            "Hypokalemia is a major contraindication for loop diuretics and a significant risk factor for digoxin toxicity. Always verify potassium levels before administration.",
+            "Acute kidney injury (AKI), indicated by a rising creatinine, is a contraindication for administering ACE inhibitors or ARBs, as they can worsen renal perfusion.",
+            "Beta-blockers are a primary therapy for heart failure with reduced ejection fraction (HFrEF) and should be administered unless the client is in cardiogenic shock or has severe bradycardia.",
+            "A 'STAT' order does not override the nurse's professional responsibility to verify medication safety. Always perform a final check using current patient data."
+        ],
+        "questionTrap": "The primary trap is 'STAT order obedience'—the tendency to administer an urgent medication without performing a thorough safety check. Test-takers might see 'STAT' and 'heart failure' and automatically administer the diuretic and other cardiac meds without synthesizing the critical lab data.",
+        "mnemonic": {
+            "title": "HF MEDS Check",
+            "expansion": "H: Hypokalemia? (Check K+ before diuretics/digoxin)\nF: Functioning Kidneys? (Check BUN/Cr before ACE-I/ARBs)\nM: Myocardial Strain (Is a beta-blocker appropriate?)\nE: Electrolytes (Review all before giving cardiac meds)\nD: Digoxin Toxicity Risk? (Check K+, Mg++, Ca++)\nS: Safety First (Question any order that conflicts with data)"
+        },
+        "reviewUnits": [
+            "Pharmacology: Cardiovascular",
+            "Pathophysiology: Heart Failure",
+            "Fluid & Electrolytes: Potassium Imbalance",
+            "Renal: Acute Kidney Injury"
+        ]
+    },
+    "scoring": {
+        "method": "0/1 per row",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Pharmacological and Parenteral Therapies"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:24:57.648Z"
 }

@@ -1,80 +1,153 @@
 {
     "id": "New-v26-4a7b8c9d-e2f0-4g3h-9i6j-1a2b3c4d5e6f",
     "type": "matrixMatch",
-    "stem": "The nurse is caring for a patient who delivered vaginally 4 hours ago. Based on the assessment data in the EHR, determine which nursing interventions are indicated and which are contraindicated. Match each nursing intervention to its appropriate category.",
+    "stem": "The nurse is caring for a postpartum client. Based on the electronic health record, determine if each nursing intervention is indicated or contraindicated. Select one option for each row.",
     "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 6
+        "method": "0/1",
+        "maxPoints": 5
     },
     "itemContext": {
         "patient": {
             "name": "Maria Rodriguez",
-            "age": 28,
-            "gender": "Female",
-            "iso": "Postpartum Unit",
+            "age": "28 years",
+            "sex": "Female",
+            "pronouns": "she/her",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "0700 Report: Maria Rodriguez, a 28-year-old G1P1, delivered vaginally at 0300 after a 12-hour labor. Epidural was removed at 0400. At 0600, assessment revealed a boggy fundus, 2 cm above the umbilicus and displaced to the right. She has moderate lochia rubra with several quarter-sized clots. Her BP is 160/100 mmHg, HR 98 bpm, RR 20, Temp 37.2°C (99°F), and O2 sat 98% on room air. Patient reports a headache and blurred vision. Foley catheter is in place with an output of 30 mL/hr. Urine protein is 3+. The provider was notified of the elevated BP and headache at 0630 and ordered labetalol 20mg IV push q10 min PRN SBP>160 mmHg. Patient is on droplet precautions due to elevated blood pressure and potential for preeclampsia; continue to monitor for signs of pulmonary edema. No other new orders received.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>11.0 g/dL</td><td>12-16 g/dL</td></tr><tr><td>Hematocrit</td><td>33%</td><td>36-48%</td></tr><tr><td>Platelets</td><td>140,000/μL</td><td>150,000-400,000/μL</td></tr><tr><td>Urine Protein</td><td>3+</td><td>Negative</td></tr><tr><td>BUN</td><td>18 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.1 mg/dL</td><td>0.5-1.1 mg/dL</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "03:30",
+                        "author": "RN",
+                        "noteType": "Admission Note",
+                        "note": "Client is a 28-year-old G1P1 admitted to the postpartum unit following an uncomplicated vaginal delivery at 03:00. Epidural anesthesia was discontinued, and sensation has returned to lower extremities. Initial vital signs are stable. Fundus is firm, at the umbilicus. Lochia rubra is moderate. Client is alert, oriented, and bonding with the newborn. Lactated Ringers infusing at 125 mL/hr. Provider orders reviewed and acknowledged."
+                    },
+                    {
+                        "timestamp": "07:00",
+                        "author": "RN",
+                        "noteType": "Progress Note",
+                        "note": "S: Client reports a 'pounding headache' and seeing 'blurry spots.' Denies chest pain but verbalizes feeling anxious.\nB: History of gestational hypertension during the third trimester. Client lives in a rural area with known transportation barriers, a key social determinant of health impacting access to follow-up care.\nA: BP is 160/100 mmHg (MAP 120). Fundus is boggy, located 2 cm above the umbilicus, and deviated to the right. Moderate lochia rubra with several quarter-sized clots noted. Neurologically, client is alert but reports visual changes; deep tendon reflexes are 3+. Urine protein is 3+. Clinical picture suggests severe postpartum preeclampsia concurrent with uterine atony.\nR: Provider notified of findings. Received order for labetalol IV PRN. Will administer labetalol, initiate seizure precautions, and perform fundal massage. Continue hourly vital signs and neuro checks."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>Temp</th><th>O2 Sat</th></tr></thead><tbody><tr><td>0600</td><td>160/100</td><td>98</td><td>20</td><td>37.2°C (99°F)</td><td>98%</td></tr><tr><td>0500</td><td>152/96</td><td>92</td><td>18</td><td>37.0°C (98.6°F)</td><td>99%</td></tr><tr><td>0400</td><td>148/90</td><td>88</td><td>16</td><td>36.8°C (98.2°F)</td><td>99%</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO₂</th></tr></thead><tbody><tr><td>07:00</td><td>160/100 mmHg (120)</td><td>98</td><td>20</td><td>99.0°F (37.2°C)</td><td>98% on room air</td></tr><tr><td>06:00</td><td>152/96 mmHg (115)</td><td>92</td><td>18</td><td>98.6°F (37.0°C)</td><td>99% on room air</td></tr><tr><td>05:00</td><td>148/90 mmHg (109)</td><td>88</td><td>16</td><td>98.2°F (36.8°C)</td><td>99% on room air</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Lactated Ringers</td><td>125 mL/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV Push</td><td>q10 min PRN SBP>160</td><td>Not yet administered</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4 hr PRN Pain</td><td>Not yet administered</td></tr><tr><td>Oxycodone</td><td>5 mg</td><td>PO</td><td>q4 hr PRN Pain</td><td>Not yet administered</td></tr><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>BID</td><td>0600</td></tr></tbody></table>"
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>11.0</td><td>g/dL</td><td>12-16</td><td></td></tr><tr><td>Hematocrit</td><td>33</td><td>%</td><td>36-48</td><td></td></tr><tr><td>Platelets</td><td>140,000</td><td>/μL</td><td>150,000-400,000</td><td>Low</td></tr><tr><td>Urine Protein</td><td>3+</td><td></td><td>Negative</td><td>High</td></tr><tr><td>BUN</td><td>18</td><td>mg/dL</td><td>8-20</td><td></td></tr><tr><td>Creatinine</td><td>1.2</td><td>mg/dL</td><td>0.5-1.1</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "S1, S2 audible. Tachycardia noted. No murmurs, rubs, or gallops. Capillary refill <3 seconds."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Lungs clear to auscultation bilaterally. Respirations unlabored. Symmetrical chest expansion."
+                    },
+                    {
+                        "system": "Neurological",
+                        "findings": "Alert and oriented x3. Reports pounding headache and blurred vision. Deep tendon reflexes 3+ bilaterally. No clonus noted at this time."
+                    },
+                    {
+                        "system": "Reproductive",
+                        "findings": "Fundus is boggy, located 2 cm above the umbilicus, and deviated to the right. Moderate lochia rubra with several quarter-sized clots expressed during fundal check. Perineum intact with minimal edema."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No radiology reports available.</p>"
+                "content": "<p>No imaging studies ordered at this time.</p>"
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>07:05</td><td>Seizure Precautions</td><td>Active</td></tr><tr><td>07:05</td><td>Vital signs</td><td>Every 1 hour</td></tr><tr><td>07:05</td><td>Strict Intake & Output</td><td>Active</td></tr><tr><td>07:05</td><td>Fundal massage PRN</td><td>Active</td></tr><tr><td>03:30</td><td>Lactated Ringers</td><td>Continuous at 125 mL/hr</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Lactated Ringers</td><td>125 mL/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV Push</td><td>q10 min PRN SBP > 160 mmHg</td><td>Not yet administered</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4 hr PRN Pain</td><td>Not yet administered</td></tr><tr><td>Oxycodone</td><td>5 mg</td><td>PO</td><td>q4 hr PRN Pain</td><td>Not yet administered</td></tr><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>BID</td><td>06:00</td></tr></tbody></table>"
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "generateSolutions",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Maternal: Preeclampsia & Postpartum Hemorrhage"
+            "Maternal Health",
+            "Postpartum Complications",
+            "Preeclampsia",
+            "Hemorrhage"
         ]
     },
     "rationale": {
-        "correct": "Administering Labetalol IV push is indicated because the patient's blood pressure is elevated (160/100 mmHg) and the provider has ordered labetalol PRN for SBP >160 mmHg. Initiating seizure precautions is indicated due to the patient's elevated blood pressure, headache, blurred vision, and proteinuria, which are all signs of preeclampsia and increase the risk of seizure. Massaging the fundus is indicated because it is boggy and displaced, suggesting uterine atony, which can lead to postpartum hemorrhage. Monitoring urine output is indicated due to the risk of decreased renal perfusion associated with preeclampsia. Administering oxygen is indicated to support oxygenation in the setting of potential pulmonary edema or respiratory distress related to preeclampsia. Placing the patient in a left lateral position is indicated to improve uterine perfusion and reduce pressure on the vena cava, which can improve blood flow to the uterus and fetus (if still pregnant) or postpartum patient.",
-        "incorrect": "Elevating the head of the bed to a flat position is contraindicated. A semi-Fowler's position would be more appropriate to reduce pressure on the diaphragm and improve respiratory effort, especially with elevated blood pressure. Encouraging ambulation is contraindicated at this time. The patient's preeclampsia symptoms (headache, blurred vision, and elevated BP) and risk for seizure warrant bed rest to prevent falls and further complications.",
+        "correct": "The client is exhibiting signs of two critical postpartum complications: severe preeclampsia (hypertension, headache, visual changes, proteinuria) and uterine atony (boggy, displaced fundus), a primary cause of postpartum hemorrhage. Indicated interventions directly address these life-threatening conditions. Contraindicated actions would either worsen the client's condition or pose a significant safety risk.",
+        "incorrect": "Contraindicated actions fail to address the client's instability. Encouraging ambulation creates a high risk for falls due to neurological symptoms and potential medication side effects. Placing the client flat (supine) can increase intracranial pressure and compromise respiratory function, which is dangerous in a hypertensive crisis.",
+        "answerBreakdown": [
+            {
+                "option": "Administer Labetalol 20mg IV push",
+                "classification": "Indicated",
+                "rationale": "This is indicated. The client's SBP is 160 mmHg, meeting the specific criteria in the provider's order. Pathophysiologically, severe hypertension reflects intense vasospasm, which can lead to stroke or eclamptic seizure. Labetalol, a beta-blocker, reduces systemic vascular resistance and heart rate, lowering blood pressure to prevent end-organ damage."
+            },
+            {
+                "option": "Initiate seizure precautions",
+                "classification": "Indicated",
+                "rationale": "This is indicated. The combination of severe hypertension, headache, and visual disturbances indicates significant central nervous system irritability and cerebral edema, which are precursors to an eclamptic seizure. Seizure precautions (e.g., padded side rails, suction at bedside) are a critical safety measure to prevent injury."
+            },
+            {
+                "option": "Massage the fundus",
+                "classification": "Indicated",
+                "rationale": "This is indicated. The client's fundus is boggy and displaced, classic signs of uterine atony. Pathophysiologically, the myometrial fibers are not contracting sufficiently to constrict the spiral arteries at the placental site, leading to hemorrhage. Fundal massage provides a mechanical stimulus to promote uterine contraction and control bleeding."
+            },
+            {
+                "option": "Encourage ambulation to the bathroom",
+                "classification": "Contraindicated",
+                "rationale": "This is contraindicated. The client's neurological symptoms (headache, blurred vision) and risk for seizure create a significant fall risk. Furthermore, administering an IV antihypertensive like labetalol can cause orthostatic hypotension, further increasing this risk. Bed rest is the appropriate level of activity."
+            },
+            {
+                "option": "Place client in a supine, flat position",
+                "classification": "Contraindicated",
+                "rationale": "This is contraindicated. A supine, flat position can increase intracranial pressure, which is already elevated due to cerebral edema from severe preeclampsia. It can also impede diaphragmatic excursion and gas exchange. A semi-Fowler's or side-lying position is preferred to reduce ICP and optimize respiratory function."
+            }
+        ],
         "clinicalPearls": [
-            "Preeclampsia can occur postpartum, even if it wasn't present during pregnancy.",
-            "Uterine atony is a primary cause of postpartum hemorrhage and requires prompt intervention."
+            "Postpartum preeclampsia can develop up to 6 weeks after delivery, even in clients with no prior history of hypertension.",
+            "A boggy uterus that is deviated to the side (usually the right) often indicates a full bladder is preventing the uterus from contracting effectively. The first step is fundal massage, followed by assisting the client to void or catheterization.",
+            "Thrombocytopenia (platelets <150,000/μL) and elevated creatinine are signs of end-organ damage in severe preeclampsia, progressing towards HELLP syndrome.",
+            "Recognizing social determinants of health, such as transportation barriers, is crucial for discharge planning to ensure the client can attend necessary follow-up appointments."
         ],
         "questionTrap": {
-            "trap": "Students might focus solely on the postpartum hemorrhage risk and miss the subtle signs of worsening preeclampsia.",
-            "howToOvercome": "Emphasize the importance of assessing all systems and recognizing that preeclampsia can manifest or worsen postpartum. Encourage students to consider the patient's complete clinical picture, including vital signs, lab values, and subjective symptoms."
+            "trap": "Focusing on only one of the two concurrent problems (hemorrhage vs. preeclampsia) and failing to select interventions that address both life-threatening conditions simultaneously.",
+            "howToOvercome": "Systematically analyze all abnormal cues from the EHR. Recognize that postpartum clients can have multiple, overlapping complications. Prioritize interventions that address immediate threats to life, such as airway/breathing (seizure risk) and circulation (hemorrhage and hypertensive crisis)."
         },
         "mnemonic": {
-            "title": "HELLP",
-            "expansion": "Hemolysis, Elevated Liver enzymes, Low Platelets – Remember to assess for HELLP syndrome in patients with preeclampsia."
+            "title": "PAINS (Postpartum Assessment)",
+            "expansion": "Preeclampsia signs (BP, neuro), Atony (fundal check), Interventions (meds, massage), Neuro checks (reflexes, vision), Seizure precautions."
         }
     },
     "matrixMatch": {
         "rows": [
             "Administer Labetalol 20mg IV push",
-            "Elevate head of bed to flat position",
             "Initiate seizure precautions",
-            "Encourage ambulation",
             "Massage the fundus",
-            "Monitor urine output",
-            "Administer oxygen",
-            "Place patient in left lateral position"
+            "Encourage ambulation to the bathroom",
+            "Place client in a supine, flat position"
         ],
         "columns": [
             "Indicated",
@@ -82,13 +155,10 @@
         ],
         "answers": {
             "Administer Labetalol 20mg IV push": "Indicated",
-            "Elevate head of bed to flat position": "Contraindicated",
             "Initiate seizure precautions": "Indicated",
-            "Encourage ambulation": "Contraindicated",
             "Massage the fundus": "Indicated",
-            "Monitor urine output": "Indicated",
-            "Administer oxygen": "Indicated",
-            "Place patient in left lateral position": "Indicated"
+            "Encourage ambulation to the bathroom": "Contraindicated",
+            "Place client in a supine, flat position": "Contraindicated"
         }
     },
     "sentinelStatus": "deep_healed_v2026"

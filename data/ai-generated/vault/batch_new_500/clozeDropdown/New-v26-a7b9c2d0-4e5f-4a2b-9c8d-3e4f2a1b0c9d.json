@@ -1,104 +1,342 @@
 {
     "id": "New-v26-a7b9c2d0-4e5f-4a2b-9c8d-3e4f2a1b0c9d",
     "type": "clozeDropdown",
-    "stem": "Based on the patient's presentation and data, the priority nursing intervention is to [dropdown1] to maintain cerebral perfusion and reduce intracranial pressure (ICP). This can be achieved by administering [dropdown2] as prescribed, carefully titrating the dose to maintain blood pressure within the target range post-tPA administration. The nurse should also closely monitor for signs of [dropdown3] such as decreasing level of consciousness, pupillary changes, and worsening motor function, which indicates worsening intracranial pressure and requires immediate intervention.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
-    },
+    "stem": "The nurse updates the plan of care for a client with an ischemic stroke showing neurological decline post-tPA. Complete the sentence below by selecting the most appropriate options from the dropdown menus.",
     "itemContext": {
         "patient": {
             "name": "Ricardo Ramirez",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "S: Ricardo Ramirez, 68-year-old male, admitted at 03:00 today with right-sided weakness and slurred speech. Aphasia noted. Last known well was 22:00 yesterday. B: History of hypertension and hyperlipidemia. CT scan confirmed a left middle cerebral artery (MCA) ischemic stroke. Patient received tPA within the therapeutic window. A: At 06:00, GCS is 12. BP is 180/100 mmHg, HR is 90 bpm, RR is 22 and labored, SpO2 is 94% on 2L nasal cannula. Temp is 37.5°C. Pt received tPA at 03:45. Neuro checks q1h. U: At 07:00, the patient's GCS decreased to 10, and BP is now 200/110 mmHg. The right-sided weakness is more pronounced. Possible increased ICP is suspected. The physician has been notified and is en route for evaluation and further orders.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L, K: 4.1 mEq/L, Cl: 100 mEq/L, Creatinine: 1.0 mg/dL, BUN: 15 mg/dL, Glucose: 110 mg/dL, PT: 13 seconds, INR: 1.1, aPTT: 30 seconds"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "03:00",
+                        "content": "S: Ricardo Ramirez, a 68-year-old male, presented to the ED with an acute onset of right-sided weakness and slurred speech. His adult child reports the client was last known well at 22:00 the previous evening.\nB: The client has a history of hypertension and hyperlipidemia. He reports difficulty affording his antihypertensive medications consistently, often skipping doses. He lives alone and relies on his adult child for transportation to appointments.\nA: On assessment, the client has expressive aphasia and right-sided hemiparesis. NIHSS score is 15. Non-contrast head CT confirms a left middle cerebral artery (MCA) ischemic stroke. The client is within the therapeutic window for thrombolysis.\nR: Initiate acute stroke protocol. Administer IV Alteplase (tPA) per weight-based guidelines. Admit to the Neurological ICU for close monitoring. Maintain strict blood pressure control."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "07:15",
+                        "content": "S: Called to the bedside for an acute change in the client's neurological status.\nB: The client received IV tPA at 03:45 for a left MCA ischemic stroke. Initial GCS was 12.\nA: At 07:00, the client became less responsive. GCS has declined to 10. Blood pressure is critically elevated at 200/110 mmHg. Right-sided weakness is now more profound, with minimal movement against gravity. Pupils are sluggishly reactive. High suspicion for increasing intracranial pressure (ICP) and possible hemorrhagic conversion.\nR: Notified the on-call neurologist and neuro-interventional team STAT. Preparing to administer PRN IV Labetalol to lower SBP to <180 mmHg. Will continue neuro checks every 15 minutes. Preparing client for an emergent repeat head CT."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 180/100 mmHg, HR 90 bpm, RR 22, SpO2 94%, Temp 37.5°C, GCS 12\n07:00: BP 200/110 mmHg, HR 95 bpm, RR 24, SpO2 93%, Temp 37.6°C, GCS 10"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:15",
+                        "HR": "88 bpm",
+                        "BP": "188/102 mmHg (MAP 131)",
+                        "RR": "18/min",
+                        "SpO2": "95% on Room Air",
+                        "Temp": "99.1°F (37.3°C)",
+                        "GCS": "12"
+                    },
+                    {
+                        "Time": "06:00",
+                        "HR": "90 bpm",
+                        "BP": "180/100 mmHg (MAP 127)",
+                        "RR": "22/min",
+                        "SpO2": "94% on 2L NC",
+                        "Temp": "99.5°F (37.5°C)",
+                        "GCS": "12"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR": "95 bpm",
+                        "BP": "200/110 mmHg (MAP 140)",
+                        "RR": "24/min",
+                        "SpO2": "93% on 2L NC",
+                        "Temp": "99.7°F (37.6°C)",
+                        "GCS": "10"
+                    }
+                ]
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Sodium (Na+)",
+                        "Value": "140",
+                        "Unit": "mEq/L",
+                        "Reference": "136-145",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Potassium (K+)",
+                        "Value": "4.1",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Chloride (Cl-)",
+                        "Value": "100",
+                        "Unit": "mEq/L",
+                        "Reference": "98-106",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "1.0",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "BUN",
+                        "Value": "15",
+                        "Unit": "mg/dL",
+                        "Reference": "10-20",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Glucose",
+                        "Value": "110",
+                        "Unit": "mg/dL",
+                        "Reference": "70-110",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Prothrombin Time (PT)",
+                        "Value": "13",
+                        "Unit": "sec",
+                        "Reference": "11-13.5",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "INR",
+                        "Value": "1.1",
+                        "Unit": "",
+                        "Reference": "0.8-1.1",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "aPTT",
+                        "Value": "30",
+                        "Unit": "sec",
+                        "Reference": "25-35",
+                        "Status": "Normal"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Neurological (07:00)",
+                        "findings": "GCS 10 (E:3, V:2, M:5). Opens eyes to voice. Incomprehensible sounds. Localizes to pain. Pupils 3mm, equal, sluggishly reactive to light. Profound right-sided hemiparesis with 1/5 strength in upper and lower extremities. Expressive aphasia noted. Negative for facial droop asymmetry compared to baseline."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "CT scan of the head (03:15): Left middle cerebral artery (MCA) ischemic stroke."
+                "content": [
+                    {
+                        "type": "CT of the Head (Non-contrast)",
+                        "timestamp": "03:15",
+                        "report": "INDICATION: 68-year-old male with acute onset right-sided weakness and aphasia.\n\nFINDINGS: No evidence of acute intracranial hemorrhage, mass effect, or hydrocephalus. There is subtle hypoattenuation in the left middle cerebral artery (MCA) territory, consistent with early signs of an ischemic event. Basal cisterns are patent. No acute fracture is identified.\n\nIMPRESSION: Findings are highly suggestive of an acute ischemic stroke in the left MCA distribution. No evidence of hemorrhage, which is a contraindication for thrombolytic therapy."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "tPA 0.9mg/kg IV (completed 03:45), Labetalol 20mg IV PRN for SBP > 180 mmHg, Acetaminophen 650mg PO PRN for fever > 38.5°C, NS 50mL/hr IV continuous"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order_DateTime": "03:30",
+                        "Action": "Admit to Neurological ICU",
+                        "Frequency_Status": "Stat"
+                    },
+                    {
+                        "Order_DateTime": "03:30",
+                        "Action": "Neurological checks every 15 minutes for 2 hours, then every 30 minutes for 6 hours",
+                        "Frequency_Status": "Scheduled"
+                    },
+                    {
+                        "Order_DateTime": "03:30",
+                        "Action": "Vital signs with GCS every 15 minutes",
+                        "Frequency_Status": "Scheduled"
+                    },
+                    {
+                        "Order_DateTime": "03:30",
+                        "Action": "Maintain Head of Bed at 30 degrees",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_DateTime": "03:30",
+                        "Action": "NPO until swallow screen is completed",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_DateTime": "03:30",
+                        "Action": "Maintain SBP < 180 mmHg and DBP < 105 mmHg",
+                        "Frequency_Status": "Parameter"
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Ricardo Ramirez, 68-year-old male, admitted at 03:00 today with right-sided weakness and slurred speech. Aphasia noted. Last known well was 22:00 yesterday. B: History of hypertension and hyperlipidemia. CT scan confirmed a left middle cerebral artery (MCA) ischemic stroke. Patient received tPA within the therapeutic window. A: At 06:00, GCS is 12. BP is 180/100 mmHg, HR is 90 bpm, RR is 22 and labored, SpO2 is 94% on 2L nasal cannula. Temp is 37.5°C. Pt received tPA at 03:45. Neuro checks q1h. U: At 07:00, the patient's GCS decreased to 10, and BP is now 200/110 mmHg. The right-sided weakness is more pronounced. Possible increased ICP is suspected. The physician has been notified and is en route for evaluation and further orders."
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Alteplase (tPA)",
+                        "Dose": "72 mg IV",
+                        "Route": "IV",
+                        "Frequency": "Once",
+                        "Last_Administered": "03:45"
+                    },
+                    {
+                        "Medication": "Labetalol",
+                        "Dose": "20 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN for SBP > 180 mmHg",
+                        "Last_Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "PRN for Temp > 101.3°F (38.5°C)",
+                        "Last_Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Normal Saline",
+                        "Dose": "50 mL/hr",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last_Administered": "Ongoing"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Stroke & Increased ICP"
-        ]
-    },
-    "rationale": {
-        "correct": "Elevating the head of the bed (HOB) promotes venous drainage from the brain, reducing ICP and improving cerebral perfusion. Administering antihypertensives like Labetalol lowers blood pressure, preventing further cerebral edema and hemorrhage. Maintaining SBP within the prescribed range after tPA administration is crucial. Monitoring for signs of increased ICP, such as decreased level of consciousness and pupillary changes, allows for early intervention. Prompt notification of the physician is essential for further management.",
-        "incorrect": "Lowering the head of the bed would increase ICP, potentially worsening the patient's condition. Administering fluids without careful consideration of the patient's hemodynamic status could exacerbate cerebral edema and elevate ICP. Ignoring signs of increased ICP can lead to irreversible brain damage, herniation, and death. Failure to control blood pressure post-tPA can lead to hemorrhagic conversion.",
-        "clinicalPearls": [
-            "Maintain SBP within the prescribed range after tPA administration (typically <180/105 mmHg) to prevent hemorrhagic conversion. Frequent monitoring and titration of antihypertensives are crucial.",
-            "Monitor neurological status closely for any changes, especially after tPA administration, as this can indicate complications such as bleeding or increased ICP. Any deterioration should be reported to the physician immediately.",
-            "Elevating the HOB to 30 degrees is a simple yet effective intervention to reduce ICP. Avoid neck flexion or hip flexion, which can impede venous drainage."
-        ],
-        "questionTrap": {
-            "trap": "Choosing interventions that address blood pressure without considering ICP or focusing solely on oxygenation without managing blood pressure and ICP. Overlooking the importance of frequent neurological assessments and timely physician notification.",
-            "howToOvercome": "Prioritize interventions that address both blood pressure and ICP simultaneously. Consider the underlying pathophysiology of stroke and increased ICP when selecting interventions. Remember the importance of frequent neurological assessments and timely physician notification for any changes in patient status."
-        },
-        "mnemonic": {
-            "title": "ELEVATE",
-            "expansion": "Elevate HOB, Limit fluids (consider), Evaluate neuro status frequently, Vital signs monitoring (BP control), Administer antihypertensives, Take action for ICP (notify MD)"
-        }
-    },
-    "response": [
+    "dropdowns": [
         {
-            "id": "dropdown1",
+            "blank": "The nurse's immediate priority is to [BLANK_1] to help reduce intracranial pressure.",
             "options": [
-                "elevate the head of the bed",
-                "lower the head of the bed",
-                "administer a fluid bolus"
+                {
+                    "id": "d1_opt1",
+                    "text": "elevate the head of the bed"
+                },
+                {
+                    "id": "d1_opt2",
+                    "text": "place the client in a supine position"
+                },
+                {
+                    "id": "d1_opt3",
+                    "text": "encourage active range of motion exercises"
+                }
             ],
-            "correctResponse": "elevate the head of the bed"
+            "correctOptionId": "d1_opt1"
         },
         {
-            "id": "dropdown2",
+            "blank": "This should be done while preparing to administer IV [BLANK_2] to address the critical hypertension.",
             "options": [
-                "Labetalol",
-                "Normal Saline",
-                "Furosemide"
+                {
+                    "id": "d2_opt1",
+                    "text": "Labetalol"
+                },
+                {
+                    "id": "d2_opt2",
+                    "text": "Mannitol"
+                },
+                {
+                    "id": "d2_opt3",
+                    "text": "a normal saline bolus"
+                }
             ],
-            "correctResponse": "Labetalol"
+            "correctOptionId": "d2_opt1"
         },
         {
-            "id": "dropdown3",
+            "blank": "These interventions are crucial for preventing the primary complication of [BLANK_3].",
             "options": [
-                "increased intracranial pressure",
-                "hypotension",
-                "hypoglycemia"
+                {
+                    "id": "d3_opt1",
+                    "text": "hemorrhagic conversion"
+                },
+                {
+                    "id": "d3_opt2",
+                    "text": "re-occlusion of the vessel"
+                },
+                {
+                    "id": "d3_opt3",
+                    "text": "aspiration pneumonia"
+                }
             ],
-            "correctResponse": "increased intracranial pressure"
+            "correctOptionId": "d3_opt1"
         }
     ],
-    "sentinelStatus": "deep_healed_v2026"
+    "rationale": {
+        "correct": "The client's acute neurological decline (GCS drop from 12 to 10) combined with severe hypertension (200/110 mmHg) after receiving tPA is a critical situation. The priority is to manage factors that increase intracranial pressure (ICP) and the risk of bleeding. Elevating the head of the bed to 30 degrees promotes venous outflow from the brain, a non-invasive method to lower ICP. The critical hypertension must be treated immediately with an IV antihypertensive like Labetalol, as per the PRN order, to reduce the risk of hemorrhagic conversion of the ischemic stroke. This complication, bleeding into the area of infarction, is the most likely cause of the rapid deterioration.",
+        "answerBreakdown": [
+            {
+                "optionId": "d1_opt1",
+                "content": "Correct. Elevating the head of the bed to 30 degrees uses gravity to facilitate venous drainage from the cranium, which can decrease intracranial pressure. This is a standard, non-pharmacological first step in managing suspected increased ICP."
+            },
+            {
+                "optionId": "d1_opt2",
+                "content": "Incorrect. Placing the client supine (flat) would impede venous drainage from the brain, thereby increasing intracranial pressure and worsening cerebral edema. This action is contraindicated."
+            },
+            {
+                "optionId": "d1_opt3",
+                "content": "Incorrect. Active range of motion exercises would increase metabolic demand and could further elevate blood pressure and ICP. The client should be kept calm with minimal stimulation during this acute phase."
+            },
+            {
+                "optionId": "d2_opt1",
+                "content": "Correct. The client's BP of 200/110 mmHg is dangerously high and significantly increases the risk of hemorrhagic conversion after tPA administration. The MAR shows a PRN order for IV Labetalol, a beta-blocker, which is the appropriate first-line agent to rapidly lower the blood pressure."
+            },
+            {
+                "optionId": "d2_opt2",
+                "content": "Incorrect. While Mannitol is an osmotic diuretic used to treat cerebral edema and high ICP, the immediate, life-threatening problem is the severe hypertension that is likely causing the rise in ICP. Blood pressure control is the priority before administering osmotic therapy."
+            },
+            {
+                "optionId": "d2_opt3",
+                "content": "Incorrect. Administering a fluid bolus would increase intravascular volume, potentially worsening cerebral edema and further increasing intracranial pressure. The client is not hypotensive."
+            },
+            {
+                "optionId": "d3_opt1",
+                "content": "Correct. Hemorrhagic conversion is a major, life-threatening complication of tPA therapy, and its risk is magnified by uncontrolled hypertension. The client's rapid neurological deterioration is the classic presentation of this event."
+            },
+            {
+                "optionId": "d3_opt2",
+                "content": "Incorrect. While re-occlusion of the vessel can occur, it typically does not present with such a rapid decline and is not directly linked to severe hypertension. The clinical picture is more suggestive of a bleed."
+            },
+            {
+                "optionId": "d3_opt3",
+                "content": "Incorrect. Aspiration pneumonia is a risk for stroke clients due to dysphagia, but it is a subacute complication and would not cause an acute drop in GCS. The client's respiratory rate is elevated, but this is more likely a sign of Cushing's triad (a late sign of high ICP)."
+            }
+        ],
+        "clinicalPearls": [
+            "A sudden decline in level of consciousness after tPA administration for ischemic stroke should always be treated as a potential intracranial hemorrhage until proven otherwise.",
+            "Permissive hypertension is allowed in acute ischemic stroke, but after tPA, blood pressure must be strictly controlled (typically <180/105 mmHg) to minimize the risk of hemorrhagic conversion.",
+            "Non-pharmacological interventions for increased ICP, such as elevating the head of the bed to 30 degrees and maintaining neck alignment, are rapid, effective, and should be implemented immediately."
+        ],
+        "questionTrap": "The primary trap is failing to connect the three key data points: tPA administration, a sudden drop in GCS, and severe hypertension. Candidates might focus on one aspect, like giving Mannitol for ICP, without first addressing the underlying cause, which is the dangerously high blood pressure.",
+        "mnemonic": "For post-tPA care, remember 'BRAIN':\nB - Blood pressure control (<180/105 mmHg)\nR - Raise Head of Bed (30 degrees)\nA - Assess neurological status frequently (q15min)\nI - Inform provider of any changes immediately\nN - No new punctures or invasive lines (bleeding risk)"
+    },
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:07:10.999Z"
 }

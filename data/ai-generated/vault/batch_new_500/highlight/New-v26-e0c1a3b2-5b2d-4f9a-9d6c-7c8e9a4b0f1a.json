@@ -1,75 +1,237 @@
 {
     "id": "New-v26-e0c1a3b2-5b2d-4f9a-9d6c-7c8e9a4b0f1a",
-    "type": "highlight",
-    "stem": "The patient is exhibiting signs of sepsis. Review the EHR and highlight all findings that support this diagnosis. Select all that apply.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is reviewing the client's electronic health record. Which finding is the most significant indicator that the client's condition is progressing from sepsis to septic shock?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "White blood cell count of 18.0 x10³/µL"
+        },
+        {
+            "id": "opt_02",
+            "text": "Temperature of 102.5°F (39.2°C)"
+        },
+        {
+            "id": "opt_03",
+            "text": "Mean Arterial Pressure (MAP) of 63 mmHg"
+        },
+        {
+            "id": "opt_04",
+            "text": "Serum lactate of 3.0 mmol/L"
+        }
+    ],
+    "correctOptionId": "opt_03",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Droplet Precautions",
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, 78-year-old male admitted 3 days ago for pneumonia, now showing altered mental status. B: History of COPD and hypertension. Treated with IV antibiotics for pneumonia, but urosepsis suspected. Temperature increased in last 4 hours. A: At 08:00, vitals: Temp 39.2°C, HR 120 bpm, RR 28, BP 90/50 mmHg, SpO2 92% on 2L NC. Confused, lethargic. Cloudy, foul-smelling urine. Labs: WBC 18,000/µL, Lactate 3.0 mmol/L. Radiology: Chest X-ray shows infiltrates in the right lower lobe. MAR: Ceftriaxone due at 10:00. P: Requesting immediate sepsis evaluation. Recommend blood cultures, increased IV fluids, consider vasopressors if hypotension persists. Investigate infection source.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Smith, 78-year-old male admitted 3 days ago for pneumonia, now showing altered mental status. B: History of COPD and hypertension. Treated with IV antibiotics for pneumonia, but urosepsis suspected. Temperature increased in last 4 hours. A: At 08:00, vitals: Temp 39.2°C, HR 120 bpm, RR 28, BP 90/50 mmHg, SpO2 92% on 2L NC. Confused, lethargic. Cloudy, foul-smelling urine. Labs: WBC 18,000/µL, Lactate 3.0 mmol/L. Radiology: Chest X-ray shows infiltrates in the right lower lobe. MAR: Ceftriaxone due at 10:00. P: Requesting immediate sepsis evaluation. Recommend blood cultures, increased IV fluids, consider vasopressors if hypotension persists. Investigate infection source."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "SITUATION (08:00): This is a call to the provider for Mr. John Doe, a 78-year-old male admitted 3 days ago for community-acquired pneumonia, who is now acutely confused with worsening vital signs.\n\nBACKGROUND: He has a history of COPD and hypertension and has been receiving IV ceftriaxone. His adult child reports he lives alone in a rural area with limited access to fresh food, which may impact his baseline nutritional status. Over the last 4 hours, his temperature has spiked, and his blood pressure has trended downward despite a 500 mL fluid bolus given at 06:00.\n\nASSESSMENT: He is lethargic and disoriented to time and place. Current vitals are: T 102.5°F (39.2°C), HR 122, RR 28, BP 90/50 mmHg (MAP 63), SpO₂ 92% on 2L NC. Urine is cloudy and foul-smelling. Recent labs show WBC 18,000/mm³ and a serum lactate of 3.0 mmol/L.\n\nRECOMMENDATION: I am concerned he is developing septic shock, likely from a urosepsis source. I recommend a 30 mL/kg fluid bolus, obtaining blood cultures before the next antibiotic dose, and a stat order for norepinephrine if his MAP remains below 65 mmHg after fluid resuscitation."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/µL (High), Lactate: 3.0 mmol/L (High), Creatinine: 2.0 mg/dL (High), BUN: 35 mg/dL (High), Blood Cultures: Pending, Urine Analysis: Cloudy, Foul-smelling, +Leukocytes, +Nitrites"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "04:00",
+                        "Temp": "99.8°F (37.7°C)",
+                        "HR": "98 bpm",
+                        "RR": "20/min",
+                        "BP (MAP)": "118/72 mmHg (87)",
+                        "SpO₂": "94% on 2L NC"
+                    },
+                    {
+                        "Time": "06:00",
+                        "Temp": "101.5°F (38.6°C)",
+                        "HR": "110 bpm",
+                        "RR": "24/min",
+                        "BP (MAP)": "105/60 mmHg (75)",
+                        "SpO₂": "93% on 2L NC"
+                    },
+                    {
+                        "Time": "08:00",
+                        "Temp": "102.5°F (39.2°C)",
+                        "HR": "122 bpm",
+                        "RR": "28/min",
+                        "BP (MAP)": "90/50 mmHg (63)",
+                        "SpO₂": "92% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "08:00: Temp 102.5°F (39.2°C), HR 120 bpm, RR 28, BP 90/50 mmHg, SpO2 92% on 2L NC, Pain 2/10"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "WBC",
+                        "Value": "18.0",
+                        "Unit": "x10³/µL",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Lactate, Serum",
+                        "Value": "3.0",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "2.0",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "BUN",
+                        "Value": "35",
+                        "Unit": "mg/dL",
+                        "Reference": "10-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Procalcitonin",
+                        "Value": "2.5",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.15",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Urinalysis",
+                        "Value": "Appearance: Cloudy, Odor: Foul, Leukocyte Esterase: Positive, Nitrites: Positive",
+                        "Unit": "",
+                        "Reference": "",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Admission (3 days ago): Head-to-toe within normal limits except for diminished breath sounds and crackles in the right lower lobe. Alert and oriented x4.\n\nCurrent (08:00):\nNeurological: Lethargic, slow to respond. Disoriented to time and place. GCS 13 (E4, V4, M5).\nCardiovascular: Tachycardic with S1/S2 audible. Pulses +1 peripherally. Capillary refill >3 seconds. Skin is warm and flushed.\nRespiratory: Tachypneic with shallow respirations. Use of accessory muscles noted. SpO₂ 92% on 2L NC.\nGenitourinary: Indwelling urinary catheter in place, draining cloudy, malodorous urine."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray: Infiltrates in the right lower lobe"
+                "content": "Type: Chest X-ray (PA and Lateral)\nDate: 3 days prior (on admission)\nFindings: Lungs are hyperinflated consistent with known COPD. There is a dense consolidation in the right lower lobe, consistent with pneumonia. No pleural effusion or pneumothorax.\nImpression: Right lower lobe pneumonia."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 1g IV q24h (Due 10:00), Acetaminophen 650mg PO q4h PRN (Last dose 06:00), Oxygen 2L NC (Continuous), Normal Saline 1000mL bolus (Ordered, not yet initiated)"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Admission",
+                        "Action": "Oxygen 2L via nasal cannula, titrate to maintain SpO₂ >92%",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Admission",
+                        "Action": "IV Fluids: 0.9% Sodium Chloride at 75 mL/hr",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 08:15",
+                        "Action": "0.9% Sodium Chloride 30 mL/kg IV bolus over 1 hour",
+                        "Frequency/Status": "Stat"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 08:15",
+                        "Action": "Obtain Blood Cultures x2 from different sites",
+                        "Frequency/Status": "Stat"
+                    },
+                    {
+                        "Order Date/Time": "Admission",
+                        "Action": "Acetaminophen 650 mg PO for temp >101°F",
+                        "Frequency/Status": "PRN, q6h"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 08:15",
+                        "Action": "Norepinephrine infusion, start at 0.05 mcg/kg/min, titrate to maintain MAP ≥ 65 mmHg",
+                        "Frequency/Status": "Stat, pending fluid bolus"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1 g",
+                        "Route": "IV",
+                        "Frequency": "Every 24 hours",
+                        "Last Administered": "Yesterday @ 10:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "PRN q6h",
+                        "Last Administered": "Today @ 06:00"
+                    },
+                    {
+                        "Medication": "Ipratropium-Albuterol",
+                        "Dose": "0.5 mg-2.5 mg",
+                        "Route": "Nebulizer",
+                        "Frequency": "Every 6 hours",
+                        "Last Administered": "Today @ 06:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment: Infection Control",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+    "rationale": {
+        "correct": "Septic shock is a life-threatening condition characterized by persistent hypotension despite adequate fluid resuscitation. A Mean Arterial Pressure (MAP) of 63 mmHg is below the goal of ≥65 mmHg, indicating inadequate organ and tissue perfusion. This profound vasodilation and circulatory collapse is the hallmark pathophysiological sign that sepsis has progressed to septic shock.",
+        "incorrect": "While elevated WBC, fever, and high lactate are all critical indicators of sepsis, they do not define the transition to septic shock. Leukocytosis and fever are signs of the systemic inflammatory response. Elevated lactate indicates cellular hypoxia but is a metabolic consequence, whereas the low MAP is the direct measure of the hemodynamic failure defining the shock state.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "A white blood cell count of 18.0 x10³/µL indicates leukocytosis, a strong sign of infection and a key component of the systemic inflammatory response syndrome (SIRS) criteria. However, it does not differentiate between sepsis and the more severe state of septic shock."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "A temperature of 102.5°F (39.2°C) is a sign of fever, another SIRS criterion indicating a systemic response to infection. While it confirms sepsis, it is not the defining feature of the progression to circulatory collapse seen in septic shock."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "A MAP below 65 mmHg is the primary hemodynamic criterion for septic shock. It signifies that the circulatory system is failing to provide adequate pressure to perfuse vital organs, which is the core problem in this life-threatening condition."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "A serum lactate of 3.0 mmol/L is a critical finding that indicates tissue hypoperfusion and anaerobic metabolism. While it is part of the Sepsis-3 definition of septic shock, the persistent hypotension (low MAP) is the most direct and defining indicator of the shock state itself."
+            }
+        ],
+        "clinicalPearls": [
+            "Septic shock is a subset of sepsis with profound circulatory, cellular, and metabolic abnormalities, associated with a much greater risk of mortality.",
+            "The Sepsis-3 definition of septic shock includes: persistent hypotension requiring vasopressors to maintain MAP ≥65 mmHg AND a serum lactate >2 mmol/L despite adequate volume resuscitation.",
+            "The qSOFA (quick Sepsis-related Organ Failure Assessment) score (Hypotension: SBP ≤100, Altered Mental Status, Tachypnea: RR ≥22) is a bedside tool to identify patients with suspected infection who are at greater risk for poor outcomes."
+        ],
+        "questionTrap": "The trap is focusing on the source of the problem (infection markers like WBC, fever) or a consequence (lactate) rather than the defining hemodynamic feature of the shock state (profound hypotension/low MAP). High lactate is a very strong distractor, but the MAP is the direct measure of perfusion pressure.",
+        "mnemonic": "Sepsis Six Bundle: Remember 'BUFALO' for the 1-hour bundle interventions. B-Blood cultures, U-Urine output monitoring, F-Fluid resuscitation, A-Antibiotics, L-Lactate measurement, O-Oxygen administration.",
+        "reviewUnits": [
+            "Pathophysiology: Shock Syndromes",
+            "Hemodynamic Monitoring",
+            "Infection Control: Sepsis"
         ]
     },
-    "rationale": {
-        "correct": "Elevated WBC count (18,000/µL) indicates an active infection. Elevated lactate levels (3.0 mmol/L) suggest tissue hypoperfusion and anaerobic metabolism, common in sepsis. Hypotension (BP 90/50 mmHg) is a hallmark sign of sepsis and septic shock. Tachycardia (HR 120 bpm) is a compensatory mechanism to maintain cardiac output in the face of hypovolemia and decreased vascular resistance. Fever (Temp 102.5°F) is a common systemic response to infection. Cloudy, foul-smelling urine with +Leukocytes and +Nitrites suggests a urinary tract infection, a potential source of sepsis.",
-        "incorrect": "While elevated creatinine and BUN can be associated with sepsis due to kidney injury, they are not primary diagnostic criteria for sepsis itself; they indicate organ dysfunction secondary to sepsis. The patient's report of pain (2/10) is important for overall assessment but not directly indicative of sepsis. While SpO2 of 92% on 2L NC is slightly below optimal, it is not a primary indicator of sepsis compared to the other findings. Furthermore, acetaminophen administration is not a direct indicator of sepsis. Chest X-ray showing infiltrates indicates pneumonia, the admitting diagnosis, but does not directly confirm sepsis; it only suggests a possible source.",
-        "clinicalPearls": [
-            "Early recognition of sepsis is crucial for improving patient outcomes.",
-            "The Surviving Sepsis Campaign guidelines provide evidence-based recommendations for sepsis management.",
-            "Always consider the patient's baseline when interpreting vital signs and lab values."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on individual lab values or vital signs without considering the overall clinical picture can lead to misdiagnosis.",
-            "howToOvercome": "Integrate all available data, including patient history, physical assessment, and lab results, to form a comprehensive understanding of the patient's condition."
-        },
-        "mnemonic": {
-            "title": "S.E.P.S.I.S.",
-            "expansion": "Shivering, fever, or very cold; Extreme pain or general discomfort (\"worst ever\"); Pale or discolored skin; Sleepy, difficult to rouse, confused; \"I feel like I might die\"; Short of breath"
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Adaptation: Pathophysiology"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:59:28.600Z"
 }

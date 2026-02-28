@@ -1,75 +1,381 @@
 {
-    "id": "New-v26-7a9b2c3d-4e5f-6g7h-8i9j-0k1l2m3n4o5p",
+    "id": "v26-upgraded-7a9b2c3d-4e5f-6g7h-8i9j-0k1l2m3n4o5p",
     "type": "highlight",
-    "stem": "The patient is exhibiting signs of hypovolemic shock. Review the nurse's notes in the EHR and highlight all findings that support this diagnosis. To highlight, click or tap on the relevant text. To remove a highlight, click or tap on it again.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse suspects hypovolemic shock based on the most recent assessment. Review the clinical data in the electronic health record. Which findings from the 07:45 assessment support this hypothesis? Select all that apply.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Patient is lethargic but arousable"
+        },
+        {
+            "id": "opt_02",
+            "text": "Skin is cool, pale, and clammy"
+        },
+        {
+            "id": "opt_03",
+            "text": "BP 88/52 mmHg (MAP 64)"
+        },
+        {
+            "id": "opt_04",
+            "text": "HR 122 bpm (sinus tachycardia)"
+        },
+        {
+            "id": "opt_05",
+            "text": "RR 28/min (shallow)"
+        },
+        {
+            "id": "opt_06",
+            "text": "SpO₂ 92% on room air"
+        },
+        {
+            "id": "opt_07",
+            "text": "Capillary refill is delayed at 4 seconds"
+        },
+        {
+            "id": "opt_08",
+            "text": "Urine output 30 mL in the last 4 hours"
+        },
+        {
+            "id": "opt_09",
+            "text": "Surgical dressing remains dry and intact"
+        },
+        {
+            "id": "opt_10",
+            "text": "Pain reported as 2/10 at surgical site"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04",
+        "opt_05",
+        "opt_06",
+        "opt_07",
+        "opt_08"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Doe",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "72",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Doe, 72-year-old male, post-operative day 2 from a total hip arthroplasty, reporting dizziness and weakness. Noted increasing lethargy. \nB: History of hypertension and osteoarthritis. Uncomplicated surgery. Received morphine for post-op pain. Last voided at 04:00 this morning. Baseline vitals stable pre-op. \nA: At 07:30, BP is 88/52 mmHg, HR 122 bpm, RR 28, SpO2 92% on room air. Skin is cool and clammy. Urine output since 04:00 is 30 mL. Surgical dressing is dry and intact. Pain level 2/10 at the surgical site. Hemoglobin 8.2 g/dL, Hematocrit 25%, Lactate 3.5 mmol/L.\nR: Concerned about hypovolemic shock secondary to possible internal bleeding or inadequate fluid replacement. Recommend STAT CBC, CMP, coagulation studies, and a 500 mL Normal Saline bolus. Assess surgical site for bleeding. Monitor vitals q5 minutes until stable.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Hemoglobin: 8.2 g/dL\nHematocrit: 25%\nSodium: 140 mEq/L\nPotassium: 4.1 mEq/L\nChloride: 100 mEq/L\nBUN: 28 mg/dL\nCreatinine: 1.8 mg/dL\nPT: 12 seconds\nINR: 1.0\nPTT: 30 seconds\nLactate: 3.5 mmol/L"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 18:00",
+                        "text": "S: Patient arrived on unit from PACU following an uncomplicated right total hip arthroplasty.\nB: 72-year-old male with a history of hypertension and osteoarthritis. Adult child is at the bedside. Patient lives alone in a second-floor apartment with no elevator, which presents a potential barrier to accessing follow-up appointments and resources post-discharge.\nA: Alert and oriented x4. Surgical site on right hip is clean, dry, and intact with a drain in place. IV of 0.9% Normal Saline infusing in left forearm. Pain is currently well-managed with a patient-controlled analgesia (PCA) pump. Vital signs are stable and within expected limits post-operatively. Peripheral pulses are strong and equal bilaterally.\nR: Continue to monitor vital signs, pain level, and surgical site per protocol. Encourage use of incentive spirometer. Reinforce mobility restrictions. Will consult case management regarding discharge planning and home safety evaluation."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 2, 07:45",
+                        "text": "S: Patient reports feeling 'very dizzy and weak' and states, 'I feel like I'm going to pass out.'\nB: Post-operative day 2 from right total hip arthroplasty. Last dose of IV morphine was at 06:00 for incisional pain. IV fluids are infusing at 75 mL/hr. Urine output has been minimal since 04:00.\nA: Patient is lethargic but arousable. Skin is cool, pale, and clammy. BP 88/52 mmHg (MAP 64), HR 122 bpm (sinus tachycardia), RR 28/min (shallow). SpO₂ 92% on room air. Capillary refill is delayed at 4 seconds. Urine output 30 mL in the last 4 hours. Surgical dressing remains dry and intact. Pain reported as 2/10 at surgical site.\nR: Suspect hypovolemic shock, likely from an internal bleed. Notified surgeon and initiated rapid response team. Recommended STAT CBC, CMP, and coagulation studies. Preparing to administer a 500 mL 0.9% Normal Saline bolus as per protocol."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 120/80 mmHg, HR 80 bpm, RR 18, SpO2 98% on room air\n06:30: BP 110/70 mmHg, HR 95 bpm, RR 20, SpO2 96% on room air\n07:00: BP 98/60 mmHg, HR 110 bpm, RR 24, SpO2 94% on room air\n07:30: BP 88/52 mmHg, HR 122 bpm, RR 28, SpO2 92% on room air\nTemperature: 37.2°C (99.0°F)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (/min)",
+                        "SpO₂ (%)",
+                        "Temp °F (°C)"
+                    ],
+                    "rows": [
+                        [
+                            "06:00",
+                            "88",
+                            "120/78",
+                            "92",
+                            "18",
+                            "98% on RA",
+                            "99.0 (37.2)"
+                        ],
+                        [
+                            "07:00",
+                            "110",
+                            "98/60",
+                            "73",
+                            "24",
+                            "94% on RA",
+                            "99.0 (37.2)"
+                        ],
+                        [
+                            "07:30",
+                            "118",
+                            "90/55",
+                            "67",
+                            "26",
+                            "93% on RA",
+                            "99.0 (37.2)"
+                        ],
+                        [
+                            "07:45",
+                            "122",
+                            "88/52",
+                            "64",
+                            "28",
+                            "92% on RA",
+                            "99.0 (37.2)"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Morphine 2mg IV q4h PRN pain (Last dose: 06:00)\nOxycodone 5mg PO q4h PRN pain\nDocusate 100mg PO BID\nSenna 8.6mg PO PRN constipation\nNormal Saline 1000mL IV at 100mL/hr (Started: Day 1 at 18:00)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Complete Blood Count (CBC)",
+                        "results": [
+                            {
+                                "test": "Hemoglobin (Hgb)",
+                                "value": "8.2",
+                                "unit": "g/dL",
+                                "range": "14-18",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "Hematocrit (Hct)",
+                                "value": "25",
+                                "unit": "%",
+                                "range": "42-52",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "WBC Count",
+                                "value": "9.8",
+                                "unit": "x 10³/μL",
+                                "range": "4.5-11.0",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "Platelet Count",
+                                "value": "250",
+                                "unit": "x 10³/μL",
+                                "range": "150-450",
+                                "status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Comprehensive Metabolic Panel (CMP)",
+                        "results": [
+                            {
+                                "test": "Sodium",
+                                "value": "140",
+                                "unit": "mEq/L",
+                                "range": "136-145",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "Potassium",
+                                "value": "4.1",
+                                "unit": "mEq/L",
+                                "range": "3.5-5.0",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "BUN",
+                                "value": "28",
+                                "unit": "mg/dL",
+                                "range": "10-20",
+                                "status": "High"
+                            },
+                            {
+                                "test": "Creatinine",
+                                "value": "1.8",
+                                "unit": "mg/dL",
+                                "range": "0.6-1.2",
+                                "status": "High"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Other Labs",
+                        "results": [
+                            {
+                                "test": "Lactate",
+                                "value": "3.5",
+                                "unit": "mmol/L",
+                                "range": "0.5-2.2",
+                                "status": "High"
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Doe, 72-year-old male, post-operative day 2 from a total hip arthroplasty, reporting dizziness and weakness. Noted increasing lethargy. \nB: History of hypertension and osteoarthritis. Uncomplicated surgery. Received morphine for post-op pain. Last voided at 04:00 this morning. Baseline vitals stable pre-op. \nA: At 07:30, BP is 88/52 mmHg, HR 122 bpm, RR 28, SpO2 92% on room air. Skin is cool and clammy. Urine output since 04:00 is 30 mL. Surgical dressing is dry and intact. Pain level 2/10 at the surgical site. Hemoglobin 8.2 g/dL, Hematocrit 25%, Lactate 3.5 mmol/L.\nR: Concerned about hypovolemic shock secondary to possible internal bleeding or inadequate fluid replacement. Recommend STAT CBC, CMP, coagulation studies, and a 500 mL Normal Saline bolus. Assess surgical site for bleeding. Monitor vitals q5 minutes until stable."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 18:00 (Admission)",
+                        "findings": "GENERAL: Alert, oriented x4. CARDIOVASCULAR: S1S2 audible, regular rate and rhythm. RESPIRATORY: Lungs clear to auscultation bilaterally. GASTROINTESTINAL: Bowel sounds active in all four quadrants. MUSCULOSKELETAL: Dressing to right hip clean, dry, intact. SKIN: Warm, dry, intact."
+                    },
+                    {
+                        "timestamp": "Day 2, 07:45 (Focused)",
+                        "findings": "GENERAL: Lethargic, arousable to voice. CARDIOVASCULAR: Tachycardic, peripheral pulses +1. SKIN: Cool, pale, and clammy. NEUROLOGICAL: Follows simple commands, oriented to person and place only."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology orders or reports available."
+                "content": "No current imaging reports available."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "Day 1, 17:30",
+                        "action": "0.9% Normal Saline IV infusion",
+                        "details": "Continuous at 75 mL/hr",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 17:30",
+                        "action": "Incentive Spirometry",
+                        "details": "10x per hour while awake",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 17:30",
+                        "action": "Morphine Sulfate IV",
+                        "details": "2 mg every 4 hours PRN for severe pain",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 17:30",
+                        "action": "Ondansetron IV",
+                        "details": "4 mg every 6 hours PRN for nausea",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "0.9% Normal Saline",
+                        "dose": "75 mL/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "last_admin": "Ongoing"
+                    },
+                    {
+                        "medication": "Morphine Sulfate",
+                        "dose": "2 mg",
+                        "route": "IV",
+                        "frequency": "q4h PRN",
+                        "last_admin": "Day 2, 06:00"
+                    },
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "10 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "last_admin": "Day 1, 09:00"
+                    },
+                    {
+                        "medication": "Docusate Sodium",
+                        "dose": "100 mg",
+                        "route": "PO",
+                        "frequency": "BID",
+                        "last_admin": "Day 1, 21:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
+    "rationale": {
+        "correct": "The selected findings collectively indicate a state of decompensated hypovolemic shock. The pathophysiology involves decreased intravascular volume, leading to reduced preload, stroke volume, and cardiac output. This results in hypotension (BP 88/52) and inadequate tissue perfusion. The body's compensatory mechanisms include tachycardia (HR 122) and tachypnea (RR 28) to improve cardiac output and oxygenation. Peripheral vasoconstriction shunts blood to vital organs, causing cool, clammy skin and delayed capillary refill. Reduced renal perfusion leads to oliguria (30 mL in 4 hours), and cerebral hypoperfusion manifests as lethargy. Hypoxia (SpO₂ 92%) is a late and ominous sign.",
+        "incorrect": "The distractors represent information that, while important, does not directly support the diagnosis of hypovolemic shock in this context. A dry surgical dressing is a key distractor because it can create a false sense of security; it rules out external bleeding at the site but not a significant internal hemorrhage. A low pain score (2/10) makes it less likely that the patient's tachycardia is primarily driven by pain, further strengthening the case for a hemodynamic cause.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. Lethargy is a sign of cerebral hypoperfusion due to decreased cardiac output and oxygen delivery to the brain."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. Cool, pale, and clammy skin results from the compensatory shunting of blood from the periphery to vital organs via vasoconstriction, a hallmark of shock."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. Hypotension (MAP < 65 mmHg) is a defining characteristic of shock, indicating the circulatory system is failing to adequately perfuse tissues."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. Tachycardia is a primary compensatory mechanism where the heart beats faster to increase cardiac output when stroke volume is low due to decreased preload."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. Tachypnea is a compensatory response to metabolic acidosis (caused by anaerobic metabolism) and systemic hypoxia."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. Decreased SpO₂ indicates inadequate oxygenation, a consequence of both reduced oxygen-carrying capacity (due to blood loss) and impaired gas exchange."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. Delayed capillary refill (>3 seconds) is a direct measure of peripheral vasoconstriction and poor tissue perfusion."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Correct. Oliguria (urine output < 0.5 mL/kg/hr) is a sensitive indicator of decreased renal perfusion as the body attempts to conserve volume."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Incorrect. A dry dressing only rules out external bleeding from the incision. It does not exclude a significant, life-threatening internal hemorrhage into the retroperitoneal space, a known complication of hip surgery."
+            },
+            {
+                "optionId": "opt_10",
+                "content": "Incorrect. While severe pain can cause tachycardia, a low pain score of 2/10 makes pain an unlikely primary cause for the patient's severe hemodynamic instability."
+            }
+        ],
+        "clinicalPearls": [
+            "Occult Bleeding: Post-operative hypovolemia can occur without any visible external bleeding. A clean, dry dressing can be falsely reassuring; always consider internal hemorrhage in a patient with signs of shock after surgery, especially orthopedic or abdominal procedures.",
+            "MAP as a Perfusion Indicator: Mean Arterial Pressure (MAP) is a more reliable indicator of vital organ perfusion than systolic blood pressure alone. A MAP below 65 mmHg is generally considered the threshold for inadequate perfusion.",
+            "Lactate as a Shock Marker: Elevated serum lactate is a key biomarker for tissue hypoperfusion and anaerobic metabolism. Trending lactate levels can help assess the severity of shock and the patient's response to resuscitation."
+        ],
+        "questionTrap": "The 'Dry Dressing Distractor' is a classic clinical trap. Test-takers may be tempted to rule out hemorrhage because the surgical site appears benign. This tests the critical thinking skill of differentiating between external and internal sources of bleeding and understanding that the absence of one does not preclude the other.",
+        "mnemonic": "SHOCK: Skin (cool, pale, clammy), Hypotension & Tachycardia (compensatory signs), Oliguria (decreased renal perfusion), Confusion/Lethargy (cerebral hypoperfusion), Krebs Cycle Failure (elevated lactate from anaerobic metabolism).",
+        "reviewUnits": [
+            "Cardiovascular Disorders: Shock",
+            "Perioperative Nursing Care",
+            "Fluid and Electrolyte Imbalances"
         ]
     },
-    "rationale": {
-        "correct": "The highlighted findings support hypovolemic shock: Hypotension (BP 88/52 mmHg), Tachycardia (HR 122 bpm), Tachypnea (RR 28), Decreased SpO2 (92%), Cool and clammy skin, Decreased urine output (30 mL since 04:00), Lethargy, low Hemoglobin (8.2 g/dL), low Hematocrit (25%), and elevated Lactate (3.5 mmol/L). These signs indicate inadequate circulating volume, leading to decreased tissue perfusion and oxygenation. The body attempts to compensate by increasing heart rate and respiratory rate to maintain oxygen delivery.",
-        "incorrect": "Normal lab values and interventions not directly related to hypovolemia should not be selected. For instance, electrolyte levels within normal limits (Sodium 140 mEq/L, Potassium 4.1 mEq/L, Chloride 100 mEq/L) do not directly contribute to diagnosing hypovolemic shock. Pain level (2/10) at the surgical site is important for patient comfort but not a primary indicator of hypovolemic shock. Medication administration times are relevant for context but not diagnostic of the shock state itself.",
-        "clinicalPearls": [
-            "Early recognition of hypovolemic shock is crucial for timely intervention and improved patient outcomes. Subtle changes in vital signs and mentation can be early indicators.",
-            "Trend vital signs and urine output to assess the effectiveness of fluid resuscitation. A rising heart rate or decreasing urine output despite fluid administration may indicate ongoing fluid loss or inadequate resuscitation.",
-            "Consider occult bleeding as a potential cause of hypovolemic shock, especially post-operatively. Check dressings, surgical sites, and monitor for signs of internal bleeding (e.g., abdominal distension, changes in stool)."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus solely on one or two abnormal vital signs and miss the overall pattern of hypoperfusion. They might also be distracted by the patient's pain level or recent medication administration, overlooking the more critical signs of shock.",
-            "howToOvercome": "Emphasize the importance of synthesizing all available data (vital signs, lab results, nursing assessment) to identify the underlying problem. Encourage students to consider the compensatory mechanisms the body employs in response to hypovolemia and to prioritize findings that directly reflect circulatory status."
-        },
-        "mnemonic": {
-            "title": "SHOCK",
-            "expansion": "Skin cool and clammy, Hypotension, Oliguria (decreased urine output), Compensatory mechanisms (tachycardia, tachypnea), Knowledge deficit (assess understanding), Lethargy"
-        }
+    "scoring": {
+        "method": "+/- Scoring",
+        "maxPoints": 8
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential",
+        "topicTags": [
+            "Shock",
+            "Hemodynamics",
+            "Post-Operative Care",
+            "Hemorrhage"
+        ]
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:10:25.922Z"
 }

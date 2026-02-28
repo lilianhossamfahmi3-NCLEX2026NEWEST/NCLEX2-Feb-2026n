@@ -1,96 +1,383 @@
 {
     "id": "New-v26-7a92b4c8-5d2e-417f-9a8b-3c6d5e7f0g1a",
     "type": "dragAndDropCloze",
-    "stem": "The nurse is monitoring a patient receiving mechanical ventilation. Based on the provided patient data, complete the following sentences related to potential complications and necessary nursing interventions:\n\nIf the patient's high pressure alarm is sounding, the nurse should first [Blank 1]. This action addresses potential causes such as [Blank 2] or [Blank 3]. If the patient is experiencing a tension pneumothorax, the nurse should anticipate the need for [Blank 4]. To prevent ventilator-associated pneumonia (VAP), the nurse should prioritize [Blank 5] and [Blank 6].",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 6
+    "stem": "The nurse is managing a client on a mechanical ventilator who develops acute respiratory distress. Drag the most appropriate options from the bank to complete the sentences below. Each option can only be used once.",
+    "sentences": [
+        "The nurse's immediate action for a high-pressure alarm is to [1].",
+        "This alarm is likely caused by [2] or [3].",
+        "Given the client's unilateral diminished breath sounds and hemodynamic instability, the nurse must prepare for an emergent [4].",
+        "To mitigate the risk of ventilator-associated pneumonia (VAP), the nurse will implement [5] and [6]."
+    ],
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "assess the patient and ventilator circuit"
+        },
+        {
+            "id": "opt_02",
+            "text": "mucus plugging"
+        },
+        {
+            "id": "opt_03",
+            "text": "kinked ventilator tubing"
+        },
+        {
+            "id": "opt_04",
+            "text": "needle thoracostomy"
+        },
+        {
+            "id": "opt_05",
+            "text": "elevating the head of the bed"
+        },
+        {
+            "id": "opt_06",
+            "text": "meticulous oral care"
+        },
+        {
+            "id": "opt_07",
+            "text": "increase FiO2"
+        },
+        {
+            "id": "opt_08",
+            "text": "administer a fluid bolus"
+        },
+        {
+            "id": "opt_09",
+            "text": "increase sedation"
+        },
+        {
+            "id": "opt_10",
+            "text": "obtain a blood culture"
+        }
+    ],
+    "correctAnswers": {
+        "1": [
+            "opt_01"
+        ],
+        "2": [
+            "opt_02",
+            "opt_03"
+        ],
+        "3": [
+            "opt_02",
+            "opt_03"
+        ],
+        "4": [
+            "opt_04"
+        ],
+        "5": [
+            "opt_05",
+            "opt_06"
+        ],
+        "6": [
+            "opt_05",
+            "opt_06"
+        ]
     },
     "itemContext": {
         "patient": {
-            "name": "Robert Miller",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Robert Miller is a 68-year-old male, post-operative CABG x3, admitted to the ICU at 06:00. The current time is 14:00. B: Mr. Miller has a history of COPD, hypertension, and diabetes mellitus. He was intubated post-operatively due to increasing respiratory distress. A: At 14:00, he is on mechanical ventilation with the following settings: FiO2 40%, PEEP 5 cm H2O, Tidal Volume 450 mL, and a respiratory rate of 14 breaths per minute. His SpO2 is 90% (was 92%), heart rate is 120 beats per minute (was 110), and blood pressure is 150/90 mmHg (was 140/80). The high-pressure alarm on the ventilator is sounding intermittently. Increased agitation and diminished breath sounds on the right side are present. His central venous pressure (CVP) is trending upward to 14 mmHg. ABG at 13:30: pH 7.30, PaCO2 55 mmHg, PaO2 80 mmHg, HCO3 24 mEq/L. C: I am concerned about a possible pneumothorax or airway obstruction. I request a STAT chest x-ray and assessment for suctioning. Please advise on further management.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Robert Miller is a 68-year-old male, post-operative CABG x3, admitted to the ICU at 06:00. The current time is 14:00. B: Mr. Miller has a history of COPD, hypertension, and diabetes mellitus. He was intubated post-operatively due to increasing respiratory distress. A: At 14:00, he is on mechanical ventilation with the following settings: FiO2 40%, PEEP 5 cm H2O, Tidal Volume 450 mL, and a respiratory rate of 14 breaths per minute. His SpO2 is 90% (was 92%), heart rate is 120 beats per minute (was 110), and blood pressure is 150/90 mmHg (was 140/80). The high-pressure alarm on the ventilator is sounding intermittently. Increased agitation and diminished breath sounds on the right side are present. His central venous pressure (CVP) is trending upward to 14 mmHg. ABG at 13:30: pH 7.30, PaCO2 55 mmHg, PaO2 80 mmHg, HCO3 24 mEq/L. C: I am concerned about a possible pneumothorax or airway obstruction. I request a STAT chest x-ray and assessment for suctioning. Please advise on further management."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 06:00",
+                        "text": "S: Client is a 68-year-old male admitted directly to ICU from OR post-CABG x3. \nB: History of COPD, hypertension, and type 2 diabetes mellitus. Client lives alone in a second-floor apartment with no elevator access, which is a potential barrier for discharge planning. Allergic to Penicillin. \nA: Intubated and sedated per protocol. Airway patent, breath sounds clear bilaterally post-op. Hemodynamically stable on low-dose norepinephrine. Initial ventilator settings established. Chest tube patent and draining serosanguinous fluid. \nR: Continue ventilator support and hemodynamic monitoring. Follow post-op cardiac surgery protocol. Consult case management regarding discharge planning and home accessibility."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 14:00",
+                        "text": "S: High-pressure alarm is sounding intermittently on the mechanical ventilator for the past 15 minutes. Client is increasingly agitated.\nB: Post-op Day 1 from CABG x3. Intubated for respiratory distress. History of COPD. Last received Morphine 2mg IV at 12:00.\nA: Vital signs show increasing tachycardia to 120 bpm and BP 150/90 mmHg (MAP 110). SpO2 has dropped from 92% to 90% on 40% FiO2. CVP is trending upward, now 14 mmHg. Physical assessment reveals diminished breath sounds over the entire right lung field compared to the left. Client is restless and appears anxious. The clinical picture is highly suggestive of a right-sided tension pneumothorax.\nR: Immediately perform a full patient and circuit assessment. Request a STAT portable chest x-ray. Notify the surgical team and respiratory therapy of the acute change. Prepare for emergent needle decompression and chest tube insertion at the bedside."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG (13:30): pH 7.30, PaCO2 55 mmHg, PaO2 80 mmHg, HCO3 24 mEq/L. WBC: 14,000/mm3. Lactate: 2.8 mmol/L."
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (breaths/min)",
+                        "SpO₂ (%)",
+                        "Temp °F (°C)",
+                        "CVP (mmHg)"
+                    ],
+                    "rows": [
+                        [
+                            "13:00",
+                            "110",
+                            "140/80",
+                            "100",
+                            "14 (Vent)",
+                            "92% on 40% FiO2",
+                            "99.9 (37.7)",
+                            "12"
+                        ],
+                        [
+                            "13:30",
+                            "115",
+                            "145/85",
+                            "105",
+                            "14 (Vent)",
+                            "91% on 40% FiO2",
+                            "100.2 (37.9)",
+                            "13"
+                        ],
+                        [
+                            "14:00",
+                            "120",
+                            "150/90",
+                            "110",
+                            "14 (Vent)",
+                            "90% on 40% FiO2",
+                            "100.4 (38.0)",
+                            "14"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "13:00: HR 110, BP 140/80, RR 14 (vent), SpO2 92%, Temp 37.8°C. CVP: 12 mmHg.\n13:30: HR 115, BP 145/85, RR 14 (vent), SpO2 91%, Temp 37.9°C. CVP: 13 mmHg.\n14:00: HR 120, BP 150/90, RR 14 (vent), SpO2 90%, Temp 38.0°C. CVP: 14 mmHg."
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Arterial Blood Gas (13:30)",
+                        "results": [
+                            {
+                                "test": "pH",
+                                "value": "7.30",
+                                "unit": null,
+                                "reference": "7.35-7.45",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "PaCO₂",
+                                "value": "55",
+                                "unit": "mmHg",
+                                "reference": "35-45",
+                                "status": "High"
+                            },
+                            {
+                                "test": "PaO₂",
+                                "value": "80",
+                                "unit": "mmHg",
+                                "reference": "80-100",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "HCO₃⁻",
+                                "value": "24",
+                                "unit": "mEq/L",
+                                "reference": "22-26",
+                                "status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Complete Blood Count (13:30)",
+                        "results": [
+                            {
+                                "test": "WBC",
+                                "value": "14.0",
+                                "unit": "x10³/μL",
+                                "reference": "4.5-11.0",
+                                "status": "High"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Metabolic Panel (13:30)",
+                        "results": [
+                            {
+                                "test": "Lactate",
+                                "value": "2.8",
+                                "unit": "mmol/L",
+                                "reference": "0.5-2.2",
+                                "status": "High"
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Morphine 2mg IV PRN pain (last dose 12:00). Famotidine 20mg IV BID (due 18:00). Vancomycin 1g IV q12h (due 18:00)."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "General",
+                        "findings": "Client appears agitated and restless in bed."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Endotracheal tube secure at 23 cm at the lip. High-pressure alarm sounding. Diminished breath sounds auscultated over the entire right lung field. Left lung fields are clear to auscultation. No tracheal deviation noted at this time."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardia with S1/S2 audible. No murmurs, rubs, or gallops. Peripheral pulses 2+ and equal bilaterally."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "type": "Portable Chest X-ray (AP view)",
+                        "timestamp": "14:10",
+                        "report": "FINDINGS: Large right-sided pneumothorax is identified, with associated collapse of the right lung. There is a significant mediastinal shift to the left, compressing the left lung and cardiac silhouette. This is consistent with a tension pneumothorax. Endotracheal tube tip is appropriately positioned 4 cm above the carina. Central venous catheter tip terminates in the superior vena cava.\n\nIMPRESSION: Tension pneumothorax, right. Urgent intervention is clinically indicated."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 06:00",
+                            "Mechanical Ventilation: Assist-Control, TV 450 mL, RR 14, PEEP 5 cm H2O, FiO2 40%",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 06:00",
+                            "Continuous cardiac, SpO2, and CVP monitoring",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 06:00",
+                            "VAP Prevention Bundle: Elevate HOB 30-45 degrees, daily sedation vacation, oral care with chlorhexidine q4h",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 14:05",
+                            "STAT Portable Chest X-ray",
+                            "STAT"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Morphine",
+                            "2 mg",
+                            "IV",
+                            "PRN Pain/Agitation",
+                            "Day 1, 12:00"
+                        ],
+                        [
+                            "Famotidine",
+                            "20 mg",
+                            "IV",
+                            "BID",
+                            "Day 1, 06:00"
+                        ],
+                        [
+                            "Vancomycin",
+                            "1 g",
+                            "IV",
+                            "q12h",
+                            "Day 1, 06:00"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Management of Care",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
+    "rationale": {
+        "correct": "The client's presentation of a high-pressure alarm, sudden desaturation, tachycardia, and unilateral diminished breath sounds is classic for a tension pneumothorax, a life-threatening complication of positive pressure ventilation. The first nursing action is always to assess the patient and the circuit to rapidly identify the cause. Common causes of obstruction include mucus plugging or kinked tubing. Given the severe signs of cardiopulmonary compromise (rising CVP, tachycardia), an emergent needle thoracostomy is the anticipated life-saving intervention. The VAP bundle, including HOB elevation and oral care, are crucial preventative measures for all ventilated patients.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The immediate priority for any ventilator alarm is to assess the client and the ventilator circuit. This allows the nurse to quickly differentiate between a patient-centered problem (e.g., pneumothorax, bronchospasm) and an equipment-related issue (e.g., kinked tubing)."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. Mucus plugging is a common cause of airway obstruction in intubated clients, leading to increased airway pressure and triggering the high-pressure alarm."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. Kinked ventilator tubing creates an artificial obstruction, increasing the pressure required to deliver a breath and triggering the high-pressure alarm. It is an easily correctable, equipment-related cause."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. A tension pneumothorax causes air to become trapped in the pleural space, leading to lung collapse and mediastinal shift, which compresses the heart and great vessels. This impairs venous return (indicated by rising CVP) and causes obstructive shock. An emergent needle thoracostomy is required to release the trapped air."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. Elevating the head of the bed to 30-45 degrees is a key component of the VAP bundle. This position uses gravity to reduce the risk of gastroesophageal reflux and subsequent aspiration of oropharyngeal or gastric secretions into the lungs."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. Meticulous oral care, often with chlorhexidine, is another cornerstone of VAP prevention. It decreases the bacterial load in the oropharynx, reducing the number of pathogens available to be aspirated into the lower respiratory tract."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. Increasing the FiO2 addresses the symptom of hypoxia but fails to correct the underlying cause of the high-pressure alarm and respiratory distress (the tension pneumothorax). This would delay life-saving treatment."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Incorrect. The client's CVP is already elevated (14 mmHg), indicating impaired venous return to the heart, likely due to compression from the tension pneumothorax. Administering a fluid bolus would worsen venous congestion and be contraindicated."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Incorrect. The client's agitation is a physiological response to hypoxia and respiratory distress. Administering sedation would mask these critical signs of deterioration and would not resolve the life-threatening pneumothorax."
+            },
+            {
+                "optionId": "opt_10",
+                "content": "Incorrect. While the client has a mild leukocytosis, the immediate clinical picture is one of a mechanical respiratory emergency, not sepsis. Obtaining blood cultures is not relevant to the acute event and would delay necessary interventions."
+            }
+        ],
+        "clinicalPearls": [
+            "High-pressure ventilator alarms signify increased airway resistance or decreased lung compliance. Always assess the patient first, then the circuit.",
+            "Tension pneumothorax is a clinical diagnosis. Do not delay life-saving intervention (needle decompression) waiting for radiologic confirmation if the client is hemodynamically unstable.",
+            "The VAP bundle (HOB elevation, oral care, sedation vacations, PUD/DVT prophylaxis) is a critical, evidence-based nursing intervention to reduce ICU morbidity and mortality."
+        ],
+        "questionTrap": "The 'Fix the Machine' Trap: Test-takers may focus on ventilator settings (like increasing FiO2) instead of addressing the client's underlying physiological crisis causing the alarm. Always prioritize assessing the client over the equipment.",
+        "mnemonic": "DOPE (High-Pressure Alarm Causes): D - Displacement (of ETT), O - Obstruction (mucus plug, kinked tube), P - Pneumothorax, E - Equipment failure.",
+        "reviewUnits": [
+            "Critical Care Nursing",
+            "Ventilator Management",
+            "Medical Emergencies",
+            "Respiratory Pathophysiology"
         ]
     },
-    "rationale": {
-        "correct": "The high pressure alarm indicates increased resistance to airflow. The nurse should first assess the patient and the ventilator circuit for obstruction or other correctable causes. Common causes include mucus plugging, biting the endotracheal tube, or kinks in the ventilator tubing. A tension pneumothorax requires immediate intervention, such as a needle thoracostomy, to relieve pressure on the lung and mediastinum. Prevention of VAP is crucial and includes elevating the head of the bed and providing meticulous oral care. Elevating the head of the bed reduces the risk of aspiration, and meticulous oral care reduces the bacterial load in the oral cavity, decreasing the risk of bacteria entering the lungs.",
-        "incorrect": "Failing to address the high pressure alarm promptly can lead to barotrauma or hypoventilation. Overlooking a pneumothorax can result in cardiovascular collapse. Inadequate VAP prevention increases the risk of infection, prolonged ventilation, and increased morbidity. Administering medication or increasing sedation without addressing the underlying cause of the high-pressure alarm will not resolve the problem and could mask further deterioration.",
-        "clinicalPearls": [
-            "Always assess the patient and the ventilator circuit before adjusting ventilator settings when an alarm sounds.",
-            "Tension pneumothorax is a life-threatening emergency requiring immediate intervention.",
-            "VAP prevention is a multi-faceted approach involving meticulous oral care, HOB elevation, and minimizing sedation.",
-            "Increased CVP in a ventilated patient with respiratory distress can indicate fluid overload or tension pneumothorax."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on the ventilator settings without assessing the patient's physical condition.",
-            "howToOvercome": "Prioritize patient assessment and identify potential causes of the alarm or changes in vital signs before making adjustments to the ventilator. Consider the patient's history and current clinical picture."
-        },
-        "mnemonic": {
-            "title": "DOPE (High Pressure Alarm)",
-            "expansion": "Displacement, Obstruction, Pneumothorax, Equipment"
-        }
+    "scoring": {
+        "method": "0/1 per blank",
+        "maxPoints": 6
     },
-    "possibleResponses": [
-        "assess the patient and ventilator circuit",
-        "mucus plugging",
-        "kinked ventilator tubing",
-        "needle thoracostomy",
-        "elevating the head of the bed",
-        "meticulous oral care",
-        "increase FiO2",
-        "administer a fluid bolus",
-        "increase sedation",
-        "obtain a blood culture"
-    ],
-    "solution": {
-        "Blank 1": "assess the patient and ventilator circuit",
-        "Blank 2": "mucus plugging",
-        "Blank 3": "kinked ventilator tubing",
-        "Blank 4": "needle thoracostomy",
-        "Blank 5": "elevating the head of the bed",
-        "Blank 6": "meticulous oral care"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:23:06.712Z"
 }

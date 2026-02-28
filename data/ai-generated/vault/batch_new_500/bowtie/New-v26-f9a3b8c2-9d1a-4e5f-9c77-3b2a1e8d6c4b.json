@@ -1,118 +1,324 @@
 {
     "id": "New-v26-f9a3b8c2-9d1a-4e5f-9c77-3b2a1e8d6c4b",
     "type": "bowtie",
-    "stem": "A patient is receiving mechanical ventilation. Based on the patient data, identify the appropriate actions the nurse should take, the potential conditions the patient is at risk for, and the parameters the nurse should monitor.",
-    "scoring": {
-        "method": "linkage",
-        "maxPoints": 6
+    "stem": "The nurse is caring for a 68-year-old client on mechanical ventilation post-CABG. Based on the provided clinical data, drag the options to identify the priority actions, the potential condition, and the parameters to monitor.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Perform endotracheal suctioning"
+        },
+        {
+            "id": "opt_02",
+            "text": "Increase FiO2 to 60%"
+        },
+        {
+            "id": "opt_03",
+            "text": "Retained Secretions with Atelectasis"
+        },
+        {
+            "id": "opt_04",
+            "text": "Peak Inspiratory Pressure (PIP)"
+        },
+        {
+            "id": "opt_05",
+            "text": "SpO2 and ABG results"
+        },
+        {
+            "id": "opt_06",
+            "text": "Administer neuromuscular blockade"
+        },
+        {
+            "id": "opt_07",
+            "text": "Request stat chest tube insertion"
+        },
+        {
+            "id": "opt_08",
+            "text": "Decrease PEEP to 3 cm H2O"
+        },
+        {
+            "id": "opt_09",
+            "text": "Pulmonary Embolism"
+        },
+        {
+            "id": "opt_10",
+            "text": "Central Venous Pressure (CVP)"
+        }
+    ],
+    "correctResponse": {
+        "actions": [
+            "opt_01",
+            "opt_02"
+        ],
+        "condition": "opt_03",
+        "parameters": [
+            "opt_04",
+            "opt_05"
+        ]
     },
     "itemContext": {
         "patient": {
-            "name": "Robert Miller",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ],
-            "airborne": false
+            ]
         },
-        "sbar": "S: Robert Miller, 68-year-old male, post-op day 1 from a coronary artery bypass graft (CABG). He is intubated and mechanically ventilated.\nB: History of COPD and hypertension. Admitted for unstable angina. CABG performed successfully. Initial post-op course was stable.\nA: At 06:00, the patient's SpO2 decreased to 88% despite FiO2 of 50%. Auscultation reveals coarse crackles bilaterally. Peak inspiratory pressure (PIP) increased from 25 cm H2O to 35 cm H2O. Arterial blood gas (ABG) results at 06:30: pH 7.30, PaCO2 55 mmHg, PaO2 60 mmHg, HCO3- 24 mEq/L. The patient is restless and coughing against the ventilator. Current ventilator settings: Assist-Control, Rate 12, Tidal Volume 450 mL, FiO2 50%, PEEP 5 cm H2O. At 06:45, moderate amount of thick, white secretions were suctioned.\nR: I recommend assessing for causes of increased airway resistance or decreased lung compliance, such as retained secretions, atelectasis, or pneumothorax. Consider adjusting ventilator settings to improve oxygenation and ventilation. Obtain a chest x-ray if indicated. Notify the physician.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Robert Miller, 68-year-old male, post-op day 1 from a coronary artery bypass graft (CABG). He is intubated and mechanically ventilated.\nB: History of COPD and hypertension. Admitted for unstable angina. CABG performed successfully. Initial post-op course was stable.\nA: At 06:00, the patient's SpO2 decreased to 88% despite FiO2 of 50%. Auscultation reveals coarse crackles bilaterally. Peak inspiratory pressure (PIP) increased from 25 cm H2O to 35 cm H2O. Arterial blood gas (ABG) results at 06:30: pH 7.30, PaCO2 55 mmHg, PaO2 60 mmHg, HCO3- 24 mEq/L. The patient is restless and coughing against the ventilator. Current ventilator settings: Assist-Control, Rate 12, Tidal Volume 450 mL, FiO2 50%, PEEP 5 cm H2O. At 06:45, moderate amount of thick, white secretions were suctioned.\nR: I recommend assessing for causes of increased airway resistance or decreased lung compliance, such as retained secretions, atelectasis, or pneumothorax. Consider adjusting ventilator settings to improve oxygenation and ventilation. Obtain a chest x-ray if indicated. Notify the physician."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 08:00",
+                        "type": "Admission Note",
+                        "note": "S: Client is a 68-year-old male admitted to the ICU post-Coronary Artery Bypass Graft (CABG).\nB: History of COPD and hypertension. Client lives alone in a second-floor apartment with no elevator, which is a potential barrier to post-discharge follow-up (SDOH). Procedure was uneventful.\nA: Client is intubated, sedated, and on mechanical ventilation. Vitals are stable. Chest tubes are patent with minimal serosanguinous drainage. Surgical incision is clean, dry, and intact. Lungs clear on admission. Receiving IV fluids and scheduled antibiotics.\nR: Plan is to monitor hemodynamics closely, manage post-operative pain, and begin weaning from ventilator tomorrow if stable. Case management consulted regarding discharge needs."
+                    },
+                    {
+                        "timestamp": "Day 2, 06:45",
+                        "type": "Progress Note",
+                        "note": "S: Reporting on 68-year-old male, post-op day 2 from CABG, who is experiencing acute respiratory distress.\nB: Client's post-op course was stable until this morning. He has a history of COPD. He lives alone, which may complicate his recovery and access to care post-discharge.\nA: At 06:00, SpO₂ dropped to 88% on 50% FiO₂. Tachycardic to 110/min and hypertensive at 150/95 mmHg. Ventilator high-pressure alarm is sounding; Peak Inspiratory Pressure (PIP) is 35 cm H₂O, increased from 25 cm H₂O. Auscultation reveals coarse crackles bilaterally, diminished at the bases. Client is restless and coughing against the ventilator. ABG at 06:30 shows respiratory acidosis with hypoxemia (pH 7.30, PaCO₂ 55, PaO₂ 60).\nR: Suspect retained secretions leading to airway obstruction and atelectasis. Recommend immediate endotracheal suctioning, increasing FiO₂ to improve oxygenation, and obtaining a stat chest x-ray. Continue to monitor respiratory parameters closely."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>55 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>60 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3-</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.0 mEq/L</td><td>3.5-5.0 mEq/L</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (/min)",
+                        "SpO₂ (%)",
+                        "Temp °F (°C)"
+                    ],
+                    "rows": [
+                        [
+                            "04:00",
+                            "90",
+                            "130/80",
+                            "97",
+                            "12 (Vent)",
+                            "95% on 50% FiO₂",
+                            "98.6 (37.0)"
+                        ],
+                        [
+                            "06:00",
+                            "105",
+                            "145/90",
+                            "108",
+                            "12 (Vent)",
+                            "88% on 50% FiO₂",
+                            "99.0 (37.2)"
+                        ],
+                        [
+                            "06:30",
+                            "110",
+                            "150/95",
+                            "113",
+                            "12 (Vent)",
+                            "89% on 50% FiO₂",
+                            "99.1 (37.3)"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>05:00</td><td>90</td><td>130/80</td><td>12 (Ventilated)</td><td>95% (FiO2 50%)</td><td>37.0°C</td></tr><tr><td>06:00</td><td>105</td><td>145/90</td><td>12 (Ventilated)</td><td>88% (FiO2 50%)</td><td>37.2°C</td></tr><tr><td>06:30</td><td>110</td><td>150/95</td><td>12 (Ventilated)</td><td>89% (FiO2 50%)</td><td>37.3°C</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "panel": "Arterial Blood Gas (ABG) - 06:30",
+                    "results": [
+                        {
+                            "test": "pH",
+                            "value": "7.30",
+                            "unit": "",
+                            "reference": "7.35-7.45",
+                            "status": "Low"
+                        },
+                        {
+                            "test": "PaCO₂",
+                            "value": "55",
+                            "unit": "mmHg",
+                            "reference": "35-45",
+                            "status": "High"
+                        },
+                        {
+                            "test": "PaO₂",
+                            "value": "60",
+                            "unit": "mmHg",
+                            "reference": "80-100",
+                            "status": "Low"
+                        },
+                        {
+                            "test": "HCO₃⁻",
+                            "value": "24",
+                            "unit": "mEq/L",
+                            "reference": "22-26",
+                            "status": "Normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Neurological",
+                        "findings": "Restless and agitated. Sedated but responsive to noxious stimuli."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Symmetrical chest expansion. Coarse crackles auscultated bilaterally, diminished in lower lobes. Client coughing against endotracheal tube. Ventilator high-pressure alarm sounding. PIP 35 cm H₂O."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardia with S1, S2 audible. No murmurs. Pulses +2 peripherally."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": {
+                    "type": "Chest X-ray (Portable)",
+                    "timestamp": "Day 2, 07:00",
+                    "report": "FINDINGS: Endotracheal tube tip is appropriately positioned, 4 cm superior to the carina. Bilateral basilar opacities are present, more pronounced on the left. Lung volumes appear decreased compared to prior studies. No evidence of pneumothorax or significant pleural effusion. Cardiomediastinal silhouette is within post-operative limits.\n\nIMPRESSION: Findings are consistent with bibasilar atelectasis, a common post-operative complication."
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Morphine</td><td>2 mg</td><td>IV</td><td>q2hr PRN pain</td></tr><tr><td>Furosemide</td><td>20 mg</td><td>IV</td><td>q12hr</td></tr><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>q24hr</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>q24hr</td></tr></tbody></table>"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 07:30",
+                            "Mechanical Ventilation: Assist-Control (AC), Rate 12/min, Tidal Volume 450 mL, FiO₂ 50%, PEEP 5 cm H₂O",
+                            "Continuous"
+                        ],
+                        [
+                            "Day 1, 07:30",
+                            "Suction endotracheal tube",
+                            "PRN for secretions or high-pressure alarms"
+                        ],
+                        [
+                            "Day 1, 07:30",
+                            "Arterial Blood Gas (ABG)",
+                            "Daily in AM and PRN for respiratory status change"
+                        ],
+                        [
+                            "Day 1, 07:30",
+                            "Portable Chest X-ray",
+                            "Daily"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Morphine",
+                            "2 mg",
+                            "IV",
+                            "q2hr PRN pain/sedation",
+                            "Day 2, 04:00"
+                        ],
+                        [
+                            "Furosemide",
+                            "20 mg",
+                            "IV",
+                            "q12hr",
+                            "Day 1, 21:00"
+                        ],
+                        [
+                            "Ceftriaxone",
+                            "1 g",
+                            "IV",
+                            "q24hr",
+                            "Day 1, 09:00"
+                        ],
+                        [
+                            "Pantoprazole",
+                            "40 mg",
+                            "IV",
+                            "q24hr",
+                            "Day 1, 09:00"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Respiratory",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
-        ]
-    },
     "rationale": {
-        "correct": "Increased PIP, decreased SpO2, and coarse crackles indicate a need to address potential airway issues. Suctioning removes secretions, improving ventilation. Increasing FiO2 addresses hypoxemia by increasing the concentration of oxygen delivered. Assessing breath sounds helps determine the effectiveness of interventions and identify areas of poor ventilation. Monitoring ABGs provides information about ventilation and oxygenation, guiding further adjustments. Notifying the physician is essential for further evaluation and management, especially if the patient's condition does not improve with initial interventions.",
-        "incorrect": "Administering a neuromuscular blocking agent without addressing the underlying cause of the patient's distress is inappropriate and can mask the problem, potentially leading to further complications. Decreasing PEEP may worsen oxygenation, especially with existing atelectasis, as PEEP helps to keep alveoli open. Placing the patient in the Trendelenburg position increases the risk of aspiration and does not address the underlying respiratory issues. Disconnecting the ventilator is dangerous and should only be done in emergency situations with a bag-valve-mask available. Performing chest compressions is inappropriate as there is no indication of cardiac arrest; the patient is breathing, albeit with difficulty.",
+        "correct": "The client's clinical presentation—including a sudden drop in SpO₂, increased Peak Inspiratory Pressure (PIP), coarse crackles, and ABG results showing hypoxemia and respiratory acidosis—strongly indicates an acute airway obstruction. The most likely cause in a post-operative, ventilated client is retained secretions leading to atelectasis. Therefore, the priority is to clear the airway and improve oxygenation. Suctioning directly addresses the obstruction, while increasing the FiO₂ directly treats the hypoxemia. Monitoring PIP will confirm the resolution of the obstruction (it should decrease), and tracking SpO₂ and repeat ABGs will evaluate the effectiveness of the interventions on gas exchange.",
+        "incorrect": "Administering a neuromuscular blocker is dangerous as it masks the underlying problem and eliminates the client's respiratory drive without fixing the obstruction. Requesting a chest tube is inappropriate as the radiology report shows no evidence of a pneumothorax. Decreasing PEEP would worsen atelectasis by allowing more alveoli to collapse. Pulmonary Embolism is a possible differential, but the prominent coarse crackles and high PIP point more strongly to an airway/secretion issue. CVP is a measure of fluid status and is not a primary parameter for monitoring acute respiratory failure.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct Action. The high PIP alarm (35 cm H₂O), coarse crackles, and visible coughing indicate increased airway resistance, most likely from secretions. Suctioning is the first-line intervention to clear the airway."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct Action. The client's SpO₂ is 88% and PaO₂ is 60 mmHg, indicating significant hypoxemia. A temporary increase in FiO₂ is a necessary supportive measure to improve oxygen saturation while the underlying cause is being addressed."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct Condition. This diagnosis synthesizes all the cues: high PIP (obstruction), crackles (fluid/secretions in airways), and hypoxemia (impaired gas exchange from collapsed alveoli), which is confirmed by the chest x-ray."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct Parameter. PIP is a direct measure of airway resistance. After suctioning, the nurse must monitor the PIP to evaluate if the intervention was effective. A significant decrease in PIP would confirm the removal of the obstruction."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct Parameter. SpO₂ and subsequent ABGs are the most direct measures of oxygenation and ventilation. Monitoring these parameters is essential to evaluate the overall effectiveness of the interventions in resolving the client's respiratory distress."
+            }
+        ],
         "clinicalPearls": [
-            "Always assess the patient before adjusting ventilator settings to ensure interventions are appropriate for the underlying cause of distress.",
-            "High PIP can indicate increased airway resistance or decreased lung compliance, requiring investigation and targeted interventions.",
-            "Thick secretions can significantly impair gas exchange, necessitating effective suctioning techniques and potentially mucolytic agents."
+            "A sudden increase in Peak Inspiratory Pressure (PIP) on a mechanical ventilator almost always indicates an increase in airway resistance (e.g., secretions, bronchospasm) or a decrease in lung compliance (e.g., pneumothorax, ARDS).",
+            "Always assess the client before the machine. When a ventilator alarm sounds, perform a rapid assessment of the client's airway, breathing, and circulation before troubleshooting the equipment.",
+            "Atelectasis is one of the most common post-operative respiratory complications. It is caused by alveolar collapse, leading to a ventilation-perfusion (V/Q) mismatch and hypoxemia.",
+            "The Social Determinants of Health (SDOH), such as a client living alone or having mobility barriers (e.g., stairs), are critical considerations for the nurse in discharge planning to prevent readmission."
         ],
-        "questionTrap": {
-            "trap": "The question may tempt you to focus solely on the hypoxemia without considering the increased PIP and secretions. Ignoring the high PIP can lead to overlooking a critical airway issue, such as a blocked airway or worsening lung compliance.",
-            "howToOvercome": "Consider all data points, including vital signs, lab results, and physical assessment findings, to identify the underlying cause of the patient's respiratory distress. Prioritize interventions based on the most immediate threats to the patient's well-being."
-        },
+        "questionTrap": "The primary trap is focusing on a more dramatic but less likely diagnosis, like a pneumothorax or pulmonary embolism, and selecting corresponding interventions. The key is to recognize that the combination of high PIP and coarse crackles points directly to an airway secretion problem, which requires basic airway management first.",
         "mnemonic": {
-            "title": "DOPE",
-            "expansion": "Displacement, Obstruction, Pneumothorax, Equipment failure. Use this mnemonic to remember common causes of acute respiratory distress in ventilated patients, guiding a systematic assessment."
-        }
-    },
-    "bowtie": {
-        "actionOptions": [
-            "Suction the patient's airway.",
-            "Increase the FiO2.",
-            "Assess the patient's breath sounds.",
-            "Monitor arterial blood gases (ABGs).",
-            "Administer a neuromuscular blocking agent.",
-            "Decrease the PEEP.",
-            "Place the patient in the Trendelenburg position.",
-            "Disconnect the ventilator and manually ventilate with a bag-valve-mask.",
-            "Perform chest compressions."
-        ],
-        "conditionOptions": [
-            "Atelectasis",
-            "Pneumothorax",
-            "Ventilator-associated pneumonia (VAP)",
-            "Acute respiratory distress syndrome (ARDS)",
-            "Pulmonary embolism"
-        ],
-        "parameterOptions": [
-            "Peak inspiratory pressure (PIP)",
-            "Plateau pressure",
-            "Tidal volume",
-            "End-tidal CO2 (ETCO2)",
-            "Central venous pressure (CVP)"
-        ],
-        "correctActions": [
-            "Suction the patient's airway.",
-            "Increase the FiO2.",
-            "Assess the patient's breath sounds.",
-            "Monitor arterial blood gases (ABGs)."
-        ],
-        "correctConditions": [
-            "Atelectasis",
-            "Ventilator-associated pneumonia (VAP)"
-        ],
-        "correctParameters": [
-            "Peak inspiratory pressure (PIP)",
-            "Plateau pressure",
-            "End-tidal CO2 (ETCO2)"
+            "title": "DOPE for Ventilator Alarms",
+            "expansion": "When a ventilator alarm sounds for a client in distress, think DOPE:\nD - Displacement (Is the ET tube in the right place?)\nO - Obstruction (Are there secretions, kinks in the tubing, or is the client biting the tube?)\nP - Pneumothorax (Is there a collapsed lung?)\nE - Equipment (Is the ventilator malfunctioning?)"
+        },
+        "reviewUnits": [
+            "Respiratory",
+            "Critical Care",
+            "Pharmacology"
         ]
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "triad",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "sentinelStatus": "upgraded_to_2026_spec",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:39:07.084Z"
 }

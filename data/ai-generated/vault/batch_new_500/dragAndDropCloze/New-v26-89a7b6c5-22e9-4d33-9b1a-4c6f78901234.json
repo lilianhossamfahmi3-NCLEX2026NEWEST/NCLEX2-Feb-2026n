@@ -1,110 +1,339 @@
 {
     "id": "New-v26-89a7b6c5-22e9-4d33-9b1a-4c6f78901234",
     "type": "dragAndDropCloze",
-    "stem": "The patient's presentation suggests an acute kidney injury (AKI) superimposed on chronic kidney disease (CKD). Based on the provided data, prioritize the following interventions. First, administer <[#1]> to address the hyperkalemia. Second, administer <[#2]> to correct the metabolic acidosis. Next, prepare for possible <[#3]> if conservative measures fail. Finally, consult with the nephrologist regarding <[#4]> management strategies.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is planning care for a client with AKI on CKD, hyperkalemia, and metabolic acidosis. Drag the interventions to complete the plan of care in the correct priority. First, administer <[BLANK_1]>. Second, administer <[BLANK_2]>. Next, prepare for <[BLANK_3]>. Finally, plan for long-term <[BLANK_4]>.",
+    "blanks": [
+        {
+            "id": "BLANK_1",
+            "label": "First intervention"
+        },
+        {
+            "id": "BLANK_2",
+            "label": "Second intervention"
+        },
+        {
+            "id": "BLANK_3",
+            "label": "Contingency plan"
+        },
+        {
+            "id": "BLANK_4",
+            "label": "Long-term management"
+        }
+    ],
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "Calcium Gluconate"
+        },
+        {
+            "id": "opt_2",
+            "text": "Sodium Bicarbonate"
+        },
+        {
+            "id": "opt_3",
+            "text": "Insulin and Glucose"
+        },
+        {
+            "id": "opt_4",
+            "text": "Sodium Polystyrene Sulfonate"
+        },
+        {
+            "id": "opt_5",
+            "text": "Furosemide"
+        },
+        {
+            "id": "opt_6",
+            "text": "Hemodialysis"
+        },
+        {
+            "id": "opt_7",
+            "text": "Fluid Restriction"
+        },
+        {
+            "id": "opt_8",
+            "text": "Erythropoietin therapy"
+        }
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Doe",
-            "age": 72,
-            "gender": "Male",
-            "iso": "USA",
+            "age": "72",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Dr. Smith, this is RN Jones calling from med-surg at 07:00. I'm calling about John Doe, a 72-year-old male with a history of CKD stage III, admitted yesterday for pneumonia. B: His baseline creatinine is 2.0 mg/dL. He's been oliguric overnight, with a urine output of only 50 mL in the last 8 hours. He received IV fluids for dehydration related to pneumonia. A: His current creatinine is 3.8 mg/dL, potassium is 6.8 mEq/L, and bicarbonate is 16 mEq/L. He reports muscle weakness. EKG shows peaked T waves. Blood pressure is 160/90 mmHg. R: I'm concerned about acute kidney injury superimposed on his chronic kidney disease and hyperkalemia. I recommend STAT interventions to address the electrolyte imbalances and declining renal function.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Dr. Smith, this is RN Jones calling from med-surg at 07:00. I'm calling about John Doe, a 72-year-old male with a history of CKD stage III, admitted yesterday for pneumonia. B: His baseline creatinine is 2.0 mg/dL. He's been oliguric overnight, with a urine output of only 50 mL in the last 8 hours. He received IV fluids for dehydration related to pneumonia. A: His current creatinine is 3.8 mg/dL, potassium is 6.8 mEq/L, and bicarbonate is 16 mEq/L. He reports muscle weakness. EKG shows peaked T waves. Blood pressure is 160/90 mmHg. R: I'm concerned about acute kidney injury superimposed on his chronic kidney disease and hyperkalemia. I recommend STAT interventions to address the electrolyte imbalances and declining renal function."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Yesterday, 18:00",
+                        "note": "S: Client is a 72-year-old male with a history of CKD Stage 3 and hypertension, admitted from home with a 3-day history of productive cough, fever, and shortness of breath.\nB: Diagnosed with community-acquired pneumonia. Baseline creatinine is 2.1 mg/dL. Client lives alone and sometimes struggles with medication adherence.\nA: Alert and oriented x4. Lungs with coarse crackles in the right lower lobe. Vital signs stable on admission. Receiving IV ceftriaxone and a 1L bolus of 0.9% normal saline for mild dehydration.\nR: Continue current treatment plan. Monitor respiratory status, renal function, and fluid balance closely. Encourage incentive spirometry."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Today, 07:00",
+                        "note": "S: Client reports feeling very weak and fatigued. Denies chest pain but notes some muscle cramping.\nB: Became oliguric overnight with a total urine output of 50 mL over the past 8 hours. SpO2 has trended down to 92% on 2L NC.\nA: BP is elevated at 160/90 mmHg. Continuous cardiac monitoring shows sinus tachycardia with prominent peaked T-waves. STAT labs reveal a critical potassium of 6.8 mEq/L and creatinine of 3.8 mg/dL. Bicarbonate is low at 16 mEq/L.\nR: Provider has been notified of critical lab values and ECG changes. Awaiting orders for emergent management of hyperkalemia and acute-on-chronic renal failure. Prepare for immediate intervention."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L, K: 6.8 mEq/L, Cl: 100 mEq/L, HCO3: 16 mEq/L, BUN: 60 mg/dL, Creatinine: 3.8 mg/dL, Glucose: 110 mg/dL, eGFR: 25 mL/min/1.73 m2"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "22:00",
+                        "BP (MAP)": "148/88 (108)",
+                        "HR": "92",
+                        "RR": "20",
+                        "SpO2": "95% on 2L NC",
+                        "Temp": "100.4°F (38.0°C)"
+                    },
+                    {
+                        "Time": "02:00",
+                        "BP (MAP)": "155/89 (111)",
+                        "HR": "98",
+                        "RR": "22",
+                        "SpO2": "93% on 2L NC",
+                        "Temp": "100.8°F (38.2°C)"
+                    },
+                    {
+                        "Time": "06:00",
+                        "BP (MAP)": "160/90 (113)",
+                        "HR": "100",
+                        "RR": "24",
+                        "SpO2": "92% on 2L NC",
+                        "Temp": "100.8°F (38.2°C)"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 160/90 mmHg, HR 100 bpm, RR 24, SpO2 92% on 2L NC, Temp 38.2 C (100.8 F), Urine Output: 50 mL (past 8 hours)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Potassium",
+                        "Value": "6.8",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "3.8",
+                        "Unit": "mg/dL",
+                        "Reference": "0.7-1.3",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "BUN",
+                        "Value": "60",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Bicarbonate (HCO3)",
+                        "Value": "16",
+                        "Unit": "mEq/L",
+                        "Reference": "22-28",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "eGFR",
+                        "Value": "15",
+                        "Unit": "mL/min/1.73m²",
+                        "Reference": ">60",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "Hemoglobin",
+                        "Value": "9.8",
+                        "Unit": "g/dL",
+                        "Reference": "14-18",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "Hematocrit",
+                        "Value": "29",
+                        "Unit": "%",
+                        "Reference": "42-52%",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "Sodium",
+                        "Value": "138",
+                        "Unit": "mEq/L",
+                        "Reference": "136-145",
+                        "Status": "WNL"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 1g IV q24h, Albuterol/Ipratropium Neb q4h PRN, Famotidine 20mg IV BID, Normal Saline 1L bolus (completed)"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": {
+                    "Timestamp": "Today, 06:30",
+                    "Cardiovascular": "Tachycardic, S1/S2 regular. 2+ pitting edema bilateral lower extremities up to the mid-calf. Pulses palpable.",
+                    "Respiratory": "Respirations labored. Coarse crackles auscultated bilaterally in lower lung bases. Using accessory muscles.",
+                    "Neurological": "Alert but lethargic, slow to respond to questions. Reports generalized muscle weakness. Moves all extremities with reduced strength."
+                }
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Type": "12-Lead ECG",
+                        "Timestamp": "Today, 07:15",
+                        "Impression": "Sinus tachycardia at a rate of 100 bpm. Notable for prominent, peaked T-waves consistent with hyperkalemia. No acute ST-segment elevation or depression."
+                    },
+                    {
+                        "Type": "Chest X-ray (Portable, AP)",
+                        "Timestamp": "Today, 07:30",
+                        "Impression": "Findings consistent with moderate pulmonary vascular congestion and small bilateral pleural effusions, suggestive of acute fluid volume overload. Right lower lobe opacity persists, consistent with pneumonia."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Today, 07:10",
+                        "Action": "STAT 12-Lead ECG",
+                        "Status": "Completed"
+                    },
+                    {
+                        "Order Date/Time": "Today, 07:10",
+                        "Action": "STAT Basic Metabolic Panel, CBC",
+                        "Status": "Completed"
+                    },
+                    {
+                        "Order Date/Time": "Today, 07:10",
+                        "Action": "Continuous cardiac monitoring",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday, 18:00",
+                        "Action": "Strict Intake & Output monitoring",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday, 18:00",
+                        "Action": "Renal diet (Low Na, K, Phos)",
+                        "Status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "Daily",
+                        "Last Administered": "Yesterday, 19:00"
+                    },
+                    {
+                        "Medication": "Famotidine",
+                        "Dose": "20mg",
+                        "Route": "IV",
+                        "Frequency": "BID",
+                        "Last Administered": "Yesterday, 21:00"
+                    },
+                    {
+                        "Medication": "Albuterol/Ipratropium",
+                        "Dose": "3mL",
+                        "Route": "Nebulizer",
+                        "Frequency": "q4h PRN",
+                        "Last Administered": "Today, 04:00"
+                    },
+                    {
+                        "Medication": "Normal Saline 0.9%",
+                        "Dose": "1L Bolus",
+                        "Route": "IV",
+                        "Frequency": "STAT",
+                        "Last Administered": "Yesterday, 18:30 (Completed)"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Renal: AKI vs CKD & Electrolyte Emergencies"
+    "rationale": {
+        "correct": "The correct sequence of interventions addresses the most life-threatening conditions first. The client's peaked T-waves and potassium of 6.8 mEq/L indicate severe hyperkalemia, which poses an immediate risk of fatal cardiac arrhythmia. Therefore, the first priority is administering Calcium Gluconate to stabilize the cardiac membrane. Second, Sodium Bicarbonate is given to correct the severe metabolic acidosis (HCO3 16 mEq/L), which also helps shift potassium into the cells. Third, if these measures are insufficient, Hemodialysis is the definitive treatment for removing excess potassium, fluid, and waste products. Finally, Erythropoietin therapy is a long-term strategy to manage the anemia of chronic kidney disease, evidenced by the client's low hemoglobin.",
+        "incorrect": "Choosing an incorrect sequence fails to prioritize the most imminent threat. Administering Insulin/Glucose or Sodium Polystyrene Sulfonate before Calcium Gluconate leaves the heart unprotected from the effects of hyperkalemia. Furosemide is inappropriate as it is ineffective in an oliguric client with severe AKI and can cause further renal damage. Fluid restriction is a necessary management strategy but not a priority life-saving intervention in this sequence. Delaying preparation for hemodialysis can be detrimental if conservative measures fail.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "content": "Correct for Blank 1. Calcium Gluconate is the first-line emergent treatment for hyperkalemia with ECG changes. It does not lower potassium levels but antagonizes the toxic effects of potassium on the myocardial cell membrane, preventing life-threatening dysrhythmias."
+            },
+            {
+                "optionId": "opt_2",
+                "content": "Correct for Blank 2. Sodium Bicarbonate is administered to correct severe metabolic acidosis. By increasing serum pH, it causes a temporary shift of potassium from the extracellular to the intracellular space, thus lowering serum potassium levels."
+            },
+            {
+                "optionId": "opt_3",
+                "content": "Incorrect. While IV insulin and glucose is a primary treatment for hyperkalemia (it shifts potassium into cells), it is not the first priority. Cardiac membrane stabilization with calcium gluconate must occur first when ECG changes are present."
+            },
+            {
+                "optionId": "opt_4",
+                "content": "Incorrect. Sodium Polystyrene Sulfonate is a cation-exchange resin that removes potassium via the gastrointestinal tract. Its onset of action is slow (hours to days) and it is not indicated for the emergent treatment of life-threatening hyperkalemia."
+            },
+            {
+                "optionId": "opt_5",
+                "content": "Incorrect. Furosemide is a loop diuretic that promotes potassium excretion. However, it is ineffective and potentially nephrotoxic in a client with severe AKI who is already oliguric (producing minimal urine)."
+            },
+            {
+                "optionId": "opt_6",
+                "content": "Correct for Blank 3. Hemodialysis is the most effective and definitive treatment for life-threatening hyperkalemia, severe metabolic acidosis, and fluid overload, especially when conservative treatments fail or are not sufficiently rapid."
+            },
+            {
+                "optionId": "opt_7",
+                "content": "Incorrect. While fluid restriction is an important component of managing fluid overload in AKI, it is a supportive measure, not a priority life-saving intervention in the same category as correcting severe electrolyte imbalances."
+            },
+            {
+                "optionId": "opt_8",
+                "content": "Correct for Blank 4. Erythropoietin is a hormone that stimulates red blood cell production. It is used for the long-term management of anemia associated with chronic kidney disease (as seen in the labs) and is not an acute intervention."
+            }
+        ],
+        "clinicalPearls": [
+            "In hyperkalemia with ECG changes, the mantra is 'stabilize the heart, then shift and remove the potassium.' Calcium gluconate is for stabilization.",
+            "Oliguria (<0.5 mL/kg/hr) in a patient with known CKD is a red flag for acute-on-chronic kidney injury and often renders diuretics like furosemide ineffective.",
+            "Metabolic acidosis exacerbates hyperkalemia by causing hydrogen ions to move into cells in exchange for potassium ions, which move out into the serum."
+        ],
+        "questionTrap": "The most common trap is choosing a potassium-lowering agent (like Insulin/Glucose) as the first step instead of the cardioprotective agent (Calcium Gluconate). When peaked T-waves are present, the heart is electrically unstable and must be protected immediately.",
+        "mnemonic": {
+            "title": "AEIOU (Indications for Emergent Dialysis)",
+            "expansion": "A: Acidosis (severe, refractory metabolic acidosis)\nE: Electrolytes (refractory, severe hyperkalemia)\nI: Intoxication (dialyzable toxins like salicylates, lithium)\nO: Overload (fluid overload unresponsive to diuretics)\nU: Uremia (symptomatic uremia, e.g., pericarditis, encephalopathy)"
+        },
+        "reviewUnits": [
+            "Renal and Urinary System",
+            "Fluid and Electrolyte Imbalances",
+            "Pharmacological and Parenteral Therapies",
+            "Reduction of Risk Potential"
         ]
     },
-    "rationale": {
-        "correct": "The patient exhibits signs of AKI (rapid increase in creatinine) superimposed on CKD (history, low eGFR). Hyperkalemia requires immediate treatment with calcium gluconate to stabilize the cardiac membrane and prevent arrhythmias. Metabolic acidosis worsens hyperkalemia and needs correction with sodium bicarbonate. If conservative measures fail, dialysis becomes necessary. Erythropoietin may be considered to manage anemia associated with CKD. \n\nclinicalPearl: Calcium gluconate does not lower potassium levels but protects the heart from its effects.",
-        "incorrect": "Failing to prioritize interventions for hyperkalemia, metabolic acidosis, and declining renal function can lead to life-threatening complications. Misinterpreting the lab values and vital signs can lead to inappropriate interventions and further compromise the patient's condition. Delaying nephrology consultation can hinder optimal long-term management.\n\nquestionTrap: Assuming the patient's AKI is solely due to dehydration from pneumonia and aggressively administering fluids without addressing the underlying CKD and electrolyte imbalances.\n\nhowToOvercome: Carefully evaluate the patient's history, baseline renal function, and current lab values to differentiate between prerenal and intrinsic renal causes of AKI. Address the underlying CKD and electrolyte imbalances while cautiously managing fluid status.",
-        "clinicalPearls": [
-            "Peaked T waves on EKG are a classic sign of hyperkalemia.",
-            "Oliguria in the setting of AKI/CKD is a concerning sign.",
-            "Always consider the patient's baseline renal function when interpreting lab values."
-        ],
-        "questionTrap": {
-            "trap": "Assuming the patient's AKI is solely due to dehydration from pneumonia and aggressively administering fluids without addressing the underlying CKD and electrolyte imbalances.",
-            "howToOvercome": "Carefully evaluate the patient's history, baseline renal function, and current lab values to differentiate between prerenal and intrinsic renal causes of AKI. Address the underlying CKD and electrolyte imbalances while cautiously managing fluid status."
-        },
-        "mnemonic": {
-            "title": "AEIOU (Dialysis Indications)",
-            "expansion": "A: Acidosis (severe metabolic acidosis), E: Electrolyte imbalance (severe hyperkalemia), I: Intoxication (certain drug overdoses), O: Overload (fluid overload unresponsive to diuretics), U: Uremia (symptomatic uremia)"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4,
+        "correctResponse": {
+            "BLANK_1": "opt_1",
+            "BLANK_2": "opt_2",
+            "BLANK_3": "opt_6",
+            "BLANK_4": "opt_8"
         }
     },
-    "possibleResponses": [
-        {
-            "id": "a",
-            "content": "Calcium Gluconate"
-        },
-        {
-            "id": "b",
-            "content": "Sodium Bicarbonate"
-        },
-        {
-            "id": "c",
-            "content": "Insulin and Glucose"
-        },
-        {
-            "id": "d",
-            "content": "Kayexalate"
-        },
-        {
-            "id": "e",
-            "content": "Furosemide"
-        },
-        {
-            "id": "f",
-            "content": "Dialysis"
-        },
-        {
-            "id": "g",
-            "content": "Fluid Restriction"
-        },
-        {
-            "id": "h",
-            "content": "Erythropoietin"
-        }
-    ],
-    "answerKey": {
-        "1": "a",
-        "2": "b",
-        "3": "f",
-        "4": "h"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:27:05.263Z"
 }

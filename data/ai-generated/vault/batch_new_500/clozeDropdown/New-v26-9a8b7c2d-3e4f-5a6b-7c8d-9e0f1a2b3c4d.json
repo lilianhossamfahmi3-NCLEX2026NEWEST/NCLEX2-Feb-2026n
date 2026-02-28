@@ -1,74 +1,293 @@
 {
     "id": "New-v26-9a8b7c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
-    "type": "clozeDropdown",
-    "stem": "The patient's clinical presentation suggests a possible increase in intracranial pressure (ICP). Based on the provided data, select the most appropriate intervention for each assessment finding below.\n\nDecreased level of consciousness: [dropdown1]\nSystolic blood pressure trending upwards with widening pulse pressure: [dropdown2]\nPupil asymmetry: [dropdown3]",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse assesses a 68-year-old client three days post-ischemic stroke. Based on the data in the clinical record, which nursing action is the immediate priority to address the client's deteriorating neurological status?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Elevate the head of the bed to 30 degrees."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer the scheduled 09:00 dose of warfarin."
+        },
+        {
+            "id": "opt_03",
+            "text": "Administer PRN acetaminophen for a headache rating of 5/10."
+        },
+        {
+            "id": "opt_04",
+            "text": "Request a STAT basic metabolic panel (BMP)."
+        }
+    ],
+    "correctOptionId": "opt_01",
     "itemContext": {
         "patient": {
             "name": "Jameson Tyrell",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "S: Jameson Tyrell, a 68-year-old male, was admitted three days prior for an acute ischemic stroke affecting the right middle cerebral artery and is in the ICU.\nB: His history includes hypertension, atrial fibrillation (managed with warfarin), and hyperlipidemia. Admission NIHSS score was 18.\nA: At 0600, Mr. Tyrell's GCS is 10 (E2, V3, M5), down from 14 at 0200. His right pupil is 5mm, sluggishly reactive; left pupil is 3mm, reactive. BP is 180/70 mmHg, HR is 88 bpm, RR is 12 breaths/min, SpO2 is 97% on 2L NC. The neurosurgeon was notified at 0615.\nR: I'm concerned about increased ICP given the declining GCS, pupil changes, and BP trends. I request orders for mannitol to reduce ICP and a repeat head CT to check for worsening edema/hemorrhage. Guidance is needed on optimal BP management with potential increased ICP and head of bed positioning. All relevant labs and vitals are in the EHR. Please advise.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Jameson Tyrell, a 68-year-old male, was admitted three days prior for an acute ischemic stroke affecting the right middle cerebral artery and is in the ICU.\nB: His history includes hypertension, atrial fibrillation (managed with warfarin), and hyperlipidemia. Admission NIHSS score was 18.\nA: At 0600, Mr. Tyrell's GCS is 10 (E2, V3, M5), down from 14 at 0200. His right pupil is 5mm, sluggishly reactive; left pupil is 3mm, reactive. BP is 180/70 mmHg, HR is 88 bpm, RR is 12 breaths/min, SpO2 is 97% on 2L NC. The neurosurgeon was notified at 0615.\nR: I'm concerned about increased ICP given the declining GCS, pupil changes, and BP trends. I request orders for mannitol to reduce ICP and a repeat head CT to check for worsening edema/hemorrhage. Guidance is needed on optimal BP management with potential increased ICP and head of bed positioning. All relevant labs and vitals are in the EHR. Please advise."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1 @ 14:00",
+                        "note_type": "Admission Note",
+                        "note": "S: Jameson Tyrell is a 68-year-old male admitted from the ED with acute onset left-sided weakness and facial droop that began 4 hours ago. \nB: Client has a history of hypertension and atrial fibrillation (on warfarin). He lives alone in a rural area, which delayed his arrival to the hospital. Initial NIHSS score is 18. CT head shows a large right MCA ischemic infarct. \nA: Currently, GCS is 15. Left-sided hemiplegia is present. BP is 185/95 mmHg. Sinus rhythm on monitor. He is alert but exhibits expressive aphasia. He is at high risk for cerebral edema and increased intracranial pressure (ICP) due to the large infarct size. \nR: Admit to the Neurological ICU for close monitoring. Initiate neuro checks every hour. Maintain head of bed at 30 degrees. Strict blood pressure control per stroke protocol. Awaiting consults from Neurology and Physical Therapy."
+                    },
+                    {
+                        "timestamp": "Day 3 @ 06:00",
+                        "note_type": "Progress Note",
+                        "note": "S: Calling to report an acute change in Mr. Tyrell's neurological status. \nB: He is a 68-year-old male, day 3 post-right MCA ischemic stroke. His condition has been stable until this morning. \nA: At 06:00, his GCS has declined to 10 (E2, V3, M5) from 14 at 02:00. His right pupil is now 5mm and sluggishly reactive, while the left is 3mm and brisk. Vital signs show a trend of increasing systolic blood pressure (now 180/70 mmHg) with a widening pulse pressure, and his respiratory rate has decreased to 12. These findings are highly suggestive of Cushing's triad and increasing ICP. \nR: The neurosurgeon was notified at 06:15. I am requesting an order for an osmotic diuretic like mannitol and an emergent head CT to evaluate for worsening cerebral edema or hemorrhagic conversion. I will continue hourly neuro checks and maintain patient safety."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L, K: 4.1 mEq/L, Cl: 100 mEq/L, BUN: 20 mg/dL, Creatinine: 1.1 mg/dL, INR: 2.5, PT: 28 seconds, PTT: 45 seconds, Glucose: 110 mg/dL, Platelets: 180,000/uL"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "02:00",
+                        "Temp": "98.8°F (37.1°C)",
+                        "HR": "72 bpm",
+                        "BP": "140/80 mmHg (MAP 100)",
+                        "RR": "16/min",
+                        "SpO₂": "98% on Room Air"
+                    },
+                    {
+                        "Time": "04:00",
+                        "Temp": "98.9°F (37.2°C)",
+                        "HR": "64 bpm",
+                        "BP": "160/75 mmHg (MAP 103)",
+                        "RR": "14/min",
+                        "SpO₂": "98% on 2L NC"
+                    },
+                    {
+                        "Time": "06:00",
+                        "Temp": "99.0°F (37.2°C)",
+                        "HR": "58 bpm",
+                        "BP": "180/70 mmHg (MAP 107)",
+                        "RR": "12/min",
+                        "SpO₂": "97% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "0200: BP 140/80, HR 72, RR 16, SpO2 98% on RA, GCS 14\n0400: BP 160/75, HR 80, RR 14, SpO2 98% on 2L NC, GCS 12\n0600: BP 180/70, HR 88, RR 12, SpO2 97% on 2L NC, GCS 10"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Sodium (Na)",
+                        "Result": "140",
+                        "Unit": "mEq/L",
+                        "Reference": "136-145",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Potassium (K)",
+                        "Result": "4.1",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "20",
+                        "Unit": "mg/dL",
+                        "Reference": "10-20",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "1.1",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Glucose",
+                        "Result": "110",
+                        "Unit": "mg/dL",
+                        "Reference": "70-110",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "180",
+                        "Unit": "x10³/μL",
+                        "Reference": "150-400",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "INR",
+                        "Result": "2.5",
+                        "Unit": "",
+                        "Reference": "0.8-1.1 (therapeutic 2.0-3.0)",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "PT",
+                        "Result": "28",
+                        "Unit": "seconds",
+                        "Reference": "11-13.5",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological (06:00)",
+                        "Findings": "GCS 10 (E2: Opens eyes to pain, V3: Inappropriate words, M5: Localizes to pain). Right pupil 5mm, sluggish reaction to light. Left pupil 3mm, brisk reaction. Left-sided hemiparesis with 1/5 strength in upper and lower extremities. Right-sided strength 4/5. Reports headache rated 5/10."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "S1, S2 audible. Bradycardia noted. Pulses 2+ bilaterally. No edema."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Lungs clear to auscultation bilaterally. Respiration pattern is regular but shallow."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No acute changes on initial CT head."
+                "content": [
+                    {
+                        "Procedure": "CT Head without contrast (Day 1)",
+                        "Report": "FINDINGS: Large area of hypoattenuation is identified within the right middle cerebral artery (MCA) territory, consistent with an acute to subacute ischemic infarct. There is associated sulcal effacement and mass effect on the right lateral ventricle, indicating cytotoxic edema. No evidence of acute intracranial hemorrhage. Basal cisterns are patent.\n\nIMPRESSION: Acute large territory right MCA ischemic stroke with early signs of cerebral edema. Recommend close neurological monitoring for potential deterioration."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Warfarin 5mg PO daily, scheduled 0900\nLisinopril 20mg PO daily, scheduled 0900\nAtorvastatin 40mg PO daily, scheduled 2100\nPRN: Acetaminophen 650mg PO q4h for headache\nPRN: Ondansetron 4mg IV q6h for nausea"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order_Date_Time": "Day 1, 14:30",
+                        "Action": "Admit to Neuro ICU",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_Date_Time": "Day 1, 14:30",
+                        "Action": "Neurological assessments",
+                        "Frequency_Status": "Every 1 hour"
+                    },
+                    {
+                        "Order_Date_Time": "Day 1, 14:30",
+                        "Action": "Maintain Head of Bed at 30 degrees",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_Date_Time": "Day 1, 14:30",
+                        "Action": "Seizure precautions",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_Date_Time": "Day 1, 14:30",
+                        "Action": "NPO",
+                        "Frequency_Status": "Standing"
+                    },
+                    {
+                        "Order_Date_Time": "Day 1, 14:30",
+                        "Action": "Acetaminophen 650 mg PO for headache",
+                        "Frequency_Status": "PRN, every 4 hours"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Warfarin",
+                        "Dose": "5 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Scheduled": "09:00",
+                        "Last_Administered": "Day 2 @ 09:00"
+                    },
+                    {
+                        "Medication": "Lisinopril",
+                        "Dose": "20 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Scheduled": "09:00",
+                        "Last_Administered": "Day 2 @ 09:00"
+                    },
+                    {
+                        "Medication": "Atorvastatin",
+                        "Dose": "40 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Scheduled": "21:00",
+                        "Last_Administered": "Day 2 @ 21:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "PRN q4h Headache",
+                        "Scheduled": "",
+                        "Last_Administered": "Day 2 @ 22:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Stroke & Increased ICP"
+    "rationale": {
+        "correct": "The client's declining GCS, unilateral pupil dilation, and vital sign changes (hypertension, bradycardia, bradypnea) are classic signs of Cushing's triad, indicating a dangerous increase in intracranial pressure (ICP). The immediate priority is to implement interventions that reduce ICP. Elevating the head of the bed to 30 degrees with the head in a neutral position promotes venous drainage from the brain, which lowers ICP and is a critical, independent nursing action.",
+        "incorrect": "Administering warfarin is contraindicated and extremely dangerous. The client's INR is already elevated at 2.5, and the neurological decline raises suspicion for hemorrhagic conversion of the ischemic stroke, which anticoagulation would worsen catastrophically. Administering acetaminophen addresses a symptom (headache) but does not treat the life-threatening root cause (increased ICP) and could mask further neurological decline. Requesting a BMP is not the priority; the clinical signs point to a structural emergency requiring immediate ICP management and neuroimaging, not metabolic assessment.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. This action directly addresses the pathophysiology of increased ICP by using gravity to facilitate venous outflow from the cranial vault, thereby reducing pressure. It is a non-invasive, rapid, and independent nursing intervention that is the highest priority."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. This action is unsafe. The client's INR is supratherapeutic, and the acute neurological decline could signify hemorrhagic transformation of the stroke. Administering an anticoagulant would significantly increase the risk of a life-threatening intracranial bleed."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. While the client has a headache, this is a symptom of the underlying increased ICP. Treating the symptom is a much lower priority than treating the cause. This action would delay life-saving interventions and could mask worsening of the condition."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. While electrolyte imbalances can cause neurological changes, the client's presentation with focal signs (pupil change) and Cushing's triad strongly points to a structural issue like cerebral edema. The priority is neuro-protective measures and imaging, not routine labs."
+            }
+        ],
+        "clinicalPearls": [
+            "Cushing's triad (systolic hypertension with widening pulse pressure, bradycardia, and irregular/decreased respirations) is a late and ominous sign of severely increased ICP, often heralding brainstem compression.",
+            "In a patient with a large ischemic stroke, any acute neurological decline should raise immediate suspicion for either worsening cerebral edema (peaking at 3-5 days) or hemorrhagic conversion.",
+            "Maintaining the head in a neutral, midline position is as important as elevating the head of the bed, as neck flexion or rotation can compress jugular veins and impede venous drainage, further increasing ICP."
+        ],
+        "questionTrap": "The trap is choosing to treat a symptom (headache) or follow a routine schedule (administering warfarin) instead of recognizing a life-threatening syndrome. The cluster of cues (GCS drop, pupil change, vital sign trend) points to increased ICP, which requires prioritizing interventions that address the underlying pressure crisis.",
+        "mnemonic": "CUSHING'S TRIAD (Signs of ↑ ICP):\n- H: Hypertension (Systolic, with widening pulse pressure)\n- E: Erratic Respirations (Bradypnea or irregular patterns like Cheyne-Stokes)\n- A: And...\n- D: Decreased Heart Rate (Bradycardia)",
+        "reviewUnits": [
+            "Increased Intracranial Pressure (ICP) Management",
+            "Ischemic Stroke Pathophysiology and Complications",
+            "Neurological Assessment",
+            "Anticoagulant Therapy Safety"
         ]
     },
-    "rationale": {
-        "correct": "Decreased level of consciousness: Implement seizure precautions. Rationale: A decreased level of consciousness can indicate increased ICP and potential for seizures. Implementing seizure precautions ensures patient safety.\nSystolic blood pressure trending upwards with widening pulse pressure: Elevate the head of the bed to 30 degrees. Rationale: Elevating the head of the bed promotes venous drainage from the brain, which can help reduce ICP.\nPupil asymmetry: Prepare for immediate CT scan of the head. Rationale: Pupil asymmetry is a sign of increased ICP and possible brain herniation. A CT scan is needed to determine the cause and guide further treatment.",
-        "incorrect": "Decreased level of consciousness: Administer a bolus of normal saline. Rationale: Administering a bolus of normal saline could worsen cerebral edema and increase ICP. Question Trap: Nurses may think fluid bolus is appropriate for hypotension, but it is contraindicated in this situation.\nDecreased level of consciousness: Lower the head of the bed. Rationale: Lowering the head of the bed increases ICP by impeding venous drainage from the brain.\nSystolic blood pressure trending upwards with widening pulse pressure: Administer PRN Ondansetron. Rationale: While nausea can occur, addressing the blood pressure and ICP is the priority. Ondansetron does not address the underlying problem.\nSystolic blood pressure trending upwards with widening pulse pressure: Prepare for lumbar puncture. Rationale: Lumbar puncture is contraindicated with increased ICP due to the risk of brain herniation. Question Trap: Nurses may think lumbar puncture is appropriate for neurological changes, but it is contraindicated in this situation.\nPupil asymmetry: Reassess pupils in 1 hour. Rationale: Pupil asymmetry is a late sign of increased ICP and warrants immediate investigation. Delaying intervention can lead to permanent neurological damage.\nPupil asymmetry: Increase oxygen flow rate to 6L NC. Rationale: While oxygenation is important, it does not address the underlying cause of pupil asymmetry, which is likely increased ICP or brain herniation.",
-        "clinicalPearls": [
-            "Early recognition of increased ICP is crucial to prevent permanent neurological damage. Subtle changes in level of consciousness are often the first signs.",
-            "Hypertension in the setting of increased ICP may be the body's attempt to maintain cerebral perfusion pressure (CPP). Rapidly lowering blood pressure can be detrimental. Consult physician before administering antihypertensives.",
-            "Pupil asymmetry is a late sign of increased ICP and warrants immediate investigation. Be prepared to assist with interventions to reduce ICP."
-        ],
-        "questionTrap": {
-            "trap": "The question trap lies in prioritizing interventions for individual symptoms without considering the underlying cause (increased ICP). For example, focusing solely on the elevated blood pressure without addressing the ICP could lead to inappropriate treatment.",
-            "howToOvercome": "To overcome this trap, analyze all the assessment findings together to identify the common underlying problem (increased ICP) and then select interventions that address that problem holistically."
-        },
-        "mnemonic": {
-            "title": "I-C-P",
-            "expansion": "Irritability (early sign), Changes in LOC, Pupils (unequal/sluggish)"
-        }
-    }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:38:28.746Z"
 }

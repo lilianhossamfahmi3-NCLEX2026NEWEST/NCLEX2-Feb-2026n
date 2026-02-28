@@ -1,88 +1,310 @@
 {
-    "id": "New-v26-9f8a3b2c-4d5e-4f90-a8b7-1c2d3e4f5a6b",
-    "type": "dragAndDropCloze",
-    "stem": "The patient is at high risk for complications related to liver failure and pancreatitis. Based on the assessment data, prioritize the following interventions to manage these risks. Place the interventions in the correct order of priority, with the most urgent intervention at the top. \n\n1. Initiate [monitoring_LOC] for early detection of hepatic encephalopathy.\n2. Administer [lactulose_dose] to reduce ammonia levels and prevent further neurological decline.\n3. Restrict [sodium_intake] to manage ascites and prevent fluid overload.\n4. Provide [pancreatic_enzymes] with meals to aid in digestion and nutrient absorption.\n\nAvailable Options:\n* Lactulose 30 mL PO every 6 hours\n* Monitoring of level of consciousness every 2 hours\n* Pancreatic enzymes as prescribed prior to meals\n* Sodium intake to 2000 mg per day",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "id": "NGN-2026-Ordered-LiverFailure-v1",
+    "type": "orderedResponse",
+    "stem": "The nurse is planning care for a client with an acute exacerbation of chronic liver failure and pancreatitis. Drag the four nursing actions from the options provided into the box, ordering them from highest to lowest priority.",
+    "options": [
+        {
+            "id": "opt1",
+            "text": "Monitor level of consciousness every 2 hours"
+        },
+        {
+            "id": "opt2",
+            "text": "Administer lactulose 30 mL PO every 6 hours"
+        },
+        {
+            "id": "opt3",
+            "text": "Restrict sodium intake to 2000 mg per day"
+        },
+        {
+            "id": "opt4",
+            "text": "Provide pancreatic enzymes with meals"
+        }
+    ],
+    "correctResponse": [
+        "opt1",
+        "opt2",
+        "opt3",
+        "opt4"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Medical-Surgical Unit",
+            "age": "62 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ],
-            "conditions": [
-                "Liver Failure",
-                "Pancreatitis"
             ]
         },
-        "sbar": "S: John Smith, 62-year-old male, admitted with acute exacerbation of chronic liver failure and pancreatitis. Reports abdominal pain (7/10), distension, and increasing confusion. B: History of alcohol abuse, cirrhosis diagnosed 5 years ago, and multiple prior hospitalizations for pancreatitis. O: At 07:00, patient oriented to person only, exhibiting asterixis. Abdomen distended and tender to palpation. Vital signs: BP 90/60 mmHg, HR 110 bpm, RR 24 breaths/min, SpO2 92% on room air, Temp 38.5°C. Labs pending. Current medications include spironolactone, furosemide, and pantoprazole. At 07:15, noted 3+ pitting edema in lower extremities. I&O catheterized Foley, scant amber urine output. A: Worsening liver failure with possible hepatic encephalopathy and uncontrolled pancreatitis. R: Need orders for lactulose, further fluid management, and pain control. Monitor neurological status closely and anticipate potential complications.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Smith, 62-year-old male, admitted with acute exacerbation of chronic liver failure and pancreatitis. Reports abdominal pain (7/10), distension, and increasing confusion. B: History of alcohol abuse, cirrhosis diagnosed 5 years ago, and multiple prior hospitalizations for pancreatitis. O: At 07:00, patient oriented to person only, exhibiting asterixis. Abdomen distended and tender to palpation. Vital signs: BP 90/60 mmHg, HR 110 bpm, RR 24 breaths/min, SpO2 92% on room air, Temp 38.5°C. Labs pending. Current medications include spironolactone, furosemide, and pantoprazole. At 07:15, noted 3+ pitting edema in lower extremities. I&O catheterized Foley, scant amber urine output. A: Worsening liver failure with possible hepatic encephalopathy and uncontrolled pancreatitis. R: Need orders for lactulose, further fluid management, and pain control. Monitor neurological status closely and anticipate potential complications."
+                "id": "nurses_notes",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "note_type": "Admission Note",
+                        "note": "S: 62-year-old male admitted from the ED for an acute exacerbation of chronic liver failure and pancreatitis. He presents with severe abdominal pain, distension, and acute confusion. B: The client has a five-year history of alcohol-induced cirrhosis and multiple hospitalizations for pancreatitis. His adult child reports progressive disorientation over the last 24 hours. The client lives alone and has known issues with medication and dietary adherence. A: At 07:00, the client is oriented to person only, with prominent asterixis. Vital signs are unstable: BP 90/60 mmHg, HR 110 bpm, RR 24/min, SpO2 92% on room air. Abdomen is distended with a positive fluid wave and tenderness. 3+ pitting edema is noted in bilateral lower extremities. Skin is jaundiced. R: Initiate continuous cardiac and SpO2 monitoring. Implement seizure precautions and perform neurological checks every 2 hours. Awaiting physician orders for lactulose, diuretics, and pain management."
+                    },
+                    {
+                        "timestamp": "Day 1, 09:00",
+                        "note_type": "Progress Note",
+                        "note": "S: The client's neurological status remains poor; he is lethargic but arousable. B: Orders have been received and implemented, including lactulose 30 mL PO and a 500 mL bolus of 0.9% NaCl. The client is now on 2L O2 via nasal cannula. A: At 09:00, vital signs show minimal improvement: BP 92/58 mmHg (MAP 69), HR 108 bpm, RR 22/min, SpO2 94% on 2L NC. Asterixis persists. Abdominal girth is unchanged. Urine output via Foley catheter is low at 20 mL/hr. Recent labs confirm a critically high ammonia level of 210 mcg/dL and an INR of 2.1. R: Continue frequent neurological and hemodynamic monitoring. Administer scheduled lactulose and monitor for bowel movements. Maintain strict I&O. Discuss potential for albumin infusion with the provider to improve intravascular volume and manage ascites."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Ammonia: 210 mcg/dL (High), Sodium: 130 mEq/L (Low), Potassium: 3.2 mEq/L (Low), Albumin: 2.8 g/dL (Low), Bilirubin: 8.5 mg/dL (High), INR: 2.1 (High), Amylase: 650 U/L (High), Lipase: 700 U/L (High)"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "07:00",
+                        "Temp": "101.3°F (38.5°C)",
+                        "HR": "110 bpm",
+                        "RR": "24/min",
+                        "BP": "90/60 mmHg (MAP 70)",
+                        "SpO2": "92% on Room Air"
+                    },
+                    {
+                        "Time": "08:00",
+                        "Temp": "101.1°F (38.4°C)",
+                        "HR": "112 bpm",
+                        "RR": "22/min",
+                        "BP": "88/56 mmHg (MAP 67)",
+                        "SpO2": "93% on 2L NC"
+                    },
+                    {
+                        "Time": "09:00",
+                        "Temp": "100.9°F (38.3°C)",
+                        "HR": "108 bpm",
+                        "RR": "22/min",
+                        "BP": "92/58 mmHg (MAP 69)",
+                        "SpO2": "94% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "BP: 90/60 mmHg, HR: 110 bpm, RR: 24 breaths/min, SpO2: 92% on room air, Temp: 38.5°C (101.3°F)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Ammonia",
+                        "Result": "210",
+                        "Unit": "mcg/dL",
+                        "Reference": "15-45",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Sodium",
+                        "Result": "130",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Potassium",
+                        "Result": "3.2",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Albumin",
+                        "Result": "2.8",
+                        "Unit": "g/dL",
+                        "Reference": "3.5-5.5",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Bilirubin, Total",
+                        "Result": "8.5",
+                        "Unit": "mg/dL",
+                        "Reference": "0.1-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "INR",
+                        "Result": "2.1",
+                        "Unit": "",
+                        "Reference": "0.8-1.1",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Amylase",
+                        "Result": "650",
+                        "Unit": "U/L",
+                        "Reference": "30-110",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lipase",
+                        "Result": "700",
+                        "Unit": "U/L",
+                        "Reference": "0-160",
+                        "Status": "High"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Spironolactone 100 mg PO BID, Furosemide 40 mg PO daily, Pantoprazole 40 mg IV daily, Morphine 2 mg IV PRN pain"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "Oriented to person only. Lethargic but arousable to verbal stimuli. Asterixis present with dorsiflexion of wrists. Pupils equal, round, reactive to light. Speech is slow and slurred."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Tachycardia with S1, S2 audible. Pulses +2 in upper extremities, +1 in lower extremities. 3+ pitting edema noted from ankles to mid-shin bilaterally. Capillary refill 3 seconds."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Tachypneic with shallow respirations. Lungs clear to auscultation bilaterally. Symmetrical chest expansion."
+                    },
+                    {
+                        "System": "Gastrointestinal",
+                        "Findings": "Abdomen distended, firm, and tender to light palpation. Positive fluid wave noted. Bowel sounds hypoactive in all four quadrants."
+                    },
+                    {
+                        "System": "Integumentary",
+                        "Findings": "Skin is warm, dry, with notable jaundice to skin and sclera. Multiple ecchymoses noted on forearms."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Procedure": "Abdominal Ultrasound",
+                        "Date": "Day 1, 08:30",
+                        "Impression": "Findings consistent with advanced cirrhosis, including a nodular liver contour and splenomegaly. Large volume ascites is present. The pancreas appears edematous, consistent with acute pancreatitis. No evidence of biliary obstruction."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 08:00",
+                        "Action": "Neurological checks every 2 hours",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 08:00",
+                        "Action": "Lactulose 30 mL PO",
+                        "Frequency/Status": "Every 6 hours"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 08:00",
+                        "Action": "Sodium restriction to 2000 mg/day",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 08:00",
+                        "Action": "Pancreatic enzymes (Pancrelipase) 2 capsules with each meal",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 08:00",
+                        "Action": "0.9% Sodium Chloride 500 mL IV bolus",
+                        "Frequency/Status": "Stat, Administered"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 08:00",
+                        "Action": "Oxygen at 2L via Nasal Cannula",
+                        "Frequency/Status": "Standing, Titrate to keep SpO2 >92%"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lactulose",
+                        "Dose": "30 mL",
+                        "Route": "PO",
+                        "Frequency": "Every 6 hours",
+                        "Last Administered": "Day 1, 08:15"
+                    },
+                    {
+                        "Medication": "Spironolactone",
+                        "Dose": "100 mg",
+                        "Route": "PO",
+                        "Frequency": "BID",
+                        "Last Administered": "Day 1, 08:15"
+                    },
+                    {
+                        "Medication": "Furosemide",
+                        "Dose": "40 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Day 1, 08:15"
+                    },
+                    {
+                        "Medication": "Pantoprazole",
+                        "Dose": "40 mg",
+                        "Route": "IV",
+                        "Frequency": "Daily",
+                        "Last Administered": "Day 1, 08:15"
+                    },
+                    {
+                        "Medication": "Morphine Sulfate",
+                        "Dose": "2 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN for pain",
+                        "Last Administered": "Not Applicable"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Pharmacological and Parenteral Therapies",
-        "difficulty": 5,
-        "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
+    "rationale": {
+        "correct": "The correct prioritization follows the nursing process and addresses the most life-threatening conditions first. The client's confusion, asterixis, and critically high ammonia level (210 mcg/dL) indicate severe hepatic encephalopathy, a neurological emergency. Therefore, the highest priority is assessment of this condition (monitoring LOC). The next priority is to administer the primary treatment to lower ammonia levels (lactulose). After addressing the immediate neurological threat, the focus shifts to managing complications like ascites (sodium restriction) and finally to supportive care for malabsorption (pancreatic enzymes).",
+        "incorrect": "Any other order fails to prioritize the immediate, life-threatening risk of severe hepatic encephalopathy. Placing sodium restriction or pancreatic enzymes first incorrectly prioritizes fluid balance or nutrition over a critical neurological crisis. While these are important components of care, they are not as urgent as assessing and treating the condition that could rapidly progress to seizures, coma, and death.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1",
+                "content": "Correct Priority #1. This is an assessment action. According to the nursing process (ADPIE), assessment is the first step. The client's altered mental status is the most acute, life-threatening problem. Frequent neurological monitoring is essential to detect deterioration and evaluate the effectiveness of treatment for hepatic encephalopathy."
+            },
+            {
+                "optionId": "opt2",
+                "content": "Correct Priority #2. This is the primary intervention to treat the underlying cause of the hepatic encephalopathy. Lactulose creates an acidic environment in the gut, which traps ammonia (NH3) as ammonium (NH4+) and promotes its excretion through defecation, thereby lowering systemic ammonia levels and improving neurological function."
+            },
+            {
+                "optionId": "opt3",
+                "content": "Correct Priority #3. This intervention addresses the significant fluid imbalance (ascites, edema) caused by low serum albumin and portal hypertension. While crucial for preventing respiratory compromise and skin breakdown, it is a less immediate threat than the acute neurological decline."
+            },
+            {
+                "optionId": "opt4",
+                "content": "Correct Priority #4. This intervention addresses exocrine pancreatic insufficiency, which impairs digestion and nutrient absorption. While important for long-term nutritional status, it is the lowest priority in this acute setting where neurological and hemodynamic stability are the primary concerns."
+            }
+        ],
+        "clinicalPearls": [
+            "Asterixis, or 'liver flap,' is a classic sign of hepatic encephalopathy and is caused by the toxic effects of ammonia on the central nervous system.",
+            "The goal of lactulose therapy is to produce 2-3 soft stools per day. Watery diarrhea may indicate overdose and can lead to dehydration and electrolyte imbalances.",
+            "In liver failure, the INR is a direct measure of the liver's synthetic function (production of clotting factors) and is a more reliable prognostic indicator than ammonia levels.",
+            "Hypotension in acute pancreatitis with liver failure is often multifactorial, caused by systemic inflammatory response, third-spacing of fluid (ascites), and vasodilation."
+        ],
+        "questionTrap": "The trap is focusing on all problems as being equal. Test-takers may see pancreatitis, ascites, and encephalopathy and struggle to rank them. Always use a 'life-over-limb' or 'acute-vs-chronic' framework. The acute neurological change is the most immediate threat to life.",
+        "mnemonic": "Use the mnemonic 'LEAP' for prioritizing care in this scenario: **L**evel of Consciousness (Assess the brain first), **E**liminate Ammonia (Treat the cause with Lactulose), **A**scites Management (Address fluid balance), **P**ancreatic Support (Provide enzymes for nutrition).",
+        "reviewUnits": [
+            "Gastrointestinal Disorders: Liver Failure",
+            "Gastrointestinal Disorders: Pancreatitis",
+            "Pharmacology: GI Medications",
+            "Fundamentals of Care: Prioritization"
         ]
     },
-    "rationale": {
-        "correct": "Initiating frequent neurological monitoring is paramount to detect early signs of hepatic encephalopathy, a potentially life-threatening complication of liver failure caused by elevated ammonia levels. Lactulose is the primary medication used to reduce ammonia levels by promoting its excretion in the stool. Sodium restriction is essential to manage ascites and edema, which are common in liver failure due to decreased albumin and increased aldosterone. Pancreatic enzyme replacement is necessary to improve digestion and absorption of nutrients in patients with pancreatitis, as the pancreas is unable to produce sufficient enzymes. \n\nclinicalPearl: Asterixis (flapping tremor) is a classic sign of hepatic encephalopathy. Monitor serum ammonia levels to assess the effectiveness of lactulose therapy. Fluid restriction may be necessary in addition to sodium restriction to manage ascites.",
-        "incorrect": "Delaying neurological monitoring can lead to delayed diagnosis and treatment of hepatic encephalopathy, potentially resulting in coma and death. Administering pancreatic enzymes before addressing elevated ammonia levels and ascites is less urgent as it primarily addresses nutrient absorption, not the immediate threats to neurological and cardiovascular function. While sodium restriction is important, it is secondary to addressing the immediate neurological threat posed by elevated ammonia and the need for close monitoring.\n\nquestionTrap: The trap is prioritizing interventions based on familiarity rather than urgency. Many students may immediately think of ascites management (sodium restriction) or enzyme replacement without recognizing the imminent danger of hepatic encephalopathy. Focus on the patient's neurological status and lab values (ammonia level) to identify the most immediate threats to the patient's well-being. Apply the ABCs (Airway, Breathing, Circulation) and prioritize interventions that address those areas first.",
-        "clinicalPearls": [
-            "Asterixis (flapping tremor) is a classic sign of hepatic encephalopathy.",
-            "Monitor serum ammonia levels to assess the effectiveness of lactulose therapy.",
-            "Fluid restriction may be necessary in addition to sodium restriction to manage ascites."
-        ],
-        "questionTrap": {
-            "trap": "The trap is prioritizing interventions based on familiarity rather than urgency. Many students may immediately think of ascites management (sodium restriction) or enzyme replacement without recognizing the imminent danger of hepatic encephalopathy.",
-            "howToOvercome": "Focus on the patient's neurological status and lab values (ammonia level) to identify the most immediate threats to the patient's well-being. Apply the ABCs (Airway, Breathing, Circulation) and prioritize interventions that address those areas first."
-        },
-        "mnemonic": {
-            "title": "LAPS",
-            "expansion": "Level of Consciousness (Monitoring), Ammonia (Lactulose), Peripheral Edema (Sodium Restriction), Pancreatic Enzymes"
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "correctResponse": [
-        "Monitoring of level of consciousness every 2 hours",
-        "Lactulose 30 mL PO every 6 hours",
-        "Sodium intake to 2000 mg per day",
-        "Pancreatic enzymes as prescribed prior to meals"
-    ],
-    "distractorRationale": {
-        "Lactulose 30 mL PO every 6 hours": "Lactulose is used to reduce ammonia levels in the blood, which can cause hepatic encephalopathy. It is important to administer lactulose as prescribed to prevent further neurological decline.",
-        "Monitoring of level of consciousness every 2 hours": "Monitoring of level of consciousness is important to detect early signs of hepatic encephalopathy. Changes in level of consciousness can indicate that the patient's condition is worsening.",
-        "Pancreatic enzymes as prescribed prior to meals": "Pancreatic enzymes help the body digest food. They are often prescribed for patients with pancreatitis to help them absorb nutrients.",
-        "Sodium intake to 2000 mg per day": "Sodium restriction can help to reduce fluid retention in patients with liver failure. It is important to restrict sodium intake to prevent ascites and edema."
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Management of Care"
     },
-    "isolationPrecautions": "Droplet",
-    "rubric": "Prioritization of Interventions for Liver Failure and Pancreatitis:\n\n1. **Monitoring of level of consciousness every 2 hours:** (Most Urgent) Essential for detecting early signs of hepatic encephalopathy due to elevated ammonia levels.\n2. **Lactulose 30 mL PO every 6 hours:** Reduces ammonia levels, preventing further neurological decline.\n3. **Sodium intake to 2000 mg per day:** Manages ascites and prevents fluid overload.\n4. **Pancreatic enzymes as prescribed prior to meals:** Aids in digestion and nutrient absorption for pancreatitis.",
-    "sentinelStatus": "deep_healed_v2026"
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:50:17.778Z"
 }

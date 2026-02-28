@@ -1,70 +1,248 @@
 {
     "id": "New-v26-9a2b3c4d-5e6f-4012-8345-67890abcdef0",
-    "type": "dragAndDropCloze",
-    "stem": "Based on the provided information, the patient is exhibiting signs of hepatic encephalopathy secondary to liver failure. Prioritize the following interventions by dragging them into the correct order of implementation. The first intervention should be at the top, followed by subsequent actions in descending order of priority. \n\n*   Assess neurological status using the Glasgow Coma Scale (GCS)\n*   Monitor serum ammonia levels\n*   Administer Lactulose per order\n*   Administer Neomycin per order\n*   Initiate a low-protein diet",
-    "scoring": {
-        "method": "linkage",
-        "maxPoints": 5
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is planning care for a client with worsening hepatic encephalopathy. Drag and drop the nursing actions into the correct order of priority, from first to last.",
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "Assess neurological status using the Glasgow Coma Scale (GCS)."
+        },
+        {
+            "id": "opt_2",
+            "text": "Administer prescribed lactulose."
+        },
+        {
+            "id": "opt_3",
+            "text": "Administer prescribed neomycin."
+        },
+        {
+            "id": "opt_4",
+            "text": "Initiate a low-protein diet."
+        },
+        {
+            "id": "opt_5",
+            "text": "Monitor serum ammonia levels to evaluate treatment efficacy."
+        }
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Medical Unit",
+            "age": "62",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: John Smith, a 62-year-old male with a history of alcohol-induced cirrhosis, was admitted at 06:00 today. He is exhibiting increasing confusion, suggestive of worsening hepatic encephalopathy. Background: Upon admission, at 06:00, Mr. Smith was oriented to person, place, and time. He has existing orders for Lactulose 30ml PO every 6 hours and Neomycin 500mg PO every 6 hours, prescribed for managing his chronic liver disease. Assessment: At 14:00, the patient is disoriented to time and place and exhibiting asterixis, indicating a decline in neurological function. His vital signs are: BP 110/70, HR 98, RR 22, SpO2 96% on room air, and Temp 37.9°C. Lab results show elevated ammonia levels of 210 mcg/dL, contributing to his altered mental status. Recommendation: I recommend an immediate assessment of Mr. Smith's neurological status using the Glasgow Coma Scale (GCS). We need to closely monitor his serum ammonia levels and adjust his medication regimen, particularly Lactulose and Neomycin, based on these levels. A consultation with a dietitian is warranted to initiate a low-protein diet to help manage ammonia production and improve his condition.",
+        "sbar": "Situation: The 62-year-old male client in room 402, admitted for alcohol-induced cirrhosis, is demonstrating a significant decline in mental status. He is increasingly confused and disoriented, suggestive of worsening hepatic encephalopathy.\n\nBackground: Admitted at 06:00, he was initially alert and oriented to person and place. His history is significant for chronic liver disease and he lives alone with limited social support. Standing orders include lactulose and neomycin to manage hyperammonemia. He has a known allergy to Penicillin.\n\nAssessment: As of 14:00, the client is disoriented to time and place, with pronounced asterixis (liver flap). His latest serum ammonia level is critically high at 210 mcg/dL. Vital signs are trending towards instability with increasing heart and respiratory rates. He is becoming more lethargic and difficult to arouse.\n\nRecommendation: Immediate neurological assessment using the GCS is required to quantify the level of consciousness. The ordered medications to reduce ammonia should be administered promptly. We need to continue close monitoring of his neurological status and vital signs.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Ammonia: 210 mcg/dL (Normal: 10-80 mcg/dL); Sodium: 138 mEq/L; Potassium: 4.1 mEq/L; Creatinine: 1.8 mg/dL; Bilirubin (Total): 6.2 mg/dL; Albumin: 2.8 g/dL; INR: 2.1"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (06:00): Client admitted to the medical unit for management of decompensated cirrhosis. He is alert, oriented to person and place, but not time. Reports fatigue and poor appetite. Abdomen is distended with a positive fluid wave. States he has difficulty managing his diet and medications at home due to living alone. Vital signs stable on admission. Lactulose and neomycin orders confirmed and scheduled.\n\nProgress Note (14:00): Called to bedside by the adult child. Client is now lethargic, difficult to arouse, and disoriented to person, place, and time. Pronounced asterixis noted bilaterally. Skin is jaundiced with scattered ecchymoses. Abdominal girth has increased by 2 cm since admission. Respirations are shallow. Provider notified of acute change in condition. New orders pending."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 112/72, HR 88, RR 18, SpO2 98% RA, Temp 37.2°C; 10:00: BP 115/75, HR 92, RR 20, SpO2 97% RA, Temp 37.5°C; 14:00: BP 110/70, HR 98, RR 22, SpO2 96% RA, Temp 37.9°C"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "06:00",
+                        "Temp": "99.0°F (37.2°C)",
+                        "HR": "88 bpm",
+                        "RR": "18/min",
+                        "BP": "112/72 mmHg (MAP 85)",
+                        "SpO₂": "98% on Room Air"
+                    },
+                    {
+                        "Time": "10:00",
+                        "Temp": "99.5°F (37.5°C)",
+                        "HR": "92 bpm",
+                        "RR": "20/min",
+                        "BP": "115/75 mmHg (MAP 88)",
+                        "SpO₂": "97% on Room Air"
+                    },
+                    {
+                        "Time": "14:00",
+                        "Temp": "100.2°F (37.9°C)",
+                        "HR": "98 bpm",
+                        "RR": "22/min",
+                        "BP": "110/70 mmHg (MAP 83)",
+                        "SpO₂": "96% on Room Air"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Lactulose 30ml PO q6h PRN for elevated ammonia; Neomycin 500mg PO q6h; Multivitamin PO daily; Spironolactone 100mg PO daily"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Ammonia",
+                        "Value": "210",
+                        "Unit": "mcg/dL",
+                        "RefRange": "15-45 mcg/dL",
+                        "Status": "Critical High"
+                    },
+                    {
+                        "Result": "Bilirubin, Total",
+                        "Value": "6.2",
+                        "Unit": "mg/dL",
+                        "RefRange": "0.1-1.2 mg/dL",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Albumin",
+                        "Value": "2.8",
+                        "Unit": "g/dL",
+                        "RefRange": "3.5-5.0 g/dL",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "INR",
+                        "Value": "2.1",
+                        "Unit": "",
+                        "RefRange": "0.8-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "1.8",
+                        "Unit": "mg/dL",
+                        "RefRange": "0.6-1.2 mg/dL",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Potassium",
+                        "Value": "4.1",
+                        "Unit": "mEq/L",
+                        "RefRange": "3.5-5.0 mEq/L",
+                        "Status": "Normal"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Admission (06:00): General: Appears fatigued. Neuro: A&O x3, speech clear. CV: RRR, no murmurs. Resp: CTA bilaterally. GI: Abdomen distended, non-tender, positive fluid wave. Skin: Jaundice noted, 2+ pitting edema in lower extremities.\n\nFocused (14:00): Neuro: Lethargic, oriented only to self. GCS 13 (E4, V4, M5). Bilateral asterixis present. GI: Abdomen remains distended and firm. Skin: Scleral icterus prominent."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "Type: Abdominal Ultrasound\nDate: Today at 09:00\n\nFindings: The liver demonstrates a nodular contour and coarse echotexture, consistent with advanced cirrhosis. Moderate to large volume ascites is present within the peritoneal cavity. The spleen is enlarged. The portal vein shows hepatofugal flow, indicative of significant portal hypertension.\n\nImpression: Findings are consistent with decompensated cirrhosis with portal hypertension and significant ascites."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "OrderDateTime": "Today 06:15",
+                        "Action": "Lactulose 30 mL PO",
+                        "FrequencyStatus": "Every 6 hours"
+                    },
+                    {
+                        "OrderDateTime": "Today 06:15",
+                        "Action": "Neomycin 500 mg PO",
+                        "FrequencyStatus": "Every 6 hours"
+                    },
+                    {
+                        "OrderDateTime": "Today 06:15",
+                        "Action": "Low-protein (20g/day), low-sodium diet",
+                        "FrequencyStatus": "Standing"
+                    },
+                    {
+                        "OrderDateTime": "Today 06:15",
+                        "Action": "Neurological checks",
+                        "FrequencyStatus": "Every 2 hours"
+                    },
+                    {
+                        "OrderDateTime": "Today 06:15",
+                        "Action": "Vital signs",
+                        "FrequencyStatus": "Every 4 hours"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lactulose",
+                        "Dose": "30 mL",
+                        "Route": "PO",
+                        "Frequency": "q6h",
+                        "LastAdministered": "Today 08:00"
+                    },
+                    {
+                        "Medication": "Neomycin",
+                        "Dose": "500 mg",
+                        "Route": "PO",
+                        "Frequency": "q6h",
+                        "LastAdministered": "Today 08:00"
+                    },
+                    {
+                        "Medication": "Spironolactone",
+                        "Dose": "100 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "LastAdministered": "Today 08:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Pharmacological and Parenteral Therapies",
-        "difficulty": 5,
-        "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
+    "rationale": {
+        "correct": "The correct sequence follows the nursing process (Assess, Implement, Evaluate) while prioritizing for safety. The first action is always to assess the client's neurological status to establish a baseline and determine the severity of the encephalopathy. Next, implement the most critical pharmacological interventions to lower ammonia levels: lactulose followed by neomycin. Then, implement supportive dietary changes. Finally, evaluate the effectiveness of these interventions by monitoring serum ammonia levels.",
+        "incorrect": "Any sequence that does not begin with a neurological assessment is incorrect and unsafe, as it fails to establish a baseline or recognize the immediate risk to the client. Prioritizing dietary changes or lab monitoring over the administration of acute medications like lactulose delays definitive treatment for the underlying hyperammonemia, allowing the client's condition to worsen.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "content": "Correct, Position 1. The first priority is to assess the client's neurological status. The change in mental status is the most acute problem, and a GCS provides an objective baseline to measure subsequent changes and the effectiveness of treatment. This aligns with the 'Assessment' step of the nursing process and the ABCs (disability)."
+            },
+            {
+                "optionId": "opt_2",
+                "content": "Correct, Position 2. After assessing, the nurse must act. Lactulose is the first-line treatment for hepatic encephalopathy. It works by acidifying the colon, which traps ammonia in the gut and promotes its excretion through bowel movements, thus rapidly lowering serum levels."
+            },
+            {
+                "optionId": "opt_3",
+                "content": "Correct, Position 3. Neomycin is an antibiotic that reduces the amount of ammonia-producing bacteria in the gut. It is administered after lactulose as a complementary therapy to further decrease the ammonia load."
+            },
+            {
+                "optionId": "opt_4",
+                "content": "Correct, Position 4. Initiating a low-protein diet is a crucial supportive intervention. It reduces the substrate (protein) that is broken down into ammonia. While important, it is a less acute intervention than the pharmacological treatments."
+            },
+            {
+                "optionId": "opt_5",
+                "content": "Correct, Position 5. This is an 'Evaluation' step. While a baseline ammonia level is known, the action of ongoing monitoring is performed after interventions are implemented to determine their effectiveness. This step confirms if the treatments are successfully lowering ammonia levels."
+            }
+        ],
+        "clinicalPearls": [
+            "Asterixis, or 'liver flap,' is a classic motor disturbance seen in hepatic encephalopathy. It is an involuntary flapping tremor of the hands elicited by having the client extend their arms and dorsiflex their wrists.",
+            "The goal of lactulose therapy is to produce 2-3 soft stools per day. The dose is titrated to achieve this effect, not just administered on a fixed schedule without evaluation.",
+            "While effective, neomycin carries risks of nephrotoxicity and ototoxicity, especially in clients with concurrent renal dysfunction (hepatorenal syndrome), as suggested by the elevated creatinine in this client's labs."
+        ],
+        "questionTrap": "A common trap is to prioritize lab monitoring over direct patient assessment. While the high ammonia level is the cause, the effect is the altered mental status. Always assess the patient first. Another trap is confusing the priority of interventions; lactulose is the primary, most rapid-acting medication.",
+        "mnemonic": "For Hepatic Encephalopathy priorities, think 'A-L-M-S': Assess (Neuro status first!), Lower (Ammonia with Lactulose), Medicate (Further with Neomycin), Sustain (With a low-protein diet).",
+        "reviewUnits": [
+            "Gastrointestinal System",
+            "Pharmacology",
+            "Fundamentals of Nursing",
+            "Management of Care"
         ]
     },
-    "rationale": {
-        "correct": "The correct order of interventions is: 1. Assess neurological status using the Glasgow Coma Scale (GCS). Assessing neurological status using GCS provides a baseline and tracks changes in mental status due to hepatic encephalopathy. 2. Monitor serum ammonia levels. Monitoring ammonia levels is crucial to evaluate the effectiveness of interventions. 3. Administer Lactulose per order. Lactulose is administered to reduce ammonia absorption from the gut by promoting ammonia excretion through the stool. 4. Administer Neomycin per order. Neomycin reduces the bacterial production of ammonia in the intestines. 5. Initiate a low-protein diet. A low-protein diet reduces the amount of nitrogenous waste available for conversion to ammonia.\n\nclinicalPearl: Lactulose is a synthetic disaccharide that is not absorbed in the small intestine. It passes into the colon where it is metabolized by bacteria, producing an acidic environment that promotes the conversion of ammonia (NH3) to ammonium (NH4+), which is then excreted in the feces. Neomycin is an aminoglycoside antibiotic that reduces the number of ammonia-producing bacteria in the gut. A low-protein diet helps to reduce the amount of nitrogenous waste that is converted to ammonia.",
-        "incorrect": "Incorrect sequencing may lead to delayed or inappropriate treatment of hepatic encephalopathy. Failing to assess neurological status first can result in missing subtle changes in mental status. Delaying monitoring of ammonia levels prevents timely evaluation of treatment efficacy. Altering the order of medications will reduce the effectiveness of ammonia reduction. A high-protein diet can worsen encephalopathy.\n\nquestionTrap: Test-takers might prioritize medications without first assessing the patient's neurological status and ammonia levels. Some students may also prioritize a low protein diet before administering medications aimed at reducing ammonia levels. Remember the nursing process: assessment, analysis, planning, implementation, and evaluation. Prioritize assessment to establish a baseline and evaluate the effectiveness of interventions.\n\nmnemonic: ALMS for Hepatic Encephalopathy: Assessment (neurological), Labs (ammonia), Medications (Lactulose, Neomycin), Support (low-protein diet)",
-        "clinicalPearls": [
-            "Hepatic encephalopathy can fluctuate rapidly, requiring frequent neurological assessments.",
-            "Lactulose dosage is adjusted to achieve 2-3 soft stools per day.",
-            "Neomycin is used with caution due to potential nephrotoxicity and ototoxicity; serum levels should be monitored.",
-            "Rapid reduction in protein intake can lead to malnutrition; the goal is to limit, not eliminate protein."
-        ],
-        "questionTrap": {
-            "trap": "Test-takers might prioritize medications without first assessing the patient's neurological status and ammonia levels. Some students may also prioritize a low protein diet before administering medications aimed at reducing ammonia levels.",
-            "howToOvercome": "Remember the nursing process: assessment, analysis, planning, implementation, and evaluation. Prioritize assessment to establish a baseline and evaluate the effectiveness of interventions."
-        },
-        "mnemonic": {
-            "title": "ALMS for Hepatic Encephalopathy",
-            "expansion": "Assessment (neurological), Labs (ammonia), Medications (Lactulose, Neomycin), Support (low-protein diet)"
-        }
-    }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1,
+        "correctOrder": [
+            "opt_1",
+            "opt_2",
+            "opt_3",
+            "opt_4",
+            "opt_5"
+        ]
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:47:17.948Z"
 }

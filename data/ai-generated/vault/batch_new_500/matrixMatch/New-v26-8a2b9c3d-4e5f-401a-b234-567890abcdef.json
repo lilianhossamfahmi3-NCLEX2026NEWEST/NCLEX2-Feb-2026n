@@ -1,79 +1,364 @@
 {
     "id": "New-v26-8a2b9c3d-4e5f-401a-b234-567890abcdef",
     "type": "matrixMatch",
-    "stem": "The charge nurse is reviewing the care plan for a newly admitted patient. For each assessment finding, indicate whether it is consistent with Diabetic Ketoacidosis (DKA), Hyperosmolar Hyperglycemic State (HHS), or Thyroid Storm.",
+    "stem": "For each finding, select the condition it is most consistent with: Diabetic Ketoacidosis (DKA), Hyperosmolar Hyperglycemic State (HHS), or Thyroid Storm.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 5
     },
     "itemContext": {
         "patient": {
-            "name": "John Smith",
+            "name": "Johnathan 'John' Doe",
             "age": 68,
-            "gender": "Male",
+            "sex": "Male",
+            "pronouns": "he/him",
             "iso": "Medical ICU",
             "allergies": [
                 "Penicillin"
             ],
             "airborneIsolation": false
         },
-        "sbar": "S: John Smith, 68-year-old male, admitted from nursing home at 03:00. History of Type 2 Diabetes and Hyperthyroidism. R: At 02:30, nursing home staff found him increasingly lethargic with rapid respirations. Blood glucose via glucometer was HI. He hasn't eaten/drank well for 3 days due to a recent URI. A: On arrival, lethargic, BP 90/60, HR 130, RR 36 (deep), Temp 102.2°F (39°C), SpO2 92% RA. Glucose 780 mg/dL, K+ 5.8 mEq/L, pH 7.28. Diaphoretic and agitated when stimulated. BGL trending up since arrival. EKG: sinus tachycardia. UO minimal. Assessment: dehydration, possible DKA/Thyroid Storm. O: Requesting orders for fluid resuscitation, insulin drip, potassium monitoring, thyroid function tests, and continuous cardiac monitoring.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Glucose</td><td>780 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>Potassium</td><td>5.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>148 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>BUN</td><td>45 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>2.1 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>pH</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>28 mmHg</td><td>35-45 mmHg</td></tr><tr><td>HCO3</td><td>15 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>TSH</td><td>&lt;0.01 mIU/L</td><td>0.4-4.0 mIU/L</td></tr><tr><td>Free T4</td><td>6.2 ng/dL</td><td>0.8-1.8 ng/dL</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "03:00",
+                        "content": "S: Patient is a 68-year-old male with a history of Type 2 Diabetes and Hyperthyroidism, admitted from a skilled nursing facility for altered mental status and hyperglycemia. Per facility staff, he has had poor oral intake for 3 days secondary to an upper respiratory infection.\nB: He lives alone in a senior apartment complex and reports difficulty with meal preparation, often relying on processed foods. He has missed his last two doses of levothyroxine. At 02:30, staff found him lethargic with rapid breathing; glucometer read 'HI'.\nA: On arrival, patient is lethargic but agitated when stimulated. Vital signs notable for hypotension, severe tachycardia, and tachypnea with Kussmaul breathing pattern. Skin is warm and diaphoretic. Point-of-care glucose is 780 mg/dL. Initial labs show metabolic acidosis and hyperkalemia.\nR: Recommend immediate fluid resuscitation, initiation of an insulin infusion per DKA protocol, continuous cardiac monitoring, and hourly neurological assessments. STAT labs for thyroid function are pending."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "04:00",
+                        "content": "S: Patient remains lethargic, GCS stable at 13. Agitation persists with stimulation.\nB: One liter of 0.9% NaCl has been infused. Insulin drip initiated at 03:45. Telemetry shows persistent sinus tachycardia at 135 bpm.\nA: Vitals show persistent hypotension (BP 88/58 mmHg) and fever (102.5°F). Respiratory rate remains elevated at 32 breaths/min. Urine output remains minimal. Blood glucose re-check is 755 mg/dL. The combination of severe hyperglycemia with acidosis and signs of thyrotoxicosis suggests a mixed endocrine emergency.\nR: Continue fluid resuscitation with second liter of 0.9% NaCl. Titrate insulin drip per protocol. Prepare for potential electrolyte replacement (potassium) as acidosis corrects. Awaiting thyroid panel results to confirm Thyroid Storm and guide specific treatment."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO2</th></tr></thead><tbody><tr><td>03:00</td><td>90/60</td><td>130</td><td>36</td><td>102.2°F (39°C)</td><td>92%</td></tr><tr><td>03:30</td><td>92/62</td><td>132</td><td>34</td><td>102.4°F (39.1°C)</td><td>93%</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "timestamp": "03:00",
+                        "tempF": "102.2",
+                        "tempC": "39.0",
+                        "hr": "130",
+                        "rr": "36",
+                        "bp": "90/60",
+                        "map": "70",
+                        "spo2": "92%",
+                        "spo2Source": "Room Air"
+                    },
+                    {
+                        "timestamp": "03:30",
+                        "tempF": "102.4",
+                        "tempC": "39.1",
+                        "hr": "132",
+                        "rr": "34",
+                        "bp": "92/62",
+                        "map": "72",
+                        "spo2": "93%",
+                        "spo2Source": "Room Air"
+                    },
+                    {
+                        "timestamp": "04:00",
+                        "tempF": "102.5",
+                        "tempC": "39.2",
+                        "hr": "135",
+                        "rr": "32",
+                        "bp": "88/58",
+                        "map": "68",
+                        "spo2": "91%",
+                        "spo2Source": "Room Air"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "lab": "Glucose",
+                        "result": "780",
+                        "unit": "mg/dL",
+                        "referenceRange": "70-110",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Potassium",
+                        "result": "5.8",
+                        "unit": "mEq/L",
+                        "referenceRange": "3.5-5.0",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Sodium",
+                        "result": "148",
+                        "unit": "mEq/L",
+                        "referenceRange": "135-145",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "BUN",
+                        "result": "45",
+                        "unit": "mg/dL",
+                        "referenceRange": "10-20",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Creatinine",
+                        "result": "2.1",
+                        "unit": "mg/dL",
+                        "referenceRange": "0.6-1.2",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "pH (Arterial)",
+                        "result": "7.28",
+                        "unit": "",
+                        "referenceRange": "7.35-7.45",
+                        "status": "Low"
+                    },
+                    {
+                        "lab": "PaCO2",
+                        "result": "28",
+                        "unit": "mmHg",
+                        "referenceRange": "35-45",
+                        "status": "Low"
+                    },
+                    {
+                        "lab": "HCO3",
+                        "result": "15",
+                        "unit": "mEq/L",
+                        "referenceRange": "22-26",
+                        "status": "Low"
+                    },
+                    {
+                        "lab": "TSH",
+                        "result": "<0.01",
+                        "unit": "mIU/L",
+                        "referenceRange": "0.4-4.0",
+                        "status": "Low"
+                    },
+                    {
+                        "lab": "Free T4",
+                        "result": "6.2",
+                        "unit": "ng/dL",
+                        "referenceRange": "0.8-1.8",
+                        "status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "findings": [
+                    {
+                        "system": "Neurological",
+                        "finding": "Lethargic, arouses to verbal stimuli but quickly drifts back to sleep. Agitated when stimulated. GCS 13 (E3, V4, M6). Pupils equal and reactive."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "finding": "Sinus tachycardia at 130-135 bpm. S1/S2 audible, no murmurs or gallops. Pulses +1 peripherally. Capillary refill >3 seconds."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "finding": "Respirations are deep and rapid (Kussmaul breathing). Lungs clear to auscultation bilaterally. No accessory muscle use."
+                    },
+                    {
+                        "system": "GI/GU",
+                        "finding": "Abdomen soft, non-tender. Bowel sounds hypoactive in all four quadrants. No urine output since admission."
+                    },
+                    {
+                        "system": "Integumentary",
+                        "finding": "Skin is warm, flushed, and diaphoretic. Mucous membranes are dry. Poor skin turgor noted with tenting."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "reports": [
+                    {
+                        "type": "Chest X-ray (Portable, AP View)",
+                        "timestamp": "03:25",
+                        "report": "FINDINGS: Lungs are well-expanded and clear. The cardiomediastinal silhouette is within normal limits. No pleural effusion or pneumothorax is identified. No focal consolidation is seen to suggest pneumonia.\n\nIMPRESSION: No acute cardiopulmonary process."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "03:10",
+                        "action": "0.9% Sodium Chloride, 1 Liter IV bolus",
+                        "status": "STAT"
+                    },
+                    {
+                        "timestamp": "03:10",
+                        "action": "Initiate Regular Insulin infusion per DKA protocol",
+                        "status": "STAT"
+                    },
+                    {
+                        "timestamp": "03:10",
+                        "action": "Continuous cardiac monitoring",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "03:10",
+                        "action": "Blood glucose monitoring every 1 hour",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "03:10",
+                        "action": "Neurological checks every 1 hour",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "03:10",
+                        "action": "STAT labs: TSH, Free T4, ABG, CMP",
+                        "status": "STAT"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Insulin Aspart</td><td>5 units</td><td>Subcutaneous</td><td>PRN sliding scale</td></tr><tr><td>Levothyroxine</td><td>100 mcg</td><td>Oral</td><td>Daily</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>Oral</td><td>Q4H PRN fever</td></tr></tbody></table>"
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Insulin Aspart",
+                        "dose": "Sliding Scale",
+                        "route": "Subcutaneous",
+                        "frequency": "PRN",
+                        "lastAdministered": ">24 hours ago"
+                    },
+                    {
+                        "medication": "Levothyroxine",
+                        "dose": "100 mcg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": ">48 hours ago (missed doses)"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "650 mg",
+                        "route": "PO",
+                        "frequency": "Q4H PRN Fever",
+                        "lastAdministered": "Not yet administered"
+                    }
+                ]
             }
         ]
     },
+    "matrixRows": [
+        {
+            "rowId": "1",
+            "label": "Blood glucose 780 mg/dL",
+            "options": [
+                "Diabetic Ketoacidosis (DKA)",
+                "Hyperosmolar Hyperglycemic State (HHS)",
+                "Thyroid Storm"
+            ],
+            "correctAnswer": "Hyperosmolar Hyperglycemic State (HHS)"
+        },
+        {
+            "rowId": "2",
+            "label": "pH 7.28",
+            "options": [
+                "Diabetic Ketoacidosis (DKA)",
+                "Hyperosmolar Hyperglycemic State (HHS)",
+                "Thyroid Storm"
+            ],
+            "correctAnswer": "Diabetic Ketoacidosis (DKA)"
+        },
+        {
+            "rowId": "3",
+            "label": "Free T4 6.2 ng/dL",
+            "options": [
+                "Diabetic Ketoacidosis (DKA)",
+                "Hyperosmolar Hyperglycemic State (HHS)",
+                "Thyroid Storm"
+            ],
+            "correctAnswer": "Thyroid Storm"
+        },
+        {
+            "rowId": "4",
+            "label": "Potassium 5.8 mEq/L",
+            "options": [
+                "Diabetic Ketoacidosis (DKA)",
+                "Hyperosmolar Hyperglycemic State (HHS)",
+                "Thyroid Storm"
+            ],
+            "correctAnswer": "Diabetic Ketoacidosis (DKA)"
+        },
+        {
+            "rowId": "5",
+            "label": "Temperature 102.2°F (39°C)",
+            "options": [
+                "Diabetic Ketoacidosis (DKA)",
+                "Hyperosmolar Hyperglycemic State (HHS)",
+                "Thyroid Storm"
+            ],
+            "correctAnswer": "Thyroid Storm"
+        }
+    ],
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "analyzeCues",
         "nclexCategory": "Physiological Adaptation",
         "difficulty": 5,
         "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
+            "Endocrine",
+            "DKA",
+            "HHS",
+            "Thyroid Storm",
+            "Acid-Base Imbalance"
         ]
     },
     "rationale": {
-        "correct": "The patient's presentation indicates a mixed picture of DKA and Thyroid Storm. The elevated glucose (780 mg/dL) is consistent with both DKA and HHS, but the presence of acidosis (pH 7.28, HCO3 15 mEq/L) points strongly towards DKA. The elevated potassium is often seen in DKA due to intracellular shifting caused by insulin deficiency and acidosis. The suppressed TSH (&lt;0.01 mIU/L) and elevated Free T4 (6.2 ng/dL), along with fever, tachycardia, and agitation, are indicative of Thyroid Storm. HHS is characterized by severe hyperglycemia and dehydration, but without significant ketoacidosis.",
-        "incorrect": "An incorrect response indicates a failure to differentiate between DKA, HHS, and Thyroid Storm based on the provided clinical and laboratory data. It may also indicate a failure to recognize the signs and symptoms of hyperthyroidism. Review the key characteristics of each condition, including the presence or absence of acidosis, the degree of hyperglycemia, and the specific signs of thyroid hormone excess.",
+        "correct": "The patient's presentation is a complex medical emergency involving features of both Diabetic Ketoacidosis (DKA) and Thyroid Storm. The analysis requires differentiating the hallmark signs of each condition. The metabolic acidosis (pH 7.28) is the defining feature of DKA, while the extreme hyperglycemia (>600 mg/dL) is more characteristic of HHS. The high fever, profound tachycardia, and markedly elevated Free T4 are classic for Thyroid Storm. The initial hyperkalemia is a direct result of the acidosis and insulin deficiency seen in DKA.",
+        "answerBreakdown": [
+            {
+                "rowId": "1",
+                "correctRationale": "A blood glucose level of 780 mg/dL indicates severe hyperglycemia. While present in DKA, levels this extreme (>600 mg/dL) are the hallmark of HHS. This is due to a profound relative insulin deficiency combined with severe dehydration and inadequate fluid intake, leading to extreme hyperosmolarity.",
+                "incorrectRationale": "DKA typically presents with glucose >250 mg/dL, but not usually this high. Thyroid storm can cause mild hyperglycemia due to catecholamine effects, but not to this severe degree."
+            },
+            {
+                "rowId": "2",
+                "correctRationale": "A pH of 7.28 indicates metabolic acidosis, the cardinal feature of DKA. Absolute insulin deficiency leads to uncontrolled lipolysis and ketogenesis. The accumulation of acidic ketone bodies (e.g., beta-hydroxybutyrate) overwhelms the body's bicarbonate buffering system, causing the pH to drop.",
+                "incorrectRationale": "HHS is defined by the absence of significant ketoacidosis, with a pH typically >7.30. Thyroid storm does not directly cause metabolic acidosis, though lactic acidosis can occur late in shock."
+            },
+            {
+                "rowId": "3",
+                "correctRationale": "A Free T4 of 6.2 ng/dL is markedly elevated and, in the context of systemic decompensation (fever, tachycardia, altered mental status), is diagnostic for Thyroid Storm. This represents a massive, unregulated release of thyroid hormone, creating a hypermetabolic state.",
+                "incorrectRationale": "Neither DKA nor HHS directly causes an elevation in thyroid hormones. These conditions are related to insulin and glucose metabolism, not thyroid function."
+            },
+            {
+                "rowId": "4",
+                "correctRationale": "Initial hyperkalemia (K+ 5.8 mEq/L) is a classic finding in DKA. The combination of insulin deficiency and acidosis causes a transcellular shift of potassium from the intracellular to the extracellular space. Despite this high serum level, the patient has a total body potassium deficit.",
+                "incorrectRationale": "In HHS, potassium levels can be normal or low due to osmotic diuresis without significant acidosis. Thyroid storm does not directly cause hyperkalemia."
+            },
+            {
+                "rowId": "5",
+                "correctRationale": "A high fever (102.2°F) without an obvious infectious source (per chest x-ray) is a key sign of Thyroid Storm. The extreme hypermetabolism caused by excess thyroid hormone leads to profound thermodysregulation and hyperthermia.",
+                "incorrectRationale": "Fever in DKA or HHS is typically due to an underlying infection (the trigger), not the metabolic state itself. This patient's clean chest x-ray points away from infection as the primary cause of fever."
+            }
+        ],
         "clinicalPearls": [
-            "DKA is characterized by hyperglycemia, metabolic acidosis, and ketosis. HHS presents with severe hyperglycemia, hyperosmolality, and dehydration, but without significant ketoacidosis.",
-            "Thyroid storm is a life-threatening exacerbation of hyperthyroidism, characterized by fever, tachycardia, altered mental status, and thyroid hormone excess.",
-            "Both DKA and HHS can lead to significant dehydration and electrolyte imbalances, requiring aggressive fluid resuscitation and electrolyte management.",
-            "A mixed picture can occur, especially in patients with pre-existing conditions like hyperthyroidism who develop DKA or HHS."
+            "The single most important lab value to differentiate DKA from HHS is the arterial pH and presence of ketones. DKA is an acidosis problem; HHS is a hyperosmolarity problem.",
+            "Always look for a trigger in endocrine emergencies. In this case, the upper respiratory infection and missed levothyroxine doses are critical precipitating factors for DKA and Thyroid Storm, respectively.",
+            "In DKA, the initial serum potassium is often high due to extracellular shifts, but the total body potassium is depleted. Expect potassium levels to fall rapidly once insulin therapy is initiated and acidosis is corrected."
         ],
         "questionTrap": {
-            "trap": "The patient's history of both diabetes and hyperthyroidism can be misleading. Focusing solely on hyperglycemia without considering the presence or absence of acidosis, or missing the signs of hyperthyroidism, can lead to an incorrect assessment.",
-            "howToOvercome": "Carefully analyze all available data (labs, vitals, history) to determine which condition is most likely based on the presenting symptoms and lab results. Prioritize the most life-threatening conditions."
+            "trap": "Focusing only on the extreme hyperglycemia (780 mg/dL) can mislead you into attributing all findings to HHS. It is critical to evaluate each piece of data independently to recognize the concurrent DKA (proven by acidosis) and Thyroid Storm (proven by fever and T4 levels).",
+            "howToOvercome": "Systematically match each individual finding to the pathophysiology of the choices. Do not let one dramatic value overshadow other definitive diagnostic criteria like pH or hormone levels."
         },
         "mnemonic": {
-            "title": "DKA vs. HHS",
-            "expansion": "DKA: 'Deadly Ketones Always present' - Hyperglycemia, Ketosis, Acidosis. HHS: 'Hydration Heavily needed, Sugar sky high' - Hyperglycemia, Hyperosmolarity, Severe Dehydration (no significant ketones/acidosis)."
+            "title": "Thyroid STORM",
+            "expansion": "S - Suppressed TSH\nT - Tachycardia & High Temp\nO - Orientation altered (agitation/lethargy)\nR - Respiratory distress\nM - Missed medication or recent stressor (e.g., infection)"
         }
-    },
-    "matrixMatchOptions": [
-        "Diabetic Ketoacidosis (DKA)",
-        "Hyperosmolar Hyperglycemic State (HHS)",
-        "Thyroid Storm"
-    ],
-    "matrixMatchAnswers": {
-        "Blood glucose 780 mg/dL": "Hyperosmolar Hyperglycemic State (HHS)",
-        "pH 7.28": "Diabetic Ketoacidosis (DKA)",
-        "Free T4 6.2 ng/dL": "Thyroid Storm",
-        "Potassium 5.8 mEq/L": "Diabetic Ketoacidosis (DKA)",
-        "Temperature 102.2°F (39°C)": "Thyroid Storm"
     },
     "sentinelStatus": "deep_healed_v2026"
 }

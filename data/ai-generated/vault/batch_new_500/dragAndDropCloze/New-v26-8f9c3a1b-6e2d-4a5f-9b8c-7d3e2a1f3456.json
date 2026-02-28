@@ -1,89 +1,314 @@
 {
     "id": "New-v26-8f9c3a1b-6e2d-4a5f-9b8c-7d3e2a1f3456",
-    "type": "dragAndDropCloze",
-    "stem": "The patient is exhibiting signs of thyroid storm. Based on the EHR data, prioritize the following interventions in the order they should be implemented. Drag the interventions from the options below into the correct sequence:\n\n1. Initiate [BLANK1]\n2. Administer [BLANK2]\n3. Apply [BLANK3]\n4. Administer [BLANK4]\n\n**Available Options:**\n*   Propylthiouracil (PTU)\n*   Oxygen via Non-Rebreather Mask\n*   Cooling Blanket\n*   Intravenous Fluids (Normal Saline)",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is preparing to implement STAT orders for a client experiencing thyroid storm. Based on the clinical data, drag the actions into the box in the order they should be performed, from first to last.",
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "Administer oxygen via non-rebreather mask"
+        },
+        {
+            "id": "opt_2",
+            "text": "Administer propylthiouracil (PTU)"
+        },
+        {
+            "id": "opt_3",
+            "text": "Apply a cooling blanket"
+        },
+        {
+            "id": "opt_4",
+            "text": "Administer 0.9% sodium chloride IV"
+        }
+    ],
+    "correctOrder": [
+        "opt_1",
+        "opt_2",
+        "opt_3",
+        "opt_4"
+    ],
     "itemContext": {
         "patient": {
             "name": "Eleanor Vance",
-            "age": 48,
-            "gender": "Female",
-            "iso": "Medical-Surgical Unit",
+            "age": "48 years",
+            "sex": "Female",
+            "pronouns": "she/her",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: Eleanor Vance, a 48-year-old female with a history of Graves' disease (diagnosed 5 years ago) and medication non-compliance, admitted at 06:00 for hyperthyroidism. Background: At 14:30, she became acutely agitated, diaphoretic, and confused, showing signs of thyroid storm. Assessment: Vital signs: HR 180 bpm, BP 190/110 mmHg, Temp 104.2°F (40.1°C), RR 32 breaths/min, SpO2 92% on room air. Labs: elevated T3 and T4, suppressed TSH. She reports palpitations, severe anxiety, and difficulty breathing. Currently confused, restless, and in respiratory distress. Recommendation: Continuous cardiac monitoring, frequent vital sign monitoring, initiate interventions for thyroid storm as per physician orders. Droplet precautions initiated due to suspected influenza.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "Situation: Eleanor Vance, a 48-year-old female with a history of Graves' disease (diagnosed 5 years ago) and medication non-compliance, admitted at 06:00 for hyperthyroidism. Background: At 14:30, she became acutely agitated, diaphoretic, and confused, showing signs of thyroid storm. Assessment: Vital signs: HR 180 bpm, BP 190/110 mmHg, Temp 104.2°F (40.1°C), RR 32 breaths/min, SpO2 92% on room air. Labs: elevated T3 and T4, suppressed TSH. She reports palpitations, severe anxiety, and difficulty breathing. Currently confused, restless, and in respiratory distress. Recommendation: Continuous cardiac monitoring, frequent vital sign monitoring, initiate interventions for thyroid storm as per physician orders. Droplet precautions initiated due to suspected influenza."
+                "id": "nurses_notes",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 06:00",
+                        "note_type": "Admission Note",
+                        "note": "S: Client is a 48-year-old female admitted from the endocrine clinic for management of a Graves' disease exacerbation. Reports increasing anxiety, palpitations, and heat intolerance over the past two weeks. States she has not been taking her methimazole regularly due to financial constraints.\nB: History of Graves' disease diagnosed 5 years ago. Social history reveals she lives alone and recently lost her job, impacting her ability to afford medications. No known surgical history. Allergy to Penicillin. \nA: Vital signs on admission were tachycardic and hypertensive. Client is alert and oriented x4, though appears anxious and restless. Skin is warm and moist. Mild fine tremor noted in outstretched hands. Thyroid gland is diffusely enlarged without audible bruit. Cardiac rhythm is sinus tachycardia on monitor. \nR: Continue with admission orders. Reinforce importance of medication adherence. Provide social work consult regarding medication costs. Monitor vital signs and cardiac rhythm closely."
+                    },
+                    {
+                        "timestamp": "Day 1, 14:30",
+                        "note_type": "Progress Note",
+                        "note": "S: Called to bedside for acute change in client's condition. Client is now severely agitated, confused, and pulling at her IV line.\nB: Client's condition has been deteriorating over the past hour with increasing tachycardia and restlessness. The primary care provider was notified of the initial changes at 14:00. \nA: Client is diaphoretic, with a fever of 104.2°F (40.1°C). Vital signs show severe sinus tachycardia at 180 bpm, BP 190/110 mmHg, RR 32/min, and SpO₂ 92% on room air. She is unable to follow commands and is in obvious respiratory distress. Auscultation reveals bibasilar crackles. The clinical presentation is highly suggestive of thyroid storm, a life-threatening thyrotoxicosis. \nR: STAT orders received and being implemented. Initiate high-flow oxygen. Prepare to administer STAT medications. Continue continuous cardiorespiratory monitoring. Notify rapid response team for potential transfer to ICU."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "Time | HR (bpm) | BP (mmHg) | Temp (°F) | RR (breaths/min) | SpO2 (%) | Notes\n------- | -------- | -------- | -------- | -------- | -------- | --------\n06:00 | 110 | 140/80 | 99.5 | 20 | 98 | Admission\n10:00 | 120 | 150/90 | 100.1 | 22 | 97 | Routine Check\n14:30 | 180 | 190/110 | 104.2 | 32 | 92 | Acute Change"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "Temp °F (°C)",
+                        "RR (breaths/min)",
+                        "SpO₂ (%)"
+                    ],
+                    "rows": [
+                        [
+                            "06:00",
+                            "110",
+                            "140/80",
+                            "100",
+                            "99.5 (37.5)",
+                            "20",
+                            "98% on room air"
+                        ],
+                        [
+                            "10:00",
+                            "120",
+                            "150/90",
+                            "110",
+                            "100.1 (37.8)",
+                            "22",
+                            "97% on room air"
+                        ],
+                        [
+                            "14:30",
+                            "180",
+                            "190/110",
+                            "137",
+                            "104.2 (40.1)",
+                            "32",
+                            "92% on room air"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Lab | Result | Normal Range\n------- | -------- | --------\nT3 | 450 ng/dL | 80-220 ng/dL\nT4 | 25 mcg/dL | 4.5-12 mcg/dL\nTSH | <0.01 mIU/L | 0.4-4.0 mIU/L\nGlucose | 110 mg/dL | 70-100 mg/dL\nSodium | 140 mEq/L | 135-145 mEq/L\nPotassium | 4.2 mEq/L | 3.5-5.0 mEq/L"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Thyroxine, Free (Free T4)",
+                            "5.2",
+                            "ng/dL",
+                            "0.8-1.8",
+                            "High"
+                        ],
+                        [
+                            "Triiodothyronine, Free (Free T3)",
+                            "15.5",
+                            "pg/mL",
+                            "2.3-4.2",
+                            "High"
+                        ],
+                        [
+                            "Thyroid-Stimulating Hormone (TSH)",
+                            "<0.01",
+                            "mIU/L",
+                            "0.4-4.0",
+                            "Low"
+                        ],
+                        [
+                            "Glucose, Random",
+                            "145",
+                            "mg/dL",
+                            "70-140",
+                            "High"
+                        ],
+                        [
+                            "Sodium (Na)",
+                            "140",
+                            "mEq/L",
+                            "135-145",
+                            "Normal"
+                        ],
+                        [
+                            "Potassium (K)",
+                            "4.2",
+                            "mEq/L",
+                            "3.5-5.0",
+                            "Normal"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Medication | Dosage | Route | Frequency | Last Administered\n------- | -------- | -------- | -------- | --------\nAcetaminophen | 650 mg | PO | PRN for fever > 101°F | N/A\nMetoprolol | 25mg | PO | BID | 06:00"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 06:15",
+                        "assessment_type": "Admission Head-to-Toe",
+                        "findings": "General: Appears anxious, restless. No acute distress.\nNeurological: Alert and oriented x4. Speech clear. PERRLA. Mild fine tremor of outstretched hands.\nCardiovascular: S1, S2 audible. Sinus tachycardia at 110 bpm. Pulses 2+ and equal bilaterally.\nRespiratory: Lungs clear to auscultation bilaterally. Respirations unlabored.\nGI/GU: Abdomen soft, non-tender. Bowel sounds normoactive.\nIntegumentary: Skin warm, moist. No edema or rashes."
+                    },
+                    {
+                        "timestamp": "Day 1, 14:30",
+                        "assessment_type": "Focused Assessment",
+                        "findings": "General: In acute distress. Severely agitated and confused.\nNeurological: Disoriented to time and place. Unable to follow commands. Hyperreflexia noted in bilateral patellar tendons.\nCardiovascular: Severe sinus tachycardia at 180 bpm. Pulses bounding.\nRespiratory: Tachypneic with use of accessory muscles. Bibasilar crackles auscultated.\nIntegumentary: Profusely diaphoretic. Skin is hot to the touch."
+                    }
+                ]
             },
             {
-                "id": "radiology",
-                "title": "Radiology",
-                "content": "No radiology reports available."
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 14:35",
+                            "Administer oxygen to maintain SpO₂ >94%",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 14:35",
+                            "Propylthiouracil (PTU) 500 mg",
+                            "STAT, PO/NG"
+                        ],
+                        [
+                            "Day 1, 14:35",
+                            "Apply cooling blanket for temp >103°F",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 14:35",
+                            "0.9% sodium chloride 1000 mL IV bolus",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 06:00",
+                            "Metoprolol 25 mg",
+                            "PO, BID"
+                        ],
+                        [
+                            "Day 1, 06:00",
+                            "Continuous cardiac monitoring",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 06:00",
+                            "Vital signs every 4 hours",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 14:35",
+                            "Upgrade vital signs to every 15 minutes",
+                            "STAT"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Metoprolol",
+                            "25 mg",
+                            "PO",
+                            "BID",
+                            "Day 1, 06:00"
+                        ],
+                        [
+                            "Propylthiouracil (PTU)",
+                            "500 mg",
+                            "PO/NG",
+                            "STAT",
+                            "Not yet administered"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "650 mg",
+                            "PO",
+                            "PRN q4h for fever >101°F",
+                            "Not yet administered"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
+    "rationale": {
+        "correct": "The correct sequence of interventions for thyroid storm follows the priority-setting framework of Airway, Breathing, Circulation (ABC), while also addressing the underlying pathophysiology. The client's hypoxia (SpO₂ 92%) and respiratory distress represent the most immediate threat to life, making oxygen administration the first priority. Next, the underlying cause of the crisis—excessive thyroid hormone synthesis—must be addressed by administering an antithyroid medication like PTU. Subsequently, the life-threatening hyperthermia, which dramatically increases metabolic demand and can lead to cellular damage, must be controlled with cooling measures. Finally, fluid resuscitation is performed to correct dehydration from diaphoresis and fever.",
+        "incorrect": "An incorrect sequence can be fatal. Delaying oxygen administration would allow hypoxia to worsen, leading to potential brain and cardiac ischemia. Administering PTU before stabilizing oxygenation is incorrect because the medication takes time to work, while hypoxia is an immediate threat. Prioritizing IV fluids before oxygen is a classic ABCs violation. While dehydration is a concern, it is not as immediately life-threatening as respiratory failure. Delaying cooling measures allows the hypermetabolic state to continue unabated, increasing oxygen consumption and cardiac strain, which would counteract the benefits of oxygen therapy.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "content": "Correct Position 1. The client's SpO₂ of 92% with a respiratory rate of 32 indicates significant hypoxemia and respiratory distress. According to the ABCs of prioritization, addressing this immediate threat to life is the highest priority. High-flow oxygen via a non-rebreather mask is essential to prevent further decompensation and end-organ damage from hypoxia."
+            },
+            {
+                "optionId": "opt_2",
+                "content": "Correct Position 2. After stabilizing the client's oxygenation, the next step is to treat the root cause of the thyroid storm. Propylthiouracil (PTU) is an antithyroid drug that blocks the synthesis of new thyroid hormones and also inhibits the peripheral conversion of T4 to the more active T3. This intervention is critical to halting the progression of the hypermetabolic state."
+            },
+            {
+                "optionId": "opt_3",
+                "content": "Correct Position 3. The client's temperature of 104.2°F (40.1°C) constitutes severe hyperthermia, which places immense strain on the cardiovascular system and increases metabolic and oxygen demand. Applying a cooling blanket is a crucial intervention to reduce the core body temperature, decrease metabolic rate, and prevent central nervous system damage. This is done after initiating treatment for the cause."
+            },
+            {
+                "optionId": "opt_4",
+                "content": "Correct Position 4. The client is likely dehydrated due to profuse diaphoresis, fever, and tachypnea. Administering IV fluids is necessary to restore intravascular volume, support blood pressure, and ensure adequate organ perfusion. While important, this intervention is prioritized after addressing immediate life threats to breathing and halting the hormonal surge."
+            }
+        ],
+        "clinicalPearls": [
+            "In thyroid storm, PTU is often preferred over methimazole because it has the additional benefit of blocking the peripheral conversion of T4 to T3, leading to a more rapid reduction in active thyroid hormone levels.",
+            "Avoid salicylates (e.g., aspirin) for fever management in thyroid storm, as they can displace thyroid hormone from binding proteins, increasing the level of free, active hormone and worsening the crisis.",
+            "Beta-blockers, such as propranolol, are a cornerstone of managing the severe adrenergic symptoms (tachycardia, hypertension, agitation) of thyroid storm. They should be administered promptly after initial stabilization.",
+            "Monitor for signs of heart failure (e.g., worsening crackles, jugular venous distention) during fluid resuscitation, as the hyperdynamic state of thyroid storm can precipitate high-output cardiac failure."
+        ],
+        "questionTrap": "A common trap is to prioritize treating the underlying cause (administering PTU) before stabilizing the patient's immediate life threats. Always follow the ABCs. A patient cannot benefit from PTU if they are suffering from severe, uncorrected hypoxia. Stabilize breathing first, then address the endocrine emergency.",
+        "mnemonic": {
+            "title": "STORM: Management Priorities",
+            "expansion": "S - Support (ABCs: Oxygen, Fluids, Cooling)\nT - Thionamides (PTU or Methimazole)\nO - Ocular care, Organ support\nR - Radio-iodine/Radiocontrast (Iodine solution after PTU)\nM - Medications (Beta-blockers, Glucocorticoids)"
+        },
+        "reviewUnits": [
+            "Endocrine System",
+            "Emergency Nursing",
+            "Pharmacology",
+            "Prioritization & Delegation"
         ]
     },
-    "rationale": {
-        "correct": "The correct order of interventions is based on addressing the most immediate threats to the patient's well-being. First, ensuring adequate oxygenation with high-flow oxygen via a non-rebreather mask is paramount due to the patient's compromised respiratory status (SpO2 92%) and signs of respiratory distress. ClinicalPearl: Monitor the patient's respiratory effort and consider assisted ventilation if needed. Secondly, Propylthiouracil (PTU) is administered to inhibit thyroid hormone synthesis, addressing the underlying cause of the thyroid storm. This medication helps to block the production of new thyroid hormones. ClinicalPearl: PTU is preferred over methimazole in thyroid storm due to its ability to also block the conversion of T4 to T3. Thirdly, cooling measures, such as applying a cooling blanket, are initiated to combat the severe hyperthermia (104.2°F), which can cause significant physiological stress and organ damage. ClinicalPearl: Avoid causing shivering, which can increase metabolic rate; consider using a combination of cooling methods. Finally, intravenous fluids (Normal Saline) are essential to address dehydration resulting from fever, diaphoresis, and increased metabolic rate, maintaining adequate blood volume and preventing hypovolemic shock. ClinicalPearl: Monitor for signs of fluid overload, especially in patients with underlying cardiac conditions. These interventions, along with continuous monitoring and further pharmacological interventions like beta-blockers and glucocorticoids, are critical for managing thyroid storm.",
-        "incorrect": "Incorrect sequencing of interventions can lead to adverse patient outcomes. Delaying oxygen administration can exacerbate hypoxia and lead to organ damage. Delaying PTU prolongs the hyperthyroid state, increasing the risk of cardiac complications and worsening the thyroid storm. Prioritizing fluids before addressing hyperthermia can worsen the patient's condition due to increased metabolic demands and circulatory overload. Incorrectly managing thyroid storm can result in cardiac arrest, stroke, coma, or death. Understanding the pathophysiology and prioritizing interventions based on urgency is crucial for effective management. Each intervention targets a specific aspect of the thyroid storm, and their sequence is designed to stabilize the patient and prevent further deterioration.",
-        "clinicalPearls": [
-            "Thyroid storm is a life-threatening emergency characterized by severe hyperthyroidism and requires rapid intervention.",
-            "Beta-blockers, such as propranolol, are often used to manage the cardiovascular symptoms of thyroid storm (tachycardia, hypertension), but their administration should be based on physician orders and patient-specific factors. This patient is already on metoprolol, which may be less effective in controlling the acute symptoms of thyroid storm.",
-            "Cooling measures should be initiated cautiously to avoid shivering, which can increase metabolic rate and exacerbate hyperthermia. Consider using a combination of cooling methods, such as cooling blankets and ice packs, and monitor the patient closely for signs of shivering.",
-            "Monitor the patient closely for signs of complications such as arrhythmias, heart failure, and altered mental status. Continuous cardiac monitoring and frequent neurological assessments are essential."
-        ],
-        "questionTrap": {
-            "trap": "Choosing interventions based solely on memorized protocols without considering the patient's current physiological state can lead to errors. For example, administering PTU before ensuring adequate oxygenation can be detrimental if the patient is already hypoxic.",
-            "howToOvercome": "Carefully analyze the vital signs, lab values, and patient presentation to determine the most immediate needs. Prioritize interventions based on addressing the most critical threats to life and organ function. Consider the potential consequences of delaying or mismanaging each intervention."
-        },
-        "mnemonic": {
-            "title": "I STAR MD",
-            "expansion": "I: IV fluids, S: Stop thyroid hormone production (PTU or Methimazole), T: Treat hyperthermia, A: Administer beta-blockers (e.g., propranolol), R: Replace fluids and electrolytes, M: Monitor for complications, D: Dexamethasone (or other glucocorticoid)"
-        }
+    "scoring": {
+        "method": "0/1-ordered",
+        "maxPoints": 4
     },
-    "correctResponse": [
-        "Oxygen via Non-Rebreather Mask",
-        "Propylthiouracil (PTU)",
-        "Cooling Blanket",
-        "Intravenous Fluids (Normal Saline)"
-    ],
-    "distractorRationale": {
-        "Oxygen via Non-Rebreather Mask": "The patient's SpO2 is low at 92% on room air, indicating hypoxemia. Administering high-flow oxygen is the immediate priority to improve oxygenation and prevent further respiratory compromise.",
-        "Propylthiouracil (PTU)": "PTU is an antithyroid medication that inhibits the synthesis of thyroid hormones, addressing the underlying cause of thyroid storm. While important, it's secondary to ensuring adequate oxygenation.",
-        "Cooling Blanket": "The patient has a high fever of 104.2°F (40.1°C), which needs to be addressed promptly. However, it's secondary to ensuring adequate oxygenation and starting antithyroid medication.",
-        "Intravenous Fluids (Normal Saline)": "IV fluids are essential for addressing dehydration caused by fever and diaphoresis. However, they are secondary to addressing oxygenation, stopping thyroid hormone synthesis, and treating hyperthermia."
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity"
     },
-    "dropletIsolation": true,
-    "sentinelStatus": "deep_healed_v2026"
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:46:21.386Z"
 }

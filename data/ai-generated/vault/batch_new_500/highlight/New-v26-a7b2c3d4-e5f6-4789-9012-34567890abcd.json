@@ -1,73 +1,374 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-9012-34567890abcd",
     "type": "highlight",
-    "stem": "The nurse is reviewing the electronic health record for Mr. Johnson and preparing to administer medications. Based on the information provided, highlight the findings that indicate the patient is experiencing adverse effects of heart failure and requires immediate intervention.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse reviews the client's 06:00 progress note. Highlight the findings that indicate acute decompensated heart failure requiring immediate intervention.",
     "itemContext": {
+        "text": "S: Client reports acute onset of breathlessness. States, [\"I can't catch my breath, especially when I lie down.\"] B: 72-year-old male, [day 3 post-NSTEMI and stenting], with [known EF of 35%]. Last furosemide dose was 20:00 yesterday. A: Appears anxious, tachypneic at 28 breaths/min. [Productive cough with pink, frothy sputum] noted. Auscultation reveals [bibasilar crackles]. [SpO2 is 89% on 2L NC]. Vitals: [BP 90/50 mmHg (MAP 63)], [HR 110 bpm], Temp 99.1°F (37.3°C). [2+ pitting edema in lower extremities]. R: [Notified Dr. Evans at 06:15]. Recommended stat chest x-ray and labs. Anticipating order for increased IV furosemide. Placed client in high-Fowler's position.",
         "patient": {
             "name": "Johnson, Robert",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "72 years",
+            "sex": "Male",
+            "pronouns": "He/him",
             "allergies": [
                 "Penicillin"
             ],
             "conditions": [
-                "Heart Failure"
+                "Heart Failure",
+                "Hypertension",
+                "Hyperlipidemia",
+                "Coronary Artery Disease"
             ]
         },
-        "sbar": "S: Mr. Johnson is a 72-year-old male admitted three days ago following an acute myocardial infarction and subsequent development of heart failure. He has a history of hypertension and hyperlipidemia. His current medications include furosemide 40mg IV BID, lisinopril 10mg PO daily, and metoprolol 25mg PO BID.\nB: His medical history includes hypertension and hyperlipidemia. He experienced a recent myocardial infarction with an ejection fraction (EF) of 35%.\nA: At 06:00 this morning, Mr. Johnson reported increased shortness of breath, especially when lying flat (orthopnea). He also has a productive cough producing pink-tinged sputum. Upon auscultation, crackles were noted bilaterally in the lower lung lobes. His current SpO2 is 89% while on 2L of oxygen via nasal cannula. His blood pressure is 90/50 mmHg, and his heart rate is 110 beats per minute and regular.\nR: We are requesting an order for a stat chest x-ray and a possible increase in his diuretic dosage. The physician was notified of these findings at 06:15.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>132 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>95 mEq/L</td><td>98-106 mEq/L</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BNP</td><td>1200 pg/mL</td><td>&lt;100 pg/mL</td></tr><tr><td>Troponin I</td><td>0.1 ng/mL</td><td>&lt;0.04 ng/mL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Nurses' Notes",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "note_type": "Admission Note",
+                        "note": "S: 72-year-old male admitted from ED with substernal chest pain. B: History of hypertension, hyperlipidemia. Diagnosed with NSTEMI. Post-cardiac catheterization, one stent placed in RCA. EF on admission echo was 35%. Client lives alone in a second-floor apartment with no elevator, reports difficulty with grocery shopping. A: Alert and oriented x4. Denies chest pain. Lungs clear bilaterally. Vitals stable. No peripheral edema noted. R: Continue cardiac monitoring, titrate oxygen to maintain SpO2 >92%. Administer medications as ordered. Monitor for signs of heart failure. Social work consult initiated for discharge planning and addressing SDOH needs."
+                    },
+                    {
+                        "timestamp": "Day 3, 06:00",
+                        "note_type": "Progress Note",
+                        "note": "S: Client reports acute onset of breathlessness. States, \"I can't catch my breath, especially when I lie down.\" B: 72-year-old male, day 3 post-NSTEMI and stenting, with known EF of 35%. Last furosemide dose was 20:00 yesterday. A: Appears anxious, tachypneic at 28 breaths/min. Productive cough with pink, frothy sputum noted. Auscultation reveals bibasilar crackles. SpO2 is 89% on 2L NC. Vitals: BP 90/50 mmHg (MAP 63), HR 110 bpm, Temp 99.1°F (37.3°C). 2+ pitting edema in lower extremities. R: Notified Dr. Evans at 06:15. Recommended stat chest x-ray and labs. Anticipating order for increased IV furosemide. Placed client in high-Fowler's position."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>02:00</td><td>110/70</td><td>88</td><td>20</td><td>94%</td><td>37.0°C</td></tr><tr><td>04:00</td><td>100/60</td><td>96</td><td>22</td><td>92%</td><td>37.2°C</td></tr><tr><td>06:00</td><td>90/50</td><td>110</td><td>28</td><td>89%</td><td>37.3°C</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "BP (MAP)",
+                        "HR",
+                        "RR",
+                        "SpO₂",
+                        "Temp"
+                    ],
+                    "rows": [
+                        [
+                            "Day 3, 02:00",
+                            "110/70 (83)",
+                            "88",
+                            "20",
+                            "94% on 2L NC",
+                            "98.6°F (37.0°C)"
+                        ],
+                        [
+                            "Day 3, 04:00",
+                            "100/60 (73)",
+                            "96",
+                            "22",
+                            "92% on 2L NC",
+                            "98.9°F (37.2°C)"
+                        ],
+                        [
+                            "Day 3, 06:00",
+                            "90/50 (63)",
+                            "110",
+                            "28",
+                            "89% on 2L NC",
+                            "99.1°F (37.3°C)"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>BID</td><td>05:00</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>08:00</td></tr><tr><td>Metoprolol</td><td>25 mg</td><td>PO</td><td>BID</td><td>08:00</td></tr><tr><td>Oxygen</td><td>2 L</td><td>Nasal Cannula</td><td>PRN</td><td>Continuous</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Lab",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Sodium",
+                            "132",
+                            "mEq/L",
+                            "135-145",
+                            "Low"
+                        ],
+                        [
+                            "Potassium",
+                            "3.2",
+                            "mEq/L",
+                            "3.5-5.0",
+                            "Low"
+                        ],
+                        [
+                            "B-type Natriuretic Peptide (BNP)",
+                            "1200",
+                            "pg/mL",
+                            "<100",
+                            "High"
+                        ],
+                        [
+                            "Blood Urea Nitrogen (BUN)",
+                            "35",
+                            "mg/dL",
+                            "8-20",
+                            "High"
+                        ],
+                        [
+                            "Creatinine",
+                            "1.8",
+                            "mg/dL",
+                            "0.6-1.2",
+                            "High"
+                        ],
+                        [
+                            "Troponin I",
+                            "0.1",
+                            "ng/mL",
+                            "<0.04",
+                            "High"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:30 (Admission)",
+                        "findings": "GENERAL: Alert and oriented x4, in no acute distress. CARDIOVASCULAR: S1, S2 audible. Regular rate and rhythm. No murmurs, rubs, or gallops. RESPIRATORY: Lungs clear to auscultation bilaterally. Effort unlabored. EXTREMITIES: No peripheral edema. Pulses 2+ throughout."
+                    },
+                    {
+                        "timestamp": "Day 3, 06:00 (Focused)",
+                        "findings": "GENERAL: Anxious, appears fatigued, in respiratory distress. CARDIOVASCULAR: Tachycardia with regular rhythm. S3 gallop noted. Distant heart sounds. RESPIRATORY: Labored breathing with use of accessory muscles. Bibasilar crackles noted. GI: Bowel sounds present x4. EXTREMITIES: 2+ pitting edema noted in bilateral lower extremities. SKIN: Cool and clammy to touch."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": {
+                    "report_type": "Chest X-ray, Portable AP",
+                    "timestamp": "Day 3, 06:45",
+                    "indication": "Acute dyspnea, hypoxia, rule out pulmonary edema.",
+                    "findings": "Moderate cardiomegaly is present. There are significant interstitial and alveolar opacities consistent with pulmonary edema. Bilateral pleural effusions are noted, right greater than left. Cephalization of the pulmonary vasculature is evident.",
+                    "impression": "Findings are consistent with acute decompensated heart failure with significant pulmonary edema."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 14:00",
+                            "Cardiac diet, 2-gram sodium restriction",
+                            "Ongoing"
+                        ],
+                        [
+                            "Day 1, 14:00",
+                            "Activity: Bed rest with bathroom privileges",
+                            "Ongoing"
+                        ],
+                        [
+                            "Day 1, 14:00",
+                            "Daily weights",
+                            "Q AM"
+                        ],
+                        [
+                            "Day 1, 14:00",
+                            "Strict Intake & Output monitoring",
+                            "Ongoing"
+                        ],
+                        [
+                            "Day 1, 14:00",
+                            "Continuous cardiac and SpO₂ monitoring",
+                            "Ongoing"
+                        ],
+                        [
+                            "Day 1, 14:00",
+                            "Notify provider for SBP <90 mmHg, HR >120 bpm, or SpO₂ <90%",
+                            "PRN"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Furosemide",
+                            "40 mg",
+                            "IV",
+                            "BID (08:00, 20:00)",
+                            "Day 2 @ 20:00"
+                        ],
+                        [
+                            "Lisinopril",
+                            "10 mg",
+                            "PO",
+                            "Daily (08:00)",
+                            "Day 2 @ 08:00"
+                        ],
+                        [
+                            "Metoprolol",
+                            "25 mg",
+                            "PO",
+                            "BID (08:00, 20:00)",
+                            "Day 2 @ 20:00"
+                        ],
+                        [
+                            "Oxygen",
+                            "2 L",
+                            "Nasal Cannula",
+                            "Continuous",
+                            "Ongoing"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Acute MI & Heart Failure"
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "\"I can't catch my breath, especially when I lie down.\""
+        },
+        {
+            "id": "opt_02",
+            "text": "day 3 post-NSTEMI and stenting"
+        },
+        {
+            "id": "opt_03",
+            "text": "known EF of 35%"
+        },
+        {
+            "id": "opt_04",
+            "text": "Productive cough with pink, frothy sputum"
+        },
+        {
+            "id": "opt_05",
+            "text": "bibasilar crackles"
+        },
+        {
+            "id": "opt_06",
+            "text": "SpO2 is 89% on 2L NC"
+        },
+        {
+            "id": "opt_07",
+            "text": "BP 90/50 mmHg (MAP 63)"
+        },
+        {
+            "id": "opt_08",
+            "text": "HR 110 bpm"
+        },
+        {
+            "id": "opt_09",
+            "text": "2+ pitting edema in lower extremities"
+        },
+        {
+            "id": "opt_10",
+            "text": "Notified Dr. Evans at 06:15"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_04",
+        "opt_05",
+        "opt_06",
+        "opt_07",
+        "opt_08",
+        "opt_09"
+    ],
+    "rationale": {
+        "correct": "The selected findings represent a classic presentation of acute decompensated heart failure (ADHF) with pulmonary edema. The failing left ventricle cannot effectively pump blood forward, causing a backup of pressure into the pulmonary circulation. This leads to fluid leaking into the alveoli, causing orthopnea, crackles, pink frothy sputum, and hypoxia. The body's compensatory response includes tachycardia, but as cardiac output falls, hypotension ensues, signaling progression towards cardiogenic shock.",
+        "incorrect": "The distractors represent historical context or actions already taken, not acute clinical findings. While the client's history of an NSTEMI and a low ejection fraction (EF) are the underlying causes of the heart failure, they are chronic data points. Notifying the provider is a nursing action, not a client assessment finding that requires intervention.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. This subjective report of orthopnea is a cardinal symptom of left-sided heart failure. The recumbent position increases venous return to the heart, overwhelming the failing left ventricle and causing fluid to accumulate in the lungs."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. This is part of the client's medical history. While relevant background information, it is not an acute finding that requires immediate intervention."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. An ejection fraction of 35% indicates significant systolic dysfunction and is the chronic condition underlying this acute event. It is a known baseline finding, not a new, acute change."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. Pink, frothy sputum is a hallmark sign of severe pulmonary edema. The pink color is due to capillary rupture in the alveoli, mixing blood with the edematous fluid. This is a medical emergency."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. Bibasilar crackles are adventitious breath sounds caused by the popping open of small airways and alveoli collapsed by fluid. This is a direct sign of fluid in the lungs (pulmonary edema)."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. An SpO2 of 89% despite oxygen therapy indicates significant V/Q mismatch and impaired gas exchange due to fluid-filled alveoli. This level of hypoxia requires immediate intervention to improve oxygenation."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. Hypotension (SBP <90 mmHg) in the setting of ADHF is an ominous sign. It indicates that the heart's compensatory mechanisms are failing and cardiac output is critically low, potentially progressing to cardiogenic shock."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Correct. Tachycardia is a compensatory mechanism where the heart beats faster to try and maintain cardiac output in the face of a decreased stroke volume. It is a sign of significant cardiac stress."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Correct. Pitting edema is a sign of systemic fluid overload, typically associated with right-sided heart failure. While it reflects the overall fluid volume status, it is a less acute sign than the pulmonary findings."
+            },
+            {
+                "optionId": "opt_10",
+                "content": "Incorrect. This describes a nursing action that has already been completed. It is part of the plan of care, not a clinical finding or a cue that needs to be recognized."
+            }
+        ],
+        "clinicalPearls": [
+            "Pink, frothy sputum is a pathognomonic sign of acute pulmonary edema and signals a life-threatening situation.",
+            "The presence of an S3 heart sound ('ventricular gallop') in an adult is an early sign of volume overload and heart failure.",
+            "Hypotension in a client with acute heart failure is a critical finding that may indicate the onset of cardiogenic shock, which requires immediate and aggressive management."
+        ],
+        "questionTrap": "The primary trap is confusing chronic, background information (like the EF of 35%) with acute, emergent findings. A low EF is the reason the client is at risk, but the pink sputum and hypotension are the reasons the client is in crisis right now. Always prioritize acute assessment data over historical data.",
+        "mnemonic": {
+            "title": "UNLOAD FAST (Pulmonary Edema Management)",
+            "expansion": "Upright position; Nitrates; Lasix (Furosemide); Oxygen; ACE inhibitors; Digoxin; Fluids (decrease); Afterload (decrease); Sodium restriction; Test (Dig level, ABGs, K+)."
+        },
+        "reviewUnits": [
+            "Cardiovascular Disorders",
+            "Fluid and Electrolyte Imbalances",
+            "Pharmacology: Diuretics & Cardiac Medications"
         ]
     },
-    "rationale": {
-        "correct": "The correct findings to highlight are: 'increased shortness of breath, especially when lying flat', 'productive cough with pink-tinged sputum', 'crackles bilaterally in the lower lung lobes', 'SpO2 is 89% on 2L nasal cannula', and 'BP is 90/50'. These findings indicate worsening heart failure and pulmonary edema. Orthopnea, pink-tinged sputum, and crackles are classic signs of fluid overload in the lungs. The decreased SpO2 reflects impaired gas exchange, and hypotension indicates decreased cardiac output and potential cardiogenic shock.",
-        "incorrect": "Incorrect findings include the medications listed on the MAR, Troponin levels and other labs within normal limits, and stable vital signs. These do not directly indicate worsening heart failure or a need for immediate intervention related to heart failure complications. Focusing on the signs and symptoms of fluid overload and decreased perfusion is key to correctly answering this question.",
-        "clinicalPearls": [
-            "Pink-tinged sputum is a significant indicator of pulmonary edema.",
-            "Hypotension in the context of heart failure can be a sign of cardiogenic shock.",
-            "Crackles in the lungs indicate fluid accumulation."
-        ],
-        "questionTrap": {
-            "trap": "Students might focus solely on lab values or medications without fully interpreting the clinical presentation. They may also confuse symptoms of the initial MI with those of heart failure exacerbation.",
-            "howToOvercome": "Prioritize interpreting the patient's subjective complaints and objective findings in conjunction with lab values. Focus on the progression of symptoms and differentiate between the initial MI and subsequent heart failure complications."
-        },
-        "mnemonic": {
-            "title": "DROWNING",
-            "expansion": "Dyspnea, Rales (crackles), Orthopnea, Weakness, Nocturnal paroxysmal dyspnea, Increased HR, Nagging cough, Gain weight (edema)"
-        }
+    "scoring": {
+        "method": "polytomous",
+        "penalty": 1,
+        "maxPoints": 7
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "recognizeCues",
+        "nclexCategory": "Physiological Integrity - Physiological Adaptation"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:31:34.684Z"
 }

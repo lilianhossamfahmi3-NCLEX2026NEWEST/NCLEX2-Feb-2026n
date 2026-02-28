@@ -1,77 +1,303 @@
 {
     "id": "New-v26-4e7b8a2c-9d3f-4b1a-9c5a-2e8f6g4h5i6j",
     "type": "clozeDropdown",
-    "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the provided information, select the most appropriate action for each clinical scenario.\n\n**Scenario 1:** The high pressure alarm is sounding. The nurse should first assess for [vent_alarm] before taking further action.\n\n**Scenario 2:** The patient's SpO2 is trending downward despite increasing the FiO2. The nurse should consider [oxygenation] and notify the respiratory therapist for possible ventilator adjustments.\n\n**Scenario 3:** The patient is exhibiting signs of increased work of breathing, including nasal flaring and accessory muscle use. The nurse should evaluate for [wob] and collaborate with the physician for potential changes in ventilator settings.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
-    },
+    "stem": "The nurse is evaluating ventilator alarms and patient status for a client with acute respiratory failure. For each finding in the client's electronic health record, select the most appropriate initial nursing action from the dropdown menus.",
+    "dropdowns": [
+        {
+            "blankId": "BLANK_1",
+            "options": [
+                {
+                    "id": "opt1_1",
+                    "text": "Assess for tubing kinks or secretions"
+                },
+                {
+                    "id": "opt1_2",
+                    "text": "Administer a PRN sedative"
+                },
+                {
+                    "id": "opt1_3",
+                    "text": "Check ventilator power source"
+                }
+            ],
+            "correctOptionId": "opt1_1"
+        },
+        {
+            "blankId": "BLANK_2",
+            "options": [
+                {
+                    "id": "opt2_1",
+                    "text": "Request an order to increase PEEP"
+                },
+                {
+                    "id": "opt2_2",
+                    "text": "Verify endotracheal tube depth and placement"
+                },
+                {
+                    "id": "opt2_3",
+                    "text": "Obtain a sputum culture"
+                }
+            ],
+            "correctOptionId": "opt2_2"
+        },
+        {
+            "blankId": "BLANK_3",
+            "options": [
+                {
+                    "id": "opt3_1",
+                    "text": "Perform a cuff leak test"
+                },
+                {
+                    "id": "opt3_2",
+                    "text": "Deflate and reinflate the ETT cuff"
+                },
+                {
+                    "id": "opt3_3",
+                    "text": "Assess for pain or anxiety"
+                }
+            ],
+            "correctOptionId": "opt3_3"
+        }
+    ],
     "itemContext": {
         "patient": {
-            "name": "Robert Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Contact & Droplet",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "13:30 Situation: Robert Smith, a 68-year-old male, admitted two days ago for pneumonia, now requires mechanical ventilation. Background: History of COPD and hypertension. Admitted for increasing shortness of breath. Assessment: Intubated at 10:00 for acute respiratory failure. Current settings: FiO2 50%, Tidal Volume 450mL, Respiratory Rate 16, PEEP 5. ABG at 12:00: pH 7.32, PaCO2 55, PaO2 65, HCO3 24. At 13:00, noted agitation and rising peak airway pressure. Vitals at 13:15: HR 110, BP 150/90, RR 22 (vent), SpO2 88%, Temp 38.5°C. Coarse crackles bilaterally. ETT secured at 22 cm. Recommendation: Assess for airway obstruction (secretions, kinks). Consider suctioning. Notify respiratory therapy for ventilator adjustments to improve oxygenation and ventilation. Address agitation.",
+        "sbar": "13:30 SBAR Progress Note\nSituation: The 68-year-old male client in ICU bed 4, intubated for acute respiratory failure secondary to pneumonia, is experiencing increasing agitation and ventilator alarms.\nBackground: Admitted 2 days ago with community-acquired pneumonia. History of COPD and hypertension. Intubated at 10:00 today for worsening hypoxemia and respiratory distress. He lives alone in a rural area with limited access to primary care, which delayed his initial treatment.\nAssessment: At 13:30, the high-pressure alarm is sounding intermittently. Vital signs show a trend towards instability: HR 115, BP 155/92 (MAP 113), RR 22 (vent-set), SpO2 has dropped to 88% on FiO2 60%. Client appears agitated, attempting to sit up. Coarse crackles are auscultated bilaterally. ETT is secured at 22 cm at the lip.\nRecommendation: Immediately assess for airway obstruction or ETT displacement. Perform tracheal suctioning if indicated. Assess sedation and analgesia needs. Notify respiratory therapist for collaboration on ventilator adjustments.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "12:00 ABG: pH 7.32, PaCO2 55 mmHg, PaO2 65 mmHg, HCO3 24 mEq/L, BE -2. CBC: WBC 14,000/uL, Hgb 14 g/dL, Hct 42%, Platelets 250,000/uL."
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 1g IV q24h (scheduled), Albuterol/Ipratropium Neb q4h (scheduled), Famotidine 20mg IV q12h (scheduled), Acetaminophen 650mg PO q4h PRN for fever > 101F, Morphine 2mg IV q2h PRN for pain >4."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (Day 1, 08:00):\nClient is a 68-year-old male with a history of COPD and hypertension, admitted from the ED with a 4-day history of productive cough, fever, and progressive dyspnea. Diagnosed with community-acquired pneumonia. Initial SpO2 89% on room air, improved to 94% with 4L NC. Started on IV antibiotics and fluids. Client reports living alone and difficulty accessing his pharmacy regularly.\n\nProgress Note (Day 2, 13:30):\nS: High-pressure ventilator alarm sounding. Client appears agitated.\nB: Intubated at 10:00 for acute respiratory failure. Current vent settings: AC mode, RR 16, TV 450 mL, FiO2 60%, PEEP 5 cm H2O.\nA: Vitals trending: HR 115, BP 155/92, SpO2 88%. Coarse crackles bilaterally. No new orders received. Sedation with propofol at 10 mcg/kg/min.\nR: Requires immediate assessment for cause of alarm and desaturation. Evaluate airway patency and ETT placement. Assess comfort and sedation level."
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "13:15: HR 110, BP 150/90, RR 22 (ventilator), SpO2 88%, Temp 38.5°C (101.3°F). 12:00: HR 98, BP 140/80, RR 16 (ventilator), SpO2 92%, Temp 38.0°C (100.4°F)."
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "12:00",
+                        "HR": "98",
+                        "BP": "140/80 (100)",
+                        "RR": "16 (Vent)",
+                        "SpO2": "92% on 50% FiO2",
+                        "Temp": "100.4°F (38.0°C)"
+                    },
+                    {
+                        "Time": "13:00",
+                        "HR": "110",
+                        "BP": "150/90 (110)",
+                        "RR": "20 (Vent)",
+                        "SpO2": "90% on 60% FiO2",
+                        "Temp": "101.3°F (38.5°C)"
+                    },
+                    {
+                        "Time": "13:30",
+                        "HR": "115",
+                        "BP": "155/92 (113)",
+                        "RR": "22 (Vent)",
+                        "SpO2": "88% on 60% FiO2",
+                        "Temp": "101.5°F (38.6°C)"
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR in Item Context"
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Panel": "Arterial Blood Gas (ABG) - 12:00",
+                        "Results": [
+                            {
+                                "Test": "pH",
+                                "Result": "7.32",
+                                "Unit": "",
+                                "Reference": "7.35-7.45",
+                                "Status": "Low"
+                            },
+                            {
+                                "Test": "PaCO2",
+                                "Result": "55",
+                                "Unit": "mmHg",
+                                "Reference": "35-45",
+                                "Status": "High"
+                            },
+                            {
+                                "Test": "PaO2",
+                                "Result": "65",
+                                "Unit": "mmHg",
+                                "Reference": "80-100",
+                                "Status": "Low"
+                            },
+                            {
+                                "Test": "HCO3",
+                                "Result": "24",
+                                "Unit": "mEq/L",
+                                "Reference": "22-26",
+                                "Status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "Panel": "Complete Blood Count (CBC) - 12:00",
+                        "Results": [
+                            {
+                                "Test": "WBC",
+                                "Result": "14.5",
+                                "Unit": "x10³/μL",
+                                "Reference": "4.5-11.0",
+                                "Status": "High"
+                            },
+                            {
+                                "Test": "Hgb",
+                                "Result": "14.0",
+                                "Unit": "g/dL",
+                                "Reference": "13.5-17.5",
+                                "Status": "Normal"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Focused Respiratory Assessment (13:30):\nGeneral: Agitated, appears uncomfortable.\nRespiratory: Symmetrical chest rise. Coarse crackles auscultated bilaterally, diminished in left base. Endotracheal tube secured at 22 cm at the lip. No subcutaneous emphysema noted.\nCardiovascular: Tachycardia, S1/S2 audible. No murmurs.\nNeurological: Sedated but responsive to painful stimuli."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "Chest X-Ray Report (Day 2, 09:00):\nIndication: Worsening respiratory distress and hypoxemia.\nFindings: Lungs show diffuse, bilateral airspace opacities, more pronounced in the lower lobes. No evidence of large pleural effusion or pneumothorax. Cardiomediastinal silhouette is within normal limits.\nImpression: Findings are consistent with extensive pneumonia and developing Acute Respiratory Distress Syndrome (ARDS)."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Date/Time": "Day 2, 10:00",
+                        "Action": "Mechanical Ventilation: Assist-Control (AC) mode, RR 16, TV 450 mL, FiO2 50%, PEEP 5 cm H2O.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Day 2, 10:00",
+                        "Action": "Suction endotracheal tube PRN for secretions or high-pressure alarms.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Day 2, 10:00",
+                        "Action": "Arterial Blood Gas (ABG) 1 hour after intubation and with any major status change.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Day 2, 10:00",
+                        "Action": "Turn and reposition every 2 hours.",
+                        "Status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "q24h",
+                        "Last Administered": "Day 2, 09:00"
+                    },
+                    {
+                        "Medication": "Propofol",
+                        "Dose": "10 mcg/kg/min",
+                        "Route": "IV Infusion",
+                        "Frequency": "Continuous",
+                        "Last Administered": "Ongoing"
+                    },
+                    {
+                        "Medication": "Fentanyl",
+                        "Dose": "25 mcg",
+                        "Route": "IV Push",
+                        "Frequency": "q1h PRN pain/agitation",
+                        "Last Administered": "Day 2, 12:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650mg",
+                        "Route": "PO/PR",
+                        "Frequency": "q4h PRN fever > 101°F",
+                        "Last Administered": "Day 2, 13:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
+    "rationale": {
+        "correct": "The correct actions involve a systematic, prioritized assessment based on the ABCs (Airway, Breathing, Circulation). For a high-pressure alarm, the primary cause is obstruction, requiring an assessment of the tubing and secretions. For sudden desaturation with unilateral decreased breath sounds, ETT displacement into a mainstem bronchus is a high-probability cause that must be ruled out immediately. For ventilator dyssynchrony (bucking), the most common cause is patient discomfort, such as pain or anxiety, which must be assessed before considering equipment issues.",
+        "incorrect": "Incorrect options represent common nursing errors, such as treating a symptom without investigating the cause (e.g., sedating for an alarm), choosing a lower-priority intervention (e.g., increasing PEEP before checking tube placement), or selecting an action that does not match the clinical data (e.g., checking the power source for a high-pressure alarm).",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1_1",
+                "content": "Correct. A high-pressure alarm indicates increased resistance to airflow. The most common causes are obstructions like kinks in the ventilator tubing or mucus plugging in the airway. This is the first and most crucial assessment."
+            },
+            {
+                "optionId": "opt1_2",
+                "content": "Incorrect. Administering a sedative without first identifying the cause of the alarm is unsafe. The alarm could be signaling a life-threatening condition (e.g., pneumothorax, bronchospasm) that sedation would mask and potentially worsen."
+            },
+            {
+                "optionId": "opt1_3",
+                "content": "Incorrect. Checking the power source is the appropriate action for a low-pressure alarm or a ventilator inoperative alarm, which could indicate a disconnection or equipment failure, not increased resistance."
+            },
+            {
+                "optionId": "opt2_1",
+                "content": "Incorrect. While increasing PEEP is a strategy to improve oxygenation in ARDS, it is not the initial action for a sudden drop in SpO2 accompanied by diminished unilateral breath sounds. The priority is to rule out an acute airway problem."
+            },
+            {
+                "optionId": "opt2_2",
+                "content": "Correct. Sudden hypoxemia and diminished breath sounds on one side are classic signs of endotracheal tube displacement, most commonly into the right mainstem bronchus. This is an airway emergency that must be verified immediately."
+            },
+            {
+                "optionId": "opt2_3",
+                "content": "Incorrect. Obtaining a sputum culture is relevant for diagnosing infection but is not a priority action to correct acute, life-threatening hypoxemia. Airway and breathing must be stabilized first."
+            },
+            {
+                "optionId": "opt3_1",
+                "content": "Incorrect. A cuff leak test is used to assess for laryngeal edema before a planned extubation. It is not relevant for managing a patient who is actively fighting the ventilator."
+            },
+            {
+                "optionId": "opt3_2",
+                "content": "Incorrect. While ensuring proper cuff pressure is part of routine ventilator management, it is not the first step for dyssynchrony. The primary cause is more likely related to the patient's comfort, sedation, or a change in respiratory drive."
+            },
+            {
+                "optionId": "opt3_3",
+                "content": "Correct. Ventilator dyssynchrony ('bucking') often occurs when the patient's respiratory demands are not met by the ventilator, frequently due to pain, anxiety, or inadequate sedation. Assessing the patient's comfort is the priority."
+            }
+        ],
+        "clinicalPearls": [
+            "Always assess the patient before the machine. Ventilator alarms signal a change in the patient-ventilator system, and the patient is the most critical component.",
+            "Right mainstem intubation is a common complication after intubation or repositioning. Suspect it with any acute desaturation, especially if accompanied by unilateral chest movement or breath sounds.",
+            "Ventilator dyssynchrony increases work of breathing, oxygen consumption, and can lead to lung injury. It is often a sign of unmet patient needs (analgesia, sedation) or inappropriate ventilator settings."
+        ],
+        "questionTrap": "The primary trap is choosing a plausible respiratory intervention that is not the *priority* for the specific set of clinical cues. For example, increasing PEEP is a valid action for ARDS, but it's incorrect when the immediate cues (unilateral breath sounds) point to a tube displacement emergency. Always address the most immediate life-threat first.",
+        "mnemonic": "For troubleshooting ventilator alarms or acute distress in an intubated patient, use the DOPE mnemonic: D - Displacement (of the ETT), O - Obstruction (secretions, kinked tube), P - Pneumothorax, E - Equipment failure.",
+        "reviewUnits": [
+            "Critical Care Nursing",
+            "Mechanical Ventilation Management",
+            "Respiratory Emergencies",
+            "Arterial Blood Gas Interpretation"
         ]
     },
-    "rationale": {
-        "correct": {
-            "vent_alarm": "kinks in the tubing or increased secretions",
-            "oxygenation": "endotracheal tube placement",
-            "wob": "auto-PEEP or inadequate ventilator support"
-        },
-        "incorrect": {
-            "vent_alarm": "the ventilator's power source: Checking the power source is a general safety check, but not the immediate first action for a high pressure alarm. High pressure alarms usually indicate an obstruction or increased resistance to airflow. Addressing the airway is the priority.",
-            "oxygenation": "the patient's bowel sounds: Bowel sounds are not directly related to acute oxygenation problems in a ventilated patient. Assessing endotracheal tube placement ensures proper delivery of oxygen to the lungs.",
-            "wob": "the patient's electrolyte levels: Electrolytes are important, but not the first thing to evaluate for increased work of breathing. Auto-PEEP or inadequate ventilator support directly impacts the patient's ability to breathe comfortably."
-        },
-        "clinicalPearls": [
-            "High pressure alarms often indicate an obstruction in the airway or ventilator circuit. Addressing this promptly can prevent barotrauma and ensure adequate ventilation.",
-            "Deteriorating SpO2 requires a systematic approach, starting with airway assessment and troubleshooting before escalating FiO2 further. Incorrect ETT placement can lead to hypoxemia.",
-            "Increased work of breathing in a ventilated patient can indicate inadequate ventilator support, requiring adjustments to tidal volume, respiratory rate, or PEEP to optimize respiratory mechanics."
-        ],
-        "questionTrap": {
-            "trap": "The question traps the test taker by providing multiple plausible interventions, requiring prioritization based on the immediate threat to the patient's respiratory status. Test-takers may focus on less urgent interventions.",
-            "howToOvercome": "To overcome the trap, prioritize interventions based on the ABCs (Airway, Breathing, Circulation) and the urgency of the clinical situation. Consider the most likely causes of each scenario and address those first. Think critically about the immediate impact of each action."
-        },
-        "mnemonic": {
-            "title": "DOPE",
-            "expansion": "Displacement, Obstruction, Pneumothorax, Equipment failure. (Common causes of respiratory distress in intubated patients. Use this mnemonic to quickly assess potential problems.)"
-        }
-    }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
+    },
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:37:34.141Z"
 }

@@ -1,66 +1,332 @@
 {
     "id": "New-v26-a7b8c9d0-e1f2-4345-b678-901234567890",
     "type": "highlight",
-    "stem": "The patient is exhibiting signs of septic shock secondary to a suspected multi-drug resistant organism. Based on the information provided in the patient's chart, highlight the findings that are most indicative of septic shock and require immediate intervention.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is reviewing the client's progress note. Highlight the 5 findings that are most indicative of septic shock requiring immediate intervention.",
+    "passage": "S: Client's adult child reports he is much more lethargic. B: 78-year-old male with a [history of COPD] and a [recent UTI treated with ciprofloxacin], admitted 3 days ago for pneumonia. A: Over the last hour, client has developed [increased confusion and lethargy]. Vital signs show persistent hypotension with a [BP 88/50 mmHg] despite a fluid bolus and initiation of a norepinephrine drip. Urine output has been [minimal over the past 2 hours], indicating acute kidney injury. The client is now [unresponsive to verbal stimuli]. Labs from 07:15 show a [lactate level resulted as 4.5 mmol/L]. [Blood cultures were drawn] at 06:30, and results are pending. R: Recommend immediate physician re-evaluation for possible intubation and escalation of vasopressor support. Continue to monitor hemodynamic status closely.",
+    "spans": [
+        {
+            "id": "span_01",
+            "text": "history of COPD"
+        },
+        {
+            "id": "span_02",
+            "text": "recent UTI treated with ciprofloxacin"
+        },
+        {
+            "id": "span_03",
+            "text": "increased confusion and lethargy"
+        },
+        {
+            "id": "span_04",
+            "text": "BP 88/50 mmHg"
+        },
+        {
+            "id": "span_05",
+            "text": "minimal over the past 2 hours"
+        },
+        {
+            "id": "span_06",
+            "text": "unresponsive to verbal stimuli"
+        },
+        {
+            "id": "span_07",
+            "text": "lactate level resulted as 4.5 mmol/L"
+        },
+        {
+            "id": "span_08",
+            "text": "Blood cultures were drawn"
+        }
+    ],
+    "correctSpanIds": [
+        "span_03",
+        "span_04",
+        "span_05",
+        "span_06",
+        "span_07"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact & Droplet",
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin",
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "S: John Smith, 78-year-old male, admitted 3 days ago for pneumonia. B: He has a history of COPD, hypertension, and a recent UTI treated with ciprofloxacin. He's shown increased confusion and lethargy this shift. O: At 06:00, his temperature was 39.5°C, HR 135 bpm, RR 32, BP 88/50 mmHg, SpO2 90% on 2L NC. Urine is cloudy and foul-smelling. A: We suspect sepsis secondary to a possible multi-drug resistant UTI. The patient is hypotensive despite a 1L NS bolus. Labs are pending, and the MD has been notified. At 06:15, a norepinephrine drip was started per protocol. At 06:30, blood cultures were drawn, awaiting results. At 07:00, the patient continues to decline, with minimal urine output. Requesting orders for broad-spectrum antibiotics and further fluid resuscitation. At 07:15, the lactate level resulted as 4.5 mmol/L. At 07:30, the patient is unresponsive to verbal stimuli, GCS 8.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 22,000/mm3 (High); Hemoglobin: 11.5 g/dL; Platelets: 100,000/mm3 (Low); Sodium: 140 mEq/L; Potassium: 3.8 mEq/L; Chloride: 102 mEq/L; Bicarbonate: 18 mEq/L (Low); BUN: 45 mg/dL (High); Creatinine: 2.8 mg/dL (High); Glucose: 180 mg/dL; Lactate: 4.5 mmol/L (High); Procalcitonin: 15 ng/mL (High); Blood Culture: Pending; Urine Culture: Pending"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "noteType": "Admission Note",
+                        "timestamp": "Day 1, 09:00",
+                        "text": "S: Client is a 78-year-old male brought to the ED by his adult child with a 3-day history of productive cough, fever, and increasing shortness of breath. B: History of COPD and hypertension. Client lives alone in a rural area with limited access to transportation. Recent UTI treated with ciprofloxacin completed last week. A: Appears fatigued, using accessory muscles to breathe. T 101.5°F, HR 105, RR 26, BP 130/80, SpO2 91% on room air. Crackles noted in the right lower lung base. Chest X-ray shows right lower lobe infiltrate. R: Admit to medical floor for community-acquired pneumonia. Start IV antibiotics, supplemental oxygen, and supportive care. Initiate contact and droplet precautions pending further workup for potential multi-drug resistant organism based on recent antibiotic use."
+                    },
+                    {
+                        "noteType": "Progress Note",
+                        "timestamp": "Day 3, 07:30",
+                        "text": "S: Client's adult child reports he is much more lethargic. B: 78-year-old male with a history of COPD and a recent UTI treated with ciprofloxacin, admitted 3 days ago for pneumonia. A: Over the last hour, client has developed increased confusion and lethargy. Vital signs show persistent hypotension with a BP 88/50 mmHg despite a fluid bolus and initiation of a norepinephrine drip. Urine output has been minimal over the past 2 hours, indicating acute kidney injury. The client is now unresponsive to verbal stimuli. Labs from 07:15 show a lactate level resulted as 4.5 mmol/L. Blood cultures were drawn at 06:30, and results are pending. R: Recommend immediate physician re-evaluation for possible intubation and escalation of vasopressor support. Continue to monitor hemodynamic status closely."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ciprofloxacin 500mg PO BID (Last dose: Yesterday 20:00); Acetaminophen 650mg PO PRN for fever; Norepinephrine 2 mcg/min IV (Started 06:15); Normal Saline 1L bolus (Completed 06:00); Oxygen 2L NC"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "Day 3, 05:00",
+                        "Temp": "101.8°F (38.8°C)",
+                        "HR": "110 bpm",
+                        "RR": "24/min",
+                        "BP": "110/70 mmHg",
+                        "MAP": "83 mmHg",
+                        "SpO2": "94% on 2L NC"
+                    },
+                    {
+                        "Time": "Day 3, 06:00",
+                        "Temp": "103.1°F (39.5°C)",
+                        "HR": "135 bpm",
+                        "RR": "32/min",
+                        "BP": "88/50 mmHg",
+                        "MAP": "63 mmHg",
+                        "SpO2": "90% on 2L NC"
+                    },
+                    {
+                        "Time": "Day 3, 07:00",
+                        "Temp": "103.5°F (39.7°C)",
+                        "HR": "140 bpm",
+                        "RR": "35/min",
+                        "BP": "70/40 mmHg",
+                        "MAP": "50 mmHg",
+                        "SpO2": "88% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "05:00: T 38.8°C, HR 110 bpm, RR 24, BP 110/70 mmHg, SpO2 94% on 2L NC; 06:00: T 39.5°C, HR 135 bpm, RR 32, BP 88/50 mmHg, SpO2 90% on 2L NC; 07:00: T 39.7°C, HR 140 bpm, RR 35, BP 70/40 mmHg, SpO2 88% on 2L NC"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "22.0",
+                        "Unit": "x 10^9/L",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "100",
+                        "Unit": "x 10^9/L",
+                        "Reference": "150-450",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "45",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "2.8",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Bicarbonate (HCO3)",
+                        "Result": "18",
+                        "Unit": "mEq/L",
+                        "Reference": "22-28",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Lactate",
+                        "Result": "4.5",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "15.2",
+                        "Unit": "ng/mL",
+                        "Reference": "< 0.5",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "Day 3, 07:00: Unresponsive to verbal stimuli, responds to painful stimuli by withdrawing. GCS 8 (E2, V2, M4)."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Day 3, 07:00: Tachycardic, S1/S2 audible. Pulses +1 peripherally. Capillary refill >4 seconds. Skin is cool and clammy."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Day 3, 07:00: Tachypneic with use of accessory muscles. Diminished breath sounds in right lower lobe."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Procedure": "Chest X-ray (PA and Lateral)",
+                        "Date": "Day 1, 09:30",
+                        "Impression": "Findings demonstrate a dense consolidation in the right lower lobe, consistent with community-acquired pneumonia. No evidence of pleural effusion or pneumothorax. The cardiac silhouette is within normal limits."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 3, 06:10",
+                        "Action": "Norepinephrine IV infusion, titrate to maintain MAP > 65 mmHg.",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 3, 06:05",
+                        "Action": "Blood cultures x2, Urine culture, Sputum culture.",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 09:45",
+                        "Action": "Vancomycin 1g IV",
+                        "Frequency/Status": "Standing, q12h"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 09:45",
+                        "Action": "Piperacillin-tazobactam 4.5g IV",
+                        "Frequency/Status": "Standing, q6h"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 09:45",
+                        "Action": "Oxygen via nasal cannula, titrate to maintain SpO2 > 92%.",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 09:45",
+                        "Action": "Acetaminophen 650 mg PO/PR for temp > 101.5°F (38.6°C).",
+                        "Frequency/Status": "PRN, q4h"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Norepinephrine",
+                        "Dose": "2 mcg/min",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last Administered": "Day 3 @ 06:15 (Started)"
+                    },
+                    {
+                        "Medication": "Normal Saline",
+                        "Dose": "1000 mL",
+                        "Route": "IV",
+                        "Frequency": "STAT",
+                        "Last Administered": "Day 3 @ 06:00 (Completed)"
+                    },
+                    {
+                        "Medication": "Vancomycin",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "q12h",
+                        "Last Administered": "Day 2 @ 20:00"
+                    },
+                    {
+                        "Medication": "Piperacillin-tazobactam",
+                        "Dose": "4.5g",
+                        "Route": "IV",
+                        "Frequency": "q6h",
+                        "Last Administered": "Day 3 @ 02:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PR",
+                        "Frequency": "PRN",
+                        "Last Administered": "Day 3 @ 06:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+    "rationale": {
+        "correct": "The combination of hypotension refractory to fluids, altered mental status, evidence of end-organ damage (oliguria), and metabolic acidosis (elevated lactate) are the hallmark signs of septic shock. These findings indicate a systemic inflammatory response has led to severe circulatory and cellular abnormalities, requiring immediate, aggressive intervention to prevent irreversible organ failure and death.",
+        "incorrect": "The distractors represent historical data or nursing actions. While a history of COPD and a recent UTI are important risk factors and potential sources of infection, they are not acute findings of shock. Drawing blood cultures is a critical diagnostic step (an action), not a clinical finding or symptom exhibited by the client.",
+        "answerBreakdown": [
+            {
+                "optionId": "span_01",
+                "content": "Incorrect. A history of COPD is a significant comorbidity that increases the client's risk for severe pneumonia, but it is part of the client's background, not an acute indicator of septic shock."
+            },
+            {
+                "optionId": "span_02",
+                "content": "Incorrect. A recent UTI treated with ciprofloxacin provides context about a potential source of infection and raises suspicion for a multi-drug resistant organism, but it is historical information, not a current sign of hemodynamic collapse."
+            },
+            {
+                "optionId": "span_03",
+                "content": "Correct. Increased confusion and lethargy are signs of cerebral hypoperfusion and metabolic encephalopathy. This altered mental status is a key criterion in the qSOFA score and indicates severe sepsis-induced organ dysfunction."
+            },
+            {
+                "optionId": "span_04",
+                "content": "Correct. A blood pressure of 88/50 mmHg (MAP 63) that persists despite fluid resuscitation is the defining characteristic of septic shock. This hypotension results from massive vasodilation caused by inflammatory mediators."
+            },
+            {
+                "optionId": "span_05",
+                "content": "Correct. Minimal urine output (oliguria) is a direct sign of acute kidney injury due to renal hypoperfusion. This is a critical indicator of end-organ damage, a core component of septic shock."
+            },
+            {
+                "optionId": "span_06",
+                "content": "Correct. Unresponsiveness to verbal stimuli represents a severe decline in neurological function, far beyond simple confusion. This indicates profound central nervous system dysfunction due to shock."
+            },
+            {
+                "optionId": "span_07",
+                "content": "Correct. A lactate level of 4.5 mmol/L is significantly elevated and indicates widespread tissue hypoxia. Cells have shifted to anaerobic metabolism, a hallmark of circulatory shock and a strong predictor of mortality."
+            },
+            {
+                "optionId": "span_08",
+                "content": "Incorrect. This describes a nursing intervention. While drawing blood cultures is a priority action in managing sepsis, it is not a clinical finding or a physiological response of the client."
+            }
+        ],
+        "clinicalPearls": [
+            "Septic shock is defined as sepsis with persisting hypotension requiring vasopressors to maintain a MAP ≥ 65 mmHg and having a serum lactate level > 2 mmol/L despite adequate volume resuscitation.",
+            "The quick Sepsis-related Organ Failure Assessment (qSOFA) score uses three criteria: altered mental status (GCS < 15), fast respiratory rate (≥ 22/min), and low blood pressure (SBP ≤ 100 mmHg). A score of 2 or more suggests a high risk for poor outcomes.",
+            "Early and aggressive fluid resuscitation (30 mL/kg crystalloid) is a cornerstone of sepsis management, but clients must be monitored closely for signs of fluid overload, especially those with comorbidities like COPD or heart failure."
+        ],
+        "questionTrap": "The primary trap is failing to differentiate between background/historical data (risk factors, past infections) and acute, life-threatening signs of organ hypoperfusion. Candidates may incorrectly select risk factors or nursing actions instead of the client's current physiological responses.",
+        "mnemonic": "Use the 'SEPSIS' acronym for public awareness and early recognition: S - Shivering, fever, or very cold; E - Extreme pain or general discomfort; P - Pale or discolored skin; S - Sleepy, difficult to rouse, confused; I - 'I feel like I might die'; S - Short of breath.",
+        "reviewUnits": [
+            "Sepsis and Septic Shock",
+            "Hemodynamic Monitoring",
+            "Acid-Base Balance",
+            "Pharmacology: Vasopressors"
         ]
     },
-    "rationale": {
-        "correct": "The highlighted findings are indicative of septic shock. *Temperature of 39.5°C* (fever indicates an inflammatory response to infection). *Heart rate of 135 bpm* (tachycardia is a compensatory mechanism to maintain cardiac output). *Blood pressure of 88/50 mmHg* (hypotension indicates vasodilation and decreased tissue perfusion). *Lactate of 4.5 mmol/L* (elevated lactate indicates anaerobic metabolism due to inadequate oxygen delivery to tissues). *WBC of 22,000/mm3* (leukocytosis indicates an active infection). These findings, taken together, strongly suggest septic shock and the need for immediate intervention.",
-        "incorrect": "Other findings may be relevant to the patient's overall condition, but are not the most direct indicators of septic shock requiring immediate intervention. For example, while the patient's history of COPD and hypertension are important, they do not directly point to the current critical state of septic shock. Similarly, while BUN and Creatinine are elevated, indicating kidney dysfunction which often occurs in sepsis, they are not as immediate indicators as the vital signs and lactate level.",
-        "clinicalPearls": [
-            "Sepsis is a life-threatening condition that arises when the body's response to an infection spirals out of control, causing widespread inflammation and organ damage.",
-            "Septic shock is a severe stage of sepsis characterized by profound circulatory, cellular, and metabolic abnormalities, leading to a substantially increased risk of death.",
-            "Early recognition and aggressive management, including fluid resuscitation, vasopressors, and antibiotics, are crucial for improving outcomes in patients with septic shock."
-        ],
-        "questionTrap": {
-            "trap": "Students might focus solely on the lab values, overlooking the importance of vital signs and the clinical picture. The question requires synthesizing data from multiple sources to identify the most critical indicators of septic shock.",
-            "howToOvercome": "Emphasize the importance of considering vital signs in conjunction with lab results. Prioritize findings that directly reflect organ dysfunction and perfusion abnormalities."
-        },
-        "mnemonic": {
-            "title": "S.H.O.C.K.",
-            "expansion": "S: Source of infection, H: Hypotension, O: Organ dysfunction, C: Confusion, K: Key lab values (lactate, WBC)"
-        }
+    "scoring": {
+        "method": "polytomous_penalty",
+        "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:47:36.994Z"
 }

@@ -1,141 +1,377 @@
 {
     "id": "New-v26-78a9b2c3-d456-4ef1-a234-567890abcdef",
     "type": "dragAndDropCloze",
-    "stem": "The patient is exhibiting signs of sepsis secondary to a possible multi-drug resistant organism. Based on the provided information, the priority intervention is to initiate [DRAG_DROP_1] within [DRAG_DROP_2] of recognition, while simultaneously obtaining blood cultures from [DRAG_DROP_3] peripheral sites. Given the patient's risk factors and current presentation, the most appropriate empirical antibiotic therapy would be [DRAG_DROP_4] and [DRAG_DROP_5], pending culture and sensitivity results. It is also crucial to monitor the patient's [DRAG_DROP_6] closely and manage any developing hypotension with fluid resuscitation and vasopressors as needed.",
+    "stem": "The nurse recognizes the patient is exhibiting signs of septic shock. Based on the Surviving Sepsis Campaign guidelines, the priority is to initiate [DRAG_DROP_1] within [DRAG_DROP_2] of recognition. This includes obtaining blood cultures from [DRAG_DROP_3] different sites before antibiotic administration. Given the patient's risk factors for a multi-drug resistant organism and penicillin allergy, appropriate empirical therapy includes [DRAG_DROP_4] and [DRAG_DROP_5]. The nurse must continuously evaluate the patient's [DRAG_DROP_6] to guide resuscitation.",
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 6
     },
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Droplet Precautions",
+            "name": "Johnathan Doe",
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "He/Him",
+            "mrn": "MRN987654321",
             "allergies": [
-                "Penicillin"
-            ]
+                "Penicillin (rash)"
+            ],
+            "iso": "Contact Precautions"
         },
-        "sbar": "S: Mr. Smith, 78-year-old male, admitted two days ago for a UTI, now showing altered mental status and increased respiratory rate, concerning for sepsis. O: At 06:00, BP 90/50 mmHg, HR 120 bpm, RR 28, SpO2 92% on 2L NC, Temp 38.9°C. Urine cloudy, foul-smelling. Labs: WBC 18,000/mm3, Lactate 4.0 mmol/L, Creatinine 2.5 mg/dL. Radiology: Chest X-ray clear. MAR: Ceftriaxone 1g IV q24h (for UTI), Acetaminophen 650mg PO PRN. A: Possible sepsis secondary to UTI. History of recurrent UTIs and prior antibiotic use raise suspicion for multi-drug resistant organism. R: Recommend immediate sepsis protocol: blood cultures from two sites, broad-spectrum antibiotics (Vancomycin and Cefepime), close hemodynamic monitoring, fluid resuscitation, and vasopressors if needed. Expedite blood gas analysis and lactate re-check in one hour.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Mr. Smith, 78-year-old male, admitted two days ago for a UTI, now showing altered mental status and increased respiratory rate, concerning for sepsis. O: At 06:00, BP 90/50 mmHg, HR 120 bpm, RR 28, SpO2 92% on 2L NC, Temp 38.9°C. Urine cloudy, foul-smelling. Labs: WBC 18,000/mm3, Lactate 4.0 mmol/L, Creatinine 2.5 mg/dL. Radiology: Chest X-ray clear. MAR: Ceftriaxone 1g IV q24h (for UTI), Acetaminophen 650mg PO PRN. A: Possible sepsis secondary to UTI. History of recurrent UTIs and prior antibiotic use raise suspicion for multi-drug resistant organism. R: Recommend immediate sepsis protocol: blood cultures from two sites, broad-spectrum antibiotics (Vancomycin and Cefepime), close hemodynamic monitoring, fluid resuscitation, and vasopressors if needed. Expedite blood gas analysis and lactate re-check in one hour."
-            },
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/mm3 (High), Lactate: 4.0 mmol/L (High), Creatinine: 2.5 mg/dL (High), Urine Culture: Pending, Blood Cultures: Pending"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 1g IV q24h (Ordered 2 days ago for UTI), Acetaminophen 650mg PO PRN for fever, Normal Saline 1L bolus (Completed 1 day ago)"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "timestamp": "Day 1 @ 14:00",
+                        "type": "Admission Note",
+                        "content": "S: 78-year-old male admitted from a long-term care facility with a 2-day history of dysuria, urinary frequency, and confusion. Adult child reports he has been 'more sleepy than usual.'\nB: History of benign prostatic hyperplasia, hypertension, and recurrent urinary tract infections (UTIs), with a previous culture growing E. coli resistant to ciprofloxacin. Allergic to penicillin. Patient is a resident of a local long-term care facility, which increases his risk for multi-drug resistant organisms. Currently has an indwelling urinary catheter.\nA: Patient is alert but oriented only to person. Appears fatigued. Vital signs stable on admission. Urine from catheter is cloudy with a strong odor. Urinalysis is positive for leukocytes and nitrites. Suspected UTI.\nR: Sent urine for culture and sensitivity. Initiated IV fluids and started on ceftriaxone as per protocol for community-acquired UTI. Will monitor mental status and vital signs closely."
+                    },
+                    {
+                        "timestamp": "Day 3 @ 06:15",
+                        "type": "Progress Note",
+                        "content": "S: Called to bedside for an acute change in patient's condition. Patient is difficult to arouse and disoriented to person, place, and time.\nB: Patient has been receiving IV ceftriaxone for a UTI for 48 hours. His baseline mental status was alert with mild confusion. The patient's adult child is at the bedside and is concerned about his rapid decline.\nA: Vital signs at 06:00 show hypotension with a MAP of 57 mmHg, tachycardia to 128/min, and tachypnea at 28/min. Temperature is 102.1°F (38.9°C). SpO₂ is 92% on 2L NC. Skin is warm and flushed, capillary refill is >3 seconds. Labs from 06:00 show leukocytosis (18.5 x 10³/μL), elevated lactate (4.2 mmol/L), and acute kidney injury (Creatinine 2.5 mg/dL). This presentation is highly indicative of septic shock, likely secondary to a multi-drug resistant UTI.\nR: Recommend immediate activation of the sepsis protocol. Obtain blood cultures from two separate sites and a repeat lactate level. Administer a 30 mL/kg crystalloid fluid bolus. Initiate empiric broad-spectrum antibiotics with coverage for MDROs, such as vancomycin and cefepime. Prepare for potential vasopressor support if hypotension persists post-bolus. Notify provider immediately of findings and recommendations."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "04:00: BP 110/70, HR 90, RR 20, Temp 37.5°C; 06:00: BP 90/50, HR 120, RR 28, Temp 38.9°C"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "02:00",
+                        "HR": "94/min",
+                        "BP": "112/70 mmHg (MAP 84)",
+                        "RR": "20/min",
+                        "SpO2": "95% on Room Air",
+                        "Temp": "99.9°F (37.7°C)"
+                    },
+                    {
+                        "Time": "04:00",
+                        "HR": "110/min",
+                        "BP": "104/62 mmHg (MAP 76)",
+                        "RR": "24/min",
+                        "SpO2": "94% on 2L NC",
+                        "Temp": "101.1°F (38.4°C)"
+                    },
+                    {
+                        "Time": "06:00",
+                        "HR": "128/min",
+                        "BP": "90/46 mmHg (MAP 61)",
+                        "RR": "28/min",
+                        "SpO2": "92% on 2L NC",
+                        "Temp": "102.1°F (38.9°C)"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "Test": "WBC",
+                        "Result": "18.5",
+                        "Unit": "x 10³/μL",
+                        "RefRange": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate, Venous",
+                        "Result": "4.2",
+                        "Unit": "mmol/L",
+                        "RefRange": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "2.5",
+                        "Unit": "mg/dL",
+                        "RefRange": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "45",
+                        "Unit": "mg/dL",
+                        "RefRange": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "12.5",
+                        "Unit": "ng/mL",
+                        "RefRange": "< 0.15",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Hemoglobin",
+                        "Result": "12.8",
+                        "Unit": "g/dL",
+                        "RefRange": "13.5-17.5",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "140",
+                        "Unit": "x 10³/μL",
+                        "RefRange": "150-450",
+                        "Status": "Low"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "findings": [
+                    {
+                        "System": "General",
+                        "Finding": "Acutely ill appearance. Difficult to arouse but responds to verbal stimuli."
+                    },
+                    {
+                        "System": "Neurological",
+                        "Finding": "Glasgow Coma Scale (GCS) 13 (E4, V4, M5). Disoriented to time and place."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Finding": "Tachycardic with regular rhythm. S1/S2 audible. Peripheral pulses +1 bilaterally. Capillary refill >3 seconds in upper and lower extremities."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Finding": "Tachypneic with shallow respirations. Lungs clear to auscultation bilaterally."
+                    },
+                    {
+                        "System": "Gastrointestinal/Genitourinary",
+                        "Finding": "Abdomen soft, non-tender. Indwelling urinary catheter in place, draining cloudy, malodorous urine."
+                    },
+                    {
+                        "System": "Integumentary",
+                        "Finding": "Skin is warm, dry, and flushed."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray: Clear"
+                "reports": [
+                    {
+                        "type": "Chest X-ray (PA and Lateral)",
+                        "timestamp": "Day 1 @ 15:30",
+                        "report": "INDICATION: Altered mental status, rule out pneumonia.\n\nFINDINGS: The cardiomediastinal silhouette is within normal limits for age. The lungs are well-expanded and clear of any focal consolidation, effusion, or pneumothorax. The pulmonary vasculature is unremarkable. Bony structures are intact.\n\nIMPRESSION: No acute cardiopulmonary process identified."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "Date": "Day 1",
+                        "Action": "Admit to Medical Unit. Vital signs every 4 hours.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date": "Day 1",
+                        "Action": "Contact Precautions.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date": "Day 1",
+                        "Action": "Ceftriaxone 1g IV",
+                        "Status": "Active, every 24 hours"
+                    },
+                    {
+                        "Date": "Day 1",
+                        "Action": "Acetaminophen 650 mg PO for Temp >101°F (38.3°C)",
+                        "Status": "PRN, every 4 hours"
+                    },
+                    {
+                        "Date": "Day 1",
+                        "Action": "0.9% Sodium Chloride at 75 mL/hr",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date": "Day 3 @ 06:20",
+                        "Action": "STAT: Sepsis Protocol - Lactate, CBC, CMP, Blood Cultures x2 sites",
+                        "Status": "New"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "Every 24 hours",
+                        "LastAdministered": "Day 2 @ 14:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650mg",
+                        "Route": "PO",
+                        "Frequency": "Every 4 hours PRN",
+                        "LastAdministered": "Day 3 @ 04:15"
+                    },
+                    {
+                        "Medication": "Lisinopril",
+                        "Dose": "10mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "LastAdministered": "Day 3 @ 09:00 (Held)"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
+        "cjmmStep": "generateSolutions",
+        "nclexCategory": "Physiological Adaptation",
         "difficulty": 5,
         "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+            "Sepsis",
+            "Septic Shock",
+            "Multi-Drug Resistant Organism",
+            "Infection Control"
         ]
-    },
-    "rationale": {
-        "correct": "Early and aggressive intervention in sepsis is crucial for patient survival. The Surviving Sepsis Campaign guidelines emphasize the importance of initiating appropriate antibiotic therapy within one hour of sepsis recognition. Obtaining blood cultures before initiating antibiotics is essential to identify the causative organism and guide definitive therapy. Given the patient's history of recurrent UTIs and prior antibiotic use, broad-spectrum antibiotics with coverage for multi-drug resistant organisms, such as Vancomycin and Cefepime, are indicated. Continuous monitoring of the patient's hemodynamic status is critical to identify and manage hypotension, which is a common complication of sepsis.  \n\nclinicalPearl: Remember the importance of source control in sepsis management. Identifying and removing the source of infection (e.g., infected catheter, abscess) is crucial for successful treatment.",
-        "incorrect": "Delaying antibiotic administration in sepsis significantly increases mortality. While supportive measures like fluid resuscitation are important, they are not the priority over antibiotic therapy. Relying solely on urine cultures without obtaining blood cultures may delay the identification of bloodstream infections. Choosing antibiotics without considering the patient's risk factors for multi-drug resistance may result in inadequate treatment. Neglecting hemodynamic monitoring can lead to delayed recognition and management of hypotension, further compromising organ perfusion.\n\nquestionTrap: Selecting interventions out of order, such as administering fluids before antibiotics, can be detrimental in sepsis management. Prioritize interventions based on the 'Surviving Sepsis Campaign' guidelines.",
-        "clinicalPearls": [
-            "The 'Sepsis Six' bundle is a useful framework for managing sepsis: administer oxygen, obtain blood cultures, administer broad-spectrum antibiotics, administer IV fluids, measure lactate, and monitor urine output.",
-            "Always consider the possibility of multi-drug resistant organisms in patients with recent antibiotic use, hospitalizations, or indwelling catheters.",
-            "Early goal-directed therapy (EGDT) has been shown to improve outcomes in sepsis. EGDT includes optimizing cardiac output, blood pressure, and oxygen delivery."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on supportive measures (fluids, oxygen) without prioritizing antibiotic administration.",
-            "howToOvercome": "Remember the 'Surviving Sepsis Campaign' guidelines which emphasize the importance of early antibiotic administration in sepsis management. Prioritize interventions based on their impact on patient outcomes."
-        },
-        "mnemonic": {
-            "title": "Think Sepsis",
-            "expansion": "S - Seek source (cultures); E - Evaluate (vitals, labs); P - Prescribe antibiotics; S - Support (fluids, vasopressors); I - Institute monitoring; S - Survive (early intervention improves outcomes)"
-        }
     },
     "possibleResponses": [
         {
             "id": "a",
-            "content": "Broad-spectrum antibiotics"
+            "content": "broad-spectrum antibiotics"
         },
         {
             "id": "b",
-            "content": "One hour"
+            "content": "one hour"
         },
         {
             "id": "c",
-            "content": "Two"
+            "content": "two"
         },
         {
             "id": "d",
-            "content": "Vancomycin"
+            "content": "vancomycin"
         },
         {
             "id": "e",
-            "content": "Cefepime"
+            "content": "cefepime"
         },
         {
             "id": "f",
-            "content": "Hemodynamic status"
+            "content": "hemodynamic status"
         },
         {
             "id": "g",
-            "content": "Urine output"
+            "content": "a crystalloid fluid bolus"
         },
         {
             "id": "h",
-            "content": "Elevate the head of bed"
+            "content": "three hours"
+        },
+        {
+            "id": "i",
+            "content": "one"
+        },
+        {
+            "id": "j",
+            "content": "ceftriaxone"
+        },
+        {
+            "id": "k",
+            "content": "neurological status"
         }
     ],
     "responseMapping": [
         {
             "target": "DRAG_DROP_1",
-            "response": "a",
-            "score": 1
+            "response": "a"
         },
         {
             "target": "DRAG_DROP_2",
-            "response": "b",
-            "score": 1
+            "response": "b"
         },
         {
             "target": "DRAG_DROP_3",
-            "response": "c",
-            "score": 1
+            "response": "c"
         },
         {
             "target": "DRAG_DROP_4",
-            "response": "d",
-            "score": 1
+            "response": "d"
         },
         {
             "target": "DRAG_DROP_5",
-            "response": "e",
-            "score": 1
+            "response": "e"
         },
         {
             "target": "DRAG_DROP_6",
-            "response": "f",
-            "score": 1
+            "response": "f"
         }
     ],
-    "sentinelStatus": "deep_healed_v2026"
+    "rationale": {
+        "correct": "The patient's presentation of hypotension (MAP < 65 mmHg), tachycardia, tachypnea, fever, altered mental status, and a lactate > 4 mmol/L confirms a diagnosis of septic shock. The Surviving Sepsis Campaign 'Hour-1 Bundle' mandates rapid intervention. The absolute priority is administering broad-spectrum antibiotics within one hour to halt the infectious process driving the systemic inflammatory response. Blood cultures must be drawn from two separate sites beforehand to identify the pathogen without delaying treatment. Given the patient's history (long-term care facility, recurrent UTIs) and failure to respond to ceftriaxone, coverage for MDROs is essential. Vancomycin (for MRSA) and Cefepime (for resistant gram-negatives like Pseudomonas) is an appropriate empiric combination. Continuous monitoring of hemodynamic status (BP, MAP, HR) is critical to titrate fluid resuscitation and vasopressors to restore tissue perfusion.",
+        "incorrect": "Delaying antibiotics beyond one hour significantly increases mortality. While fluid resuscitation is a concurrent priority, it does not supersede the need for antimicrobial therapy to control the source of shock. Drawing cultures from only one site increases the risk of misinterpreting a contaminant as the causative organism. Continuing ceftriaxone is inappropriate as the patient has clinically deteriorated on this medication, suggesting organism resistance. While neurological status is important, hemodynamic instability is the most immediate life-threat in septic shock and the primary target for resuscitation efforts.",
+        "answerBreakdown": {
+            "a": {
+                "isCorrect": true,
+                "content": "Correct. The pathophysiological core of sepsis is an uncontrolled inflammatory response to infection. Initiating broad-spectrum antibiotics is the primary intervention to eliminate the pathogen, thereby halting the release of endotoxins and exotoxins that perpetuate the systemic inflammatory cascade and lead to organ dysfunction."
+            },
+            "b": {
+                "isCorrect": true,
+                "content": "Correct. Evidence-based guidelines (Surviving Sepsis Campaign) demonstrate a direct correlation between time to antibiotic administration and survival. Each hour of delay in septic shock is associated with a significant increase in mortality. The one-hour target is a critical performance measure."
+            },
+            "c": {
+                "isCorrect": true,
+                "content": "Correct. Obtaining blood cultures from two distinct venipuncture sites is the standard of care. This practice helps distinguish true bacteremia from a skin contaminant. If the same organism grows in both cultures, it confirms a bloodstream infection, guiding definitive therapy."
+            },
+            "d": {
+                "isCorrect": true,
+                "content": "Correct. Vancomycin provides coverage for gram-positive organisms, specifically Methicillin-resistant Staphylococcus aureus (MRSA), a common and dangerous pathogen in healthcare-associated infections. This patient's risk factors (long-term care facility) warrant empiric MRSA coverage."
+            },
+            "e": {
+                "isCorrect": true,
+                "content": "Correct. Cefepime is a fourth-generation cephalosporin with broad-spectrum activity against gram-negative bacteria, including Pseudomonas aeruginosa. This is crucial for a patient with a suspected urosepsis from a healthcare-associated, multi-drug resistant organism who is already failing a third-generation cephalosporin (ceftriaxone)."
+            },
+            "f": {
+                "isCorrect": true,
+                "content": "Correct. Septic shock is defined by persistent hypotension requiring vasopressors to maintain a MAP ≥ 65 mmHg and a lactate > 2 mmol/L. Hemodynamic status (BP, MAP, HR, CVP) is the most direct indicator of tissue perfusion and the primary target for fluid and vasopressor resuscitation."
+            },
+            "g": {
+                "isCorrect": false,
+                "content": "Incorrect. While a crystalloid fluid bolus is a critical and simultaneous intervention, the question asks for the priority to initiate. Antibiotics address the underlying cause of the shock state, whereas fluids address the effect (vasodilation and hypovolemia). Both are done in the first hour, but antibiotics are the cornerstone."
+            },
+            "h": {
+                "isCorrect": false,
+                "content": "Incorrect. A three-hour timeframe is outside the standard of care established by the Surviving Sepsis Campaign. This delay would be associated with a significantly increased risk of mortality and irreversible organ damage."
+            },
+            "i": {
+                "isCorrect": false,
+                "content": "Incorrect. Drawing only one set of blood cultures provides insufficient data. A positive result from a single site could easily be a contaminant from the skin, potentially leading to incorrect or unnecessary antibiotic therapy."
+            },
+            "j": {
+                "isCorrect": false,
+                "content": "Incorrect. The patient is clinically deteriorating and progressing to septic shock while on ceftriaxone. This is strong evidence that the causative organism is resistant to this antibiotic. Continuing it would be ineffective and harmful."
+            },
+            "k": {
+                "isCorrect": false,
+                "content": "Incorrect. While altered mental status is a key sign of sepsis-associated encephalopathy and must be monitored, the immediate life-threatening problem is circulatory collapse. Restoring perfusion by managing hemodynamic status is the priority to prevent further neurological and other end-organ damage."
+            }
+        },
+        "clinicalPearls": [
+            "The 'Hour-1 Bundle' for sepsis includes: Measure lactate level, obtain blood cultures before administering antibiotics, administer broad-spectrum antibiotics, begin rapid administration of 30 mL/kg crystalloid for hypotension or lactate ≥4 mmol/L, and apply vasopressors if hypotensive during or after fluid resuscitation to maintain a MAP ≥65 mmHg.",
+            "In septic shock, there are two main problems: the infection and the response. Antibiotics treat the infection. Fluids and vasopressors treat the response (vasodilation and capillary leak). Both must be addressed immediately.",
+            "Always suspect a multi-drug resistant organism (MDRO) in patients with risk factors such as recent hospitalization, residence in a long-term care facility, recent antibiotic use, or invasive devices (like an indwelling catheter)."
+        ],
+        "questionTrap": {
+            "trap": "Confusing concurrent actions with prioritized actions. Fluid resuscitation and antibiotic administration are both done within the first hour, but the question asks for the priority intervention, which is treating the underlying infection with antibiotics.",
+            "howToOvercome": "Remember the pathophysiology: the infection drives the shock. While you must support the blood pressure, you cannot fix the problem without stopping the source. Therefore, antibiotics are the definitive priority, even as you hang the fluids."
+        },
+        "mnemonic": {
+            "title": "SEPSIS-3",
+            "expansion": "S - Start antibiotics within 1 hour. E - Ensure cultures are drawn first. P - Provide fluid resuscitation (30 mL/kg). S - Support BP with vasopressors if needed. I - Identify and control the source. S - Scrutinize lactate levels."
+        }
+    },
+    "sentinelStatus": "upgraded_standard_2026"
 }

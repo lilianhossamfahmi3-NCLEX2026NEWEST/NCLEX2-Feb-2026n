@@ -1,47 +1,253 @@
 {
     "id": "New-v26-89a7b2c3-4d5e-4f1a-9b8c-670f8e345678",
     "type": "dragAndDropCloze",
-    "stem": "The patient is exhibiting signs of [PROBLEM1]. Based on the assessment, the most likely underlying cause is [ETIOLOGY]. The priority nursing intervention is to [INTERVENTION]. The patient is at high risk for developing [COMPLICATION]; therefore, close monitoring of [MONITORING] is crucial.",
+    "stem": "The patient is exhibiting signs of [PROBLEM1]. Based on the assessment, the most likely underlying cause is [ETIOLOGY]. The priority nursing intervention is to [INTERVENTION]. The patient is at high risk for developing [COMPLICATION], therefore, close monitoring of [MONITORING] is crucial.",
     "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
+        "method": "0/1",
+        "maxPoints": 5
     },
     "itemContext": {
         "patient": {
             "name": "Johnathan Doe",
             "age": 68,
-            "gender": "Male",
-            "iso": "Medical-Surgical Unit",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "location": "Medical-Surgical Unit",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Johnathan Doe, a 68-year-old male with a history of hypertension and type 2 diabetes, was admitted two days ago for pneumonia. He now reports increased weakness, generalized nausea, and feeling unwell.\nO: At 0700, the patient is alert but lethargic. His blood pressure is 160/90 mmHg, heart rate 110 bpm, respiratory rate 24 breaths/min, and SpO2 92% on 2L nasal cannula. Auscultation reveals clear lung sounds bilaterally. At 0715, new onset of bilateral lower extremity edema (2+ pitting) was noted. Urine output has significantly decreased over the last 12 hours, totaling only 40 mL. EKG shows peaked T waves.\nA: Possible Acute Kidney Injury (AKI) superimposed on underlying Chronic Kidney Disease (CKD) exacerbation. There is a high concern for hyperkalemia given the EKG findings and lab trends.\nB: The patient's chronic conditions are hypertension and type 2 diabetes, managed with lisinopril and metformin, respectively. He also uses an albuterol inhaler PRN for mild wheezing. Current medications include lisinopril, metformin, inhaled albuterol, famotidine, and ceftriaxone. Pending lab results are being closely monitored, and the physician has been notified immediately regarding the changes in patient status.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 130 mEq/L\nK: 6.8 mEq/L\nCl: 98 mEq/L\nHCO3: 20 mEq/L\nBUN: 60 mg/dL\nCreatinine: 3.5 mg/dL\nGlucose: 150 mg/dL\nGFR: 35 mL/min"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 14:00",
+                        "author": "E. Carter, RN",
+                        "note": "Patient admitted from Emergency Department with a diagnosis of community-acquired pneumonia. History of hypertension and type 2 diabetes mellitus. Patient is alert and oriented x4, reporting chest congestion and a productive cough. Initial vital signs are stable. Lungs with coarse crackles in the right lower lobe. IV access established. Ceftriaxone initiated as per protocol. Patient educated on plan of care."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 3, 07:30",
+                        "author": "S. Jones, RN",
+                        "note": "S: Patient reports a sudden increase in generalized weakness and nausea, stating, 'I just feel awful.'\nB: 68-year-old male admitted two days ago for right lower lobe pneumonia. Pertinent history includes hypertension managed with lisinopril and type 2 diabetes managed with metformin. Patient lives alone with limited social support and relies on a neighbor for transportation and groceries.\nA: Patient is lethargic but arousable to voice. Vital signs show a trend towards instability: BP 160/90 mmHg, HR 110 bpm, RR 24/min, SpO2 92% on 2L NC. New onset of 2+ bilateral pitting edema in lower extremities noted at 07:15. Urine output is oliguric, totaling only 40 mL over the past 12 hours. Telemetry shows prominent, peaked T-waves. Recent labs confirm critical hyperkalemia (K+ 6.8 mEq/L) and worsening renal function (Creatinine 3.5 mg/dL). Assessment is Acute Kidney Injury (AKI) on Chronic Kidney Disease (CKD), complicated by life-threatening hyperkalemia.\nR: Dr. Evans notified of all findings immediately. Awaiting orders for hyperkalemia protocol. Recommend STAT renal consult and holding the morning dose of lisinopril. Will continue continuous cardiac monitoring and hourly urine output checks."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "0600: BP 150/88, HR 100, RR 22, SpO2 94% on 2L NC, Temp 99.0°F (oral), Urine Output (past 8 hours): 30 mL\n0700: BP 160/90, HR 110, RR 24, SpO2 92% on 2L NC, Temp 99.2°F (oral), Urine Output (past 4 hours): 10 mL"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "Day 3, 04:00",
+                        "Temp °F (°C)": "99.0 (37.2)",
+                        "HR (bpm)": "100",
+                        "RR (br/min)": "22",
+                        "BP (mmHg)": "150/88",
+                        "MAP (mmHg)": "109",
+                        "SpO₂ (%)": "94% on 2L NC",
+                        "UO (last 4hr)": "80 mL"
+                    },
+                    {
+                        "Time": "Day 3, 06:00",
+                        "Temp °F (°C)": "99.2 (37.3)",
+                        "HR (bpm)": "105",
+                        "RR (br/min)": "22",
+                        "BP (mmHg)": "154/88",
+                        "MAP (mmHg)": "110",
+                        "SpO₂ (%)": "93% on 2L NC",
+                        "UO (last 2hr)": "30 mL"
+                    },
+                    {
+                        "Time": "Day 3, 07:30",
+                        "Temp °F (°C)": "99.2 (37.3)",
+                        "HR (bpm)": "110",
+                        "RR (br/min)": "24",
+                        "BP (mmHg)": "160/90",
+                        "MAP (mmHg)": "113",
+                        "SpO₂ (%)": "92% on 2L NC",
+                        "UO (last 1.5hr)": "10 mL"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Lisinopril 20mg PO daily\nMetformin 500mg PO BID\nAlbuterol inhaler 2 puffs Q4H PRN wheezing\nFamotidine 20 mg IV BID\nCeftriaxone 1g IV daily"
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Panel": "Complete Metabolic Panel (CMP)",
+                        "Time": "Day 3, 07:00",
+                        "Results": [
+                            {
+                                "Test": "Sodium (Na+)",
+                                "Result": "130",
+                                "Unit": "mEq/L",
+                                "Reference": "136-145",
+                                "Status": "Low"
+                            },
+                            {
+                                "Test": "Potassium (K+)",
+                                "Result": "6.8",
+                                "Unit": "mEq/L",
+                                "Reference": "3.5-5.0",
+                                "Status": "Critical High"
+                            },
+                            {
+                                "Test": "Chloride (Cl-)",
+                                "Result": "98",
+                                "Unit": "mEq/L",
+                                "Reference": "98-106",
+                                "Status": "Normal"
+                            },
+                            {
+                                "Test": "Bicarbonate (HCO3-)",
+                                "Result": "20",
+                                "Unit": "mEq/L",
+                                "Reference": "22-28",
+                                "Status": "Low"
+                            },
+                            {
+                                "Test": "Blood Urea Nitrogen (BUN)",
+                                "Result": "60",
+                                "Unit": "mg/dL",
+                                "Reference": "10-20",
+                                "Status": "High"
+                            },
+                            {
+                                "Test": "Creatinine",
+                                "Result": "3.5",
+                                "Unit": "mg/dL",
+                                "Reference": "0.6-1.2",
+                                "Status": "Critical High"
+                            },
+                            {
+                                "Test": "Glucose",
+                                "Result": "150",
+                                "Unit": "mg/dL",
+                                "Reference": "70-110",
+                                "Status": "High"
+                            },
+                            {
+                                "Test": "Est. GFR",
+                                "Result": "35",
+                                "Unit": "mL/min/1.73m²",
+                                "Reference": ">60",
+                                "Status": "Low"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "type": "Admission Assessment",
+                        "timestamp": "Day 1, 14:30",
+                        "note": "NEURO: Alert and oriented x4. RESP: Coarse crackles RLL. CARDIO: S1, S2 audible, regular rhythm. GI: Bowel sounds active x4. GU: Voiding clear yellow urine. SKIN: Warm, dry, intact. EXTREMITIES: No edema, 5/5 strength bilaterally."
+                    },
+                    {
+                        "type": "Focused Assessment",
+                        "timestamp": "Day 3, 07:15",
+                        "note": "NEURO: Lethargic, slow to respond but arousable to voice. Oriented to person and place. RESP: Lung sounds clear bilaterally on auscultation. CARDIO: Tachycardic, rate 110, regular rhythm. GU: Oliguric. EXTREMITIES: New onset of 2+ pitting edema bilateral lower legs, from ankle to mid-shin."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray (2 days prior): Infiltrate in the right lower lobe, consistent with pneumonia."
+                "content": [
+                    {
+                        "type": "Chest X-ray (PA and Lateral)",
+                        "timestamp": "Day 1, 13:45",
+                        "report": "FINDINGS: Consolidation and air bronchograms are noted in the right lower lobe. The cardiomediastinal silhouette is within normal limits for age. No evidence of pleural effusion or pneumothorax is seen. The visualized osseous structures are unremarkable.\nIMPRESSION: Right lower lobe infiltrate, consistent with community-acquired pneumonia."
+                    },
+                    {
+                        "type": "12-Lead ECG",
+                        "timestamp": "Day 3, 07:20",
+                        "report": "FINDINGS: Sinus tachycardia at a rate of 110 bpm. PR interval is 160 ms. QRS duration is 90 ms. Prominent, narrow, peaked T-waves are present across the precordial leads (V2-V6). No significant ST segment deviation or evidence of acute ischemia.\nIMPRESSION: Findings are highly suggestive of hyperkalemia."
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR tab for details."
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 14:00",
+                        "Action": "Admit to Medical-Surgical Unit",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:00",
+                        "Action": "1800-calorie, carbohydrate-controlled diet",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:00",
+                        "Action": "Activity as tolerated",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 14:00",
+                        "Action": "0.9% Sodium Chloride IV at 75 mL/hr",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 3, 07:35",
+                        "Action": "STAT Renal Consult",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 3, 07:35",
+                        "Action": "Continuous cardiac monitoring",
+                        "Frequency/Status": "STAT"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lisinopril",
+                        "Dose": "20 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Day 3, 06:00"
+                    },
+                    {
+                        "Medication": "Metformin",
+                        "Dose": "500 mg",
+                        "Route": "PO",
+                        "Frequency": "BID",
+                        "Last Administered": "Day 3, 06:00"
+                    },
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1 g",
+                        "Route": "IV",
+                        "Frequency": "Daily",
+                        "Last Administered": "Day 3, 06:15"
+                    },
+                    {
+                        "Medication": "Famotidine",
+                        "Dose": "20 mg",
+                        "Route": "IV",
+                        "Frequency": "BID",
+                        "Last Administered": "Day 2, 18:00"
+                    },
+                    {
+                        "Medication": "Albuterol Inhaler",
+                        "Dose": "2 puffs",
+                        "Route": "Inhaled",
+                        "Frequency": "Q4H PRN",
+                        "Last Administered": "N/A"
+                    }
+                ]
             }
         ]
     },
@@ -55,20 +261,85 @@
         ]
     },
     "rationale": {
-        "correct": "The patient is exhibiting signs of hyperkalemia (elevated potassium of 6.8 mEq/L, weakness, nausea, and peaked T waves on EKG - all inferred from the SBAR and Labs). Given the decreased urine output, elevated BUN/Creatinine, and a GFR of 35 mL/min, the most likely underlying cause is Acute Kidney Injury (AKI) superimposed on Chronic Kidney Disease (CKD). The priority nursing intervention is to administer medications to reduce the serum potassium level (e.g., calcium gluconate to stabilize the cardiac membrane, insulin/dextrose to shift potassium intracellularly, and/or sodium polystyrene sulfonate (Kayexalate) to remove potassium from the body). The patient is at high risk for developing cardiac arrhythmias due to the hyperkalemia, potentially leading to cardiac arrest; therefore, continuous cardiac monitoring, including frequent assessment of EKG changes, is crucial.",
-        "incorrect": "Failing to recognize the emergent nature of hyperkalemia and the AKI/CKD exacerbation can lead to selecting interventions that do not address the immediate life-threatening risk. Delaying potassium reduction can lead to fatal cardiac arrhythmias. Monitoring urine output alone is insufficient; continuous cardiac monitoring, including evaluation for EKG changes, is essential in hyperkalemia.",
+        "correct": "The patient's clinical presentation, including lethargy, nausea, oliguria, and new edema, combined with critical lab values (K+ 6.8, Cr 3.5) and ECG changes (peaked T-waves), indicates life-threatening hyperkalemia secondary to an acute kidney injury (AKI) superimposed on chronic kidney disease (CKD). The priority is to immediately address the hyperkalemia to prevent fatal cardiac events. This involves administering medications to stabilize the cardiac membrane and shift potassium intracellularly. The most significant risk is the development of lethal cardiac arrhythmias, necessitating continuous cardiac monitoring to detect changes promptly.",
+        "answerBreakdown": [
+            {
+                "option": "Pulmonary Edema",
+                "rationale": "Incorrect for [PROBLEM1]. While the patient has peripheral edema and fluid retention, the lung sounds are clear bilaterally. The most immediate life-threatening finding is the ECG change driven by the critical potassium level, not fluid in the alveoli."
+            },
+            {
+                "option": "Hyperkalemia",
+                "rationale": "Correct for [PROBLEM1]. The serum potassium of 6.8 mEq/L is critically high and is directly causing the pathognomonic peaked T-waves on the ECG, weakness, and nausea. This is the most acute and life-threatening problem."
+            },
+            {
+                "option": "Hypokalemia",
+                "rationale": "Incorrect for [PROBLEM1]. The patient's potassium level is critically high (6.8 mEq/L), the opposite of hypokalemia. This option represents a misinterpretation of the lab data."
+            },
+            {
+                "option": "AKI superimposed on CKD",
+                "rationale": "Correct for [ETIOLOGY]. The patient's low baseline GFR (35) indicates pre-existing CKD. The acute rise in BUN (60) and Creatinine (3.5) along with new-onset oliguria confirms an acute kidney injury is the cause of the electrolyte and fluid imbalance."
+            },
+            {
+                "option": "Dehydration",
+                "rationale": "Incorrect for [ETIOLOGY]. The patient's clinical signs of hypertension, 2+ pitting edema, and oliguria point towards fluid volume excess due to renal failure, not dehydration."
+            },
+            {
+                "option": "Pneumonia",
+                "rationale": "Incorrect for [ETIOLOGY]. While the patient was admitted for pneumonia, this is the background condition. The current acute presentation (oliguria, edema, peaked T-waves, high K+) is caused by renal failure, not the resolving lung infection."
+            },
+            {
+                "option": "Administer medications to reduce serum potassium",
+                "rationale": "Correct for [INTERVENTION]. This is the priority action. Interventions like IV calcium gluconate (to protect the heart), insulin and dextrose (to shift K+ into cells), and/or sodium polystyrene sulfonate are required to treat the life-threatening hyperkalemia."
+            },
+            {
+                "option": "Administer IV fluids",
+                "rationale": "Incorrect for [INTERVENTION]. The patient is already fluid overloaded (edema, hypertension) and oliguric. Administering more IV fluids without addressing the hyperkalemia would worsen the fluid imbalance and could precipitate pulmonary edema."
+            },
+            {
+                "option": "Administer antibiotics",
+                "rationale": "Incorrect for [INTERVENTION]. While the patient needs antibiotics for pneumonia, this is not the priority intervention for the immediate life-threat of hyperkalemia-induced cardiac arrest."
+            },
+            {
+                "option": "Monitor urine output",
+                "rationale": "Incorrect for [MONITORING]. While monitoring urine output is important for assessing renal function, it is not the priority. The immediate risk is cardiac, making continuous cardiac monitoring essential to detect lethal arrhythmias."
+            },
+            {
+                "option": "Continuous cardiac monitoring",
+                "rationale": "Correct for [MONITORING]. Hyperkalemia directly affects cardiac myocyte electrical potential, leading to arrhythmias that can progress from peaked T-waves to ventricular fibrillation and asystole. Continuous ECG monitoring is crucial for immediate detection."
+            },
+            {
+                "option": "Respiratory rate",
+                "rationale": "Incorrect for [MONITORING]. The primary threat is cardiac, not respiratory. While respiratory status is always monitored, it is not the specific, crucial parameter for a patient with critical hyperkalemia."
+            },
+            {
+                "option": "Blood pressure",
+                "rationale": "Incorrect for [MONITORING]. Blood pressure is important but secondary to cardiac rhythm. Arrhythmias can cause a sudden drop in cardiac output and blood pressure, but monitoring the ECG provides the earliest warning of this impending collapse."
+            },
+            {
+                "option": "Underlying sepsis",
+                "rationale": "Incorrect for [ETIOLOGY]. While pneumonia can lead to sepsis, which can cause AKI, the more direct cause given the patient's history and medications (lisinopril) is the combination of CKD and an acute insult, leading to renal decompensation."
+            },
+            {
+                "option": "Medication side effects",
+                "rationale": "Incorrect for [ETIOLOGY]. While lisinopril can contribute to hyperkalemia, it is a contributing factor, not the primary underlying cause. The fundamental problem is the kidney's inability to excrete potassium, which is an AKI on CKD."
+            },
+            {
+                "option": "Cardiac arrhythmias",
+                "rationale": "Correct for [COMPLICATION]. The high extracellular potassium concentration reduces the resting membrane potential of cardiac cells, making them hyperexcitable and prone to lethal dysrhythmias like ventricular tachycardia or fibrillation."
+            }
+        ],
         "clinicalPearls": [
-            "Hyperkalemia can present with subtle or absent EKG changes initially. Always correlate lab values with clinical presentation.",
-            "AKI superimposed on CKD can be difficult to differentiate. Focus on the acute changes and precipitating factors.",
-            "Decreased urine output is a late sign of renal dysfunction. Early detection requires vigilant monitoring of serum creatinine and GFR. Prompt identification of peaked T-waves is crucial in the management of hyperkalemia."
+            "Peaked T-waves on an ECG are a classic, urgent sign of hyperkalemia. This finding requires immediate notification of the provider and preparation for emergency interventions, as it precedes more lethal arrhythmias like sine wave patterns and ventricular fibrillation.",
+            "ACE inhibitors (like lisinopril) can contribute to hyperkalemia, especially in patients with renal impairment, by decreasing aldosterone secretion. Always review the MAR for nephrotoxic or potassium-retaining medications in a patient with rising creatinine and potassium.",
+            "Oliguria is defined as urine output <0.5 mL/kg/hr. In this patient (estimated 80 kg), an output of 40 mL in 12 hours is approximately 0.4 mL/kg/hr, confirming severe renal dysfunction and a key sign of AKI."
         ],
         "questionTrap": {
-            "trap": "Focusing solely on the pneumonia and missing the subtle signs of AKI/CKD exacerbation and hyperkalemia.",
-            "howToOvercome": "Thoroughly review all patient data (SBAR, labs, vitals, EKG findings) to identify all active problems. Prioritize based on the most immediate threat to the patient's life. Hyperkalemia is the priority in this scenario."
+            "trap": "The 'Anchoring Bias' trap. Test-takers may anchor on the initial diagnosis of pneumonia and attribute the patient's decline to sepsis or respiratory failure. However, the new onset of oliguria, edema, and specific ECG changes points to a separate, more acute process: renal failure and hyperkalemia.",
+            "howToOvercome": "Systematically review all new data in the EHR. When a patient's condition changes, re-evaluate all systems. The combination of GU (oliguria), Cardiovascular (ECG changes, edema), and Lab (K+, Cr) findings creates a new clinical picture that must be prioritized over the initial admitting diagnosis."
         },
         "mnemonic": {
-            "title": "D-I-A-L K",
-            "expansion": "Drugs (ACE inhibitors, NSAIDs, potassium-sparing diuretics), Increased potassium intake, Acute kidney injury, Lab error, Kidney disease (CKD)"
+            "title": "HYPER-K ACTION",
+            "expansion": "C-BIG-K-DROP: Calcium gluconate (stabilizes Cardiac membrane), Bicarbonate/Beta-agonists (shift K+ in), Insulin (regular) & Glucose (D50) (shift K+ in), Kayexalate (removes via GI), Diuretics/Dialysis (removes via kidneys/blood)."
         }
     },
     "responseOptions": [
@@ -87,21 +358,14 @@
         "Blood pressure",
         "Underlying sepsis",
         "Medication side effects",
-        "Fluid overload"
+        "Cardiac arrhythmias"
     ],
     "correctResponse": {
         "PROBLEM1": "Hyperkalemia",
         "ETIOLOGY": "AKI superimposed on CKD",
         "INTERVENTION": "Administer medications to reduce serum potassium",
-        "COMPLICATION": "cardiac arrhythmias",
+        "COMPLICATION": "Cardiac arrhythmias",
         "MONITORING": "Continuous cardiac monitoring"
-    },
-    "distractorRationale": {
-        "Hyperkalemia": "Correct. The patient's potassium level of 6.8 mEq/L is critically high, and the EKG findings support this, necessitating immediate intervention.",
-        "AKI superimposed on CKD": "Correct. The patient has a history of CKD (inferred from GFR) and the elevated BUN/Creatinine suggests an acute worsening of kidney function, confirmed by the acute decrease in urine output.",
-        "Administer medications to reduce serum potassium": "Correct. Hyperkalemia is a medical emergency. Medications like calcium gluconate, insulin/dextrose, and/or sodium polystyrene sulfonate (Kayexalate) are needed to shift potassium intracellularly or remove it from the body.",
-        "cardiac arrhythmias": "Correct. Hyperkalemia can cause life-threatening arrhythmias such as peaked T waves, prolonged PR interval, widened QRS complex, and eventually ventricular fibrillation or asystole.",
-        "Continuous cardiac monitoring": "Correct. Due to the high risk of cardiac arrhythmias, continuous monitoring is essential to promptly detect and treat any changes. This includes assessing the EKG for changes."
     },
     "sentinelStatus": "deep_healed_v2026"
 }

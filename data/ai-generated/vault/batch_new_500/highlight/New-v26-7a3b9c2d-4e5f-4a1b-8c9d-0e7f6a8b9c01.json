@@ -1,69 +1,276 @@
 {
     "id": "New-v26-7a3b9c2d-4e5f-4a1b-8c9d-0e7f6a8b9c01",
     "type": "highlight",
-    "stem": "The patient, Sergeant Miller, is exhibiting acute signs of a mental health crisis. Based on the information presented in the patient's chart, including the nurse's notes, vital signs, lab results, and medication administration record, identify the findings that require immediate intervention to ensure patient safety. Click to highlight the relevant information. Only highlight the findings that directly contribute to the immediate risk of self-harm.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "stem": "The nurse is reviewing the client's record. Highlight the findings in the Clinical Feed that indicate an immediate risk for self-harm and require urgent intervention.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "history of PTSD and major depressive disorder"
+        },
+        {
+            "id": "opt_02",
+            "text": "lives in a rural area with limited access to specialized mental health services"
+        },
+        {
+            "id": "opt_03",
+            "text": "pacing in room"
+        },
+        {
+            "id": "opt_04",
+            "text": "refusing all meals"
+        },
+        {
+            "id": "opt_05",
+            "text": "feeling increasingly hopeless"
+        },
+        {
+            "id": "opt_06",
+            "text": "I'm a burden on everyone"
+        },
+        {
+            "id": "opt_07",
+            "text": "giving away personal items"
+        },
+        {
+            "id": "opt_08",
+            "text": "Vital signs show a slight elevation"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_03",
+        "opt_04",
+        "opt_05",
+        "opt_06",
+        "opt_07"
+    ],
     "itemContext": {
         "patient": {
             "name": "Miller, John",
-            "age": 32,
-            "gender": "Male",
-            "iso": "Suicide Watch",
+            "age": "32 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "NKDA"
             ]
         },
-        "sbar": "Sgt. Miller, a 32-year-old male veteran, was admitted at 07:00 today after expressing suicidal ideation to his wife, indicating a pre-existing vulnerability. He served two tours in Afghanistan, a factor known to contribute to PTSD and mental health challenges. His history as a veteran adds complexity to his current state.\n\nAt 09:00, the patient reports feeling increasingly hopeless and states, \"Nothing matters anymore,\" demonstrating a deepening sense of despair. The patient's history of PTSD and depression further exacerbates his current mental state, requiring careful consideration. He is currently on suicide watch, emphasizing the severity of his condition and need for constant monitoring.\n\nAssessment at 11:00 reveals increased agitation, pacing, and tearfulness, all indicators of escalating distress. He is refusing to eat or drink, potentially due to a loss of interest in self-care and a sign of worsening depression. Vital signs are stable, but he is increasingly withdrawn during interactions, signaling a detachment from reality and potential isolation. He’s started making statements such as, \"I'm a burden on everyone,\" expressing feelings of worthlessness and self-blame.\n\nRequesting immediate psychiatric evaluation and consideration for medication adjustment to address his escalating symptoms. Continue close observation and maintain a safe environment to prevent self-harm. Documented plan of care is in place and must be strictly adhered to. Further assessment is needed to evaluate the efficacy of the plan.",
         "tabs": [
             {
-                "id": "notes",
-                "title": "Nurses' Notes",
-                "content": "07:15: Admitted to unit. Pt. oriented to person, place, and time. Acknowledges suicidal ideation. Placed on suicide watch. 09:30: Pt. reports feeling \"hopeless.\" Exhibiting tearfulness. 11:15: Pt. pacing in room. Refusing to eat or drink. States, \"I'm a burden on everyone.\" Increasing agitation noted. Continues to express hopelessness. 11:45: Observed patient looking out window with a blank stare for an extended period."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "### Admission Note - 07:00\n**Situation:** 32-year-old male veteran admitted at 07:00 for acute suicidal ideation with a plan. Client is on 1:1 observation for suicide precautions.\n\n**Background:** Client has a [history of PTSD and major depressive disorder] following two tours in Afghanistan. He lives with his spouse and has been non-adherent with sertraline for the past month. Client reports significant stress related to unemployment. Social Determinants of Health (SDOH): Client [lives in a rural area with limited access to specialized mental health services].\n\n**Assessment:** At 11:00, client is [pacing in room] and exhibits increased psychomotor agitation. He is [refusing all meals] and states he is [feeling increasingly hopeless]. He made the statement, \"[I'm a burden on everyone].\" During room search, nurse noted he was [giving away personal items] to his spouse. His affect is flat and eye contact is poor. [Vital signs show a slight elevation] in response to distress.\n\n**Recommendation:** Immediate psychiatric evaluation is required. Maintain 1:1 observation and ensure a safe, ligature-free environment. Re-evaluate medication regimen."
             },
             {
                 "id": "vitals",
-                "title": "Vital Signs",
-                "content": "07:00: BP 120/80, HR 80, RR 16, Temp 98.6°F, SpO2 98%. 09:00: BP 124/82, HR 84, RR 18, Temp 98.8°F, SpO2 99%. 11:00: BP 130/86, HR 92, RR 20, Temp 99.0°F, SpO2 97%."
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "07:00",
+                        "Temp": "98.6°F (37.0°C)",
+                        "HR": "80 bpm",
+                        "RR": "16/min",
+                        "BP": "120/80 mmHg (MAP 93)",
+                        "SpO2": "98% on Room Air"
+                    },
+                    {
+                        "Time": "09:00",
+                        "Temp": "98.8°F (37.1°C)",
+                        "HR": "84 bpm",
+                        "RR": "18/min",
+                        "BP": "124/82 mmHg (MAP 96)",
+                        "SpO2": "99% on Room Air"
+                    },
+                    {
+                        "Time": "11:00",
+                        "Temp": "99.0°F (37.2°C)",
+                        "HR": "92 bpm",
+                        "RR": "20/min",
+                        "BP": "130/86 mmHg (MAP 101)",
+                        "SpO2": "97% on Room Air"
+                    }
+                ]
             },
             {
                 "id": "labs",
-                "title": "Lab Results",
-                "content": "CBC, BMP, Liver Function Tests: All within normal limits."
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Sodium",
+                        "Result": "140",
+                        "Unit": "mEq/L",
+                        "Reference Range": "135-145",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Potassium",
+                        "Result": "4.1",
+                        "Unit": "mEq/L",
+                        "Reference Range": "3.5-5.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "15",
+                        "Unit": "mg/dL",
+                        "Reference Range": "7-20",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "0.9",
+                        "Unit": "mg/dL",
+                        "Reference Range": "0.6-1.2",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "WBC",
+                        "Result": "7.5",
+                        "Unit": "x10³/μL",
+                        "Reference Range": "4.5-11.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Hgb",
+                        "Result": "15.2",
+                        "Unit": "g/dL",
+                        "Reference Range": "13.5-17.5",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Urine Drug Screen",
+                        "Result": "Negative",
+                        "Unit": "",
+                        "Reference Range": "Negative",
+                        "Status": "Normal"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "### Focused Psychiatric Assessment (11:00)\n- **Appearance:** Disheveled, wearing same clothes as yesterday.\n- **Behavior/Motor Activity:** Psychomotor agitation, pacing in room, wringing hands.\n- **Speech:** Monosyllabic, slow rate and low volume.\n- **Mood:** States \"hopeless.\"\n- **Affect:** Flat, constricted range.\n- **Thought Process:** Linear but slow.\n- **Thought Content:** Preoccupation with themes of worthlessness and being a burden. Denies homicidal ideation. Acknowledges active suicidal ideation.\n- **Cognition:** Alert and oriented x3."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "No recent imaging on file."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Today @ 07:15",
+                        "Action": "1:1 Observation for suicide precautions",
+                        "Frequency/Status": "Continuous"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 07:15",
+                        "Action": "Initiate Suicide Precautions (ligature-free environment, room search)",
+                        "Frequency/Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 11:15",
+                        "Action": "Psychiatry Consult",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 07:15",
+                        "Action": "Regular Diet",
+                        "Frequency/Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Today @ 07:15",
+                        "Action": "Vital Signs",
+                        "Frequency/Status": "Every 4 hours"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "Medication Administration Record",
-                "content": "Sertraline 100mg PO daily - Last administered 08:00. PRN Medications: Lorazepam 1mg PO Q4H PRN anxiety. Not administered since admission."
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Sertraline",
+                        "Dose": "100 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Today @ 08:00"
+                    },
+                    {
+                        "Medication": "Lorazepam",
+                        "Dose": "1 mg",
+                        "Route": "PO",
+                        "Frequency": "Every 4 hours PRN Anxiety",
+                        "Last Administered": "Not administered"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "recognizeCues",
-        "nclexCategory": "Psychosocial Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Mental Health: Suicide Risk & Crisis Management"
+    "rationale": {
+        "correct": "The combination of hopelessness, feelings of worthlessness ('I'm a burden'), psychomotor agitation (pacing), self-neglect (refusing meals), and finalizing behaviors (giving away items) are all critical indicators of an escalating and immediate risk for suicide that require urgent intervention.",
+        "incorrect": "Distractors represent chronic risk factors (history of PTSD, SDOH) or non-specific physiological responses (vital signs). While important for the overall plan of care, they do not signify the same level of immediate, acute risk as the client's current verbalizations and behaviors.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Incorrect. A history of PTSD and depression is a significant chronic risk factor for suicide, but it is part of the client's background, not an acute change in status indicating immediate intent."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. Limited access to care is a Social Determinant of Health (SDOH) that contributes to long-term risk and barriers to treatment. It is a critical contextual factor but not an acute finding of immediate self-harm risk."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. Pacing and psychomotor agitation can signal severe internal distress and anxiety, which can be a precursor to impulsive self-harm. It represents an inability to cope with overwhelming psychic pain."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. Refusing meals is a form of self-neglect and can be a passive form of self-harm. It indicates a profound loss of interest in self-preservation and is a serious symptom of severe depression."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. Hopelessness is one of the strongest predictors of suicide. It reflects a cognitive state where the individual sees no path to improvement and believes their suffering is permanent, making suicide seem like the only escape."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. Statements of being a burden reflect intense feelings of worthlessness and perceived social alienation. This belief can rationalize the act of suicide in the client's mind, as they may feel their death would be a relief to others."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. Giving away personal possessions is a classic behavioral warning sign that a person is preparing for death and finalizing their affairs. This action indicates a progression from ideation to planning and preparation."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Incorrect. While elevated vital signs reflect physiological stress and anxiety, they are a non-specific finding. They do not directly indicate suicidal intent and are less critical than the client's direct verbalizations and behaviors."
+            }
+        ],
+        "clinicalPearls": [
+            "Always distinguish between chronic risk factors (e.g., diagnosis, history) and acute warning signs (e.g., current behavior, verbalizations). Acute signs require immediate intervention.",
+            "The transition from suicidal ideation to action is often marked by behavioral cues like giving away possessions, sudden calmness, or increased agitation.",
+            "Hopelessness is a more potent predictor of suicide than sadness. A client who feels there is no future or possibility of change is at extremely high risk.",
+            "Social Determinants of Health, such as limited access to care, are crucial for discharge planning and long-term risk mitigation but are not the focus during an acute crisis."
+        ],
+        "questionTrap": "The trap is focusing on historical data or non-specific physiological data instead of the acute, high-risk behavioral and verbal cues. A client's history (PTSD) explains *why* they are at risk, but their current actions (giving away items) tell you *how immediate* the risk is.",
+        "mnemonic": {
+            "title": "IS PATH WARM (Suicide Risk Assessment)",
+            "expansion": "I - Ideation, S - Substance Abuse, P - Purposelessness, A - Anxiety, T - Trapped, H - Hopelessness, W - Withdrawal, A - Anger, R - Recklessness, M - Mood Changes."
+        },
+        "reviewUnits": [
+            "Mental Health Nursing",
+            "Safety and Infection Control",
+            "Psychosocial Integrity"
         ]
     },
-    "rationale": {
-        "correct": "The correct findings to highlight are: \"hopeless\", \"I'm a burden on everyone\", \"Increasing agitation noted\", \"Observed patient looking out window with a blank stare for an extended period\", and \"Refusing to eat or drink\". These findings directly indicate a worsening of the patient's suicidal ideation and increase the immediate risk of self-harm.",
-        "incorrect": "The vital signs, while slightly elevated, do not directly indicate an immediate risk of self-harm. They reflect the patient's anxiety and agitation but are not the primary indicators requiring immediate intervention for suicide prevention. The lab results being within normal limits also do not contribute to the immediate risk. The initial admission note, while relevant, is not a new development.",
-        "clinicalPearls": [
-            "Always prioritize patient safety when assessing a patient with suicidal ideation.",
-            "Changes in behavior, such as increased agitation or withdrawal, can indicate a worsening of the patient's mental state.",
-            "Statements expressing hopelessness or feelings of being a burden should be taken seriously and addressed immediately."
-        ],
-        "questionTrap": {
-            "trap": "Focusing only on the initial admission note or the slightly elevated vital signs might lead to overlooking the more critical changes in the patient's behavior and statements.",
-            "howToOvercome": "Prioritize the most recent changes and statements that directly indicate an increased risk of self-harm over stable findings or baseline information."
-        },
-        "mnemonic": {
-            "title": "IS PATH WARM",
-            "expansion": "Ideation, Substance abuse, Purposelessness, Anxiety, Trapped, Hopelessness, Withdrawal, Anger, Recklessness, Mood change"
-        }
-    }
+    "scoring": {
+        "method": "polytomous",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Psychosocial Integrity"
+    },
+    "correctOptionId": "opt_03",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T15:06:18.240Z"
 }

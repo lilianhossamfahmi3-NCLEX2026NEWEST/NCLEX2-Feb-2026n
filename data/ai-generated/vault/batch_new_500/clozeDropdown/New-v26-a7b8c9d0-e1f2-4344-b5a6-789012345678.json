@@ -1,37 +1,227 @@
 {
     "id": "New-v26-a7b8c9d0-e1f2-4344-b5a6-789012345678",
     "type": "clozeDropdown",
-    "stem": "Based on the provided information, the patient is most likely experiencing early signs of hepatic encephalopathy. The nurse should immediately report the serum ammonia level of [dropdown1] mcg/dL, as it is significantly elevated and requires prompt intervention. This finding correlates with the patient's [dropdown2] mental status, indicating a worsening condition. Furthermore, the nurse should anticipate administering [dropdown3] to reduce the ammonia levels and prevent further neurological deterioration.",
+    "stem": "The nurse is updating the client's electronic health record. Complete the following sentence. The client's serum ammonia of [dropdown1] mcg/dL and [dropdown2] mental status are critical findings requiring immediate intervention with [dropdown3] to manage worsening hepatic encephalopathy.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 3
     },
     "itemContext": {
         "patient": {
             "name": "John Smith",
             "age": 62,
-            "gender": "Male",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "iso": "Medical Surgical Unit",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: John Smith, 62-year-old male, admitted for acute pancreatitis secondary to chronic alcohol abuse. Background: Mr. Smith has a history of chronic alcohol use and was diagnosed with cirrhosis five years ago. His current medications include lactulose and spironolactone. Assessment: At 07:00, the patient exhibited increased confusion and disorientation. His vital signs are as follows: BP 110/70 mmHg, HR 92 bpm, RR 22 breaths/min, and SpO2 96% on room air. The abdomen is distended, and ascites are present. The patient is experiencing asterixis. The current lactulose dose was administered at 06:00. The patient is oriented to self only, indicating a decline in cognitive function. Request: Please assess the patient's condition, considering the recent changes in mental status and lab values, and provide appropriate recommendations for immediate management. 07:15: Noted further increased confusion and lethargy.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Ammonia: 180 mcg/dL (Normal: 10-80 mcg/dL)\nSodium: 138 mEq/L (Normal: 135-145 mEq/L)\nPotassium: 3.8 mEq/L (Normal: 3.5-5.0 mEq/L)\nChloride: 100 mEq/L (Normal: 95-105 mEq/L)\nBilirubin: 4.2 mg/dL (Normal: 0.3-1.0 mg/dL)\nAlbumin: 2.8 g/dL (Normal: 3.5-5.0 g/dL)\nAST: 150 U/L (Normal: 10-40 U/L)\nALT: 175 U/L (Normal: 7-56 U/L)"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Lactulose 45 mL PO q6h PRN for elevated ammonia\nSpironolactone 100 mg PO daily\nMultivitamin PO daily"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 02:30",
+                        "content": "S: 62-year-old male admitted from the emergency department with acute-on-chronic pancreatitis and decompensated cirrhosis. Reports 3 days of worsening epigastric pain radiating to the back, nausea, and significant abdominal swelling.\nB: History of alcohol use disorder, diagnosed with cirrhosis 5 years prior. Reports poor adherence with prescribed lactulose and spironolactone. Patient reports living alone with limited social support and financial strain, which he states delayed seeking care. Known allergy to Penicillin.\nA: On admission, patient is drowsy but oriented to person, place, and time. Skin is jaundiced with scattered ecchymoses on bilateral upper extremities. Abdomen is protuberant, firm, with a positive fluid wave. Mild scleral icterus noted. No asterixis observed initially.\nR: Admit to the medical-surgical unit for management of pancreatitis and decompensated liver disease. Initiate IV fluids, pain management, and restart home medications. Monitor vital signs, mental status, and fluid balance closely."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 2, 07:00",
+                        "content": "S: Patient is now increasingly confused and disoriented to time and place. Adult child at bedside is concerned about his lethargy and slurred speech.\nB: The client has a known history of cirrhosis and was admitted for acute pancreatitis. His ammonia level on admission was elevated. Last dose of lactulose was administered at 06:00, but he has not yet had a bowel movement.\nA: Neurological assessment reveals orientation to self only. Asterixis is now present with dorsiflexion of the hands. Abdomen remains distended and tense. Fetor hepaticus is now detectable on breath. Vital signs show a trend towards tachycardia and tachypnea. SpO2 is slightly lower at 95% on room air.\nR: Recommend STAT repeat serum ammonia level. Continue close neurological monitoring every hour. Prepare to administer additional lactulose as per orders. Notified provider of acute change in mental status; awaiting response."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 112/72, HR 88, RR 20, SpO2 97%, Temp 99.2°F\n07:00: BP 110/70, HR 92, RR 22, SpO2 96%, Temp 99.5°F\n07:15: BP 108/68, HR 94, RR 24, SpO2 95%, Temp 99.7°F"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "Day 1, 02:30",
+                        "HR (bpm)": "85",
+                        "BP (mmHg)": "118/76 (90)",
+                        "RR (breaths/min)": "18",
+                        "SpO₂ (%)": "97% on RA",
+                        "Temp °F (°C)": "99.1 (37.3)"
+                    },
+                    {
+                        "Time": "Day 2, 06:00",
+                        "HR (bpm)": "88",
+                        "BP (mmHg)": "112/72 (85)",
+                        "RR (breaths/min)": "20",
+                        "SpO₂ (%)": "97% on RA",
+                        "Temp °F (°C)": "99.2 (37.3)"
+                    },
+                    {
+                        "Time": "Day 2, 07:15",
+                        "HR (bpm)": "94",
+                        "BP (mmHg)": "108/68 (81)",
+                        "RR (breaths/min)": "24",
+                        "SpO₂ (%)": "95% on RA",
+                        "Temp °F (°C)": "99.7 (37.6)"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "Test": "Ammonia",
+                        "Result": "180",
+                        "Unit": "mcg/dL",
+                        "Reference": "15-45",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Bilirubin, Total",
+                        "Result": "4.2",
+                        "Unit": "mg/dL",
+                        "Reference": "0.3-1.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Albumin",
+                        "Result": "2.8",
+                        "Unit": "g/dL",
+                        "Reference": "3.5-5.0",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "AST",
+                        "Result": "150",
+                        "Unit": "U/L",
+                        "Reference": "10-40",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "ALT",
+                        "Result": "175",
+                        "Unit": "U/L",
+                        "Reference": "7-56",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "INR",
+                        "Result": "1.8",
+                        "Unit": "",
+                        "Reference": "0.8-1.1",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Sodium",
+                        "Result": "138",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Potassium",
+                        "Result": "3.8",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "assessments": [
+                    {
+                        "type": "Admission Assessment",
+                        "timestamp": "Day 1, 02:30",
+                        "findings": "GENERAL: Appears fatigued but in no acute distress. Drowsy.\nNEUROLOGICAL: Alert and oriented to person, place, and time. GCS 15. No asterixis.\nCARDIOVASCULAR: S1, S2 audible. Rate regular. No murmurs. Capillary refill <3 seconds.\nRESPIRATORY: Lungs clear to auscultation bilaterally. Breathing unlabored.\nGASTROINTESTINAL: Abdomen protuberant, firm, with positive fluid wave and shifting dullness. Bowel sounds hypoactive. Epigastric tenderness on palpation.\nINTEGUMENTARY: Skin warm, dry, with notable jaundice. Scleral icterus present. Multiple ecchymotic areas on arms."
+                    },
+                    {
+                        "type": "Focused Assessment",
+                        "timestamp": "Day 2, 07:00",
+                        "findings": "NEUROLOGICAL: Lethargic, slow to respond to questions. Oriented to self only. Speech is slurred. Asterixis ('liver flap') is now present upon dorsiflexion of the wrists. GCS 13 (E3, V4, M6).\nGASTROINTESTINAL: Abdomen remains distended and tense. No bowel movement reported overnight. Fetor hepaticus noted."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "reports": [
+                    {
+                        "type": "Abdominal Ultrasound",
+                        "timestamp": "Day 1, 09:00",
+                        "report": "FINDINGS: The liver demonstrates a nodular contour and coarse echotexture, consistent with advanced cirrhosis. Moderate to large volume ascites is present. The pancreas appears edematous and inflamed, suggestive of acute pancreatitis. No evidence of cholelithiasis or biliary ductal dilation.\nIMPRESSION: Findings are consistent with acute-on-chronic pancreatitis in the setting of advanced cirrhosis with significant ascites."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "Day 1, 02:45",
+                        "action": "Admit to Medical-Surgical Unit",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 02:45",
+                        "action": "NPO",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 02:45",
+                        "action": "Lactated Ringer's at 125 mL/hr",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 02:45",
+                        "action": "Neurological checks every 4 hours",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 02:45",
+                        "action": "STAT Comprehensive Metabolic Panel, CBC, Amylase, Lipase, Ammonia, Coagulation Panel",
+                        "status": "Completed"
+                    },
+                    {
+                        "timestamp": "Day 2, 07:30",
+                        "action": "STAT repeat serum Ammonia level",
+                        "status": "New"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Lactulose",
+                        "dose": "30 mL",
+                        "route": "PO",
+                        "frequency": "q6h",
+                        "lastAdministered": "Day 2, 06:00"
+                    },
+                    {
+                        "medication": "Spironolactone",
+                        "dose": "100 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 2, 06:00"
+                    },
+                    {
+                        "medication": "Hydromorphone",
+                        "dose": "0.5 mg",
+                        "route": "IV",
+                        "frequency": "q4h PRN for pain",
+                        "lastAdministered": "Day 1, 22:00"
+                    },
+                    {
+                        "medication": "Multivitamin",
+                        "dose": "1 tablet",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 2, 06:00"
+                    }
+                ]
             }
         ]
     },
@@ -45,20 +235,94 @@
         ]
     },
     "rationale": {
-        "correct": "An elevated serum ammonia level of 180 mcg/dL in a patient with cirrhosis and acute pancreatitis is a critical indicator of hepatic encephalopathy, signifying the liver's inability to metabolize ammonia effectively. This leads to neurological dysfunction, as evidenced by the patient's declining mental status, including disorientation and confusion. Lactulose is the first-line treatment for hepatic encephalopathy because it promotes the excretion of ammonia through the stool, thereby reducing serum ammonia levels and improving the patient's neurological status.",
-        "incorrect": "Selecting an incorrect ammonia level demonstrates a failure to recognize the critical elevation of ammonia in the context of liver failure. Incorrectly identifying the patient's mental status indicates a lack of understanding of the neurological manifestations of hyperammonemia. Suggesting medications other than lactulose reflects inadequate knowledge of the primary treatment for hepatic encephalopathy. While neomycin, an antibiotic, can reduce ammonia-producing bacteria in the gut, it is typically reserved for cases where lactulose is ineffective or poorly tolerated, given the risk of nephrotoxicity and ototoxicity. Furosemide and albumin are not indicated for the treatment of hepatic encephalopathy.",
+        "correct": "The client's clinical presentation, including a critically elevated serum ammonia of 180 mcg/dL, declining mental status (confusion, lethargy, asterixis), and history of cirrhosis, strongly indicates worsening hepatic encephalopathy. This condition results from the liver's inability to detoxify ammonia, a neurotoxin. The priority intervention is administering lactulose, an osmotic laxative that lowers ammonia levels by acidifying the gut, converting ammonia (NH3) to ammonium (NH4+), which is then trapped in the colon and excreted in the feces.",
+        "incorrect": "Incorrectly identifying the ammonia level, mental status, or priority medication demonstrates a failure to synthesize critical data. An ammonia level of 80 mcg/dL is only mildly elevated and does not match the severity of the client's neurological decline. Describing the mental status as 'stable' or 'unchanged' directly contradicts the evidence in the progress note. Selecting furosemide, neomycin, or albumin is incorrect. Furosemide addresses ascites, not the underlying hyperammonemia. Neomycin is a second-line agent with significant toxicity risks. Albumin is used for volume expansion or spontaneous bacterial peritonitis prophylaxis, not for acute encephalopathy.",
+        "answerBreakdown": [
+            {
+                "dropdownId": "dropdown1",
+                "option": "80",
+                "isCorrect": false,
+                "content": "Incorrect. An ammonia level of 80 mcg/dL is at the upper limit of normal or only mildly elevated. This value does not correlate with the severe neurological symptoms of asterixis and disorientation to time and place, indicating a more severe pathology."
+            },
+            {
+                "dropdownId": "dropdown1",
+                "option": "120",
+                "isCorrect": false,
+                "content": "Incorrect. While 120 mcg/dL is elevated and concerning, the lab report shows a value of 180 mcg/dL. The nurse must report the actual, critical value from the diagnostic report to ensure appropriate and timely intervention."
+            },
+            {
+                "dropdownId": "dropdown1",
+                "option": "180",
+                "isCorrect": true,
+                "content": "Correct. This value matches the critical finding in the client's lab report. A serum ammonia level of 180 mcg/dL is significantly elevated and directly explains the acute neurological deterioration characteristic of hepatic encephalopathy."
+            },
+            {
+                "dropdownId": "dropdown1",
+                "option": "250",
+                "isCorrect": false,
+                "content": "Incorrect. This value is not supported by the client's lab report. While a level this high would also be critical, accurate documentation requires using the precise value obtained from the diagnostic test."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "option": "improved",
+                "isCorrect": false,
+                "content": "Incorrect. The progress note explicitly states the client is 'increasingly confused and disoriented' and has developed asterixis, which is a clear sign of neurological deterioration, not improvement."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "option": "unchanged",
+                "isCorrect": false,
+                "content": "Incorrect. The client's mental status has significantly changed from the admission assessment (A&O x3) to the current assessment (A&O x1 with lethargy and asterixis), indicating a worsening, not an unchanged, condition."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "option": "declining",
+                "isCorrect": true,
+                "content": "Correct. The client's progression from being oriented on admission to being disoriented with new-onset asterixis and lethargy represents a significant neurological decline, consistent with worsening hepatic encephalopathy."
+            },
+            {
+                "dropdownId": "dropdown2",
+                "option": "stable",
+                "isCorrect": false,
+                "content": "Incorrect. The term 'stable' implies no significant change. The evidence in the chart, including the new onset of asterixis and increased confusion, clearly shows the client's condition is unstable and deteriorating."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "option": "furosemide",
+                "isCorrect": false,
+                "content": "Incorrect. Furosemide is a loop diuretic used to manage ascites and fluid overload in cirrhosis. It does not treat the underlying cause of hepatic encephalopathy, which is hyperammonemia, and can worsen electrolyte imbalances."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "option": "neomycin",
+                "isCorrect": false,
+                "content": "Incorrect. Neomycin is an antibiotic that can reduce ammonia-producing bacteria in the gut, but it is a second-line therapy due to significant risks of nephrotoxicity and ototoxicity. Lactulose is the first-line treatment."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "option": "lactulose",
+                "isCorrect": true,
+                "content": "Correct. Lactulose is the first-line pharmacological treatment for hepatic encephalopathy. It works by creating an acidic environment in the colon, which converts ammonia to non-absorbable ammonium, promoting its excretion in the stool."
+            },
+            {
+                "dropdownId": "dropdown3",
+                "option": "albumin",
+                "isCorrect": false,
+                "content": "Incorrect. Albumin is administered to cirrhotic patients to manage ascites or hepatorenal syndrome by increasing intravascular oncotic pressure. It does not directly lower serum ammonia levels and is not the primary treatment for encephalopathy."
+            }
+        ],
         "clinicalPearls": [
-            "Hepatic encephalopathy is a serious neuropsychiatric complication of liver failure characterized by altered mental status, asterixis, and elevated ammonia levels. Early recognition and intervention are crucial.",
-            "Lactulose is a synthetic disaccharide that promotes the excretion of ammonia through the stool, effectively lowering serum ammonia levels.",
-            "Close monitoring of ammonia levels and mental status is essential in managing patients with liver failure and hepatic encephalopathy. Regular assessment of bowel movements is also important to evaluate lactulose effectiveness."
+            "Asterixis, or 'liver flap,' is a classic sign of hepatic encephalopathy. It is a tremor of the hand when the wrist is extended, sometimes said to resemble a bird flapping its wings.",
+            "The goal of lactulose therapy is to produce 2-3 soft stools per day. The nurse must closely monitor bowel movement frequency and consistency to titrate the dose effectively.",
+            "Fetor hepaticus, a sweet, fecal odor on the breath, is a late sign of hepatic encephalopathy caused by the exhalation of mercaptans, which accumulate when the liver fails to metabolize methionine."
         ],
         "questionTrap": {
-            "trap": "Students might be distracted by the acute pancreatitis and fail to recognize the more immediate and life-threatening threat of hepatic encephalopathy, as indicated by the significantly elevated ammonia level and altered mental status.",
-            "howToOvercome": "A comprehensive assessment of the patient's presentation, including lab values, mental status, past medical history, and current medications, is essential to prioritize the most pressing clinical issues and guide appropriate interventions. Focus on the constellation of symptoms rather than individual findings in isolation."
+            "trap": "Focusing solely on the diagnosis of pancreatitis and its associated symptoms (pain, elevated amylase/lipase) can cause the test-taker to miss the more immediate life-threatening complication of hepatic encephalopathy, signaled by the neurological changes.",
+            "howToOvercome": "Always prioritize the ABCs (Airway, Breathing, Circulation), followed by neurological status. An acute change in level of consciousness is a critical finding that often takes precedence over other systemic issues. Synthesize all data points—labs, physical exam, and history—to identify the most urgent problem."
         },
         "mnemonic": {
             "title": "HEAL for Hepatic Encephalopathy",
-            "expansion": "HEAL: Hepatic Encephalopathy - Assess Labs (ammonia), Evaluate mental status, Administer Lactulose, Limit protein intake"
+            "expansion": "H - History of liver disease. E - Encephalopathy signs (confusion, asterixis). A - Ammonia level is high. L - Lactulose is the treatment."
         }
     },
     "responseOptions": [

@@ -1,64 +1,135 @@
 {
     "id": "New-v26-a7b4c9d2-3e5f-4a1b-8c2d-9f7e6a5b3c1d",
     "type": "dragAndDropCloze",
-    "stem": "A 6-month-old infant, diagnosed with Tetralogy of Fallot, is admitted to the pediatric unit. The infant is scheduled for surgical repair in the morning. Based on the patient's condition and the provided information, complete the following statements by dragging the appropriate words or phrases into the blank spaces.\n\nTo minimize the risk of hypercyanotic spells (Tet spells), it is crucial to prevent [Blank 1]. Clustering care activities should be [Blank 2]. If a Tet spell occurs, the nurse should immediately place the infant in a [Blank 3] position and administer [Blank 4] as prescribed. Maintaining adequate [Blank 5] status is also essential to prevent complications.",
+    "stem": "A 6-month-old infant with Tetralogy of Fallot is admitted for pre-operative management. Based on the clinical data, complete the following statements regarding care priorities by dragging the appropriate options into the blanks.",
+    "clozeBody": "To minimize the risk of hypercyanotic spells ('Tet spells'), it is crucial to prevent [Blank 1]. Nursing care activities should be [Blank 2] to conserve energy. If a Tet spell occurs, the nurse should immediately place the infant in a [Blank 3] position and administer [Blank 4] as prescribed. Maintaining adequate [Blank 5] status is also essential to prevent complications.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "zeroOne",
         "maxPoints": 5
     },
     "itemContext": {
         "patient": {
             "name": "Liam Miller",
-            "age": 6,
-            "gender": "Male",
-            "iso": "Airborne Precautions",
+            "age": "6 months",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "NKDA"
             ]
         },
-        "sbar": "0700 Report: Dr. Ramirez, this is Sarah RN, calling from Pediatrics about Liam Miller, a 6-month-old male with Tetralogy of Fallot, MRN 7890123. Liam was admitted at 0600 with increased cyanosis and respiratory distress. His current O2 saturation is 78% on room air; he is irritable and crying. Morphine 0.5mg IV was administered at 0630 for pain and anxiety. His heart rate is 160 bpm, respiratory rate is 50, and temperature is 37.8°C. The cardiologist is aware and has scheduled him for surgical repair tomorrow morning. He has a peripheral IV in his left hand and is NPO except for clear liquids. I am concerned about his increasing cyanosis and the risk of a hypercyanotic spell. I request orders for PRN oxygen and a repeat morphine dose if needed. Do you have any other recommendations?",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>18 g/dL</td><td>11-14 g/dL</td></tr><tr><td>Hematocrit</td><td>55%</td><td>33-42%</td></tr><tr><td>WBC</td><td>10,000/μL</td><td>5,000-10,000/μL</td></tr><tr><td>Na</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>K</td><td>4.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Given</th></tr></thead><tbody><tr><td>Morphine</td><td>0.5 mg</td><td>IV</td><td>PRN q2h</td><td>0630</td></tr><tr><td>Acetaminophen</td><td>80 mg</td><td>PO</td><td>q4h PRN</td><td>-</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "noteType": "Admission Note",
+                        "author": "Sarah, RN",
+                        "text": "S: 6-month-old male with Tetralogy of Fallot (TOF) admitted for pre-operative management before surgical repair tomorrow. Experiencing increased irritability and cyanosis, with SpO2 dropping to 78% on room air.\n\nB: Diagnosed with TOF at birth. History of intermittent cyanotic episodes, especially with crying. Mother reports he has been increasingly fussy over the past 12 hours with poor feeding. The family lives in a rural area, a 2-hour drive from the hospital, which has been a barrier to accessing specialty follow-up care.\n\nA: Tachycardic (160/min), tachypneic (50/min). Audible loud, harsh systolic murmur at the left sternal border. Perioral and nail bed cyanosis noted. Infant is irritable and difficult to soothe. Compensatory polycythemia noted on admission labs (Hct 55%). IV morphine administered at 06:30 provided temporary relief.\n\nR: Continue close cardiorespiratory monitoring. Implement measures to minimize stress and prevent hypercyanotic spells. Maintain strict hydration. Prepare for emergency management of a 'Tet spell' with PRN oxygen and morphine."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>HR</th><th>RR</th><th>O2 Sat</th><th>Temp</th><th>BP</th></tr></thead><tbody><tr><td>0600</td><td>150</td><td>45</td><td>82%</td><td>37.5°C</td><td>90/60 mmHg</td></tr><tr><td>0630</td><td>140</td><td>40</td><td>88%</td><td>37.5°C</td><td>90/60 mmHg</td></tr><tr><td>0700</td><td>160</td><td>50</td><td>78%</td><td>37.8°C</td><td>92/62 mmHg</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>HR (bpm)</th><th>RR (breaths/min)</th><th>SpO₂</th><th>Temp °F (°C)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th></tr></thead><tbody><tr><td>06:00</td><td>150</td><td>45</td><td>82% on RA</td><td>99.5 (37.5)</td><td>90/60</td><td>70</td></tr><tr><td>06:30</td><td>140</td><td>40</td><td>88% on RA</td><td>99.5 (37.5)</td><td>90/60</td><td>70</td></tr><tr><td>07:00</td><td>160</td><td>50</td><td>78% on RA</td><td>100.0 (37.8)</td><td>92/62</td><td>72</td></tr></tbody></table>"
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan='4'><strong>Complete Blood Count</strong></td></tr><tr><td>Hemoglobin</td><td>18</td><td>g/dL</td><td>11.0-14.0</td><td>High</td></tr><tr><td>Hematocrit</td><td>55</td><td>%</td><td>33-42</td><td>High</td></tr><tr><td>WBC</td><td>10,000</td><td>/μL</td><td>5,000-10,000</td><td>Normal</td></tr><tr><td colspan='4'><strong>Basic Metabolic Panel</strong></td></tr><tr><td>Sodium (Na)</td><td>138</td><td>mEq/L</td><td>135-145</td><td>Normal</td></tr><tr><td>Potassium (K)</td><td>4.2</td><td>mEq/L</td><td>3.5-5.0</td><td>Normal</td></tr></tbody></table>"
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": "<strong>General:</strong> Irritable, crying intermittently. Appears anxious.\n<strong>Cardiovascular:</strong> Tachycardia with regular rhythm. Loud, harsh systolic murmur at the left upper sternal border. 2+ peripheral pulses. Capillary refill 3 seconds.\n<strong>Respiratory:</strong> Tachypneic with clear breath sounds bilaterally. Mild subcostal retractions noted.\n<strong>Integumentary:</strong> Perioral and nail bed cyanosis. No edema. Skin is warm and dry."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<strong>Type:</strong> Chest X-ray (AP and Lateral)\n<strong>Date:</strong> Day 1, 06:15\n<strong>Findings:</strong> The cardiac silhouette is boot-shaped ('coeur en sabot'), which is consistent with right ventricular hypertrophy. Pulmonary vascular markings appear decreased. The lung fields are otherwise clear.\n<strong>Impression:</strong> Radiographic findings are characteristic of Tetralogy of Fallot."
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 06:15</td><td>NPO after midnight</td><td>Standing</td></tr><tr><td>Day 1, 06:15</td><td>IV fluids: D5 1/2 NS at 25 mL/hr</td><td>Continuous</td></tr><tr><td>Day 1, 06:15</td><td>Strict I&O</td><td>Standing</td></tr><tr><td>Day 1, 06:15</td><td>Continuous cardiorespiratory and SpO₂ monitoring</td><td>Standing</td></tr><tr><td>Day 1, 06:15</td><td>Minimize handling; space out care activities</td><td>Standing</td></tr><tr><td>Day 1, 06:15</td><td>Knee-chest position PRN for cyanotic spells</td><td>PRN</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Morphine Sulfate</td><td>0.5 mg</td><td>IV</td><td>PRN q2h for agitation/pain</td><td>Day 1, 06:30</td></tr><tr><td>Acetaminophen</td><td>80 mg</td><td>PO</td><td>PRN q4h for fever/pain</td><td>-</td></tr></tbody></table>"
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "generateSolutions",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Pediatric: Congenital Heart Defects & Safety"
+            "Pediatric",
+            "Congenital Heart Defects",
+            "Safety",
+            "Pharmacology"
         ]
     },
     "rationale": {
-        "correct": "Preventing agitation and crying is crucial to avoid triggering hypercyanotic spells (Tet spells) in infants with Tetralogy of Fallot, as these increase oxygen demand. Minimizing stimulation through spaced out care activities will help to prevent overstimulation. Placing the infant in a knee-chest position increases systemic vascular resistance, reducing the right-to-left shunt. Morphine is often administered to decrease pulmonary vascular resistance and calm the infant. Maintaining adequate hydration helps to prevent increased blood viscosity, which can exacerbate cyanosis.\n\nclinicalPearl: Remember that Tet spells are most common in the morning or after stressful procedures.",
-        "incorrect": "Failing to recognize the risk factors for Tet spells and appropriate interventions can lead to increased cyanosis, respiratory distress, and potential complications. While providing constant stimulation may seem like a way to monitor the infant, it can actually increase their agitation and oxygen demand. Supine position increases venous return and can worsen the right-to-left shunt. Diuretics are contraindicated as they can lead to dehydration and increased blood viscosity, exacerbating the cyanosis. Normal saline bolus is not typically the first-line treatment for a Tet spell and may overload the infant's system.\n\nclinicalPearl: Rapid assessment and intervention are key to managing Tet spells effectively.",
+        "correct": "The completed statements correctly identify key nursing interventions for an infant with Tetralogy of Fallot (TOF). Preventing agitation and crying is paramount as these activities increase oxygen demand and can trigger a hypercyanotic 'Tet spell' by worsening the right-to-left shunt. Spacing out care activities minimizes stimulation and conserves the infant's limited energy reserves. During a Tet spell, the knee-chest position is the immediate priority; it increases systemic vascular resistance (SVR), which reduces the amount of deoxygenated blood shunting into the systemic circulation and promotes pulmonary blood flow. Morphine is administered to reduce infundibular spasm and for its sedative effects, which decrease agitation and oxygen consumption. Maintaining adequate hydration is crucial to prevent hemoconcentration from compensatory polycythemia, reducing the risk of a thromboembolic event like a stroke.",
+        "answerBreakdown": [
+            {
+                "option": "agitation and crying",
+                "rationale": "Correct. Crying increases intrathoracic pressure, which decreases pulmonary blood flow and exacerbates the right-to-left shunting of deoxygenated blood across the ventricular septal defect (VSD), precipitating a hypercyanotic spell."
+            },
+            {
+                "option": "constant stimulation",
+                "rationale": "Incorrect. This is a *cause* of agitation, not the primary state to prevent. The goal is to prevent the infant's physiological response (agitation), and avoiding constant stimulation is one method to achieve that goal."
+            },
+            {
+                "option": "spaced out",
+                "rationale": "Correct. Spacing out care activities minimizes metabolic and oxygen demands on the infant's compromised cardiovascular system. This approach reduces stress and the likelihood of triggering an infundibular spasm, which would worsen the right ventricular outflow tract obstruction (RVOTO)."
+            },
+            {
+                "option": "clustered",
+                "rationale": "Incorrect. While clustering care is efficient for healthy infants, it would overwhelm an infant with TOF. The prolonged stimulation would significantly increase oxygen consumption and the risk of a Tet spell."
+            },
+            {
+                "option": "knee-chest",
+                "rationale": "Correct. This position increases systemic vascular resistance (SVR) by kinking the femoral arteries. The elevated SVR creates greater resistance for the right ventricle to pump against systemically, forcing more deoxygenated blood through the stenotic pulmonary valve and into the lungs for oxygenation."
+            },
+            {
+                "option": "supine",
+                "rationale": "Incorrect. The supine position does not increase SVR and may increase venous return to the right side of the heart, potentially worsening the right-to-left shunt without improving pulmonary blood flow."
+            },
+            {
+                "option": "morphine",
+                "rationale": "Correct. Morphine serves two critical functions: it provides sedation to decrease agitation and oxygen demand, and it relaxes the infundibular muscle, which reduces the dynamic component of the RVOTO, thereby improving blood flow to the lungs."
+            },
+            {
+                "option": "diuretics",
+                "rationale": "Incorrect. Diuretics are contraindicated. They would cause volume depletion, leading to dehydration and increased blood viscosity (hemoconcentration) due to the infant's polycythemia, significantly raising the risk of a thromboembolic event (e.g., CVA)."
+            },
+            {
+                "option": "normal saline bolus",
+                "rationale": "Incorrect. While hydration is vital, a rapid fluid bolus is not the primary intervention for an acute Tet spell. It can increase preload on an already strained right ventricle without addressing the core issues of RVOTO and right-to-left shunting."
+            },
+            {
+                "option": "hydration",
+                "rationale": "Correct. Infants with chronic hypoxia from TOF develop compensatory polycythemia (elevated Hgb/Hct). Dehydration makes this thickened blood even more viscous, increasing the risk of clot formation and stroke. Maintaining adequate hydration is a key preventative measure."
+            }
+        ],
         "clinicalPearls": [
-            "Tet spells are characterized by a sudden increase in cyanosis, often accompanied by hyperpnea, irritability, and altered level of consciousness.",
-            "Knee-chest position is a key intervention for Tet spells as it increases systemic vascular resistance and reduces the right-to-left shunt.",
-            "Morphine helps to decrease pulmonary vascular resistance and calm the infant during a Tet spell."
+            "The 'boot-shaped' heart on a chest x-ray is a classic sign of TOF, resulting from right ventricular hypertrophy and an upturned cardiac apex.",
+            "The four defects in Tetralogy of Fallot are: Ventricular Septal Defect (VSD), Pulmonary Stenosis, Overriding Aorta, and Right Ventricular Hypertrophy.",
+            "A sudden decrease in the intensity of the heart murmur during a cyanotic spell is an ominous sign, indicating severely decreased pulmonary blood flow."
         ],
         "questionTrap": {
-            "trap": "The question focuses on multiple aspects of managing a Tet spell, making it easy to overlook one crucial intervention or risk factor.",
-            "howToOvercome": "Prioritize interventions based on their immediate impact on oxygen saturation and minimizing oxygen demand. Review the pathophysiology of Tetralogy of Fallot to understand the underlying mechanisms of Tet spells."
+            "trap": "Confusing 'clustering care' as a positive efficiency measure. While true in many pediatric settings, for infants with severe cardiac defects like TOF, it is dangerous because it significantly increases oxygen demand.",
+            "howToOvercome": "Always contextualize nursing interventions based on the specific pathophysiology. For TOF, the primary goal is to decrease cardiac workload and oxygen consumption. Evaluate each action based on whether it achieves this goal."
         },
         "mnemonic": {
-            "title": "Knee-Chest for Tet Spells",
-            "expansion": "K - Keep Calm, N - Notify Provider, E - Evaluate O2 saturation, E - Ensure Morphine available, C - Chest (Knee-Chest position), H - Hydrate, E - Explain to parents, S - Support respiratory function, T - Transfer to higher level of care."
+            "title": "Managing a Tet Spell: KNEES",
+            "expansion": "K - Knee-chest position (increases SVR)\nN - Nasal Oxygen (improves oxygenation)\nE - Ease anxiety (Morphine, calm environment)\nE - Ensure IV access & fluids (for hydration & meds)\nS - Systemic vasoconstrictors (Phenylephrine, if refractory, to increase SVR)"
         }
     },
     "possibleResponses": [
@@ -80,5 +151,5 @@
         "3": "morphine",
         "4": "hydration"
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "sentinelStatus": "upgraded_2026_compliant"
 }

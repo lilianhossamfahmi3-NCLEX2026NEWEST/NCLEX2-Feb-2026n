@@ -1,42 +1,242 @@
 {
     "id": "New-v26-e987b654-3210-4abc-8fed-76543210abcd",
     "type": "clozeDropdown",
-    "stem": "The patient's presentation suggests a complex interplay between acute kidney injury (AKI) and underlying chronic kidney disease (CKD). Based on the provided data, the most likely immediate cause of the patient's current AKI is [cloze-1]. The nurse should prioritize interventions aimed at addressing [cloze-2] to prevent further kidney damage. It is also crucial to monitor for signs and symptoms of [cloze-3], a potentially life-threatening electrolyte imbalance common in this patient population.",
+    "stem": "The nurse analyzes the client's data. Complete the following sentence. The client's acute kidney injury is most likely caused by [cloze-1], requiring the nurse to prioritize [cloze-2] and monitor for complications related to [cloze-3].",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 3
     },
     "itemContext": {
         "patient": {
             "name": "John Smith",
             "age": 72,
-            "gender": "Male",
+            "sex": "Male",
+            "pronouns": "he/him",
             "iso": "Medical-Surgical Unit",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "Situation: Mr. Smith, 72-year-old male with a history of CKD stage 3, hypertension, and type 2 diabetes, admitted at 22:00 yesterday with suspected AKI. Background: He reports decreased urine output for 3 days and nausea at 02:00. Assessment: Urine output was 200mL at 04:00. He became increasingly confused and weak at 06:00. Current vitals: BP 160/90, HR 110, RR 24, SpO2 94% on 2L NC, Temp 37.9°C. Labs show creatinine 3.8 mg/dL (baseline 1.8 mg/dL) and potassium 6.8 mEq/L. BUN 45 mg/dL. Recommendation: Orders include IV fluids, furosemide PRN, and cardiac monitoring. Metformin was held this morning. Alert MD of lab results, especially potassium. Concerns for hyperkalemia and worsening renal function. Maintain strict I/O. Implement droplet precautions due to potential respiratory infection, pending further assessment.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Creatinine: 3.8 mg/dL\nBUN: 45 mg/dL\nPotassium: 6.8 mEq/L\nSodium: 138 mEq/L\nChloride: 102 mEq/L\nBicarbonate: 20 mEq/L\nGlucose: 180 mg/dL\nHemoglobin: 11.5 g/dL\nHematocrit: 34%"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed (Nurses' Notes)",
+                "notes": [
+                    {
+                        "timestamp": "Day 1, 22:00",
+                        "type": "Admission Note",
+                        "author": "R. Jones, RN",
+                        "text": "S: Client is a 72-year-old male with a history of CKD stage 3, hypertension, and type 2 diabetes, admitted from home for evaluation of worsening renal function and oliguria.\nB: Reports decreased urine output and poor oral intake for 3 days, associated with nausea. States he has been rationing his insulin and lisinopril due to cost, leading to poor glycemic and blood pressure control. Adult child reports client seems more tired than usual.\nA: Alert and oriented x3. Skin warm, dry, with poor turgor. Mucous membranes are dry. Lungs clear. Abdomen soft. No peripheral edema noted. Vitals stable on admission. Labs drawn and sent for stat analysis. Metformin held on admission per protocol.\nR: Place on continuous cardiac monitoring. Initiate IV fluids as ordered. Maintain strict intake and output. Reinforce fall precautions. Awaiting lab results to guide further interventions."
+                    },
+                    {
+                        "timestamp": "Day 2, 06:00",
+                        "type": "Progress Note",
+                        "author": "S. Chen, RN",
+                        "text": "S: Client is now increasingly confused and lethargic. Adult child at bedside is concerned about the change in mental status.\nB: Overnight urine output has been minimal. Client has been tachycardic and hypertensive. He has refused most of his evening meal and fluids, citing continued nausea. His baseline creatinine is 1.8 mg/dL. He lives alone and has difficulty with transportation to his pharmacy.\nA: Neurological: GCS 14, disoriented to time and place. Cardiovascular: Tachycardia with regular rhythm on telemetry, no ectopy noted. Respiratory: Respirations unlabored on 2L NC. GI: Denies vomiting. GU: Urine output 45 mL in the last 4 hours. Skin: Mucous membranes remain dry. Critical labs from 05:30 show creatinine 3.8 mg/dL and potassium 6.8 mEq/L.\nR: Notified provider of change in status and critical lab values. Continue cardiac monitoring. Prepare to administer medications for hyperkalemia as ordered. Continue to encourage fluid intake as tolerated."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Insulin Aspart Subcutaneous 4 units every 6 hours PRN blood glucose >180 mg/dL\nFurosemide 40 mg IV PRN edema\nSodium Polystyrene Sulfonate 15g PO PRN Potassium >5.5 mEq/L\nNormal Saline IV at 75 mL/hr"
+                "id": "vitalsTelemetry",
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "06:00",
+                        "HR": "110",
+                        "BP (MAP)": "160/90 (113)",
+                        "RR": "24",
+                        "SpO₂": "94% on 2L NC",
+                        "Temp °F (°C)": "99.8°F (37.7°C)"
+                    },
+                    {
+                        "Time": "04:00",
+                        "HR": "100",
+                        "BP (MAP)": "150/85 (107)",
+                        "RR": "22",
+                        "SpO₂": "95% on 2L NC",
+                        "Temp °F (°C)": "99.5°F (37.5°C)"
+                    },
+                    {
+                        "Time": "02:00",
+                        "HR": "90",
+                        "BP (MAP)": "140/80 (100)",
+                        "RR": "20",
+                        "SpO₂": "96% on RA",
+                        "Temp °F (°C)": "98.6°F (37.0°C)"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 160/90, HR 110, RR 24, SpO2 94% on 2L NC, Temp 37.9°C\n04:00: BP 150/85, HR 100, RR 22, SpO2 95% on 2L NC, Temp 37.5°C\n02:00: BP 140/80, HR 90, RR 20, SpO2 96% on RA, Temp 37.0°C"
+                "id": "labDiagnostics",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "Result": "Potassium",
+                        "Value": "6.8",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "3.8",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "BUN",
+                        "Value": "45",
+                        "Unit": "mg/dL",
+                        "Reference": "10-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Sodium",
+                        "Value": "138",
+                        "Unit": "mEq/L",
+                        "Reference": "136-145",
+                        "Status": ""
+                    },
+                    {
+                        "Result": "Bicarbonate (HCO3)",
+                        "Value": "18",
+                        "Unit": "mEq/L",
+                        "Reference": "22-28",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "Glucose",
+                        "Value": "180",
+                        "Unit": "mg/dL",
+                        "Reference": "70-110",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Hemoglobin",
+                        "Value": "11.5",
+                        "Unit": "g/dL",
+                        "Reference": "14-18",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "Hematocrit",
+                        "Value": "34",
+                        "Unit": "%",
+                        "Reference": "42-52",
+                        "Status": "Low"
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "Situation: Mr. Smith, 72-year-old male with a history of CKD stage 3, hypertension, and type 2 diabetes, admitted at 22:00 yesterday with suspected AKI. Background: He reports decreased urine output for 3 days and nausea at 02:00. Assessment: Urine output was 200mL at 04:00. He became increasingly confused and weak at 06:00. Current vitals: BP 160/90, HR 110, RR 24, SpO2 94% on 2L NC, Temp 37.9°C. Labs show creatinine 3.8 mg/dL (baseline 1.8 mg/dL) and potassium 6.8 mEq/L. BUN 45 mg/dL. Recommendation: Orders include IV fluids, furosemide PRN, and cardiac monitoring. Metformin was held this morning. Alert MD of lab results, especially potassium. Concerns for hyperkalemia and worsening renal function. Maintain strict I/O. Implement droplet precautions due to potential respiratory infection, pending further assessment."
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "assessments": [
+                    {
+                        "timestamp": "Day 1, 22:15",
+                        "type": "Admission Assessment",
+                        "findings": "GENERAL: Alert and oriented x3, appears fatigued. CARDIOVASCULAR: S1, S2 audible, regular rate and rhythm. No murmurs. Capillary refill <3 seconds. RESPIRATORY: Lungs clear to auscultation bilaterally. NEUROLOGICAL: Moves all extremities, grips equal. SKIN: Warm, dry, poor skin turgor over clavicle. Mucous membranes dry. No peripheral edema."
+                    },
+                    {
+                        "timestamp": "Day 2, 06:00",
+                        "type": "Focused Assessment",
+                        "findings": "NEUROLOGICAL: Lethargic, slow to respond to questions. Disoriented to time and place. Follows simple commands. SKIN: Mucous membranes remain very dry. Tenting of skin noted."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "reports": [
+                    {
+                        "type": "Renal Ultrasound",
+                        "date": "Day 2, 07:30",
+                        "findings": "Bilateral kidneys are normal in size. There is increased cortical echogenicity throughout both kidneys, consistent with chronic medical renal disease. No evidence of hydronephrosis or renal calculi. Bladder is decompressed.",
+                        "impression": "Findings consistent with chronic kidney disease. No evidence of urinary tract obstruction."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan (Orders)",
+                "orders": [
+                    {
+                        "date": "Day 1, 22:10",
+                        "action": "0.9% Sodium Chloride IV at 75 mL/hr",
+                        "status": "Active"
+                    },
+                    {
+                        "date": "Day 1, 22:10",
+                        "action": "Continuous cardiac monitoring",
+                        "status": "Active"
+                    },
+                    {
+                        "date": "Day 1, 22:10",
+                        "action": "Strict Intake and Output",
+                        "status": "Active"
+                    },
+                    {
+                        "date": "Day 1, 22:10",
+                        "action": "Daily weights",
+                        "status": "Active"
+                    },
+                    {
+                        "date": "Day 1, 22:10",
+                        "action": "Hold Metformin",
+                        "status": "Active"
+                    },
+                    {
+                        "date": "Day 1, 22:10",
+                        "action": "Furosemide 40 mg IV PRN for fluid overload",
+                        "status": "PRN"
+                    },
+                    {
+                        "date": "Day 1, 22:10",
+                        "action": "Sodium Polystyrene Sulfonate 15g PO PRN for Potassium > 6.0 mEq/L",
+                        "status": "PRN"
+                    }
+                ]
+            },
+            {
+                "id": "marConsole",
+                "title": "MAR Console (Medications)",
+                "medications": [
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "10 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 1, 09:00 (at home)"
+                    },
+                    {
+                        "medication": "Metformin",
+                        "dose": "500 mg",
+                        "route": "PO",
+                        "frequency": "BID",
+                        "lastAdministered": "Held per order"
+                    },
+                    {
+                        "medication": "0.9% Sodium Chloride",
+                        "dose": "75 mL/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "lastAdministered": "Ongoing"
+                    },
+                    {
+                        "medication": "Furosemide",
+                        "dose": "40 mg",
+                        "route": "IV",
+                        "frequency": "PRN",
+                        "lastAdministered": "Not administered"
+                    },
+                    {
+                        "medication": "Sodium Polystyrene Sulfonate",
+                        "dose": "15 g",
+                        "route": "PO",
+                        "frequency": "PRN",
+                        "lastAdministered": "Not administered"
+                    }
+                ]
             }
         ]
     },
@@ -50,21 +250,76 @@
         ]
     },
     "rationale": {
-        "correct": "The elevated creatinine (3.8 mg/dL, baseline 1.8 mg/dL), decreased urine output (200mL at 04:00), and increased confusion at 06:00 suggest worsening AKI superimposed on existing CKD. The most likely immediate cause is hypovolemia secondary to decreased oral intake and potential over-diuresis (even though furosemide was PRN, it was likely administered). Addressing hypovolemia is critical to improve renal perfusion and prevent further kidney damage. Hyperkalemia (K+ 6.8 mEq/L) is a significant concern, and can lead to life-threatening cardiac arrhythmias. Prompt intervention is needed to stabilize the patient.",
-        "incorrect": "Incorrect answer choices fail to recognize the severity of the electrolyte imbalance (hyperkalemia), the potential for hypovolemia, or the impact of these factors on AKI progression. Some may focus on less immediate concerns or misinterpret the lab values. For example, aggressive diuresis in a hypovolemic patient can worsen AKI. Dialysis is a longer-term consideration, not the immediate priority.",
+        "correct": "The client's clinical presentation, including a history of poor oral intake, nausea, tachycardia, and physical signs of dehydration (dry mucous membranes, poor skin turgor), points to a pre-renal cause of AKI due to hypovolemia. The priority is to restore renal perfusion by managing hypovolemia with IV fluids. The most immediate life-threatening complication is severe hyperkalemia (6.8 mEq/L), which can cause fatal cardiac dysrhythmias and requires urgent monitoring and intervention.",
+        "answerBreakdown": {
+            "cloze-1": [
+                {
+                    "option": "Sepsis",
+                    "rationale": "Incorrect. While the client has tachycardia and a low-grade fever, there are no definitive signs of a systemic infection source. The primary evidence points towards volume depletion as the cause of reduced renal perfusion, not a systemic inflammatory response."
+                },
+                {
+                    "option": "Hypovolemia",
+                    "rationale": "Correct. The client's history of poor oral intake, nausea, tachycardia (110/min), and physical exam findings of dry mucous membranes and poor skin turgor strongly suggest a pre-renal cause of AKI due to volume depletion, which reduces renal perfusion."
+                },
+                {
+                    "option": "Glomerulonephritis",
+                    "rationale": "Incorrect. Glomerulonephritis is an intra-renal cause of AKI, often associated with autoimmune diseases or recent infections, and typically presents with hematuria and proteinuria, which are not noted in this client's presentation."
+                },
+                {
+                    "option": "Urinary Tract Obstruction",
+                    "rationale": "Incorrect. This is a post-renal cause of AKI. The renal ultrasound specifically rules out hydronephrosis, which is the hallmark of a significant urinary tract obstruction."
+                }
+            ],
+            "cloze-2": [
+                {
+                    "option": "Infection Control Precautions",
+                    "rationale": "Incorrect. While important, there is no evidence of a communicable infection. The client's primary problem is hemodynamic and metabolic instability, which is a much higher priority."
+                },
+                {
+                    "option": "Managing Hypovolemia",
+                    "rationale": "Correct. The underlying cause of the pre-renal AKI is volume depletion. The priority intervention is to restore intravascular volume with IV fluids to improve renal perfusion, increase urine output, and prevent further ischemic damage to the kidneys."
+                },
+                {
+                    "option": "Aggressive Diuresis",
+                    "rationale": "Incorrect. Administering diuretics like furosemide to a client who is already hypovolemic would be dangerous. It would worsen the volume depletion, further decrease renal perfusion, and exacerbate the acute kidney injury."
+                },
+                {
+                    "option": "Initiating Dialysis",
+                    "rationale": "Incorrect. While dialysis may eventually be needed if the AKI does not resolve, it is not the immediate priority. The first step is to address the reversible cause (hypovolemia) and manage the life-threatening electrolyte imbalance."
+                }
+            ],
+            "cloze-3": [
+                {
+                    "option": "Hyponatremia",
+                    "rationale": "Incorrect. The client's sodium level is 138 mEq/L, which is within the normal reference range. There is no evidence of hyponatremia."
+                },
+                {
+                    "option": "Hypocalcemia",
+                    "rationale": "Incorrect. While hypocalcemia can occur in CKD due to impaired vitamin D activation, it is not the most acute, life-threatening imbalance present. The potassium level poses a far greater immediate risk."
+                },
+                {
+                    "option": "Hyperkalemia",
+                    "rationale": "Correct. The client's potassium level of 6.8 mEq/L is critically high. This is a medical emergency because it can lead to life-threatening cardiac dysrhythmias, muscle weakness, and cardiac arrest. Continuous cardiac monitoring is essential."
+                },
+                {
+                    "option": "Hypophosphatemia",
+                    "rationale": "Incorrect. Clients with CKD and AKI are more likely to have hyperphosphatemia due to decreased renal excretion. Hypophosphatemia is not the expected or evident complication."
+                }
+            ]
+        },
         "clinicalPearls": [
-            "In patients with CKD, even small increases in creatinine can represent significant reductions in kidney function.",
-            "Hyperkalemia is a medical emergency that requires prompt treatment to prevent cardiac arrest. ECG changes are an early sign.",
-            "Careful assessment of fluid status is crucial in managing AKI, especially in patients with underlying CKD. Assess for signs of dehydration.",
-            "Medications such as ACE inhibitors and ARBs should be used cautiously in the setting of AKI as they can further impair renal function. Metformin is also nephrotoxic and should be held."
+            "In clients with CKD, oliguria can be caused by either fluid overload or hypovolemia. A thorough fluid status assessment, including physical exam and vital sign trends, is critical to differentiate and guide treatment.",
+            "Hyperkalemia is the most dangerous acute complication of AKI. ECG changes (peaked T waves, widened QRS) can precede cardiac arrest and require immediate intervention.",
+            "A BUN:Creatinine ratio greater than 20:1 (in this case, 45:3.8 ≈ 12:1) often suggests a pre-renal cause, but this rule is less reliable in clients with underlying CKD. The overall clinical picture is more important.",
+            "Social determinants of health, such as medication costs and transportation issues, can directly contribute to poor chronic disease management and lead to acute decompensation, as seen in this case."
         ],
         "questionTrap": {
-            "trap": "The question trap is to focus solely on the elevated creatinine without considering the potential contributing factors and the emergent electrolyte imbalance (hyperkalemia). Some may incorrectly assume the patient is fluid overloaded due to kidney issues and might administer more diuretics, which would worsen hypovolemia and AKI.",
-            "howToOvercome": "Carefully analyze all available data (vitals, labs, I/O, SBAR) to determine the underlying cause of the AKI and identify the most immediate threat to the patient's well-being. Prioritize interventions based on the ABCs (Airway, Breathing, Circulation) and emergent lab values. Consider the patient's baseline kidney function."
+            "trap": "The primary trap is assuming that kidney failure and low urine output automatically mean the client is fluid overloaded. This leads to the incorrect conclusion that diuretics are needed, which would be harmful in this hypovolemic client.",
+            "howToOvercome": "Synthesize all data points. The history of poor intake, tachycardia, and physical signs of dehydration (dry mucous membranes, poor turgor) are classic indicators of hypovolemia. Prioritize restoring perfusion before considering fluid removal."
         },
         "mnemonic": {
-            "title": "KIDNEY",
-            "expansion": "Keep I&O's, Daily weights, Note electrolyte imbalances, Educate, Yield drugs cautiously."
+            "title": "AKI Causes (Vowels)",
+            "expansion": "A: Acute Tubular Necrosis (Intra-renal); E: Exsanguination/Dehydration (Pre-renal); I: Infection/Sepsis (Pre-renal); O: Obstruction (Post-renal); U: Uric Acid/Toxins (Intra-renal)."
         }
     },
     "responseOptions": {
@@ -91,8 +346,5 @@
         "cloze-1": "Hypovolemia",
         "cloze-2": "Managing Hypovolemia",
         "cloze-3": "Hyperkalemia"
-    },
-    "itemLevelInformation": {
-        "itemIsolation": "Droplet"
     }
 }

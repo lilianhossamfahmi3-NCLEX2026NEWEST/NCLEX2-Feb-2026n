@@ -1,84 +1,20 @@
 {
     "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
     "type": "matrixMatch",
-    "stem": "The nurse is preparing to administer medications to Mr. Jones. Based on the provided information, determine if the following actions are indicated or contraindicated for each medication order.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 6
-    },
-    "itemContext": {
-        "patient": {
-            "name": "Ricardo Jones",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Medical-Surgical Unit",
-            "allergies": [
-                "Penicillin"
-            ]
-        },
-        "sbar": "Situation: Ricardo Jones, 68-year-old male with a history of hypertension, type 2 diabetes, and COPD, admitted for acute CHF exacerbation. Background: History of hypertension, type 2 diabetes, and COPD managed with outpatient meds. Presented with dyspnea and edema. Assessment: At 07:00, reports increased SOB. Auscultation: bilateral crackles. Vitals: BP 160/90 mmHg, HR 110 bpm, RR 28, SpO2 89% on 2L NC. Weight: 90 kg. Med orders: furosemide 40mg IVP BID, lisinopril 20mg PO daily, digoxin 0.125mg PO daily. Labs at 07:30: Na 130, K 3.2, Cl 98, BUN 35, Cr 1.8, Glucose 180, Digoxin 0.6. Recommendation: Review labs and meds. Requires assessment and potential med adjustments. Furosemide due at 08:00. Immediate intervention for respiratory distress may be needed.",
-        "tabs": [
-            {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "Situation: Ricardo Jones, 68-year-old male with a history of hypertension, type 2 diabetes, and COPD, admitted for acute CHF exacerbation. Background: History of hypertension, type 2 diabetes, and COPD managed with outpatient meds. Presented with dyspnea and edema. Assessment: At 07:00, reports increased SOB. Auscultation: bilateral crackles. Vitals: BP 160/90 mmHg, HR 110 bpm, RR 28, SpO2 89% on 2L NC. Weight: 90 kg. Med orders: furosemide 40mg IVP BID, lisinopril 20mg PO daily, digoxin 0.125mg PO daily. Labs at 07:30: Na 130, K 3.2, Cl 98, BUN 35, Cr 1.8, Glucose 180, Digoxin 0.6. Recommendation: Review labs and meds. Requires assessment and potential med adjustments. Furosemide due at 08:00. Immediate intervention for respiratory distress may be needed."
-            },
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Sodium: 130 mEq/L, Potassium: 3.2 mEq/L, Chloride: 98 mEq/L, BUN: 35 mg/dL, Creatinine: 1.8 mg/dL, Glucose: 180 mg/dL, Digoxin Level: 0.6 ng/mL"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "08:00: Furosemide 40mg IVP, 09:00: Lisinopril 20mg PO, 10:00: Digoxin 0.125mg PO"
-            },
-            {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: BP 160/90, HR 110, RR 28, SpO2 89%, Temp 37.2°C (99.0°F)"
-            }
-        ]
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
-        ]
-    },
-    "rationale": {
-        "correct": "Administering furosemide is indicated due to signs of fluid overload (crackles, edema, CHF exacerbation). Lisinopril is contraindicated because of the elevated heart rate and borderline hypotension; it could further lower BP. Digoxin is indicated as the level is therapeutic, but the low potassium (3.2 mEq/L) increases digoxin toxicity risk. Hypokalemia must be addressed before digoxin administration.",
-        "incorrect": "Incorrect answers show a lack of understanding of medication synergistic effects, contraindications based on labs, and the patient’s physiological state. Failure to recognize the interaction between low potassium and digoxin is a critical error. Incorrect assessment of fluid status, BP, and electrolyte balance leads to inappropriate medication decisions. Overlooking risks without considering labs and vitals is dangerous.",
-        "clinicalPearls": [
-            "Check potassium before digoxin or loop diuretics; hypokalemia can potentiate digoxin toxicity and increase arrhythmia risk.",
-            "Monitor BP closely when administering antihypertensives, especially in CHF patients, to avoid precipitous drops.",
-            "Assess for fluid overload and electrolyte imbalances when managing CHF patients."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus on CHF exacerbation and administer all meds without considering labs, BP, or drug interactions. They might assume lisinopril is automatically indicated because the patient is hypertensive.",
-            "howToOvercome": "Assess all data, including labs and vitals, before medication decisions. Understand potential interactions and contraindications. Consider the clinical picture and risks before administering any medication. Prioritize addressing electrolyte imbalances before administering affected medications."
-        },
-        "mnemonic": {
-            "title": "K Digs Deep",
-            "expansion": "Low Potassium (K) potentiates Digoxin (Digs) toxicity. Always check potassium levels before administering digoxin. Remember to also check BP before Lisinopril."
-        }
-    },
-    "matrixMatchOptions": {
+    "stem": "The nurse is reviewing the 08:00 medication orders for a client with heart failure. For each medication, determine if the action is indicated or contraindicated based on the client's current clinical data.",
+    "matrixOptions": {
         "rows": [
             {
                 "id": "furosemide",
-                "label": "Furosemide 40mg IVP"
+                "label": "Furosemide 40 mg IV"
             },
             {
                 "id": "lisinopril",
-                "label": "Lisinopril 20mg PO"
+                "label": "Lisinopril 20 mg PO"
             },
             {
                 "id": "digoxin",
-                "label": "Digoxin 0.125mg PO"
+                "label": "Digoxin 0.125 mg PO"
             }
         ],
         "columns": [
@@ -95,7 +31,288 @@
     "answerKey": {
         "furosemide": "indicated",
         "lisinopril": "contraindicated",
-        "digoxin": "indicated"
+        "digoxin": "contraindicated"
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "itemContext": {
+        "patient": {
+            "name": "Ricardo Jones",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "Penicillin"
+            ]
+        },
+        "tabs": [
+            {
+                "id": "clinical_feed",
+                "title": "Nurses' Notes",
+                "content": [
+                    {
+                        "timestamp": "Yesterday 18:00",
+                        "note_type": "Admission Note",
+                        "note": "S: Client is a 68-year-old male admitted from home with a chief complaint of worsening shortness of breath and leg swelling over the past 3 days. \nB: History of congestive heart failure (CHF), hypertension, and type 2 diabetes mellitus. Reports poor adherence to low-sodium diet and medications. Lives alone in a second-floor apartment, which makes mobility difficult. \nA: Alert and oriented x3. Appears anxious. Respirations labored at 24/min. Bilateral 3+ pitting edema to mid-calf. Coarse crackles noted in bilateral lower lung bases. S1/S2 regular, S3 gallop present. \nR: Admitted to the medical-surgical unit for acute decompensated CHF management. Placed on continuous cardiac monitoring and oxygen at 2L via nasal cannula. Awaiting initial lab work and chest x-ray. Will implement fluid and sodium restrictions as ordered."
+                    },
+                    {
+                        "timestamp": "Today 07:00",
+                        "note_type": "Progress Note",
+                        "note": "S: Client reports feeling 'more breathless' than last night and unable to sleep lying flat. \nB: Overnight urine output was 300 mL. Intake was 500 mL IV fluids. No bowel movement. \nA: Tachycardic at 110 bpm, BP 160/90 mmHg (MAP 113), RR 28/min, SpO2 89% on 2L NC. Crackles now audible in bilateral mid-lung fields. Client is diaphoretic and using accessory muscles to breathe. Morning labs reviewed, showing hypokalemia and elevated renal function tests. \nR: Notify healthcare provider of change in respiratory status and critical lab values. Prepare to administer scheduled 08:00 IV furosemide. Withhold lisinopril and digoxin pending provider clarification due to lab findings. Continue to monitor vital signs and respiratory effort closely."
+                    }
+                ]
+            },
+            {
+                "id": "vitals",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (/min)",
+                        "SpO₂ (%)",
+                        "Temp °F (°C)"
+                    ],
+                    "rows": [
+                        [
+                            "Today 04:00",
+                            "98",
+                            "155/88",
+                            "110",
+                            "22",
+                            "92% on 2L NC",
+                            "99.0 (37.2)"
+                        ],
+                        [
+                            "Today 06:00",
+                            "105",
+                            "158/89",
+                            "112",
+                            "26",
+                            "90% on 2L NC",
+                            "99.1 (37.3)"
+                        ],
+                        [
+                            "Today 07:00",
+                            "110",
+                            "160/90",
+                            "113",
+                            "28",
+                            "89% on 2L NC",
+                            "99.0 (37.2)"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "panel": "Basic Metabolic Panel & Drug Levels (Today 06:30)",
+                    "results": [
+                        {
+                            "name": "Sodium",
+                            "result": "130",
+                            "unit": "mEq/L",
+                            "reference": "136-145",
+                            "status": "Low"
+                        },
+                        {
+                            "name": "Potassium",
+                            "result": "3.2",
+                            "unit": "mEq/L",
+                            "reference": "3.5-5.0",
+                            "status": "Low"
+                        },
+                        {
+                            "name": "Chloride",
+                            "result": "98",
+                            "unit": "mEq/L",
+                            "reference": "98-106",
+                            "status": "Normal"
+                        },
+                        {
+                            "name": "BUN",
+                            "result": "35",
+                            "unit": "mg/dL",
+                            "reference": "10-20",
+                            "status": "High"
+                        },
+                        {
+                            "name": "Creatinine",
+                            "result": "1.8",
+                            "unit": "mg/dL",
+                            "reference": "0.6-1.2",
+                            "status": "High"
+                        },
+                        {
+                            "name": "Glucose",
+                            "result": "180",
+                            "unit": "mg/dL",
+                            "reference": "74-106",
+                            "status": "High"
+                        },
+                        {
+                            "name": "Digoxin Level",
+                            "result": "0.6",
+                            "unit": "ng/mL",
+                            "reference": "0.5-2.0",
+                            "status": "Normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Yesterday 18:15",
+                        "exam_type": "Admission Head-to-Toe Assessment",
+                        "findings": "Cardiovascular: Tachycardic, S1/S2 with S3 gallop. 3+ pitting edema bilateral lower extremities. Pulses 2+ peripherally. \nRespiratory: Labored breathing. Coarse crackles in bilateral lower lung bases. \nNeurological: Alert and oriented x3, anxious affect. \nGI/GU: Abdomen soft, non-tender, bowel sounds active. \nIntegumentary: Skin warm, diaphoretic. Turgor fair."
+                    },
+                    {
+                        "timestamp": "Today 07:15",
+                        "exam_type": "Focused Assessment",
+                        "findings": "Cardiovascular: Sinus tachycardia on monitor. Rate 110. Pulses remain 2+. Edema unchanged. \nRespiratory: Increased work of breathing with use of accessory muscles. Crackles have ascended to bilateral mid-lung fields. Client unable to speak in full sentences."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "report_type": "Chest X-ray (PA and Lateral)",
+                    "timestamp": "Yesterday 19:00",
+                    "findings": "Lungs demonstrate moderate pulmonary vascular congestion and small bilateral pleural effusions, consistent with pulmonary edema. The cardiac silhouette is enlarged, suggestive of cardiomegaly. No evidence of focal consolidation, pneumothorax, or acute bony abnormality.",
+                    "impression": "1. Cardiomegaly. \n2. Findings consistent with acute congestive heart failure exacerbation."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": {
+                    "headers": [
+                        "Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "orders": [
+                        [
+                            "Yesterday 18:30",
+                            "Furosemide 40 mg IV",
+                            "BID (08:00, 20:00)"
+                        ],
+                        [
+                            "Yesterday 18:30",
+                            "Lisinopril 20 mg PO",
+                            "Daily (08:00)"
+                        ],
+                        [
+                            "Yesterday 18:30",
+                            "Digoxin 0.125 mg PO",
+                            "Daily (08:00)"
+                        ],
+                        [
+                            "Yesterday 18:30",
+                            "2-gram sodium diet",
+                            "With meals"
+                        ],
+                        [
+                            "Yesterday 18:30",
+                            "Continuous cardiac monitoring",
+                            "Continuous"
+                        ],
+                        [
+                            "Yesterday 18:30",
+                            "Oxygen to maintain SpO2 >92%",
+                            "Titrate as needed"
+                        ],
+                        [
+                            "Yesterday 18:30",
+                            "Daily weights",
+                            "Every morning"
+                        ],
+                        [
+                            "Yesterday 18:30",
+                            "Strict Intake and Output",
+                            "Every shift"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "meds": [
+                        {
+                            "name": "Furosemide",
+                            "dose": "40 mg",
+                            "route": "IV",
+                            "frequency": "BID",
+                            "last_given": "Yesterday 20:05"
+                        },
+                        {
+                            "name": "Lisinopril",
+                            "dose": "20 mg",
+                            "route": "PO",
+                            "frequency": "Daily",
+                            "last_given": "Yesterday 08:10"
+                        },
+                        {
+                            "name": "Digoxin",
+                            "dose": "0.125 mg",
+                            "route": "PO",
+                            "frequency": "Daily",
+                            "last_given": "Yesterday 08:12"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "rationale": {
+        "correct": "The client is experiencing acute decompensated heart failure, evidenced by worsening dyspnea, crackles, and edema. This fluid overload indicates the need for diuresis. However, the client also has acute kidney injury (elevated BUN/Creatinine) and critical hypokalemia (K+ 3.2 mEq/L). Medication administration must prioritize treating fluid overload while preventing further renal damage and avoiding life-threatening arrhythmias from digoxin toxicity potentiated by hypokalemia.",
+        "answerBreakdown": [
+            {
+                "optionId": "furosemide",
+                "content": "Indicated. The client's signs of severe fluid volume excess (worsening crackles, dyspnea, edema, low SpO2) are the primary problem. Furosemide, a loop diuretic, is essential to remove excess fluid and improve respiratory status. While it will likely worsen the existing hypokalemia, the risk of acute respiratory failure from pulmonary edema outweighs the risk of the electrolyte imbalance, which can be corrected concurrently with potassium supplementation."
+            },
+            {
+                "optionId": "lisinopril",
+                "content": "Contraindicated. The client has evidence of acute kidney injury (BUN 35, Creatinine 1.8). Lisinopril, an ACE inhibitor, can decrease renal perfusion and worsen renal function, especially in the context of dehydration or aggressive diuresis. Holding this medication is necessary to prevent further kidney damage. The client's hypertension should be managed with alternative agents if necessary, once fluid status is stabilized."
+            },
+            {
+                "optionId": "digoxin",
+                "content": "Contraindicated. Although the digoxin level is within the therapeutic range, the client's potassium level is critically low (3.2 mEq/L). Hypokalemia significantly increases myocardial sensitivity to digoxin, which can precipitate fatal cardiac dysrhythmias (e.g., ventricular tachycardia). The medication must be held, the provider notified, and the hypokalemia corrected before digoxin can be safely administered."
+            }
+        ],
+        "clinicalPearls": [
+            "Hypokalemia is a critical contraindication for digoxin administration, regardless of the serum digoxin level, due to the increased risk of cardiotoxicity.",
+            "In acute decompensated heart failure, always assess renal function (BUN, Creatinine) before administering ACE inhibitors, ARBs, or aldosterone antagonists, as these can precipitate or worsen acute kidney injury.",
+            "Loop diuretics like furosemide are first-line for fluid overload in heart failure but require vigilant monitoring and replacement of potassium and magnesium to prevent electrolyte-driven complications."
+        ],
+        "questionTrap": "The primary trap is 'tunnel vision' on a single piece of data. Seeing fluid overload and giving furosemide is correct, but seeing hypertension and giving lisinopril without checking renal labs, or seeing a 'therapeutic' digoxin level and giving it without checking potassium, are common and dangerous errors. Always synthesize all available data.",
+        "mnemonic": "For CHF meds, check your 'K-B-P': Potassium before Digoxin, BUN/Creatinine before ACE inhibitors, and Blood Pressure before any antihypertensive. A low K+ DIGS a grave. A high Cr ACES your kidneys out."
+    },
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Pharmacological and Parenteral Therapies"
+    },
+    "sentinelStatus": "upgraded_2026_hifi",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:20:57.154Z"
 }

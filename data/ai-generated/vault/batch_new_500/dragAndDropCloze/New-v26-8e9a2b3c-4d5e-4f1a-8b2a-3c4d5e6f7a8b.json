@@ -1,71 +1,284 @@
 {
     "id": "New-v26-8e9a2b3c-4d5e-4f1a-8b2a-3c4d5e6f7a8b",
-    "type": "dragAndDropCloze",
-    "stem": "The patient is exhibiting signs of thyroid storm. Based on the assessment findings, prioritize the following interventions in the order they should be implemented. Drag the interventions from the options below into the correct sequence.\n\n1.  Administer [{1: medication}] to block thyroid hormone synthesis.\n2.  Administer [{2: beta-blocker}] to manage cardiovascular symptoms.\n3.  Initiate [{3: cooling measures}] to reduce hyperthermia.\n4.  Administer [{4: glucocorticoids}] to prevent adrenal crisis and decrease T4 to T3 conversion.\n5.  Monitor for [{5: complications}] such as heart failure or arrhythmias.",
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client experiencing a thyroid storm. Based on the client's assessment data in the electronic health record, drag and drop the nursing actions into the correct order of priority. All actions are appropriate and ordered.",
+    "options": [
+        {
+            "id": "opt_1",
+            "label": "Administer propranolol IV."
+        },
+        {
+            "id": "opt_2",
+            "label": "Administer propylthiouracil (PTU) PO."
+        },
+        {
+            "id": "opt_3",
+            "label": "Administer hydrocortisone IV."
+        },
+        {
+            "id": "opt_4",
+            "label": "Apply a cooling blanket and administer acetaminophen PO."
+        },
+        {
+            "id": "opt_5",
+            "label": "Ensure continuous cardiac monitoring is active."
+        }
+    ],
+    "correctResponse": [
+        "opt_1",
+        "opt_2",
+        "opt_3",
+        "opt_4",
+        "opt_5"
+    ],
     "scoring": {
-        "method": "linkage",
+        "method": "dichotomous",
         "maxPoints": 5
     },
     "itemContext": {
         "patient": {
             "name": "Eleanor Vance",
             "age": 48,
-            "gender": "Female",
+            "sex": "Female",
+            "pronouns": "she/her",
             "iso": "Medical Surgical Unit",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "SBAR - Eleanor Vance, 48-year-old female, admitted for hyperthyroidism. 0700 hours: Patient reports increasing palpitations, anxiety, and feeling 'extremely hot'. Vital signs: Temp 104.2°F (40.1°C), HR 180 bpm, BP 180/90 mmHg, RR 32, SpO2 94% on room air. Auscultation reveals bilateral wheezing and coarse crackles. Patient is diaphoretic and restless. 0715 hours: Patient is increasingly agitated and confused. Noted mild tremor. Thyroid panel from earlier today resulted with markedly elevated T3 and T4 levels. 0730 hours: New onset atrial fibrillation noted on telemetry with a rapid ventricular response. Current medications include propylthiouracil (PTU) 150mg PO q6h, started yesterday. Assessment reveals exophthalmos and goiter. Patient's respiratory status is declining, requiring supplemental oxygen. I am concerned about possible thyroid storm with impending respiratory failure. Requesting immediate orders for further management including beta-blockers (esmolol preferred), cooling measures, glucocorticoids, and possible intubation if respiratory status worsens. Transfer to ICU may be necessary.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>T3, Total</td><td>650 ng/dL</td><td>80-220 ng/dL</td></tr><tr><td>T4, Free</td><td>6.0 ng/dL</td><td>0.8-1.8 ng/dL</td></tr><tr><td>TSH</td><td>&lt;0.01 mIU/L</td><td>0.4-4.0 mIU/L</td></tr><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Today at 06:00",
+                        "note": "S: 48-year-old female admitted from ED for Graves' disease exacerbation. Reports worsening palpitations, anxiety, and heat intolerance.\nB: History of hyperthyroidism, reports non-compliance with methimazole. Client lives alone in a rural area, citing transportation as a barrier to consistent follow-up care.\nA: T 101.5°F (38.6°C), HR 140, BP 160/80 mmHg (MAP 107), RR 24, SpO₂ 96% on room air. Alert, anxious, with fine hand tremors. Mild exophthalmos and diffuse goiter noted. Skin is warm and diaphoretic.\nR: Initiate cardiac monitoring. Administer propylthiouracil as ordered. Maintain a quiet, low-stimulus environment. Monitor vital signs and neurological status hourly."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Today at 07:30",
+                        "note": "S: Client is now acutely agitated and confused. States, \"I can't breathe, my heart is pounding.\"\nB: Admitted 90 minutes ago for hyperthyroidism. Rapidly deteriorated over the last hour.\nA: T 104.2°F (40.1°C), HR 180 in A-fib with RVR, BP 180/90 mmHg (MAP 120), RR 32, SpO₂ 94% on 2L NC. Profusely diaphoretic, restless, disoriented. Coarse crackles auscultated bilaterally.\nR: This is a clinical presentation of thyroid storm. Recommending immediate ICU transfer. Requesting STAT orders for IV beta-blocker, IV glucocorticoids, and aggressive cooling measures. Notified rapid response team."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>Temperature</th><th>Heart Rate</th><th>Blood Pressure</th><th>Respiratory Rate</th><th>SpO2</th></tr></thead><tbody><tr><td>0600</td><td>101.5°F (38.6°C)</td><td>140 bpm</td><td>160/80 mmHg</td><td>24</td><td>96%</td></tr><tr><td>0700</td><td>104.2°F (40.1°C)</td><td>180 bpm</td><td>180/90 mmHg</td><td>32</td><td>94%</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "05:45 (ED)",
+                        "Temp": "101.1°F (38.4°C)",
+                        "HR": "138 bpm",
+                        "BP": "158/78 mmHg (MAP 105)",
+                        "RR": "22",
+                        "SpO2": "97% on room air",
+                        "Telemetry": "Sinus Tachycardia"
+                    },
+                    {
+                        "Time": "06:00",
+                        "Temp": "101.5°F (38.6°C)",
+                        "HR": "140 bpm",
+                        "BP": "160/80 mmHg (MAP 107)",
+                        "RR": "24",
+                        "SpO2": "96% on room air",
+                        "Telemetry": "Sinus Tachycardia"
+                    },
+                    {
+                        "Time": "07:30",
+                        "Temp": "104.2°F (40.1°C)",
+                        "HR": "180 bpm",
+                        "BP": "180/90 mmHg (MAP 120)",
+                        "RR": "32",
+                        "SpO2": "94% on 2L NC",
+                        "Telemetry": "Atrial Fibrillation with RVR"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propylthiouracil (PTU)</td><td>150 mg</td><td>PO</td><td>Q6H</td><td>06:00</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>Q4H PRN Fever</td><td>Not Administered</td></tr></tbody></table>"
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Lab": "T3, Total",
+                        "Result": "650",
+                        "Unit": "ng/dL",
+                        "Reference Range": "80-220",
+                        "Status": "High"
+                    },
+                    {
+                        "Lab": "T4, Free",
+                        "Result": "6.0",
+                        "Unit": "ng/dL",
+                        "Reference Range": "0.8-1.8",
+                        "Status": "High"
+                    },
+                    {
+                        "Lab": "TSH",
+                        "Result": "<0.01",
+                        "Unit": "mIU/L",
+                        "Reference Range": "0.4-4.0",
+                        "Status": "Low"
+                    },
+                    {
+                        "Lab": "Sodium",
+                        "Result": "140",
+                        "Unit": "mEq/L",
+                        "Reference Range": "135-145",
+                        "Status": ""
+                    },
+                    {
+                        "Lab": "Potassium",
+                        "Result": "3.8",
+                        "Unit": "mEq/L",
+                        "Reference Range": "3.5-5.0",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Today at 06:00 (Admission)",
+                        "findings": "General: Anxious, restless, diaphoretic.\nNeurological: Alert and oriented x3, fine tremors noted in outstretched hands. Hyperreflexia (+3) bilaterally.\nCardiovascular: Tachycardic, S1/S2 audible, no murmurs.\nRespiratory: Lungs clear to auscultation bilaterally.\nEndocrine: Diffuse, non-tender goiter present. Mild bilateral exophthalmos."
+                    },
+                    {
+                        "timestamp": "Today at 07:30 (Focused)",
+                        "findings": "General: Acutely agitated, profusely diaphoretic.\nNeurological: Disoriented to time and place. Unable to follow complex commands.\nCardiovascular: Irregularly irregular rhythm at 180 bpm.\nRespiratory: Tachypneic with use of accessory muscles. Coarse crackles auscultated in bilateral lower lobes."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No radiology reports available.</p>"
+                "content": [
+                    {
+                        "type": "Chest X-ray (Portable, AP view)",
+                        "date": "Today at 07:45",
+                        "indication": "Acute dyspnea, tachypnea, and new onset crackles in a patient with suspected thyroid storm.",
+                        "findings": "The cardiomediastinal silhouette is prominent. There are signs of pulmonary vascular congestion with bilateral interstitial opacities, consistent with early pulmonary edema. No focal consolidation, pneumothorax, or pleural effusion is seen.",
+                        "impression": "Findings are suggestive of cardiogenic pulmonary edema, likely secondary to tachyarrhythmia-induced heart failure."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Today at 06:00",
+                        "Action": "Admit to Medical-Surgical Unit, Telemetry floor.",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today at 06:00",
+                        "Action": "Diagnosis: Hyperthyroidism, Graves' Disease.",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today at 06:00",
+                        "Action": "0.9% Sodium Chloride at 100 mL/hr.",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today at 06:00",
+                        "Action": "Continuous cardiac monitoring.",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today at 06:00",
+                        "Action": "Vital signs every 4 hours.",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today at 07:35",
+                        "Action": "Transfer to Intensive Care Unit.",
+                        "Frequency/Status": "STAT"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Propylthiouracil (PTU)",
+                        "Dose": "150 mg",
+                        "Route": "PO",
+                        "Frequency": "Q6H",
+                        "Last Administered": "Today at 06:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "Q4H PRN for Temp > 101°F",
+                        "Last Administered": "Not Administered"
+                    },
+                    {
+                        "Medication": "Lorazepam",
+                        "Dose": "1 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN for severe agitation",
+                        "Last Administered": "Not Administered"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Pharmacological and Parenteral Therapies",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Adaptation",
         "difficulty": 5,
         "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
+            "Endocrine",
+            "Thyroid Storm",
+            "Emergency Management",
+            "Prioritization"
         ]
     },
     "rationale": {
-        "correct": "The correct order of interventions reflects the immediate priorities in managing thyroid storm. Blocking thyroid hormone synthesis with a thionamide such as methimazole or propylthiouracil is paramount to reduce further hormone production. Beta-blockers are crucial for managing the cardiovascular manifestations such as tachycardia and atrial fibrillation, decreasing heart rate and blood pressure. Cooling measures are necessary to combat the severe hyperthermia, preventing cellular damage. Glucocorticoids are administered to prevent relative adrenal insufficiency and to inhibit the conversion of T4 to the more active T3, further reducing thyroid hormone effects. Finally, continuous monitoring for complications such as heart failure and arrhythmias is essential to promptly address any deterioration. Clinical Pearl: Remember to avoid aspirin for fever reduction as it can increase free thyroid hormone levels.",
-        "incorrect": "Incorrect sequencing of interventions can lead to adverse patient outcomes. Delaying the administration of antithyroid medications allows the excessive thyroid hormone levels to continue exerting their effects, worsening the hypermetabolic state. Failing to address the cardiovascular symptoms with beta-blockers can exacerbate tachycardia and arrhythmias, potentially leading to cardiac decompensation and increased myocardial oxygen demand. Neglecting hyperthermia can cause significant cellular damage, including neurological sequelae. Omitting glucocorticoids can precipitate adrenal insufficiency, complicating the clinical picture. Inadequate monitoring can delay the detection and management of life-threatening complications such as heart failure and arrhythmias. Question Trap: Many students might prioritize cooling measures first due to the striking hyperthermia. While important, addressing the underlying cause of excessive thyroid hormone release is paramount for stabilization.",
+        "correct": "The correct sequence prioritizes interventions based on the immediate threat to life, following the ABCs (Airway, Breathing, Circulation). Thyroid storm causes a massive adrenergic surge, leading to life-threatening tachyarrhythmias. Therefore, administering a beta-blocker (propranolol) is the first priority to stabilize the cardiovascular system (Circulation). Next, the underlying pathophysiology is addressed by blocking new hormone synthesis with PTU and inhibiting peripheral T4-to-T3 conversion with hydrocortisone. Symptomatic treatment of severe hyperthermia is then initiated. Continuous monitoring is a crucial ongoing assessment to evaluate the response to these interventions.",
+        "incorrect": "Any other sequence fails to address the most immediate life-threat. Delaying beta-blockade can result in ventricular fibrillation or cardiogenic shock. Prioritizing cooling measures over medications treats a symptom while allowing the underlying hormonal and cardiovascular crisis to worsen. Administering PTU first is a common approach, but in a client with a heart rate of 180 in A-fib, immediate rate control with a beta-blocker is paramount to prevent imminent cardiac arrest.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "justification": "Correct Priority #1. The immediate life threat in thyroid storm is cardiovascular collapse from extreme tachycardia (HR 180) and tachyarrhythmias (A-fib with RVR). Propranolol, a beta-blocker, directly counteracts the adrenergic surge, slowing the heart rate, decreasing myocardial oxygen demand, and stabilizing the client's hemodynamic status. This is the priority per ABCs (Circulation)."
+            },
+            {
+                "optionId": "opt_2",
+                "justification": "Correct Priority #2. After stabilizing the immediate cardiovascular threat, the next priority is to address the root cause: excessive thyroid hormone production. PTU, a thionamide, blocks the synthesis of new thyroid hormones in the thyroid gland. While its effect is not immediate, starting it promptly is crucial for long-term control."
+            },
+            {
+                "optionId": "opt_3",
+                "justification": "Correct Priority #3. Glucocorticoids are vital for two reasons. First, they inhibit the peripheral conversion of T4 to the more potent T3, providing a more rapid reduction in active thyroid hormone effects than PTU alone. Second, they treat potential relative adrenal insufficiency caused by the profound metabolic stress of the storm."
+            },
+            {
+                "optionId": "opt_4",
+                "justification": "Correct Priority #4. Hyperthermia (104.2°F) can lead to CNS damage and cellular dysfunction. Cooling measures are essential for symptom management and to reduce metabolic demand. However, this intervention treats a symptom, not the underlying hormonal cause. It is prioritized after the life-saving medications that address the pathophysiology directly."
+            },
+            {
+                "optionId": "opt_5",
+                "justification": "Correct Priority #5. While cardiac monitoring should be initiated immediately upon recognizing the severity of the client's condition, in a sequence of discrete, prioritized interventions, it is considered an ongoing assessment. The specific, ordered actions to reverse the crisis (medications) take precedence in this type of ranking question. Monitoring evaluates the effectiveness of the other interventions."
+            }
+        ],
         "clinicalPearls": [
-            "Thyroid storm is a life-threatening endocrine emergency characterized by severe hyperthyroidism.",
-            "The Burch-Wartofsky Point Scale is a useful tool for assessing the likelihood of thyroid storm.",
-            "Treatment involves a multi-pronged approach, addressing thyroid hormone synthesis, cardiovascular symptoms, hyperthermia, and potential adrenal insufficiency.",
-            "Aspirin should be avoided for fever reduction as it can increase free thyroid hormone levels."
+            "In thyroid storm, beta-blockers are critical. Propranolol is often preferred as it also has a mild effect on inhibiting the peripheral conversion of T4 to T3.",
+            "Avoid aspirin and other salicylates for fever management in thyroid storm. They can displace thyroid hormone from binding proteins, increasing the level of free, active hormone and worsening the crisis.",
+            "Thionamides (PTU, methimazole) block new hormone synthesis but do not affect already-circulating hormones. Therefore, their clinical effect is delayed, which is why beta-blockers and glucocorticoids are also essential for rapid stabilization."
         ],
         "questionTrap": {
-            "trap": "Many students might prioritize cooling measures first due to the striking hyperthermia. While important, addressing the underlying cause of excessive thyroid hormone release is paramount for stabilization.",
-            "howToOvercome": "Focus on addressing the root cause of the hyperthyroidism and its downstream effects on the cardiovascular system. Think systematically about the pathophysiology of thyroid storm."
+            "trap": "The most common trap is prioritizing the most dramatic symptom (the high fever) first. While a temperature of 104.2°F is critical, the tachyarrhythmia (HR 180 in A-fib) is the most immediate threat to life and must be controlled first to prevent cardiovascular collapse.",
+            "howToOvercome": "Always follow the ABCs (Airway, Breathing, Circulation) for prioritization. The extreme heart rate is a direct threat to circulation and cardiac output, making it the highest priority."
         },
         "mnemonic": {
-            "title": "The 5 B's of Thyroid Storm Treatment",
-            "expansion": "1. Block synthesis (e.g., PTU or methimazole). 2. Block T4 to T3 conversion (e.g., PTU, glucocorticoids). 3. Block hormone effects (Beta-blockers). 4. Block enterohepatic circulation (bile acid sequestrants such as cholestyramine). 5. Bolster (IV fluids, oxygen, manage complications)"
+            "title": "Storm's Brewing: Pour The Hot Coffee",
+            "expansion": "P: Propranolol (Beta-blocker for rate control)\nT: Thionamide (PTU/Methimazole to block synthesis)\nH: Hydrocortisone (Glucocorticoids to block conversion)\nC: Cooling measures (Treat hyperthermia)"
         }
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "sentinelStatus": "upgraded_standard_2026"
 }

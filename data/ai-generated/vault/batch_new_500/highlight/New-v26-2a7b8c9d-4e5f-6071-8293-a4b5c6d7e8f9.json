@@ -1,71 +1,336 @@
 {
     "id": "New-v26-2a7b8c9d-4e5f-6071-8293-a4b5c6d7e8f9",
     "type": "highlight",
-    "stem": "The patient is exhibiting signs of sepsis. Review the electronic health record and highlight the findings that support this diagnosis.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is reviewing the 07:00 progress note. Highlight the 6 findings in the note that are most consistent with a diagnosis of sepsis.",
+    "highlightableText": "S: Reporting on the 78-year-old male admitted three days prior for pneumonia. He has a history of COPD and hypertension. During the last four hours, he has shown a progressive decline. B: He is currently on IV Vancomycin and Ceftriaxone. The primary concern is his acute change in status. A: He is demonstrating altered mental status, being lethargic and slow to respond. Vital signs are: temperature 38.9°C (102.0°F), heart rate 122/min, respiratory rate 28/min, and blood pressure 88/52 mmHg. His urine output has decreased to 20 mL/hr over the last hour. The IV site on his right forearm is erythematous with purulent drainage. R: Recommend immediate provider notification for suspected sepsis, a fluid bolus, and drawing blood cultures and a lactate level.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "admitted three days prior for pneumonia"
+        },
+        {
+            "id": "opt_02",
+            "text": "history of COPD and hypertension"
+        },
+        {
+            "id": "opt_03",
+            "text": "on IV Vancomycin and Ceftriaxone"
+        },
+        {
+            "id": "opt_04",
+            "text": "altered mental status"
+        },
+        {
+            "id": "opt_05",
+            "text": "temperature 38.9°C (102.0°F)"
+        },
+        {
+            "id": "opt_06",
+            "text": "heart rate 122/min"
+        },
+        {
+            "id": "opt_07",
+            "text": "respiratory rate 28/min"
+        },
+        {
+            "id": "opt_08",
+            "text": "blood pressure 88/52 mmHg"
+        },
+        {
+            "id": "opt_09",
+            "text": "urine output has decreased to 20 mL/hr"
+        },
+        {
+            "id": "opt_10",
+            "text": "erythematous with purulent drainage"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_04",
+        "opt_05",
+        "opt_06",
+        "opt_07",
+        "opt_08",
+        "opt_09"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact and Droplet Precautions",
+            "age": "78",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, 78-year-old male, admitted three days prior for pneumonia, currently on IV Vancomycin and Ceftriaxone. B: History of COPD and hypertension. Noted increased work of breathing and altered mental status during the shift. O: At 07:00, temperature 38.9°C, heart rate 122 bpm, respiratory rate 28, blood pressure 88/52 mmHg, SpO2 90% on 2L NC. Patient is lethargic and confused. Urine output decreased to 20 mL/hr. Erythematous IV site on right forearm with purulent drainage. Labs show WBC 18,000/mm3, Lactate 4.5 mmol/L. A: Suspect sepsis secondary to pneumonia and possible IV site infection. Requesting blood cultures, lactate level, and fluid bolus. Will notify provider STAT if condition deteriorates or concerning changes occur.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/mm3 (High), Lactate: 4.5 mmol/L (High), Creatinine: 2.1 mg/dL (High), BUN: 35 mg/dL (High), Platelets: 140,000/mm3 (Low), Procalcitonin: 8 ng/mL (High). Blood cultures pending."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1 @ 14:00",
+                        "note_type": "Admission Note",
+                        "note": "S: 78-year-old male presents from home with a 3-day history of productive cough, fever, and shortness of breath. Adult child reports he has been increasingly weak. B: Patient has a known history of COPD, hypertension, and benign prostatic hyperplasia. He is a former smoker (quit 20 years ago). Lives alone, adult child assists with errands. Denies recent travel. A: Alert and oriented x3. Lungs with coarse crackles in the right lower lobe. SpO2 94% on room air. Appears fatigued but in no acute distress. Vitals stable upon admission. R: Admitted to the medical floor for community-acquired pneumonia. Plan is to start IV antibiotics, obtain blood and sputum cultures, and provide supportive care with oxygen as needed. Will monitor vital signs and respiratory status closely. Patient verbalizes understanding of the plan of care."
+                    },
+                    {
+                        "timestamp": "Day 3 @ 07:00",
+                        "note_type": "Progress Note",
+                        "note": "S: Reporting on the 78-year-old male admitted three days prior for pneumonia. He has a history of COPD and hypertension. During the last four hours, he has shown a progressive decline. B: He is currently on IV Vancomycin and Ceftriaxone. The primary concern is his acute change in status. A: He is demonstrating altered mental status, being lethargic and slow to respond. Vital signs are: temperature 38.9°C (102.0°F), heart rate 122/min, respiratory rate 28/min, and blood pressure 88/52 mmHg. His urine output has decreased to 20 mL/hr over the last hour. The IV site on his right forearm is erythematous with purulent drainage. R: Recommend immediate provider notification for suspected sepsis, a fluid bolus, and drawing blood cultures and a lactate level."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "03:00: T 38.2°C, HR 110 bpm, RR 24, BP 96/60 mmHg, SpO2 93% on 2L NC\n05:00: T 38.5°C, HR 115 bpm, RR 26, BP 90/55 mmHg, SpO2 91% on 2L NC\n07:00: T 38.9°C, HR 122 bpm, RR 28, BP 88/52 mmHg, SpO2 90% on 2L NC"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:00",
+                        "Temp": "100.8°F (38.2°C)",
+                        "HR": "110",
+                        "RR": "24",
+                        "BP": "96/60",
+                        "MAP": "72",
+                        "SpO2": "93% on 2L NC"
+                    },
+                    {
+                        "Time": "05:00",
+                        "Temp": "101.3°F (38.5°C)",
+                        "HR": "115",
+                        "RR": "26",
+                        "BP": "90/55",
+                        "MAP": "67",
+                        "SpO2": "91% on 2L NC"
+                    },
+                    {
+                        "Time": "07:00",
+                        "Temp": "102.0°F (38.9°C)",
+                        "HR": "122",
+                        "RR": "28",
+                        "BP": "88/52",
+                        "MAP": "64",
+                        "SpO2": "90% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Vancomycin 1g IV q12h (Last dose: 06:00), Ceftriaxone 2g IV q24h (Last dose: 06:00), Acetaminophen 650mg PO q4h PRN for fever, Normal Saline 500mL bolus (Ordered STAT)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "18.5",
+                        "Unit": "x10³/μL",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate",
+                        "Result": "4.5",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "2.1",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "35",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "140",
+                        "Unit": "x10³/μL",
+                        "Reference": "150-450",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "8.2",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.5",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 3 @ 07:00",
+                        "assessment_type": "Focused Assessment",
+                        "findings": "GENERAL: Appears acutely ill, lethargic.\nNEUROLOGICAL: GCS 13 (E4, V4, M5). Slow to respond to questions, oriented to person only.\nCARDIOVASCULAR: Tachycardic with S1/S2 regular. Peripheral pulses +1 and thready. Capillary refill >3 seconds. Skin is warm and flushed.\nRESPIRATORY: Tachypneic with shallow respirations. Coarse crackles persist in RLL. Increased work of breathing noted.\nGI/GU: Abdomen soft, non-tender. Indwelling urinary catheter draining scant, concentrated urine.\nINTEGUMENTARY: Right forearm peripheral IV site with 2cm erythema, induration, and purulent drainage at insertion site."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray from 3 days ago shows right lower lobe consolidation, consistent with pneumonia. No new infiltrates noted."
+                "content": [
+                    {
+                        "report_type": "Chest X-ray (PA and Lateral)",
+                        "date": "Day 1",
+                        "findings": "Lungs are well-expanded. There is consolidation in the right lower lobe, consistent with pneumonia. No evidence of pleural effusion or pneumothorax. The cardiomediastinal silhouette is within normal limits. Bony structures are unremarkable.",
+                        "impression": "Right lower lobe airspace disease, consistent with community-acquired pneumonia."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1 @ 14:30",
+                        "Action": "Admit to Medical Unit",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1 @ 14:30",
+                        "Action": "Vital signs every 4 hours",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1 @ 14:35",
+                        "Action": "Blood Cultures x2 sites",
+                        "Frequency/Status": "STAT, Completed"
+                    },
+                    {
+                        "Order Date/Time": "Day 1 @ 14:35",
+                        "Action": "CBC, CMP, Procalcitonin",
+                        "Frequency/Status": "STAT, Completed"
+                    },
+                    {
+                        "Order Date/Time": "Day 1 @ 15:00",
+                        "Action": "Vancomycin 1g IV",
+                        "Frequency/Status": "Every 12 hours"
+                    },
+                    {
+                        "Order Date/Time": "Day 1 @ 15:00",
+                        "Action": "Ceftriaxone 2g IV",
+                        "Frequency/Status": "Every 24 hours"
+                    },
+                    {
+                        "Order Date/Time": "Day 1 @ 15:00",
+                        "Action": "Acetaminophen 650mg PO",
+                        "Frequency/Status": "Every 4 hours PRN for Temp >101°F"
+                    },
+                    {
+                        "Order Date/Time": "Day 3 @ 07:15",
+                        "Action": "Normal Saline 500mL IV bolus",
+                        "Frequency/Status": "STAT"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Vancomycin",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "q12h",
+                        "Last Administered": "Day 3 @ 06:00"
+                    },
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "2g",
+                        "Route": "IV",
+                        "Frequency": "q24h",
+                        "Last Administered": "Day 3 @ 06:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650mg",
+                        "Route": "PO",
+                        "Frequency": "q4h PRN Fever",
+                        "Last Administered": "Day 3 @ 03:15"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Infection Control and Safety",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+    "rationale": {
+        "correct": "The highlighted findings are the cardinal signs of sepsis, a systemic inflammatory response to infection. This includes evidence of organ dysfunction (altered mental status, decreased urine output), hemodynamic instability (hypotension, tachycardia), and the systemic response to infection (fever, tachypnea). Together, these six findings meet the criteria for sepsis and indicate a life-threatening condition requiring immediate intervention.",
+        "incorrect": "The non-highlighted findings are either historical data, ongoing treatments, or the source of the infection rather than the systemic response itself. While important for context, they do not represent the acute physiological decompensation that defines sepsis. Selecting these distractors indicates a failure to differentiate between background information and critical, real-time indicators of organ dysfunction.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Incorrect. This is historical context about the patient's admission diagnosis. While pneumonia is the initial infection, this information does not describe the patient's current state of systemic response."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. COPD and hypertension are part of the patient's past medical history. These are risk factors that can influence outcomes but are not acute findings of sepsis."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. This describes the current treatment regimen. While relevant to the patient's care, it is an intervention, not a clinical finding or sign of sepsis."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. Altered mental status (lethargy, confusion) is a key sign of organ dysfunction, specifically cerebral hypoperfusion or inflammation, which is a hallmark of severe sepsis."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. A temperature >38.3°C (101°F) is a component of the systemic inflammatory response syndrome (SIRS) criteria and a common sign of sepsis, reflecting the body's response to pathogens."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. Tachycardia (heart rate >90/min) is a compensatory mechanism in response to vasodilation and hypovolemia in sepsis, as the heart tries to maintain cardiac output."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. Tachypnea (respiratory rate >20/min) is a compensatory response to metabolic acidosis caused by tissue hypoxia. It is a critical and early sign of sepsis."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Correct. Hypotension (systolic BP <100 mmHg or MAP <65 mmHg) indicates distributive shock from systemic vasodilation, a defining characteristic of septic shock and a sign of severe sepsis."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Correct. Decreased urine output (<0.5 mL/kg/hr), or oliguria, is a sign of acute kidney injury due to renal hypoperfusion, another critical indicator of sepsis-induced organ dysfunction."
+            },
+            {
+                "optionId": "opt_10",
+                "content": "Incorrect. While the purulent IV site is the likely source of the infection leading to sepsis, it is a localized finding. The question asks for findings consistent with the systemic condition of sepsis."
+            }
+        ],
+        "clinicalPearls": [
+            "Utilize the qSOFA (Quick Sepsis-related Organ Failure Assessment) score at the bedside for rapid identification: Respiratory rate ≥22/min, Altered mentation, Systolic BP ≤100 mmHg. A score of 2 or more suggests a high risk for poor outcomes.",
+            "Lactate is not just a lab value; it's a critical indicator of tissue hypoperfusion. A level >2 mmol/L warrants immediate action, and lactate clearance is a key goal of resuscitation.",
+            "The 'Surviving Sepsis Campaign' one-hour bundle is a critical framework: measure lactate, obtain blood cultures, administer broad-spectrum antibiotics, begin rapid fluid resuscitation, and apply vasopressors if hypotensive during or after fluids."
+        ],
+        "questionTrap": "A common trap is confusing the source of infection (e.g., purulent IV site, pneumonia) with the systemic signs of sepsis. The NCLEX tests your ability to identify the body's systemic response and organ dysfunction, not just the localized infection.",
+        "mnemonic": {
+            "title": "TIME (Sepsis Acronym)",
+            "expansion": "T - Temperature (higher or lower than normal); I - Infection (may have signs and symptoms of an infection); M - Mental decline (confused, sleepy, difficult to rouse); E - Extremely ill (severe pain or discomfort)"
+        },
+        "reviewUnits": [
+            "Sepsis and Septic Shock",
+            "Hemodynamic Monitoring",
+            "Infection Control",
+            "Acid-Base Balance",
+            "Fluid and Electrolytes"
         ]
     },
-    "rationale": {
-        "correct": "Elevated WBC count (18,000/mm3) indicates the body is fighting an infection. Elevated Lactate (4.5 mmol/L) suggests tissue hypoperfusion and anaerobic metabolism. Elevated Creatinine (2.1 mg/dL) and BUN (35 mg/dL) point to acute kidney injury, possibly due to decreased perfusion from sepsis. Low Platelets (140,000/mm3) can be a sign of disseminated intravascular coagulation (DIC), a complication of sepsis. Elevated Procalcitonin (8 ng/mL) is a strong indicator of bacterial infection and sepsis. Hypotension (BP 88/52 mmHg) is a key sign of septic shock due to vasodilation and decreased systemic vascular resistance. Tachycardia (HR 122 bpm) is the body's attempt to compensate for decreased perfusion. Tachypnea (RR 28) is the body's attempt to increase oxygenation and compensate for metabolic acidosis. Fever (38.9°C) is a systemic inflammatory response to infection, mediated by cytokines. The purulent drainage from the IV site indicates a localized infection, which can be a source of sepsis. Altered mental status (lethargy and confusion) suggests decreased cerebral perfusion and is a sign of organ dysfunction. Decreased urine output (20 mL/hr) indicates decreased renal perfusion and function.",
-        "incorrect": "While other values in the EHR are important for overall patient assessment, the highlighted findings are the most direct indicators supporting a diagnosis of sepsis. Overlooking key lab values or vital signs can lead to a delay in treatment and worsen the patient's condition. Failing to recognize the significance of each indicator in the context of sepsis can result in an incomplete assessment.",
-        "clinicalPearls": [
-            "Early recognition of sepsis is critical for improved patient outcomes. Use tools like qSOFA or SIRS criteria to aid in early detection.",
-            "Sepsis is a life-threatening condition that requires immediate intervention, following the 'Surviving Sepsis Campaign' guidelines.",
-            "Monitor trends in vital signs and lab values, as subtle changes can indicate worsening sepsis.",
-            "Always consider the source of infection and implement appropriate source control measures."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus solely on the elevated temperature and overlook other critical indicators like lactate, blood pressure, and platelet count, leading to an incomplete assessment of the patient's condition. They might also miss the significance of the IV site infection as a potential source of sepsis.",
-            "howToOvercome": "Encourage students to use a systematic approach, like the SOFA or qSOFA score, to assess for sepsis and to consider the constellation of findings rather than relying on a single data point. Emphasize the importance of identifying potential sources of infection and assessing for organ dysfunction."
-        },
-        "mnemonic": {
-            "title": "S.E.P.S.I.S.",
-            "expansion": "Slurred speech or confusion, Extreme shivering or muscle pain/fever, Passing no urine (in a day), Severe breathlessness, I feel like I’m going to die, Skin mottled or discolored"
-        }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 6
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "correctOptionId": "opt_04",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:57:43.838Z"
 }

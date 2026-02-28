@@ -1,94 +1,474 @@
 {
     "id": "New-v26-d71a982c-6e9e-4b3f-9a0a-1c3d5e7f8204",
-    "type": "dragAndDropCloze",
-    "stem": "A 62-year-old male with acute liver failure secondary to alcohol abuse is being prepared for discharge. Based on the provided information, complete the following sentences regarding his medication and dietary needs.\n\nHe will need to continue taking lactulose to reduce the level of [ ] in his blood, aiming for [ ] bowel movements per day. It is essential to restrict his intake of [ ] to minimize the risk of hepatic encephalopathy. A [ ] diet is recommended to promote liver regeneration and prevent muscle wasting. Monitor for signs of [ ], which may indicate worsening liver function and require immediate intervention.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 5
-    },
-    "itemContext": {
-        "patient": {
-            "name": "John Smith",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Medical-Surgical Unit",
-            "allergies": [
-                "NKDA"
-            ]
-        },
-        "sbar": "S: John Smith, a 62-year-old male, admitted five days ago at 07:00 due to acute liver failure from chronic alcohol abuse. He presented with ascites, jaundice, and altered mental status, indicating hepatic encephalopathy.\nB: Patient has a 30-year history of heavy alcohol use and cirrhosis diagnosed two years prior. He has a history of non-compliance with treatment.\nA: Condition improved with lactulose, diuretics, and nutritional support. Mental status improved to oriented x3. Ascites decreased. Labs trending positively but remain abnormal. Vitals: BP 120/80 mmHg, HR 80 bpm, RR 18, SpO2 98% on room air. 07:00 labs were drawn. \nO: Discharge planning in progress. Patient understands medication regimen and dietary restrictions. Family present for teaching. Expected discharge at 14:00, pending medication reconciliation.",
-        "tabs": [
+    "type": "clozeDropdown",
+    "stem": "The nurse is preparing discharge teaching for the client with acute-on-chronic liver failure. Use the dropdowns to complete the sentences for the teaching plan.",
+    "options": [
+        {
+            "id": "cloze_sentence",
+            "text": "The client will continue taking lactulose to reduce the level of [1] in the blood, aiming for [2] soft bowel movements per day. It is essential to restrict dietary intake of [3] to minimize the risk of worsening hepatic encephalopathy. A [4] diet is recommended to provide adequate calories and spare protein. The client must monitor for [5], which indicates impaired clotting factor synthesis and requires immediate medical attention."
+        }
+    ],
+    "dropdowns": {
+        "1": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Lab Results (0700):\nAmmonia: 180 mcg/dL (High; Ref: 10-80 mcg/dL)\nAlbumin: 2.8 g/dL (Low; Ref: 3.5-5.0 g/dL)\nBilirubin (Total): 3.5 mg/dL (High; Ref: 0.3-1.0 mg/dL)\nAST: 150 U/L (High; Ref: 10-40 U/L)\nALT: 175 U/L (High; Ref: 7-56 U/L)\nPT/INR: 1.8 (High; Ref: 0.9-1.1)\nCreatinine: 1.2 mg/dL (Ref: 0.6-1.2 mg/dL)\nSodium: 138 mEq/L (Ref: 135-145 mEq/L)\nPotassium: 4.0 mEq/L (Ref: 3.5-5.0 mEq/L)"
+                "id": "dd1_opt1",
+                "text": "ammonia"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Medication Administration Record:\nLactulose 30 mL PO q6h (Last dose: 0600)\nSpironolactone 100 mg PO daily (0800)\nFurosemide 40 mg PO daily (0800)\nMultivitamin PO daily (0800)"
+                "id": "dd1_opt2",
+                "text": "bilirubin"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "Vital Signs (1200):\nBP: 120/80 mmHg\nHR: 80 bpm\nRR: 18 breaths/min\nSpO2: 98% on room air\nTemperature: 98.6°F (37°C)\nWeight: 70 kg"
+                "id": "dd1_opt3",
+                "text": "creatinine"
+            }
+        ],
+        "2": [
+            {
+                "id": "dd2_opt1",
+                "text": "1-2"
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See the SBAR information in the Item Context."
+                "id": "dd2_opt2",
+                "text": "2-3"
+            },
+            {
+                "id": "dd2_opt3",
+                "text": "4-5"
+            }
+        ],
+        "3": [
+            {
+                "id": "dd3_opt1",
+                "text": "sodium"
+            },
+            {
+                "id": "dd3_opt2",
+                "text": "fat"
+            },
+            {
+                "id": "dd3_opt3",
+                "text": "protein"
+            }
+        ],
+        "4": [
+            {
+                "id": "dd4_opt1",
+                "text": "high-carbohydrate"
+            },
+            {
+                "id": "dd4_opt2",
+                "text": "low-fat"
+            },
+            {
+                "id": "dd4_opt3",
+                "text": "high-protein"
+            }
+        ],
+        "5": [
+            {
+                "id": "dd5_opt1",
+                "text": "hypoglycemia"
+            },
+            {
+                "id": "dd5_opt2",
+                "text": "signs of bleeding"
+            },
+            {
+                "id": "dd5_opt3",
+                "text": "hypertension"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Pharmacological and Parenteral Therapies",
-        "difficulty": 5,
-        "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
+    "correctOptionId": {
+        "1": "dd1_opt1",
+        "2": "dd2_opt2",
+        "3": "dd3_opt3",
+        "4": "dd4_opt1",
+        "5": "dd5_opt2"
+    },
+    "itemContext": {
+        "patient": {
+            "age": "62 years",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "No Known Drug Allergies"
+            ]
+        },
+        "tabs": [
+            {
+                "id": "nurses_notes",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "note_type": "Admission Note",
+                        "note": "S: Client is a 62-year-old male brought to the ED by his adult child with increasing confusion, lethargy, and yellowing of the skin over the past 48 hours. Adult child reports a history of heavy alcohol use and poor appetite.\nB: History of alcohol-induced cirrhosis diagnosed 2 years ago with sporadic adherence to treatment. Client lives alone in a rural area with limited access to fresh food, contributing to poor nutrition. He has no primary care provider.\nA: A&O x1, disoriented to time and place. Skin and sclera are jaundiced. Abdomen is distended and tense with a fluid wave present. Asterixis noted. Appears cachectic. Initial vitals are stable. Ammonia level is critically high.\nR: Admit to medical-surgical unit for management of acute-on-chronic liver failure and hepatic encephalopathy. Initiate lactulose, diuretics, and nutritional support. Place on fall and bleeding precautions."
+                    },
+                    {
+                        "timestamp": "Day 5, 09:00",
+                        "note_type": "Progress Note",
+                        "note": "S: Client is being prepared for discharge today. He is awake, alert, and conversant. Adult child is present at the bedside for discharge teaching.\nB: Client has responded well to treatment over the past 5 days. Lactulose has been titrated to achieve 2-3 soft stools per day. Diuretics have reduced ascites, with a 4 kg weight loss since admission. He has been compliant with a protein-restricted, high-carbohydrate diet.\nA: Mental status is now A&O x4. Jaundice is resolving. Abdominal girth has decreased. No asterixis noted on assessment. Lab values are improving but remain abnormal. Client verbalizes understanding of alcohol cessation and dietary restrictions.\nR: Continue with discharge planning. Review all home medications and diet plan with client and adult child. Ensure follow-up appointment is scheduled with a primary care provider and gastroenterologist. Confirm transportation for follow-up."
+                    }
+                ]
+            },
+            {
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp °F (°C)",
+                        "HR (bpm)",
+                        "RR (br/min)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "SpO₂ (%)"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 07:15",
+                            "99.1 (37.3)",
+                            "92",
+                            "20",
+                            "108/64",
+                            "79",
+                            "95% on RA"
+                        ],
+                        [
+                            "Day 3, 08:00",
+                            "98.8 (37.1)",
+                            "84",
+                            "18",
+                            "116/72",
+                            "87",
+                            "97% on RA"
+                        ],
+                        [
+                            "Day 5, 08:00",
+                            "98.6 (37.0)",
+                            "78",
+                            "16",
+                            "122/78",
+                            "93",
+                            "98% on RA"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Ammonia",
+                            "95",
+                            "mcg/dL",
+                            "15-45",
+                            "High"
+                        ],
+                        [
+                            "Albumin",
+                            "2.8",
+                            "g/dL",
+                            "3.5-5.0",
+                            "Low"
+                        ],
+                        [
+                            "Bilirubin, Total",
+                            "3.5",
+                            "mg/dL",
+                            "0.3-1.0",
+                            "High"
+                        ],
+                        [
+                            "AST",
+                            "150",
+                            "U/L",
+                            "10-40",
+                            "High"
+                        ],
+                        [
+                            "ALT",
+                            "175",
+                            "U/L",
+                            "7-56",
+                            "High"
+                        ],
+                        [
+                            "Prothrombin Time (PT)",
+                            "18.5",
+                            "seconds",
+                            "11-13.5",
+                            "High"
+                        ],
+                        [
+                            "INR",
+                            "1.8",
+                            "",
+                            "0.8-1.1",
+                            "High"
+                        ],
+                        [
+                            "Platelets",
+                            "95",
+                            "x10³/μL",
+                            "150-450",
+                            "Low"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 07:15",
+                        "assessment_type": "Admission Assessment",
+                        "findings": "Neurological: Lethargic, oriented to person only. Asterixis present.\nCardiovascular: Tachycardic, regular rhythm. No murmurs.\nRespiratory: Lungs clear to auscultation bilaterally.\nGastrointestinal: Abdomen distended, firm, with positive fluid wave. Bowel sounds hypoactive.\nIntegumentary: Skin warm, dry, with notable jaundice of skin and sclera. Scattered ecchymoses on bilateral upper extremities."
+                    },
+                    {
+                        "timestamp": "Day 5, 09:00",
+                        "assessment_type": "Focused Assessment",
+                        "findings": "Neurological: Alert and oriented x4. Speech clear. No asterixis.\nGastrointestinal: Abdomen soft, non-tender. Bowel sounds active in all quadrants.\nIntegumentary: Jaundice improving. No new ecchymoses noted."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "report_type": "Abdominal Ultrasound",
+                        "timestamp": "Day 1, 11:30",
+                        "report": "FINDINGS: The liver demonstrates a nodular contour and coarse echotexture, consistent with advanced cirrhosis. Moderate to large volume ascites is present within the peritoneal cavity. The spleen is enlarged. No evidence of hepatic mass or biliary obstruction.\n\nIMPRESSION: Findings are consistent with advanced cirrhosis and portal hypertension with significant ascites."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 08:00",
+                            "Admit to Medical-Surgical Unit",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 08:00",
+                            "Protein-restricted (20g/day), high-carbohydrate, low-sodium (2g/day) diet",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 08:00",
+                            "Lactulose 30 mL PO",
+                            "q6h, titrate for 2-3 soft stools/day"
+                        ],
+                        [
+                            "Day 1, 08:00",
+                            "Spironolactone 100 mg PO",
+                            "Daily"
+                        ],
+                        [
+                            "Day 1, 08:00",
+                            "Furosemide 40 mg PO",
+                            "Daily"
+                        ],
+                        [
+                            "Day 1, 08:00",
+                            "Daily weights, strict I&O, measure abdominal girth",
+                            "Daily"
+                        ],
+                        [
+                            "Day 1, 08:00",
+                            "Bleeding and fall precautions",
+                            "Standing"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Lactulose",
+                            "30 mL",
+                            "PO",
+                            "q6h",
+                            "Day 5, 06:00"
+                        ],
+                        [
+                            "Spironolactone",
+                            "100 mg",
+                            "PO",
+                            "Daily",
+                            "Day 5, 08:00"
+                        ],
+                        [
+                            "Furosemide",
+                            "40 mg",
+                            "PO",
+                            "Daily",
+                            "Day 5, 08:00"
+                        ],
+                        [
+                            "Multivitamin",
+                            "1 tablet",
+                            "PO",
+                            "Daily",
+                            "Day 5, 08:00"
+                        ]
+                    ]
+                }
+            }
         ]
     },
     "rationale": {
-        "correct": "Lactulose is prescribed to reduce ammonia levels in the blood, a key factor in hepatic encephalopathy. The goal is typically 2-3 soft bowel movements per day to eliminate ammonia. Restricting protein intake is crucial because protein breakdown produces ammonia, exacerbating encephalopathy. A high-carbohydrate diet spares protein breakdown, providing energy and supporting liver regeneration. Monitor for signs of increased bleeding, such as petechiae or ecchymosis, due to impaired clotting factor synthesis in liver failure.",
-        "incorrect": "Incorrect answers demonstrate a misunderstanding of the pathophysiology of liver failure and its management. For example, suggesting a high-protein diet would worsen hepatic encephalopathy by increasing ammonia production. Ignoring potential bleeding risks neglects the impaired clotting factor production associated with liver failure. The number of bowel movements is carefully titrated; too few isn't effective, and too many can lead to dehydration and electrolyte imbalances.",
-        "clinicalPearls": [
-            "Lactulose is titrated to effect, not a fixed dose. Assess the patient's bowel movements regularly and monitor for dehydration.",
-            "Monitor for hypokalemia with lactulose and diuretics, as both can contribute to potassium loss.",
-            "Encephalopathy can fluctuate, requiring ongoing assessment of mental status and adjustments to treatment. Subtle changes can indicate worsening liver function."
+        "correct": "The discharge teaching plan for a client with hepatic encephalopathy focuses on reducing ammonia production and absorption, managing fluid balance, and preventing complications. Lactulose, a non-absorbable disaccharide, acidifies the colon, trapping ammonia (NH3) as ammonium (NH4+) and promoting its excretion through osmotic diarrhea. The therapeutic goal is 2-3 soft stools daily. Dietary protein is the primary source of ammonia; therefore, it must be restricted. A high-carbohydrate diet provides necessary calories, preventing muscle catabolism (gluconeogenesis), which would otherwise increase ammonia levels. The failing liver cannot synthesize adequate clotting factors (prothrombin) or clear activated factors, leading to a high risk of bleeding (elevated PT/INR, low platelets).",
+        "incorrect": "This response demonstrates a comprehensive understanding of the pathophysiology and management of acute-on-chronic liver failure. There are no incorrect selections.",
+        "answerBreakdown": [
+            {
+                "optionId": {
+                    "1": "dd1_opt1"
+                },
+                "content": "Correct. Lactulose's primary mechanism is to lower serum ammonia levels. The failing liver cannot convert ammonia, a neurotoxic byproduct of protein metabolism, into urea for excretion. Lactulose creates an acidic gut environment that traps ammonia and expels it from the body."
+            },
+            {
+                "optionId": {
+                    "1": "dd1_opt2"
+                },
+                "content": "Incorrect. Bilirubin is a byproduct of red blood cell breakdown and causes jaundice, but lactulose does not directly target its levels."
+            },
+            {
+                "optionId": {
+                    "1": "dd1_opt3"
+                },
+                "content": "Incorrect. Creatinine is a marker of renal function. While hepatorenal syndrome is a complication of liver failure, lactulose's primary therapeutic target is ammonia."
+            },
+            {
+                "optionId": {
+                    "2": "dd2_opt2"
+                },
+                "content": "Correct. The therapeutic goal for lactulose is 2-3 soft bowel movements per day. This frequency indicates effective ammonia excretion without causing excessive fluid and electrolyte loss."
+            },
+            {
+                "optionId": {
+                    "2": "dd2_opt1"
+                },
+                "content": "Incorrect. One to two bowel movements may be insufficient to adequately clear ammonia from the gut, risking a recurrence of encephalopathy."
+            },
+            {
+                "optionId": {
+                    "2": "dd2_opt3"
+                },
+                "content": "Incorrect. Four to five bowel movements per day is excessive and can lead to dehydration, hypokalemia, and other electrolyte imbalances, which can worsen encephalopathy."
+            },
+            {
+                "optionId": {
+                    "3": "dd3_opt3"
+                },
+                "content": "Correct. Protein metabolism in the gut by bacteria is the main source of ammonia. Restricting dietary protein is a cornerstone of managing hepatic encephalopathy to reduce the substrate for ammonia production."
+            },
+            {
+                "optionId": {
+                    "3": "dd3_opt1"
+                },
+                "content": "Incorrect. While sodium is restricted to manage ascites and fluid retention, protein is the key macronutrient restricted to manage encephalopathy."
+            },
+            {
+                "optionId": {
+                    "3": "dd3_opt2"
+                },
+                "content": "Incorrect. Fat intake is not the primary concern related to hepatic encephalopathy. The focus is on ammonia production from protein."
+            },
+            {
+                "optionId": {
+                    "4": "dd4_opt1"
+                },
+                "content": "Correct. A high-carbohydrate diet provides a primary energy source, which prevents the body from breaking down its own muscle tissue for fuel (catabolism). Muscle catabolism releases amino acids, which increases the ammonia load on the liver."
+            },
+            {
+                "optionId": {
+                    "4": "dd4_opt2"
+                },
+                "content": "Incorrect. While a balanced diet is important, the specific priority for preventing catabolism in this context is ensuring adequate calories, primarily from carbohydrates, not restricting fat."
+            },
+            {
+                "optionId": {
+                    "4": "dd4_opt3"
+                },
+                "content": "Incorrect. A high-protein diet is contraindicated as it would directly increase ammonia production and worsen hepatic encephalopathy."
+            },
+            {
+                "optionId": {
+                    "5": "dd5_opt2"
+                },
+                "content": "Correct. The liver synthesizes most clotting factors. In severe liver disease, this function is impaired, leading to an elevated PT/INR and thrombocytopenia. This places the client at high risk for bleeding (e.g., ecchymosis, petechiae, GI bleeding)."
+            },
+            {
+                "optionId": {
+                    "5": "dd5_opt1"
+                },
+                "content": "Incorrect. While the liver is involved in glycogen storage and gluconeogenesis, and hypoglycemia can occur, the more immediate and life-threatening complication related to impaired synthesis is coagulopathy."
+            },
+            {
+                "optionId": {
+                    "5": "dd5_opt3"
+                },
+                "content": "Incorrect. Hypotension, not hypertension, is more common in advanced liver disease due to peripheral vasodilation and fluid shifts (ascites)."
+            }
         ],
-        "questionTrap": {
-            "trap": "The question may trick you into focusing solely on the medications and overlooking the dietary aspects or complications. Some might assume a 'regular' protein diet is acceptable without considering the liver's impaired ability to process it, or forget the bleeding risks.",
-            "howToOvercome": "Carefully consider all aspects of liver failure management, including medications, diet, and potential complications. Remember that the liver's impaired function affects multiple metabolic processes and clotting mechanisms."
-        },
+        "clinicalPearls": [
+            "Asterixis, or the 'liver flap,' is a classic sign of hepatic encephalopathy. It is a tremor of the hand when the wrist is extended, and it reflects metabolic encephalopathy.",
+            "Over-diuresis in a client with ascites can precipitate hepatorenal syndrome, a form of acute kidney injury. Monitor renal function (BUN, creatinine) and electrolytes closely.",
+            "Lactulose can cause significant potassium loss. Hypokalemia can worsen hepatic encephalopathy by increasing renal ammonia production. Monitor potassium levels diligently.",
+            "The presence of a Social Determinant of Health (SDOH) barrier, such as living in a food desert, is critical for discharge planning. The nurse must collaborate with social work to ensure the client can access the prescribed low-protein, high-carbohydrate diet."
+        ],
+        "questionTrap": "A common trap is confusing the dietary restrictions. While low sodium is crucial for ascites, low protein is the priority for hepatic encephalopathy. Candidates may also forget that the goal of lactulose is a specific number of bowel movements, not just 'taking the medicine'.",
         "mnemonic": {
-            "title": "LIVER",
-            "expansion": "Limit protein, Increase Carbohydrates, Vitamin supplementation, Evaluate for bleeding risks, Reduce ammonia levels"
-        }
+            "title": "HEPATIC",
+            "expansion": "H: High-carbohydrate diet\nE: Encephalopathy assessment (check for asterixis)\nP: Protein restriction\nA: Ammonia reduction (via lactulose)\nT: Thrombocytopenia/bleeding risk (monitor PT/INR)\nI: Intake and output (monitor for fluid shifts)\nC: Cirrhosis complications (ascites, jaundice)"
+        },
+        "reviewUnits": [
+            "Gastrointestinal",
+            "Pharmacology",
+            "Nutrition"
+        ]
     },
-    "distractors": [
-        "Sodium",
-        "Ammonia",
-        "Creatinine",
-        "1-2",
-        "2-3",
-        "4-5",
-        "Protein",
-        "Fat",
-        "Sodium",
-        "High-protein",
-        "Low-fat",
-        "High-carbohydrate",
-        "Increased bleeding",
-        "Hypoglycemia",
-        "Hypertension"
-    ],
-    "solution": {
-        "Ammonia": 1,
-        "2-3": 1,
-        "Protein": 1,
-        "High-carbohydrate": 1,
-        "Increased bleeding": 1
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Pharmacological and Parenteral Therapies"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T14:56:47.324Z"
 }

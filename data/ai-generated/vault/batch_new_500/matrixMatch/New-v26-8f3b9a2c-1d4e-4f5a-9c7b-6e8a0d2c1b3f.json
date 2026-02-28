@@ -1,89 +1,318 @@
 {
     "id": "New-v26-8f3b9a2c-1d4e-4f5a-9c7b-6e8a0d2c1b3f",
     "type": "matrixMatch",
-    "stem": "The nurse is preparing medications for Mrs. Eleanor Vance. Based on the provided information, indicate whether each medication order is safe or unsafe for this patient. Consider all data within the EHR tabs.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is reviewing new medication orders for a client admitted for heart failure exacerbation. For each medication, determine if the order is appropriate or contraindicated based on the client's electronic health record.",
+    "matrixRows": [
+        {
+            "id": "med1",
+            "text": "Furosemide 40 mg IV push"
+        },
+        {
+            "id": "med2",
+            "text": "Digoxin 0.125 mg PO daily"
+        },
+        {
+            "id": "med3",
+            "text": "Potassium Chloride 20 mEq PO BID"
+        },
+        {
+            "id": "med4",
+            "text": "Enalapril 5 mg PO daily"
+        }
+    ],
+    "matrixColumns": [
+        {
+            "id": "col1",
+            "text": "Appropriate"
+        },
+        {
+            "id": "col2",
+            "text": "Contraindicated"
+        }
+    ],
+    "correctResponse": [
+        {
+            "rowId": "med1",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "med2",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "med3",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "med4",
+            "columnId": "col1"
+        }
+    ],
     "itemContext": {
         "patient": {
             "name": "Eleanor Vance",
-            "age": 78,
-            "gender": "Female",
-            "iso": "Medical Surgical Unit",
+            "age": "78 years",
+            "sex": "Female",
+            "pronouns": "she/her",
             "allergies": [
                 "Penicillin"
             ],
             "isolation": "Droplet"
         },
-        "sbar": "S: Eleanor Vance, 78-year-old female, admitted to Medical-Surgical Unit for heart failure exacerbation. Reports increased shortness of breath and lower extremity edema. O: At 07:00, BP 160/95 mmHg, HR 110 bpm, RR 28 breaths/min, SpO2 90% on room air. Auscultation: crackles in both lungs. 2+ lower extremity edema. Labs drawn at 07:30. A: Heart failure exacerbation, likely fluid overload. Hypokalemia noted on labs. B: Physician notified at 07:15, new orders received. Current medication orders: furosemide 40 mg IV push, digoxin 0.125 mg PO daily, potassium chloride 20 mEq PO BID, enalapril 5 mg PO daily. Vitals reassessed at 08:00: BP 155/92 mmHg, HR 105 bpm, RR 26 breaths/min, SpO2 92% on 2L NC. Placed on droplet precautions due to possible respiratory infection.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 138 mEq/L, K: 3.2 mEq/L, Cl: 100 mEq/L, BUN: 35 mg/dL, Creatinine: 1.8 mg/dL, Digoxin Level: 0.6 ng/mL"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "header": "Admission Note",
+                        "note": "S: Eleanor Vance, a 78-year-old female, admitted from the emergency department with acute decompensated heart failure. Reports a 3-day history of worsening dyspnea, orthopnea, and bilateral leg swelling.\nB: History of hypertension, coronary artery disease, and chronic heart failure (last known EF 35%). Known allergy to Penicillin. Lives alone in a third-floor walk-up apartment, which is a barrier to care; reports difficulty with medication adherence and affording a low-sodium diet.\nA: Alert but anxious. Tachypneic at 28/min, SpO2 90% on room air. Bibasilar crackles noted on auscultation. +3 pitting edema to mid-shin. BP 160/95 mmHg, HR 110 bpm. Productive cough noted.\nR: Initiate oxygen therapy, obtain IV access, administer ordered diuretics, and monitor cardiorespiratory status closely. Place on droplet precautions due to productive cough."
+                    },
+                    {
+                        "timestamp": "Day 1, 09:00",
+                        "header": "Progress Note",
+                        "note": "S: Client is receiving 2L O2 via nasal cannula. Reports slight improvement in breathing, stating, 'I can catch my breath a little better.'\nB: Furosemide 40 mg IV administered at 08:15. Potassium Chloride 20 mEq PO given at 08:30. Client has voided 400 mL of clear yellow urine since diuretic administration.\nA: SpO2 is now 94% on 2L NC. RR 24/min. HR 102 bpm, sinus tachycardia on monitor. BP 152/90 mmHg. Crackles remain but are less pronounced in upper lung fields. Edema unchanged. \nR: Continue monitoring intake/output and vital signs every 2 hours. Administer scheduled enalapril and digoxin with morning meal. Reinforce education on fluid and sodium restrictions. Consult social work regarding discharge planning and home support."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: BP 160/95 mmHg, HR 110 bpm, RR 28 breaths/min, SpO2 90% on room air.\n08:00: BP 155/92 mmHg, HR 105 bpm, RR 26 breaths/min, SpO2 92% on 2L NC."
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "07:00",
+                        "Temp": "98.9°F (37.2°C)",
+                        "HR": "110",
+                        "RR": "28",
+                        "BP": "160/95 (117)",
+                        "SpO2": "90% on RA"
+                    },
+                    {
+                        "Time": "08:00",
+                        "Temp": "99.0°F (37.2°C)",
+                        "HR": "105",
+                        "RR": "26",
+                        "BP": "155/92 (113)",
+                        "SpO2": "92% on 2L NC"
+                    },
+                    {
+                        "Time": "09:00",
+                        "Temp": "98.8°F (37.1°C)",
+                        "HR": "102",
+                        "RR": "24",
+                        "BP": "152/90 (111)",
+                        "SpO2": "94% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Furosemide 40 mg IV push\nDigoxin 0.125 mg PO daily\nPotassium Chloride 20 mEq PO BID\nEnalapril 5 mg PO daily"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Sodium (Na)",
+                        "Value": "138",
+                        "Unit": "mEq/L",
+                        "Ref Range": "135-145",
+                        "Status": ""
+                    },
+                    {
+                        "Result": "Potassium (K)",
+                        "Value": "3.2",
+                        "Unit": "mEq/L",
+                        "Ref Range": "3.5-5.0",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "Chloride (Cl)",
+                        "Value": "100",
+                        "Unit": "mEq/L",
+                        "Ref Range": "98-106",
+                        "Status": ""
+                    },
+                    {
+                        "Result": "BUN",
+                        "Value": "35",
+                        "Unit": "mg/dL",
+                        "Ref Range": "10-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "1.8",
+                        "Unit": "mg/dL",
+                        "Ref Range": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "BNP",
+                        "Value": "1250",
+                        "Unit": "pg/mL",
+                        "Ref Range": "<100",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Digoxin Level",
+                        "Value": "0.6",
+                        "Unit": "ng/mL",
+                        "Ref Range": "0.5-2.0",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Tachycardic rate, regular rhythm. S3 gallop present. Jugular vein distention (JVD) noted at 45 degrees. Capillary refill <3 seconds. Bilateral lower extremity edema +3 pitting to mid-shin."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Respirations labored. Bilateral bibasilar crackles on auscultation. Productive cough with clear sputum. Symmetrical chest expansion."
+                    },
+                    {
+                        "System": "Neurological",
+                        "Findings": "Alert and oriented x3. Reports feeling anxious. Moves all extremities purposefully."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": {
+                    "type": "Chest X-ray (PA and Lateral)",
+                    "date": "Day 1, 07:30",
+                    "findings": "The cardiac silhouette is enlarged. There are prominent interstitial markings and Kerley B lines consistent with interstitial edema. Small bilateral pleural effusions are noted, blunting the costophrenic angles. The pulmonary vasculature appears congested.",
+                    "impression": "Findings are consistent with acute pulmonary edema secondary to congestive heart failure exacerbation."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 08:00",
+                        "Action": "Furosemide 40 mg IV push",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 08:00",
+                        "Action": "Digoxin 0.125 mg PO",
+                        "Frequency/Status": "Daily"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 08:00",
+                        "Action": "Potassium Chloride 20 mEq PO",
+                        "Frequency/Status": "BID"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 08:00",
+                        "Action": "Enalapril 5 mg PO",
+                        "Frequency/Status": "Daily"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 07:15",
+                        "Action": "Oxygen to maintain SpO2 >92%",
+                        "Frequency/Status": "Continuous"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 07:15",
+                        "Action": "Cardiac telemetry",
+                        "Frequency/Status": "Continuous"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 07:15",
+                        "Action": "2-gram sodium, 1.5-liter fluid restriction diet",
+                        "Frequency/Status": "Standing"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Furosemide",
+                        "Dose": "40 mg",
+                        "Route": "IV",
+                        "Frequency": "STAT",
+                        "Last Administered": "08:15"
+                    },
+                    {
+                        "Medication": "Digoxin",
+                        "Dose": "0.125 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "N/A - New Order"
+                    },
+                    {
+                        "Medication": "Potassium Chloride",
+                        "Dose": "20 mEq",
+                        "Route": "PO",
+                        "Frequency": "BID",
+                        "Last Administered": "08:30"
+                    },
+                    {
+                        "Medication": "Enalapril",
+                        "Dose": "5 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "N/A - New Order"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
-        ]
-    },
     "rationale": {
-        "correct": "Furosemide is appropriate to reduce fluid overload, addressing elevated BP/RR. Digoxin dose is safe, given the therapeutic level. Potassium chloride addresses hypokalemia, worsened by furosemide. Enalapril is indicated for heart failure but requires BP monitoring.",
-        "incorrect": "Withholding furosemide exacerbates fluid overload/respiratory distress. Digoxin level is therapeutic, so withholding is incorrect. Not administering potassium chloride worsens hypokalemia, risking arrhythmias. Enalapril is indicated for heart failure and should not be withheld without contraindications.",
+        "correct": "All ordered medications are appropriate components of standard evidence-based therapy for acute decompensated heart failure. Each medication addresses a specific pathophysiological aspect of the client's condition, such as fluid overload, impaired contractility, electrolyte imbalance, and afterload reduction.",
+        "incorrect": "Marking any of the medications as contraindicated would be incorrect. While there are risks and necessary nursing assessments for each (e.g., renal function, potassium levels, blood pressure), the orders themselves are clinically indicated and necessary to stabilize the client's condition.",
+        "answerBreakdown": [
+            {
+                "optionId": "med1",
+                "content": "Furosemide is appropriate. The client has significant fluid volume excess, evidenced by bibasilar crackles, +3 pitting edema, JVD, and CXR findings of pulmonary edema. A loop diuretic is essential to reduce preload and alleviate respiratory distress. Although BUN and creatinine are elevated, the need for diuresis is urgent and outweighs the risk of further renal strain."
+            },
+            {
+                "optionId": "med2",
+                "content": "Digoxin is appropriate. As a positive inotrope, it improves cardiac contractility in heart failure. The client's serum digoxin level is 0.6 ng/mL, which is within the therapeutic range. While hypokalemia (K=3.2 mEq/L) increases the risk of digoxin toxicity, a concurrent order for potassium replacement makes the digoxin order itself appropriate. The nurse's priority is to administer the potassium."
+            },
+            {
+                "optionId": "med3",
+                "content": "Potassium Chloride is appropriate and critical. The client's potassium is low (3.2 mEq/L), and furosemide is a potassium-wasting diuretic that will lower it further. Correcting hypokalemia is vital to prevent life-threatening cardiac arrhythmias, especially in a client receiving digoxin."
+            },
+            {
+                "optionId": "med4",
+                "content": "Enalapril is appropriate. As an ACE inhibitor, it reduces afterload and preload, which is a cornerstone of heart failure management. The client's blood pressure is elevated (152/90 mmHg at 09:00), indicating they can tolerate this medication. Close monitoring of blood pressure after administration is a necessary nursing action."
+            }
+        ],
         "clinicalPearls": [
-            "Assess renal function (BUN, creatinine) before nephrotoxic drugs like furosemide.",
-            "Monitor potassium with diuretics, especially with digoxin.",
-            "Titrate enalapril cautiously, especially with borderline/low BP, to avoid hypotension."
+            "In acute decompensated heart failure, the benefits of diuresis with loop diuretics often outweigh the risks associated with pre-existing renal insufficiency (cardio-renal syndrome).",
+            "Hypokalemia potentiates digoxin toxicity. Always verify potassium levels before administering digoxin and ensure replacement is ordered if the client is also on potassium-wasting diuretics.",
+            "The presence of an S3 gallop in an older adult is a classic sign of fluid overload and left ventricular failure.",
+            "Social determinants of health, such as housing and food insecurity, are critical factors in medication adherence and management of chronic diseases like heart failure."
         ],
-        "questionTrap": {
-            "trap": "Students may focus on elevated BP, overlooking hypokalemia/need for diuresis. They might miss that digoxin level is normal.",
-            "howToOvercome": "Assess all data (labs, vitals) to understand the complete clinical picture."
-        },
+        "questionTrap": "The primary trap is seeing the low potassium level (3.2 mEq/L) and high creatinine (1.8 mg/dL) and immediately marking digoxin or furosemide as 'Contraindicated'. The key is to evaluate the entire clinical picture and the complete set of orders. The orders are a therapeutic plan; the potassium replacement order makes the digoxin and furosemide orders appropriate parts of that plan.",
         "mnemonic": {
-            "title": "Potassium-Wasting Diuretics Side Effects",
-            "expansion": "Hypokalemia, Hypotension, Hyperglycemia, Ototoxicity, Uric Acid Increase, Nausea, Electrolyte Imbalance, Skin Sensitivity to Sun"
-        }
-    },
-    "matrixMatchOptions": {
-        "rows": [
-            "Furosemide 40 mg IV push",
-            "Digoxin 0.125 mg PO daily",
-            "Potassium Chloride 20 mEq PO BID",
-            "Enalapril 5 mg PO daily"
-        ],
-        "columns": [
-            "Safe",
-            "Unsafe"
+            "title": "Heart Failure Treatment: UNLOAD FAST",
+            "expansion": "Upright position, Nitrates, Lasix (Furosemide), Oxygen, ACE inhibitors, Digoxin, Fluids (decrease), Afterload (decrease), Sodium (decrease), Test (Dig level, ABGs, K+)"
+        },
+        "reviewUnits": [
+            "Pharmacology: Cardiovascular Drugs",
+            "Pathophysiology: Heart Failure",
+            "Fundamentals: Medication Safety"
         ]
     },
-    "correctResponse": {
-        "Furosemide 40 mg IV push": "Safe",
-        "Digoxin 0.125 mg PO daily": "Safe",
-        "Potassium Chloride 20 mEq PO BID": "Safe",
-        "Enalapril 5 mg PO daily": "Safe"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Pharmacological and Parenteral Therapies"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:12:15.121Z"
 }
