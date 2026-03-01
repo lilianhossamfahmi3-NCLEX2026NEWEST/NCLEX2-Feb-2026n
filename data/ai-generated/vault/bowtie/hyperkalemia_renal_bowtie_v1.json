@@ -1,48 +1,139 @@
 {
-    "id": "hyperkalemia_renal_bowtie_v1",
+    "id": "hyperkalemia_renal_bowtie_v2",
     "type": "bowtie",
-    "stem": "A client with End-Stage Renal Disease (ESRD) missed two dialysis sessions. Current labs: Potassium 7.2 mEq/L. EKG shows peaked T-waves and a widened QRS complex. Which actions and parameters are MOST appropriate for the nurse to implement?",
+    "sentinelStatus": "audited_BARA_v2026_f1",
+    "clinicalFeed": {
+        "type": "SBAR",
+        "content": "Good morning, this is the nurse on the medical unit at 08:30. **Situation:** I'm calling about the client in room 204, who has End-Stage Renal Disease and missed two dialysis sessions. **Background:** The client is dialysis-dependent and presented this morning with lethargy and muscle weakness. **Assessment:** The cardiac monitor shows peaked T-waves and a widened QRS complex. A STAT lab confirmed a critical serum potassium of 7.2 mEq/L, placing the client at high risk for cardiac arrest. **Recommendation:** I request immediate orders for STAT IV Calcium Gluconate, IV Regular Insulin with D50, and continuous cardiac monitoring."
+    },
+    "tabs": [
+        {
+            "id": "labs",
+            "label": "Labs",
+            "content": [
+                {
+                    "group": "Basic Metabolic Panel (BMP)",
+                    "time": "08:25",
+                    "items": [
+                        {
+                            "name": "Sodium",
+                            "value": "134 mEq/L",
+                            "range": "136-145 mEq/L",
+                            "status": "low"
+                        },
+                        {
+                            "name": "Potassium",
+                            "value": "7.2 mEq/L",
+                            "range": "3.5-5.0 mEq/L",
+                            "status": "critical"
+                        },
+                        {
+                            "name": "Chloride",
+                            "value": "100 mEq/L",
+                            "range": "98-106 mEq/L",
+                            "status": "normal"
+                        },
+                        {
+                            "name": "Bicarbonate (CO2)",
+                            "value": "18 mEq/L",
+                            "range": "22-29 mEq/L",
+                            "status": "low"
+                        },
+                        {
+                            "name": "BUN",
+                            "value": "85 mg/dL",
+                            "range": "10-20 mg/dL",
+                            "status": "high"
+                        },
+                        {
+                            "name": "Creatinine",
+                            "value": "9.8 mg/dL",
+                            "range": "0.6-1.2 mg/dL",
+                            "status": "high"
+                        },
+                        {
+                            "name": "Glucose",
+                            "value": "110 mg/dL",
+                            "range": "74-106 mg/dL",
+                            "status": "high"
+                        },
+                        {
+                            "name": "Calcium",
+                            "value": "8.2 mg/dL",
+                            "range": "9.0-10.5 mg/dL",
+                            "status": "low"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "stem": "The nurse is caring for a client with end-stage renal disease who missed two dialysis sessions and now has critical hyperkalemia with EKG changes. Based on the client's data, what actions should the nurse take and what parameters should be monitored?",
     "actions": [
         {
-            "id": "action4",
-            "text": "Initiate IV 5% Dextrose/Water (D5W) at 150 mL/hr."
+            "id": "action1",
+            "text": "Administer STAT Calcium Gluconate IV.",
+            "hoverRationale": "Severe hyperkalemia increases myocardial excitability, risking fatal arrhythmias. Calcium gluconate stabilizes the cardiac membrane by antagonizing potassium's effect on membrane potential, preventing dysrhythmias while other treatments lower serum potassium."
         },
         {
             "id": "action2",
-            "text": "Administer IV Regular Insulin and D50 STAT."
+            "text": "Administer IV Regular Insulin and D50 STAT.",
+            "hoverRationale": "Insulin activates the Na+/K+-ATPase pump, which shifts potassium from the extracellular fluid into the intracellular space. This rapidly lowers serum potassium levels, directly treating the hyperkalemia. D50 is given concurrently to prevent hypoglycemia."
         },
         {
             "id": "action3",
-            "text": "Administer PO Spironolactone."
+            "text": "Administer PO Spironolactone.",
+            "hoverRationale": "This is clinically flawed. Spironolactone is a potassium-sparing diuretic that blocks aldosterone, leading to potassium retention. Administering it would dangerously worsen the client's already life-threatening hyperkalemia."
         },
         {
-            "id": "action1",
-            "text": "Administer STAT Calcium Gluconate IV."
+            "id": "action4",
+            "text": "Initiate IV 5% Dextrose/Water (D5W) at 150 mL/hr.",
+            "hoverRationale": "This is clinically flawed. D5W alone does not contain insulin and will not shift potassium into the cells. This action fails to address the urgent need to lower serum potassium and stabilize the cardiac membrane."
         }
     ],
     "potentialConditions": [
-        "Hyperkalemia (Severe)",
-        "Digitalis Toxicity",
-        "Hypokalemia (ECG confusion)",
-        "Hypercalcemia"
+        {
+            "id": "condition1",
+            "text": "Hyperkalemia (Severe)",
+            "hoverRationale": "The client's history of ESRD with missed dialysis, serum potassium of 7.2 mEq/L, and EKG changes (peaked T-waves, wide QRS) are classic signs of severe, life-threatening hyperkalemia."
+        },
+        {
+            "id": "condition2",
+            "text": "Digitalis Toxicity",
+            "hoverRationale": "This diagnosis is less likely. While digitalis toxicity can cause hyperkalemia and EKG changes, the primary cause is clearly missed dialysis in an ESRD client. There is no information suggesting digitalis use."
+        },
+        {
+            "id": "condition3",
+            "text": "Hypokalemia (ECG confusion)",
+            "hoverRationale": "This diagnosis is incorrect. The EKG findings of peaked T-waves and widened QRS are pathognomonic for hyperkalemia, not hypokalemia. Hypokalemia typically presents with flattened T-waves, U-waves, and ST depression."
+        },
+        {
+            "id": "condition4",
+            "text": "Hypercalcemia",
+            "hoverRationale": "This diagnosis is incorrect. Hypercalcemia EKG changes include a shortened QT interval, not the peaked T-waves and widened QRS seen here. Furthermore, ESRD is more commonly associated with hypocalcemia."
+        }
     ],
     "condition": "Hyperkalemia (Severe)",
     "parameters": [
         {
+            "id": "param1",
+            "text": "Continuous EKG monitoring.",
+            "hoverRationale": "Hyperkalemia directly impacts cardiac electrical conduction, posing an immediate risk of lethal arrhythmias. Continuous EKG monitoring is essential to track the heart's response to treatment and detect any deterioration."
+        },
+        {
             "id": "param2",
-            "text": "Serum Potassium levels."
+            "text": "Serum Potassium levels.",
+            "hoverRationale": "The primary goal of treatment is to lower the serum potassium. Frequent monitoring of potassium levels is crucial to evaluate the effectiveness of interventions like insulin and D50 and to guide further treatment decisions."
         },
         {
             "id": "param3",
-            "text": "Blood Glucose."
-        },
-        {
-            "id": "param1",
-            "text": "Continuous EKG monitoring."
+            "text": "Blood Glucose.",
+            "hoverRationale": "This is a secondary parameter. While important to monitor after administering insulin and D50 to prevent hypoglycemia, the primary, life-threatening issue is the cardiac effect of hyperkalemia, making EKG and potassium levels the priority."
         },
         {
             "id": "param4",
-            "text": "Deep Tendon Reflexes."
+            "text": "Deep Tendon Reflexes.",
+            "hoverRationale": "This is a low-priority assessment. While severe hyperkalemia can cause muscle weakness or paralysis, deep tendon reflexes are not a sensitive or primary indicator for monitoring the acute, life-threatening cardiac complications."
         }
     ],
     "correctActionIds": [
@@ -64,88 +155,8 @@
             "Emergency"
         ]
     },
-    "rationale": {
-        "correct": "The client is experiencing severe hyperkalemia, a life-threatening electrolyte imbalance. The priority is to stabilize the cardiac membrane with Calcium Gluconate to prevent arrhythmias (peaked T waves, widened QRS indicate cardiac compromise). Regular Insulin with D50 shifts potassium intracellularly, reducing serum levels. Continuous EKG monitoring and serial potassium levels are crucial to assess treatment effectiveness.",
-        "incorrect": "Spironolactone, a potassium-sparing diuretic, is contraindicated as it will further elevate potassium levels. D5W alone will not effectively lower potassium and may worsen hyperglycemia. While monitoring blood glucose is important, it's secondary to addressing the immediate hyperkalemia. Assessing reflexes is not a priority in this acute situation.",
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Hyperkalemia (Severe)\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Initiate IV 5% Dextrose/Water (D5W) at 150 mL/hr\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer IV Regular Insulin and D50 STAT\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer PO Spironolactone\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer STAT Calcium Gluconate IV\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Serum Potassium levels\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Blood Glucose\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Continuous EKG monitoring\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Deep Tendon Reflexes\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            }
-        ],
-        "clinicalPearls": [
-            "Peaked T-waves are the earliest EKG sign of hyperkalemia; a widened QRS complex indicates a higher risk of ventricular fibrillation. Always prioritize cardiac monitoring in hyperkalemic patients."
-        ],
-        "questionTrap": {
-            "trap": "Thinking Calcium lowers Potassium",
-            "howToOvercome": "Calcium only protects the heart by stabilizing the cardiac membrane. Insulin is what actually lowers the serum potassium level by shifting it intracellularly. Remember to administer D50 to prevent hypoglycemia from the insulin."
-        },
-        "mnemonic": {
-            "title": "HYPERKALEMIA",
-            "expansion": "H = Hyperkalemia\n\nKey Actions: Administer STAT Calcium Gluconate IV; Administer IV Regular Insulin and D50 STAT\nKey Monitoring: Continuous EKG monitoring; Serum Potassium levels"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Hyperkalemia — Pathophysiology & Recognition",
-                "body": "Severe hyperkalemia (K+ > 7.0 mEq/L) in ESRD is often due to impaired renal excretion. The elevated potassium disrupts cellular membrane potentials, particularly affecting cardiac conduction. Peaked T-waves are an early sign, progressing to widened QRS, loss of P waves, and ultimately, life-threatening arrhythmias. Calcium gluconate stabilizes the cardiac membrane, while insulin and glucose drive potassium into cells.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Thinking Calcium lowers Potassium",
-                "body": "Calcium does not lower potassium levels; it only antagonizes the effects of potassium on the heart. Insulin, along with glucose to prevent hypoglycemia, is the primary treatment to shift potassium intracellularly.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Hyperkalemia",
-                "body": "The priority nursing interventions are: Administer STAT Calcium Gluconate IV to protect the heart; Administer IV Regular Insulin and D50 STAT to shift potassium intracellularly. Monitor: Continuous EKG monitoring for changes; Serum Potassium levels to assess treatment effectiveness. Avoid potassium-sparing diuretics like spironolactone.",
-                "source": "Evidence-Based Nursing Practice"
-            }
-        ]
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
-    },
-    "sentinelStatus": "healed_v2026_v11"
+    }
 }

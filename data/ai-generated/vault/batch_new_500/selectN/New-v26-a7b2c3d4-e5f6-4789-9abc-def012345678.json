@@ -1,104 +1,138 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-9abc-def012345678",
     "type": "selectN",
-    "stem": "Based on the patient's current condition and the information provided in the EHR, select the THREE most appropriate interventions the nurse should implement *FIRST*.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 3
-    },
+    "stem": "The nurse reviews the client's electronic health record. Based on the current data, select the **3** actions the nurse should take immediately.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Administer a rapid IV fluid bolus"
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer PRN acetaminophen for fever"
+        },
+        {
+            "id": "opt_03",
+            "text": "Initiate a vasopressor infusion"
+        },
+        {
+            "id": "opt_04",
+            "text": "Increase oxygen via nasal cannula to 6 L/min"
+        },
+        {
+            "id": "opt_05",
+            "text": "Obtain blood and sputum cultures"
+        },
+        {
+            "id": "opt_06",
+            "text": "Prepare the client for emergent intubation"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_03",
+        "opt_05"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Airborne",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, 68-year-old male, admitted 3 days ago for pneumonia, now showing septic shock signs. He has a productive cough with thick, purulent sputum. B: Initially responded to antibiotics, but deteriorated in the last 6 hours. History of hypertension and COPD. A: At 07:00, BP 88/52 mmHg, HR 122 bpm, RR 32, SpO2 90% on 4L NC, Temp 38.9°C. Alert but confused. Urine output 20 mL/hr. ABGs pending. Central line inserted yesterday. IV fluids at 75 mL/hr. Labs show elevated WBC, lactate, creatinine, BUN, and procalcitonin. Platelets are slightly low. ABGs show respiratory acidosis. C: Notify physician immediately about deterioration. Increase IV fluids as prescribed. Prepare for vasopressors. Monitor vitals and mental status continuously. Obtain blood and sputum cultures. Initiate airborne precautions due to possible resistant respiratory infection.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>WBC</td><td>18,000/μL</td><td>4,500-11,000/μL</td></tr><tr><td>Lactate</td><td>4.5 mmol/L</td><td>0.5-2.2 mmol/L</td></tr><tr><td>Creatinine</td><td>2.1 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Platelets</td><td>140,000/μL</td><td>150,000-400,000/μL</td></tr><tr><td>Procalcitonin</td><td>8.0 ng/mL</td><td>&lt;0.15 ng/mL</td></tr><tr><td>ABG: pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>ABG: PaCO2</td><td>50 mmHg</td><td>35-45 mmHg</td></tr><tr><td>ABG: PaO2</td><td>70 mmHg</td><td>80-100 mmHg</td></tr><tr><td>ABG: HCO3</td><td>22 mEq/L</td><td>22-26 mEq/L</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (3 days ago):\nS: Client is a 68-year-old male brought to the ED by his adult child with a 4-day history of worsening cough, fever, and shortness of breath. Reports producing thick, yellow sputum.\nB: History of COPD and hypertension. Smokes 1 pack of cigarettes per day. Lives alone in a rural area with limited access to transportation for follow-up appointments. Allergic to Penicillin.\nA: T 101.5°F (38.6°C), HR 105, RR 24, BP 138/88, SpO₂ 93% on room air. Crackles noted in bilateral lower lung bases. Alert and oriented x3. Diagnosed with community-acquired pneumonia.\nR: Admit to medical-surgical unit. Start IV antibiotics and fluids. Provide supplemental oxygen to maintain SpO₂ >92%. Obtain blood and sputum cultures.\n\nProgress Note (Today at 07:00):\nS: Nurse called to bedside for acute change in mental status. Client is lethargic and confused.\nB: Admitted 3 days ago for pneumonia. Has been receiving IV ceftriaxone. Central venous catheter placed yesterday. Urine output has been steadily declining over the past 3 hours.\nA: BP 88/52 mmHg (MAP 64), HR 122 bpm (sinus tachycardia), RR 32 (shallow), SpO₂ 90% on 4L NC, Temp 102.0°F (38.9°C). Skin is cool and clammy. Urine output 20 mL in the past hour. Lactate is 4.5 mmol/L. Client is not following commands consistently.\nR: Suspect progression to septic shock. Recommend immediate fluid resuscitation and vasopressor support per protocol. Continue to monitor hemodynamics closely. Notify provider of critical status change."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th><th>Urine Output (past hr)</th></tr></thead><tbody><tr><td>06:00</td><td>92/58</td><td>110</td><td>28</td><td>92% on 4L NC</td><td>38.6°C</td><td>30 mL</td></tr><tr><td>06:30</td><td>90/55</td><td>115</td><td>30</td><td>91% on 4L NC</td><td>38.8°C</td><td>25 mL</td></tr><tr><td>07:00</td><td>88/52</td><td>122</td><td>32</td><td>90% on 4L NC</td><td>38.9°C</td><td>20 mL</td></tr></tbody></table>"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th><th>Urine Output (past hr)</th></tr></thead><tbody><tr><td>05:00</td><td>105/65 mmHg (78)</td><td>108</td><td>26</td><td>92% on 4L NC</td><td>101.3°F (38.5°C)</td><td>35 mL</td></tr><tr><td>06:00</td><td>92/58 mmHg (69)</td><td>110</td><td>28</td><td>91% on 4L NC</td><td>101.7°F (38.7°C)</td><td>30 mL</td></tr><tr><td>07:00</td><td>88/52 mmHg (64)</td><td>122</td><td>32</td><td>90% on 4L NC</td><td>102.0°F (38.9°C)</td><td>20 mL</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>2g</td><td>IV</td><td>q24h</td></tr><tr><td>Acetaminophen</td><td>650mg</td><td>PO</td><td>q4h PRN for fever &gt; 38.5°C</td></tr><tr><td>Pantoprazole</td><td>40mg</td><td>IV</td><td>q24h</td></tr><tr><td>Normal Saline</td><td>75 mL/hr</td><td>IV</td><td>Continuous</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>WBC</td><td>18.5</td><td>x10³/μL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Lactate</td><td>4.5</td><td>mmol/L</td><td>0.5-2.2</td><td>High</td></tr><tr><td>Creatinine</td><td>2.1</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>BUN</td><td>35</td><td>mg/dL</td><td>10-20</td><td>High</td></tr><tr><td>Platelets</td><td>140</td><td>x10³/μL</td><td>150-400</td><td>Low</td></tr><tr><td>Procalcitonin</td><td>8.0</td><td>ng/mL</td><td>&lt;0.15</td><td>High</td></tr><tr><td>pH</td><td>7.30</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>50</td><td>mmHg</td><td>35-45</td><td>High</td></tr><tr><td>PaO₂</td><td>70</td><td>mmHg</td><td>80-100</td><td>Low</td></tr><tr><td>HCO₃⁻</td><td>22</td><td>mEq/L</td><td>22-26</td><td>WNL</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Focused Assessment (Today at 07:00):\n- **Neurological**: Lethargic, slow to respond to verbal stimuli. Oriented to person only.\n- **Cardiovascular**: Tachycardic with S1/S2 audible. Pulses +1 peripherally. Capillary refill >3 seconds. Skin is cool and clammy.\n- **Respiratory**: Labored, shallow respirations. Coarse crackles auscultated throughout bilateral lung fields. Productive cough with purulent sputum.\n- **Renal**: Oliguria noted."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No radiology reports available.</p>"
+                "content": "**Type**: Chest X-ray (Portable, AP view)\n**Date**: 3 days ago (on admission)\n**Reason for Exam**: Fever, cough, hypoxia.\n**Findings**: Lungs demonstrate diffuse, bilateral airspace opacities, more pronounced in the lower lobes, consistent with multifocal pneumonia. No evidence of a large pleural effusion or pneumothorax. The cardiac silhouette is within normal limits.\n**Impression**: Bilateral pneumonia."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>3 days ago</td><td>Admit to Medical-Surgical Unit</td><td>Standing</td></tr><tr><td>3 days ago</td><td>Ceftriaxone 2g IV</td><td>Daily</td></tr><tr><td>3 days ago</td><td>0.9% Sodium Chloride</td><td>75 mL/hr Continuous</td></tr><tr><td>3 days ago</td><td>Oxygen to maintain SpO₂ >92%</td><td>Standing</td></tr><tr><td>3 days ago</td><td>Acetaminophen 650 mg PO</td><td>q4h PRN for Temp >101.3°F (38.5°C)</td></tr><tr><td>3 days ago</td><td>Pantoprazole 40 mg IV</td><td>Daily</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>2g</td><td>IV</td><td>Daily</td><td>Yesterday at 09:00</td></tr><tr><td>Acetaminophen</td><td>650mg</td><td>PO</td><td>q4h PRN</td><td>Today at 05:00</td></tr><tr><td>Pantoprazole</td><td>40mg</td><td>IV</td><td>Daily</td><td>Today at 09:00</td></tr><tr><td>0.9% Sodium Chloride</td><td>75 mL/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
+    "rationale": {
+        "correct": "The client is exhibiting clear signs of septic shock, a life-threatening organ dysfunction caused by a dysregulated host response to infection. Immediate priorities are to restore tissue perfusion through fluid resuscitation and vasopressors, and to identify the causative organism to guide antibiotic therapy (source control).",
+        "incorrect": "Interventions that manage symptoms (fever), provide supportive care that doesn't address the root cause of shock (increasing oxygen flow), or are premature (intubation) are lower priority than restoring hemodynamic stability and identifying the pathogen.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The client's hypotension (MAP 64), tachycardia (122 bpm), and oliguria (20 mL/hr) indicate severe hypoperfusion from septic vasodilation. A rapid IV fluid bolus (e.g., 30 mL/kg) is the first-line intervention to increase intravascular volume and improve mean arterial pressure."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. While the client has a fever, treating it is a lower priority than addressing the life-threatening hypotension and hypoperfusion. Antipyretics can be given after hemodynamic stabilization is initiated. This action treats a symptom, not the underlying systemic shock."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. The client's MAP is below the target of 65 mmHg despite receiving continuous IV fluids. This indicates refractory hypotension requiring vasopressor support (e.g., norepinephrine) to increase systemic vascular resistance and maintain vital organ perfusion."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. The client's hypoxemia (SpO₂ 90%) is primarily due to V/Q mismatch and shunting from pneumonia and poor perfusion, not simply a lack of inspired oxygen. While oxygen is necessary, titrating the flow rate is secondary to restoring circulation with fluids and vasopressors."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. Obtaining blood and sputum cultures before administering or changing antibiotics is a critical step in the 'Surviving Sepsis' guidelines. This helps identify the specific pathogen and its sensitivities, allowing for targeted antimicrobial therapy and de-escalation, which is crucial for source control."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. Although the client has an increased respiratory rate and respiratory acidosis, there is no indication of imminent respiratory arrest. Hemodynamic stabilization with fluids and vasopressors may improve respiratory function. Intubation is a later consideration if respiratory failure develops despite these interventions."
+            }
+        ],
+        "clinicalPearls": [
+            "In septic shock, a mean arterial pressure (MAP) of at least 65 mmHg is the initial target to ensure adequate perfusion to vital organs.",
+            "Lactate levels >2 mmol/L are a key indicator of tissue hypoperfusion and cellular hypoxia; rising levels signify worsening shock.",
+            "The 'Surviving Sepsis Campaign' one-hour bundle emphasizes rapid fluid administration, obtaining cultures, administering broad-spectrum antibiotics, and applying vasopressors for refractory hypotension.",
+            "Oliguria (<0.5 mL/kg/hr) is an early and sensitive sign of acute kidney injury (AKI) resulting from hypoperfusion in shock states."
+        ],
+        "questionTrap": "This question traps test-takers who focus on treating individual abnormal findings (like fever or low SpO₂) rather than recognizing the systemic syndrome of septic shock. The priority is always to address the most immediate life-threat, which is circulatory collapse (perfusion).",
+        "mnemonic": "SEPSIS FIRST:\n- S: Start Fluids (Bolus)\n- E: Escalate Pressure (Vasopressors)\n- P: Pinpoint Pathogen (Cultures)\n- S: Start Antibiotics (After cultures)\n- I: Investigate Lactate\n- S: Scrutinize Urine Output",
+        "reviewUnits": [
+            "Adult Health: Critical Care",
+            "Pharmacology: Vasoactive Medications",
+            "Fundamentals: Infection Control"
         ]
     },
-    "rationale": {
-        "correct": "Administer a rapid IV fluid bolus: The patient's low blood pressure (88/52 mmHg) and decreased urine output (20 mL/hr) indicate hypovolemia, a key component of septic shock. Rapid fluid resuscitation is crucial to improve perfusion and combat the effects of vasodilation. ClinicalPearl: Monitor for signs of fluid overload, such as crackles in the lungs. Administer a vasopressor (e.g., norepinephrine): Despite fluid resuscitation, the patient's blood pressure remains critically low. Vasopressors are needed to increase systemic vascular resistance and raise blood pressure to maintain adequate organ perfusion, especially in the context of septic shock. ClinicalPearl: Titrate vasopressors carefully to achieve the target MAP while monitoring for signs of ischemia. Initiate airborne precautions: The patient's productive cough with purulent sputum raises concerns about a potential airborne infection, such as drug-resistant pneumonia. Implementing airborne precautions is essential to prevent the spread of infection to healthcare personnel and other patients. ClinicalPearl: Ensure proper fit-testing and use of N95 respirators for healthcare personnel.",
-        "incorrect": "Administer acetaminophen for fever: While the patient has a fever (38.9°C), addressing the underlying septic shock and improving perfusion takes priority over symptom management. Acetaminophen can be administered later if the fever persists after initial interventions to stabilize the patient. QuestionTrap: Students may be distracted by the fever, but addressing the shock is more critical. Increase the oxygen flow rate: The patient's SpO2 is 90% on 4L NC. While supplemental oxygen is important, the priority is to address the underlying cause of hypoxemia, which in this case is likely related to impaired perfusion and ventilation-perfusion mismatch. Increasing oxygen flow alone will not resolve the shock or address potential respiratory complications. QuestionTrap: Students may focus on the SpO2 without considering the underlying cause. Prepare the patient for intubation: While the patient's respiratory rate is elevated (32 breaths/min) and ABGs are concerning (pH 7.30, PaCO2 50 mmHg, PaO2 70 mmHg), intubation should be considered if the patient's respiratory status worsens despite initial interventions. The priority is to address the hypotension and improve perfusion first, as this may improve respiratory function. QuestionTrap: Students may jump to intubation without considering less invasive interventions first.",
-        "clinicalPearls": [
-            "Septic shock is a life-threatening condition characterized by hypotension and inadequate tissue perfusion due to infection.",
-            "Early recognition and aggressive intervention are crucial for improving patient outcomes in septic shock.",
-            "The Surviving Sepsis Campaign guidelines provide evidence-based recommendations for the management of septic shock.",
-            "Airborne precautions are crucial for preventing the spread of respiratory infections transmitted via small airborne droplets or particles.",
-            "A productive cough with purulent sputum should raise suspicion for a respiratory infection requiring airborne precautions, especially in immunocompromised or critically ill patients."
-        ],
-        "questionTrap": {
-            "trap": "The question asks for the *first* interventions. Many answer choices may be appropriate at some point, but prioritizing is key. Students often focus on individual symptoms (e.g., fever) rather than the overall clinical picture of septic shock and the risk of infection.",
-            "howToOvercome": "Focus on the immediate threats to the patient's life, such as hypotension, hypoperfusion, and the potential for infection spread. Prioritize interventions that address these issues first. Remember the 'sepsis six' or similar mnemonics to guide your thinking, and consider infection control measures when assessing patients with respiratory symptoms."
-        },
-        "mnemonic": {
-            "title": "I DIE",
-            "expansion": "I – IV Fluids, D – Determine Source (Blood Cultures, Sputum Cultures), I – Initiate Antibiotics & Isolate (Airborne Precautions), E – Evaluate Perfusion (Vitals, Lactate)"
-        }
+    "scoring": {
+        "method": "polytomous_0_1",
+        "maxPoints": 3
     },
-    "options": [
-        {
-            "id": "option1",
-            "text": "Administer a rapid IV fluid bolus",
-            "correct": true
-        },
-        {
-            "id": "option2",
-            "text": "Administer acetaminophen for fever",
-            "correct": false
-        },
-        {
-            "id": "option3",
-            "text": "Administer a vasopressor (e.g., norepinephrine)",
-            "correct": true
-        },
-        {
-            "id": "option4",
-            "text": "Increase the oxygen flow rate",
-            "correct": false
-        },
-        {
-            "id": "option5",
-            "text": "Initiate airborne precautions",
-            "correct": true
-        },
-        {
-            "id": "option6",
-            "text": "Prepare the patient for intubation",
-            "correct": false
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:36:20.893Z"
 }

@@ -1,86 +1,329 @@
 {
     "id": "New-v26-a1b2c3d4-e5f6-4789-9012-34567890abcd",
     "type": "selectAll",
-    "stem": "The nurse is preparing to administer medications to a patient. Based on the provided information in the EHR, which of the following actions should the nurse take *before* administering the scheduled IV medications?",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is preparing to administer 08:00 medications. Based on the EHR, which actions must the nurse take before administering the scheduled IV medications? Select all that apply.",
+    "options": [
+        {
+            "id": "opt1",
+            "text": "Verify patency of the peripheral IV site."
+        },
+        {
+            "id": "opt2",
+            "text": "Check the most recent blood glucose level."
+        },
+        {
+            "id": "opt3",
+            "text": "Assess the client's current blood pressure."
+        },
+        {
+            "id": "opt4",
+            "text": "Review the client's creatinine and BUN levels."
+        },
+        {
+            "id": "opt5",
+            "text": "Confirm IV compatibility for concurrent administration."
+        },
+        {
+            "id": "opt6",
+            "text": "Administer a 500 mL bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "opt7",
+            "text": "Request an immediate vancomycin trough level."
+        }
+    ],
+    "correctOptionId": [
+        "opt1",
+        "opt2",
+        "opt3",
+        "opt4",
+        "opt5"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit, Room 302",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "Penicillin"
+                "Penicillin (rash)"
             ]
         },
-        "sbar": "S: John Smith is a 68-year-old male admitted at 02:00 today with a diagnosis of pneumonia. He reports increased shortness of breath and a productive cough. B: Mr. Smith's history includes COPD, hypertension, and type 2 diabetes. He receives oxygen at 2L/min via nasal cannula. A: At 07:00, vitals: BP 160/90 mmHg, HR 110 bpm, RR 28 breaths/min, SpO2 91% on 2L NC, Temp 38.5°C. Labs show elevated WBC, creatinine, BUN, and glucose. The physician prescribed IV antibiotics, antihypertensives, and insulin. Pain was reported as 4/10 at 07:30. R: Scheduled IV meds due at 08:00: Vancomycin 1 gram IV q12h, Labetalol 20 mg IV q6h PRN for SBP >160 mmHg, and Insulin Aspart 4 units subQ now per sliding scale. Review the MAR for concurrent meds and monitor vitals frequently.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 15,000/µL (High), Creatinine: 1.5 mg/dL (High), BUN: 25 mg/dL (High), Glucose: 220 mg/dL (High), Potassium: 4.0 mEq/L"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 02:00",
+                        "note_type": "Admission Note",
+                        "content": "S: Client is a 68-year-old male admitted from the emergency department with a 3-day history of worsening shortness of breath, productive cough with yellow sputum, and fever. Reports feeling weak and fatigued.\nB: History of COPD, hypertension, and type 2 diabetes mellitus. Client lives alone in a second-floor apartment with no elevator, which poses a barrier to accessing groceries and pharmacy services. He reports occasional medication non-adherence due to complex regimen. Penicillin allergy noted (causes rash).\nA: Awake, alert, and oriented x3. Appears anxious and in mild respiratory distress. Coarse crackles auscultated in the right lower lobe. Skin is warm and flushed. Initial SpO2 was 90% on room air.\nR: Admitted to medical-surgical unit for community-acquired pneumonia. Initiated oxygen at 2L via nasal cannula. IV access established. Awaiting initial lab results and chest x-ray report. Plan to start IV antibiotics and fluids once ordered."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "note_type": "Progress Note",
+                        "content": "S: Client reports feeling 'more winded' this morning and rates generalized body ache pain at 4/10. Denies chest pain.\nB: Received initial dose of PO medications. 0.9% sodium chloride infusing at 75 mL/hr. Oxygen maintained at 2L NC.\nA: Vitals show a trend of increasing tachycardia and hypertension. Temperature remains elevated. SpO2 is 91% on 2L NC with an increased respiratory rate of 28/min and use of accessory muscles. Morning labs returned, showing significant leukocytosis and elevated renal function tests (BUN, Creatinine), indicating acute kidney injury. Blood glucose is elevated.\nR: New orders received for IV vancomycin and PRN IV labetalol. The 08:00 medications are due. Will continue to monitor respiratory status and vital signs closely. Reinforce importance of incentive spirometry. Consult respiratory therapy for further evaluation."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: BP 160/90 mmHg, HR 110 bpm, RR 28 breaths/min, SpO2 91% on 2L NC, Temp 38.5°C"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "02:00",
+                        "HR": "98 bpm",
+                        "BP": "148/88 mmHg (MAP 108)",
+                        "RR": "22/min",
+                        "SpO2": "90% on RA",
+                        "Temp": "101.1°F (38.4°C)"
+                    },
+                    {
+                        "Time": "04:00",
+                        "HR": "104 bpm",
+                        "BP": "152/86 mmHg (MAP 108)",
+                        "RR": "24/min",
+                        "SpO2": "92% on 2L NC",
+                        "Temp": "101.5°F (38.6°C)"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR": "110 bpm",
+                        "BP": "160/90 mmHg (MAP 113)",
+                        "RR": "28/min",
+                        "SpO2": "91% on 2L NC",
+                        "Temp": "101.3°F (38.5°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "07:00: Acetaminophen 650mg PO PRN for pain, 07:00: Lisinopril 20mg PO daily, 07:00: Metformin 500mg PO BID, 08:00: Vancomycin 1g IV q12h, 08:00: Labetalol 20mg IV q6h PRN for SBP >160, 08:00: Insulin Aspart 4 units subQ now based on sliding scale"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "15.2",
+                        "Unit": "x10³/µL",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "1.5",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "25",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Glucose, Random",
+                        "Result": "220",
+                        "Unit": "mg/dL",
+                        "Reference": "<200",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Potassium",
+                        "Result": "4.1",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Sodium",
+                        "Result": "137",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": ""
+                    },
+                    {
+                        "Test": "Hemoglobin",
+                        "Result": "14.5",
+                        "Unit": "g/dL",
+                        "Reference": "13.5-17.5",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 02:15",
+                        "exam_type": "Admission Assessment",
+                        "findings": "GENERAL: Appears fatigued but is cooperative. Mild respiratory distress noted.\nCARDIOVASCULAR: Tachycardic, S1/S2 regular, no murmurs. Capillary refill <3 seconds. Pulses 2+ peripherally.\nRESPIRATORY: Tachypneic with use of accessory muscles. Coarse crackles auscultated in right lower lobe. Productive cough.\nNEUROLOGICAL: Alert and oriented to person, place, time, and situation.\nGI/GU: Abdomen soft, non-tender with active bowel sounds. Voids clear yellow urine.\nINTEGUMENTARY: Skin warm, flushed, and dry. No edema noted."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "exam_type": "Focused Assessment",
+                        "findings": "RESPIRATORY: Increased work of breathing compared to admission. Respiratory rate 28/min. Coarse crackles persist in RLL. SpO2 91% on 2L NC. Client reports it is harder to catch his breath."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "report_type": "Chest X-ray (PA and Lateral)",
+                        "timestamp": "Day 1, 02:45",
+                        "report": "FINDINGS: There is consolidation and air bronchograms noted within the right lower lobe. The cardiomediastinal silhouette is within normal limits. The pleural spaces are clear with no evidence of effusion or pneumothorax. The visualized osseous structures are unremarkable.\n\nIMPRESSION: Findings are consistent with right lower lobe pneumonia."
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Smith is a 68-year-old male admitted at 02:00 today with a diagnosis of pneumonia. He reports increased shortness of breath and a productive cough. B: Mr. Smith's history includes COPD, hypertension, and type 2 diabetes. He receives oxygen at 2L/min via nasal cannula. A: At 07:00, vitals: BP 160/90 mmHg, HR 110 bpm, RR 28 breaths/min, SpO2 91% on 2L NC, Temp 38.5°C. Labs show elevated WBC, creatinine, BUN, and glucose. The physician prescribed IV antibiotics, antihypertensives, and insulin. Pain was reported as 4/10 at 07:30. R: Scheduled IV meds due at 08:00: Vancomycin 1 gram IV q12h, Labetalol 20 mg IV q6h PRN for SBP >160 mmHg, and Insulin Aspart 4 units subQ now per sliding scale. Review the MAR for concurrent meds and monitor vitals frequently."
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 02:30",
+                        "Action": "Admit to Medical-Surgical Unit",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 02:30",
+                        "Action": "Regular diet, as tolerated",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 02:30",
+                        "Action": "Activity as tolerated",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 02:30",
+                        "Action": "Oxygen to maintain SpO2 >92%",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 02:30",
+                        "Action": "0.9% Sodium Chloride at 75 mL/hr",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 07:30",
+                        "Action": "Vancomycin 1 gram IV",
+                        "Frequency/Status": "q12h"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 07:30",
+                        "Action": "Labetalol 20 mg IV for SBP >160 mmHg",
+                        "Frequency/Status": "q6h PRN"
+                    },
+                    {
+                        "Order Date/Time": "Day 1, 07:30",
+                        "Action": "Insulin Aspart per sliding scale",
+                        "Frequency/Status": "AC/HS"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lisinopril",
+                        "Dose": "20 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Day 1, 07:15"
+                    },
+                    {
+                        "Medication": "Metformin",
+                        "Dose": "500 mg",
+                        "Route": "PO",
+                        "Frequency": "BID",
+                        "Last Administered": "Day 1, 07:15"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "q6h PRN pain/fever",
+                        "Last Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Vancomycin",
+                        "Dose": "1 gram",
+                        "Route": "IV",
+                        "Frequency": "q12h",
+                        "Last Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Labetalol",
+                        "Dose": "20 mg",
+                        "Route": "IV",
+                        "Frequency": "q6h PRN SBP >160",
+                        "Last Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Insulin Aspart",
+                        "Dose": "Sliding Scale",
+                        "Route": "SubQ",
+                        "Frequency": "AC/HS",
+                        "Last Administered": "N/A"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
-        ]
-    },
     "rationale": {
-        "correct": [
-            "Confirm the patient's penicillin allergy before administering Vancomycin. Rationale: Vancomycin is contraindicated in patients with a penicillin allergy due to potential cross-reactivity or hypersensitivity reactions. Verifying the allergy status is crucial for patient safety.",
-            "Check the patient's blood pressure before administering Labetalol. Rationale: Labetalol is an antihypertensive medication, and administering it without checking the blood pressure could lead to hypotension. The medication is prescribed PRN for SBP >160, so assessment is essential.",
-            "Review the patient's creatinine and BUN levels before administering Vancomycin. Rationale: Vancomycin is nephrotoxic, and elevated creatinine and BUN levels indicate impaired renal function. Administering Vancomycin in this situation could further damage the kidneys. Dose adjustment or alternative antibiotics may be necessary.",
-            "Assess the patient's pain level and response to the previously administered Acetaminophen. Rationale: Assessing pain and the effectiveness of previous analgesics helps determine if additional pain management strategies are needed. This ensures adequate patient comfort and pain control.",
-            "Verify the patency of the IV site before administering any IV medications. Rationale: Ensuring the IV site is patent prevents complications such as infiltration or phlebitis, which can compromise medication delivery and cause patient discomfort."
-        ],
-        "incorrect": [
-            "Hold the Lisinopril dose due to the elevated blood pressure. Rationale: Lisinopril is a daily medication and should not be held without a specific order to do so. The elevated blood pressure should be addressed with the PRN Labetalol.",
-            "Administer the Insulin Aspart without checking the most recent blood glucose level. Rationale: Insulin Aspart is administered based on a sliding scale, which requires a current blood glucose level. Administering insulin without this information could lead to hypoglycemia or hyperglycemia."
+        "correct": "Before administering the 08:00 IV medications, the nurse must perform several critical safety checks. These include verifying IV patency to ensure proper drug delivery, checking the blood glucose before giving insulin, assessing blood pressure before giving a PRN antihypertensive, reviewing labs for nephrotoxic drugs like vancomycin, and ensuring IV compatibility to prevent adverse reactions.",
+        "incorrect": "Administering an un-ordered fluid bolus is outside the nursing scope of practice. Requesting a vancomycin trough level before the first dose is not standard practice; trough levels are typically checked before the fourth dose to assess for a steady state.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1",
+                "content": "Correct. Administering IV medications requires a patent and functional IV line. The nurse must assess the site for signs of infiltration, phlebitis, or occlusion to prevent extravasation of vesicant drugs and ensure the medication reaches systemic circulation."
+            },
+            {
+                "optionId": "opt2",
+                "content": "Correct. Insulin Aspart is ordered per a sliding scale, which is based on the client's current blood glucose level. Administering insulin without this data could lead to severe hypoglycemia, a life-threatening condition. The client's random glucose is already high at 220 mg/dL, necessitating this check."
+            },
+            {
+                "optionId": "opt3",
+                "content": "Correct. Labetalol is an antihypertensive agent ordered PRN for a systolic blood pressure (SBP) greater than 160 mmHg. The client's last SBP was exactly 160 mmHg. The nurse must re-assess the BP immediately before administration to confirm the medication is still indicated and to establish a baseline for evaluating its effect."
+            },
+            {
+                "optionId": "opt4",
+                "content": "Correct. Vancomycin is a nephrotoxic antibiotic. The client's lab results show elevated BUN (25 mg/dL) and creatinine (1.5 mg/dL), indicating pre-existing acute kidney injury. The nurse must review these values to ensure the dose is safe and to advocate for potential dose adjustment or alternative therapy to prevent further renal damage."
+            },
+            {
+                "optionId": "opt5",
+                "content": "Correct. When multiple IV medications are scheduled, the nurse must verify their compatibility. Administering incompatible drugs through the same line can cause precipitation, inactivation of one or both drugs, or formation of a toxic substance. This is a fundamental medication safety principle."
+            },
+            {
+                "optionId": "opt6",
+                "content": "Incorrect. Administering a fluid bolus is a medical intervention that requires a physician's order. While the client may benefit from fluids, the nurse cannot independently decide to administer a bolus. The client already has continuous IV fluids running at 75 mL/hr."
+            },
+            {
+                "optionId": "opt7",
+                "content": "Incorrect. Vancomycin trough levels are drawn to monitor for therapeutic drug concentration and minimize toxicity. However, a trough level is measured just before a dose is administered, typically before the 4th dose, to ensure the drug has reached a steady state. It is not required before the first dose."
+            }
         ],
         "clinicalPearls": [
-            "Vancomycin is a high-alert medication requiring careful monitoring for nephrotoxicity, especially in patients with pre-existing renal impairment. Monitor creatinine and BUN levels closely.",
-            "Labetalol should be held if the patient's blood pressure is already within the desired range or if the patient is hypotensive. Always assess BP before administration.",
-            "Insulin Aspart should be administered based on the sliding scale and after verifying the patient's current blood glucose level to avoid hypoglycemia. Point-of-care glucose testing is essential.",
-            "Always check for allergies before administering any medication, especially antibiotics. Documented allergies must be verified.",
-            "IV site patency is crucial to ensure proper medication delivery and prevent complications such as infiltration or phlebitis. Assess the site for redness, swelling, or pain."
+            "Vancomycin is a potent antibiotic with a high risk for nephrotoxicity and ototoxicity. Always monitor renal function (BUN, creatinine) and be vigilant for signs of hearing loss or tinnitus.",
+            "PRN antihypertensive medications, like IV labetalol, require a pre-administration vital sign assessment that matches the specific parameters in the order (e.g., SBP >160 mmHg). Never administer based on old data.",
+            "Sliding scale insulin is a high-alert medication. The 'five rights' of medication administration are expanded to include the 'right indication,' which, in this case, is a current blood glucose reading.",
+            "Acute Kidney Injury (AKI) in a patient with sepsis or pneumonia is a common and serious complication. It significantly impacts the clearance of many medications, requiring dose adjustments."
         ],
-        "questionTrap": {
-            "trap": "The question focuses on actions to take *before* medication administration. Some options might seem correct in general but are not specifically pre-administration steps or are incorrect medication administration practices.",
-            "howToOvercome": "Carefully read each option and consider whether it's a necessary step to perform immediately *before* administering the medications listed in the MAR, given the patient's current condition and lab values. Focus on safety checks and contraindications."
-        },
-        "mnemonic": {
-            "title": "ALLERGIES & VITAL Signs BEFORE Meds",
-            "expansion": "ALLERGIES: Always check allergies. VITAL Signs: Verify vitals relevant to the med. BEFORE: Steps taken right before. Meds: Administer medications safely."
-        }
+        "questionTrap": "This question tests the ability to distinguish between general good nursing care and essential, time-sensitive safety checks required *immediately before* administering specific high-alert IV medications. An action might be appropriate for the patient's overall plan (like requesting a trough level later) but is not a prerequisite for this specific 08:00 medication pass.",
+        "mnemonic": "Use 'PRE-IV' for pre-administration IV medication checks:\n\nP - Patency of IV site\nR - Renal function & Results (Labs)\nE - Essential Vitals (BP, HR, Glucose)\nI - Incompatibility check\nV - Verify order parameters (e.g., PRN criteria)"
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Safe and Effective Care Environment"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:41:27.311Z"
 }

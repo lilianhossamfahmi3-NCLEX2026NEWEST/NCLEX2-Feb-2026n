@@ -1,66 +1,116 @@
 {
     "id": "New-v26-a7b3c9d1-4e5f-4a2b-9d8e-1f2a3b4c5e6d",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a 68-year-old male patient, Mr. Jones, admitted for an acute ischemic stroke. Based on the patient information, prioritize the following nursing actions in order of importance, with the MOST important action at the TOP.",
+    "type": "multipleChoice",
+    "stem": "The nurse is caring for a client who received IV alteplase for an ischemic stroke 30 minutes ago. Based on the clinical data, which action is the nurse's immediate priority?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Administer labetalol 20 mg IV."
+        },
+        {
+            "id": "opt_02",
+            "text": "Perform a comprehensive neurological assessment."
+        },
+        {
+            "id": "opt_03",
+            "text": "Elevate the head of the bed to 30 degrees."
+        },
+        {
+            "id": "opt_04",
+            "text": "Place the client on strict NPO status."
+        }
+    ],
+    "correctOptionId": "opt_01",
+    "itemContext": {
+        "patient": {
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "No Known Drug Allergies"
+            ]
+        },
+        "tabs": [
+            {
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "### Admission Note - 08:00\n**S:** Client is a 68-year-old male brought in by emergency services at 08:00 with acute onset of right-sided weakness and slurred speech. Last seen normal was 23:00 yesterday.\n**B:** History of poorly controlled hypertension, hyperlipidemia, and type 2 diabetes. Client lives alone in a rural area with limited access to transportation and fresh food, which he states makes managing his diet difficult. His adult child is en route to the hospital.\n**A:** On arrival, BP was 190/110 mmHg. GCS 13 (E3, V4, M6). Right-sided hemiparesis and facial droop noted. CT scan confirmed left MCA ischemic stroke without hemorrhage. IV alteplase was initiated at 09:00 per protocol.\n**R:** Transfer to Stroke Unit for close monitoring. Initiate post-thrombolytic protocol, including frequent neurological checks and strict blood pressure management.\n\n### Progress Note - 09:30\n**S:** 30 minutes post-alteplase administration.\n**B:** Client remains on the Stroke Unit.\n**A:** BP remains critically elevated at 180/100 mmHg. GCS is stable at 13. Right-sided weakness persists. SpO₂ is 94% on 2L NC. Client failed a bedside swallow screen, indicating significant aspiration risk.\n**R:** Immediate intervention is required to lower systolic blood pressure to <180 mmHg per standing orders to prevent hemorrhagic conversion. Continue neurological checks every 15 minutes. Maintain head of bed elevation and strict aspiration precautions."
+            },
+            {
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th><th>GCS</th></tr></thead><tbody><tr><td>08:00</td><td>190/110 mmHg (137)</td><td>98</td><td>24</td><td>92% on RA</td><td>98.6°F (37.0°C)</td><td>13</td></tr><tr><td>09:00</td><td>185/105 mmHg (132)</td><td>95</td><td>23</td><td>93% on 2L NC</td><td>99.0°F (37.2°C)</td><td>13</td></tr><tr><td>09:30</td><td>180/100 mmHg (127)</td><td>92</td><td>22</td><td>94% on 2L NC</td><td>99.2°F (37.3°C)</td><td>13</td></tr></tbody></table>"
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Sodium</td><td>140</td><td>mEq/L</td><td>135-145</td><td></td></tr><tr><td>Potassium</td><td>4.2</td><td>mEq/L</td><td>3.5-5.0</td><td></td></tr><tr><td>Glucose</td><td>150</td><td>mg/dL</td><td>70-110</td><td>High</td></tr><tr><td>Creatinine</td><td>1.0</td><td>mg/dL</td><td>0.6-1.2</td><td></td></tr><tr><td>INR</td><td>1.0</td><td></td><td>0.8-1.1</td><td></td></tr><tr><td>aPTT</td><td>35</td><td>sec</td><td>30-40</td><td></td></tr><tr><td>Platelets</td><td>250,000</td><td>/mm³</td><td>150,000-400,000</td><td></td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "### Focused Neurological Assessment (09:30)\n*   **General:** Alert but intermittently confused to time and place. Cooperative with exam.\n*   **Cranial Nerves:** PERRLA. Significant right-sided facial droop (CN VII). Dysarthria present. Fails bedside swallow screen.\n*   **Motor:** Strength 2/5 in right upper and lower extremities. Strength 5/5 in left upper and lower extremities. No pronator drift on the left.\n*   **Sensation:** Decreased sensation to light touch on the right side."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "### CT Head without Contrast (08:30)\n*   **Indication:** Acute onset right-sided weakness and slurred speech.\n*   **Findings:** No evidence of acute intracranial hemorrhage, mass effect, or hydrocephalus. There is subtle loss of grey-white differentiation in the left MCA territory and a hyperdense left MCA sign, suggestive of acute thrombus.\n*   **Impression:** Findings are consistent with an acute ischemic stroke in the left middle cerebral artery territory. No contraindications to thrombolytic therapy identified."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Today @ 09:05</td><td>Labetalol 20 mg IV</td><td>PRN for SBP > 180 mmHg</td></tr><tr><td>Today @ 09:05</td><td>Neurological Assessment</td><td>Every 15 min x 2 hrs, then q30 min x 6 hrs</td></tr><tr><td>Today @ 09:05</td><td>Elevate Head of Bed</td><td>Maintain at 30 degrees</td></tr><tr><td>Today @ 09:05</td><td>Diet</td><td>Strict NPO until swallow evaluation</td></tr><tr><td>Today @ 09:05</td><td>Oxygen Therapy</td><td>Titrate to maintain SpO₂ > 94%</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Alteplase (tPA)</td><td>81 mg</td><td>IV</td><td>STAT</td><td>Today @ 09:00</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>PRN</td><td>Not yet administered</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>PRN</td><td>Not yet administered</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>Daily</td><td>Today @ 08:30</td></tr></tbody></table>"
+            }
+        ]
+    },
+    "rationale": {
+        "correct": "The immediate priority is administering labetalol to lower the client's blood pressure. After alteplase administration, uncontrolled hypertension (SBP > 180 mmHg) is a critical risk factor for hemorrhagic conversion. The thrombolytic agent dissolves the clot but also creates a fragile vascular environment. High pressure against these vessels can lead to rupture and life-threatening intracranial bleeding. The standing order provides a clear parameter for intervention, and the client's current BP of 180/100 mmHg meets this criterion.",
+        "incorrect": "While all other options are correct interventions for a stroke client, they are not the most immediate priority. Neurological assessments monitor for deterioration but do not prevent it. Elevating the head of the bed and maintaining NPO status are crucial for managing ICP and preventing aspiration, respectively, but the risk of hemorrhagic stroke from severe hypertension is the most immediate life-threatening concern.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "**Correct.** The client's systolic blood pressure is 180 mmHg, which is the threshold for intervention according to the PRN order. This action directly addresses the most immediate life-threatening risk: hemorrhagic transformation of the ischemic stroke, a known complication of alteplase therapy exacerbated by hypertension."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "**Incorrect.** Performing a neurological assessment is a vital monitoring task but is not an intervention. While it would detect a change, it does not correct the underlying physiological problem (hypertension) that is creating the immediate risk. The priority is to act to prevent the decline, not just to document it."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "**Incorrect.** Elevating the head of the bed helps reduce intracranial pressure by promoting venous outflow. This is a standard and important supportive measure. However, it is not as potent or rapid in mitigating the acute risk of vessel rupture as pharmacologically lowering the systemic blood pressure."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "**Incorrect.** The client is at high risk for aspiration due to dysarthria and a failed swallow screen. Placing the client on NPO status is essential to prevent aspiration pneumonia. However, aspiration pneumonia is a complication that develops over hours to days, whereas hemorrhagic conversion can occur acutely and is immediately life-threatening."
+            }
+        ],
+        "clinicalPearls": [
+            "Post-alteplase care shifts from 'permissive hypertension' (to maintain cerebral perfusion before treatment) to strict blood pressure control (typically SBP < 180 mmHg) to prevent hemorrhagic conversion.",
+            "Hemorrhagic transformation is the most feared complication of thrombolytic therapy for ischemic stroke, and its risk is significantly increased by uncontrolled hypertension.",
+            "Always differentiate between assessment/monitoring actions and direct therapeutic interventions. When a critical value has a corresponding PRN order to treat it, taking action is often the priority over re-assessing."
+        ],
+        "questionTrap": "The primary trap is choosing a monitoring action (neurological assessment) over a direct intervention (administering labetalol) when a life-threatening physiological parameter is present and an order exists to correct it. Nurses must first act to stabilize the patient before continuing to monitor.",
+        "mnemonic": "For post-tPA care, remember **'BP before Neuro Check'**. Control the **B**lood **P**ressure to prevent the bleed, then perform the **Neuro Check** to see if it worked. The intervention precedes the evaluation.",
+        "reviewUnits": [
+            "Neurological Disorders",
+            "Pharmacology",
+            "Critical Care"
+        ]
+    },
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
     },
-    "itemContext": {
-        "patient": {
-            "name": "Mr. Jones",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Contact and Aspiration Precautions",
-            "allergies": [
-                "NKDA"
-            ]
-        },
-        "sbar": "S: Mr. Jones is a 68-year-old male admitted at 08:00 today with right-sided weakness and slurred speech. Last Seen Normal (LSN) was 23:00 last night. B: He has a history of hypertension and hyperlipidemia. A CT scan at 08:30 confirmed an acute ischemic stroke with a left middle cerebral artery (MCA) occlusion. IV alteplase was administered at 09:00. A: Currently, his GCS is 13 (E3, V4, M6). BP is 180/100 mmHg, HR is 92 bpm, RR is 22, and SpO2 is 94% on room air. Pupils are equal and reactive, but there's right-sided facial droop. Weakness is noted in the right arm and leg (2/5 strength). He is alert but intermittently confused. R: I'm concerned about potential increased intracranial pressure (ICP) and further neurological deterioration. I need orders for blood pressure management, frequent neuro checks, and potential interventions for increased ICP.",
-        "tabs": [
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Na</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>K</td><td>4.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Cl</td><td>100 mEq/L</td><td>95-105 mEq/L</td></tr><tr><td>Glucose</td><td>150 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>Creatinine</td><td>1.0 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>PT/INR</td><td>12 sec/1.0</td><td>11-13 sec/0.8-1.1</td></tr><tr><td>aPTT</td><td>35 sec</td><td>30-40 sec</td></tr><tr><td>Platelets</td><td>250,000/uL</td><td>150,000-400,000/uL</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Given</th></tr></thead><tbody><tr><td>Alteplase</td><td>0.9 mg/kg (max 90 mg)</td><td>IV</td><td>Once</td><td>09:00</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>PRN for SBP > 180 mmHg</td><td>-</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>PRN for temp > 100.4°F</td><td>-</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>Daily</td><td>08:30</td></tr></tbody></table>"
-            },
-            {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th><th>GCS</th></tr></thead><tbody><tr><td>08:00</td><td>190/110</td><td>98</td><td>24</td><td>92%</td><td>98.6°F</td><td>13</td></tr><tr><td>08:30</td><td>185/105</td><td>95</td><td>23</td><td>93%</td><td>98.8°F</td><td>13</td></tr><tr><td>09:00</td><td>180/100</td><td>92</td><td>22</td><td>94%</td><td>99.0°F</td><td>13</td></tr><tr><td>09:30</td><td>175/95</td><td>90</td><td>20</td><td>95%</td><td>99.2°F</td><td>13</td></tr></tbody></table>"
-            }
-        ]
-    },
     "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Stroke & Increased ICP"
-        ]
+        "bloomLevel": "Applying",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Adaptation"
     },
-    "rationale": {
-        "correct": "1. Administering labetalol IV: Elevated blood pressure post-alteplase increases the risk of hemorrhagic conversion and cerebral edema. Strict blood pressure control is crucial to maintain cerebral perfusion and prevent further complications. 2. Performing neurological assessment: Frequent neurological assessments (GCS, pupillary response, motor strength) are essential to monitor for deterioration and signs of increased ICP, which can occur rapidly after a stroke. 3. Elevating the head of the bed to 30 degrees: Elevating the head of the bed promotes venous drainage from the brain, which helps reduce ICP and improves cerebral perfusion. 4. Initiating aspiration precautions: Stroke patients are at high risk for aspiration due to impaired swallowing and gag reflexes. Aspiration precautions, including positioning and diet modifications, are essential to prevent pneumonia. 5. Administering acetaminophen for temperature >100.4°F: Fever increases metabolic demands and can exacerbate neurological damage. Controlling fever is important, but less urgent than addressing blood pressure, neurological status, and aspiration risk in the acute phase.",
-        "incorrect": "Administering acetaminophen for temperature >100.4°F: While important, addressing fever is a lower priority than managing blood pressure, monitoring neurological status, and preventing aspiration in the acute post-alteplase phase of an ischemic stroke. Initiating aspiration precautions: Although important for preventing pneumonia, it is secondary to controlling BP and neurological assessment immediately after thrombolytic administration. Elevating the head of the bed to 30 degrees: While helpful to decrease ICP and improve cerebral perfusion, it is secondary to BP control and neurological assessment after thrombolytic administration. Performing neurological assessment: While important for detecting changes, it is secondary to BP control immediately following thrombolytic administration to prevent hemorrhagic conversion. Administering labetalol IV: While important, neurological assessment is needed to establish a baseline following thrombolytic administration.",
-        "clinicalPearls": [
-            "After thrombolytic administration, neurological assessment and blood pressure monitoring are top priorities to prevent complications like hemorrhagic conversion and cerebral edema.",
-            "Elevated blood pressure post-thrombolytics increases the risk of bleeding and cerebral edema, necessitating strict control.",
-            "Elevating the head of the bed promotes venous drainage and reduces ICP, improving cerebral perfusion.",
-            "Aspiration precautions are crucial in stroke patients due to impaired swallowing and gag reflexes, preventing aspiration pneumonia."
-        ],
-        "questionTrap": {
-            "trap": "The question trap is to focus solely on the neurological deficits and overlook the crucial blood pressure management required post-alteplase administration. Students might prioritize interventions directly related to neurological function without recognizing the immediate threat of hemorrhagic conversion due to elevated BP.",
-            "howToOvercome": "To overcome this trap, consider the time-sensitive nature of post-alteplase care. Remember the ABCs (Airway, Breathing, Circulation) and recognize that uncontrolled hypertension can quickly lead to life-threatening complications like hemorrhagic stroke. Always prioritize interventions that address immediate threats to patient stability before addressing secondary issues. Think critically about the potential complications of thrombolytic therapy."
-        },
-        "mnemonic": {
-            "title": "BP-Neuro-HOB-Aspiration-Temp",
-            "expansion": "Blood Pressure control, Neurological Assessment, Head of Bed elevation, Aspiration Precautions, Temperature management – Priorities in acute stroke management post-thrombolytics. Remember to act quickly and systematically."
-        }
-    },
-    "sentinelStatus": "deep_healed_v2026"
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:18:38.425Z"
 }

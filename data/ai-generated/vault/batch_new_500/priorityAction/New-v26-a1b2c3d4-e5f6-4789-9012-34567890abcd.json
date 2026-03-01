@@ -1,74 +1,123 @@
 {
     "id": "New-v26-a1b2c3d4-e5f6-4789-9012-34567890abcd",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a postpartum patient diagnosed with preeclampsia who delivered vaginally 4 hours ago. Based on the EHR data, prioritize the following nursing actions from FIRST to LAST.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a postpartum client with preeclampsia who delivered 4 hours ago. Based on the clinical data in the electronic health record, prioritize the following nursing actions from first to last.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Massage the uterine fundus until firm."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer labetalol 20 mg IV."
+        },
+        {
+            "id": "opt_03",
+            "text": "Assess deep tendon reflexes and respiratory rate."
+        },
+        {
+            "id": "opt_04",
+            "text": "Assist the client to empty her bladder."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_04",
+        "opt_03"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Maria Rodriguez",
-            "age": 32,
-            "gender": "Female",
-            "iso": "Postpartum Unit",
+            "age": "32 years",
+            "sex": "Female",
+            "pronouns": "she/her",
             "allergies": [
                 "Sulfa Drugs"
-            ],
-            "conditions": [
-                "Airborne condition"
             ]
         },
-        "sbar": "S: Maria Rodriguez, 32 years old, Gravida 2 Para 2, delivered vaginally at 08:00 after induction for preeclampsia. Blood pressure has been elevated throughout labor. B: History of mild gestational hypertension in previous pregnancy. A: At 12:00, current blood pressure is 160/100 mmHg, heart rate 92 bpm, respiratory rate 18, oxygen saturation 98% on room air. Moderate vaginal bleeding with clots. Fundus is boggy, 2 cm above the umbilicus, and deviated to the right. Deep tendon reflexes are 3+ bilaterally. The patient complains of a headache and blurred vision. She received a 2g Magnesium Sulfate IV loading dose during labor and is currently on a maintenance dose of 1g/hr. Last void was at 09:00, with 100 mL output. Labs show elevated AST/ALT, proteinuria, and thrombocytopenia. R: Continue to monitor blood pressure closely, assess for signs of magnesium toxicity, manage fundal tone and bleeding, monitor intake and output, and address headache and visual disturbances. Contact the provider for blood pressure >160/110 despite interventions.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>10.5 g/dL</td><td>12-16 g/dL</td></tr><tr><td>Platelets</td><td>120,000/uL</td><td>150,000-400,000/uL</td></tr><tr><td>AST</td><td>60 U/L</td><td>10-40 U/L</td></tr><tr><td>ALT</td><td>70 U/L</td><td>7-56 U/L</td></tr><tr><td>Creatinine</td><td>1.1 mg/dL</td><td>0.5-1.0 mg/dL</td></tr><tr><td>Urine Protein</td><td>3+</td><td>Negative</td></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (08:05):\nClient admitted for induction of labor at 38 weeks gestation due to preeclampsia with severe features. Continuous fetal monitoring and magnesium sulfate infusion initiated per protocol. Reports mild headache. Denies visual changes. DTRs 2+ bilaterally.\n\nProgress Note (12:00):\nS: Client is a 32-year-old G2P2, delivered vaginally 4 hours ago. She is now reporting a worsening headache and new-onset blurred vision.\nB: History of gestational hypertension. Preeclampsia diagnosed this admission. Received magnesium sulfate 4g IV loading dose, now infusing at 2g/hr. Epidural anesthesia was used for labor. Lives in a rural area with limited access to follow-up care, which is a noted social determinant of health barrier.\nA: BP 162/112 mmHg, HR 94, RR 18, SpO2 98% on room air. Fundus is boggy, 2 cm above the umbilicus, and deviated to the right. Moderate lochia rubra with small clots noted. DTRs are 3+ bilaterally with no clonus. Last void was 3 hours ago.\nR: Immediate intervention required for uterine atony and severe hypertension. Will perform fundal massage and prepare to administer PRN labetalol. Continue close monitoring for eclampsia and magnesium toxicity."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Given</th></tr></thead><tbody><tr><td>Magnesium Sulfate</td><td>1 g/hr</td><td>IV</td><td>Continuous</td><td>11:00</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>PRN for SBP >160</td><td>Not Given</td></tr><tr><td>Oxycodone</td><td>5 mg</td><td>PO</td><td>Q4H PRN for pain</td><td>10:00</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>Q4H PRN for headache</td><td>Not Given</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>09:00</td><td>158/104 mmHg (122)</td><td>90</td><td>20</td><td>99% on room air</td><td>99.1°F (37.3°C)</td></tr><tr><td>10:00</td><td>160/108 mmHg (125)</td><td>92</td><td>18</td><td>98% on room air</td><td>99.0°F (37.2°C)</td></tr><tr><td>11:00</td><td>164/110 mmHg (128)</td><td>95</td><td>18</td><td>98% on room air</td><td>99.2°F (37.3°C)</td></tr><tr><td>12:00</td><td>162/112 mmHg (129)</td><td>94</td><td>18</td><td>98% on room air</td><td>99.1°F (37.3°C)</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>O2 Sat</th><th>Temp</th></tr></thead><tbody><tr><td>08:00</td><td>170/110</td><td>98</td><td>20</td><td>99%</td><td>37.0</td></tr><tr><td>09:00</td><td>165/105</td><td>95</td><td>19</td><td>98%</td><td>37.1</td></tr><tr><td>10:00</td><td>162/102</td><td>93</td><td>18</td><td>98%</td><td>37.2</td></tr><tr><td>11:00</td><td>160/100</td><td>92</td><td>18</td><td>98%</td><td>37.2</td></tr><tr><td>12:00</td><td>160/100</td><td>92</td><td>18</td><td>98%</td><td>37.2</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Platelet Count</td><td>95,000</td><td>/mcL</td><td>150,000 - 450,000</td><td>Low</td></tr><tr><td>AST</td><td>78</td><td>U/L</td><td>10 - 40</td><td>High</td></tr><tr><td>ALT</td><td>85</td><td>U/L</td><td>7 - 56</td><td>High</td></tr><tr><td>Creatinine</td><td>1.3</td><td>mg/dL</td><td>0.6 - 1.2</td><td>High</td></tr><tr><td>Urine Protein</td><td>3+</td><td></td><td>Negative</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Focused Postpartum Assessment (12:00):\n- Neurological: Alert and oriented x3. Reports severe headache and blurred vision. Deep tendon reflexes 3+ bilaterally. No clonus noted.\n- Cardiovascular: S1, S2 audible. Tachycardia noted. No murmurs. 1+ pitting edema in lower extremities.\n- Respiratory: Lungs clear to auscultation bilaterally. Respiratory effort unlabored.\n- Reproductive: Uterine fundus is boggy, located 2 cm above the umbilicus and deviated to the right. Moderate lochia rubra with small clots expressed during fundal check."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No radiology reports available.</p>"
+                "content": "<p>No imaging reports available at this time.</p>"
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Today @ 08:10</td><td>Magnesium Sulfate 2g/hr IV</td><td>Continuous</td></tr><tr><td>Today @ 08:10</td><td>Labetalol 20 mg IV</td><td>PRN for SBP >160 or DBP >110</td></tr><tr><td>Today @ 08:15</td><td>Fundal massage and lochia assessment</td><td>Every 15 minutes x 4, then every 30 minutes x 2</td></tr><tr><td>Today @ 08:15</td><td>Strict Intake and Output</td><td>Ongoing</td></tr><tr><td>Today @ 08:15</td><td>Seizure Precautions</td><td>Active</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Magnesium Sulfate</td><td>2 g/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>PRN SBP >160</td><td>Not Given</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>Q6H PRN Headache</td><td>Not Given</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Maternal: Preeclampsia & Postpartum Hemorrhage"
+    "rationale": {
+        "correct": "The correct sequence of actions addresses the most immediate life-threatening conditions first. The client exhibits signs of both postpartum hemorrhage (PPH) from uterine atony and a hypertensive crisis from severe preeclampsia. According to ABCs (Airway, Breathing, Circulation), active hemorrhage is a primary circulation problem requiring immediate intervention. Fundal massage is the fastest, non-pharmacological first step to control bleeding. Next, the severe hypertension (BP 162/112 mmHg) with neurological symptoms (headache, blurred vision) poses an imminent risk of stroke or eclamptic seizure and must be treated promptly with IV labetalol. Assisting the client to void addresses the likely cause of the uterine atony (bladder distention), making it the logical next step. Finally, assessing for magnesium toxicity is an important surveillance task but is a lower priority than managing active hemorrhage and hypertensive crisis.",
+        "incorrect": "Any other sequence incorrectly prioritizes patient needs. Delaying fundal massage to administer medication or perform assessments allows for continued blood loss, risking hypovolemic shock. Delaying labetalol administration while managing the uterus leaves the client vulnerable to a stroke or seizure. Prioritizing the magnesium toxicity assessment over the two active life-threatening conditions demonstrates a failure to recognize and act on the most critical data.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct - First Action. The boggy, deviated fundus indicates uterine atony, the leading cause of PPH. This is an active hemorrhage. The most immediate, non-invasive action to stimulate uterine contraction and control bleeding is vigorous fundal massage."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct - Second Action. The client's BP is 162/112 mmHg with neurological symptoms, constituting a hypertensive crisis. This requires immediate pharmacological intervention to prevent a stroke or eclamptic seizure. This is the next highest priority after initiating control of the hemorrhage."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct - Third Action. A full bladder is a common cause of uterine atony as it displaces the uterus and prevents it from contracting effectively. After initiating fundal massage and administering the antihypertensive, addressing this underlying cause is the next logical step to ensure sustained uterine tone."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct - Fourth Action. The client is on magnesium sulfate and has elevated creatinine, increasing the risk for toxicity. While assessing DTRs and respirations is crucial, it is an assessment of a *potential* risk, whereas PPH and hypertensive crisis are *actual*, active life-threats. This assessment is performed after stabilizing the more acute issues."
+            }
+        ],
+        "clinicalPearls": [
+            "Uterine atony is the most common cause of postpartum hemorrhage. The first intervention is always fundal massage.",
+            "Preeclampsia can worsen in the immediate postpartum period. Severe hypertension (SBP ≥160 or DBP ≥110) with symptoms is a medical emergency requiring antihypertensive administration within 30-60 minutes.",
+            "A full bladder can prevent the uterus from contracting and is a reversible cause of uterine atony. Always consider bladder status in a client with a boggy uterus.",
+            "HELLP syndrome (Hemolysis, Elevated Liver enzymes, Low Platelets) is a severe variant of preeclampsia. The lab values in this chart (low platelets, high AST/ALT) are indicative of this complication."
+        ],
+        "questionTrap": "The primary trap is deciding between two life-threatening emergencies: postpartum hemorrhage and hypertensive crisis. Nurses must prioritize the problem that can be addressed most immediately and poses the most direct threat to circulation. Fundal massage is a rapid, hands-on intervention that directly addresses active bleeding, while preparing and administering an IV medication takes slightly more time.",
+        "mnemonic": "For postpartum emergencies, remember 'MAMA':\n- M: Massage the fundus (Stop the bleeding first)\n- A: Antihypertensives (Address the BP crisis)\n- M: Make them pee (Address the cause of atony)\n- A: Assess for toxicity (Monitor for medication side effects)",
+        "reviewUnits": [
+            "Maternal Newborn",
+            "Pharmacology",
+            "Prioritization"
         ]
     },
-    "rationale": {
-        "correct": "1. Administer Labetalol 20mg IV per PRN order: The patient's blood pressure is consistently above 160/100 mmHg, indicating severe hypertension. Rapid control of blood pressure is crucial to prevent complications such as stroke, eclampsia, or heart failure. Labetalol is an appropriate first-line antihypertensive in this situation.\n2. Massage the fundus and assess for bladder distention: A boggy fundus and deviated uterus suggest uterine atony, a primary cause of postpartum hemorrhage. Massaging the fundus stimulates uterine contraction to control bleeding. Assessing for bladder distention is important because a full bladder can prevent the uterus from contracting effectively.\n3. Assess for signs and symptoms of magnesium toxicity: The patient is receiving magnesium sulfate, which can lead to toxicity, especially with impaired renal function (elevated creatinine). Signs of toxicity include decreased respiratory rate, absent deep tendon reflexes, and altered mental status. Monitoring is essential to prevent respiratory depression or cardiac arrest.\n4. Initiate airborne isolation precautions: The patient has an airborne condition requiring immediate isolation to prevent the spread of infection to other patients and staff. While important, this is lower priority than addressing the immediate threats of hypertension, hemorrhage, and magnesium toxicity.",
-        "incorrect": "Incorrect sequencing demonstrates a lack of understanding of the critical and time-sensitive nature of each intervention. Delaying antihypertensive administration in the face of severe hypertension or failing to address uterine atony promptly can lead to serious adverse outcomes. Prioritizing less urgent tasks over immediate threats to maternal safety is a critical error.",
-        "clinicalPearls": [
-            "Preeclampsia can persist or develop postpartum, requiring vigilant monitoring of blood pressure and neurological status.",
-            "Postpartum hemorrhage is a leading cause of maternal mortality; prompt recognition and intervention are crucial.",
-            "Magnesium sulfate requires careful monitoring for toxicity, especially in patients with impaired renal function. Be alert for decreased respiratory rate, absent reflexes, and altered mental status.",
-            "Severe hypertension in the postpartum period requires rapid and effective management to prevent serious complications."
-        ],
-        "questionTrap": {
-            "trap": "A common trap is to prioritize assessment (e.g., assessing for magnesium toxicity) over immediate interventions (e.g., administering antihypertensives). While assessment is important, delaying treatment for critically high blood pressure can have devastating consequences.",
-            "howToOvercome": "Focus on the immediate threat to the patient's life. In this case, the severely elevated blood pressure requires immediate intervention. Use the ABCs (Airway, Breathing, Circulation) as a guide to prioritize actions. Remember that while airborne precautions are important, they do not address the immediate physiological threats."
-        },
-        "mnemonic": {
-            "title": "B-P-H-M (for Preeclampsia & Postpartum Hemorrhage)",
-            "expansion": "Blood Pressure control, Postpartum Hemorrhage management, Magnesium Sulfate monitoring, Hydration and output monitoring."
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:21:44.813Z"
 }

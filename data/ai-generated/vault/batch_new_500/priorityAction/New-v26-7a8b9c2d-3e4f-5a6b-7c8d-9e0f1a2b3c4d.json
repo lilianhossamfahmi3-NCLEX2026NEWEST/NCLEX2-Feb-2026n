@@ -1,102 +1,149 @@
 {
     "id": "New-v26-7a8b9c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d",
-    "type": "priorityAction",
-    "stem": "The patient is exhibiting signs of worsening respiratory distress. Based on the available information, select the THREE most important actions the nurse should take *first*.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "selectN",
+    "stem": "The nurse is caring for a client with worsening respiratory distress. Based on the clinical data, select the 3 actions the nurse should take immediately.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Place the patient in a high-Fowler's position.",
+            "isCorrect": true
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer furosemide 20 mg IV push.",
+            "isCorrect": false
+        },
+        {
+            "id": "opt_03",
+            "text": "Contact the provider and respiratory therapist for emergent intubation.",
+            "isCorrect": true
+        },
+        {
+            "id": "opt_04",
+            "text": "Increase FiO2 to 100% via a non-rebreather mask.",
+            "isCorrect": false
+        },
+        {
+            "id": "opt_05",
+            "text": "Ensure patent IV access and prepare sedation medications.",
+            "isCorrect": true
+        },
+        {
+            "id": "opt_06",
+            "text": "Administer morphine sulfate 2 mg IV for anxiety.",
+            "isCorrect": false
+        },
+        {
+            "id": "opt_07",
+            "text": "Request a STAT portable chest x-ray.",
+            "isCorrect": false
+        }
+    ],
     "itemContext": {
         "patient": {
             "name": "Jameson Tyrell",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Airborne, Contact & Droplet",
+            "age": "62",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Jameson Tyrell, a 62-year-old male admitted 3 days ago with pneumonia, is now suspected of having Acute Respiratory Distress Syndrome (ARDS). His oxygen saturation has been declining despite increasing the fraction of inspired oxygen (FiO2). His current vital signs include a blood pressure of 100/60 mmHg, heart rate of 120 bpm, respiratory rate of 36 breaths per minute and labored. His temperature is 38.8°C. An arterial blood gas (ABG) at 0600 revealed a pH of 7.30, PaCO2 of 55 mmHg, and PaO2 of 58 mmHg while on FiO2 of 60%.\n\nB: Mr. Tyrell has a history of hypertension, chronic obstructive pulmonary disease (COPD), and a recent influenza infection. He was admitted from home.\n\nA: The patient is exhibiting worsening respiratory distress with increased work of breathing, suggestive of possible ARDS. Current orders include oxygen titration, antibiotics (Ceftriaxone and Azithromycin), and continuous cardiac monitoring.\n\nR: I recommend contacting the provider STAT to discuss the possibility of intubation and mechanical ventilation given his deteriorating respiratory status and ABG results. Continuous monitoring of respiratory status is crucial. Be prepared for a potential code situation and ensure all necessary equipment is readily available.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Normal Range</th></tr></thead><tbody><tr><td>WBC</td><td>18,000</td><td>4,500-11,000</td></tr><tr><td>Hemoglobin</td><td>14.2</td><td>13.5-17.5</td></tr><tr><td>Platelets</td><td>250,000</td><td>150,000-400,000</td></tr><tr><td>Na</td><td>140</td><td>135-145</td></tr><tr><td>K</td><td>3.5</td><td>3.5-5.0</td></tr><tr><td>Cl</td><td>100</td><td>95-105</td></tr><tr><td>HCO3</td><td>22</td><td>22-26</td></tr><tr><td>BUN</td><td>25</td><td>10-20</td></tr><tr><td>Creatinine</td><td>1.5</td><td>0.6-1.2</td></tr><tr><td>ABG pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>ABG PaCO2</td><td>55</td><td>35-45</td></tr><tr><td>ABG PaO2</td><td>58</td><td>80-100</td></tr><tr><td>ABG HCO3</td><td>24</td><td>22-26</td></tr><tr><td>ABG SaO2</td><td>88%</td><td>95-100%</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<h6>Admission Note (3 days ago @ 14:00)</h6><p><b>S:</b> 62-year-old male presents to the ED with a 4-day history of productive cough, fever, and worsening shortness of breath. Reports feeling unwell since a recent influenza infection.<br><b>B:</b> History of COPD and hypertension. Takes lisinopril and a daily inhaler. Patient lives alone in a rural area with limited access to follow-up care, which may have delayed initial treatment. Allergic to Penicillin. <br><b>A:</b> Vitals: T 101.5°F, HR 105, RR 24, BP 145/88, SpO2 91% on room air. Coarse crackles in bilateral lower lobes. Chest x-ray shows right lower lobe infiltrate. Diagnosed with community-acquired pneumonia.<br><b>R:</b> Admit to medical floor. Start IV Ceftriaxone and Azithromycin. Provide supplemental oxygen via nasal cannula to maintain SpO2 >92%. Begin continuous cardiac and pulse oximetry monitoring. Encourage incentive spirometry.</p><h6>Progress Note (Today @ 08:00)</h6><p><b>S:</b> Called to bedside for acute worsening of respiratory distress. Patient is anxious, tachypneic, and struggling to speak.<br><b>B:</b> Patient's oxygen requirements have steadily increased over the last 24 hours. Now on 60% FiO2 via high-flow nasal cannula with minimal improvement. Most recent ABG at 06:00 showed severe hypoxemia and respiratory acidosis.<br><b>A:</b> Vitals: T 101.8°F, HR 120, RR 36 (labored), BP 100/60, SpO2 88%. Widespread bilateral crackles on auscultation. Patient is using accessory muscles to breathe. The clinical picture is highly suggestive of progression to Acute Respiratory Distress Syndrome (ARDS).<br><b>R:</b> Recommend STAT provider notification to discuss emergent intubation and mechanical ventilation. Prepare for rapid response team activation. Ensure all emergency airway equipment is at the bedside. Continue close monitoring.</p>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>2g</td><td>IV</td><td>q12h</td><td>04:00</td></tr><tr><td>Azithromycin</td><td>500mg</td><td>IV</td><td>Daily</td><td>04:00</td></tr><tr><td>Albuterol/Ipratropium</td><td>2.5mg/0.5mg</td><td>Nebulizer</td><td>q4h PRN</td><td>05:00</td></tr><tr><td>Furosemide</td><td>20mg</td><td>IV</td><td>PRN for fluid overload</td><td>N/A</td></tr><tr><td>Morphine Sulfate</td><td>2mg</td><td>IV</td><td>q2h PRN for pain</td><td>N/A</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp °F (°C)</th><th>HR (bpm)</th><th>RR (bpm)</th><th>SpO₂</th><th>BP (mmHg)</th><th>MAP (mmHg)</th></tr></thead><tbody><tr><td>04:00</td><td>101.2 (38.4)</td><td>110</td><td>28</td><td>91% on 40% FiO₂ HFNC</td><td>110/70</td><td>83</td></tr><tr><td>06:00</td><td>101.5 (38.6)</td><td>115</td><td>32</td><td>89% on 60% FiO₂ HFNC</td><td>105/65</td><td>78</td></tr><tr><td>08:00</td><td>101.8 (38.8)</td><td>120</td><td>36, Labored</td><td>88% on 60% FiO₂ HFNC</td><td>100/60</td><td>73</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>Result</th></tr></thead><tbody><tr><td>BP</td><td>100/60 mmHg</td></tr><tr><td>HR</td><td>120 bpm</td></tr><tr><td>RR</td><td>36 bpm, labored</td></tr><tr><td>SpO2</td><td>88% on 60% FiO2</td></tr><tr><td>Temperature</td><td>38.8°C</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan='5'><b>Arterial Blood Gas (Today @ 06:00)</b></td></tr><tr><td>pH</td><td>7.30</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>55</td><td>mmHg</td><td>35-45</td><td>High</td></tr><tr><td>PaO₂</td><td>58</td><td>mmHg</td><td>80-100</td><td>Low</td></tr><tr><td>HCO₃⁻</td><td>24</td><td>mEq/L</td><td>22-26</td><td>WNL</td></tr><tr><td colspan='5'><b>Complete Blood Count (Today @ 06:00)</b></td></tr><tr><td>WBC</td><td>18.5</td><td>x10³/μL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Hgb</td><td>14.2</td><td>g/dL</td><td>13.5-17.5</td><td>WNL</td></tr><tr><td>Platelets</td><td>250</td><td>x10³/μL</td><td>150-450</td><td>WNL</td></tr><tr><td colspan='5'><b>Comprehensive Metabolic Panel (Today @ 06:00)</b></td></tr><tr><td>Sodium</td><td>140</td><td>mEq/L</td><td>135-145</td><td>WNL</td></tr><tr><td>Potassium</td><td>3.6</td><td>mEq/L</td><td>3.5-5.0</td><td>WNL</td></tr><tr><td>BUN</td><td>25</td><td>mg/dL</td><td>10-20</td><td>High</td></tr><tr><td>Creatinine</td><td>1.5</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<h6>Today @ 08:00 (Focused Assessment)</h6><p><b>Respiratory:</b> Labored breathing with prominent use of sternocleidomastoid and intercostal muscles. Diffuse bilateral crackles auscultated throughout all lung fields. No wheezing noted. Unable to clear secretions with coughing.<br><b>Cardiovascular:</b> Tachycardia with regular rhythm. S1/S2 audible. No murmurs, rubs, or gallops. Capillary refill 3 seconds.<br><b>Neurological:</b> Alert but highly anxious and restless. Oriented to person, place, and time. Only able to speak in 2-3 word phrases due to dyspnea.</p>"
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<h6>Chest X-ray, Portable AP (Today @ 07:30)</h6><p><b>Findings:</b> There are extensive, diffuse bilateral airspace opacities, obscuring vascular markings and the diaphragm. The heart size appears normal. There are no significant pleural effusions or evidence of pneumothorax.<br><b>Impression:</b> Radiographic appearance is highly suggestive of severe airspace disease, consistent with Acute Respiratory Distress Syndrome (ARDS), given the clinical context of sepsis and refractory hypoxemia.</p>"
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>3 days ago @ 14:30</td><td>Titrate supplemental oxygen to maintain SpO₂ > 90%</td><td>Continuous</td></tr><tr><td>3 days ago @ 14:30</td><td>Ceftriaxone 2g IV</td><td>Every 12 hours</td></tr><tr><td>3 days ago @ 14:30</td><td>Azithromycin 500mg IV</td><td>Daily</td></tr><tr><td>3 days ago @ 14:30</td><td>Continuous cardiac and pulse oximetry monitoring</td><td>Continuous</td></tr><tr><td>3 days ago @ 14:30</td><td>STAT ABG for acute change in respiratory status</td><td>STAT</td></tr><tr><td>3 days ago @ 14:30</td><td>Albuterol/Ipratropium nebulizer</td><td>Every 4 hours PRN for wheezing</td></tr><tr><td>3 days ago @ 14:30</td><td>Acetaminophen 650mg PO</td><td>Every 6 hours PRN for Temp > 101°F</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>2g</td><td>IV</td><td>Every 12 hours</td><td>Today @ 04:00</td></tr><tr><td>Azithromycin</td><td>500mg</td><td>IV</td><td>Daily</td><td>Today @ 04:00</td></tr><tr><td>Albuterol/Ipratropium</td><td>2.5mg/0.5mg</td><td>Nebulizer</td><td>Every 4 hours PRN</td><td>Today @ 05:00</td></tr><tr><td>Acetaminophen</td><td>650mg</td><td>PO</td><td>Every 6 hours PRN</td><td>Yesterday @ 22:00</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
+    "rationale": {
+        "correct": "The patient is in severe respiratory failure, evidenced by refractory hypoxemia (PaO2 58 on 60% FiO2), respiratory acidosis, and physical signs of distress. The priority actions are to prepare for definitive airway management. This includes positioning the patient to optimize ventilation (high-Fowler's), escalating care by notifying the provider and RT for intubation, and preparing for the procedure by ensuring IV access and having sedation medications ready.",
+        "incorrect": "Interventions that do not address the underlying pathophysiology of ARDS (alveolar-capillary membrane damage and shunting) are incorrect or lower priority. Furosemide is not indicated as there is no evidence of fluid overload. Simply increasing FiO2 is futile for refractory hypoxemia and risks oxygen toxicity. Morphine would cause further respiratory depression. A repeat chest x-ray is not an immediate action as the diagnosis is clear and the priority is intervention.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. Placing the patient in a high-Fowler's or semi-Fowler's position uses gravity to facilitate lung expansion and decrease the work of breathing. This is a rapid, non-invasive intervention to provide immediate, albeit temporary, relief."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. There are no clinical signs of fluid volume overload, such as JVD or significant peripheral edema. The patient's high BUN and creatinine suggest potential acute kidney injury, not fluid overload. Administering a diuretic is inappropriate."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. The patient's ABGs and vital signs indicate impending respiratory arrest. This is a medical emergency requiring escalation to a higher level of care. Notifying the provider and respiratory therapist is a critical step to initiate mechanical ventilation."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. The patient's PaO2 of 58 mmHg on 60% FiO2 demonstrates refractory hypoxemia, a hallmark of ARDS. This condition is caused by intrapulmonary shunting and will not respond significantly to increases in FiO2 alone. The definitive treatment is mechanical ventilation with PEEP."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. Emergent intubation requires the administration of induction agents (sedatives) and neuromuscular blocking agents. Ensuring patent IV access and having these medications immediately available is a key preparatory step for a safe and rapid procedure."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. While the patient is anxious, morphine is an opioid with significant respiratory depressant effects. Administering it in this context would worsen the patient's hypercapnia and respiratory drive, potentially precipitating respiratory arrest."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. A chest x-ray was performed 30 minutes ago and confirmed findings consistent with ARDS. While imaging is important, obtaining another one is not the priority action. The focus must be on life-saving interventions based on the current data."
+            }
+        ],
+        "clinicalPearls": [
+            "The PaO2/FiO2 (P/F) ratio is a key indicator of ARDS severity. This patient's ratio is 58 / 0.60 = 96.7, which indicates severe ARDS (P/F ratio < 100).",
+            "Refractory hypoxemia, where SpO2 and PaO2 do not improve despite increasing the concentration of inspired oxygen, is the cardinal sign of ARDS. It is caused by blood shunting past non-ventilated, fluid-filled alveoli.",
+            "Preparation for intubation is a critical nursing role and can be remembered with the mnemonic SOAP ME: Suction, Oxygen, Airway equipment, Pharmacy (meds), and Monitoring Equipment."
+        ],
+        "questionTrap": "The primary trap is selecting interventions that address a single symptom (like low oxygen or anxiety) rather than recognizing the complete picture of respiratory failure requiring definitive airway management. Avoid temporizing measures when a patient is clearly deteriorating and needs escalation of care.",
+        "mnemonic": "For ARDS priorities, remember 'ACT NOW':\n- **A**irway: Prepare for intubation.\n- **C**all for help: Notify MD and RT.\n- **T**urn up HOB: Position for optimal breathing.\n- **N**o depressants: Avoid opioids/sedatives until intubation.\n- **O**btain access: Ensure patent IVs.\n- **W**atch vitals: Continuous monitoring.",
+        "reviewUnits": [
+            "Respiratory Failure",
+            "Acute Respiratory Distress Syndrome (ARDS)",
+            "Arterial Blood Gas (ABG) Interpretation",
+            "Mechanical Ventilation Basics",
+            "Emergency Airway Management"
         ]
     },
-    "rationale": {
-        "correct": "Contacting the provider is paramount given the patient's ABGs indicating respiratory failure and possible ARDS, warranting discussion about intubation and mechanical ventilation. Increasing the FiO2 is a temporary measure but insufficient given the PaO2 of 58 on 60% FiO2; escalating care is needed. Preparing for intubation includes gathering necessary equipment and personnel, anticipating the need for sedation and paralytics, and ensuring the ventilator is ready.  Continuous monitoring is essential to track changes in the patient's condition and response to interventions.",
-        "incorrect": "Administering furosemide is inappropriate as there is no indication of fluid overload; the focus should be on improving oxygenation and ventilation. Administering morphine for pain is contraindicated due to the risk of further respiratory depression. Increasing the Albuterol/Ipratropium nebulizer treatments is a temporizing measure for bronchospasm, but not the priority in the face of worsening respiratory failure and likely ARDS.",
-        "clinicalPearls": [
-            "In ARDS, high FiO2 levels can cause oxygen toxicity. Early intervention with mechanical ventilation may be needed to reduce oxygen requirements.",
-            "ABG interpretation is crucial in identifying respiratory failure and guiding treatment decisions."
-        ],
-        "questionTrap": {
-            "trap": "The question trap is to focus on individual symptoms or medications instead of recognizing the overarching pattern of respiratory failure and the need for escalation of care.",
-            "howToOvercome": "Focus on the ABG results and the rapidly declining respiratory status, recognizing the need for advanced respiratory support."
-        },
-        "mnemonic": {
-            "title": "ARDS Management",
-            "expansion": "Airway management (Intubation/Ventilation), Respiratory support (Oxygenation), Decreased lung injury (Protective ventilation), Support circulation (Fluid management)."
-        }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
     },
-    "options": [
-        {
-            "id": "optionA",
-            "text": "Contact the provider to discuss possible intubation and mechanical ventilation.",
-            "isCorrect": true
-        },
-        {
-            "id": "optionB",
-            "text": "Administer furosemide 20mg IV.",
-            "isCorrect": false
-        },
-        {
-            "id": "optionC",
-            "text": "Increase FiO2 to 80%.",
-            "isCorrect": false
-        },
-        {
-            "id": "optionD",
-            "text": "Administer morphine sulfate 2mg IV for pain.",
-            "isCorrect": false
-        },
-        {
-            "id": "optionE",
-            "text": "Prepare for intubation, including gathering necessary equipment and personnel.",
-            "isCorrect": true
-        },
-        {
-            "id": "optionF",
-            "text": "Increase Albuterol/Ipratropium nebulizer treatments to every 2 hours.",
-            "isCorrect": false
-        },
-        {
-            "id": "optionG",
-            "text": "Continue to monitor respiratory status closely.",
-            "isCorrect": true
-        }
-    ],
-    "correctOptionId": "optionA",
-    "sentinelStatus": "healed_v2026_v12"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "takeAction",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:17:43.656Z"
 }

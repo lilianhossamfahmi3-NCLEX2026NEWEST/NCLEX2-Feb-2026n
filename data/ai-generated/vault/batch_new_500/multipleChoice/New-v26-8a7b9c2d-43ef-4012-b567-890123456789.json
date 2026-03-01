@@ -1,97 +1,326 @@
 {
     "id": "New-v26-8a7b9c2d-43ef-4012-b567-890123456789",
-    "type": "multipleChoice",
-    "stem": "Based on the available information, which intervention is the MOST appropriate at this time?",
+    "type": "priorityAction",
+    "stem": "The nurse has received the 07:30 report. Based on the client's current status in the electronic health record, which action is the highest priority for the nurse to take?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Increase the 0.9% sodium chloride infusion rate."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer acetaminophen 650 mg by mouth for fever."
+        },
+        {
+            "id": "opt_03",
+            "text": "Prepare the client for immediate endotracheal intubation."
+        },
+        {
+            "id": "opt_04",
+            "text": "Request an order for a STAT dose of vancomycin."
+        }
+    ],
+    "correctOptionId": "opt_01",
+    "itemContext": {
+        "patient": {
+            "name": "Ricardo Alvarez",
+            "age": "78",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "Penicillin"
+            ],
+            "isolation": "Droplet Precautions"
+        },
+        "tabs": [
+            {
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "noteType": "Admission Note",
+                        "timestamp": "Day 1, 14:00",
+                        "body": "S: Client is a 78-year-old male brought to the ED by his adult child due to a 3-day history of productive cough, fever, and increasing confusion. \nB: History of COPD and hypertension. Lives alone with limited social support, which poses a barrier to consistent follow-up care. He has a known allergy to penicillin. \nA: On arrival, client was febrile, tachycardic, and tachypneic. SpO2 was 89% on room air. Coarse crackles auscultated in the right lower lobe. Mucous membranes are dry and skin turgor is poor. Client is oriented to person only. \nR: Admitted to the medical-surgical unit for community-acquired pneumonia. Initiated IV fluids and broad-spectrum antibiotics after blood and sputum cultures were obtained. Placed on droplet precautions. Will monitor respiratory status and hemodynamics closely. Case management consulted regarding discharge planning and home support needs."
+                    },
+                    {
+                        "noteType": "Progress Note",
+                        "timestamp": "Day 3, 07:30",
+                        "body": "S: Reporting on client in room 302, who has experienced an acute change in condition. \nB: Admitted 3 days ago for pneumonia, now being treated for sepsis. Vancomycin 1g IVPB was administered at 07:15. 0.9% sodium chloride is infusing at 100 mL/hr. \nA: Client is now lethargic and difficult to arouse. BP is 88/52 mmHg (MAP 64 mmHg), HR 122 bpm, RR 28/min, SpO2 90% on 2L NC, Temp 102.5°F (39.2°C). Urine output is critically low at 20 mL/hr for the past 2 hours. Skin is cool and clammy. Morning labs show a lactate of 4.0 mmol/L and creatinine of 2.1 mg/dL. \nR: Recommend immediate fluid resuscitation to address septic shock. Continue to monitor hemodynamics closely. Notified provider of acute change and anticipate orders for vasopressors if unresponsive to fluids. Prepare for potential ICU transfer."
+                    }
+                ]
+            },
+            {
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp °F (°C)",
+                        "HR (bpm)",
+                        "RR (/min)",
+                        "SpO₂",
+                        "BP (mmHg)",
+                        "MAP (mmHg)"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 14:00",
+                            "101.8 (38.8)",
+                            "110",
+                            "24",
+                            "89% on RA",
+                            "105/68",
+                            "80"
+                        ],
+                        [
+                            "Day 3, 04:00",
+                            "102.1 (38.9)",
+                            "118",
+                            "26",
+                            "92% on 2L NC",
+                            "95/60",
+                            "72"
+                        ],
+                        [
+                            "Day 3, 07:30",
+                            "102.5 (39.2)",
+                            "122",
+                            "28",
+                            "90% on 2L NC",
+                            "88/52",
+                            "64"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Result",
+                        "Value",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "WBC",
+                            "18.5",
+                            "x10³/µL",
+                            "4.5-11.0",
+                            "High"
+                        ],
+                        [
+                            "Hemoglobin",
+                            "13.1",
+                            "g/dL",
+                            "13.5-17.5",
+                            "Normal"
+                        ],
+                        [
+                            "Creatinine",
+                            "2.1",
+                            "mg/dL",
+                            "0.7-1.3",
+                            "High"
+                        ],
+                        [
+                            "BUN",
+                            "35",
+                            "mg/dL",
+                            "7-20",
+                            "High"
+                        ],
+                        [
+                            "Lactate",
+                            "4.0",
+                            "mmol/L",
+                            "<2.0",
+                            "High"
+                        ],
+                        [
+                            "Procalcitonin",
+                            "3.5",
+                            "ng/mL",
+                            "<0.15",
+                            "High"
+                        ],
+                        [
+                            "Blood Culture",
+                            "Pending",
+                            "",
+                            "No growth",
+                            ""
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "type": "Admission Assessment",
+                        "timestamp": "Day 1, 14:15",
+                        "findings": "Neurological: Alert and oriented to person only. Cardiovascular: Tachycardic, regular rhythm. Peripheral pulses +2. Respiratory: Tachypneic with use of accessory muscles. Coarse crackles in right lower lobe. Productive cough with yellow sputum. Integumentary: Skin warm and flushed. Poor skin turgor."
+                    },
+                    {
+                        "type": "Focused Assessment",
+                        "timestamp": "Day 3, 07:30",
+                        "findings": "Neurological: Lethargic, arouses to loud verbal stimuli but quickly drifts back to sleep. Cardiovascular: Tachycardic, S1/S2 audible. Peripheral pulses +1. Capillary refill >3 seconds. Skin is cool and clammy. Respiratory: Tachypneic, shallow respirations. SpO2 90% on 2L NC. GI/GU: Hypoactive bowel sounds. Scant, dark amber urine in Foley catheter."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Chest X-ray (PA and Lateral)",
+                        "timestamp": "Day 1, 15:00",
+                        "report": "FINDINGS: There is consolidation with air bronchograms noted in the right lower lobe. The cardiomediastinal silhouette is within normal limits. No significant pleural effusion or pneumothorax is identified. The visualized osseous structures are unremarkable.\n\nIMPRESSION: Radiographic evidence consistent with right lower lobe pneumonia."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 14:30",
+                            "Admit to Medical-Surgical Unit",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Droplet Precautions",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "0.9% Sodium Chloride",
+                            "Continuous at 100 mL/hr"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Vancomycin 1 gram IVPB",
+                            "Every 12 hours"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Ceftriaxone 1 gram IVPB",
+                            "Every 24 hours"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Acetaminophen 650 mg PO",
+                            "q6h PRN for Temp >101°F"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Blood Cultures x2, CBC, CMP, Lactate",
+                            "STAT"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "0.9% Sodium Chloride",
+                            "100 mL/hr",
+                            "IV",
+                            "Continuous",
+                            "Ongoing"
+                        ],
+                        [
+                            "Vancomycin",
+                            "1 gram",
+                            "IVPB",
+                            "q12h",
+                            "Day 3, 07:15"
+                        ],
+                        [
+                            "Ceftriaxone",
+                            "1 gram",
+                            "IVPB",
+                            "q24h",
+                            "Day 2, 14:30"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "650 mg",
+                            "PO",
+                            "q6h PRN",
+                            "Day 2, 22:00"
+                        ]
+                    ]
+                }
+            }
+        ]
+    },
+    "rationale": {
+        "correct": "The client is exhibiting clear signs of septic shock: hypotension (MAP < 65 mmHg), tachycardia, tachypnea, fever, altered mental status (lethargy), and evidence of end-organ dysfunction (oliguria with UO < 0.5 mL/kg/hr, elevated creatinine, and lactate > 2 mmol/L). The pathophysiological priority is to correct the intravascular volume deficit caused by systemic vasodilation and capillary leak. Increasing the IV fluid rate (i.e., administering a fluid bolus) is the immediate, first-line intervention to restore tissue perfusion, increase blood pressure, and prevent irreversible organ damage.",
+        "incorrect": "Administering acetaminophen is inappropriate as the priority; while the client is febrile, hemodynamic instability is the life-threatening issue. Preparing for intubation is premature; fluid resuscitation should be attempted first to stabilize the client, which may improve respiratory status. Requesting more vancomycin is incorrect; the MAR shows a dose was just administered at 07:15, and the issue is perfusion, not antibiotic timing.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. This client's hypotension (MAP 64), tachycardia, and oliguria are hallmark signs of septic shock. The Surviving Sepsis Campaign guidelines mandate immediate, aggressive fluid resuscitation to restore intravascular volume and improve organ perfusion. This is the highest priority."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. While fever management is part of sepsis care, it is not the priority over life-threatening hypotension and hypoperfusion. Furthermore, the oral route is unreliable in a lethargic client with likely compromised gastrointestinal perfusion."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. Although the client's respiratory rate is elevated and SpO2 is borderline, there is no indication of impending respiratory failure that would necessitate immediate intubation. The priority is to address the circulatory collapse with fluids, which may also improve respiratory mechanics by increasing cardiac output."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. The MAR clearly indicates that a dose of vancomycin was administered at 07:15, just 15 minutes prior to this assessment. Administering another dose would be a medication error. The current problem is a perfusion crisis, not a lack of antibiotics."
+            }
+        ],
+        "clinicalPearls": [
+            "In septic shock, remember the 'ABCs' are Circulation, Airway, Breathing. The profound vasodilation and fluid shifts cause circulatory collapse, which must be addressed first with aggressive fluid resuscitation.",
+            "A Mean Arterial Pressure (MAP) below 65 mmHg is generally considered the threshold for inadequate organ perfusion. It is a more sensitive indicator of shock than systolic blood pressure alone.",
+            "Lactate levels >2 mmol/L are a key indicator of tissue hypoxia and anaerobic metabolism. A level of 4.0 mmol/L signifies severe hypoperfusion and is associated with increased mortality.",
+            "Urine output is a critical, real-time indicator of renal and systemic perfusion. An output of <0.5 mL/kg/hr for more than 2 hours is a criterion for acute kidney injury in sepsis."
+        ],
+        "questionTrap": "The trap is focusing on a single abnormal finding, like the fever or the recent antibiotic administration, instead of synthesizing all the data (vitals, labs, physical exam) to recognize the overarching syndrome of septic shock. Prioritizing a symptom (fever) over the systemic cause (hypoperfusion) is a common error.",
+        "mnemonic": "For Sepsis priorities, think 'F-L-U-I-D-S':\nF - Fluids: Bolus immediately to restore volume.\nL - Lactate: Trend levels to assess response to resuscitation.\nU - Urine Output: Monitor closely as a marker of perfusion.\nI - IV Antibiotics: Ensure broad-spectrum coverage is timely.\nD - Diagnostics: Obtain cultures before antibiotics if possible.\nS - Support: Consider vasopressors if fluids alone are insufficient.",
+        "reviewUnits": [
+            "Physiological Adaptation",
+            "Reduction of Risk Potential",
+            "Pharmacological and Parenteral Therapies"
+        ]
+    },
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
     },
-    "itemContext": {
-        "patient": {
-            "name": "Ricardo Alvarez",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Droplet Precautions",
-            "allergies": [
-                "Penicillin"
-            ]
-        },
-        "sbar": "S: Ricardo Alvarez is a 78-year-old male admitted three days ago with a diagnosis of pneumonia and suspected sepsis. R: The patient has a history of COPD and hypertension, managed with home medications. He presented with cough and fever three days prior to admission. A: At 07:00, the patient is lethargic. His BP is 88/52 mmHg, HR is 122 bpm, RR is 28 breaths/min, and SpO2 is 90% on 2L nasal cannula. Temperature is 102.5°F (39.2°C). Urine output is 20 mL/hr over the last two hours. Labs: WBC 18,000/µL, Lactate 4.0 mmol/L, Creatinine 2.1 mg/dL, Procalcitonin 3.5 ng/mL. Blood cultures are pending. At 07:15, Vancomycin 1 gram IVPB was administered. E: The patient requires close monitoring for potential ICU transfer. Continue to monitor vital signs, urine output, and respiratory status. Await blood culture results and further physician orders. Consider escalating respiratory support if SpO2 declines. Rapid fluid resuscitation is needed.",
-        "tabs": [
-            {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Ricardo Alvarez is a 78-year-old male admitted three days ago with a diagnosis of pneumonia and suspected sepsis. R: The patient has a history of COPD and hypertension, managed with home medications. He presented with cough and fever three days prior to admission. A: At 07:00, the patient is lethargic. His BP is 88/52 mmHg, HR is 122 bpm, RR is 28 breaths/min, and SpO2 is 90% on 2L nasal cannula. Temperature is 102.5°F (39.2°C). Urine output is 20 mL/hr over the last two hours. Labs: WBC 18,000/µL, Lactate 4.0 mmol/L, Creatinine 2.1 mg/dL, Procalcitonin 3.5 ng/mL. Blood cultures are pending. At 07:15, Vancomycin 1 gram IVPB was administered. E: The patient requires close monitoring for potential ICU transfer. Continue to monitor vital signs, urine output, and respiratory status. Await blood culture results and further physician orders. Consider escalating respiratory support if SpO2 declines. Rapid fluid resuscitation is needed."
-            },
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/µL (High); Lactate: 4.0 mmol/L (High); Creatinine: 2.1 mg/dL (High); Blood Cultures: Pending; Procalcitonin: 3.5 ng/mL (High)"
-            },
-            {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "BP: 88/52 mmHg; HR: 122 bpm; RR: 28 breaths/min; SpO2: 90% on 2L NC; Temp: 102.5°F (39.2°C); Urine Output: 20 mL/hr"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Vancomycin 1 gram IVPB (Administered at 07:15); Acetaminophen 650mg PO PRN for fever > 101°F; Normal Saline 0.9% IV at 100 mL/hr"
-            }
-        ]
-    },
     "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
-        ]
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Adaptation"
     },
-    "rationale": {
-        "correct": "Increase the IV fluid rate to at least 500 mL/hr and reassess blood pressure in 15 minutes. The patient exhibits signs of septic shock, including hypotension, elevated lactate, and decreased urine output. Rapid fluid resuscitation is crucial to improve perfusion to vital organs and prevent further organ damage. The current IV fluid rate of 100 mL/hr is insufficient to address the patient's fluid deficit and life-threatening hypotension. Septic shock causes vasodilation and increased capillary permeability, leading to fluid shifts from the intravascular space into the interstitial space. This results in decreased circulating volume and hypotension. Rapid administration of IV fluids helps to restore intravascular volume, increase cardiac output, and improve blood pressure. Reassessment of blood pressure after 15 minutes allows for evaluation of the patient's response to the intervention and guides further management.",
-        "incorrect": "Administer Acetaminophen 650mg PO to reduce the fever. While fever management is important, addressing the patient's hypotension and signs of septic shock takes immediate precedence. Furthermore, the oral route is not the most effective due to the patient's lethargy and potentially compromised absorption due to decreased perfusion. In septic shock, the priority is to stabilize the patient's hemodynamic status by addressing the underlying cause of the hypotension. Antipyretics can be administered later once the patient is more stable. The oral route is not ideal in this situation due to the patient's lethargy and potential for decreased absorption.",
-        "clinicalPearls": [
-            "Sepsis is a life-threatening condition demanding rapid recognition and immediate intervention.",
-            "Hypotension associated with sepsis requires prompt and aggressive fluid resuscitation.",
-            "Close monitoring of urine output serves as a critical indicator of renal perfusion and overall fluid balance.",
-            "Elevated lactate levels indicate anaerobic metabolism and tissue hypoxia, highlighting the need for improved oxygen delivery.",
-            "Consider the infectious etiology when determining appropriate isolation precautions."
-        ],
-        "questionTrap": {
-            "trap": "The question trap focuses on isolated symptoms such as fever, rather than the comprehensive clinical picture of septic shock. Additionally, prioritizing the most recent action (Vancomycin administration) might seem correct but fails to address the broader issue of septic shock and hemodynamic instability.",
-            "howToOvercome": "Thoroughly analyze all available data, including vital signs, laboratory results, and the patient's overall presentation, to determine the most critical and priority intervention. Focus on the underlying pathophysiology of the condition and the patient's most immediate needs to guide decision-making. Prioritize interventions that address the root cause of the patient's instability."
-        },
-        "mnemonic": {
-            "title": "S.E.P.S.I.S.",
-            "expansion": "Suspect infection, Evaluate quickly, Prevent further complications, Start antibiotics, Initiate fluid resuscitation, Seek expert consultation."
-        }
-    },
-    "options": [
-        {
-            "key": "A",
-            "label": "Increase the IV fluid rate to at least 500 mL/hr and reassess blood pressure in 15 minutes.",
-            "correct": true
-        },
-        {
-            "key": "B",
-            "label": "Administer another dose of Vancomycin immediately.",
-            "correct": false
-        },
-        {
-            "key": "C",
-            "label": "Prepare for immediate intubation and mechanical ventilation.",
-            "correct": false
-        },
-        {
-            "key": "D",
-            "label": "Administer Acetaminophen 650mg PO to reduce the fever.",
-            "correct": false
-        }
-    ],
-    "sentinelStatus": "quarantined:logic_error",
-    "logicErrors": [
-        "missing_correct_id"
-    ]
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:42:10.835Z"
 }

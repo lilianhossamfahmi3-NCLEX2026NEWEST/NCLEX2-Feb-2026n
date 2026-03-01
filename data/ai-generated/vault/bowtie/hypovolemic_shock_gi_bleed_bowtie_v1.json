@@ -1,35 +1,78 @@
 {
-    "id": "hypovolemic_shock_gi_bleed_bowtie_v1",
+    "id": "hypovolemic_shock_gi_bleed_bowtie_v2",
     "type": "bowtie",
-    "stem": "A client presents to the emergency department at 1400 with hematemesis (vomiting blood). Vital signs: BP 88/54 mmHg, HR 128 bpm, RR 24 breaths/min. The client is pale, cold, and agitated. Which actions and parameters are most appropriate for managing this client?",
+    "ehr": {
+        "tabs": [
+            {
+                "id": "patientProfile",
+                "label": "Patient Profile",
+                "content": {
+                    "Name": "John Doe",
+                    "Age": "58 years",
+                    "Gender": "Male",
+                    "Allergies": "No Known Allergies",
+                    "History": "Peptic ulcer disease, chronic knee pain"
+                }
+            },
+            {
+                "id": "vitals",
+                "label": "Vital Signs",
+                "content": [
+                    {
+                        "time": "14:00",
+                        "BP": "88/54 mmHg",
+                        "HR": "128 bpm",
+                        "RR": "24 breaths/min",
+                        "SpO2": "94% on room air",
+                        "Temp": "36.4°C (97.5°F)"
+                    }
+                ]
+            }
+        ]
+    },
+    "itemContext": {
+        "sbar": "Situation: This is John Doe, a 58-year-old male, who arrived in the ED at 14:00 with active hematemesis. He is hypotensive and tachycardic. Background: The client has a history of peptic ulcer disease and reports taking NSAIDs for knee pain. He has vomited large amounts of bright red blood three times in the last hour. Assessment: Client is pale, diaphoretic, and agitated. Vital signs are BP 88/54 mmHg, HR 128 bpm, RR 24 breaths/min. Recommendation: I recommend immediate fluid resuscitation with two large-bore IVs and isotonic crystalloids, continuous vital sign monitoring, and preparation for potential blood transfusion."
+    },
+    "stem": "A 58-year-old client arrives in the emergency department at 14:00 with hematemesis, pallor, and agitation. The client is diagnosed with hypovolemic shock. Based on the client's data, which actions should the nurse take and what parameters should the nurse monitor to evaluate the client's response?",
+    "potentialConditions": [
+        {
+            "id": "condition1",
+            "text": "Hypovolemic Shock"
+        },
+        {
+            "id": "condition2",
+            "text": "Hemorrhagic Shock"
+        },
+        {
+            "id": "condition3",
+            "text": "Distributive Shock"
+        },
+        {
+            "id": "condition4",
+            "text": "Cardiogenic Shock"
+        }
+    ],
     "actions": [
         {
-            "id": "action3",
+            "id": "action1",
             "text": "Administer IV morphine for agitation."
         },
         {
-            "id": "action4",
+            "id": "action2",
             "text": "Apply a warm blanket to the extremities."
         },
         {
-            "id": "action2",
+            "id": "action3",
             "text": "Rapid infusion of isotonic crystalloids (0.9% normal saline)."
         },
         {
-            "id": "action1",
+            "id": "action4",
             "text": "Initiate two large-bore (18-gauge) IV lines."
         }
     ],
-    "potentialConditions": [
-        "Hypovolemic Shock",
-        "Hemorrhagic Shock",
-        "Distributive Shock",
-        "Cardiogenic Shock"
-    ],
-    "condition": "Hypovolemic Shock",
     "parameters": [
         {
-            "id": "param4",
+            "id": "param1",
             "text": "White blood cell count."
         },
         {
@@ -37,22 +80,37 @@
             "text": "Blood pressure and heart rate."
         },
         {
-            "id": "param1",
+            "id": "param3",
             "text": "Hourly urine output."
         },
         {
-            "id": "param3",
+            "id": "param4",
             "text": "Serum lactate level."
         }
     ],
+    "condition": "condition1",
     "correctActionIds": [
-        "action1",
-        "action2"
+        "action3",
+        "action4"
     ],
     "correctParameterIds": [
-        "param1",
-        "param2"
+        "param2",
+        "param3"
     ],
+    "hoverRationales": {
+        "condition1": "Correct. The client's hematemesis (volume loss) combined with hypotension, tachycardia, and signs of poor perfusion (pallor, cold skin) directly supports the pathophysiology of inadequate circulating volume leading to shock.",
+        "condition2": "Incorrect. While the client is experiencing hemorrhage, 'Hemorrhagic Shock' is a specific type of hypovolemic shock. 'Hypovolemic Shock' is the broader, more encompassing diagnosis for shock due to any fluid volume loss, including blood.",
+        "condition3": "Incorrect. This condition involves widespread vasodilation (e.g., septic shock), not volume loss. The client's presentation of cold, clammy skin is inconsistent with the warm, flushed skin often seen in early distributive shock.",
+        "condition4": "Incorrect. This results from pump failure (e.g., myocardial infarction). There is no indication of a primary cardiac issue; the tachycardia is a compensatory response to volume loss, not the cause of the shock.",
+        "action1": "Incorrect. Morphine is a vasodilator and can cause further hypotension, worsening the shock state. The client's agitation is likely due to cerebral hypoxia, which will improve with volume resuscitation, not sedation.",
+        "action2": "Incorrect. While providing warmth is a valid comfort measure, it is not a priority intervention. The client's cold skin is due to peripheral vasoconstriction, a compensatory mechanism that will resolve with effective fluid resuscitation.",
+        "action3": "Correct. Isotonic crystalloids rapidly expand the intravascular space, increasing preload and blood pressure. This intervention directly addresses the primary pathophysiological problem of volume loss in hypovolemic shock.",
+        "action4": "Correct. Large-bore IV access is critical for rapid administration of fluids and blood products to restore intravascular volume, which is severely depleted in hypovolemic shock, thereby improving cardiac output and tissue perfusion.",
+        "param1": "Incorrect. The white blood cell count is a marker for infection or inflammation. It is not a primary parameter for assessing or managing acute hypovolemic shock resulting from a gastrointestinal bleed.",
+        "param2": "Correct. These vital signs are direct measures of hemodynamic stability. An increasing blood pressure and decreasing heart rate indicate a positive response to volume replacement, a core goal in treating hypovolemic shock.",
+        "param3": "Correct. Urine output is a sensitive indicator of renal perfusion, which directly reflects the adequacy of systemic circulation and the effectiveness of fluid resuscitation efforts in restoring organ perfusion.",
+        "param4": "Incorrect. While elevated lactate indicates anaerobic metabolism from hypoperfusion, it is a lagging indicator. Vital signs and urine output provide more immediate, real-time feedback on the effectiveness of resuscitation interventions."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -64,93 +122,9 @@
             "Shock"
         ]
     },
-    "rationale": {
-        "correct": "The client is exhibiting signs of hypovolemic shock secondary to blood loss from hematemesis. The priority is to restore circulating volume and improve tissue perfusion. Initiating two large-bore IV lines allows for rapid administration of fluids and potential blood products. Rapid infusion of isotonic crystalloids (0.9% normal saline) expands the intravascular volume, increasing preload and cardiac output. Monitoring hourly urine output is crucial to assess renal perfusion and the effectiveness of fluid resuscitation. Blood pressure and heart rate are key indicators of hemodynamic stability and response to treatment.",
-        "incorrect": "Administering morphine can further decrease blood pressure due to its vasodilatory effects, which is contraindicated in hypovolemic shock. Applying a warm blanket is a secondary intervention; addressing the underlying hypovolemia is the priority. While WBC count and serum lactate level can provide additional information, they are not the primary parameters for immediate assessment and management of hypovolemic shock. Lactate is a marker of anaerobic metabolism, which can be elevated in shock, but monitoring vital signs and urine output provides more immediate feedback on resuscitation efforts.",
-        "clinicalPearls": [
-            "In hypovolemic shock, the body compensates by increasing heart rate and vasoconstriction to maintain blood pressure. However, these compensatory mechanisms eventually fail, leading to decreased tissue perfusion and organ damage.",
-            "Target a urine output of at least 0.5 mL/kg/hr to ensure adequate renal perfusion during resuscitation.",
-            "Remember SBAR: Situation: Client presents with hematemesis and signs of hypovolemic shock. Background: History of GI bleed unknown, vital signs unstable. Assessment: BP 88/54 mmHg, HR 128 bpm, RR 24 breaths/min, pale, cold, agitated. Recommendation: Initiate two large-bore IVs, rapid infusion of isotonic crystalloids, monitor hourly urine output and vital signs."
-        ],
-        "questionTrap": {
-            "trap": "Assuming a 22-gauge IV is sufficient for fluid resuscitation.",
-            "howToOvercome": "In cases of trauma or significant blood loss, large-bore IVs (18-gauge or larger) are essential for rapid fluid and blood product administration to effectively restore circulating volume."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "Hypovolemic shock is the most likely condition given the hematemesis and signs of decreased perfusion (hypotension, tachycardia, pallor).",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Morphine can worsen hypotension and is not a priority in this situation.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Applying a warm blanket is a comfort measure but does not address the underlying hypovolemia.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Rapid infusion of isotonic crystalloids is essential to restore circulating volume.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Initiating two large-bore IV lines allows for rapid fluid administration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "WBC count is not a primary indicator of hypovolemic shock.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring blood pressure and heart rate is crucial to assess hemodynamic stability.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Hourly urine output reflects renal perfusion and the effectiveness of fluid resuscitation.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Serum lactate level can be elevated in shock but is not the most immediate indicator of resuscitation success.",
-                "isCorrect": false
-            }
-        ],
-        "mnemonic": {
-            "title": "IV Fluid Resuscitation",
-            "expansion": "IV: Initiate IV access (large bore)\nF: Fluids (Isotonic Crystalloids)\nR: Rate (Rapid Infusion)\n\nKey Actions: Initiate two large-bore (18-gauge) IV lines; Rapid infusion of Isotonic Crystalloids (0.9% normal saline)\nKey Monitoring: Hourly Urine Output; Blood Pressure and Heart Rate"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Hypovolemic Shock: Pathophysiology and Recognition",
-                "body": "Hypovolemic shock occurs when there is a significant loss of circulating blood volume, leading to decreased tissue perfusion. In this case, hematemesis indicates blood loss from the gastrointestinal tract. The body attempts to compensate by increasing heart rate and vasoconstriction, but these mechanisms eventually fail, resulting in hypotension and organ damage. Rapid volume replacement with large-bore IVs and isotonic crystalloids is crucial to restore circulating volume and improve tissue perfusion. Monitoring urine output and vital signs provides essential information about the effectiveness of resuscitation efforts.",
-                "source": "ATI Nursing Review 2026"
-            },
-            {
-                "heading": "Priority Interventions for Hypovolemic Shock",
-                "body": "The priority nursing interventions for hypovolemic shock include: 1) Establishing two large-bore IV lines to facilitate rapid fluid administration. 2) Initiating rapid infusion of isotonic crystalloids (0.9% normal saline) to expand intravascular volume. 3) Continuously monitoring vital signs (blood pressure, heart rate, respiratory rate) to assess hemodynamic stability. 4) Monitoring hourly urine output to evaluate renal perfusion and the effectiveness of fluid resuscitation. Morphine can further decrease blood pressure and should be avoided. While WBC count and serum lactate level can provide additional information, they are not the primary parameters for immediate assessment and management.",
-                "source": "Saunders Comprehensive Review for the NCLEX-RN Examination, 9th Edition"
-            },
-            {
-                "heading": "SBAR Communication for Hypovolemic Shock",
-                "body": "Situation: Client presents with hematemesis and signs of hypovolemic shock. Background: History of GI bleed unknown, vital signs unstable. Assessment: BP 88/54 mmHg, HR 128 bpm, RR 24 breaths/min, pale, cold, agitated. Recommendation: Initiate two large-bore IVs, rapid infusion of isotonic crystalloids, monitor hourly urine output and vital signs. Consider further diagnostic testing to identify the source of bleeding.",
-                "source": "The Joint Commission"
-            }
-        ]
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11",
-    "itemContext": {
-        "sbar": "Situation: Client presents with hematemesis and signs of hypovolemic shock.\nBackground: History of GI bleed unknown, vital signs unstable.\nAssessment: BP 88/54 mmHg, HR 128 bpm, RR 24 breaths/min, pale, cold, agitated.\nRecommendation: Initiate two large-bore IVs, rapid infusion of isotonic crystalloids, monitor hourly urine output and vital signs. Consider further diagnostic testing to identify the source of bleeding."
-    }
+    "sentinelStatus": "remediated_2026_v1"
 }

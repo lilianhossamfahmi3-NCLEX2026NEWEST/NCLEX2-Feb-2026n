@@ -1,133 +1,347 @@
 {
     "id": "New-v26-8f7a2e34-9c2b-4a1e-9d5c-6b8a90123456",
-    "type": "trend",
-    "stem": "The patient is exhibiting signs of hypovolemic shock. Based on the EHR data, determine which nursing actions are MOST appropriate to implement *immediately*. Select all that apply.",
+    "type": "selectAll",
+    "stem": "The nurse has recognized the client is experiencing hypovolemic shock. Based on the provided clinical data, which actions should the nurse take *immediately*? Select all that apply.",
     "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
+        "method": "+/- 1.0 Penalty",
+        "maxPoints": 4
     },
     "itemContext": {
         "patient": {
-            "name": "John Smith",
             "age": 72,
-            "gender": "Male",
-            "iso": "Medical Unit",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, a 72-year-old male, is post-operative day 1 following a right hip arthroplasty. The 06:00 report indicated a stable condition. B: His medical history includes hypertension, managed with lisinopril. The surgery was uneventful. A: At 07:15, the patient reported sudden dizziness and weakness, appearing pale and diaphoretic. Current vitals: BP 88/50 mmHg, HR 122 bpm, RR 28 breaths/min, SpO2 92% on room air. The dressing has moderate serosanguinous drainage. Urine output since surgery is 50 mL. He's alert but anxious, reporting pain 2/10 at the surgical site. R: I suspect hypovolemic shock secondary to possible blood loss. Request immediate assessment and orders for fluid resuscitation. STAT CBC and CMP have been ordered.",
         "tabs": [
             {
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "noteType": "Admission Note",
+                        "timestamp": "Yesterday, 14:00",
+                        "text": "S: Client admitted from PACU post-right total hip arthroplasty. B: 72-year-old male with a history of hypertension controlled with lisinopril. No intraoperative complications. Epidural in place for pain management. A: Alert and oriented x4. Vitals stable. Surgical dressing is clean, dry, and intact. Neurovascular checks of the right lower extremity are within normal limits. Reports pain as 3/10. Client lives alone in a second-floor apartment, raising potential discharge concerns regarding mobility and access to follow-up care. R: Continue routine post-operative monitoring. Reinforce hip precautions. Consult case management for discharge planning support."
+                    },
+                    {
+                        "noteType": "Progress Note",
+                        "timestamp": "Today, 07:20",
+                        "text": "S: Client activated call light reporting acute dizziness and feeling 'very weak.' B: Post-op day 1 from right hip arthroplasty. Lisinopril 10 mg PO administered at 06:00. A: Client is pale, with cool, diaphoretic skin. Capillary refill is 4 seconds. Tachycardic at 125 bpm, hypotensive at 86/48 mmHg (MAP 61), tachypneic at 29/min, SpO2 91% on room air. Surgical dressing has a 15 cm area of serosanguinous drainage, an increase from 5 cm noted at 06:00. Urine output from Foley catheter is 15 mL in the past 2 hours. R: Suspect acute hypovolemic shock. Activating Rapid Response Team. Recommend immediate fluid resuscitation and STAT labs."
+                    }
+                ]
+            },
+            {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP (mmHg)</th><th>HR (bpm)</th><th>RR</th><th>SpO2 (%)</th><th>Temp (°C)</th></tr></thead><tbody><tr><td>06:00</td><td>130/80</td><td>78</td><td>18</td><td>98</td><td>37.0</td></tr><tr><td>07:15</td><td>88/50</td><td>122</td><td>28</td><td>92</td><td>36.8</td></tr><tr><td>07:20</td><td>86/48</td><td>125</td><td>29</td><td>91</td><td>36.7</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "HR (bpm)",
+                        "RR (breaths/min)",
+                        "SpO₂",
+                        "Temp"
+                    ],
+                    "rows": [
+                        [
+                            "06:00",
+                            "130/80",
+                            "97",
+                            "78",
+                            "18",
+                            "98% on Room Air",
+                            "98.6°F (37.0°C)"
+                        ],
+                        [
+                            "07:15",
+                            "88/50",
+                            "63",
+                            "122",
+                            "28",
+                            "92% on Room Air",
+                            "98.2°F (36.8°C)"
+                        ],
+                        [
+                            "07:20",
+                            "86/48",
+                            "61",
+                            "125",
+                            "29",
+                            "91% on Room Air",
+                            "98.1°F (36.7°C)"
+                        ]
+                    ]
+                }
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>10.2 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Hematocrit</td><td>30%</td><td>40-52%</td></tr><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>1.0 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></tbody></table>"
+                "title": "Lab Diagnostics",
+                "content": {
+                    "panel": "Complete Blood Count (CBC) - STAT",
+                    "collected": "Today, 07:20",
+                    "results": [
+                        {
+                            "test": "Hemoglobin (Hgb)",
+                            "result": "10.2",
+                            "unit": "g/dL",
+                            "reference": "13.5-17.5",
+                            "status": "Low"
+                        },
+                        {
+                            "test": "Hematocrit (Hct)",
+                            "result": "30",
+                            "unit": "%",
+                            "reference": "40-52",
+                            "status": "Low"
+                        },
+                        {
+                            "test": "Platelets",
+                            "result": "250,000",
+                            "unit": "/mm³",
+                            "reference": "150,000-400,000",
+                            "status": "Normal"
+                        },
+                        {
+                            "test": "White Blood Cell (WBC)",
+                            "result": "9.8",
+                            "unit": "x 10³/uL",
+                            "reference": "4.5-11.0",
+                            "status": "Normal"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "General",
+                        "findings": "Anxious, pale, diaphoretic."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardia with thready peripheral pulses. Capillary refill 4 seconds on upper extremities."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Tachypneic with clear lung sounds bilaterally."
+                    },
+                    {
+                        "system": "Integumentary",
+                        "findings": "Skin is cool and clammy to the touch."
+                    },
+                    {
+                        "system": "Musculoskeletal",
+                        "findings": "Right hip dressing with a 15 cm diameter area of serosanguinous drainage, no active bleeding visible."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "No new imaging reports available at this time."
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "orders": [
+                        [
+                            "Yesterday, 14:00",
+                            "0.9% Sodium Chloride",
+                            "75 mL/hr",
+                            "Standing"
+                        ],
+                        [
+                            "Yesterday, 14:00",
+                            "Vital signs per post-op protocol",
+                            "q4h",
+                            "Standing"
+                        ],
+                        [
+                            "Yesterday, 14:00",
+                            "Apply oxygen via nasal cannula, titrate to keep SpO₂ >92%",
+                            "PRN",
+                            "Standing"
+                        ],
+                        [
+                            "Yesterday, 14:00",
+                            "Notify provider for SBP <90 mmHg or HR >120 bpm",
+                            "Standing",
+                            "Standing"
+                        ],
+                        [
+                            "Yesterday, 14:00",
+                            "Administer 500 mL bolus of 0.9% Sodium Chloride for SBP <90 mmHg",
+                            "PRN",
+                            "Standing"
+                        ],
+                        [
+                            "Yesterday, 14:00",
+                            "Oxycodone 5 mg PO",
+                            "q4h PRN for pain",
+                            "PRN"
+                        ]
+                    ]
+                }
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Oxycodone</td><td>5 mg</td><td>PO</td><td>q4h PRN</td><td>02:00</td></tr><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Cefazolin</td><td>1 gram</td><td>IV</td><td>q8h</td><td>02:00</td></tr></tbody></table>"
-            },
-            {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Smith, a 72-year-old male, is post-operative day 1 following a right hip arthroplasty. The 06:00 report indicated a stable condition. B: His medical history includes hypertension, managed with lisinopril. The surgery was uneventful. A: At 07:15, the patient reported sudden dizziness and weakness, appearing pale and diaphoretic. Current vitals: BP 88/50 mmHg, HR 122 bpm, RR 28 breaths/min, SpO2 92% on room air. The dressing has moderate serosanguinous drainage. Urine output since surgery is 50 mL. He's alert but anxious, reporting pain 2/10 at the surgical site. R: I suspect hypovolemic shock secondary to possible blood loss. Request immediate assessment and orders for fluid resuscitation. STAT CBC and CMP have been ordered."
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "meds": [
+                        [
+                            "Lisinopril",
+                            "10 mg",
+                            "PO",
+                            "Daily",
+                            "Today @ 06:00"
+                        ],
+                        [
+                            "Oxycodone",
+                            "5 mg",
+                            "PO",
+                            "q4h PRN",
+                            "Today @ 02:00"
+                        ],
+                        [
+                            "Docusate Sodium",
+                            "100 mg",
+                            "PO",
+                            "Daily",
+                            "Today @ 06:00"
+                        ],
+                        [
+                            "Cefazolin",
+                            "1 gram",
+                            "IV",
+                            "q8h",
+                            "Today @ 02:00"
+                        ]
+                    ]
+                }
             }
         ]
     },
     "responseOptions": [
         {
             "id": "option-1",
-            "content": "Administer a bolus of intravenous fluids.",
-            "correct": true,
-            "feedback": "Administering a bolus of intravenous fluids is crucial to increase circulating volume and improve blood pressure."
+            "content": "Administer a 500 mL bolus of 0.9% sodium chloride.",
+            "correct": true
         },
         {
             "id": "option-2",
-            "content": "Elevate the head of the bed.",
-            "correct": false,
-            "feedback": "Elevating the head of the bed would worsen hypotension."
+            "content": "Place the client in a modified Trendelenburg position.",
+            "correct": true
         },
         {
             "id": "option-3",
-            "content": "Place the patient in Trendelenburg position (modified).",
-            "correct": true,
-            "feedback": "Placing the patient in Trendelenburg position (modified) can help increase venous return to the heart."
+            "content": "Apply oxygen at 2 L/min via nasal cannula.",
+            "correct": true
         },
         {
             "id": "option-4",
-            "content": "Apply oxygen via nasal cannula.",
-            "correct": true,
-            "feedback": "Applying oxygen via nasal cannula addresses the patient's desaturation and increases oxygen delivery to tissues."
+            "content": "Activate the Rapid Response Team (RRT).",
+            "correct": true
         },
         {
             "id": "option-5",
-            "content": "Administer the next dose of cefazolin.",
-            "correct": false,
-            "feedback": "Administering the next dose of cefazolin is not the priority in this situation."
+            "content": "Elevate the head of the bed to 30 degrees.",
+            "correct": false
         },
         {
             "id": "option-6",
-            "content": "Notify the healthcare provider.",
-            "correct": true,
-            "feedback": "Notifying the healthcare provider is essential to report the patient's deteriorating condition and obtain further orders."
+            "content": "Administer the prescribed PRN oxycodone 5 mg PO.",
+            "correct": false
         },
         {
             "id": "option-7",
-            "content": "Encourage deep breathing exercises.",
-            "correct": false,
-            "feedback": "Encouraging deep breathing exercises, while beneficial in general post-op care, is insufficient to address the immediate hypovolemic shock."
+            "content": "Offer the client oral fluids for hydration.",
+            "correct": false
         },
         {
             "id": "option-8",
-            "content": "Assess the surgical site dressing.",
-            "correct": false,
-            "feedback": "Assessing the surgical site dressing is important but is already noted to have serosanguinous drainage; the priority is to address the shock."
-        },
-        {
-            "id": "option-9",
-            "content": "Initiate a blood transfusion.",
-            "correct": false,
-            "feedback": "Initiating a blood transfusion requires a physician's order and is not the first-line intervention."
-        },
-        {
-            "id": "option-10",
-            "content": "Monitor urine output.",
-            "correct": true,
-            "feedback": "Monitoring urine output is essential to assess the patient's response to fluid resuscitation and kidney perfusion."
+            "content": "Document the findings in the electronic health record.",
+            "correct": false
         }
     ],
-    "distractorRationale": {},
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
-        ]
-    },
     "rationale": {
-        "correct": "Administering a bolus of intravenous fluids increases circulating volume and improves blood pressure, addressing the primary issue in hypovolemic shock. Modified Trendelenburg position enhances venous return, augmenting cardiac output. Oxygen via nasal cannula corrects desaturation, improving tissue oxygen delivery. Notifying the healthcare provider facilitates timely intervention and further orders. Monitoring urine output assesses the effectiveness of fluid resuscitation and kidney perfusion.",
-        "incorrect": "Elevating the head of the bed exacerbates hypotension, worsening the shock state. Administering cefazolin is irrelevant to the immediate management of hypovolemic shock. Deep breathing exercises are inadequate to resolve the shock. Assessing the surgical site, while important, does not address the immediate threat of hypovolemic shock. Initiating a blood transfusion is not a first-line intervention and requires a provider's order.",
+        "correct": "The client is in hypovolemic shock, a life-threatening condition caused by decreased intravascular volume. The immediate priorities are to restore volume, optimize oxygenation, improve perfusion, and escalate care. Administering an IV fluid bolus directly addresses the volume deficit. Applying oxygen corrects hypoxemia and improves tissue oxygen delivery. The modified Trendelenburg position transiently increases venous return to the heart, improving cardiac output. Activating the RRT brings critical care expertise to the bedside for rapid intervention.",
+        "incorrect": "Elevating the head of the bed would worsen hypotension by reducing venous return. Administering oxycodone, an opioid, would cause vasodilation and respiratory depression, exacerbating the shock state. Oral fluids are too slow for acute resuscitation and pose an aspiration risk. Documentation is a lower priority than immediate life-saving interventions; the nurse must act first, then chart.",
+        "answerBreakdown": [
+            {
+                "optionId": "option-1",
+                "rationale": "Pathophysiology: Hypovolemic shock is defined by inadequate circulating volume. An isotonic crystalloid bolus (0.9% NaCl) rapidly expands intravascular volume, increasing preload, which, according to the Frank-Starling mechanism, improves stroke volume and cardiac output, thereby raising blood pressure and improving tissue perfusion."
+            },
+            {
+                "optionId": "option-2",
+                "rationale": "Pathophysiology: Elevating the legs above the level of the heart uses gravity to augment venous return from the lower extremities to the central circulation. This transiently increases preload to the right atrium, boosting cardiac output and mean arterial pressure (MAP) to perfuse vital organs like the brain and heart."
+            },
+            {
+                "optionId": "option-3",
+                "rationale": "Pathophysiology: In shock, oxygen delivery to the tissues (DO2) is critically impaired due to low blood flow. The client's SpO2 of 91% indicates hypoxemia. Supplemental oxygen increases the arterial oxygen saturation (SaO2), maximizing the oxygen content of the available hemoglobin and improving DO2 to mitigate cellular hypoxia and anaerobic metabolism."
+            },
+            {
+                "optionId": "option-4",
+                "rationale": "Safety/Systems: The client's rapid deterioration with hemodynamic instability meets criteria for RRT activation. This action mobilizes a specialized team for immediate, expert-level assessment and intervention, preventing further decline and potential cardiac arrest. It is a critical safety and systems-based action."
+            },
+            {
+                "optionId": "option-5",
+                "rationale": "Pathophysiology: Elevating the head of the bed in a hypotensive client would cause venous pooling in the lower body, further decreasing venous return and preload. This would exacerbate hypotension, reduce cerebral perfusion, and worsen the shock state."
+            },
+            {
+                "optionId": "option-6",
+                "rationale": "Pathophysiology: Opioids like oxycodone can cause vasodilation and respiratory depression. In a client already experiencing hypotension and tachypnea from shock, administering an opioid would further lower blood pressure, decrease respiratory drive, and mask neurological changes, leading to a catastrophic decline."
+            },
+            {
+                "optionId": "option-7",
+                "rationale": "Pathophysiology/Safety: While the client needs volume, oral rehydration is too slow to correct acute, severe hypovolemia. Furthermore, clients in shock are at high risk for decreased level of consciousness and aspiration. IV access provides the rapid, controlled volume expansion required."
+            },
+            {
+                "optionId": "option-8",
+                "rationale": "Priority/Safety: While documentation is essential, it is never the priority over life-saving interventions. The 'act, then document' principle applies. Delaying resuscitation to chart findings would allow the shock state to progress, leading to irreversible organ damage."
+            }
+        ],
         "clinicalPearls": [
-            "In hypovolemic shock, rapid fluid resuscitation is paramount to restore circulating volume and blood pressure.",
-            "Modified Trendelenburg (legs elevated) can transiently improve venous return but should be used cautiously.",
-            "Continuous monitoring of vital signs and urine output is crucial during fluid resuscitation to prevent complications."
+            "The combination of recent surgery, tachycardia, hypotension, and decreased urine output is a classic presentation of postoperative hypovolemic shock, often due to hemorrhage.",
+            "Lisinopril, an ACE inhibitor, can contribute to hypotension by blocking the compensatory renin-angiotensin-aldosterone system (RAAS) response to volume loss. Its administration shortly before the event is a significant clinical cue.",
+            "Modified Trendelenburg (legs elevated) is a temporary bridge to improve perfusion, not a definitive treatment. The definitive treatment is always volume replacement."
         ],
         "questionTrap": {
-            "trap": "Focusing on isolated symptoms (e.g., oxygenation or wound assessment) rather than addressing the underlying hypovolemic shock.",
-            "howToOvercome": "Prioritize interventions that directly address the cause of shock and improve perfusion and oxygenation."
+            "trap": "The trap is choosing actions that are assessments (like checking the dressing again) or delayed interventions (like documentation) over immediate, life-sustaining resuscitation measures. The NCLEX prioritizes direct actions that reverse the pathophysiology of shock.",
+            "howToOvercome": "When a client is unstable, always follow the ABCs (Airway, Breathing, Circulation) and prioritize interventions that directly restore physiological stability. Ask yourself, 'What action will make the biggest difference in the next 60 seconds?'"
         },
         "mnemonic": {
-            "title": "IV SHOCK",
-            "expansion": "I-IV Fluids (crystalloid bolus); V-Vitals Monitoring; S-Support Oxygenation; H-Head Flat/Modified Trendelenburg; O-Observe Urine Output; C-Call for Help; K-Keep Warm"
+            "title": "SHOCK FIRST",
+            "expansion": "S-Start IV fluids; H-Head flat/legs up (Modified Trendelenburg); O-Oxygen on; C-Call for help (RRT); K-Keep monitoring vitals; F-Find the cause; I-Intervene based on cause; R-Reassess response; S-Scribe later (Document after stabilizing)."
         }
+    },
+    "pedagogy": {
+        "bloomLevel": "apply",
+        "cjmmStep": "takeAction",
+        "nclexCategory": "Physiological Adaptation",
+        "difficulty": 5,
+        "topicTags": [
+            "Cardiovascular: Shock & Hemodynamics",
+            "Postoperative Care",
+            "Fluid and Electrolyte Imbalances"
+        ]
     },
     "airborne": false,
     "isolation": "standard",

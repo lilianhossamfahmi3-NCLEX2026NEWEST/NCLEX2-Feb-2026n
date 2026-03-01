@@ -1,72 +1,118 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-8012-34567890abcd",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a 68-year-old male patient, Mr. Jones, admitted with acute decompensated heart failure (ADHF). Based on the patient's current assessment and available data, prioritize the following nursing actions from FIRST to LAST. Click and drag the options below to rank them in order of priority.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is caring for a 68-year-old client with acute decompensated heart failure. Based on the provided clinical data, which action is the nurse's immediate priority?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Administer supplemental oxygen."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer furosemide 40 mg IV push."
+        },
+        {
+            "id": "opt_03",
+            "text": "Administer potassium chloride 40 mEq PO."
+        },
+        {
+            "id": "opt_04",
+            "text": "Elevate the head of the bed to 90 degrees."
+        }
+    ],
+    "correctOptionId": "opt_01",
     "itemContext": {
         "patient": {
-            "name": "Jones, Michael",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Sulfa Drugs"
             ],
-            "conditions": [
-                "Airborne"
-            ]
+            "isolation": "Standard Precautions"
         },
-        "sbar": "Situation: At 07:00, Mr. Jones is a 68-year-old male admitted at 03:00 with acute decompensated heart failure (ADHF). He has a history of hypertension, type 2 diabetes mellitus, and coronary artery disease (CAD).\n\nBackground: His oxygen saturation is 88% on room air, with coarse crackles auscultated bilaterally. Vitals at 06:00: BP 178/98, HR 112, RR 28, Temp 37.1°C. He reports, 'I can't breathe.' Telemetry shows sinus tachycardia. IV access is in the left forearm. Furosemide 40mg IVP is ordered STAT. Potassium is 3.2 mEq/L. He received morphine 2mg IV at 06:30 for anxiety. Urine output since admission is 50mL.\n\nAssessment: The patient is alert but anxious and oriented x3. Key concerns are respiratory distress, hypokalemia, and potential decompensation.\n\nRecommendation: The provider has been notified and is en route with new orders pending. Closely monitor respiratory status and cardiac rhythm. Administer oxygen and address hypokalemia per orders.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BNP</td><td>1200 pg/mL</td><td>&lt;100 pg/mL</td></tr><tr><td>Troponin I</td><td>0.04 ng/mL</td><td>&lt;0.04 ng/mL</td></tr><tr><td>Glucose</td><td>180 mg/dL</td><td>70-110 mg/dL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (03:00): Client is a 68-year-old male admitted from home via ambulance for acute decompensated heart failure (ADHF).\n\nProgress Note (07:00):\nS: Client states, \"I can't breathe.\" Reports increasing shortness of breath and orthopnea over the past 3 days. His adult child is at the bedside and expresses significant concern.\nB: History of hypertension, type 2 diabetes, and CAD. Client lives alone in a third-floor walk-up apartment, reporting difficulty managing stairs, which may have delayed him seeking care. He has 2+ pitting edema in bilateral lower extremities.\nA: At 07:00, the client is anxious, tachypneic, and using accessory muscles. SpO₂ is 88% on room air. Coarse crackles are auscultated bilaterally throughout lung fields. Telemetry shows sinus tachycardia at 112/min. Urine output is minimal since admission (50 mL).\nR: Immediate intervention is required to stabilize respiratory status. Administer STAT orders for oxygen and furosemide. Prepare for potential need for non-invasive positive pressure ventilation. Continue close monitoring of vital signs, cardiac rhythm, and urine output."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Given</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IVP</td><td>STAT</td><td>-</td></tr><tr><td>Morphine Sulfate</td><td>2 mg</td><td>IV</td><td>PRN Anxiety</td><td>06:30</td></tr><tr><td>Insulin Aspart</td><td>4 units</td><td>SubQ</td><td>AC</td><td>07:00</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Potassium Chloride</td><td>40 mEq</td><td>PO</td><td>Daily</td><td>-</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp</th><th>HR</th><th>RR</th><th>BP (MAP)</th><th>SpO₂</th></tr></thead><tbody><tr><td>07:00</td><td>98.8°F (37.1°C)</td><td>112</td><td>28</td><td>178/98 mmHg (125)</td><td>88% on Room Air</td></tr><tr><td>06:00</td><td>98.6°F (37.0°C)</td><td>108</td><td>26</td><td>170/90 mmHg (117)</td><td>89% on Room Air</td></tr><tr><td>05:00</td><td>98.4°F (36.9°C)</td><td>105</td><td>24</td><td>165/85 mmHg (112)</td><td>90% on Room Air</td></tr></tbody></table><p>Telemetry: Sinus Tachycardia</p>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>178/98</td><td>112</td><td>28</td><td>88%</td><td>37.1°C</td></tr><tr><td>05:00</td><td>170/90</td><td>108</td><td>26</td><td>89%</td><td>37.0°C</td></tr><tr><td>04:00</td><td>165/85</td><td>105</td><td>24</td><td>90%</td><td>36.9°C</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Potassium</td><td>3.2</td><td>mEq/L</td><td>3.5-5.0</td><td>Low</td></tr><tr><td>Sodium</td><td>138</td><td>mEq/L</td><td>135-145</td><td>WNL</td></tr><tr><td>BUN</td><td>35</td><td>mg/dL</td><td>10-20</td><td>High</td></tr><tr><td>Creatinine</td><td>1.8</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>BNP</td><td>1200</td><td>pg/mL</td><td>&lt;100</td><td>High</td></tr><tr><td>Troponin I</td><td>&lt;0.04</td><td>ng/mL</td><td>&lt;0.04</td><td>WNL</td></tr><tr><td>Glucose</td><td>180</td><td>mg/dL</td><td>70-110</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Focused Assessment (07:00):\nCardiovascular: Tachycardic rate, regular rhythm. S1, S2 heard. No murmurs, rubs, or gallops. 2+ pitting edema noted in bilateral lower extremities. Capillary refill < 3 seconds.\nRespiratory: Increased work of breathing with use of accessory muscles. Coarse crackles auscultated bilaterally throughout all lung fields.\nNeurological: Alert and oriented to person, place, and time. Anxious affect. Moves all extremities purposefully."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<strong>Type:</strong> Chest X-ray (Portable, AP view)<br><strong>Date/Time:</strong> 04:30<br><strong>Findings:</strong> Cardiomegaly noted. Significant pulmonary vascular congestion with bilateral interstitial and alveolar edema, consistent with pulmonary edema. Small bilateral pleural effusions are present. No evidence of pneumothorax or consolidation.<br><strong>Impression:</strong> Findings are consistent with acute decompensated heart failure with significant pulmonary edema."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Today 07:00</td><td>Furosemide 40 mg IV push</td><td>STAT</td></tr><tr><td>Today 07:00</td><td>Titrate oxygen to maintain SpO₂ > 92%</td><td>Standing</td></tr><tr><td>Today 03:15</td><td>Continuous cardiac monitoring</td><td>Standing</td></tr><tr><td>Today 03:15</td><td>Strict intake and output</td><td>Standing</td></tr><tr><td>Today 03:15</td><td>Daily weights</td><td>Standing</td></tr><tr><td>Today 03:15</td><td>Morphine Sulfate 2 mg IV</td><td>PRN q2h for anxiety/dyspnea</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV Push</td><td>STAT</td><td>Not Administered</td></tr><tr><td>Morphine Sulfate</td><td>2 mg</td><td>IV</td><td>PRN q2h</td><td>06:30</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Potassium Chloride</td><td>40 mEq</td><td>PO</td><td>Daily</td><td>Not Administered</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "recognizeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Acute MI & Heart Failure"
+    "rationale": {
+        "correct": "The client's SpO₂ of 88% indicates significant hypoxemia, which is an immediate threat to life. According to the Airway, Breathing, Circulation (ABC) framework of prioritization, addressing impaired gas exchange is the highest priority. Administering supplemental oxygen will directly treat the hypoxemia, increase arterial oxygen saturation, and prevent end-organ damage from lack of oxygen.",
+        "incorrect": "While the other actions are appropriate for a client with ADHF, they are not the immediate priority. Furosemide will address the fluid overload but takes time to have a therapeutic effect on oxygenation. Correcting the low potassium is important to prevent arrhythmias but is not as urgent as correcting hypoxemia. Elevating the head of the bed is a helpful supportive measure to ease the work of breathing, but it does not directly correct the underlying lack of oxygen.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The client's SpO₂ is 88%, indicating hypoxemia. The priority nursing action is to apply oxygen to improve gas exchange and prevent tissue hypoxia, following the ABCs (Airway, Breathing, Circulation) principle."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. Furosemide is a crucial intervention to reduce preload and pulmonary congestion. However, its onset of action is not immediate, and correcting the life-threatening hypoxemia must be done first."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. The client's potassium is low (3.2 mEq/L), which increases the risk for cardiac dysrhythmias. While this needs to be corrected, it is not the most immediate life-threatening problem compared to severe hypoxemia."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. Elevating the head of the bed (High-Fowler's position) can decrease venous return and improve lung expansion, which helps ease the work of breathing. However, it is a supportive measure and is secondary to administering oxygen to correct hypoxemia."
+            }
+        ],
+        "clinicalPearls": [
+            "In acute decompensated heart failure, the primary goals are to improve oxygenation and reduce preload/afterload.",
+            "Always prioritize interventions using the ABC (Airway, Breathing, Circulation) framework. Hypoxemia is a 'Breathing' problem that must be addressed before 'Circulation' issues like fluid overload.",
+            "BNP (B-type Natriuretic Peptide) is a key diagnostic marker for heart failure; a level >100 pg/mL is indicative of HF, and this client's level of 1200 pg/mL indicates severe decompensation."
+        ],
+        "questionTrap": "A common trap is to immediately choose the medication that treats the underlying cause (furosemide for fluid overload). Always assess and intervene based on the most immediate threat to life. An SpO₂ of 88% is a critical value that requires immediate correction.",
+        "mnemonic": "For ADHF priorities, remember 'O-H-F-A-S-T': Oxygen (first!), Head of bed up, Furosemide, Afterload reduction (e.g., nitrates), Sodium restriction, Test labs (K+, BNP).",
+        "reviewUnits": [
+            "Heart Failure Management",
+            "Oxygenation and Gas Exchange",
+            "Fluid and Electrolyte Balance",
+            "Prioritization Frameworks (ABCs)"
         ]
     },
-    "rationale": {
-        "correct": "The correct order is: 1. Administer supplemental oxygen. Rationale: The patient's oxygen saturation is 88%, indicating hypoxia. Administering oxygen is the highest priority to improve oxygenation and prevent organ damage. Clinical Pearl: Hypoxia can quickly lead to irreversible organ damage if not addressed promptly.\n2. Administer Furosemide 40mg IVP STAT. Rationale: Furosemide is a loop diuretic that will help reduce fluid overload, a key component of ADHF. It reduces preload and pulmonary congestion. Clinical Pearl: Rapid diuresis can significantly improve respiratory distress in ADHF.\n3. Initiate continuous cardiac monitoring. Rationale: The patient is in sinus tachycardia and at risk for arrhythmias due to hypokalemia and ADHF. Continuous monitoring allows for prompt detection and management of any life-threatening arrhythmias. Clinical Pearl: ADHF and electrolyte imbalances increase the risk of cardiac arrhythmias.\n4. Administer Potassium Chloride (KCl) supplement. Rationale: The patient's potassium level is 3.2 mEq/L, indicating hypokalemia, which can increase the risk of arrhythmias and potentiate digoxin toxicity if the patient were taking digoxin. Clinical Pearl: Hypokalemia should be corrected promptly, especially in patients with cardiac conditions.\n5. Elevate the head of the bed. Rationale: Elevating the head of the bed promotes lung expansion and reduces venous return, alleviating dyspnea and improving breathing. Clinical Pearl: Positioning can significantly impact respiratory effort and comfort.",
-        "incorrect": "Incorrect prioritization can lead to further decompensation and potentially life-threatening complications. Failing to address hypoxia immediately can result in organ damage. Delaying diuretic administration can exacerbate fluid overload. Not monitoring cardiac rhythm continuously can miss critical arrhythmias. Ignoring hypokalemia can increase the risk of arrhythmias. Not elevating the head of the bed can worsen dyspnea.",
-        "clinicalPearls": [
-            "In ADHF, rapid intervention is crucial to prevent further decompensation.",
-            "Hypokalemia can potentiate digoxin toxicity and increase the risk of arrhythmias, especially in patients with heart failure."
-        ],
-        "questionTrap": {
-            "trap": "Many students might prioritize administering furosemide first due to the patient's fluid overload. While important, it's secondary to ensuring adequate oxygenation.",
-            "howToOvercome": "Remember the ABCs (Airway, Breathing, Circulation). Address hypoxia before managing fluid overload. Think about the immediate threat to the patient's life."
-        },
-        "mnemonic": {
-            "title": "OXYGEN",
-            "expansion": "Observe Oxygenation; Give Oxygen; Evaluate ECG; Verify Electrolytes; Elevate Head; Note Output"
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "takeAction",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:22:38.157Z"
 }

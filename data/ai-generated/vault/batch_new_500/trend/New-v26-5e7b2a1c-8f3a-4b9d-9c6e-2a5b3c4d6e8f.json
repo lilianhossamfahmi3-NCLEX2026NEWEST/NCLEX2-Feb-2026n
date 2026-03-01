@@ -1,77 +1,133 @@
 {
     "id": "New-v26-5e7b2a1c-8f3a-4b9d-9c6e-2a5b3c4d6e8f",
-    "type": "trend",
-    "stem": "The nurse is caring for a 35-year-old male patient with a T6 spinal cord injury experiencing autonomic dysreflexia. Review the patient's EHR and determine the appropriate interventions, prioritizing those that address the immediate life-threatening risk. Drag the nursing actions into the order you would implement them, starting with the FIRST action at the top.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client with a T6 spinal cord injury who is exhibiting signs of autonomic dysreflexia. Drag the nursing actions into the correct order of implementation, from first to last.",
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "Elevate the head of the bed to 90 degrees."
+        },
+        {
+            "id": "opt_2",
+            "text": "Loosen any constrictive clothing or devices."
+        },
+        {
+            "id": "opt_3",
+            "text": "Assess for bladder distention and catheterize if needed."
+        },
+        {
+            "id": "opt_4",
+            "text": "Administer nifedipine 10 mg sublingually per PRN order."
+        },
+        {
+            "id": "opt_5",
+            "text": "Notify the primary healthcare provider of the event."
+        }
+    ],
+    "correctOrder": [
+        "opt_1",
+        "opt_2",
+        "opt_3",
+        "opt_4",
+        "opt_5"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Josephine 'Joe' Miller",
-            "age": 35,
-            "gender": "Male",
-            "iso": "Room 302",
-            "airborne": false,
+            "name": "John Miller",
+            "age": "35",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Dr. Ramirez, this is Nurse Jones calling from Room 302 regarding Mr. Miller, a 35-year-old male with a T6 spinal cord injury. He reports a severe headache and feels flushed.\nB: Mr. Miller sustained the SCI six months ago in a motorcycle accident. He manages well but has had occasional UTIs. He's on scheduled baclofen and intermittent catheterization every 6 hours.\nA: At 07:00, his BP was 110/70 mmHg and HR 72 bpm. Now, at 07:30, his BP is 210/110 mmHg and HR is 50 bpm. He's diaphoretic above the injury level and has goosebumps below. I suspect autonomic dysreflexia. Last BM was two days ago. I elevated the head of the bed to 45 degrees.\nR: I request you evaluate him urgently for autonomic dysreflexia management. I'm prepared to administer nifedipine if ordered, after addressing potential triggers. Could you please provide further orders?",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>07:00</td><td>110/70</td><td>72</td><td>16</td><td>98%</td><td>37.0°C</td></tr><tr><td>07:15</td><td>160/90</td><td>60</td><td>18</td><td>99%</td><td>37.1°C</td></tr><tr><td>07:30</td><td>210/110</td><td>50</td><td>18</td><td>99%</td><td>37.2°C</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed (Nurses' Notes)",
+                "content": "Admission Note (Day 1, 08:00):\n35-year-old male admitted for management of muscle spasticity related to a T6 spinal cord injury sustained 6 months prior. Client is alert and oriented x4. Intermittent self-catheterization every 6 hours. Reports last bowel movement was two days ago. Baclofen initiated for spasticity. Plan includes physical therapy and bladder training. Client lives alone in a second-floor apartment with no elevator, which presents a barrier to community access; social work consulted. Denies pain at present. Baseline vitals stable.\n\nProgress Note (Day 2, 07:35):\nS: Client used call light to report a sudden, severe, pounding headache. States, 'I feel hot and my face is flushed.'\nB: 35-year-old male with T6 SCI. History of occasional UTIs. Last bowel movement was 2 days ago. Last catheterization was at 06:00.\nA: Vitals at 07:30: BP 210/110 mmHg, HR 50 bpm, RR 18, SpO2 99% on room air. Client is diaphoretic and flushed above the T6 injury level. Piloerection noted on lower extremities. Suspect autonomic dysreflexia. Head of bed was immediately elevated to 90 degrees.\nR: Will assess for and remove noxious stimuli, starting with bladder distention. Will administer PRN nifedipine if SBP remains >180 mmHg after initial interventions. Notifying Dr. Ramirez for further evaluation and orders."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>WBC</td><td>9.5 x 10^9/L</td><td>4.5-11.0 x 10^9/L</td></tr><tr><td>RBC</td><td>4.8 x 10^12/L</td><td>4.5-5.5 x 10^12/L</td></tr><tr><td>Urinalysis</td><td>Pending</td><td>N/A</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR (bpm)</th><th>RR (breaths/min)</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>07:00</td><td>110/70 mmHg (83)</td><td>72</td><td>16</td><td>98% on Room Air</td><td>98.6°F (37.0°C)</td></tr><tr><td>07:15</td><td>160/90 mmHg (113)</td><td>60</td><td>18</td><td>99% on Room Air</td><td>98.8°F (37.1°C)</td></tr><tr><td>07:30</td><td>210/110 mmHg (143)</td><td>50</td><td>18</td><td>99% on Room Air</td><td>99.0°F (37.2°C)</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Baclofen</td><td>20 mg</td><td>PO</td><td>TID</td><td>06:00</td></tr><tr><td>Nifedipine</td><td>10 mg</td><td>SL</td><td>PRN for SBP > 180 mmHg</td><td>N/A</td></tr><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>WBC</td><td>9.5</td><td>x10⁹/L</td><td>4.5 - 11.0</td><td>Normal</td></tr><tr><td>Hemoglobin</td><td>15.1</td><td>g/dL</td><td>13.5 - 17.5</td><td>Normal</td></tr><tr><td>Urinalysis</td><td>-</td><td>-</td><td>-</td><td>Pending</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<strong>Time:</strong> 07:30 (Focused Assessment)\n<ul><li><strong>Neurological:</strong> Alert and oriented x4. Reports severe, pounding headache.</li><li><strong>Cardiovascular:</strong> Bradycardia with HR 50 bpm. S1, S2 audible. No murmurs.</li><li><strong>Respiratory:</strong> Clear to auscultation bilaterally. Unlabored respirations.</li><li><strong>Integumentary:</strong> Diaphoresis noted on forehead, face, and neck (above T6). Skin is flushed and warm to touch above T6. Piloerection (goosebumps) and cool, pale skin noted on bilateral lower extremities (below T6).</li></ul>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<strong>Impression:</strong> No imaging reports available at this time."
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR in main prompt."
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>[Today] 08:00</td><td>Intermittent catheterization</td><td>Every 6 hours</td></tr><tr><td>[Today] 08:00</td><td>High-fiber diet</td><td>With meals</td></tr><tr><td>[Today] 08:00</td><td>Activity as tolerated</td><td>Standing Order</td></tr><tr><td>[Today] 08:00</td><td>Nifedipine 10 mg SL</td><td>PRN for SBP > 180 mmHg</td></tr><tr><td>[Today] 08:00</td><td>Docusate Sodium 100 mg PO</td><td>Daily</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console (Medications)",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Baclofen</td><td>20 mg</td><td>PO</td><td>TID</td><td>[Today] 06:00</td></tr><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>Daily</td><td>[Today] 06:00</td></tr><tr><td>Nifedipine</td><td>10 mg</td><td>SL</td><td>PRN, SBP > 180 mmHg</td><td>Not Administered</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Spinal Cord Injury & Autonomic Dysreflexia"
+    "rationale": {
+        "correct": "The correct sequence prioritizes immediate, non-invasive actions to lower the critically high blood pressure and then systematically removes the underlying cause. Autonomic dysreflexia is a medical emergency triggered by a noxious stimulus below the level of a T6 or higher spinal cord injury. The stimulus causes a massive sympathetic response, leading to vasoconstriction and severe hypertension below the injury. The parasympathetic system attempts to compensate by slowing the heart rate (bradycardia) and causing vasodilation above the injury, but this response is inadequate. Elevating the head of the bed is the first priority as it uses gravity (orthostatic hypotension) to help lower blood pressure. Simultaneously removing constrictive items and then addressing the most common trigger (bladder distention) is key to resolving the cause. If these measures fail, pharmacological intervention is necessary, followed by notification of the provider.",
+        "incorrect": "Incorrectly sequencing these actions can be life-threatening. Administering medication before attempting to remove the stimulus fails to address the root cause and may lead to rebound hypertension. Delaying head elevation misses the fastest, non-pharmacological method to reduce blood pressure. Notifying the provider before taking any action wastes critical time during a hypertensive crisis where stroke or seizure is imminent. The nurse must act swiftly on established protocols and standing orders to stabilize the client.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "content": "Correct - First Action. Elevating the head of the bed to 90 degrees (high-Fowler's position) is the immediate priority. This action induces orthostatic hypotension, causing blood to pool in the lower extremities and helping to lower cerebral blood pressure, reducing the risk of stroke."
+            },
+            {
+                "optionId": "opt_2",
+                "content": "Correct - Second Action. Loosening tight clothing, abdominal binders, or other restrictive devices is a quick, non-invasive way to eliminate a potential source of noxious stimuli that could be triggering or exacerbating the hypertensive crisis."
+            },
+            {
+                "optionId": "opt_3",
+                "content": "Correct - Third Action. Bladder distention is the most common cause of autonomic dysreflexia. After initial positioning, the nurse must rapidly assess for and relieve this by checking for kinks in an existing catheter or performing an intermittent catheterization."
+            },
+            {
+                "optionId": "opt_4",
+                "content": "Correct - Fourth Action. If the client's systolic blood pressure remains elevated (e.g., >180 mmHg) after initial interventions, administering a rapid-acting antihypertensive like nifedipine is the next step to prevent end-organ damage. This is done per a standing PRN order."
+            },
+            {
+                "optionId": "opt_5",
+                "content": "Correct - Fifth Action. After initiating emergency interventions to stabilize the client, the nurse must notify the primary healthcare provider. This communication should include the client's status, the interventions performed, and the client's response to treatment."
+            }
+        ],
+        "clinicalPearls": [
+            "Autonomic dysreflexia (AD) typically occurs in individuals with spinal cord injuries at or above the T6 level.",
+            "The classic triad of symptoms for AD is severe hypertension, pounding headache, and bradycardia. Other signs include flushing/diaphoresis above the injury level and piloerection below.",
+            "The most common triggers for AD are related to the bladder (distention, UTI, stones) and bowel (impaction, constipation). Always check bladder first, then bowel.",
+            "Never place a client with suspected AD in a supine or Trendelenburg position, as this will worsen the hypertension."
+        ],
+        "questionTrap": "The primary trap is focusing on pharmacological intervention (giving nifedipine) before addressing the underlying cause. While the blood pressure is dangerously high, the definitive treatment is removing the noxious stimulus. Medication is a supportive measure, not the primary solution.",
+        "mnemonic": "Title: 'HIGH & SIT'. Expansion: If the pressure is HIGH, you must SIT them up. This mnemonic reinforces the number one priority action: elevating the head of the bed immediately to lower blood pressure.",
+        "reviewUnits": [
+            "Neurological Disorders",
+            "Spinal Cord Injury Management",
+            "Pharmacology: Antihypertensives",
+            "Nursing Process: Implementation"
         ]
     },
-    "rationale": {
-        "correct": "Autonomic dysreflexia (AD) is a medical emergency requiring immediate intervention. First, elevate the head of bed to at least 45 degrees to reduce blood pressure by promoting venous pooling. Then, assess for and remove the triggering stimulus, beginning with the most common cause: bladder distension. Catheterize the patient to relieve any urinary retention. Monitor blood pressure closely during and after interventions. If BP remains elevated after addressing bladder issues, administer antihypertensive medication (nifedipine) as prescribed to lower blood pressure. Continuously reassess the patient's symptoms and BP to evaluate the effectiveness of interventions.",
-        "incorrect": "Delaying head elevation or addressing the potential trigger can lead to severe complications such as stroke or seizure due to uncontrolled hypertension. Administering medication before identifying and removing the cause may only temporarily mask the problem and not resolve the underlying issue, leading to rebound hypertension. Failing to reassess after each intervention prevents you from evaluating effectiveness and adjusting the plan of care, potentially missing persistent triggers or complications. Assuming the problem is resolved after the first intervention is dangerous, as autonomic dysreflexia can have multiple triggers or require further medical management.",
-        "clinicalPearls": [
-            "Autonomic dysreflexia is characterized by a sudden onset of severe hypertension (SBP > 200 mmHg), bradycardia, headache, and diaphoresis above the level of injury (typically T6 or higher).",
-            "Common triggers include bladder distension, bowel impaction, skin irritation (pressure ulcers, tight clothing), urinary tract infections, and pain.",
-            "Patients with spinal cord injuries at or above T6 are at risk for autonomic dysreflexia due to the disruption of the autonomic nervous system's control of blood pressure and other functions.",
-            "Prompt recognition and intervention are crucial to prevent life-threatening complications such as stroke, seizure, or myocardial infarction."
-        ],
-        "questionTrap": {
-            "trap": "Rushing to administer medication (Nifedipine) without first addressing the underlying cause of the autonomic dysreflexia.",
-            "howToOvercome": "Prioritize identifying and removing the triggering stimulus (e.g., bladder distension, bowel impaction) before administering medication. Medication is a secondary intervention if the cause cannot be immediately removed or the hypertension persists despite initial interventions. Remember the 'SIT UP' mnemonic."
-        },
-        "mnemonic": {
-            "title": "SIT UP",
-            "expansion": "SIT UP: Symptoms (monitor), Identify trigger, Treat cause, Understand pathophysiology, Prevent recurrence."
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Take Actions",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:42:44.728Z"
 }

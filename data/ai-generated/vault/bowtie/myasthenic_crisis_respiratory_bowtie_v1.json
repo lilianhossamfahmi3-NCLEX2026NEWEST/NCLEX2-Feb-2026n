@@ -1,7 +1,57 @@
 {
-    "id": "myasthenic_crisis_respiratory_bowtie_v1",
+    "id": "myasthenic_crisis_respiratory_bowtie_v3",
     "type": "bowtie",
-    "stem": "A client with Myasthenia Gravis is admitted at 1400 with severe respiratory distress and inability to swallow. HR 122, RR 34. Complete the bowtie to guide care.",
+    "ehr": {
+        "patient": {
+            "id": "patient-58F-MG",
+            "name": "Brenda Richards",
+            "age": "58 years",
+            "gender": "Female",
+            "allergies": "Penicillin",
+            "diagnosis": "Myasthenia Gravis",
+            "codeStatus": "Full Code"
+        },
+        "tabs": [
+            {
+                "id": "nursesNotes",
+                "label": "Nurses' Notes",
+                "content": [
+                    {
+                        "time": "14:00",
+                        "note": "Client arrives in ED via ambulance with severe respiratory distress. Client is alert but unable to speak in full sentences. Obvious use of accessory muscles for breathing. Unable to swallow secretions, drooling noted. Skin is pale and diaphoretic."
+                    }
+                ]
+            },
+            {
+                "id": "vitals",
+                "label": "Vitals",
+                "content": [
+                    {
+                        "time": "14:00",
+                        "readings": {
+                            "HR": "122 bpm",
+                            "BP": "148/92 mmHg",
+                            "RR": "34/min",
+                            "Temp": "37.8°C (100.0°F)",
+                            "SpO2": "88% on room air"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "history",
+                "label": "History",
+                "content": [
+                    {
+                        "title": "Past Medical History",
+                        "text": "Myasthenia Gravis (diagnosed 5 years ago), Hypertension, Hypothyroidism. Reports a 'cold' for the past week."
+                    }
+                ]
+            }
+        ]
+    },
+    "clinicalFeed": "SITUATION: This is the ED nurse regarding Brenda Richards, a 58-year-old female with Myasthenia Gravis who arrived at 14:00 in acute respiratory failure. BACKGROUND: She has a 5-year history of MG and had an upper respiratory infection this past week. Her condition has declined rapidly. ASSESSMENT: She is in a myasthenic crisis. Vitals are HR 122, RR 34, SpO2 88% on room air. She has profound bulbar and respiratory muscle weakness and is visibly tiring. RECOMMENDATION: I request immediate transfer to the ICU for airway management, including probable intubation.",
+    "stem": "A 58-year-old client with a history of Myasthenia Gravis presents to the emergency department with acute respiratory distress and inability to manage secretions. The client is tachycardic, tachypneic, and hypoxic. Based on the provided clinical data, complete the bowtie to address this life-threatening situation.",
     "actions": [
         {
             "id": "action1",
@@ -9,7 +59,7 @@
         },
         {
             "id": "action2",
-            "text": "Administer IV Immune Globulin (IVIG) or Plasmapheresis"
+            "text": "Administer IV Immune Globulin (IVIG)"
         },
         {
             "id": "action3",
@@ -21,10 +71,22 @@
         }
     ],
     "potentialConditions": [
-        "Botulism",
-        "Guillain-Barré Syndrome",
-        "Cholinergic Crisis",
-        "Myasthenic Crisis"
+        {
+            "id": "cond1",
+            "text": "Botulism"
+        },
+        {
+            "id": "cond2",
+            "text": "Guillain-Barré Syndrome"
+        },
+        {
+            "id": "cond3",
+            "text": "Cholinergic Crisis"
+        },
+        {
+            "id": "cond4",
+            "text": "Myasthenic Crisis"
+        }
     ],
     "condition": "Myasthenic Crisis",
     "parameters": [
@@ -45,6 +107,26 @@
             "text": "Muscle strength grading"
         }
     ],
+    "hoverRationales": {
+        "actions": {
+            "action1": "Correct. Myasthenic crisis causes severe weakness of respiratory muscles, leading to impending respiratory failure. Endotracheal intubation is a life-saving intervention to secure the airway and provide mechanical ventilation.",
+            "action2": "Correct. Myasthenic crisis is an autoimmune process where antibodies attack acetylcholine receptors. IVIG or plasmapheresis removes these circulating antibodies, treating the underlying cause of the exacerbation.",
+            "action3": "Incorrect. The client cannot swallow due to severe bulbar weakness, making oral medications an extreme aspiration risk. This route is contraindicated when the airway is compromised and secretions cannot be managed.",
+            "action4": "Incorrect. Atropine is an anticholinergic used for cholinergic crisis, which is caused by medication excess. Administering it in myasthenic crisis would be ineffective and could thicken secretions, worsening respiratory status."
+        },
+        "potentialConditions": {
+            "cond1": "Incorrect. Botulism is caused by a neurotoxin and lacks the specific autoimmune history seen in this client. The client's known Myasthenia Gravis and recent infection are classic indicators of a myasthenic crisis.",
+            "cond2": "Incorrect. Guillain-Barré Syndrome typically presents with ascending paralysis and sensory changes, which are absent here. This client's presentation is a classic exacerbation of her pre-existing Myasthenia Gravis.",
+            "cond3": "Incorrect. A cholinergic crisis results from anticholinesterase overmedication, causing excessive salivation and bradycardia. This client's profound weakness and respiratory failure indicate a myasthenic crisis, which is an exacerbation of the disease.",
+            "cond4": "Correct. This is a life-threatening exacerbation of Myasthenia Gravis, where autoantibodies block acetylcholine receptors at the neuromuscular junction. This leads to severe respiratory and bulbar muscle weakness, matching the client's presentation."
+        },
+        "parameters": {
+            "param1": "Correct. Myasthenic crisis weakens the diaphragm and intercostal muscles, causing a rapid decline in vital capacity. Monitoring this parameter is the most direct way to assess respiratory muscle fatigue and impending failure.",
+            "param2": "Correct. The crisis causes severe bulbar muscle weakness, impairing the ability to swallow and manage secretions. This creates a high risk for aspiration pneumonia, making airway protection a critical monitoring parameter.",
+            "param3": "Incorrect. While acetylcholine receptor antibody levels confirm the MG diagnosis, they are not useful for acute crisis management. The test results are not immediate and do not guide emergency interventions.",
+            "param4": "Incorrect. While assessing general muscle strength is part of a neurological exam, it is not the priority. Monitoring specific respiratory muscle function and airway patency are the most critical life-saving assessments."
+        }
+    },
     "correctActionIds": [
         "action1",
         "action2"
@@ -65,90 +147,37 @@
         ]
     },
     "rationale": {
-        "correct": "Myasthenic crisis is a life-threatening exacerbation of Myasthenia Gravis characterized by severe muscle weakness, leading to respiratory failure. The primary defect is a reduction in the number of available acetylcholine receptors (AChRs) at the neuromuscular junction due to autoimmune destruction. This impairs neuromuscular transmission, causing skeletal muscle weakness, including the diaphragm and intercostal muscles, resulting in hypoventilation and respiratory distress. IVIG/Plasmapheresis reduces circulating autoantibodies. Priority is securing the airway and supporting ventilation.",
-        "incorrect": "Oral medications pose an aspiration risk due to impaired swallowing. Atropine is an anticholinergic used to treat cholinergic crisis, not myasthenic crisis. While acetylcholine receptor antibody levels are useful for diagnosis, they do not provide immediate information about the patient's respiratory status.",
+        "overall": "Myasthenic crisis is a life-threatening exacerbation of Myasthenia Gravis leading to respiratory failure. The priority is to secure the airway (intubation) and treat the underlying autoimmune attack (IVIG/plasmapheresis). Monitoring must focus on the immediate life threats: respiratory function and airway patency.",
         "clinicalPearls": [
             "In myasthenic crisis, respiratory failure can develop rapidly. Early recognition and intervention are crucial. Always prioritize airway, breathing, and circulation (ABCs).",
-            "Differentiating between myasthenic and cholinergic crisis can be challenging. The Tensilon test (edrophonium) was historically used, but it carries risks and is less commonly used now. Clinical judgment and response to treatment are key."
+            "Differentiating between myasthenic and cholinergic crisis is key. Myasthenic crisis is from undermedication/exacerbation; cholinergic crisis is from overmedication and presents with SLUDGE symptoms."
         ],
         "questionTrap": {
             "trap": "Thinking meds fix the breathing",
-            "howToOvercome": "In a true crisis, the diaphragm and intercostals are too weak; mechanical ventilation is usually required until the crisis resolves."
+            "howToOvercome": "In a true crisis, the diaphragm and intercostals are too weak for medications like pyridostigmine to be effective quickly. Mechanical ventilation is required to support breathing until the crisis resolves."
         },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Myasthenic Crisis\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Prepare for Endotracheal Intubation\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer IV Immune Globulin (IVIG) or Plasmapheresis\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer PO Pyridostigmine immediately\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer STAT IV Atropine\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Respiratory effort and vital capacity\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Swallowing ability and airway protection\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Serum Acetylcholine receptor antibodies\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Muscle strength grading\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            }
-        ],
         "mnemonic": {
-            "title": "MC",
-            "expansion": "M = Myasthenic\nC = Crisis\n\nKey Actions: Prepare for Endotracheal Intubation; Administer IV Immune Globulin (IVIG) or Plasmapheresis\nKey Monitoring: Respiratory effort and vital capacity; Swallowing ability and airway protection"
+            "title": "A-I-R for Myasthenic Crisis",
+            "expansion": "A = Airway (Intubate)\nI = Immunotherapy (IVIG/Plasmapheresis)\nR = Respiratory Monitoring (Vital Capacity)"
         },
         "reviewUnits": [
             {
                 "heading": "Myasthenic Crisis — Pathophysiology & Recognition",
-                "body": "Myasthenic crisis is a life-threatening exacerbation of Myasthenia Gravis characterized by severe muscle weakness, leading to respiratory failure. The primary defect is a reduction in the number of available acetylcholine receptors (AChRs) at the neuromuscular junction due to autoimmune destruction. This impairs neuromuscular transmission, causing skeletal muscle weakness, including the diaphragm and intercostal muscles, resulting in hypoventilation and respiratory distress. IVIG/Plasmapheresis reduces circulating autoantibodies. Priority is securing the airway and supporting ventilation.",
+                "body": "Myasthenic crisis is an acute exacerbation of muscle weakness triggered by factors like infection, surgery, or medication changes in a client with Myasthenia Gravis. It critically impairs respiratory and bulbar muscles, leading to respiratory failure and aspiration risk. The autoimmune attack on acetylcholine receptors intensifies, requiring immediate intervention.",
                 "source": "NCLEX-RN Clinical Review 2026"
             },
             {
-                "heading": "Testing Trap — Thinking meds fix the breathing",
-                "body": "In a true crisis, the diaphragm and intercostals are too weak; mechanical ventilation is usually required until the crisis resolves.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
                 "heading": "Priority Interventions for Myasthenic Crisis",
-                "body": "The priority nursing interventions are: Prepare for Endotracheal Intubation; Administer IV Immune Globulin (IVIG) or Plasmapheresis. Monitor: Respiratory effort and vital capacity; Swallowing ability and airway protection. Patients in crisis often cannot swallow; PO meds are a choking hazard. Atropine treats the OPPOSITE (Cholinergic crisis). Antibodies are diagnostic but not a monitoring parameter for acute crisis stability.",
+                "body": "The priority nursing interventions are preparing for endotracheal intubation and administering treatments like IVIG or plasmapheresis to remove harmful autoantibodies. Monitoring focuses on respiratory effort (vital capacity) and swallowing ability to prevent aspiration. Oral medications are contraindicated due to aspiration risk.",
                 "source": "Evidence-Based Nursing Practice"
             }
         ]
     },
     "scoring": {
         "method": "plusMinus",
-        "maxPoints": 4,
+        "maxPoints": 5,
         "correctAnswerWeight": 1,
         "incorrectAnswerWeight": -1
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "remediated_2026_v1"
 }

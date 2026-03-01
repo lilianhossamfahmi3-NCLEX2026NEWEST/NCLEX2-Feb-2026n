@@ -1,123 +1,154 @@
 {
     "id": "New-v26-a7b8c9d0-e1f2-46a3-b4d5-6e7f8a9b0c1d",
     "type": "selectN",
-    "stem": "The patient is exhibiting signs of cardiogenic shock. Based on the information provided in the patient's chart, which interventions are MOST appropriate at this time? Select all that apply.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "stem": "The nurse is caring for a client experiencing cardiogenic shock post-CABG. Based on the provided clinical data, select the **5** most appropriate interventions for the nurse to anticipate and implement.",
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "Initiate dobutamine infusion."
+        },
+        {
+            "id": "opt_2",
+            "text": "Administer furosemide 40 mg IV push."
+        },
+        {
+            "id": "opt_3",
+            "text": "Administer supplemental oxygen via non-rebreather mask at 15 L/min."
+        },
+        {
+            "id": "opt_4",
+            "text": "Initiate nitroglycerin infusion."
+        },
+        {
+            "id": "opt_5",
+            "text": "Monitor hourly urine output."
+        },
+        {
+            "id": "opt_6",
+            "text": "Place the client in Trendelenburg position."
+        },
+        {
+            "id": "opt_7",
+            "text": "Administer a 500 mL normal saline bolus."
+        },
+        {
+            "id": "opt_8",
+            "text": "Initiate norepinephrine infusion."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_1",
+        "opt_2",
+        "opt_3",
+        "opt_4",
+        "opt_5"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
-            "airborne": false,
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, 68-year-old male, post-op day 1 following CABG x3. The patient is experiencing a sudden decline in blood pressure and increased dyspnea.\nB: The patient has a history of hypertension, hyperlipidemia, and CAD. CABG was performed yesterday due to significant blockage. The initial post-operative period was stable.\nA: At 07:00, the patient's BP is 80/50 mmHg, HR is 120 bpm, RR is 32 and labored, and SpO2 is 88% on 6L NC. CVP is 18 mmHg, and UO is 15 mL/hr. The patient appears pale, cool, and clammy. New onset bilateral crackles are auscultated. ECG shows sinus tachycardia with occasional PVCs. The patient reports chest pain (4/10).\nR: Anticipate orders for inotropic support and afterload reduction. Further evaluation for potential complications such as cardiac tamponade or pump failure is needed. STAT ABG and echocardiogram have been ordered. Continue close monitoring of vital signs and respiratory status. Notify the attending physician of any changes.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP (mmHg)</th><th>HR (bpm)</th><th>RR (breaths/min)</th><th>SpO2 (%)</th><th>CVP (mmHg)</th><th>UO (mL/hr)</th></tr></thead><tbody><tr><td>06:00</td><td>120/80</td><td>80</td><td>18</td><td>98</td><td>8</td><td>45</td></tr><tr><td>06:30</td><td>100/65</td><td>95</td><td>22</td><td>95</td><td>12</td><td>30</td></tr><tr><td>07:00</td><td>80/50</td><td>120</td><td>32</td><td>88</td><td>18</td><td>15</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<strong>Admission Note - Yesterday at 14:00</strong><br><strong>S:</strong> Client admitted to CVICU post-op Coronary Artery Bypass Graft (CABG) x3. Transferred from OR intubated and sedated.<br><strong>B:</strong> 68-year-old male with a history of coronary artery disease, hypertension, and hyperlipidemia. Client lives alone in a rural area with known transportation barriers, which delayed seeking care for his progressive angina.<br><strong>A:</strong> Extubated at 20:00. Vitals stable. Chest tube output minimal. Pain controlled with IV morphine.<br><strong>R:</strong> Continue with post-op CABG protocol. Monitor hemodynamics, chest tube output, and labs. Encourage incentive spirometry.<br><br><strong>Progress Note - Today at 07:00</strong><br><strong>S:</strong> Acute decompensation. Client reports increased dyspnea and chest pain rated 4/10.<br><strong>B:</strong> Post-op day 1 from CABG x3. Initial post-op course was stable until this acute change.<br><strong>A:</strong> BP 80/50 mmHg, HR 120 bpm, RR 32/min and labored, SpO2 88% on 6L NC. Client is pale, cool, and diaphoretic. Auscultation reveals new bilateral crackles. CVP is 18 mmHg, and urine output has dropped to 15 mL in the past hour. ECG shows sinus tachycardia with occasional PVCs. Lactate is elevated at 4.5 mmol/L.<br><strong>R:</strong> Notified provider. Anticipate orders for inotropic support and afterload reduction. STAT ABG drawn. STAT echocardiogram ordered. Continue close hemodynamic monitoring."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>Lactate</td><td>4.5 mmol/L</td><td>0.5-2.2 mmol/L</td></tr><tr><td>Troponin I</td><td>0.8 ng/mL</td><td>&lt;0.04 ng/mL</td></tr><tr><td>BNP</td><td>600 pg/mL</td><td>&lt;100 pg/mL</td></tr><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>50 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>60 mmHg</td><td>80-100 mmHg</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>HR (bpm)</th><th>RR (breaths/min)</th><th>SpO₂ (%)</th><th>Temp °F (°C)</th><th>CVP (mmHg)</th><th>UO (mL/hr)</th></tr></thead><tbody><tr><td>06:00</td><td>120/80</td><td>93</td><td>80</td><td>18</td><td>98% on 2L NC</td><td>98.6 (37.0)</td><td>8</td><td>45</td></tr><tr><td>06:30</td><td>100/65</td><td>77</td><td>95</td><td>22</td><td>95% on 4L NC</td><td>98.7 (37.1)</td><td>12</td><td>30</td></tr><tr><td>07:00</td><td>80/50</td><td>60</td><td>120</td><td>32</td><td>88% on 6L NC</td><td>98.5 (36.9)</td><td>18</td><td>15</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Morphine</td><td>2 mg</td><td>IV</td><td>q4h PRN pain</td><td>04:00</td></tr><tr><td>Furosemide</td><td>20 mg</td><td>IV</td><td>q12h</td><td>06:00</td></tr><tr><td>Cefazolin</td><td>1 g</td><td>IV</td><td>q8h</td><td>02:00</td></tr><tr><td>Dobutamine</td><td>Titrate to effect</td><td>IV Drip</td><td>Continuous</td><td>Not Started</td></tr><tr><td>Nitroglycerin</td><td>Titrate to effect</td><td>IV Drip</td><td>Continuous</td><td>Not Started</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Lactate</td><td>4.5</td><td>mmol/L</td><td>0.5-2.2</td><td>High</td></tr><tr><td>Troponin I</td><td>0.8</td><td>ng/mL</td><td>&lt;0.04</td><td>High</td></tr><tr><td>BNP</td><td>600</td><td>pg/mL</td><td>&lt;100</td><td>High</td></tr><tr><td colspan='5'><strong>Arterial Blood Gas (ABG) - 07:05</strong></td></tr><tr><td>pH</td><td>7.30</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>50</td><td>mmHg</td><td>35-45</td><td>High</td></tr><tr><td>PaO₂</td><td>60</td><td>mmHg</td><td>80-100</td><td>Low</td></tr><tr><td>HCO₃⁻</td><td>24</td><td>mEq/L</td><td>22-26</td><td>Normal</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<strong>Focused Assessment - Today at 07:00</strong><br><strong>Cardiovascular:</strong> Tachycardic with S1/S2 auscultated. No new murmurs. Skin is pale, cool, and diaphoretic. Capillary refill >3 seconds. Peripheral pulses are +1 and thready.<br><strong>Respiratory:</strong> Tachypneic with labored respiratory effort and use of accessory muscles. Bilateral crackles auscultated in lower lobes.<br><strong>Neurological:</strong> Alert and oriented x3, appears anxious.<br><strong>Genitourinary:</strong> Indwelling urinary catheter in place. 15 mL of clear yellow urine in the last hour."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>Pending STAT Echocardiogram results.</p>"
+                "content": "<strong>Type:</strong> Echocardiogram<br><strong>Date:</strong> Today<br><strong>Status:</strong> STAT - Ordered<br><strong>Impression:</strong> Pending interpretation by cardiologist. Ordered to assess for left ventricular dysfunction, wall motion abnormalities, or potential cardiac tamponade."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Yesterday 14:00</td><td>Continuous cardiac and hemodynamic monitoring</td><td>Standing</td></tr><tr><td>Yesterday 14:00</td><td>Strict Intake and Output</td><td>Standing</td></tr><tr><td>Yesterday 14:00</td><td>Titrate O₂ to maintain SpO₂ >92%</td><td>Standing</td></tr><tr><td>Yesterday 14:00</td><td>Morphine 2 mg IV</td><td>q4h PRN for pain</td></tr><tr><td>Yesterday 14:00</td><td>Furosemide 20 mg IV</td><td>q12h</td></tr><tr><td>Today 07:05</td><td>STAT Arterial Blood Gas (ABG)</td><td>STAT</td></tr><tr><td>Today 07:05</td><td>STAT Echocardiogram</td><td>STAT</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Morphine</td><td>2 mg</td><td>IV</td><td>q4h PRN pain</td><td>Today 04:00</td></tr><tr><td>Furosemide</td><td>20 mg</td><td>IV</td><td>q12h</td><td>Today 06:00</td></tr><tr><td>Cefazolin</td><td>1 g</td><td>IV</td><td>q8h</td><td>Today 02:00</td></tr><tr><td>Dobutamine</td><td>Titrate to effect</td><td>IV Drip</td><td>Continuous</td><td>Not Started</td></tr><tr><td>Nitroglycerin</td><td>Titrate to effect</td><td>IV Drip</td><td>Continuous</td><td>Not Started</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
+    "rationale": {
+        "correct": "The client is in cardiogenic shock, characterized by pump failure leading to decreased cardiac output and tissue hypoperfusion. The correct interventions aim to improve contractility, optimize preload and afterload, and enhance oxygenation without further straining the heart. This includes inotropic support (dobutamine), afterload/preload reduction (nitroglycerin, furosemide), maximizing oxygen delivery (non-rebreather mask), and closely monitoring for response (hourly urine output).",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "content": "Correct. Dobutamine is a positive inotrope that increases myocardial contractility and cardiac output. This directly addresses the primary problem in cardiogenic shock—pump failure—by helping the heart pump more effectively."
+            },
+            {
+                "optionId": "opt_2",
+                "content": "Correct. The client shows signs of fluid overload (CVP 18 mmHg, bilateral crackles), which is characteristic of cardiogenic shock. Furosemide, a loop diuretic, reduces preload by promoting diuresis, which decreases pulmonary congestion and the workload on the failing ventricle."
+            },
+            {
+                "optionId": "opt_3",
+                "content": "Correct. The client's SpO₂ of 88% on 6L NC indicates significant hypoxemia. A non-rebreather mask delivers the highest concentration of oxygen (FiO₂) via a non-invasive method, which is critical to correct tissue hypoxia and reduce myocardial oxygen demand."
+            },
+            {
+                "optionId": "opt_4",
+                "content": "Correct. Nitroglycerin is a vasodilator that primarily reduces preload but also reduces afterload. This decreases the resistance the heart has to pump against and reduces myocardial oxygen consumption, which is beneficial for a failing heart."
+            },
+            {
+                "optionId": "opt_5",
+                "content": "Correct. Urine output is a key indicator of end-organ perfusion, particularly renal perfusion. In shock states, monitoring hourly urine output is essential to evaluate the client's response to interventions and the adequacy of cardiac output."
+            },
+            {
+                "optionId": "opt_6",
+                "content": "Incorrect. The Trendelenburg position increases venous return to the heart (preload). In cardiogenic shock, the heart is already failing to pump the existing volume; increasing preload will worsen pulmonary edema and further strain the left ventricle."
+            },
+            {
+                "optionId": "opt_7",
+                "content": "Incorrect. Cardiogenic shock is a pump problem, not a volume problem. The client is already fluid overloaded (high CVP, crackles). Administering a fluid bolus would increase preload and exacerbate heart failure and pulmonary edema."
+            },
+            {
+                "optionId": "opt_8",
+                "content": "Incorrect. Norepinephrine is a potent vasopressor that significantly increases systemic vascular resistance (afterload). While this would raise blood pressure, it forces the already failing heart to pump against much higher resistance, which can decrease cardiac output and worsen the shock state."
+            }
+        ],
+        "clinicalPearls": [
+            "Cardiogenic shock is defined by low cardiac output and end-organ hypoperfusion despite adequate or elevated intravascular volume (preload).",
+            "The primary goal is to improve contractility (inotropes like dobutamine) and reduce afterload (vasodilators like nitroglycerin), not just raise blood pressure with vasopressors.",
+            "Elevated CVP and pulmonary artery wedge pressure are hallmark signs of cardiogenic shock, differentiating it from hypovolemic shock where these pressures are low."
+        ],
+        "questionTrap": "Candidates often select interventions that raise blood pressure, like fluid boluses or norepinephrine, without considering the pathophysiology. In cardiogenic shock, these actions increase cardiac workload and worsen the condition. The key is to support the 'pump,' not just squeeze the 'pipes.'",
+        "mnemonic": "For Cardiogenic Shock Management, think 'PUMP':\n- **P**osition: High-Fowler's, not Trendelenburg.\n- **U**nload the heart: Diuretics (Furosemide), Vasodilators (Nitroglycerin).\n- **M**echanical Support: IABP, LVAD if needed.\n- **P**ositive Inotropes: Dobutamine, Milrinone.",
+        "reviewUnits": [
+            "Cardiovascular Disorders: Shock",
+            "Pharmacology: Vasoactive Medications",
+            "Hemodynamic Monitoring"
         ]
     },
-    "rationale": {
-        "correct": "Initiating dobutamine is crucial as it is an inotrope that increases myocardial contractility, improving cardiac output and blood pressure. Administering supplemental oxygen via non-rebreather mask addresses the hypoxemia (SpO2 88%) more effectively than a nasal cannula. Reducing preload with a diuretic like furosemide is beneficial to alleviate pulmonary congestion. Nitroglycerin can be used to reduce afterload, thereby decreasing the workload on the heart. Monitoring hourly urine output helps assess renal perfusion and the effectiveness of interventions. Trendelenburg positioning is contraindicated in cardiogenic shock as it increases preload and cardiac workload, potentially worsening pulmonary edema. \n\nclinicalPearl: Dobutamine increases cardiac contractility and cardiac output, while nitroglycerin reduces afterload, easing the heart's workload. Furosemide reduces preload by diuresis, alleviating pulmonary congestion.",
-        "incorrect": "Trendelenburg positioning is contraindicated in cardiogenic shock; it worsens pulmonary edema. While morphine can alleviate chest pain, it can also cause hypotension and respiratory depression, which are detrimental in this situation. A fluid bolus is generally contraindicated in cardiogenic shock unless severe hypovolemia is present, as it can exacerbate pulmonary edema and further compromise cardiac function. While oxygen is needed, 2L via nasal cannula is insufficient given the patient's SpO2 of 88% and labored breathing. Norepinephrine is a potent vasoconstrictor that would increase afterload, further burdening the already failing heart. \n\nclinicalPearl: Avoid interventions that increase cardiac workload or preload in cardiogenic shock, as they can worsen the patient's condition.",
-        "clinicalPearls": [
-            "Cardiogenic shock is characterized by inadequate tissue perfusion due to cardiac dysfunction.",
-            "The primary goals of cardiogenic shock management are to improve cardiac output, reduce cardiac workload, and optimize oxygen delivery to tissues.",
-            "Inotropes (e.g., dobutamine) increase myocardial contractility, while vasodilators (e.g., nitroglycerin) reduce afterload."
-        ],
-        "questionTrap": {
-            "trap": "Many students choose interventions aimed at increasing blood pressure without considering the underlying cause of the hypotension, which is cardiac dysfunction.",
-            "howToOvercome": "Focus on interventions that improve cardiac contractility and reduce cardiac workload, rather than simply raising blood pressure with vasoconstrictors or fluid boluses."
-        },
-        "mnemonic": {
-            "title": "I-SHOCK",
-            "expansion": "Inotropes (Dobutamine); Support oxygenation; Hemodynamic monitoring; Optimize cardiac output; Correct underlying cause; Keep the patient informed."
-        }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 5
     },
-    "options": [
-        {
-            "key": "a",
-            "label": "Initiate dobutamine infusion.",
-            "correct": true
-        },
-        {
-            "key": "b",
-            "label": "Place the patient in Trendelenburg position.",
-            "correct": false
-        },
-        {
-            "key": "c",
-            "label": "Administer supplemental oxygen via nasal cannula at 2L/min.",
-            "correct": false
-        },
-        {
-            "key": "d",
-            "label": "Administer furosemide 40 mg IV push.",
-            "correct": true
-        },
-        {
-            "key": "e",
-            "label": "Administer a 500 mL normal saline bolus.",
-            "correct": false
-        },
-        {
-            "key": "f",
-            "label": "Administer supplemental oxygen via non-rebreather mask at 10-15 L/min.",
-            "correct": true
-        },
-        {
-            "key": "g",
-            "label": "Initiate nitroglycerin infusion.",
-            "correct": true
-        },
-        {
-            "key": "h",
-            "label": "Administer morphine 4mg IV push for chest pain.",
-            "correct": false
-        },
-        {
-            "key": "i",
-            "label": "Administer norepinephrine infusion.",
-            "correct": false
-        },
-        {
-            "key": "j",
-            "label": "Monitor hourly urine output.",
-            "correct": true
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "generateSolutions",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "correctOptionId": "opt_1",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:56:55.546Z"
 }

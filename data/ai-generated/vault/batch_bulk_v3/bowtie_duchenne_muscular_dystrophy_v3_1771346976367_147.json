@@ -1,7 +1,9 @@
 {
     "id": "b11a9f3d-88b9-4d6c-b3e1-7c9f80a2b4b7",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-03-01T16:20:41.050Z",
     "itemType": "bowtie",
-    "stem": "The nurse is caring for a 16-year-old client with Duchenne Muscular Dystrophy (DMD) experiencing acute respiratory distress. Using the client's record, complete the bowtie by selecting the most likely condition, two priority actions to take, and two parameters to monitor.",
+    "stem": "A 16-year-old client with Duchenne Muscular Dystrophy (DMD) is admitted for acute respiratory distress. Based on the electronic health record, the nurse should identify the client's condition, the two priority actions to take, and two parameters to monitor.",
     "blankLabels": [
         "Potential Condition",
         "Actions to Take",
@@ -73,6 +75,23 @@
             "content": "Blood pressure"
         }
     ],
+    "hoverRationales": {
+        "pc1": "The client's ABG results (pH 7.28, PaCO₂ 58, PaO₂ 55) and clinical signs of severe dyspnea and accessory muscle use confirm ventilatory failure. This is the primary life-threatening condition caused by respiratory muscle fatigue in DMD.",
+        "pc2": "The client lacks a fever, and the clinical picture of bilateral crackles, pitting edema, and a highly elevated BNP (950 pg/mL) points to a cardiac origin (pulmonary edema) rather than an infectious one.",
+        "pc3": "The gradual onset over 24 hours and bilateral signs of fluid overload are inconsistent with a pulmonary embolism, which typically presents with a more sudden onset of pleuritic chest pain and unilateral findings.",
+        "pc4": "While the client is anxious, this is a symptom of air hunger. Objective data, including severe hypoxia (SpO₂ 88%) and respiratory acidosis, rule out anxiety as the primary diagnosis.",
+        "pc5": "Although the client has decompensated heart failure contributing to the problem, the immediate life threat is the inability to ventilate (hypercapnia). Therefore, acute respiratory failure is the most precise primary diagnosis.",
+        "a1": "Non-invasive positive pressure ventilation directly supports the client's fatigued respiratory muscles. It decreases the work of breathing, improves gas exchange by correcting hypercapnia and hypoxia, and can prevent the need for intubation.",
+        "a2": "Administering an ACE inhibitor is clinically inappropriate during an acute crisis with borderline hypotension (BP 96/58 mmHg). This action could worsen perfusion and is reserved for chronic, stable management.",
+        "a3": "The supine position increases the work of breathing by causing abdominal contents to press on the diaphragm, restricting its movement. The client should be positioned upright to facilitate lung expansion.",
+        "a4": "The client has significant fluid overload causing pulmonary edema, as evidenced by crackles, pitting edema, and CXR findings. A loop diuretic will rapidly reduce preload and alleviate pulmonary congestion, improving oxygenation.",
+        "a5": "This action is contraindicated as it requires significant inspiratory effort from a client whose respiratory muscles are already failing. Attempting this would cause further exhaustion and worsen respiratory distress.",
+        "pm1": "While urine output is important for assessing diuretic effectiveness, it is not the most immediate priority. The primary life threat is respiratory, so monitoring respiratory status takes precedence.",
+        "pm2": "This is a direct and immediate indicator of the effectiveness of BiPAP. A decrease in respiratory rate and accessory muscle use signifies that ventilatory support is successfully unloading the fatigued muscles.",
+        "pm3": "There is no clinical data, such as a history of diabetes or steroid use, to suggest a risk for glycemic instability. This parameter is not relevant to the current cardiorespiratory crisis.",
+        "pm4": "Continuous SpO₂ monitoring provides real-time data on the effectiveness of interventions in improving gas exchange. It is a critical parameter for titrating oxygen and assessing overall cardiorespiratory status.",
+        "pm5": "Although blood pressure should be monitored due to the client's borderline hypotension, it is not a primary indicator of response to respiratory interventions. Respiratory rate and oxygen saturation more directly reflect changes in ventilation."
+    },
     "answer": {
         "potentialCondition_id": "pc1",
         "actionsToTake_ids": [
@@ -83,6 +102,22 @@
             "pm2",
             "pm4"
         ]
+    },
+    "rationale": {
+        "clinicalPearls": [
+            "Duchenne Muscular Dystrophy (DMD) is a progressive neuromuscular disease that leads to respiratory muscle weakness and cardiomyopathy, increasing the risk for acute respiratory failure.",
+            "Non-invasive positive pressure ventilation (NIPPV/BiPAP) is a first-line intervention for hypercapnic respiratory failure in DMD to reduce work of breathing and prevent intubation.",
+            "Cardiomyopathy in DMD can lead to decompensated heart failure and pulmonary edema, requiring diuretic therapy (e.g., furosemide) to reduce preload and improve oxygenation.",
+            "Incentive spirometry is contraindicated in acute respiratory muscle fatigue as it can exacerbate exhaustion and worsen respiratory status."
+        ],
+        "questionTrap": {
+            "trapDescription": "The trap is choosing 'Decompensated Heart Failure' as the primary condition. While the client has heart failure, the immediate life-threat is the inability to ventilate (hypercapnia and hypoxia), making 'Acute Respiratory Failure' the more precise and urgent diagnosis.",
+            "strategy": "Prioritize the ABCs (Airway, Breathing, Circulation). The client's critical ABG results (respiratory acidosis) and severe work of breathing point directly to a primary breathing problem that requires immediate ventilatory support."
+        },
+        "mnemonic": {
+            "frontsideText": "DMD Respiratory Crisis: 'VENT'",
+            "backsideText": "Ventilate (BiPAP), Eliminate fluid (diuretics), No supine positioning, Track O₂ sat & RR."
+        }
     },
     "itemContext": {
         "patient": {
@@ -99,14 +134,9 @@
                 "title": "Clinical Feed",
                 "content": [
                     {
-                        "note_type": "Admission Note",
-                        "timestamp": "Day 1, 14:30",
-                        "content": "S: 16-year-old male with Duchenne Muscular Dystrophy (DMD) presents to ED with parents, reporting worsening shortness of breath and fatigue over the last 24 hours.\nB: Known DMD, wheelchair-bound, with diagnosed cardiomyopathy managed with lisinopril. Family lives in a rural area with limited transportation, which delayed seeking care. Parents report a weak, non-productive cough and poor oral intake for two days.\nA: Client is anxious, using sternocleidomastoid muscles, and speaking in 2-3 word sentences. SpO₂ is 89% on room air, RR 32/min, HR 128/min, BP 98/60 mmHg. Auscultation reveals coarse crackles in bilateral lung bases. 2+ pitting edema noted in lower extremities.\nR: Client is in impending respiratory failure secondary to respiratory muscle fatigue, exacerbated by fluid overload from cardiomyopathy. Recommend immediate respiratory support and diuresis."
-                    },
-                    {
-                        "note_type": "Progress Note",
+                        "note_type": "SBAR Report",
                         "timestamp": "Day 1, 14:45",
-                        "content": "S: Client remains severely dyspneic and is visibly tiring.\nB: Provider at bedside, verbal orders received and entered.\nA: SpO₂ has decreased to 88% on room air. Remains tachycardic at 130/min and tachypneic at 34/min. Client is becoming increasingly fatigued and somnolent.\nR: Initiate BiPAP as ordered immediately. Administer STAT IV furosemide. Obtain STAT labs including ABG and BNP, and a portable chest x-ray. Place on continuous cardiorespiratory monitoring."
+                        "content": "Situation: I am calling about the 16-year-old male with Duchenne Muscular Dystrophy in room 204, admitted at 14:30 for acute respiratory distress.\nBackground: He has known cardiomyopathy. Over the past 48 hours, he has experienced progressive dyspnea, fatigue, and a weak cough.\nAssessment: He is in severe distress with accessory muscle use. Vitals at 14:45: HR 130, BP 96/58, RR 34, SpO₂ 88% on room air. ABG shows uncompensated respiratory acidosis. BNP is 950.\nRecommendation: The client is in acute respiratory failure secondary to cardiogenic pulmonary edema. I need orders for immediate BiPAP and IV furosemide."
                     }
                 ]
             },
@@ -159,7 +189,7 @@
                 "title": "Lab Diagnostics",
                 "content": [
                     {
-                        "panel": "Arterial Blood Gas (ABG)",
+                        "panel": "Arterial Blood Gas (ABG) - Collected 14:45",
                         "results": [
                             {
                                 "test": "pH",
@@ -192,7 +222,7 @@
                         ]
                     },
                     {
-                        "panel": "Cardiac Markers",
+                        "panel": "Cardiac Markers - Collected 14:45",
                         "results": [
                             {
                                 "test": "BNP",
@@ -200,18 +230,6 @@
                                 "unit": "pg/mL",
                                 "reference": "<100",
                                 "status": "High"
-                            }
-                        ]
-                    },
-                    {
-                        "panel": "Basic Metabolic Panel (BMP)",
-                        "results": [
-                            {
-                                "test": "Potassium",
-                                "value": "3.4",
-                                "unit": "mEq/L",
-                                "reference": "3.5-5.0",
-                                "status": "Low"
                             }
                         ]
                     }
@@ -222,8 +240,8 @@
                 "title": "Physical Exam",
                 "content": {
                     "General": "Anxious-appearing male in obvious respiratory distress. Fatigued.",
-                    "Respiratory": "Labored breathing with use of sternocleidomastoid and intercostal muscles. RR 32/min. Coarse crackles auscultated in bilateral lung bases. Weak, non-productive cough.",
-                    "Cardiovascular": "Tachycardic rate of 128/min with regular S1/S2. No murmurs. 2+ pitting edema in bilateral lower extremities. Capillary refill 3 seconds.",
+                    "Respiratory": "Labored breathing with use of sternocleidomastoid and intercostal muscles. RR 34/min. Coarse crackles auscultated in bilateral lung bases. Weak, non-productive cough.",
+                    "Cardiovascular": "Tachycardic rate of 130/min with regular S1/S2. No murmurs. 2+ pitting edema in bilateral lower extremities. Capillary refill 3 seconds.",
                     "Neurological": "Alert and oriented x3. Follows commands. Muscle strength 2/5 in all extremities, consistent with known DMD."
                 }
             },
@@ -295,93 +313,6 @@
                 ]
             }
         ]
-    },
-    "rationale": {
-        "correct": "The client's presentation of severe dyspnea, tachypnea (RR 32-34), hypoxia (SpO₂ 88-89%), accessory muscle use, and inability to speak full sentences in the context of DMD indicates acute respiratory failure. The ABG results (pH 7.28, PaCO₂ 58) confirm acute, uncompensated respiratory acidosis due to ventilatory failure. This is exacerbated by decompensated heart failure, evidenced by crackles, edema, and a high BNP (950 pg/mL). The priority actions are to decrease the work of breathing with BiPAP and reduce pulmonary edema with furosemide. Monitoring respiratory rate/work of breathing and oxygen saturation provides immediate feedback on the effectiveness of these interventions.",
-        "answerBreakdown": [
-            {
-                "optionId": "pc1",
-                "content": "Correct. The client's inability to maintain adequate gas exchange (PaO₂ 55, PaCO₂ 58) due to respiratory muscle fatigue is the definition of acute respiratory failure. This is the primary, life-threatening diagnosis.",
-                "isCorrect": true
-            },
-            {
-                "optionId": "pc2",
-                "content": "Incorrect. While clients with DMD are at risk for aspiration, the lack of fever and the presence of findings consistent with fluid overload (high BNP, edema, CXR findings) make heart failure-induced pulmonary edema a more likely cause of the crackles than an infectious process.",
-                "isCorrect": false
-            },
-            {
-                "optionId": "pc3",
-                "content": "Incorrect. Although immobility is a risk factor, the gradual onset over 24 hours and findings of bilateral fluid overload are more characteristic of cardiorespiratory decompensation in DMD, not an acute vascular obstruction like a PE.",
-                "isCorrect": false
-            },
-            {
-                "optionId": "pc4",
-                "content": "Incorrect. Anxiety is a symptom of the client's severe dyspnea (air hunger), not the cause. Objective data like the SpO₂ of 88% and the ABG results showing respiratory acidosis rule out anxiety as the primary problem.",
-                "isCorrect": false
-            },
-            {
-                "optionId": "pc5",
-                "content": "Incorrect. While decompensated heart failure is a significant contributing factor (high BNP, edema, CXR), the immediate life-threat is the failure of the respiratory muscles to ventilate, making 'Acute Respiratory Failure' the more precise and urgent primary condition.",
-                "isCorrect": false
-            },
-            {
-                "optionId": "a1",
-                "content": "Correct. BiPAP provides positive pressure to support inspiration and expiration, directly reducing the workload on fatigued respiratory muscles, improving alveolar recruitment, and correcting the hypercapnia and hypoxia shown on the ABG.",
-                "isCorrect": true
-            },
-            {
-                "optionId": "a2",
-                "content": "Incorrect. Administering an ACE inhibitor like lisinopril is contraindicated in this acute phase due to the client's borderline hypotension (BP 98/60 mmHg). This medication is for chronic heart failure management, not acute respiratory rescue.",
-                "isCorrect": false
-            },
-            {
-                "optionId": "a3",
-                "content": "Incorrect. A supine position would be harmful. It allows abdominal contents to press against the diaphragm, severely restricting its movement and worsening the work of breathing. The client should be in a high-Fowler's position.",
-                "isCorrect": false
-            },
-            {
-                "optionId": "a4",
-                "content": "Correct. The client has clear signs of fluid overload (crackles, edema, CXR findings) contributing to respiratory distress. IV furosemide will rapidly promote diuresis, reduce pulmonary congestion (preload), and ease breathing.",
-                "isCorrect": true
-            },
-            {
-                "optionId": "a5",
-                "content": "Incorrect. An incentive spirometer requires significant inspiratory effort. Asking a client with failing respiratory muscles to perform this exercise would be impossible and would exacerbate their fatigue and distress.",
-                "isCorrect": false
-            },
-            {
-                "optionId": "pm1",
-                "content": "Incorrect. While important for evaluating the response to furosemide, urine output is a secondary parameter. The client's life-threatening problem is respiratory, so respiratory parameters are the immediate priority for monitoring.",
-                "isCorrect": false
-            },
-            {
-                "optionId": "pm2",
-                "content": "Correct. A decrease in respiratory rate and visible reduction in accessory muscle use are the most direct and immediate indicators that BiPAP is effectively unloading the respiratory muscles and improving ventilation.",
-                "isCorrect": true
-            },
-            {
-                "optionId": "pm3",
-                "content": "Incorrect. There is no information in the client's record to suggest a glycemic control issue. Monitoring blood glucose is not relevant to the immediate cardiorespiratory crisis.",
-                "isCorrect": false
-            },
-            {
-                "optionId": "pm4",
-                "content": "Correct. Oxygen saturation is a critical, real-time measure of gas exchange. An improvement from the baseline of 88% toward the goal of >92% is a key indicator of a positive response to BiPAP and diuresis.",
-                "isCorrect": true
-            },
-            {
-                "optionId": "pm5",
-                "content": "Incorrect. While blood pressure must be monitored, especially given the borderline low value, it is not the most direct indicator of response to the primary respiratory interventions. Respiratory parameters take precedence.",
-                "isCorrect": false
-            }
-        ],
-        "clinicalPearls": [
-            "In Duchenne Muscular Dystrophy, cardiomyopathy often coexists with respiratory muscle weakness, creating a combined cardiorespiratory failure. Treating only one aspect is insufficient.",
-            "Non-invasive positive pressure ventilation (NIPPV) like BiPAP is a cornerstone of management for acute-on-chronic respiratory failure in neuromuscular disease, often preventing the need for intubation.",
-            "Hypotension (BP 98/60) in the setting of tachycardia and heart failure may indicate cardiogenic shock; while diuretics are needed for pulmonary edema, they must be used cautiously with close BP monitoring."
-        ],
-        "questionTrap": "The trap is focusing solely on the heart failure component (edema, crackles) or the respiratory component (muscle weakness) individually. The correct analysis requires synthesizing both: the weak respiratory 'pump' is failing, and the failing cardiac 'pump' is flooding the lungs, creating a vicious cycle.",
-        "mnemonic": "DMD-CRASH: Cardiomyopathy, Respiratory failure, Assist ventilation (BiPAP), Saturation monitoring, Head of bed up."
     },
     "scoring": {
         "method": "linked_triad",

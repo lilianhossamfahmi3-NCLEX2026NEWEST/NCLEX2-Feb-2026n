@@ -1,36 +1,73 @@
 {
-    "id": "serotonin_syndrome_bowtie_v1",
+    "id": "serotonin_syndrome_bowtie_v2",
     "type": "bowtie",
-    "stem": "A client on Sertraline (SSRI) for depression was recently prescribed Linezolid. He presents at 1400 with a temperature of 101.8°F, agitation, shivering, and hyperreflexia (+4 patellar reflexes). Complete the bowtie to guide management.",
+    "clinicalFeed": {
+        "type": "sbar",
+        "content": "Good morning, this is the ED nurse calling about John Smith, a 45-year-old male who arrived at 14:00 with acute agitation and confusion. His history includes major depressive disorder treated with Sertraline; he just finished a course of Linezolid. Assessment at 14:00 revealed diaphoresis, shivering, T 38.8°C, HR 125, BP 160/95, and +4 reflexes with sustained clonus. I suspect Serotonin Syndrome from a drug interaction. I recommend discontinuing all serotonergic agents and require orders for supportive care."
+    },
+    "tabs": [
+        {
+            "id": "notes",
+            "label": "Nurse's Note",
+            "content": "Time: 14:00\n\nClient brought to ED by family due to acute onset of agitation and confusion. Client is diaphoretic, shivering, and unable to follow complex commands. Neurological exam reveals +4 patellar reflexes bilaterally and sustained ankle clonus. History of depression and recent skin infection noted."
+        },
+        {
+            "id": "vitals",
+            "label": "Vital Signs",
+            "content": "Time: 14:00\n\nTemperature: 38.8°C (101.8°F)\nHeart Rate: 125/min\nBlood Pressure: 160/95 mmHg\nRespiratory Rate: 24/min\nSpO2: 96% on room air"
+        },
+        {
+            "id": "meds",
+            "label": "Medications",
+            "content": "Sertraline 100 mg PO daily\nLinezolid 600 mg PO BID (last dose this morning)"
+        }
+    ],
+    "stem": "A 45-year-old client taking Sertraline and recently prescribed Linezolid presents with acute agitation, hyperthermia, and hyperreflexia. The nurse suspects a life-threatening medication interaction. Based on the EHR, complete the bowtie to guide immediate management.",
+    "potentialConditions": [
+        {
+            "id": "cond1",
+            "text": "Serotonin Syndrome"
+        },
+        {
+            "id": "cond2",
+            "text": "Anticholinergic Toxicity"
+        },
+        {
+            "id": "cond3",
+            "text": "Malignant Hyperthermia"
+        },
+        {
+            "id": "cond4",
+            "text": "Neuroleptic Malignant Syndrome (NMS)"
+        }
+    ],
+    "condition": "cond1",
     "actions": [
         {
             "id": "action1",
-            "text": "Discontinue all serotonergic medications immediately"
+            "text": "Discontinue all serotonergic medications"
         },
         {
             "id": "action2",
-            "text": "Administer IV Benzodiazepines (Diazepam)"
-        },
-        {
-            "id": "action4",
-            "text": "Increase the dose of Sertraline to stabilize mood"
+            "text": "Administer IV benzodiazepines"
         },
         {
             "id": "action3",
             "text": "Administer STAT PO Dantrolene"
+        },
+        {
+            "id": "action4",
+            "text": "Increase Sertraline dose"
         }
     ],
-    "potentialConditions": [
-        "Anticholinergic Toxicity",
-        "Malignant Hyperthermia",
-        "Serotonin Syndrome",
-        "Neuroleptic Malignant Syndrome (NMS)"
-    ],
-    "condition": "Serotonin Syndrome",
     "parameters": [
         {
             "id": "param1",
             "text": "Vital signs (BP/HR/Temp)"
+        },
+        {
+            "id": "param2",
+            "text": "Deep Tendon Reflexes and Clonus"
         },
         {
             "id": "param3",
@@ -39,10 +76,6 @@
         {
             "id": "param4",
             "text": "Serum Lithium levels"
-        },
-        {
-            "id": "param2",
-            "text": "Deep Tendon Reflexes and Clonus"
         }
     ],
     "correctActionIds": [
@@ -53,6 +86,20 @@
         "param1",
         "param2"
     ],
+    "hoverRationales": {
+        "cond1": "This diagnosis is correct. The combination of an SSRI (Sertraline) and an MAOI-like antibiotic (Linezolid) causes excessive serotonin accumulation, leading to the classic triad of autonomic dysfunction, altered mental status, and neuromuscular hyperactivity (hyperreflexia, clonus).",
+        "cond2": "This is incorrect. Anticholinergic toxicity presents with dry skin, mydriasis, and urinary retention ('blind as a bat, mad as a hatter, red as a beet, dry as a bone'), not the diaphoresis and hyperreflexia seen here.",
+        "cond3": "This is incorrect. Malignant hyperthermia is a rare genetic disorder triggered by specific anesthetics or succinylcholine, which is not present in this client's history. It typically presents with extreme muscle rigidity and hypercarbia.",
+        "cond4": "This is incorrect. NMS is caused by dopamine antagonists and is characterized by 'lead-pipe' rigidity and hyporeflexia, which contrasts with the hyperreflexia and clonus seen in this client.",
+        "action1": "This is a priority action. Stopping the offending agents (Sertraline, Linezolid) is the first step to halt the pathophysiological process of excessive serotonin accumulation in the central nervous system.",
+        "action2": "This is a correct action. Benzodiazepines are used to control agitation, seizures, and muscle rigidity, which helps reduce hyperthermia and prevent complications like rhabdomyolysis in serotonin syndrome.",
+        "action3": "This is an incorrect action. Dantrolene is a muscle relaxant used for malignant hyperthermia or NMS. It is not a first-line treatment for the neuromuscular excitation seen in serotonin syndrome.",
+        "action4": "This is an incorrect and dangerous action. Increasing the dose of a serotonergic agent would worsen the serotonin excess, potentially leading to a fatal outcome.",
+        "param1": "This is a correct parameter. Monitoring vitals is crucial to track autonomic instability (hypertension, tachycardia, hyperthermia), which is a hallmark of serotonin syndrome and indicates disease severity and response to treatment.",
+        "param2": "This is a correct parameter. Assessing neuromuscular hyperactivity, specifically hyperreflexia and clonus, provides a direct measure of serotonin toxicity severity and helps gauge the effectiveness of interventions.",
+        "param3": "This is an incorrect parameter for immediate monitoring. While CK may rise due to muscle activity, it is a lagging indicator. Neurological signs and vital signs are more critical for real-time assessment.",
+        "param4": "This is an incorrect parameter. The client is not taking lithium, and its levels are irrelevant to the diagnosis or management of serotonin syndrome caused by an SSRI/MAOI interaction."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -64,90 +111,9 @@
             "Emergency"
         ]
     },
-    "rationale": {
-        "correct": "Serotonin Syndrome results from excessive serotonin activity in the central nervous system. Combining serotonergic agents like SSRIs (Sertraline) and MAOIs (Linezolid possesses MAOI activity) increases serotonin levels. This leads to hyperstimulation of 5-HT1A and 5-HT2 receptors. Clinical manifestations include altered mental status (agitation), autonomic dysfunction (hyperthermia, diaphoresis, tachycardia), and neuromuscular abnormalities (hyperreflexia, clonus). Immediate discontinuation of serotonergic medications is crucial to halt further serotonin accumulation. Benzodiazepines are administered to manage agitation, muscle rigidity, and hyperthermia. Continuous monitoring of vital signs and neurological status (deep tendon reflexes, clonus) is essential to assess treatment effectiveness and detect complications.",
-        "incorrect": "Dantrolene is a muscle relaxant used primarily for Malignant Hyperthermia and Neuroleptic Malignant Syndrome (NMS), not Serotonin Syndrome. Increasing the SSRI dose would exacerbate the condition and potentially lead to fatal complications. While CK levels may be elevated due to muscle activity, monitoring deep tendon reflexes and clonus provides more specific and immediate information about the severity of serotonin excess. Lithium levels are irrelevant in this clinical context.",
-        "clinicalPearls": [
-            "Ocular clonus (sustained, rhythmic eye movements) is a highly specific sign of Serotonin Syndrome.",
-            "Mild Serotonin Syndrome may resolve with discontinuation of the offending agent and supportive care.",
-            "Severe Serotonin Syndrome can lead to rhabdomyolysis, renal failure, and death if not promptly treated."
-        ],
-        "questionTrap": {
-            "trap": "Confusing Serotonin Syndrome with NMS",
-            "howToOvercome": "Serotonin Syndrome is characterized by hyperreflexia and clonus, while NMS presents with lead-pipe rigidity and hyporeflexia. Remember 'Serotonin = Super Reflexes' and 'NMS = No Movement Strength'."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Serotonin Syndrome\" is the only diagnosis that accounts for the constellation of clinical findings present: hyperthermia, agitation, hyperreflexia, and recent combination of serotonergic medications.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Discontinue all serotonergic medications immediately\" directly targets the acute pathophysiology of the suspected condition by preventing further serotonin accumulation.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer IV Benzodiazepines (Diazepam)\" directly targets the acute pathophysiology of the suspected condition by reducing agitation, muscle rigidity, and hyperthermia.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Increase the dose of Sertraline to stabilize mood\" is inappropriate and dangerous for a client experiencing this specific clinical crisis, as it would worsen the serotonin excess.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer STAT PO Dantrolene\" is inappropriate for a client experiencing this specific clinical crisis, as Dantrolene is primarily used for Malignant Hyperthermia and NMS.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Vital signs (BP/HR/Temp)\" provides high-fidelity data on the client's progress or clinical deterioration, reflecting the autonomic instability associated with Serotonin Syndrome.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"WBC count and Creatinine Kinase (CK)\" is not the most sensitive or specific parameter for evaluating this patient's immediate status, although CK may be elevated later due to muscle breakdown.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Serum Lithium levels\" is not relevant to the pathophysiology or management of Serotonin Syndrome.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Deep Tendon Reflexes and Clonus\" provides high-fidelity data on the client's progress or clinical deterioration, reflecting the neuromuscular hyperactivity characteristic of Serotonin Syndrome.",
-                "isCorrect": true
-            }
-        ],
-        "mnemonic": {
-            "title": "SHIVERS",
-            "expansion": "S = Shivering\nH = Hyperreflexia and Myoclonus\nI = Increased Temperature\nV = Vital Sign Instability (tachycardia, tachypnea, hypertension)\nE = Encephalopathy (altered mental status, agitation)\nR = Restlessness\nS = Sweating (diaphoresis)\n\nKey Actions: Discontinue all serotonergic medications immediately; Administer IV Benzodiazepines (Diazepam)\nKey Monitoring: Vital signs (BP/HR/Temp); Deep Tendon Reflexes and Clonus"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Serotonin Syndrome — Pathophysiology & Recognition",
-                "body": "Serotonin Syndrome results from excessive serotonin activity in the central nervous system, often due to combining serotonergic agents. Signs include altered mental status, autonomic dysfunction (hyperthermia, diaphoresis, tachycardia), and neuromuscular abnormalities (hyperreflexia, clonus). Ocular clonus is a highly specific sign.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Mixing NMS and Serotonin Syndrome",
-                "body": "Serotonin Syndrome is characterized by hyperreflexia and clonus, while NMS presents with lead-pipe rigidity and hyporeflexia. Remember 'Serotonin = Super Reflexes' and 'NMS = No Movement Strength'.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Serotonin Syndrome",
-                "body": "The priority nursing interventions are: Discontinue all serotonergic medications immediately; Administer IV Benzodiazepines (Diazepam). Monitor: Vital signs (BP/HR/Temp); Deep Tendon Reflexes and Clonus. Dantrolene is for Malignant Hyperthermia/NMS. Increasing the SSRI dose would be fatal. While CK can rise in any syndrome with muscle activity, it is not the primary monitoring parameter for serotonin syndrome stability unlike reflexes (clonus).",
-                "source": "Evidence-Based Nursing Practice"
-            }
-        ]
-    },
     "scoring": {
         "method": "polytomous",
-        "maxPoints": 4
+        "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "healed_v2026_v12"
 }

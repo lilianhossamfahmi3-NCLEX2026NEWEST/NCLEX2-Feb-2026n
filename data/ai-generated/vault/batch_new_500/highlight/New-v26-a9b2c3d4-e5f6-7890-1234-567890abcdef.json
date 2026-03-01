@@ -1,65 +1,279 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-7890-1234-567890abcdef",
-    "type": "highlight",
-    "stem": "The nurse is caring for a 6-month-old infant, Samuel Lee, diagnosed with Tetralogy of Fallot (TOF) who is experiencing a hypercyanotic spell ('Tet spell'). Based on the information provided in the patient's chart, identify the findings that indicate the infant is experiencing a 'Tet spell' that require immediate intervention. Click to highlight the findings.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is reviewing the clinical record for a 6-month-old infant with Tetralogy of Fallot. Which finding is the most indicative of a hypercyanotic spell requiring immediate intervention?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Loud, harsh systolic murmur at the left upper sternal border."
+        },
+        {
+            "id": "opt_02",
+            "text": "SpO₂ dropping from a baseline of 82% to 68%."
+        },
+        {
+            "id": "opt_03",
+            "text": "Hemoglobin level of 16.5 g/dL."
+        },
+        {
+            "id": "opt_04",
+            "text": "Inconsolable crying during a diaper change."
+        }
+    ],
+    "correctOptionId": "opt_02",
     "itemContext": {
         "patient": {
             "name": "Samuel Lee",
-            "age": 6,
-            "gender": "Male",
-            "iso": "Cardiology ICU",
+            "age": "6 months",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "S: 0700 hours. Infant Samuel Lee, 6 months old, with Tetralogy of Fallot (TOF), admitted yesterday post Blalock-Taussig (BT) shunt placement. He had a stable post-operative course overnight. R: The night shift reported an uneventful night with stable vital signs and adequate perfusion until this episode. O: 0715 hours. The infant suddenly became agitated and is crying inconsolably. 0720 hours: Increased cyanosis is noted around the mouth and nailbeds. His baseline SpO2 yesterday ranged from 80-85%. Currently, his SpO2 is 68%. HR is 180 bpm, and RR is 60 bpm and shallow. 0725 hours: Auscultation reveals a loud systolic murmur. 0730 hours: Attempts to calm the infant have been unsuccessful. Oxygen was administered via nasal cannula at 2L. A: Possible hypercyanotic spell (Tet spell) is suspected given the sudden onset of agitation, cyanosis, and desaturation. B: I require orders for further intervention to manage the desaturation and stabilize the patient's condition. I am preparing to place the infant in the knee-chest position. Please advise on appropriate pharmacological interventions and further diagnostic evaluations.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "0700 hours: T 37.2°C, HR 140 bpm, RR 32, SpO2 84%\n0715 hours: HR 180 bpm, RR 60, SpO2 68%, Cyanosis noted"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 14:00",
+                        "text": "Patient is a 6-month-old male with a known diagnosis of Tetralogy of Fallot, admitted from the pediatric cardiology clinic for scheduled Blalock-Taussig (BT) shunt placement. Pre-operative assessment stable. Parents at bedside, verbalize understanding of procedure and post-operative care. Patient's baseline SpO₂ is 82-85% on room air. Social worker note indicates family lives in a rural area with limited access to specialty pediatric care, requiring a 3-hour drive for appointments. Plan is for post-operative monitoring in the CVICU for 48-72 hours. All pre-op orders confirmed."
+                    },
+                    {
+                        "note_type": "Progress Note (SBAR)",
+                        "timestamp": "Day 2, 07:30",
+                        "text": "S: Calling to report an acute change in the 6-month-old infant in CVICU bed 4, post-op day 1 from BT shunt placement. B: Patient was stable overnight with SpO₂ 80-84%. At 07:15, he became acutely agitated and started crying inconsolably during diaper change. A: His SpO₂ rapidly dropped to 68% on 2L NC, with marked perioral and nailbed cyanosis. Heart rate is 180/min, and respiratory rate is 60/min and shallow. A harsh, loud systolic murmur is audible. He is not responding to calming measures. This appears to be a classic hypercyanotic 'Tet' spell. R: I have placed the infant in a knee-chest position and ensured the oxygen is applied correctly. I need an immediate order for morphine sulfate to decrease agitation and infundibular spasm. Requesting immediate provider evaluation at the bedside."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Hemoglobin: 16 g/dL, Hematocrit: 48%, WBC: 10,000/mm3, Arterial Blood Gas (0600 hours): pH 7.35, PaCO2 45 mmHg, PaO2 60 mmHg, HCO3 24 mEq/L"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "04:00",
+                        "Temp": "98.8°F (37.1°C)",
+                        "HR": "138",
+                        "RR": "34",
+                        "SpO2": "84% on 2L NC",
+                        "BP": "78/42 (54)"
+                    },
+                    {
+                        "Time": "07:00",
+                        "Temp": "99.0°F (37.2°C)",
+                        "HR": "142",
+                        "RR": "32",
+                        "SpO2": "82% on 2L NC",
+                        "BP": "80/45 (57)"
+                    },
+                    {
+                        "Time": "07:20",
+                        "Temp": "99.1°F (37.3°C)",
+                        "HR": "180",
+                        "RR": "60 (shallow)",
+                        "SpO2": "68% on 2L NC",
+                        "BP": "88/50 (63)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Morphine Sulfate 0.1 mg IV PRN pain/agitation (last given: N/A), Oxygen 2L via nasal cannula (continuous)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Complete Blood Count (CBC)",
+                        "results": [
+                            {
+                                "test": "Hemoglobin (Hgb)",
+                                "value": "16.5",
+                                "unit": "g/dL",
+                                "range": "10.5-13.5",
+                                "status": "High"
+                            },
+                            {
+                                "test": "Hematocrit (Hct)",
+                                "value": "49",
+                                "unit": "%",
+                                "range": "31-39",
+                                "status": "High"
+                            },
+                            {
+                                "test": "WBC",
+                                "value": "10.2",
+                                "unit": "x 10³/μL",
+                                "range": "6.0-17.5",
+                                "status": "WNL"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Arterial Blood Gas (ABG) - 06:00",
+                        "results": [
+                            {
+                                "test": "pH",
+                                "value": "7.36",
+                                "unit": "",
+                                "range": "7.35-7.45",
+                                "status": "WNL"
+                            },
+                            {
+                                "test": "PaCO₂",
+                                "value": "44",
+                                "unit": "mmHg",
+                                "range": "35-45",
+                                "status": "WNL"
+                            },
+                            {
+                                "test": "PaO₂",
+                                "value": "62",
+                                "unit": "mmHg",
+                                "range": "80-100",
+                                "status": "Low"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "assessment_type": "Admission Physical Exam (Day 1, 14:30)",
+                        "findings": {
+                            "General": "Alert, active infant.",
+                            "Cardiovascular": "Regular rhythm. Loud, harsh systolic murmur at the left upper sternal border. Capillary refill <3 seconds. Pulses 2+ peripherally.",
+                            "Respiratory": "Lungs clear to auscultation bilaterally. Mild tachypnea, no retractions.",
+                            "Skin": "Pink with mild, baseline acrocyanosis. No edema."
+                        }
+                    },
+                    {
+                        "assessment_type": "Focused Assessment (Day 2, 07:20)",
+                        "findings": {
+                            "General": "Acutely agitated, crying inconsolably.",
+                            "Cardiovascular": "Tachycardia. Murmur remains present.",
+                            "Respiratory": "Significant tachypnea with shallow respirations.",
+                            "Skin": "Marked perioral and nailbed cyanosis."
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Chest X-ray (Post-Op Day 1)",
+                        "report": "Findings: The cardiac silhouette demonstrates a 'boot-shaped' appearance (coeur en sabot), consistent with right ventricular hypertrophy. Pulmonary vascular markings are decreased. The Blalock-Taussig shunt appears to be in the correct position. Lungs are clear. Impression: Findings consistent with Tetralogy of Fallot. No acute cardiopulmonary process identified."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order": "Admit to CVICU.",
+                        "status": "Active"
+                    },
+                    {
+                        "order": "Vital signs every 2 hours.",
+                        "status": "Active"
+                    },
+                    {
+                        "order": "Continuous cardiorespiratory and pulse oximetry monitoring.",
+                        "status": "Active"
+                    },
+                    {
+                        "order": "Oxygen via nasal cannula to maintain SpO₂ 80-85%.",
+                        "status": "Active"
+                    },
+                    {
+                        "order": "Knee-chest position for any hypercyanotic episodes.",
+                        "status": "Standing"
+                    },
+                    {
+                        "order": "Notify provider for SpO₂ < 75% or signs of increased respiratory distress.",
+                        "status": "Standing"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Morphine Sulfate",
+                        "dose": "0.1 mg/kg",
+                        "route": "IV",
+                        "frequency": "PRN q4h for pain/agitation",
+                        "last_given": "N/A"
+                    },
+                    {
+                        "medication": "Furosemide",
+                        "dose": "1 mg/kg",
+                        "route": "IV",
+                        "frequency": "BID",
+                        "last_given": "Day 2, 06:00"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "15 mg/kg",
+                        "route": "PO",
+                        "frequency": "q6h PRN for fever/pain",
+                        "last_given": "Day 2, 04:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Pediatric: Congenital Heart Defects & Safety"
+    "rationale": {
+        "correct": "A rapid and significant drop in oxygen saturation (SpO₂) is the hallmark sign of a hypercyanotic or 'Tet' spell. This event is caused by a sudden spasm of the right ventricular outflow tract (infundibulum), which acutely worsens the pre-existing pulmonary stenosis. This obstruction dramatically decreases pulmonary blood flow and increases the shunting of deoxygenated blood from the right ventricle to the left ventricle through the ventricular septal defect. The result is severe systemic hypoxemia, clinically manifested as a precipitous fall in SpO₂ and profound cyanosis.",
+        "incorrect": "The other options represent either chronic findings or contributing factors, not the primary indicator of the acute spell. The loud murmur is a baseline finding in TOF due to blood flow turbulence across the VSD and stenotic pulmonary valve. The elevated hemoglobin is a sign of chronic polycythemia, the body's long-term compensation for hypoxemia. Inconsolable crying is a common trigger for a Tet spell because it increases oxygen demand and alters intrathoracic pressure, but the desaturation is the direct physiological consequence and the most critical finding.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Incorrect. A loud, harsh systolic murmur is an expected, baseline finding in an infant with unrepaired Tetralogy of Fallot. It does not, by itself, indicate an acute hypercyanotic spell."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. A sudden, sharp decline in SpO₂ is the most direct and critical measurement of the severe hypoxemia that defines a hypercyanotic spell. This reflects the acute decrease in pulmonary blood flow."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. An elevated hemoglobin level (polycythemia) is a chronic physiological adaptation to long-standing hypoxemia. It is a baseline lab value, not an indicator of an acute event."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. While inconsolable crying is a significant finding and a common trigger for a Tet spell by increasing pulmonary vascular resistance, the resulting drop in SpO₂ is the definitive clinical sign of the spell itself."
+            }
+        ],
+        "clinicalPearls": [
+            "The primary intervention for a Tet spell is placing the infant in the knee-chest position. This increases systemic vascular resistance (SVR), which makes it harder for blood to enter the aorta, thereby promoting blood flow into the pulmonary artery and improving oxygenation.",
+            "Morphine sulfate is a key medication during a Tet spell. It provides sedation to decrease agitation and oxygen consumption, and more importantly, it helps to relax the infundibular muscle spasm, directly addressing the cause of the spell.",
+            "Chronic hypoxemia in TOF leads to compensatory polycythemia (increased red blood cell production), which thickens the blood and increases the risk for thromboembolic events, such as a cerebrovascular accident (stroke)."
+        ],
+        "questionTrap": "The primary trap is confusing chronic, expected findings with acute, life-threatening changes. The murmur and high hemoglobin are characteristic of TOF but are part of the patient's baseline. The key is to identify the data point that reflects a sudden, dangerous physiological shift, which is the SpO₂ drop.",
+        "mnemonic": "Use 'PROVe' to remember the four defects of Tetralogy of Fallot: P - Pulmonary Stenosis, R - Right Ventricular Hypertrophy, O - Overriding Aorta, V - Ventricular Septal Defect.",
+        "reviewUnits": [
+            "Pediatric Nursing",
+            "Cardiovascular Disorders",
+            "Congenital Heart Defects",
+            "Gas Exchange",
+            "Critical Care"
         ]
     },
-    "rationale": {
-        "correct": "The correct findings to highlight are: 'Increased cyanosis is noted around the mouth and nailbeds', 'SpO2 is 68%', 'HR 180 bpm', 'RR 60', and 'crying inconsolably'. These findings are indicative of a hypercyanotic spell (Tet spell) in an infant with Tetralogy of Fallot. The sudden increase in cyanosis and desaturation, coupled with increased heart and respiratory rates, and inconsolable crying, all point towards a critical decrease in pulmonary blood flow and increased right-to-left shunting. During a Tet spell, the infant experiences a sudden exacerbation of the right-to-left shunt due to spasm of the infundibular valve (pulmonary valve). This results in decreased pulmonary blood flow and increased systemic hypoxemia, leading to cyanosis. The increased heart rate is a compensatory mechanism to maintain cardiac output, while the elevated respiratory rate reflects the body's attempt to improve oxygenation. Inconsolable crying further increases oxygen demand, exacerbating the hypoxemia.",
-        "incorrect": "Incorrect findings to highlight would include the baseline vital signs (T 37.2°C, HR 140 bpm, RR 32, SpO2 84%), the normal lab values (Hemoglobin: 16 g/dL, Hematocrit: 48%, WBC: 10,000/mm3, Arterial Blood Gas (0600 hours): pH 7.35, PaCO2 45 mmHg, PaO2 60 mmHg, HCO3 24 mEq/L), and the medications prescribed PRN (Morphine Sulfate 0.1 mg IV PRN pain/agitation (last given: N/A), Oxygen 2L via nasal cannula (continuous)). These do not directly reflect the acute physiological changes associated with a hypercyanotic spell. Focusing on baseline data or unrelated parameters can distract from the immediate life-threatening situation. The baseline vital signs represent the infant's condition before the onset of the Tet spell and do not indicate the current crisis. Similarly, the lab values, while important for overall assessment, do not reflect the acute changes occurring during the spell. The PRN medications are not directly indicative of the spell itself but are rather interventions used to manage the symptoms.",
-        "clinicalPearls": [
-            "Knee-chest position increases systemic vascular resistance, decreasing right-to-left shunting in TOF, thereby increasing pulmonary blood flow and improving oxygen saturation. This position helps to reduce the severity of the cyanotic spell.",
-            "Administering morphine helps to calm the infant and decrease respiratory rate, which reduces oxygen demand. Morphine also has a mild vasodilatory effect, which can help to reduce pulmonary vascular resistance.",
-            "Rapid intervention is crucial in managing Tet spells to prevent severe hypoxemia and potential cardiac arrest. Prolonged hypoxemia can lead to irreversible neurological damage and cardiac dysfunction."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus on the baseline vital signs or lab values, rather than the acute changes that signal the hypercyanotic spell. They might also overlook the behavioral changes, such as inconsolable crying, as an indicator of distress and hypoxia. Students might also confuse the continuous oxygen administration as a sign of the spell, rather than a supportive measure.",
-            "howToOvercome": "Emphasize the importance of recognizing acute changes in patient condition, especially in children with congenital heart defects. Encourage careful comparison of current vital signs to baseline and understanding the pathophysiology of Tetralogy of Fallot and its associated complications. Highlight that the key to identifying a Tet spell is the sudden onset of symptoms, such as increased cyanosis, desaturation, and agitation."
-        },
-        "mnemonic": {
-            "title": "TET",
-            "expansion": "Think: **T**etralogy of Fallot, **E**pisodic Cyanosis, **T**reatment (Knee-chest, Oxygen, Morphine)"
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:02:27.343Z"
 }

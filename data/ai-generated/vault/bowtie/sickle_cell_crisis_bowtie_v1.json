@@ -1,66 +1,86 @@
 {
-    "id": "sickle_cell_crisis_bowtie_v1",
+    "id": "sickle_cell_crisis_bowtie_v2",
     "type": "bowtie",
-    "stem": "An 18-year-old client with sickle cell disease reports 10/10 skeletal pain and is tachypneic. The client has a history of a recent upper respiratory infection. Which of the options below are the most likely causes, appropriate actions, and essential parameters to monitor for this client?",
-    "causes": [
+    "ehr": {
+        "tabs": [
+            {
+                "id": "nursesNotes",
+                "label": "Nurses' Notes",
+                "content": "14:00: (S) I'm calling about the 18-year-old client with sickle cell disease in room 204. They are reporting a sudden onset of severe, diffuse skeletal pain, rated 10/10. (B) The client has a history of HbSS and was recently treated for an upper respiratory infection. (A) At 14:00, vitals are T 37.5°C, HR 118/min, RR 24/min, BP 130/78 mmHg, SpO2 93% on room air. The client is visibly distressed, tachypneic, and guarding their extremities. (R) I recommend initiating the vaso-occlusive crisis protocol immediately."
+            },
+            {
+                "id": "vitals",
+                "label": "Vitals",
+                "content": "Time: 14:00\nTemperature: 37.5°C (99.5°F)\nHeart Rate: 118/min\nRespiratory Rate: 24/min\nBlood Pressure: 130/78 mmHg\nSpO2: 93% on room air\nPain: 10/10, diffuse skeletal pain"
+            },
+            {
+                "id": "labs",
+                "label": "Labs",
+                "content": "Hemoglobin: 8.5 g/dL\nHematocrit: 25%\nReticulocyte Count: 15%\nWBC: 14,000/mm³\nBUN: 25 mg/dL\nCreatinine: 1.3 mg/dL"
+            },
+            {
+                "id": "patientInfo",
+                "label": "Patient Info",
+                "content": "Name: N/A\nAge: 18 years\nGender: N/A\nAllergies: No Known Allergies\nDiagnosis: Sickle Cell Disease (HbSS)"
+            }
+        ]
+    },
+    "stem": "The nurse is caring for an 18-year-old client with sickle cell disease who is reporting severe pain. Based on the provided EHR, what condition is the client most likely experiencing? Select two actions to take and two parameters to monitor.",
+    "potentialConditions": [
         {
-            "id": "c1",
-            "text": "Dehydration and hypoxia"
+            "id": "pc1",
+            "text": "Vaso-occlusive Sickle Cell Crisis"
         },
         {
-            "id": "c3",
-            "text": "Iron deficiency anemia"
+            "id": "pc2",
+            "text": "Acute Chest Syndrome"
         },
         {
-            "id": "c2",
-            "text": "Vaso-occlusion of small vessels"
+            "id": "pc3",
+            "text": "Aplastic Crisis"
         },
         {
-            "id": "c4",
-            "text": "Bone marrow failure"
+            "id": "pc4",
+            "text": "Splenic Sequestration"
         }
     ],
-    "condition": "Vaso-occlusive Sickle Cell Crisis",
     "actions": [
         {
-            "id": "a3",
-            "text": "Apply cold compresses to painful joints"
+            "id": "a1",
+            "text": "Administer aggressive IV fluid hydration"
         },
         {
             "id": "a2",
             "text": "Administer around-the-clock IV opioids"
         },
         {
-            "id": "a4",
-            "text": "Limit the client's fluid intake"
+            "id": "a3",
+            "text": "Apply cold compresses to painful joints"
         },
         {
-            "id": "a1",
-            "text": "Administer aggressive IV fluid hydration"
+            "id": "a4",
+            "text": "Limit the client's fluid intake"
         }
     ],
     "parameters": [
-        {
-            "id": "p2",
-            "text": "SpO2 and respiratory effort"
-        },
         {
             "id": "p1",
             "text": "Pain level (VAS scale)"
         },
         {
-            "id": "p4",
-            "text": "Daily weights"
+            "id": "p2",
+            "text": "SpO2 and respiratory effort"
         },
         {
             "id": "p3",
             "text": "Hemoglobin electrophoresis"
+        },
+        {
+            "id": "p4",
+            "text": "Daily weights"
         }
     ],
-    "correctCauseIds": [
-        "c1",
-        "c2"
-    ],
+    "correctConditionId": "pc1",
     "correctActionIds": [
         "a1",
         "a2"
@@ -69,96 +89,35 @@
         "p1",
         "p2"
     ],
+    "hoverRationales": {
+        "pc1": "The client's severe skeletal pain, tachypnea, and recent infection are classic signs of vaso-occlusive crisis. This occurs when sickled red blood cells block small blood vessels, causing ischemia and intense pain.",
+        "pc2": "This is a possibility, but the primary presentation is severe skeletal pain, not chest pain, cough, or new pulmonary infiltrate, which are more indicative of Acute Chest Syndrome (ACS).",
+        "pc3": "This condition is characterized by a sudden drop in hemoglobin and a very low reticulocyte count, leading to severe anemia and fatigue, not primarily severe pain. The client's reticulocyte count is high.",
+        "pc4": "This typically presents with rapid spleen enlargement, a sharp drop in hemoglobin, and signs of hypovolemic shock. It is more common in young children than in an 18-year-old.",
+        "a1": "IV hydration is critical to decrease blood viscosity and reverse the sickling process. This helps restore perfusion to ischemic tissues and flush out sickled cells from occluded vessels.",
+        "a2": "Severe pain from tissue ischemia is the hallmark of a vaso-occlusive crisis. Around-the-clock IV opioids are necessary for effective pain management and to reduce the metabolic stress that can worsen sickling.",
+        "a3": "Applying cold causes vasoconstriction, which will worsen blood flow and increase sickling. This action is contraindicated and would exacerbate the client's pain and ischemia.",
+        "a4": "Dehydration is a primary trigger for sickling and vaso-occlusion. Limiting fluids would increase blood viscosity and severely worsen the crisis, leading to further tissue damage.",
+        "p1": "Pain is the primary symptom and indicator of crisis severity and resolution. Frequent pain assessment is essential to titrate analgesia effectively and evaluate the response to treatment.",
+        "p2": "Hypoxia is a major trigger for red blood cell sickling. Monitoring oxygen saturation and respiratory effort is crucial to detect and correct hypoxemia, preventing further crisis progression.",
+        "p3": "Hemoglobin electrophoresis is a diagnostic test used to identify the types of hemoglobin present and confirm the diagnosis of sickle cell disease. It is not used for monitoring an acute crisis.",
+        "p4": "While fluid balance is important, daily weight is not a priority parameter for monitoring the immediate resolution of a vaso-occlusive crisis. The focus is on pain, hydration status, and oxygenation."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "recognizeCues",
         "nclexCategory": "Physiological Adaptation",
         "difficulty": 3,
         "topicTags": [
             "Sickle Cell",
             "Hematology",
-            "Pain Management"
-        ]
-    },
-    "rationale": {
-        "correct": "Vaso-occlusive crisis is caused by sickling due to hypoxia/dehydration (c1) and subsequent occlusion (c2). Hydration (a1) and pain control (a2) are the priorities. Monitoring pain (p1) and SpO2 (p2) tracks resolution.",
-        "incorrect": "Cold (a3) causes vasoconstriction and worsens sickling; use warmth. Restricting fluids (a4) is dangerous.",
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Vaso-occlusive Sickle Cell Crisis\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Apply cold compresses to painful joints\" is inappropriate because cold causes vasoconstriction and can worsen the sickling process.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer around-the-clock IV opioids\" is appropriate to manage the severe pain associated with vaso-occlusive crisis.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Limit the client's fluid intake\" is inappropriate because hydration is crucial to reverse sickling and improve blood flow.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer aggressive IV fluid hydration\" is crucial to reverse sickling and improve blood flow.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"SpO2 and respiratory effort\" is essential to assess for hypoxia and respiratory compromise, which can exacerbate sickling.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Pain level (VAS scale)\" is essential to evaluate the effectiveness of pain management interventions.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Daily weights\" is not the most sensitive or specific parameter for evaluating this patient's acute status during a vaso-occlusive crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Hemoglobin electrophoresis\" is a diagnostic test for sickle cell disease but is not essential for monitoring the acute management of a vaso-occlusive crisis.",
-                "isCorrect": false
-            }
-        ],
-        "clinicalPearls": [
-            "Always prioritize hydration and oxygenation over pain meds in a 'Next Priority' question, but all are essential in a bundle.",
-            "Avoid cold compresses in sickle cell crisis as they can worsen vasoconstriction and sickling."
-        ],
-        "questionTrap": {
-            "trap": "The 'Cold Pack' Trap",
-            "howToOvercome": "Remember: Cold = Vasoconstriction = More Sickling. Always USE HEAT for sickle cell pain. Cold is contraindicated."
-        },
-        "mnemonic": {
-            "title": "VOSCC",
-            "expansion": "V = Vaso\nO = occlusive\nS = Sickle\nC = Cell\nC = Crisis\n\nKey Actions: Administer aggressive IV fluid hydration; Administer around-the-clock IV opioids\nKey Monitoring: Pain level (VAS scale); SpO2 and respiratory effort"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Sickle Cell Crisis",
-                "body": "Management focus is on oxygenation, hydration, and pain management. Avoid cold applications.",
-                "source": "Heme Nursing 2026"
-            }
+            "Pain Management",
+            "Vaso-occlusive Crisis"
         ]
     },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "potentialConditions": [
-        "Vaso-occlusive Sickle Cell Crisis",
-        "Acute Chest Syndrome",
-        "Aplastic Crisis",
-        "Splenic Sequestration"
-    ],
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "healed_v2026_v12"
 }

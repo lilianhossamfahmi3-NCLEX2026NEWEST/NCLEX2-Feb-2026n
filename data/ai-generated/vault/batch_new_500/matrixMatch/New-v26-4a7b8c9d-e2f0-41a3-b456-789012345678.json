@@ -1,284 +1,458 @@
 {
     "id": "New-v26-4a7b8c9d-e2f0-41a3-b456-789012345678",
     "type": "matrixMatch",
-    "stem": "The healthcare provider is reviewing the patient's case and anticipates potential complications. Based on the patient's condition and provided data, determine which complications are most likely and which interventions are most appropriate. For each complication, indicate whether it is likely to occur and select the most appropriate nursing intervention.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is analyzing the provided clinical data for a client with severe acute pancreatitis. For each potential complication, select all appropriate findings, actions, and parameters to monitor.",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "62",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ],
-            "condition": "Droplet"
+            ]
         },
-        "sbar": "S: John Smith, 62-year-old male, admitted two days ago for acute pancreatitis secondary to chronic alcohol abuse. He's currently experiencing altered mental status. B: History includes chronic alcohol abuse, hypertension, and hyperlipidemia. He presented with severe abdominal pain, nausea, and vomiting. O: At 07:00, vitals: BP 90/50 mmHg, HR 120 bpm, RR 28, SpO2 92% on 2L nasal cannula, Temp 38.9°C. Abdomen is distended and tender. Skin is jaundiced. Patient is confused and disoriented. Labs show elevated amylase (1500 U/L), lipase (2000 U/L), and total bilirubin (6.0 mg/dL). A: Mr. Smith is at high risk for worsening pancreatitis complications, including potential liver failure, hypovolemic shock, acute kidney injury, and respiratory failure. He requires close monitoring and immediate intervention. R: I recommend continuing immediate fluid resuscitation with normal saline, managing pain with morphine as needed, administering ondansetron for nausea, providing pantoprazole for gastric protection, closely monitoring vital signs and urine output, assessing for signs of hepatic encephalopathy, and maintaining droplet isolation precautions.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr><tr><td>Amylase</td><td>1500 U/L</td><td>30-110 U/L</td></tr><tr><td>Lipase</td><td>2000 U/L</td><td>0-160 U/L</td></tr><tr><td>Total Bilirubin</td><td>6.0 mg/dL</td><td>0.3-1.0 mg/dL</td></tr><tr><td>AST</td><td>250 U/L</td><td>10-40 U/L</td></tr><tr><td>ALT</td><td>300 U/L</td><td>7-56 U/L</td></tr><tr><td>Albumin</td><td>2.8 g/dL</td><td>3.5-5.0 g/dL</td></tr><tr><td>WBC</td><td>15,000/μL</td><td>4,500-11,000/μL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 14:30",
+                        "text": "S: Client is a 62-year-old male brought to the ED by his adult child with a 24-hour history of severe, constant epigastric pain radiating to his back, accompanied by nausea and multiple episodes of vomiting. Reports a history of chronic alcohol use, stating he drinks 'a pint of vodka daily'.\nB: History of hypertension and hyperlipidemia. No recent surgeries. Client lives alone in a rural area with limited transportation, which delayed him seeking care. Allergic to Penicillin. \nA: On arrival, client was tachycardic and hypotensive. Abdomen is rigid and diffusely tender. Laboratory studies were drawn, and IV access was established. Initial diagnosis of acute pancreatitis was made based on clinical presentation and elevated lipase.\nR: Admitted to the medical-surgical unit for IV fluid resuscitation, pain management, electrolyte monitoring, and NPO status. Plan includes abdominal CT to assess for pancreatic necrosis or pseudocyst formation."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 2, 07:00",
+                        "text": "S: Client is increasingly confused and agitated this morning. He is pulling at his IV lines and does not recognize his adult child at the bedside. Pain is difficult to assess due to altered mental status, but he is grimacing and restless.\nB: Admitted yesterday for acute pancreatitis secondary to chronic alcohol abuse. He has received 3L of IV Normal Saline overnight. Urine output has been minimal. His respiratory effort has increased over the past two hours.\nA: Vitals are trending towards shock: BP 90/50 mmHg, HR 125 bpm, RR 28/min, SpO2 91% on 2L NC. He is febrile at 102.0°F (38.9°C). Physical exam reveals jaundice, abdominal distension, and crackles in bilateral lung bases. Labs show worsening liver function, leukocytosis, and acute kidney injury. The client is developing multi-system organ failure.\nR: Recommend STAT physician notification for possible ICU transfer. Continue aggressive fluid resuscitation. Prepare for potential intubation."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr><tr><td>06:00</td><td>95/60</td><td>110</td><td>24</td><td>94%</td><td>38.5</td></tr><tr><td>07:00</td><td>90/50</td><td>120</td><td>28</td><td>92%</td><td>38.9</td></tr></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "time": "05:00",
+                        "hr": "115 bpm",
+                        "bp": "98/62 mmHg (MAP 74)",
+                        "rr": "24/min",
+                        "spo2": "94% on 2L NC",
+                        "temp": "101.1°F (38.4°C)"
+                    },
+                    {
+                        "time": "06:00",
+                        "hr": "120 bpm",
+                        "bp": "95/60 mmHg (MAP 72)",
+                        "rr": "26/min",
+                        "spo2": "92% on 2L NC",
+                        "temp": "101.5°F (38.6°C)"
+                    },
+                    {
+                        "time": "07:00",
+                        "hr": "125 bpm",
+                        "bp": "90/50 mmHg (MAP 63)",
+                        "rr": "28/min",
+                        "spo2": "91% on 2L NC",
+                        "temp": "102.0°F (38.9°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr><tr><td>Lactulose</td><td>30 mL</td><td>PO</td><td>Q6H PRN</td></tr><tr><td>Morphine</td><td>4 mg</td><td>IV</td><td>Q4H PRN pain</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IV</td><td>Q6H PRN nausea</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>Daily</td></tr><tr><td>Normal Saline</td><td>1000 mL</td><td>IV</td><td>Bolus</td></tr></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "lab": "Amylase",
+                        "result": "1550",
+                        "unit": "U/L",
+                        "reference": "30-110",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Lipase",
+                        "result": "2100",
+                        "unit": "U/L",
+                        "reference": "0-160",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Total Bilirubin",
+                        "result": "6.2",
+                        "unit": "mg/dL",
+                        "reference": "0.3-1.0",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Ammonia",
+                        "result": "98",
+                        "unit": "mcg/dL",
+                        "reference": "15-45",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "AST",
+                        "result": "250",
+                        "unit": "U/L",
+                        "reference": "10-40",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "ALT",
+                        "result": "300",
+                        "unit": "U/L",
+                        "reference": "7-56",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Albumin",
+                        "result": "2.8",
+                        "unit": "g/dL",
+                        "reference": "3.5-5.0",
+                        "status": "Low"
+                    },
+                    {
+                        "lab": "WBC",
+                        "result": "18.5",
+                        "unit": "x10³/μL",
+                        "reference": "4.5-11.0",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Creatinine",
+                        "result": "1.9",
+                        "unit": "mg/dL",
+                        "reference": "0.6-1.2",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Calcium",
+                        "result": "7.9",
+                        "unit": "mg/dL",
+                        "reference": "8.5-10.2",
+                        "status": "Low"
+                    },
+                    {
+                        "lab": "Glucose",
+                        "result": "210",
+                        "unit": "mg/dL",
+                        "reference": "70-110",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "PT/INR",
+                        "result": "1.4",
+                        "unit": "ratio",
+                        "reference": "0.8-1.1",
+                        "status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "assessment_type": "Admission Assessment (Day 1, 14:45)",
+                        "findings": "GENERAL: Appears acutely ill, grimacing in pain. NEURO: Alert and oriented x3. GCS 15. CARDIOVASCULAR: Tachycardic, S1/S2 audible. Capillary refill <3 seconds. RESPIRATORY: Lungs clear to auscultation bilaterally. GASTROINTESTINAL: Abdomen distended, rigid, with marked tenderness in epigastric region. Bowel sounds hypoactive. SKIN: Warm and dry. No jaundice noted."
+                    },
+                    {
+                        "assessment_type": "Focused Assessment (Day 2, 07:00)",
+                        "findings": "GENERAL: Restless and agitated. NEURO: Disoriented to time and place. GCS 13 (E4, V4, M5). Asterixis noted. CARDIOVASCULAR: Tachycardic with thready pulses. RESPIRATORY: Tachypneic with use of accessory muscles. Crackles auscultated in bilateral lower lobes. GASTROINTESTINAL: Abdomen remains distended and tender. SKIN: Jaundice visible on skin and sclera. Skin is hot and flushed."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "report_type": "CT Abdomen/Pelvis with Contrast (Day 1, 18:00)",
+                        "findings": "FINDINGS: Diffuse enlargement and inflammation of the pancreas with peripancreatic fat stranding and fluid collections consistent with acute interstitial edematous pancreatitis. No evidence of discrete pancreatic necrosis. Small bilateral pleural effusions are present. Liver shows mild steatosis. No evidence of bowel obstruction.",
+                        "impression": "Acute pancreatitis with significant peripancreatic inflammation. Small bilateral pleural effusions."
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR in Item Context"
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": [
+                    {
+                        "order_time": "Day 1, 15:00",
+                        "action": "NPO",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "Day 1, 15:00",
+                        "action": "IV Fluids: Normal Saline at 150 mL/hr",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "Day 1, 15:00",
+                        "action": "Oxygen to maintain SpO2 >92%",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "Day 1, 15:00",
+                        "action": "Insert nasogastric tube to low intermittent suction",
+                        "status": "Standing"
+                    },
+                    {
+                        "order_time": "Day 1, 15:00",
+                        "action": "Morphine 2-4 mg IV every 2 hours PRN for severe pain",
+                        "status": "PRN"
+                    },
+                    {
+                        "order_time": "Day 1, 15:00",
+                        "action": "Ondansetron 4 mg IV every 6 hours PRN for nausea",
+                        "status": "PRN"
+                    },
+                    {
+                        "order_time": "Day 2, 07:15",
+                        "action": "Administer Normal Saline 1000 mL IV bolus over 1 hour",
+                        "status": "STAT"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Normal Saline",
+                        "dose": "150 mL/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "last_admin": "Ongoing"
+                    },
+                    {
+                        "medication": "Pantoprazole",
+                        "dose": "40 mg",
+                        "route": "IV",
+                        "frequency": "Daily",
+                        "last_admin": "Day 2, 06:00"
+                    },
+                    {
+                        "medication": "Morphine",
+                        "dose": "4 mg",
+                        "route": "IV",
+                        "frequency": "Q2H PRN",
+                        "last_admin": "Day 2, 04:30"
+                    },
+                    {
+                        "medication": "Ondansetron",
+                        "dose": "4 mg",
+                        "route": "IV",
+                        "frequency": "Q6H PRN",
+                        "last_admin": "Day 2, 01:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
+    "matrix": {
+        "columns": [
+            {
+                "id": "col1",
+                "text": "Anticipated Finding"
+            },
+            {
+                "id": "col2",
+                "text": "Priority Action"
+            },
+            {
+                "id": "col3",
+                "text": "Parameter to Monitor"
+            }
+        ],
+        "rows": [
+            {
+                "id": "row1",
+                "text": "Hepatic Encephalopathy",
+                "options": [
+                    {
+                        "columnId": "col1",
+                        "text": "Asterixis",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col1",
+                        "text": "Pinpoint pupils",
+                        "isCorrect": false
+                    },
+                    {
+                        "columnId": "col2",
+                        "text": "Administer lactulose",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col2",
+                        "text": "Initiate seizure precautions",
+                        "isCorrect": false
+                    },
+                    {
+                        "columnId": "col3",
+                        "text": "Ammonia level",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col3",
+                        "text": "Blood glucose",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "id": "row2",
+                "text": "Hypovolemic Shock",
+                "options": [
+                    {
+                        "columnId": "col1",
+                        "text": "MAP < 65 mmHg",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col1",
+                        "text": "Bradycardia",
+                        "isCorrect": false
+                    },
+                    {
+                        "columnId": "col2",
+                        "text": "Administer IV fluid bolus",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col2",
+                        "text": "Administer vasopressors",
+                        "isCorrect": false
+                    },
+                    {
+                        "columnId": "col3",
+                        "text": "Blood pressure",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col3",
+                        "text": "Serum potassium",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "id": "row3",
+                "text": "Acute Kidney Injury (AKI)",
+                "options": [
+                    {
+                        "columnId": "col1",
+                        "text": "Elevated creatinine",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col1",
+                        "text": "Decreased BUN",
+                        "isCorrect": false
+                    },
+                    {
+                        "columnId": "col2",
+                        "text": "Place indwelling urinary catheter",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col2",
+                        "text": "Administer furosemide",
+                        "isCorrect": false
+                    },
+                    {
+                        "columnId": "col3",
+                        "text": "Hourly urine output",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col3",
+                        "text": "Abdominal girth",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "id": "row4",
+                "text": "Acute Respiratory Distress Syndrome (ARDS)",
+                "options": [
+                    {
+                        "columnId": "col1",
+                        "text": "Bilateral lung crackles",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col1",
+                        "text": "Productive cough",
+                        "isCorrect": false
+                    },
+                    {
+                        "columnId": "col2",
+                        "text": "Increase oxygen delivery",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col2",
+                        "text": "Administer bronchodilators",
+                        "isCorrect": false
+                    },
+                    {
+                        "columnId": "col3",
+                        "text": "Oxygen saturation (SpO2)",
+                        "isCorrect": true
+                    },
+                    {
+                        "columnId": "col3",
+                        "text": "Sputum culture results",
+                        "isCorrect": false
+                    }
+                ]
+            }
         ]
     },
     "rationale": {
-        "correct": "Hepatic encephalopathy is likely due to the elevated bilirubin and potential liver dysfunction, leading to increased ammonia levels. Lactulose is administered to reduce ammonia levels by promoting its excretion. Hypovolemic shock is likely given the low blood pressure, high heart rate, and elevated temperature, indicating sepsis or systemic inflammation. IV fluids are administered to address the volume deficit and improve blood pressure. Acute kidney injury is likely given the elevated creatinine and potential for decreased renal perfusion due to hypovolemia. Monitoring urine output is crucial for assessing renal function and response to fluid resuscitation. Respiratory failure is likely given the elevated respiratory rate and decreased SpO2, indicating impaired gas exchange. Oxygen supplementation helps improve oxygenation and alleviate hypoxemia. The patient's elevated temperature, cough, and respiratory distress necessitate droplet precautions to prevent potential spread of infection.",
-        "incorrect": "Disseminated intravascular coagulation (DIC) is less likely based on the provided information, although pancreatitis can sometimes trigger it. Focusing on the immediate issues of hepatic encephalopathy, hypovolemic shock, acute kidney injury, and respiratory failure is more critical. While electrolyte imbalances are common in pancreatitis, they are a secondary concern compared to the more life-threatening complications. While pancreatitis can cause hyperglycemia due to pancreatic cell damage, it's not the most immediate threat. Hypocalcemia is possible in pancreatitis due to saponification of calcium with fatty acids, but it is less immediately life-threatening than the other complications listed.",
-        "clinicalPearls": [
-            "In acute pancreatitis, monitor for signs of hypovolemic shock due to fluid shifts and third spacing. Aggressive fluid resuscitation is often required.",
-            "Hepatic encephalopathy is a serious complication of liver failure; early recognition and treatment with lactulose are crucial to reduce ammonia levels.",
-            "Acute kidney injury can occur secondary to hypovolemia and inflammation in pancreatitis. Monitor urine output and creatinine levels closely.",
-            "Respiratory failure can occur due to ARDS or pleural effusions secondary to pancreatitis. Monitor oxygen saturation and respiratory effort."
+        "correct": "Severe acute pancreatitis triggers a massive systemic inflammatory response, leading to increased capillary permeability and fluid shifts ('third-spacing'). This can rapidly progress to multi-system organ failure. The nurse must analyze cues to identify the specific organ systems failing and anticipate the necessary interventions and monitoring. This client demonstrates signs of failure in the hepatic, cardiovascular, renal, and respiratory systems.",
+        "answerBreakdown": [
+            {
+                "rowId": "row1",
+                "content": "Hepatic Encephalopathy: CORRECT - Asterixis (flapping tremor) is a classic sign of encephalopathy. The liver's inability to detoxify substances, primarily ammonia, leads to neurotoxicity. The priority action is to administer lactulose, which acidifies the gut, traps ammonia as ammonium, and promotes its excretion. Monitoring the serum ammonia level is essential to evaluate treatment effectiveness. INCORRECT - Pinpoint pupils suggest opioid overdose, not encephalopathy. Seizure precautions are for severe cases but administering lactulose is the primary treatment. Blood glucose is important in pancreatitis but not specific to encephalopathy."
+            },
+            {
+                "rowId": "row2",
+                "content": "Hypovolemic Shock: CORRECT - A Mean Arterial Pressure (MAP) below 65 mmHg indicates inadequate organ perfusion. The client's MAP is 63. This is caused by massive fluid shifts from the intravascular to the interstitial space. The priority action is aggressive IV fluid resuscitation with an isotonic crystalloid bolus to restore circulating volume. Continuously monitoring blood pressure is critical to assess response to fluids. INCORRECT - Shock from pancreatitis causes tachycardia, not bradycardia. Vasopressors are a secondary intervention if the client remains hypotensive despite adequate fluid resuscitation. Serum potassium is important but not the primary parameter for monitoring shock."
+            },
+            {
+                "rowId": "row3",
+                "content": "Acute Kidney Injury (AKI): CORRECT - The elevated creatinine (1.9 mg/dL) is a direct indicator of renal dysfunction. This is a pre-renal AKI caused by severe hypovolemia and decreased renal perfusion. The priority action is to place an indwelling catheter for precise, hourly measurement of urine output, which is the most sensitive indicator of renal perfusion and response to fluid therapy. INCORRECT - BUN would be elevated, not decreased, in pre-renal AKI. Administering a diuretic like furosemide is contraindicated in a hypovolemic state as it would worsen dehydration and renal injury. Abdominal girth monitors for ascites or hemorrhage, not renal function."
+            },
+            {
+                "rowId": "row4",
+                "content": "Acute Respiratory Distress Syndrome (ARDS): CORRECT - Bilateral lung crackles, tachypnea, and worsening hypoxemia (SpO2 91% on 2L NC) despite oxygen are hallmark signs of ARDS, a common complication of pancreatitis due to systemic inflammation damaging the alveolar-capillary membrane. The priority action is to increase oxygen delivery (e.g., via a non-rebreather mask) while preparing for potential mechanical ventilation. Monitoring SpO2 is crucial to assess oxygenation status. INCORRECT - ARDS typically presents with a non-productive cough. Bronchodilators are for bronchoconstriction (e.g., asthma), not the non-cardiogenic pulmonary edema of ARDS. Sputum cultures are for infection, not the inflammatory process of ARDS."
+            }
         ],
-        "questionTrap": {
-            "trap": "Students might focus solely on the pancreatitis and miss the signs of impending liver failure and hypovolemic shock, leading to incorrect prioritization of interventions.",
-            "howToOvercome": "Emphasize a holistic assessment, integrating data from all tabs (SBAR, Labs, Vitals, MAR) to identify multiple concurrent problems. Prioritize interventions based on the most immediate threats to the patient's stability, using ABCs (Airway, Breathing, Circulation)."
-        },
+        "clinicalPearls": [
+            "In severe pancreatitis, hypovolemic shock from third-spacing is the most immediate life-threat. Aggressive fluid resuscitation is the cornerstone of initial management.",
+            "ARDS is a major cause of mortality in acute pancreatitis. Any increase in respiratory rate or oxygen requirement should be treated as a sign of impending respiratory failure.",
+            "Hepatic encephalopathy can develop from liver dysfunction secondary to pancreatitis. Look for subtle neurological changes like confusion or asterixis and check an ammonia level.",
+            "Hypocalcemia (positive Chvostek's or Trousseau's sign) is common in pancreatitis due to fat saponification, where calcium binds to free fatty acids in areas of fat necrosis."
+        ],
+        "questionTrap": "The most common trap is focusing on a single problem, like the abdominal pain of pancreatitis, while missing the subtle but critical signs of multi-system organ failure. The NGN requires synthesizing data from all tabs (vitals, labs, physical exam) to see the bigger picture of systemic collapse.",
         "mnemonic": {
-            "title": "I WATCH DEATH (Hepatic Encephalopathy)",
-            "expansion": "Infection, Withdrawal, Anemia, Trauma, CVA, Hypokalemia, Drugs, Endocrine, Toxins, Hepatic (failure)"
+            "title": "PANCREAS (Complications)",
+            "expansion": "P: Pleural effusion/ARDS, A: Ascites/Abdominal compartment syndrome, N: Necrosis, C: Cullen's/Grey-Turner's sign, R: Renal failure, E: Electrolyte imbalance (hypocalcemia), A: Abscess/Pseudocyst, S: Shock/SIRS."
         }
     },
-    "matrix": [
-        {
-            "row": "Hepatic Encephalopathy",
-            "options": [
-                {
-                    "column": "Likely",
-                    "isCorrect": true
-                },
-                {
-                    "column": "Unlikely",
-                    "isCorrect": false
-                }
-            ],
-            "feedback": ""
-        },
-        {
-            "row": "Hypovolemic Shock",
-            "options": [
-                {
-                    "column": "Likely",
-                    "isCorrect": true
-                },
-                {
-                    "column": "Unlikely",
-                    "isCorrect": false
-                }
-            ],
-            "feedback": ""
-        },
-        {
-            "row": "Acute Kidney Injury",
-            "options": [
-                {
-                    "column": "Likely",
-                    "isCorrect": true
-                },
-                {
-                    "column": "Unlikely",
-                    "isCorrect": false
-                }
-            ],
-            "feedback": ""
-        },
-        {
-            "row": "Respiratory Failure",
-            "options": [
-                {
-                    "column": "Likely",
-                    "isCorrect": true
-                },
-                {
-                    "column": "Unlikely",
-                    "isCorrect": false
-                }
-            ],
-            "feedback": ""
-        }
-    ],
-    "distractors": [
-        {
-            "row": "Disseminated Intravascular Coagulation (DIC)",
-            "options": [
-                {
-                    "column": "Likely",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Unlikely",
-                    "isCorrect": true
-                }
-            ],
-            "feedback": ""
-        },
-        {
-            "row": "Electrolyte Imbalances",
-            "options": [
-                {
-                    "column": "Likely",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Unlikely",
-                    "isCorrect": true
-                }
-            ],
-            "feedback": ""
-        },
-        {
-            "row": "Hyperglycemia",
-            "options": [
-                {
-                    "column": "Likely",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Unlikely",
-                    "isCorrect": true
-                }
-            ],
-            "feedback": ""
-        },
-        {
-            "row": "Hypocalcemia",
-            "options": [
-                {
-                    "column": "Likely",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Unlikely",
-                    "isCorrect": true
-                }
-            ],
-            "feedback": ""
-        }
-    ],
-    "matrixMatchResponse": [
-        {
-            "row": "Hepatic Encephalopathy",
-            "options": [
-                {
-                    "column": "Administer lactulose",
-                    "isCorrect": true
-                },
-                {
-                    "column": "Initiate blood transfusion",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Administer insulin",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Monitor potassium levels",
-                    "isCorrect": false
-                }
-            ],
-            "feedback": ""
-        },
-        {
-            "row": "Hypovolemic Shock",
-            "options": [
-                {
-                    "column": "Administer lactulose",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Initiate blood transfusion",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Administer insulin",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Administer IV fluids",
-                    "isCorrect": true
-                }
-            ],
-            "feedback": ""
-        },
-        {
-            "row": "Acute Kidney Injury",
-            "options": [
-                {
-                    "column": "Administer lactulose",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Monitor urine output",
-                    "isCorrect": true
-                },
-                {
-                    "column": "Administer insulin",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Monitor potassium levels",
-                    "isCorrect": false
-                }
-            ],
-            "feedback": ""
-        },
-        {
-            "row": "Respiratory Failure",
-            "options": [
-                {
-                    "column": "Administer oxygen supplementation",
-                    "isCorrect": true
-                },
-                {
-                    "column": "Initiate blood transfusion",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Administer insulin",
-                    "isCorrect": false
-                },
-                {
-                    "column": "Monitor potassium levels",
-                    "isCorrect": false
-                }
-            ],
-            "feedback": ""
-        }
-    ],
-    "isolation": "Droplet",
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:04:40.690Z"
 }

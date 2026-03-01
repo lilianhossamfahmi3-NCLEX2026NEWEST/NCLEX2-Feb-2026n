@@ -1,7 +1,26 @@
 {
     "id": "New-v26-a7b3c9d2-4e5f-4a1b-9c8d-e3f2a1b06789",
-    "type": "trend",
-    "stem": "The nurse is caring for a 72-year-old patient, Mr. Jackson, who is receiving a continuous intravenous infusion of heparin. Based on the EHR data provided, including laboratory values, medication administration record, and vital signs, determine if any adjustments to the heparin infusion rate are needed. Document your findings and recommendations in the nursing notes. Indicate the current status of anticoagulation and the rationale for your decision.",
+    "type": "multipleChoice",
+    "stem": "The nurse reviews the client's electronic health record. Based on the trend in the laboratory data, which action is the priority?",
+    "options": [
+        {
+            "id": "opt_1",
+            "text": "Decrease the heparin infusion rate per protocol."
+        },
+        {
+            "id": "opt_2",
+            "text": "Continue the current infusion rate and recheck aPTT in 4 hours."
+        },
+        {
+            "id": "opt_3",
+            "text": "Administer protamine sulfate immediately."
+        },
+        {
+            "id": "opt_4",
+            "text": "Request an order to increase the heparin infusion rate."
+        }
+    ],
+    "correctAnswer": "opt_1",
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
@@ -10,61 +29,239 @@
         "patient": {
             "name": "Jackson, Robert",
             "age": 72,
-            "gender": "Male",
+            "sex": "Male",
+            "pronouns": "he/him",
             "iso": "Medical Surgical Unit",
             "allergies": [
                 "NKDA"
             ]
         },
-        "sbar": "12:00:\nS: Mr. Jackson, a 72-year-old male, was admitted for deep vein thrombosis (DVT). He was started on a heparin infusion at 18 units/kg/hr at 07:00 today.\nB: Mr. Jackson has a history of hypertension and hyperlipidemia. His current medications include lisinopril and atorvastatin.\nA: The patient is currently on a heparin drip. The initial aPTT result at 07:00 was 35 seconds. A subsequent aPTT was drawn at 11:00 and is elevated at 65 seconds. His current weight is 80 kg. The heparin concentration is 25,000 units in 250 mL normal saline. The current infusion rate is 1440 units/hr (14.4 mL/hr). Vital signs are stable: BP 130/80, HR 78, RR 18, SpO2 98% on room air.\nR: Decrease the heparin infusion rate per hospital protocol due to the elevated aPTT. Notify the provider of the changes.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th><th>Time</th></tr></thead><tbody><tr><td>aPTT</td><td>35 seconds</td><td>25-35 seconds</td><td>07:00</td></tr><tr><td>aPTT</td><td>65 seconds</td><td>25-35 seconds</td><td>11:00</td></tr><tr><td>PT/INR</td><td>12 seconds/1.0</td><td>11-13 seconds/0.8-1.1</td><td>07:00</td></tr><tr><td>Platelets</td><td>250,000/mcL</td><td>150,000-400,000/mcL</td><td>07:00</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Start Time</th><th>Status</th></tr></thead><tbody><tr><td>Heparin</td><td>18 units/kg/hr</td><td>IV Continuous</td><td>Continuous</td><td>07:00</td><td>Active</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>08:00</td><td>Given</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td><td>20:00</td><td>Scheduled</td></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "time": "12:00",
+                        "note": "S: Client is a 72-year-old male admitted for an acute left lower extremity deep vein thrombosis (DVT). He is currently receiving a continuous intravenous heparin infusion.\nB: Client has a history of hypertension and hyperlipidemia. He lives alone in a rural area, which presents a barrier to frequent follow-up care. He presented to the emergency department with a swollen, painful, and erythematous left calf that began 3 days ago. \nA: A weight-based heparin protocol was initiated at 07:00. The baseline aPTT was 35 seconds. The most recent aPTT result from 11:00 is 95 seconds, which is supratherapeutic. The client is alert, oriented, and denies any signs of active bleeding, such as epistaxis, hematuria, or melena. Left calf circumference remains 42 cm, right is 38 cm. Pedal pulses are 2+ bilaterally. Vital signs remain stable.\nR: The heparin infusion rate requires a downward titration per the institutional protocol to mitigate the significant risk of bleeding. Continue close monitoring for any signs of hemorrhage."
+                    },
+                    {
+                        "time": "07:00",
+                        "note": "S: Client admitted from ED with confirmed left popliteal DVT.\nB: History of HTN and hyperlipidemia. No prior history of VTE. Current medications include lisinopril and atorvastatin.\nA: Alert and oriented x4. Complains of 6/10 pain in the left calf. Left calf is visibly swollen and erythematous compared to the right. Vital signs are stable. IV access established with a 20-gauge catheter in the right forearm.\nR: Initiate weight-based heparin infusion per protocol. Obtain baseline coagulation studies. Elevate left lower extremity. Administer PRN analgesia as ordered. Place on bed rest."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>Value</th><th>Time</th></tr></thead><tbody><tr><td>BP</td><td>130/80</td><td>12:00</td></tr><tr><td>HR</td><td>78</td><td>12:00</td></tr><tr><td>RR</td><td>18</td><td>12:00</td></tr><tr><td>SpO2</td><td>98</td><td>12:00</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "07:00",
+                        "Temp": "98.8°F (37.1°C)",
+                        "HR": "82",
+                        "BP": "138/84 (MAP 102)",
+                        "RR": "18",
+                        "SpO2": "98% on Room Air"
+                    },
+                    {
+                        "Time": "11:00",
+                        "Temp": "98.6°F (37.0°C)",
+                        "HR": "79",
+                        "BP": "132/80 (MAP 97)",
+                        "RR": "18",
+                        "SpO2": "99% on Room Air"
+                    },
+                    {
+                        "Time": "12:00",
+                        "Temp": "98.7°F (37.1°C)",
+                        "HR": "78",
+                        "BP": "130/80 (MAP 97)",
+                        "RR": "18",
+                        "SpO2": "98% on Room Air"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Activated Partial Thromboplastin Time (aPTT)",
+                        "Result": "95",
+                        "Unit": "seconds",
+                        "Reference": "25-35",
+                        "Status": "High",
+                        "Time": "11:00"
+                    },
+                    {
+                        "Test": "Activated Partial Thromboplastin Time (aPTT)",
+                        "Result": "35",
+                        "Unit": "seconds",
+                        "Reference": "25-35",
+                        "Status": "Normal",
+                        "Time": "07:00"
+                    },
+                    {
+                        "Test": "Prothrombin Time (PT)",
+                        "Result": "12",
+                        "Unit": "seconds",
+                        "Reference": "11-13",
+                        "Status": "Normal",
+                        "Time": "07:00"
+                    },
+                    {
+                        "Test": "International Normalized Ratio (INR)",
+                        "Result": "1.0",
+                        "Unit": "",
+                        "Reference": "0.8-1.1",
+                        "Status": "Normal",
+                        "Time": "07:00"
+                    },
+                    {
+                        "Test": "Platelet Count",
+                        "Result": "250,000",
+                        "Unit": "/mcL",
+                        "Reference": "150,000-400,000",
+                        "Status": "Normal",
+                        "Time": "07:00"
+                    }
+                ],
+                "notes": "Therapeutic range for heparin therapy: 52-88 seconds"
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "time": "12:00 (Focused Assessment)",
+                        "findings": "Cardiovascular: S1, S2 audible, regular rhythm. No new murmurs. Peripheral: Left lower extremity edema and erythema are persistent. No new bruising or petechiae noted on skin. Client denies bleeding from gums or in urine."
+                    },
+                    {
+                        "time": "07:00 (Admission Assessment)",
+                        "findings": "Constitutional: Alert and oriented x4, in no acute distress. Cardiovascular: S1, S2 audible, regular rate and rhythm. Peripheral: Left lower extremity with 2+ pitting edema from ankle to mid-calf, erythema, and tenderness to palpation over the calf. Calf circumference L 42 cm, R 38 cm. Homan's sign positive on the left. Pulses 2+ bilaterally."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "type": "Doppler Ultrasound, Left Lower Extremity",
+                        "date": "Today",
+                        "findings": "Real-time grayscale and color Doppler imaging of the left lower extremity venous system was performed. There is evidence of non-compressible thrombus within the left popliteal vein. The common femoral, superficial femoral, and posterior tibial veins are patent and demonstrate normal flow.",
+                        "impression": "Acute deep vein thrombosis (DVT) of the left popliteal vein."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "orderTime": "07:00",
+                        "action": "Initiate continuous IV heparin infusion per weight-based Anticoagulation Protocol.",
+                        "status": "Active"
+                    },
+                    {
+                        "orderTime": "07:00",
+                        "action": "Titrate heparin infusion to maintain aPTT between 52-88 seconds.",
+                        "status": "Active"
+                    },
+                    {
+                        "orderTime": "07:00",
+                        "action": "Check aPTT 4 hours after initiation and 4 hours after any rate change.",
+                        "status": "Active"
+                    },
+                    {
+                        "orderTime": "07:00",
+                        "action": "Bed rest with left leg elevated on two pillows.",
+                        "status": "Active"
+                    },
+                    {
+                        "orderTime": "07:00",
+                        "action": "Vital signs every 4 hours.",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Heparin",
+                        "dose": "18 units/kg/hr",
+                        "route": "IV Continuous",
+                        "frequency": "Continuous",
+                        "lastAdministered": "Ongoing"
+                    },
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "20 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "08:00 Today"
+                    },
+                    {
+                        "medication": "Atorvastatin",
+                        "dose": "40 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "20:00 Yesterday"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
+        "bloomLevel": "apply",
+        "cjmmStep": "takeAction",
+        "nclexCategory": "Pharmacological and Parenteral Therapies",
         "difficulty": 5,
         "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
+            "Safety: Medication Calculation & High-Alert Drugs",
+            "Anticoagulation",
+            "Venous Thromboembolism"
         ]
     },
     "rationale": {
-        "correct": "The aPTT at 11:00 is 65 seconds, which is above the therapeutic range of 50-88 seconds (assuming a target range of 1.5-2.5 times the control of 35 seconds). The heparin infusion rate should be decreased according to the hospital's heparin protocol. A typical protocol would suggest decreasing the infusion rate by 1-2 units/kg/hr for an aPTT in this range. The current rate is 1440 units/hr. Decreasing by 1 unit/kg/hr would reduce the rate by 80 units/hr (80 kg x 1 unit/kg/hr = 80 units/hr) and the new rate would be 1360 units/hr. Decreasing by 2 units/kg/hr would reduce the rate by 160 units/hr (80 kg x 2 unit/kg/hr = 160 units/hr) and the new rate would be 1280 units/hr. The nurse should document the rate adjustment and monitor the patient's aPTT regularly. Clinical Pearl: Always verify the hospital's specific heparin protocol.",
-        "incorrect": "Maintaining the current rate would lead to an increased risk of bleeding due to supratherapeutic anticoagulation. Increasing the rate further would significantly increase the risk of bleeding. While vital signs are stable, they do not negate the need to adjust the heparin infusion based on the aPTT results. Delaying adjustment exposes the patient to unnecessary risk. Ignoring the lab values and focusing only on the patient's current stability overlooks the potential for future complications arising from inadequate anticoagulation.",
+        "correct": "The client's aPTT level at 11:00 is 95 seconds, which is above the established therapeutic range of 52-88 seconds. This supratherapeutic level indicates excessive anticoagulation and places the client at a high risk for bleeding. The priority nursing action is to follow the institutional protocol, which will direct the nurse to decrease the infusion rate to bring the aPTT back into the therapeutic range. This action correctly balances the need to prevent thrombus extension with the need to ensure client safety from hemorrhage.",
+        "incorrect": "Continuing the infusion at the current rate is unsafe as it maintains a supratherapeutic level of anticoagulation, increasing the risk of spontaneous hemorrhage. Administering protamine sulfate is an extreme measure reserved for life-threatening bleeding or severe heparin overdose, which is not indicated in a stable client without active bleeding. Increasing the infusion rate would be extremely dangerous, critically elevating the risk of a major bleeding event.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "correct": true,
+                "rationale": "Correct. The aPTT of 95 seconds is supratherapeutic (target 52-88s). Pathophysiologically, this means heparin has excessively inhibited the intrinsic coagulation pathway (factors IIa, Xa), increasing bleeding risk. The protocol-driven action is to decrease the rate to reduce this risk while maintaining anticoagulation."
+            },
+            {
+                "optionId": "opt_2",
+                "correct": false,
+                "rationale": "Incorrect. Continuing the infusion at a supratherapeutic level for another 4 hours is a breach of safety standards. This inaction allows the excessive anticoagulation to persist, significantly increasing the risk of spontaneous bleeding, such as intracranial or gastrointestinal hemorrhage."
+            },
+            {
+                "optionId": "opt_3",
+                "correct": false,
+                "rationale": "Incorrect. Protamine sulfate is a heparin antagonist used for reversal in cases of severe overdose with active, life-threatening hemorrhage. Its use is not indicated for an elevated aPTT in a hemodynamically stable client with no signs of bleeding, as protamine itself carries risks like hypotension and anaphylaxis."
+            },
+            {
+                "optionId": "opt_4",
+                "correct": false,
+                "rationale": "Incorrect. Increasing the heparin rate would dangerously potentiate the anticoagulant effect, pushing the aPTT even higher. This action demonstrates a fundamental misunderstanding of the lab results and would place the client at imminent risk for a major, potentially fatal, bleeding event."
+            }
+        ],
         "clinicalPearls": [
-            "Always double-check heparin infusion rates and concentrations.",
-            "Monitor aPTT regularly and adjust the infusion rate per protocol.",
-            "Assess for signs of bleeding while on heparin therapy.",
-            "Ensure familiarity with the specific heparin protocol used by the institution."
+            "The therapeutic aPTT range for heparin is typically 1.5 to 2.5 times the baseline control value. Always confirm the institution's specific target range.",
+            "Always follow the institution's specific weight-based heparin nomogram for titrating infusions; never adjust based on intuition or a generalized approach.",
+            "A supratherapeutic aPTT is a critical lab value that requires immediate action, even if the client appears clinically stable and is not actively bleeding."
         ],
         "questionTrap": {
-            "trap": "The stability of the vital signs may mislead the test taker into thinking no action is needed. The trap is assuming that because the patient appears stable, the heparin infusion is appropriate.",
-            "howToOvercome": "Focus on the lab values (aPTT) and compare them to the therapeutic range. Use the heparin protocol to guide the infusion rate adjustment, regardless of the patient's current vital signs."
+            "trap": "The trap is focusing on the client's stable vital signs and lack of active bleeding, leading to a false sense of security. A supratherapeutic aPTT is a critical lab value that signals impending risk, requiring proactive intervention even in a stable-appearing client.",
+            "howToOvercome": "Prioritize critical laboratory values over stable vital signs when managing high-alert medications. Recognize that the goal of titration is to prevent complications (bleeding) before they occur, not just react to them."
         },
         "mnemonic": {
             "title": "HEPARIN",
-            "expansion": "Heparin prevents clots; Evaluate aPTT results; Prevent bleeding; Administer protamine sulfate for overdose; Review protocol; Inform provider of changes; Notify if bleeding occurs."
+            "expansion": "Heparin prevents clots; Evaluate aPTT results; Prevent bleeding; Administer Protamine sulfate for overdose; Review protocol; Inform provider of changes; Notify if bleeding occurs."
         }
     }
 }

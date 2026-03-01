@@ -1,75 +1,289 @@
 {
     "id": "New-v26-9a7b8c6d-4321-4ef0-9876-5abcdef01234",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a patient experiencing increased intracranial pressure (ICP) following an ischemic stroke. Based on the patient data, prioritize the interventions in order of importance, with the MOST important intervention listed first.",
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client with increased intracranial pressure (ICP) after an ischemic stroke. Prioritize the following nursing interventions from first to last.",
+    "options": [
+        {
+            "id": "opt_1",
+            "label": "Titrate nicardipine IV drip per protocol."
+        },
+        {
+            "id": "opt_2",
+            "label": "Elevate head of bed to 30 degrees with neck in neutral alignment."
+        },
+        {
+            "id": "opt_3",
+            "label": "Administer PRN acetaminophen for hyperthermia."
+        },
+        {
+            "id": "opt_4",
+            "label": "Decrease environmental stimuli and cluster nursing care."
+        }
+    ],
+    "correctResponse": [
+        "opt_1",
+        "opt_2",
+        "opt_3",
+        "opt_4"
+    ],
     "scoring": {
         "method": "dichotomous",
-        "maxPoints": 1
+        "maxPoints": 4
     },
     "itemContext": {
         "patient": {
             "name": "John Smith",
             "age": 68,
             "gender": "Male",
-            "iso": "Medical Unit",
+            "pronouns": "he/him",
+            "iso": "Neurological ICU",
             "allergies": [
                 "NKDA"
             ]
         },
-        "sbar": "S: Mr. Smith is a 68-year-old male admitted at 07:00 today with right-sided weakness and slurred speech, suspected ischemic stroke. B: History includes hypertension, hyperlipidemia, and type 2 diabetes. Last lisinopril 20mg PO at 06:00. A: At 10:00, GCS is 12 (E3, V4, M5). Right-sided weakness persists; increasing restlessness and confusion noted. Vitals: BP 180/100 mmHg, HR 92 bpm, RR 24 (labored), SpO2 94% on 2L NC, Temp 37.5°C. Pupils equal at 3mm, sluggishly reactive. Labs pending. Radiology: CT head ordered. MAR: Lisinopril, Acetaminophen PRN, Nicardipine IV drip initiated at 10:15. A: Suspect increased ICP. Immediate interventions: frequent LOC assessment, antihypertensive administration per protocol, elevate head of bed to 30 degrees, prepare for potential intubation if respiratory status declines. Close monitoring is essential.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Mr. Smith is a 68-year-old male admitted at 07:00 today with right-sided weakness and slurred speech, suspected ischemic stroke. B: History includes hypertension, hyperlipidemia, and type 2 diabetes. Last lisinopril 20mg PO at 06:00. A: At 10:00, GCS is 12 (E3, V4, M5). Right-sided weakness persists; increasing restlessness and confusion noted. Vitals: BP 180/100 mmHg, HR 92 bpm, RR 24 (labored), SpO2 94% on 2L NC, Temp 37.5°C. Pupils equal at 3mm, sluggishly reactive. Labs pending. Radiology: CT head ordered. MAR: Lisinopril, Acetaminophen PRN, Nicardipine IV drip initiated at 10:15. A: Suspect increased ICP. Immediate interventions: frequent LOC assessment, antihypertensive administration per protocol, elevate head of bed to 30 degrees, prepare for potential intubation if respiratory status declines. Close monitoring is essential."
-            },
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L, K: 4.2 mEq/L, Cl: 100 mEq/L, Glucose: 180 mg/dL, BUN: 20 mg/dL, Creatinine: 1.1 mg/dL, INR: 1.0, Platelets: 200K/uL, WBC: 9.0 K/uL"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "07:00",
+                        "note": "S: Client is a 68-year-old male brought in by his adult child after a witnessed syncopal episode followed by right-sided weakness and slurred speech. Onset of symptoms approximately 06:30.\nB: History of hypertension, hyperlipidemia, and type 2 diabetes mellitus. Client lives alone in a rural area and relies on his adult child for transportation to appointments, which he has missed recently. Last known medication taken was lisinopril this morning.\nA: Initial GCS 14 (E4, V4, M6). Right-sided hemiparesis noted. Vital signs stable on admission. Blood glucose elevated. Non-contrast CT head ordered to rule out hemorrhage. Stroke alert activated.\nR: Admit to Neurological ICU for close monitoring. Initiate stroke protocol. Maintain SBP <180 mmHg. Frequent neurological assessments. Prepare for possible thrombolytic therapy if indicated post-CT."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "10:00",
+                        "note": "S: Client is increasingly restless and confused. Adult child at bedside is concerned about his agitation.\nB: CT scan at 09:30 showed a large left middle cerebral artery infarct with early signs of cytotoxic edema; no hemorrhage present. Thrombolytics were contraindicated due to time window.\nA: GCS has declined to 12 (E3, V4, M5). Right-sided weakness persists. Pupils are 3mm and sluggishly reactive. BP trending upward, now 180/100 mmHg. RR is 24/min and slightly labored. SpO₂ is 94% on 2L NC. Temperature is rising. These findings are consistent with worsening cerebral edema and increased intracranial pressure (ICP).\nR: Initiate nicardipine drip to control hypertension per protocol. Elevate head of bed. Continue frequent neuro checks. Monitor for signs of herniation. Maintain patent airway."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: BP 160/90 mmHg, HR 88 bpm, RR 20, SpO2 96% on RA, Temp 37.0°C; 08:00: BP 170/95 mmHg, HR 90 bpm, RR 22, SpO2 95% on 2L NC, Temp 37.2°C; 09:00: BP 175/98 mmHg, HR 91 bpm, RR 23, SpO2 94% on 2L NC, Temp 37.4°C; 10:00: BP 180/100 mmHg, HR 92 bpm, RR 24, SpO2 94% on 2L NC, Temp 37.5°C"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "07:00",
+                        "BP (MAP)": "160/90 (113)",
+                        "HR": "88",
+                        "RR": "20",
+                        "SpO₂": "96% on RA",
+                        "Temp °F (°C)": "98.6 (37.0)"
+                    },
+                    {
+                        "Time": "08:00",
+                        "BP (MAP)": "170/95 (120)",
+                        "HR": "90",
+                        "RR": "22",
+                        "SpO₂": "95% on 2L NC",
+                        "Temp °F (°C)": "99.0 (37.2)"
+                    },
+                    {
+                        "Time": "09:00",
+                        "BP (MAP)": "175/98 (124)",
+                        "HR": "91",
+                        "RR": "23",
+                        "SpO₂": "94% on 2L NC",
+                        "Temp °F (°C)": "99.3 (37.4)"
+                    },
+                    {
+                        "Time": "10:00",
+                        "BP (MAP)": "180/100 (127)",
+                        "HR": "92",
+                        "RR": "24",
+                        "SpO₂": "94% on 2L NC",
+                        "Temp °F (°C)": "99.5 (37.5)"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Sodium (Na)",
+                        "Value": "140",
+                        "Unit": "mEq/L",
+                        "Reference": "136-145",
+                        "Status": ""
+                    },
+                    {
+                        "Result": "Potassium (K)",
+                        "Value": "4.2",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": ""
+                    },
+                    {
+                        "Result": "Glucose",
+                        "Value": "180",
+                        "Unit": "mg/dL",
+                        "Reference": "74-106",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "BUN",
+                        "Value": "20",
+                        "Unit": "mg/dL",
+                        "Reference": "10-20",
+                        "Status": ""
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "1.1",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": ""
+                    },
+                    {
+                        "Result": "INR",
+                        "Value": "1.0",
+                        "Unit": "",
+                        "Reference": "0.8-1.2",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "type": "Admission Assessment (07:00)",
+                        "findings": "Neurological: Alert and oriented to person and place, not time. Slurred speech. GCS 14. Right-sided facial droop. Right upper and lower extremity strength 2/5. Left-sided strength 5/5. Sensation intact bilaterally.\nCardiovascular: S1, S2 audible. Rate regular. No murmurs.\nRespiratory: Lungs clear to auscultation bilaterally. Breathing unlabored."
+                    },
+                    {
+                        "type": "Focused Assessment (10:00)",
+                        "findings": "Neurological: GCS 12 (opens eyes to voice, confused speech, localizes to pain). Increased restlessness. Pupils 3mm, equal, sluggishly reactive to light. Right-sided hemiparesis unchanged.\nRespiratory: Tachypneic with slightly labored respiratory effort. Lungs remain clear."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "CT head ordered at 10:05, results pending."
+                "content": [
+                    {
+                        "type": "CT Head, Non-Contrast",
+                        "timestamp": "09:30",
+                        "report": "FINDINGS: Large area of hypoattenuation in the left middle cerebral artery (MCA) territory, consistent with an acute to subacute ischemic infarct. There is associated sulcal effacement and loss of gray-white matter differentiation, indicating cytotoxic edema. No evidence of intracranial hemorrhage. Midline shift is not present at this time.\nIMPRESSION: Acute left MCA ischemic stroke with significant cerebral edema. No acute hemorrhage."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Time": "07:15",
+                        "Action": "Admit to Neurological ICU",
+                        "Status": "Complete"
+                    },
+                    {
+                        "Time": "07:15",
+                        "Action": "Neurological assessment every 1 hour",
+                        "Status": "Active"
+                    },
+                    {
+                        "Time": "07:15",
+                        "Action": "Elevate head of bed 30 degrees",
+                        "Status": "Active"
+                    },
+                    {
+                        "Time": "07:15",
+                        "Action": "Maintain SpO2 >94%",
+                        "Status": "Active"
+                    },
+                    {
+                        "Time": "10:15",
+                        "Action": "Initiate Nicardipine IV drip, titrate to maintain SBP <160 mmHg",
+                        "Status": "STAT"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "Lisinopril 20mg PO Daily (06:00), Acetaminophen 650mg PO PRN for headache (last given 08:00), Nicardipine IV Drip per protocol (initiated 10:15, titrate to maintain SBP <160 mmHg), Oxygen 2L NC"
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lisinopril",
+                        "Dose": "20mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "06:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650mg",
+                        "Route": "PO",
+                        "Frequency": "q6h PRN, temp >99.5°F",
+                        "Last Administered": "N/A"
+                    },
+                    {
+                        "Medication": "Nicardipine IV Drip",
+                        "Dose": "Per protocol",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last Administered": "Initiated at 10:15"
+                    },
+                    {
+                        "Medication": "Oxygen",
+                        "Dose": "2L",
+                        "Route": "NC",
+                        "Frequency": "Continuous",
+                        "Last Administered": "Initiated at 08:00"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "apply",
+        "cjmmStep": "generateSolutions",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Neurological: Stroke & Increased ICP"
+            "Neurological",
+            "Stroke",
+            "Increased ICP",
+            "Prioritization"
         ]
     },
     "rationale": {
-        "correct": "1. Titrate Nicardipine IV drip: Rapidly lowering blood pressure is crucial to reducing cerebral edema and preventing further neurological damage. The SBP >160 mmHg needs immediate attention to prevent further increases in ICP and the risk of hemorrhagic conversion. ClinicalPearl: Aim for controlled reduction, not precipitous drops. 2. Elevate the head of the bed to 30 degrees: This promotes venous drainage from the brain, reducing ICP. Elevating the head of the bed is a fundamental nursing intervention for patients with increased ICP. ClinicalPearl: Ensure proper alignment to avoid neck compression, which can impede venous return. 3. Administer Acetaminophen: Elevated temperature increases metabolic demand in the brain, exacerbating ICP. Reducing fever is essential to minimize further neurological damage and improve patient outcomes. ClinicalPearl: Monitor for effectiveness and consider alternative routes if the patient's LOC decreases. 4. Decrease environmental stimuli: Minimizing external stimuli can help reduce agitation and prevent further increases in ICP. The patient is already restless and confused, which can further increase ICP. Reducing stimuli will help to calm the patient and prevent further exacerbation of ICP. ClinicalPearl: Cluster care activities to allow for periods of rest and reduced stimulation.",
-        "incorrect": "Administering Acetaminophen before controlling the blood pressure is incorrect because uncontrolled hypertension contributes directly to increased ICP and potential hemorrhagic conversion in the setting of a stroke. Decreasing environmental stimuli should only be done AFTER addressing the hypertension, because the hypertension is causing the increase in ICP and addressing that is most important.",
+        "correct": "The correct order of interventions is: 1. Titrate nicardipine IV drip, 2. Elevate head of bed, 3. Administer PRN acetaminophen, 4. Decrease environmental stimuli. This sequence prioritizes immediate hemodynamic stabilization to preserve cerebral perfusion, followed by interventions that reduce ICP through mechanical, metabolic, and environmental means.",
+        "answerBreakdown": [
+            {
+                "option": "Titrate nicardipine IV drip per protocol.",
+                "order": 1,
+                "content": "This is the highest priority. Uncontrolled hypertension (BP 180/100 mmHg) in the setting of an ischemic stroke with edema is a neurological emergency. It exacerbates cerebral edema and increases the risk of hemorrhagic conversion. Lowering the BP is a critical circulatory intervention (the 'C' of ABCs) that directly impacts cerebral perfusion pressure (CPP = MAP - ICP) and is essential to prevent further brain injury."
+            },
+            {
+                "option": "Elevate head of bed to 30 degrees with neck in neutral alignment.",
+                "order": 2,
+                "content": "This is the second priority. After addressing the critical hemodynamic instability, positioning is a rapid, non-pharmacological method to decrease ICP. Elevating the head of the bed promotes venous drainage from the brain via the jugular veins, which reduces cerebral blood volume and, consequently, intracranial pressure. Ensuring the neck is neutral prevents kinking of the jugular veins, which would impede this drainage."
+            },
+            {
+                "option": "Administer PRN acetaminophen for hyperthermia.",
+                "order": 3,
+                "content": "This is the third priority. The client's temperature is rising (99.5°F / 37.5°C). Fever increases the brain's metabolic rate (CMRO2), which in turn increases cerebral blood flow to meet the higher oxygen demand. This increased blood flow further elevates ICP. While important, controlling temperature is addressed after the more immediate threats of hypertension and poor venous outflow."
+            },
+            {
+                "option": "Decrease environmental stimuli and cluster nursing care.",
+                "order": 4,
+                "content": "This is the fourth priority. While beneficial, this intervention addresses factors that can cause transient ICP spikes (e.g., noise, pain, agitation) rather than the underlying pathophysiology of sustained ICP elevation. The client is restless, and a calm environment is important, but it is a lower priority than stabilizing hemodynamics, optimizing positioning, and controlling metabolic demand."
+            }
+        ],
         "clinicalPearls": [
-            "Hypertension management is critical in acute stroke to prevent further cerebral edema and potential hemorrhagic conversion.",
-            "Elevating the head of the bed is a simple but effective intervention to reduce ICP.",
-            "Fever increases metabolic demand in the brain and can worsen neurological outcomes.",
-            "Careful neurological monitoring is essential to detect changes in condition and guide interventions."
+            "In ischemic stroke, permissive hypertension is often allowed initially to maintain perfusion to the ischemic penumbra. However, when signs of increased ICP develop, aggressive BP control is paramount to prevent worsening edema.",
+            "Cerebral Perfusion Pressure (CPP) is the key. CPP = MAP - ICP. By lowering MAP with nicardipine and lowering ICP with HOB elevation, we optimize brain perfusion.",
+            "Always ensure the client's neck is in a neutral position when elevating the head of the bed. A flexed or rotated neck can compress jugular veins and counteract the benefits of HOB elevation by impeding venous outflow."
         ],
         "questionTrap": {
-            "trap": "Students may prioritize administering acetaminophen first if they focus solely on the elevated temperature without recognizing the immediate threat posed by uncontrolled hypertension.",
-            "howToOvercome": "Focus on the ABCs (Airway, Breathing, Circulation) and then neurological status. Uncontrolled hypertension is a direct threat to cerebral perfusion and can lead to further neurological damage. Also, think about the pathophysiology of increased ICP and the interventions that directly address that."
+            "trap": "Test-takers often choose a simple, familiar nursing action like elevating the head of the bed first because it's non-invasive. However, they fail to recognize that the uncontrolled, severe hypertension is the primary driver of the worsening cerebral edema and must be addressed first to prevent catastrophic outcomes.",
+            "howToOvercome": "Always use the ABCs (Airway, Breathing, Circulation) as a primary framework for prioritization. The client's blood pressure of 180/100 mmHg represents a critical 'Circulation' problem that directly threatens the brain. Address life-threatening physiological instability before implementing other supportive nursing measures."
         },
         "mnemonic": {
-            "title": "ICP Management",
-            "expansion": "Elevate Head (30 degrees), Control BP, Prevent Fever, Reduce Stimuli"
+            "title": "ICP Management: PRESSURE",
+            "expansion": "Position (HOB 30°, neutral neck)\nRespiratory (Prevent hypoxia/hypercapnia)\nElevated Temp (Control fever)\nSystems (Monitor neuro/vitals)\nStraining (Avoid Valsalva, agitation)\nUnconscious Care (Protect airway, skin)\nRx (Medications like antihypertensives, antipyretics)\nEdema (Manage with diuretics like mannitol)"
         }
     }
 }

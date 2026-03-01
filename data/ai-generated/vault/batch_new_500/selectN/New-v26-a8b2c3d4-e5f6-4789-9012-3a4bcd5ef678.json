@@ -1,114 +1,289 @@
 {
     "id": "New-v26-a8b2c3d4-e5f6-4789-9012-3a4bcd5ef678",
     "type": "selectN",
-    "stem": "The nurse is caring for a client at high risk for suicide. Which of the following actions should the nurse prioritize?",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is developing a plan of care for a client admitted for high suicide risk. Based on the client's record, select the 4 priority interventions the nurse should include.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Maintain constant 1:1 observation of the client."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer a PRN dose of lorazepam to reduce anxiety."
+        },
+        {
+            "id": "opt_03",
+            "text": "Remove potentially harmful objects from the client's environment."
+        },
+        {
+            "id": "opt_04",
+            "text": "Restrict the client's access to phone calls to prevent outside stressors."
+        },
+        {
+            "id": "opt_05",
+            "text": "Encourage the client to express their feelings and concerns."
+        },
+        {
+            "id": "opt_06",
+            "text": "Ensure the stat psychiatry consultation has been initiated."
+        },
+        {
+            "id": "opt_07",
+            "text": "Immediately assign the client to a group therapy session."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_03",
+        "opt_05",
+        "opt_06"
+    ],
     "itemContext": {
         "patient": {
-            "name": "James Miller",
-            "age": 32,
-            "gender": "Male",
-            "iso": "English",
+            "age": "32 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "S: James Miller, 32-year-old male, arrived in the ED via police at 02:30. He was found near a bridge, voicing feelings of hopelessness. A: The client reports recent job loss, relationship breakup, and increasing debt. He admits to a history of depression but stopped taking his medication a month ago. B: Diagnosed with Major Depressive Disorder 2 years prior. He discontinued sertraline due to side effects. No known allergies. Triage vitals: BP 130/80, HR 92, RR 18, SpO2 98% on room air. Mental status: Anxious, tearful, with passive suicidal ideation ('I wish I wasn't here'). R: Continuous monitoring is needed due to suicide risk. Psychiatry consult for evaluation and medication management is crucial. Initiate suicide precautions immediately. Secure belongings, removing hazards. Monitor vitals q4h; document mental status changes.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L\nK: 4.2 mEq/L\nCl: 100 mEq/L\nGlucose: 95 mg/dL\nBUN: 15 mg/dL\nCreatinine: 1.0 mg/dL\nToxicology Screen: Negative for illicit substances\nSerum Sertraline: Undetectable"
+                "id": "clinical_feed",
+                "title": "Clinical Feed (Nurses' Notes)",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 02:45",
+                        "note": "S: 32-year-old male brought to ED by police after being found near a bridge. Client states, 'I just wish I wasn't here anymore.'\nB: History of Major Depressive Disorder, discontinued sertraline one month ago due to side effects. Reports significant recent stressors including job loss and relationship termination. Client lives alone in a rural area with limited public transportation, creating a barrier to consistent mental health follow-up.\nA: Appears anxious, tearful, and withdrawn. Maintains poor eye contact. Admits to passive suicidal ideation without a specific plan but feels overwhelmed by hopelessness. Denies homicidal ideation. Vitals stable.\nR: Initiate 1:1 constant observation for safety. Secure all personal belongings per protocol. Obtain labs including toxicology screen and serum sertraline level. Request urgent psychiatry consultation for risk assessment and medication evaluation."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "note": "S: Client states he feels 'empty' and has no energy.\nB: Client has been on 1:1 observation since admission. He has been cooperative but minimally responsive to questioning.\nA: Affect remains flat, mood is depressed. He refused the breakfast tray. No attempts to harm self have been observed. Vital signs remain stable. He is aware of the plan to meet with the psychiatry team later this morning.\nR: Continue 1:1 observation. Encourage oral fluid intake. Re-orient as needed to the plan of care. Monitor for any escalation in suicidal ideation."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "No current medications ordered.\nPrior prescription: Sertraline 100mg PO daily (discontinued 1 month ago)."
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:00",
+                        "HR": "94",
+                        "BP": "132/82 (MAP 99)",
+                        "RR": "20",
+                        "SpO2": "99% on RA",
+                        "Temp": "98.8°F (37.1°C)"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR": "88",
+                        "BP": "128/78 (MAP 95)",
+                        "RR": "18",
+                        "SpO2": "98% on RA",
+                        "Temp": "98.6°F (37.0°C)"
+                    },
+                    {
+                        "Time": "11:00",
+                        "HR": "84",
+                        "BP": "124/76 (MAP 92)",
+                        "RR": "18",
+                        "SpO2": "98% on RA",
+                        "Temp": "98.7°F (37.1°C)"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "03:00: BP 132/82, HR 94, RR 20, SpO2 99% RA, Temp 98.8°F (oral)\n07:00: BP 128/78, HR 88, RR 18, SpO2 98% RA, Temp 98.6°F (oral)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Sodium",
+                        "Value": "140",
+                        "Unit": "mEq/L",
+                        "Ref Range": "136-145",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Potassium",
+                        "Value": "4.2",
+                        "Unit": "mEq/L",
+                        "Ref Range": "3.5-5.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Glucose",
+                        "Value": "95",
+                        "Unit": "mg/dL",
+                        "Ref Range": "74-106",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "BUN",
+                        "Value": "15",
+                        "Unit": "mg/dL",
+                        "Ref Range": "6-20",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "1.0",
+                        "Unit": "mg/dL",
+                        "Ref Range": "0.6-1.2",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Toxicology Screen, Urine",
+                        "Value": "Negative",
+                        "Unit": "",
+                        "Ref Range": "Negative",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Sertraline Level, Serum",
+                        "Value": "<10",
+                        "Unit": "ng/mL",
+                        "Ref Range": "50-200",
+                        "Status": "Low"
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: James Miller, 32-year-old male, arrived in the ED via police at 02:30. He was found near a bridge, voicing feelings of hopelessness.\nA: The client reports recent job loss, relationship breakup, and increasing debt. He admits to a history of depression but stopped taking his medication a month ago.\nB: Diagnosed with Major Depressive Disorder 2 years prior. He discontinued sertraline due to side effects. No known allergies. Triage vitals: BP 130/80, HR 92, RR 18, SpO2 98% on room air. Mental status: Anxious, tearful, with passive suicidal ideation ('I wish I wasn't here').\nR: Continuous monitoring is needed due to suicide risk. Psychiatry consult for evaluation and medication management is crucial. Initiate suicide precautions immediately. Secure belongings, removing hazards. Monitor vitals q4h; document mental status changes."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological/Mental Status",
+                        "Findings": "Appearance: Disheveled, wearing clothes from yesterday. Behavior: Withdrawn, psychomotor slowing noted. Speech: Soft, delayed responses. Mood: States 'hopeless.' Affect: Congruent, tearful at times. Thought Process: Linear. Thought Content: Passive suicidal ideation ('wish I wasn't here'), denies active plan, denies auditory/visual hallucinations. Cognition: Alert and oriented x4. Insight/Judgment: Fair."
+                    },
+                    {
+                        "System": "General",
+                        "Findings": "All other systems within normal limits upon initial examination."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Study": "N/A",
+                        "Report": "No imaging studies have been ordered or performed at this time."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": [
+                    {
+                        "Date/Time": "Day 1, 03:15",
+                        "Action": "Initiate Suicide Precautions",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Day 1, 03:15",
+                        "Action": "1:1 Constant Observation",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Day 1, 03:15",
+                        "Action": "Secure client belongings per hospital policy",
+                        "Status": "Completed"
+                    },
+                    {
+                        "Date/Time": "Day 1, 03:20",
+                        "Action": "Psychiatry Consultation",
+                        "Status": "Stat"
+                    },
+                    {
+                        "Date/Time": "Day 1, 03:20",
+                        "Action": "Basic Metabolic Panel, CBC, Urine Toxicology Screen, Serum Sertraline Level",
+                        "Status": "Stat"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Sertraline",
+                        "Dose": "100 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Discontinued by patient ~1 month prior"
+                    },
+                    {
+                        "Medication": "No active scheduled or PRN medications ordered.",
+                        "Dose": "",
+                        "Route": "",
+                        "Frequency": "",
+                        "Last Administered": ""
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Psychosocial Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Mental Health: Suicide Risk & Crisis Management"
+    "rationale": {
+        "correct": "The priority interventions for a client with high suicide risk focus on immediate safety and initiating a comprehensive therapeutic plan. This involves constant observation to prevent self-harm, creating a safe physical environment by removing potential hazards, establishing a therapeutic relationship to assess and de-escalate distress, and engaging specialty services like psychiatry for expert evaluation and treatment.",
+        "incorrect": "Interventions that are incorrect are either outside the nurse's scope of practice (administering un-ordered medication), violate patient rights and increase isolation (unjustified restriction of communication), or are inappropriate for the client's current acute state (group therapy). While well-intentioned, these actions do not align with the principles of safety, patient rights, and least-restrictive environment.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The client has expressed suicidal ideation. Constant 1:1 observation is the highest priority safety intervention to directly prevent a suicide attempt."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. The MAR Console confirms there is no active order for lorazepam. Administering a medication without a provider's order is a medication error and outside the scope of nursing practice."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. Removing items that could be used for self-harm (e.g., belts, shoelaces, sharp objects) is a fundamental component of suicide precautions and environmental safety management."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. This action is punitive and can increase the client's feelings of isolation and hopelessness. Connection to a support system via phone can be therapeutic and should not be restricted without a specific safety concern."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. Therapeutic communication is a key nursing intervention. Encouraging the client to verbalize feelings helps build rapport, allows for ongoing risk assessment, and can reduce acute psychological distress."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. The Care Plan includes a stat order for a psychiatry consult. It is a priority nursing action to ensure this consultation is initiated promptly to guide the client's treatment plan, including medication management."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. A client in an acute suicidal crisis is not stable enough for group therapy. The immediate focus must be on individual safety and stabilization before group interaction is appropriate."
+            }
+        ],
+        "clinicalPearls": [
+            "A 'no-suicide contract' is not an evidence-based practice and should never be used as a substitute for comprehensive suicide precautions and thorough risk assessment.",
+            "Suicide risk is dynamic and can change rapidly. Frequent reassessment is critical, especially after significant events, during shift changes, or when new stressors arise.",
+            "The transition from passive to active suicidal ideation, especially with a specific plan and access to means, constitutes a psychiatric emergency requiring immediate intervention.",
+            "Note the Social Determinant of Health (SDOH) in the SBAR: living in a rural area with transportation barriers is a significant factor in care continuity and long-term risk."
+        ],
+        "questionTrap": "This question tempts you to choose all 'caring' actions. However, you must prioritize actions based on immediate safety and scope of practice. An action like administering a PRN anxiolytic seems helpful, but without an order, it's a critical error. Always check the MAR and Orders first.",
+        "mnemonic": {
+            "title": "SAFE-T Assessment",
+            "expansion": "A common framework for suicide assessment: S (Suicidal Ideation: frequency, intensity, duration), A (Action/Plan: timing, location, lethality, availability, preparatory acts), F (Factors: risk factors and protective factors), E (Engagement: level of therapeutic engagement), T (Treatment: current and past)."
+        },
+        "reviewUnits": [
+            "Mental Health Nursing",
+            "Safety and Infection Control",
+            "Ethical and Legal Principles"
         ]
     },
-    "rationale": {
-        "correct": "Maintaining constant observation ensures a safe environment, minimizing self-harm opportunities. Removing harmful objects reduces immediate suicide risk. Encouraging expression allows emotional processing, reducing isolation and risk. Mental health team consultation ensures appropriate intervention and medication management. Continuous monitoring, hazard removal, therapeutic communication, and expert consultation are vital for suicide prevention.",
-        "incorrect": "Administering medication without an order is outside the nurse's scope and potentially harmful. Restricting phone calls without cause can increase isolation. While social interaction is beneficial, immediate safety is the priority. These actions do not directly address the immediate risk of self-harm and may exacerbate the client's distress.",
-        "clinicalPearls": [
-            "Suicide risk assessment is ongoing; reassess frequently, especially during transitions or stress.",
-            "A no-harm contract is NOT a substitute for constant observation and comprehensive suicide precautions.",
-            "Always consider the client's immediate safety first when addressing suicide risk."
-        ],
-        "questionTrap": {
-            "trap": "This question traps test-takers with options that seem helpful but aren't the most immediate interventions for a high-risk client.",
-            "howToOvercome": "Focus on actions directly addressing immediate safety and preventing self-harm. Prioritize constant monitoring and a safe environment."
-        },
-        "mnemonic": {
-            "title": "IS PATH WARM",
-            "expansion": "Ideation, Substance abuse, Purposelessness, Anxiety, Trapped, Hopelessness, Withdrawal, Anger, Recklessness, Mood change."
-        }
+    "scoring": {
+        "method": "zeroOne",
+        "maxPoints": 4
     },
-    "options": [
-        {
-            "key": "A",
-            "label": "Maintain constant observation of the client.",
-            "correct": true,
-            "contact": true
-        },
-        {
-            "key": "B",
-            "label": "Administer a PRN dose of lorazepam to reduce anxiety.",
-            "correct": false,
-            "contact": false
-        },
-        {
-            "key": "C",
-            "label": "Remove potentially harmful objects from the client's environment.",
-            "correct": true,
-            "contact": true
-        },
-        {
-            "key": "D",
-            "label": "Restrict the client's access to phone calls.",
-            "correct": false,
-            "contact": false
-        },
-        {
-            "key": "E",
-            "label": "Encourage the client to express their feelings and concerns.",
-            "correct": true,
-            "contact": true
-        },
-        {
-            "key": "F",
-            "label": "Consult with the mental health team for further evaluation.",
-            "correct": true,
-            "contact": true
-        },
-        {
-            "key": "G",
-            "label": "Encourage the client to participate in group therapy sessions.",
-            "correct": false,
-            "contact": false
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Psychosocial Integrity"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:58:45.842Z"
 }

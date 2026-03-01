@@ -1,7 +1,7 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-4789-8012-34567890abcd",
     "type": "multipleChoice",
-    "stem": "The healthcare provider prescribes a continuous intravenous infusion of heparin 25,000 units in 500 mL of 0.9% sodium chloride at 1200 units/hour for Mrs. Eleanor Vance. Using an intravenous infusion pump, at what rate in mL/hour will the nurse set the infusion pump?",
+    "stem": "The nurse is preparing to administer a continuous heparin infusion for a client with a DVT. The order is for 1200 units/hour. The pharmacy supplied a bag of 25,000 units in 500 mL of 0.9% sodium chloride. At what rate (mL/hour) should the pump be set?",
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
@@ -10,56 +10,241 @@
         "patient": {
             "name": "Eleanor Vance",
             "age": 72,
-            "gender": "Female",
-            "iso": "Medical-Surgical Unit",
+            "sex": "Female",
+            "pronouns": "she/her",
             "allergies": [
                 "Sulfa drugs"
-            ]
+            ],
+            "dob": "1954-05-10",
+            "mrn": "MRN789123"
         },
-        "sbar": "SITUATION: Eleanor Vance, a 72-year-old female, admitted at 07:00 for acute deep vein thrombosis (DVT) in her left leg. BACKGROUND: History of hypertension and atrial fibrillation. Currently on warfarin 5mg daily. ASSESSMENT: At 08:30, the patient reported increased pain and swelling in her left leg. Doppler ultrasound confirmed acute DVT. Her current INR is 1.2. Vital signs: BP 160/90 mmHg, HR 110 bpm, RR 22, SpO2 94% on room air. The provider was notified and prescribed heparin IV infusion. RECOMMENDATION: Begin the prescribed heparin infusion at 1200 units/hour. Monitor aPTT levels every 6 hours. Assess the patient's leg for changes in pain, swelling, and circulation. Provide pain medication as needed. Watch for any signs of bleeding, including hematuria, melena, or bruising. Ensure the patient remains on bed rest with the affected leg elevated.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "INR: 1.2, aPTT: 30 seconds, Hemoglobin: 12.5 g/dL, Platelets: 200,000/mcL"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Warfarin 5mg PO daily, Heparin 25,000 units in 500 mL 0.9% NaCl IV continuous infusion (New Order)"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 07:00",
+                        "author": "J. Doe, RN",
+                        "note": "S: Client is a 72-year-old female admitted from home with a 2-day history of worsening left leg pain, swelling, and redness. Reports pain is a constant, aching 5/10.\nB: History of hypertension and atrial fibrillation, for which she takes warfarin 5mg daily. Client lives alone and reports difficulty arranging transportation for follow-up appointments, which has led to inconsistent INR monitoring. Last INR check was over a month ago. No known history of clotting disorders.\nA: Left lower leg is visibly swollen, erythematous, and warm to the touch compared to the right. Pedal pulses are 2+ bilaterally. Capillary refill is less than 3 seconds. Vital signs are stable on admission. Awaiting Doppler ultrasound to rule out DVT.\nR: Keep client on bed rest with left leg elevated. Prepare for stat venous Doppler ultrasound. Administer scheduled home medications. Notify provider of any acute changes."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 1, 08:30",
+                        "author": "J. Doe, RN",
+                        "note": "S: Client reports a sharp increase in left leg pain, now rated 7/10. States, 'It feels very tight and is throbbing.'\nB: Doppler ultrasound was completed at 08:00, confirming an extensive acute deep vein thrombosis (DVT) in the left popliteal vein. Recent labs show a subtherapeutic INR of 1.2.\nA: Client is tachycardic and hypertensive, likely secondary to acute pain. Left calf circumference is 4 cm greater than the right. Skin is tense and shiny over the affected area. Neurovascular status remains intact distally.\nR: Provider notified of findings and new orders received for a continuous heparin infusion. Will obtain baseline aPTT and initiate heparin protocol. Continue to monitor vital signs and neurovascular status of the affected limb closely. Provide PRN analgesia for pain management."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "08:30: BP 160/90 mmHg, HR 110 bpm, RR 22, SpO2 94% on room air, Pain: 7/10"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "07:00",
+                        "Temp": "98.8°F (37.1°C)",
+                        "HR": "92 bpm",
+                        "RR": "18/min",
+                        "BP": "148/88 mmHg (MAP 108)",
+                        "SpO2": "96% on Room Air",
+                        "Pain": "5/10"
+                    },
+                    {
+                        "Time": "08:00",
+                        "Temp": "98.9°F (37.2°C)",
+                        "HR": "104 bpm",
+                        "RR": "20/min",
+                        "BP": "155/92 mmHg (MAP 113)",
+                        "SpO2": "95% on Room Air",
+                        "Pain": "6/10"
+                    },
+                    {
+                        "Time": "08:30",
+                        "Temp": "99.0°F (37.2°C)",
+                        "HR": "110 bpm",
+                        "RR": "22/min",
+                        "BP": "160/90 mmHg (MAP 113)",
+                        "SpO2": "94% on Room Air",
+                        "Pain": "7/10"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "panels": [
+                    {
+                        "name": "Coagulation Panel (07:30)",
+                        "results": [
+                            {
+                                "test": "Prothrombin Time (PT)",
+                                "value": "13.5",
+                                "unit": "seconds",
+                                "range": "11.0-13.5",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "International Normalized Ratio (INR)",
+                                "value": "1.2",
+                                "unit": null,
+                                "range": "2.0-3.0 (Therapeutic)",
+                                "status": "Low"
+                            },
+                            {
+                                "test": "Activated Partial Thromboplastin Time (aPTT)",
+                                "value": "30",
+                                "unit": "seconds",
+                                "range": "25-35",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "D-dimer",
+                                "value": "2.5",
+                                "unit": "mcg/mL",
+                                "range": "<0.5",
+                                "status": "High"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Complete Blood Count (07:30)",
+                        "results": [
+                            {
+                                "test": "Hemoglobin (Hgb)",
+                                "value": "12.5",
+                                "unit": "g/dL",
+                                "range": "12.0-16.0",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "Platelets",
+                                "value": "200,000",
+                                "unit": "/mcL",
+                                "range": "150,000-450,000",
+                                "status": "Normal"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "timestamp": "Day 1, 08:30",
+                "findings": [
+                    {
+                        "system": "Cardiovascular",
+                        "finding": "Tachycardia with S1, S2 audible. No murmurs. Capillary refill <3 seconds in all extremities. Left lower extremity pulses 2+, right lower extremity pulses 2+."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "finding": "Lungs clear to auscultation bilaterally. Respirations unlabored."
+                    },
+                    {
+                        "system": "Neurological",
+                        "finding": "Alert and oriented x4. Follows commands. No focal deficits."
+                    },
+                    {
+                        "system": "Extremities",
+                        "finding": "Left lower extremity with 3+ pitting edema from calf to ankle. Marked erythema and warmth noted. Positive Homan's sign. Left calf circumference 42 cm; right calf 38 cm. Right lower extremity without edema or discoloration."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "reports": [
+                    {
+                        "type": "Venous Doppler Ultrasound - Left Lower Extremity",
+                        "timestamp": "Day 1, 08:00",
+                        "report": "INDICATION: Left leg swelling and pain, rule out DVT.\n\nFINDINGS: Non-compressibility and lack of flow augmentation noted in the left popliteal vein, extending into the peroneal veins. The common femoral and superficial femoral veins are patent and compressible.\n\nIMPRESSION: Acute, extensive deep vein thrombosis (DVT) of the left popliteal and peroneal veins."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "Day 1, 08:45",
+                        "action": "Heparin 25,000 units in 500 mL 0.9% Sodium Chloride. Infuse at 1200 units/hour.",
+                        "status": "STAT"
+                    },
+                    {
+                        "timestamp": "Day 1, 08:45",
+                        "action": "Monitor aPTT every 6 hours. Adjust heparin per protocol.",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:15",
+                        "action": "Strict bed rest.",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:15",
+                        "action": "Elevate left leg on two pillows.",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:15",
+                        "action": "Neurovascular checks left leg every 4 hours.",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 07:15",
+                        "action": "Morphine 2 mg IV for pain > 6.",
+                        "status": "PRN"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Warfarin",
+                        "dose": "5 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 1, 08:00"
+                    },
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "10 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 1, 08:00"
+                    },
+                    {
+                        "medication": "Morphine Sulfate",
+                        "dose": "2 mg",
+                        "route": "IV",
+                        "frequency": "q4h PRN Pain",
+                        "lastAdministered": "Not yet administered"
+                    },
+                    {
+                        "medication": "Heparin Sodium",
+                        "dose": "25,000 units in 500 mL 0.9% NaCl",
+                        "route": "IV",
+                        "frequency": "Continuous Infusion at 1200 units/hr",
+                        "lastAdministered": "Not yet administered"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Pharmacological and Parenteral Therapies",
+        "difficulty": 4,
         "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
+            "Medication Calculation",
+            "High-Alert Medications",
+            "Anticoagulation",
+            "Deep Vein Thrombosis"
         ]
-    },
-    "rationale": {
-        "correct": "The correct calculation is as follows: (1200 units/hour) / (25,000 units/500 mL) = (1200 units/hour) * (500 mL/25,000 units) = 24 mL/hour. Therefore, the nurse should set the infusion pump to 24 mL/hour. This ensures the patient receives the prescribed dose of heparin to prevent further clot formation and reduce the risk of pulmonary embolism.",
-        "incorrect": "Incorrect answers usually stem from misinterpreting the concentration, inverting the ratio, or making an arithmetic error. For example, selecting 10 mL/hour indicates the student likely divided 500 mL by 25,000 units to get the mL/unit ratio and then multiplied by 1200 units, which is incorrect. Choosing 48 mL/hour would indicate that the student doubled the correct infusion rate, possibly due to a misinterpretation of the dosage or calculation error.",
-        "clinicalPearls": [
-            "Always double-check medication calculations, especially for high-alert medications like heparin.",
-            "Use a standardized approach to medication calculations to minimize errors.",
-            "Verify the medication concentration before administering the medication."
-        ],
-        "questionTrap": {
-            "trap": "Students may incorrectly set up the proportion or fail to convert units properly, leading to a wrong answer.",
-            "howToOvercome": "Emphasize dimensional analysis and the importance of verifying units throughout the calculation process. Encourage students to double-check their work and use a calculator."
-        },
-        "mnemonic": {
-            "title": "Desired Over Have (D/H) x Quantity",
-            "expansion": "D = Desired dose (what you want to administer). H = Dose on Hand (what you have available). Q = Quantity (volume or number of tablets the dose on hand is contained in). This formula provides the amount of the medication needed to administer the desired dose."
-        }
     },
     "options": [
         {
@@ -83,5 +268,39 @@
             "isCorrect": false
         }
     ],
-    "correctOptionId": "b"
+    "correctOptionId": "b",
+    "rationale": {
+        "correct": "The correct calculation using dimensional analysis is: (500 mL / 25,000 units) x (1200 units / 1 hour) = 24 mL/hour. First, determine the concentration of the solution: 25,000 units / 500 mL = 50 units/mL. Then, divide the desired dose by the concentration: 1200 units/hour / 50 units/mL = 24 mL/hour. This rate ensures the client receives the precise therapeutic dose of heparin to inhibit thrombin formation, preventing the extension of the existing DVT and reducing the risk of a life-threatening pulmonary embolism.",
+        "answerBreakdown": [
+            {
+                "optionId": "a",
+                "rationale": "This rate is incorrect and would result in significant underdosing. This value may be obtained by misreading the ordered dose as 500 units/hour instead of 1200 units/hour (500 units/hr ÷ 50 units/mL = 10 mL/hr). Underdosing heparin fails to achieve a therapeutic aPTT, allowing the DVT to propagate."
+            },
+            {
+                "optionId": "b",
+                "rationale": "This is the correct rate. The calculation (1200 units/hour ÷ 50 units/mL) yields 24 mL/hour, which delivers the prescribed therapeutic dose of heparin."
+            },
+            {
+                "optionId": "c",
+                "rationale": "This rate is incorrect and would result in a dangerous overdose. This value is exactly double the correct rate and could be a simple multiplication error during calculation. It could also result from incorrectly calculating the concentration, perhaps by assuming a 1000 mL bag (1200 units/hr ÷ 25 units/mL = 48 mL/hr). Overdosing heparin significantly increases the risk of major hemorrhage."
+            },
+            {
+                "optionId": "d",
+                "rationale": "This rate is incorrect and would result in a significant overdose. This error can occur from a decimal point slip, such as dividing the total volume by 10,000 instead of 25,000 and then multiplying by the rate: (1200 * 500) / 10,000 = 60. Such an error would place the client at high risk for bleeding."
+            }
+        ],
+        "clinicalPearls": [
+            "Heparin is a high-alert medication. Independent double-checks by two licensed nurses are standard practice for all infusion rate calculations and pump settings to prevent catastrophic errors.",
+            "The therapeutic goal for a heparin infusion for DVT is an aPTT level that is 1.5 to 2.5 times the baseline control value. The baseline aPTT of 30 seconds must be known before initiating the infusion.",
+            "Monitor clients on heparin for signs of bleeding (e.g., hematuria, epistaxis, petechiae) and for Heparin-Induced Thrombocytopenia (HIT), a life-threatening complication indicated by a >50% drop in platelet count."
+        ],
+        "questionTrap": {
+            "trap": "The most common trap in IV rate calculations is inverting the concentration fraction (units/mL vs. mL/unit) or making a simple arithmetic error under pressure. The numbers are designed to make common errors lead to one of the incorrect answer choices.",
+            "howToOvercome": "Always use dimensional analysis. Write out the full equation with all units, ensuring they cancel out correctly to leave you with 'mL/hour'. For example: (mL/units) x (units/hour) = mL/hour. This structured approach prevents inversion errors and makes the calculation process clear and verifiable."
+        },
+        "mnemonic": {
+            "title": "HEPARIN Safety Check",
+            "expansion": "H - Have you checked the patient's baseline labs (aPTT, Platelets)?\nE - Ensure the concentration on the bag matches the order.\nP - Pump settings must be independently double-checked.\nA - Antidote (Protamine Sulfate) availability should be known.\nR - Re-assess for bleeding signs every shift.\nI - INR/PT is for Warfarin; aPTT is for Heparin.\nN - Never administer without confirming the calculation."
+        }
+    }
 }

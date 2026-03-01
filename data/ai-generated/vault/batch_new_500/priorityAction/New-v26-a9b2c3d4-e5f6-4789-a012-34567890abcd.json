@@ -1,68 +1,131 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-4789-a012-34567890abcd",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a 72-year-old male, Mr. Johnson, admitted with a right-sided ischemic stroke. Based on the patient's current condition and available data, prioritize the following nursing actions from FIRST to LAST.",
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client admitted with an ischemic stroke. Based on the data in the electronic health record, drag and drop the nursing actions into the correct order of priority, from first to last.",
+    "options": [
+        {
+            "id": "opt1",
+            "text": "Administer labetalol 20 mg IV."
+        },
+        {
+            "id": "opt2",
+            "text": "Elevate the head of the bed to 30 degrees."
+        },
+        {
+            "id": "opt3",
+            "text": "Place the client on NPO status."
+        },
+        {
+            "id": "opt4",
+            "text": "Perform a neurological assessment."
+        },
+        {
+            "id": "opt5",
+            "text": "Request a formal swallow evaluation from speech therapy."
+        }
+    ],
+    "correctOrder": [
+        "opt1",
+        "opt2",
+        "opt3",
+        "opt4",
+        "opt5"
+    ],
+    "itemContext": {
+        "patient": {
+            "age": "72 years",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "No Known Drug Allergies"
+            ]
+        },
+        "tabs": [
+            {
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<strong>Admission Note (08:00)</strong><br><strong>S:</strong> Client is a 72-year-old male brought to the ED by his adult child. Adult child reports finding the client on the floor this morning with slurred speech and right-sided weakness. Last known well was 23:00 yesterday.<br><strong>B:</strong> History of atrial fibrillation (on warfarin), hypertension, and hyperlipidemia. Client lives alone in a rural area with limited access to transportation, relying on family for appointments and groceries.<br><strong>A:</strong> GCS 14. BP 170/95 mmHg, HR 90 (irregular), SpO2 95% on room air. Right facial droop, dysarthria, and 2/5 strength in right upper/lower extremities noted. Fingerstick glucose 155 mg/dL.<br><strong>R:</strong> Initiate stroke protocol. Obtain stat non-contrast head CT and labs. Prepare for possible thrombolytic therapy. Place on continuous cardiac and pulse oximetry monitoring.<br><br><strong>Progress Note (10:00)</strong><br><strong>S:</strong> Reporting on client status post-CT scan.<br><strong>B:</strong> CT scan was negative for hemorrhage. Client remains on stroke protocol.<br><strong>A:</strong> Client is now more lethargic, GCS 13. BP has trended up to 180/100 mmHg, HR 98 (irregular), RR 22, SpO2 94% on room air. Neurological deficits unchanged. Lab results show an INR of 2.8, which is a contraindication for tPA. The current priority is managing the severe hypertension to prevent hemorrhagic conversion and increased intracranial pressure.<br><strong>R:</strong> Continue frequent neurological assessments. Implement orders for blood pressure management. Initiate aspiration precautions."
+            },
+            {
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp</th><th>Heart Rate</th><th>Resp. Rate</th><th>Blood Pressure (MAP)</th><th>SpO₂</th></tr></thead><tbody><tr><td>08:00</td><td>98.6°F (37.0°C)</td><td>90 (Atrial Fibrillation)</td><td>20</td><td>170/95 mmHg (120)</td><td>95% on Room Air</td></tr><tr><td>09:00</td><td>99.0°F (37.2°C)</td><td>94 (Atrial Fibrillation)</td><td>21</td><td>175/98 mmHg (124)</td><td>94% on Room Air</td></tr><tr><td>10:00</td><td>99.1°F (37.3°C)</td><td>98 (Atrial Fibrillation)</td><td>22</td><td>180/100 mmHg (127)</td><td>94% on Room Air</td></tr></tbody></table>"
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Sodium</td><td>140</td><td>mEq/L</td><td>135-145</td><td>Normal</td></tr><tr><td>Potassium</td><td>4.1</td><td>mEq/L</td><td>3.5-5.0</td><td>Normal</td></tr><tr><td>Creatinine</td><td>1.0</td><td>mg/dL</td><td>0.6-1.2</td><td>Normal</td></tr><tr><td>INR</td><td>2.8</td><td></td><td>2.0-3.0 (Therapeutic)</td><td>High (Contraindication for tPA)</td></tr><tr><td>Glucose</td><td>160</td><td>mg/dL</td><td>70-110</td><td>High</td></tr><tr><td>Platelets</td><td>250,000</td><td>/mcL</td><td>150,000-400,000</td><td>Normal</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<strong>Focused Assessment (10:00)</strong><br><strong>Neurological:</strong> Alert to person only, confused. GCS 13 (E3, V4, M6). Pupils equal, round, reactive to light. Right-sided facial droop present. Significant dysarthria. Motor strength 2/5 in right upper and lower extremities, 5/5 on the left. Sensation intact to light touch bilaterally.<br><strong>Cardiovascular:</strong> S1, S2 heard. Irregularly irregular rhythm. No murmurs. Capillary refill <3 seconds.<br><strong>Respiratory:</strong> Lungs clear to auscultation bilaterally. Respirations unlabored."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<strong>Type:</strong> Non-Contrast Head CT<br><strong>Time:</strong> 09:30<br><strong>Impression:</strong> No evidence of acute intracranial hemorrhage, mass effect, or hydrocephalus. Subtle hypoattenuation in the left middle cerebral artery (MCA) territory is noted, consistent with an early acute ischemic stroke."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Today @ 10:05</td><td>Admit to Stroke Unit</td><td>Stat</td></tr><tr><td>Today @ 10:05</td><td>NPO</td><td>Until swallow screen passed</td></tr><tr><td>Today @ 10:05</td><td>Neurological assessment</td><td>Every 15 minutes</td></tr><tr><td>Today @ 10:05</td><td>Continuous cardiac and SpO₂ monitoring</td><td>Continuous</td></tr><tr><td>Today @ 10:05</td><td>Labetalol 20 mg IV</td><td>PRN for SBP > 180 mmHg</td></tr><tr><td>Today @ 10:05</td><td>Maintain SBP between 140-180 mmHg</td><td>Standing</td></tr><tr><td>Today @ 10:05</td><td>Elevate head of bed to 30 degrees</td><td>Standing</td></tr><tr><td>Today @ 10:05</td><td>Consult Speech Language Pathology</td><td>Stat</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td><td>Yesterday @ 20:00</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>Held</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td><td>Held</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>PRN SBP > 180</td><td>Not Yet Administered</td></tr></tbody></table>"
+            }
+        ]
+    },
+    "rationale": {
+        "correct": "The correct sequence prioritizes immediate life-saving interventions based on the ABCs (Airway, Breathing, Circulation) and neurological stability. The first priority is controlling the critical hypertension to prevent hemorrhagic conversion (Circulation). Next is positioning to reduce intracranial pressure and aspiration risk (Airway). Then, implementing NPO status to definitively protect the airway. This is followed by reassessment to monitor for changes and finally, arranging for specialized consultation for long-term management.",
+        "incorrect": "Any other order fails to address the most immediate threat first. For example, performing a neuro check before administering labetalol delays treatment for a hypertensive crisis that could cause irreversible brain damage. Consulting speech therapy before securing the airway with NPO status and proper positioning is unsafe and misaligns priorities.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1",
+                "content": "<strong>Step 1: Administer labetalol 20 mg IV.</strong> The client's blood pressure of 180/100 mmHg is a hypertensive emergency in this context. This level of pressure creates a significant risk of hemorrhagic conversion of the ischemic stroke and can worsen cerebral edema. Addressing this critical circulatory issue is the highest priority to prevent further brain injury."
+            },
+            {
+                "optionId": "opt2",
+                "content": "<strong>Step 2: Elevate the head of the bed to 30 degrees.</strong> This non-pharmacological intervention is performed immediately after addressing the BP. It promotes venous drainage from the head, which helps lower intracranial pressure (ICP). It also uses gravity to reduce the risk of aspiration, providing initial airway protection."
+            },
+            {
+                "optionId": "opt3",
+                "content": "<strong>Step 3: Place the client on NPO status.</strong> The client's dysarthria, altered level of consciousness, and focal weakness strongly suggest dysphagia. Making the client NPO is the most immediate and definitive action to prevent aspiration pneumonia, a life-threatening complication. This is a critical airway safety measure."
+            },
+            {
+                "optionId": "opt4",
+                "content": "<strong>Step 4: Perform a neurological assessment.</strong> After implementing critical interventions to stabilize circulation and protect the airway, a focused neurological assessment is required. This establishes a new baseline and evaluates the client's response to treatment (e.g., effect of labetalol on neurological status) and monitors for any deterioration."
+            },
+            {
+                "optionId": "opt5",
+                "content": "<strong>Step 5: Request a formal swallow evaluation from speech therapy.</strong> While essential for determining a long-term safe diet and care plan, the formal evaluation is not as time-sensitive as the immediate interventions to stabilize the client's blood pressure, manage ICP, and protect their airway from aspiration. This is a planning step that follows immediate stabilization."
+            }
+        ],
+        "clinicalPearls": [
+            "Permissive hypertension (allowing BP up to 185/110 mmHg) is often desired in acute ischemic stroke to maintain cerebral perfusion to the ischemic penumbra, but BP exceeding this threshold requires immediate treatment to prevent hemorrhagic conversion.",
+            "A client's INR must be <1.7 to be a candidate for thrombolytic therapy (tPA). An INR of 2.8, while therapeutic for atrial fibrillation, is an absolute contraindication.",
+            "Dysphagia is present in up to 65% of acute stroke patients. A bedside swallow screen should be performed by a trained nurse before any oral intake, followed by a formal SLP evaluation.",
+            "The SBAR note includes a Social Determinant of Health (SDOH): living alone in a rural area with transportation barriers. This is critical for discharge planning and ensuring continuity of care."
+        ],
+        "questionTrap": "The primary trap is prioritizing a neurological assessment or airway positioning over the critical circulatory emergency. While ABCs are the standard framework, the 'C' (uncontrolled hypertension) is the most active and immediate threat that could cause catastrophic worsening. Always address the most unstable physiological parameter first.",
+        "mnemonic": "Use 'BP-AIR' for acute stroke priority: **B**lood **P**ressure control first, then **A**irway (positioning/NPO), **I**ntervention & assessment (neuro check), **R**eferral (consults).",
+        "reviewUnits": [
+            "Neurological Disorders: Stroke",
+            "Pharmacology: Antihypertensives",
+            "Fundamentals: Prioritization & Safety"
+        ]
+    },
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
     },
-    "itemContext": {
-        "patient": {
-            "name": "Johnson, Robert",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
-            "condition": [
-                "Airborne Precautions"
-            ],
-            "allergies": [
-                "NKDA"
-            ]
-        },
-        "sbar": "S: Robert Johnson, 72-year-old male, admitted at 08:00 today with acute right-sided weakness and slurred speech, potentially indicative of an evolving stroke. Last known well was 23:00 last night. B: History of hypertension, hyperlipidemia, atrial fibrillation, and a recent episode of pneumonia treated with antibiotics. He has no known drug allergies. He takes warfarin, lisinopril, and atorvastatin. O: At 10:00, the patient is alert but confused, GCS 13 (E3, V4, M6). Significant right-sided weakness is present. BP 180/100 mmHg, HR 98 bpm and irregular, RR 22, SpO2 94% on room air. Labs show INR 2.8 and Glucose 160 mg/dL. A: Suspected acute ischemic stroke with possible aspiration risk. Critically elevated blood pressure increases the risk for hemorrhagic conversion and further neurological damage. Confusion and history of pneumonia raise concerns about potential infection. Immediate intervention is needed to manage blood pressure, prevent aspiration, and assess for infection.",
-        "tabs": [
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.1 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>1.0 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>INR</td><td>2.8</td><td>2.0-3.0 (Therapeutic on Warfarin)</td></tr><tr><td>Glucose</td><td>160 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>Platelets</td><td>250,000/mcL</td><td>150,000-400,000/mcL</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td><td>08:00</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>08:00</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td><td>08:00</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN Pain/Fever</td><td>N/A</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>q15 min PRN SBP >180</td><td>N/A</td></tr></tbody></table>"
-            },
-            {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th><th>GCS</th></tr></thead><tbody><tr><td>08:00</td><td>170/95</td><td>90</td><td>20</td><td>95%</td><td>37.0°C</td><td>14</td></tr><tr><td>09:00</td><td>175/98</td><td>94</td><td>21</td><td>94%</td><td>37.2°C</td><td>13</td></tr><tr><td>10:00</td><td>180/100</td><td>98</td><td>22</td><td>94%</td><td>37.3°C</td><td>13</td></tr></tbody></table>"
-            }
-        ]
-    },
     "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Stroke & Increased ICP"
-        ]
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
     },
-    "rationale": {
-        "correct": "1. Administer Labetalol 20mg IV per PRN order. Rationale: The patient's critically elevated blood pressure (180/100 mmHg) poses an immediate threat of hemorrhagic conversion and further neurological damage. Rapidly lowering the blood pressure is crucial to prevent further complications. The PRN order for labetalol is specifically indicated to address this hypertensive crisis, making it the highest priority.\n2. Elevate the head of the bed to 30 degrees. Rationale: Elevating the head of the bed facilitates venous drainage from the brain, helping to reduce intracranial pressure (ICP). This is a standard nursing intervention for patients at risk for increased ICP following a stroke. It also aids in preventing aspiration.\n3. Initiate swallow precautions and assess gag reflex. Rationale: Due to the patient's stroke and slurred speech, there is a high risk of aspiration. Assessing the gag reflex and initiating swallow precautions are essential to prevent aspiration pneumonia, a common and serious complication post-stroke. This ensures patient safety during any oral intake.\n4. Monitor neurological status and vital signs every 15 minutes. Rationale: Frequent neurological and vital sign monitoring is crucial to detect any deterioration in the patient's condition, such as worsening neurological deficits, signs of increased ICP, or changes in respiratory status. This allows for timely intervention and adjustment of the care plan.\n5. Consult with speech therapy for a formal swallow evaluation. Rationale: While important for long-term management, a formal swallow evaluation by speech therapy is not the immediate priority. It will help determine the patient's ability to safely swallow and guide dietary modifications and swallowing strategies, but addressing the immediate threats to the patient's well-being takes precedence.",
-        "incorrect": "Delaying administration of antihypertensive medication can lead to irreversible neurological damage. Failing to elevate the head of the bed can exacerbate increased ICP and increase the risk of aspiration. Neglecting swallow precautions increases the risk of life-threatening aspiration. Infrequent monitoring can result in delayed detection of critical changes in neurological status. Consulting speech therapy, while essential, is not the most immediate life-saving intervention.",
-        "clinicalPearls": [
-            "In acute stroke management, rapid response is critical to minimize brain damage. Time-sensitive interventions, such as blood pressure control and thrombolytic administration (if indicated), are crucial.",
-            "Hypertension is common after stroke, but excessively high BP can worsen cerebral edema and increase ICP. Controlled BP reduction is necessary to prevent hemorrhagic conversion.",
-            "Dysphagia is a frequent complication of stroke; early identification and management are essential to prevent aspiration pneumonia. Proactive swallow precautions are vital.",
-            "Changes in level of consciousness, motor function, and vital signs are critical indicators of neurological status and require immediate attention."
-        ],
-        "questionTrap": {
-            "trap": "Many might prioritize elevating the head of the bed first, focusing on ICP reduction. However, uncontrolled hypertension will negate any benefit from head elevation and can cause further harm.",
-            "howToOvercome": "Prioritize interventions that directly address the most life-threatening issues. In this case, the dangerously high blood pressure is the greatest immediate risk and needs to be addressed first."
-        },
-        "mnemonic": {
-            "title": "BP-FAST",
-            "expansion": "Blood Pressure control first. Face drooping, Arm weakness, Speech difficulty, Time to call 911."
-        }
-    }
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:27:19.984Z"
 }

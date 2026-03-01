@@ -1,7 +1,7 @@
 {
     "id": "New-v26-b8e2a9d7-5f1a-4b3c-9e8d-7a6b5c4d3e2f",
     "type": "multipleChoice",
-    "stem": "The postpartum client is now 4 hours postpartum. Based on the nurse's findings in the EHR, which intervention should the nurse implement *FIRST*?",
+    "stem": "The postpartum client is 4 hours postpartum. Based on the findings in the electronic health record, which intervention should the nurse implement FIRST?",
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
@@ -10,39 +10,194 @@
         "patient": {
             "name": "Maria Rodriguez",
             "age": 28,
-            "gender": "Female",
+            "sex": "Female",
+            "pronouns": "she/her",
             "iso": "Postpartum Unit",
             "allergies": [
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "0700 Report: Maria Rodriguez, a 28-year-old G1P1, delivered vaginally at 0300 after an uncomplicated pregnancy. She received Magnesium Sulfate during labor for preeclampsia, which was discontinued at 0400. Estimated blood loss was 600 mL. The patient reports a headache rated 3/10 and blurry vision. Her fundus is boggy and located 2 cm above the umbilicus, deviated to the right. Lochia rubra is heavy with several small clots noted. Vital signs at 0630: BP 160/95, HR 98, RR 18, SpO2 97% on room air. She is currently receiving Oxytocin 20 units in 1000 mL Lactated Ringers IV at 125 mL/hr. The patient is alert and oriented x3, but seems anxious about her blood pressure. She voided 100 mL at 0500. No bowel movement yet. The provider was notified about the elevated blood pressure at 0645.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Hemoglobin: 9.8 g/dL; Hematocrit: 29.5%; Platelets: 140,000/mcL; Urine Protein: 1+; Magnesium: 2.0 mg/dL; Potassium: 3.8 mEq/L; Sodium: 140 mEq/L"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "timestamp": "03:15",
+                        "type": "Admission Note",
+                        "content": "Patient is a 28-year-old G1P1 admitted to the postpartum unit following an uncomplicated spontaneous vaginal delivery at 03:00. History of preeclampsia during labor managed with Magnesium Sulfate, which was discontinued at delivery. Placenta delivered intact. Estimated blood loss (EBL) was 600 mL. Infant is stable and in the newborn nursery. Patient is alert and oriented, reporting mild uterine cramping. Oxytocin infusion initiated per protocol. Initial vital signs are stable. Patient has expressed a desire to breastfeed. Family at bedside providing support."
+                    },
+                    {
+                        "timestamp": "07:00",
+                        "type": "Progress Note",
+                        "content": "S: Patient reports a persistent headache rated 3/10 and new-onset blurry vision. States she feels 'very wet' and anxious about her bleeding and high blood pressure.\nB: 4 hours postpartum. History of preeclampsia. Magnesium Sulfate was discontinued at 04:00. Oxytocin 20 units in 1000 mL Lactated Ringers is infusing at 125 mL/hr.\nA: BP: 160/95 mmHg, HR: 98 bpm, RR: 18/min, SpO2: 97% on room air. Fundus is boggy, located 2 cm above the umbilicus and deviated to the right. Lochia rubra is heavy, with one perineal pad saturated in the last 45 minutes and several small clots noted. Patient voided 100 mL at 05:00.\nR: Immediate intervention for uterine atony is required. Will perform fundal massage and assess for bladder distention. Continue to monitor vital signs and bleeding closely. Will notify provider of findings."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "0300: BP 140/90, HR 88, RR 16, SpO2 98%; 0400: BP 150/92, HR 92, RR 17, SpO2 97%; 0500: BP 155/94, HR 95, RR 18, SpO2 97%; 0600: BP 160/95, HR 98, RR 18, SpO2 97%"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "timestamp": "04:00",
+                        "temp": "99.1°F (37.3°C)",
+                        "hr": "92",
+                        "rr": "17",
+                        "bp": "150/92",
+                        "map": "111",
+                        "spo2": "97% on RA"
+                    },
+                    {
+                        "timestamp": "05:30",
+                        "temp": "99.0°F (37.2°C)",
+                        "hr": "95",
+                        "rr": "18",
+                        "bp": "155/94",
+                        "map": "114",
+                        "spo2": "97% on RA"
+                    },
+                    {
+                        "timestamp": "07:00",
+                        "temp": "99.2°F (37.3°C)",
+                        "hr": "98",
+                        "rr": "18",
+                        "bp": "160/95",
+                        "map": "117",
+                        "spo2": "97% on RA"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "test": "Hemoglobin",
+                        "result": "9.8",
+                        "unit": "g/dL",
+                        "reference": "12.0-15.5",
+                        "status": "Low"
+                    },
+                    {
+                        "test": "Hematocrit",
+                        "result": "29.5",
+                        "unit": "%",
+                        "reference": "34.9-44.5",
+                        "status": "Low"
+                    },
+                    {
+                        "test": "Platelets",
+                        "result": "140",
+                        "unit": "x10³/mcL",
+                        "reference": "150-450",
+                        "status": "Low"
+                    },
+                    {
+                        "test": "Urine Protein",
+                        "result": "1+",
+                        "unit": "",
+                        "reference": "Negative",
+                        "status": "High"
+                    },
+                    {
+                        "test": "Magnesium",
+                        "result": "2.0",
+                        "unit": "mg/dL",
+                        "reference": "1.7-2.2",
+                        "status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "findings": [
+                    {
+                        "system": "General",
+                        "finding": "Patient appears anxious but is alert and oriented to person, place, and time."
+                    },
+                    {
+                        "system": "Neurological",
+                        "finding": "Reports headache rated 3/10 and blurry vision. Deep tendon reflexes 2+ bilaterally."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "finding": "S1, S2 audible. Tachycardic rate with regular rhythm. Pulses 2+ peripherally."
+                    },
+                    {
+                        "system": "Reproductive",
+                        "finding": "Fundus is boggy on palpation, located 2 fingerbreadths above the umbilicus and displaced to the right. Lochia rubra is heavy, with one pad saturated in <1 hour. Several small clots (dime-sized) noted."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "reports": [
+                    {
+                        "type": "N/A",
+                        "impression": "No imaging studies on file."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "03:10",
+                        "action": "Oxytocin 20 units in 1000 mL Lactated Ringers IV",
+                        "status": "Standing, Infusing at 125 mL/hr"
+                    },
+                    {
+                        "timestamp": "03:10",
+                        "action": "Fundal checks and vital signs every 15 min x4, then every 30 min x2, then hourly",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "03:10",
+                        "action": "Ibuprofen 600 mg PO every 6 hours for pain",
+                        "status": "PRN"
+                    },
+                    {
+                        "timestamp": "03:10",
+                        "action": "Docusate Sodium 100 mg PO daily",
+                        "status": "Standing"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "Oxytocin 20 units in 1000 mL Lactated Ringers IV at 125 mL/hr; Ibuprofen 600 mg PO PRN for pain; Docusate 100mg PO daily; Rho(D) Immune Globulin (RhoGAM) ordered, pending blood type confirmation."
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Oxytocin 20 units in 1000 mL LR",
+                        "dose": "125 mL/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "lastAdministered": "N/A (Infusing)"
+                    },
+                    {
+                        "medication": "Ibuprofen",
+                        "dose": "600 mg",
+                        "route": "PO",
+                        "frequency": "q6h PRN",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "Docusate Sodium",
+                        "dose": "100 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "N/A"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "takeAction",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
@@ -50,21 +205,41 @@
         ]
     },
     "rationale": {
-        "correct": "The client's fundus is boggy and deviated, and she has heavy lochia with clots, indicating potential postpartum hemorrhage. The *first* action should be to massage the fundus to stimulate uterine contraction and reduce bleeding. A boggy uterus fails to contract adequately, leading to continued blood loss. While other options are important, addressing the immediate risk of hemorrhage takes priority to stabilize the patient.",
-        "incorrect": "Administering ibuprofen addresses the client's headache but does not address the immediate risk of postpartum hemorrhage. Massaging the fundus is the priority intervention to control bleeding.",
+        "correct": "The client's clinical presentation—a boggy, deviated fundus, heavy lochia with clots, and tachycardia—are classic signs of uterine atony, the leading cause of postpartum hemorrhage (PPH). The first and most critical intervention is to massage the fundus. This mechanical stimulation promotes myometrial contraction, which constricts the spiral arteries at the former placental site, thereby controlling blood loss. This action directly addresses the cause of the hemorrhage and is the priority for stabilizing the client's circulation.",
+        "answerBreakdown": [
+            {
+                "key": "A",
+                "isCorrect": false,
+                "content": "Administering ibuprofen addresses the client's headache, which is a symptom of her preeclampsia. However, it is a comfort measure and does not address the active, life-threatening hemorrhage. According to Maslow's hierarchy and ABCs (Circulation), hemorrhage is a higher priority than pain."
+            },
+            {
+                "key": "B",
+                "isCorrect": false,
+                "content": "Increasing the IV fluid rate is a supportive measure for hypovolemia caused by hemorrhage. While important, it is a secondary action. The primary goal is to stop the source of the bleeding. Simply providing fluids without addressing the uterine atony will not resolve the underlying problem."
+            },
+            {
+                "key": "C",
+                "isCorrect": true,
+                "content": "Fundal massage is the immediate, first-line intervention for uterine atony. The boggy texture of the uterus indicates it is not contracting effectively to clamp down on blood vessels. Massaging the fundus until it is firm is the fastest way to mitigate blood loss and prevent hemodynamic instability."
+            },
+            {
+                "key": "D",
+                "isCorrect": false,
+                "content": "A full bladder can impede uterine contraction and is suggested by the fundus being deviated to the right. Emptying the bladder is a necessary intervention. However, it is not the *first* action. Fundal massage can be initiated immediately while preparations are made for catheterization, making it the higher priority to control acute bleeding."
+            }
+        ],
         "clinicalPearls": [
-            "Postpartum hemorrhage is a leading cause of maternal morbidity and mortality.",
-            "A boggy fundus indicates uterine atony, a common cause of postpartum hemorrhage.",
-            "A deviated fundus often indicates a full bladder, which can inhibit uterine contraction; however, fundal massage is the priority.",
-            "Early recognition and intervention are crucial in managing postpartum hemorrhage to prevent severe complications."
+            "Magnesium Sulfate, used for preeclampsia, is a smooth muscle relaxant and a known risk factor for uterine atony and postpartum hemorrhage.",
+            "A fundus that is deviated from the midline (usually to the right) is a classic sign of bladder distention, which prevents the uterus from contracting effectively.",
+            "Postpartum hemorrhage is defined as blood loss >500 mL for a vaginal delivery or >1000 mL for a cesarean delivery. Quantifying blood loss by weighing pads is more accurate than visual estimation."
         ],
         "questionTrap": {
-            "trap": "The question traps the test-taker into focusing on the elevated blood pressure or headache and missing the critical signs of postpartum hemorrhage. The test-taker might consider pain management or fluid bolus as the priority.",
-            "howToOvercome": "Prioritize interventions based on the ABCs (Airway, Breathing, Circulation) and Maslow's hierarchy of needs. Recognize that hemorrhage is a life-threatening condition requiring immediate intervention. Always assess for the most immediate threat to the patient's well-being."
+            "trap": "The question presents competing priorities: signs of postpartum hemorrhage (boggy fundus, heavy bleeding) and signs of severe preeclampsia (high BP, headache, blurry vision). Test-takers may be distracted by the preeclampsia symptoms or choose a correct but secondary action for hemorrhage, like catheterization.",
+            "howToOvercome": "Always prioritize the most immediate threat to life. Active hemorrhage poses a greater and more immediate risk of mortality than hypertension in this acute scenario. Among hemorrhage interventions, choose the one that most directly and quickly stops the bleeding source—in this case, fundal massage."
         },
         "mnemonic": {
             "title": "4 Ts of Postpartum Hemorrhage",
-            "expansion": "Tone (uterine atony), Tissue (retained placental fragments), Trauma (lacerations, hematomas, uterine inversion/rupture), Thrombin (coagulation disorders)"
+            "expansion": "Tone (uterine atony - most common), Trauma (lacerations, hematoma, uterine rupture), Tissue (retained placental fragments), Thrombin (coagulopathy)."
         }
     },
     "options": [
@@ -89,8 +264,5 @@
             "isCorrect": false
         }
     ],
-    "sentinelStatus": "quarantined:logic_error",
-    "logicErrors": [
-        "missing_correct_id"
-    ]
+    "sentinelStatus": "repaired:compliant_2026"
 }

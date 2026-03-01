@@ -1,42 +1,160 @@
 {
-    "id": "dka_management_bowtie_v1",
+    "id": "dka_management_bowtie_v2",
     "type": "bowtie",
-    "stem": "A client with type 1 diabetes presents with fruity-smelling breath, Kussmaul respirations, and a blood glucose of 520 mg/dL. The serum pH is 7.2. Complete the clinical bowtie.",
-    "causes": [
+    "ehr": {
+        "patientProfile": {
+            "name": "Jane Doe",
+            "age": "22 years",
+            "gender": "Female",
+            "allergies": "No Known Allergies",
+            "medicalHistory": "Type 1 Diabetes Mellitus (diagnosed at age 10)"
+        },
+        "tabs": [
+            {
+                "id": "nurses_notes",
+                "label": "Nurses' Notes",
+                "content": "SBAR Report from Emergency Department Nurse to Admitting Provider:\n\nSituation: At 14:00, this is Nurse Miller from the ED reporting on Jane Doe, a 22-year-old female with type 1 diabetes and altered mental status.\n\nBackground: She has had a stomach bug for two days with poor intake and missed insulin doses since yesterday morning.\n\nAssessment: Vitals: HR 128, BP 94/60, RR 32 (deep, rapid). She is lethargic with fruity breath. Fingerstick glucose is 520 mg/dL and ABG shows a pH of 7.20.\n\nRecommendation: A peripheral IV is in place. Requesting orders for fluid resuscitation and an IV insulin protocol for suspected DKA."
+            },
+            {
+                "id": "lab_results",
+                "label": "Lab Results",
+                "content": [
+                    {
+                        "panel": "Arterial Blood Gas (ABG)",
+                        "results": [
+                            {
+                                "name": "pH",
+                                "value": "7.20",
+                                "reference": "7.35-7.45"
+                            },
+                            {
+                                "name": "PaCO2",
+                                "value": "24 mmHg",
+                                "reference": "35-45 mmHg"
+                            },
+                            {
+                                "name": "HCO3",
+                                "value": "10 mEq/L",
+                                "reference": "22-26 mEq/L"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Basic Metabolic Panel (BMP)",
+                        "results": [
+                            {
+                                "name": "Sodium (Na+)",
+                                "value": "130 mEq/L",
+                                "reference": "136-145 mEq/L"
+                            },
+                            {
+                                "name": "Potassium (K+)",
+                                "value": "5.4 mEq/L",
+                                "reference": "3.5-5.0 mEq/L"
+                            },
+                            {
+                                "name": "Chloride (Cl-)",
+                                "value": "95 mEq/L",
+                                "reference": "98-106 mEq/L"
+                            },
+                            {
+                                "name": "BUN",
+                                "value": "35 mg/dL",
+                                "reference": "10-20 mg/dL"
+                            },
+                            {
+                                "name": "Creatinine",
+                                "value": "1.5 mg/dL",
+                                "reference": "0.6-1.2 mg/dL"
+                            },
+                            {
+                                "name": "Glucose",
+                                "value": "520 mg/dL",
+                                "reference": "70-110 mg/dL"
+                            },
+                            {
+                                "name": "Anion Gap",
+                                "value": "25",
+                                "reference": "8-12 mEq/L"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Urinalysis",
+                        "results": [
+                            {
+                                "name": "Ketones",
+                                "value": "Large",
+                                "reference": "Negative"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "stem": "The nurse is caring for a 22-year-old client with type 1 diabetes who presents with signs of a metabolic crisis. Based on the client's electronic health record, identify the condition, the appropriate nursing actions, and parameters to monitor.",
+    "potentialConditions": [
         {
-            "id": "c3",
-            "text": "Excessive carbohydrate intake"
+            "id": "pc1",
+            "text": "Alcoholic Ketoacidosis"
         },
         {
-            "id": "c1",
-            "text": "Insulin deficiency"
+            "id": "pc2",
+            "text": "Lactic Acidosis"
         },
         {
-            "id": "c4",
-            "text": "Somogyi effect"
+            "id": "pc3",
+            "text": "Hyperosmolar Hyperglycemic State (HHS)"
         },
         {
-            "id": "c2",
-            "text": "Infection or acute illness"
+            "id": "pc4",
+            "text": "Diabetic Ketoacidosis (DKA)"
         }
     ],
     "condition": "Diabetic Ketoacidosis (DKA)",
     "actions": [
         {
-            "id": "a4",
-            "text": "Restrict fluids to avoid cerebral edema"
+            "id": "a1",
+            "text": "Initiate IV normal saline (0.9% NaCl)"
         },
         {
             "id": "a2",
             "text": "Start an intravenous regular insulin protocol"
         },
         {
-            "id": "a1",
-            "text": "Initiate IV normal saline (0.9% NaCl)"
+            "id": "a3",
+            "text": "Administer sodium bicarbonate IV push"
         },
         {
-            "id": "a3",
-            "text": "Administer bicarbonate IV push"
+            "id": "a4",
+            "text": "Restrict fluids to prevent cerebral edema"
+        },
+        {
+            "id": "a5",
+            "text": "Administer subcutaneous long-acting insulin"
+        }
+    ],
+    "causes": [
+        {
+            "id": "c1",
+            "text": "Insulin deficiency"
+        },
+        {
+            "id": "c2",
+            "text": "Infection or acute illness"
+        },
+        {
+            "id": "c3",
+            "text": "Excessive carbohydrate intake"
+        },
+        {
+            "id": "c4",
+            "text": "Somogyi effect"
+        },
+        {
+            "id": "c5",
+            "text": "Dehydration"
         }
     ],
     "parameters": [
@@ -55,6 +173,10 @@
         {
             "id": "p4",
             "text": "Hemoglobin A1c"
+        },
+        {
+            "id": "p5",
+            "text": "Blood urea nitrogen (BUN)"
         }
     ],
     "correctCauseIds": [
@@ -69,95 +191,65 @@
         "p1",
         "p2"
     ],
+    "hoverRationales": {
+        "pc1": "This is incorrect. Alcoholic ketoacidosis presents with acidosis and ketones, but blood glucose is typically normal or low, which is inconsistent with the client's hyperglycemia.",
+        "pc2": "This is incorrect. While some lactate may be present due to dehydration, the primary cause of the severe anion gap metabolic acidosis is ketones, not lactate.",
+        "pc3": "This is incorrect. HHS is characterized by extreme hyperglycemia and hyperosmolality without significant ketosis or acidosis, which is inconsistent with the client's presentation.",
+        "pc4": "This is correct. Absolute insulin deficiency leads to hyperglycemia, uncontrolled lipolysis, and subsequent ketone production. This results in the hallmark metabolic acidosis, ketosis, and dehydration seen in this client.",
+        "c1": "This is a correct cause. Absolute insulin deficiency is the primary pathophysiological driver of DKA, preventing glucose uptake and leading to uncontrolled lipolysis and ketogenesis.",
+        "c2": "This is a correct cause. Physiological stress from illness increases counter-regulatory hormones, such as cortisol and glucagon, which antagonize insulin and can precipitate DKA in individuals with type 1 diabetes.",
+        "c3": "This is an incorrect cause. While this can cause hyperglycemia, it does not typically cause the profound metabolic acidosis of DKA without a concurrent absolute insulin deficiency.",
+        "c4": "This is an incorrect cause. The Somogyi effect is rebound hyperglycemia following nocturnal hypoglycemia. It is a pattern of glucose dysregulation, not an acute trigger for DKA in this context.",
+        "c5": "This is an incorrect cause. Dehydration is a consequence of the osmotic diuresis caused by hyperglycemia in DKA, not a primary cause of the condition itself.",
+        "a1": "This is a correct action. Correcting profound dehydration from osmotic diuresis is the first priority in DKA management to restore tissue perfusion and improve glomerular filtration.",
+        "a2": "This is a correct action. IV regular insulin is essential to stop ketogenesis, correct acidosis, and gradually lower serum glucose by facilitating its entry into cells.",
+        "a3": "This is an incorrect action. Bicarbonate is not recommended unless severe acidemia (pH < 6.9) is present, as rapid correction can cause paradoxical CNS acidosis and hypokalemia.",
+        "a4": "This is an incorrect action. Aggressive fluid resuscitation is required to treat severe dehydration. Fluid composition is adjusted later to prevent cerebral edema, but initial restriction is contraindicated.",
+        "a5": "This is an incorrect action. Subcutaneous insulin has a delayed onset and is not appropriate for managing the acute phase of DKA, which requires the precise control of an IV insulin infusion.",
+        "p1": "This is a correct parameter. Insulin therapy drives potassium into cells, causing a rapid drop in serum levels. Frequent monitoring is critical to prevent life-threatening hypokalemia.",
+        "p2": "This is a correct parameter. The anion gap reflects the degree of metabolic acidosis from ketones. Its normalization is a key indicator of DKA resolution.",
+        "p3": "This is an incorrect parameter. Urine ketones are not a reliable indicator of DKA resolution, as they may remain positive even after serum ketoacidosis has resolved. Serum beta-hydroxybutyrate is preferred.",
+        "p4": "This is an incorrect parameter. HbA1c reflects average glucose control over the past 2-3 months and is not useful for monitoring the response to treatment in an acute DKA episode.",
+        "p5": "This is an incorrect parameter. While BUN is elevated due to dehydration, it does not directly track the resolution of the core metabolic derangements (acidosis and ketosis) of DKA."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "recognizeCues",
         "nclexCategory": "Physiological Adaptation",
         "difficulty": 4,
         "topicTags": [
             "DKA",
             "Diabetes",
-            "Endocrine"
+            "Endocrine",
+            "Acid-Base Balance"
         ]
     },
     "rationale": {
-        "correct": "DKA is caused by absolute insulin deficiency (c1) often triggered by infection (c2). The first actions are hydration with saline (a1) and regular insulin (a2). Monitoring potassium (p1) is critical as it drops during treatment. Anion gap (p2) tracks the resolution of acidosis.",
-        "incorrect": "Bicarbonate (a3) is rarely used unless pH is < 6.9. Fluid restriction (a4) is contraindicated; rapid hydration is needed first.",
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Diabetic Ketoacidosis (DKA)\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Restrict fluids to avoid cerebral edema\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Start an intravenous regular insulin protocol\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Initiate IV normal saline (0.9% NaCl)\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer bicarbonate IV push\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Serum potassium level\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Anion gap\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Urine ketones\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Hemoglobin A1c\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            }
-        ],
+        "correct": "DKA is caused by absolute insulin deficiency (c1), often triggered by infection or illness (c2). Initial management priorities are aggressive IV fluid resuscitation with normal saline (a1) to correct dehydration, followed by an IV regular insulin infusion (a2) to correct hyperglycemia and acidosis. Monitoring serum potassium (p1) is critical as insulin drives potassium into cells, and tracking the anion gap (p2) is essential to confirm resolution of the ketoacidosis.",
+        "incorrect": "Bicarbonate is rarely used. Fluid restriction is contraindicated. Long-acting insulin is not for acute management. Urine ketones and HbA1c are not priority parameters for monitoring acute treatment response.",
         "clinicalPearls": [
-            "Once glucose reaches ~250 mg/dL, add dextrose to the IV fluid to prevent hypoglycemia."
+            "The initial serum potassium may be normal or high due to acidosis, but total body potassium is depleted. Insulin therapy will cause a rapid drop in serum potassium, requiring careful replacement.",
+            "Once blood glucose reaches approximately 250 mg/dL, the IV fluid should be changed to one containing dextrose (e.g., D5 0.45% NaCl) to prevent hypoglycemia while continuing insulin to resolve the acidosis."
         ],
         "questionTrap": {
             "trap": "The 'Potassium' Trap",
-            "howToOvercome": "Remember that insulin moves potassium into cells; a 'normal' potassium in DKA is actually low, and it will drop further with treatment."
+            "howToOvercome": "Remember that insulin moves potassium into cells. A 'normal' or high potassium level in DKA is a false indicator of total body stores and will drop precipitously with treatment, requiring replacement."
         },
         "mnemonic": {
-            "title": "DKA",
-            "expansion": "D = Diabetic\nK = Ketoacidosis\nA = Actions: Initiate IV normal saline (0.9% NaCl); Start an intravenous regular insulin protocol\nMonitoring: Serum potassium level; Anion gap"
+            "title": "DKA KING",
+            "expansion": "K = Ketones & Kussmaul's\nI = IV Fluids (Isotonic first!)\nN = Normal Saline is the initial choice\nG = Glucose correction with regular insulin IV"
         },
         "reviewUnits": [
             {
-                "heading": "DKA Management",
-                "body": "DKA is a metabolic crisis requiring careful fluid and electrolyte management.",
-                "source": "Endocrine Nursing 2026"
+                "heading": "Diabetic Ketoacidosis (DKA) Management",
+                "body": "DKA is a life-threatening complication of diabetes characterized by hyperglycemia, ketosis, and metabolic acidosis. Management focuses on correcting dehydration, hyperglycemia, electrolyte imbalances, and acidosis.",
+                "source": "Endocrine Nursing Practice, 2026"
             }
         ]
     },
     "scoring": {
         "method": "polytomous",
-        "maxPoints": 5
+        "maxPoints": 7
     },
-    "potentialConditions": [
-        "Alcoholic Ketoacidosis",
-        "Lactic Acidosis",
-        "Hyperosmolar Hyperglycemic State (HHS)",
-        "Diabetic Ketoacidosis (DKA)"
-    ],
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "healed_v2026_v12"
 }

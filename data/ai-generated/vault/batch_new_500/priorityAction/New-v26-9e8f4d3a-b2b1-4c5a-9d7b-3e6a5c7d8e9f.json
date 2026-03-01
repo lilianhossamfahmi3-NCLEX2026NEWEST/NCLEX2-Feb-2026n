@@ -1,65 +1,134 @@
 {
     "id": "New-v26-9e8f4d3a-b2b1-4c5a-9d7b-3e6a5c7d8e9f",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a client receiving a continuous intravenous infusion of heparin. Based on the information presented in the client's electronic health record (EHR), determine the three most important actions the nurse should take *first*. Drag the three most appropriate actions to the 'Selected Actions' area, ordering them from highest to lowest priority. Only three actions may be selected.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse cares for a client on a continuous heparin infusion for a DVT. Based on the client's record, drag the **three** most important actions into the box, ordered from highest to lowest priority.",
+    "options": [
+        {
+            "id": "opt1",
+            "text": "Stop the continuous heparin infusion."
+        },
+        {
+            "id": "opt2",
+            "text": "Notify the healthcare provider of assessment and lab findings."
+        },
+        {
+            "id": "opt3",
+            "text": "Place the client on airborne precautions."
+        },
+        {
+            "id": "opt4",
+            "text": "Prepare to administer protamine sulfate."
+        },
+        {
+            "id": "opt5",
+            "text": "Document the PTT result in the electronic health record."
+        },
+        {
+            "id": "opt6",
+            "text": "Request a STAT repeat PTT level from the laboratory."
+        }
+    ],
+    "correctOptionId": "opt1,opt2,opt3",
     "itemContext": {
         "patient": {
             "name": "Jameson Tyrell",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Airborne Precautions",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "S: Jameson Tyrell, 68-year-old male, admitted for DVT. Currently receiving heparin infusion at 1600 units/hour. A: History of hypertension, hyperlipidemia, and recent knee replacement surgery. B: Admitted yesterday at 18:00. Started on heparin per protocol. Baseline PTT within normal limits. R: 07:00 labs show PTT is currently 95 seconds (therapeutic range 60-80 seconds). Patient reports no bleeding, bruising, or other adverse effects. Vital signs stable: BP 150/90, HR 88, RR 18, SpO2 98% on room air. 07:15 assessment reveals no new findings. Orders include holding heparin for PTT > 100 seconds and notifying the provider. The next PTT is scheduled for 13:00. Infusion started at 20:00 last night. Of note, the patient has developed a new productive cough with thick, yellow sputum. A chest X-ray is pending to rule out pneumonia. The patient denies any shortness of breath but is wearing oxygen via nasal cannula at 2L per minute.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>PTT</td><td>95 seconds</td><td>25-35 seconds</td></tr><tr><td>INR</td><td>1.1</td><td>0.8-1.2</td></tr><tr><td>Platelets</td><td>250,000/mcL</td><td>150,000-400,000/mcL</td></tr><tr><td>Hemoglobin</td><td>14.5 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Hematocrit</td><td>43%</td><td>41-53%</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<b>Admission Note - Day 1, 18:00</b><br>68-year-old male admitted from the ED with a diagnosis of acute deep vein thrombosis (DVT) in the left lower extremity following a total knee arthroplasty 10 days ago. Reports swelling, erythema, and a pain score of 7/10 in the left calf. Past medical history includes hypertension and hyperlipidemia. Client is alert and oriented x4. Baseline labs drawn. Initiated on continuous IV heparin infusion per facility protocol. Client educated on bleeding precautions and the importance of bed rest with leg elevation. Adult child is at the bedside and verbalizes understanding of the initial plan of care.<br><br><b>Progress Note - Day 2, 07:30</b><br><b>S:</b> Client reports feeling 'okay' with no complaints of bleeding, bruising, or increased calf pain. Notes the development of a new, productive cough overnight with thick, yellow sputum. Denies shortness of breath.<br><b>B:</b> Admitted yesterday for DVT, started on a heparin infusion at 20:00. The client lives alone in a second-floor apartment with no elevator, which may pose a barrier to follow-up appointments.<br><b>A:</b> Vital signs are stable. PTT at 07:00 is 95 seconds, which is supra-therapeutic (goal: 60-80 seconds). Physical exam reveals a productive cough, but lungs are clear to auscultation bilaterally. No signs of active bleeding noted. Left calf remains warm, edematous, with +2 pitting edema.<br><b>R:</b> Continue to monitor vital signs and assess for any signs of bleeding. Awaiting provider to review elevated PTT result. Chest X-ray is pending to investigate the new cough. Recommend social work consult to address discharge mobility concerns."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Heparin</td><td>25,000 units in 500 mL D5W</td><td>IV Continuous Infusion</td><td>1600 units/hour</td><td>07:00</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN for pain</td><td>04:00</td></tr><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>BID</td><td>06:00</td></tr></tbody></table>"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp °F (°C)</th><th>HR (bpm)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>RR (breaths/min)</th><th>SpO₂ (%)</th></tr></thead><tbody><tr><td>Day 1, 22:00</td><td>98.8 (37.1)</td><td>84</td><td>148/88</td><td>108</td><td>18</td><td>97% on Room Air</td></tr><tr><td>Day 2, 04:00</td><td>99.1 (37.3)</td><td>86</td><td>146/92</td><td>110</td><td>18</td><td>96% on 2L NC</td></tr><tr><td>Day 2, 07:15</td><td>99.4 (37.4)</td><td>88</td><td>150/90</td><td>110</td><td>18</td><td>95% on 2L NC</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>Value</th><th>Time</th></tr></thead><tbody><tr><td>BP</td><td>150/90 mmHg</td><td>07:15</td></tr><tr><td>HR</td><td>88 bpm</td><td>07:15</td></tr><tr><td>RR</td><td>18 breaths/min</td><td>07:15</td></tr><tr><td>SpO2</td><td>98%</td><td>07:15</td></tr><tr><td>Temperature</td><td>98.6°F (37°C)</td><td>07:15</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan=5><b>Coagulation Panel (Day 2, 07:00)</b></td></tr><tr><td>PTT</td><td>95</td><td>seconds</td><td>25-35 (Therapeutic Goal: 60-80)</td><td>High</td></tr><tr><td>INR</td><td>1.1</td><td></td><td>0.8-1.2</td><td></td></tr><tr><td>Platelets</td><td>245</td><td>x10³/mcL</td><td>150-400</td><td></td></tr><tr><td colspan=5><b>Coagulation Panel (Day 1, 18:00 - Baseline)</b></td></tr><tr><td>PTT</td><td>32</td><td>seconds</td><td>25-35</td><td></td></tr><tr><td>INR</td><td>1.0</td><td></td><td>0.8-1.2</td><td></td></tr><tr><td>Platelets</td><td>250</td><td>x10³/mcL</td><td>150-400</td><td></td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<b>Focused Assessment (Day 2, 07:15)</b><br><b>General:</b> Alert and oriented x4, in no acute distress.<br><b>Cardiovascular:</b> S1, S2 audible. Rate regular. No murmurs. Capillary refill <3 seconds. No petechiae or ecchymosis noted on skin.<br><b>Respiratory:</b> Productive cough noted with yellow sputum. Lungs clear to auscultation bilaterally. Respirations unlabored on 2L NC.<br><b>Extremities:</b> Left lower extremity with 2+ pitting edema, erythema, and warmth to touch from calf to ankle. Homan's sign not performed per policy."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<b>Chest X-Ray (PA and Lateral) - Day 2, 07:45</b><br><b>Indication:</b> New onset productive cough, rule out pneumonia.<br><b>Technique:</b> Portable, 2 views.<br><b>Findings:</b> Lungs are well-expanded. No focal consolidation, pleural effusion, or pneumothorax is identified.<br><b>Impression:</b> Pending final read by radiologist."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 18:30</td><td>Heparin Infusion Protocol</td><td>Standing</td></tr><tr><td>Day 1, 18:30</td><td>- Start infusion at 18 units/kg/hr</td><td></td></tr><tr><td>Day 1, 18:30</td><td>- Check PTT every 6 hours</td><td></td></tr><tr><td>Day 1, 18:30</td><td>- Titrate to maintain PTT 60-80 seconds</td><td></td></tr><tr><td>Day 1, 18:30</td><td>- Hold infusion for 1 hour and notify provider for PTT > 90 seconds</td><td></td></tr><tr><td>Day 1, 18:30</td><td>Bed rest with left leg elevated</td><td>Standing</td></tr><tr><td>Day 1, 18:30</td><td>Regular diet</td><td>Standing</td></tr><tr><td>Day 1, 18:30</td><td>Acetaminophen 650 mg PO PRN for pain</td><td>Every 4 hours</td></tr><tr><td>Day 2, 07:45</td><td>Portable Chest X-ray</td><td>STAT</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Heparin</td><td>25,000 units in 250 mL D5W</td><td>IV</td><td>Continuous Infusion at 1600 units/hr</td><td>Ongoing</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN pain</td><td>Day 2, 04:00</td></tr><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>Daily</td><td>Day 2, 06:00</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>Day 2, 06:00</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
+    "rationale": {
+        "correct": "The correct sequence of actions addresses the most immediate life-threatening risk first, followed by communication and infection control. The client's PTT of 95 seconds is supra-therapeutic, placing them at high risk for spontaneous bleeding. The first priority is to stop the source of the excess anticoagulation. Next, the provider must be notified of this critical lab value and the client's change in respiratory status. Finally, the new productive cough warrants implementing airborne precautions to prevent potential transmission of infection.",
+        "incorrect": "Actions such as documentation and preparing an antidote are secondary. Documentation is essential but does not resolve the immediate physiological risk. Preparing protamine sulfate is anticipatory but requires a provider's order, which can only be obtained after notification. Requesting a repeat lab is also a step that the provider will likely order, but it does not take precedence over stopping the infusion.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1",
+                "content": "Correct (Priority 1). The PTT is 95 seconds, well above the therapeutic goal of 60-80 seconds. This indicates excessive anticoagulation and a significant, immediate risk of hemorrhage. The most critical first step is to stop the heparin infusion to prevent the PTT from rising further."
+            },
+            {
+                "optionId": "opt2",
+                "content": "Correct (Priority 2). After stopping the infusion to mitigate the immediate danger, the nurse must communicate the critical lab value, the action taken, and the client's new respiratory symptoms to the provider. This allows for further orders, such as a dose adjustment or administration of an antidote."
+            },
+            {
+                "optionId": "opt3",
+                "content": "Correct (Priority 3). The new onset of a productive cough with yellow sputum is a potential sign of a respiratory infection. While the bleeding risk is the top physiological priority, infection control is a crucial safety priority. Placing the client on airborne precautions protects staff and other patients while a diagnosis is pending."
+            },
+            {
+                "optionId": "opt4",
+                "content": "Incorrect. Protamine sulfate is the antidote for heparin, but it requires a provider's order. Preparing it before stopping the infusion and notifying the provider is out of sequence and not within the nurse's independent scope of practice."
+            },
+            {
+                "optionId": "opt5",
+                "content": "Incorrect. While documentation is a vital nursing responsibility, it is never the priority over direct intervention for a life-threatening condition. The nurse must act first to ensure client safety, then document the actions taken."
+            },
+            {
+                "optionId": "opt6",
+                "content": "Incorrect. The current PTT value is critically high and requires immediate action. While a repeat level will be needed to guide future therapy, the priority is to address the current result by stopping the infusion. The provider will determine the timing of the next lab draw."
+            }
+        ],
+        "clinicalPearls": [
+            "A supra-therapeutic PTT on a heparin infusion is a critical finding that requires immediate cessation of the infusion and provider notification to prevent life-threatening bleeding.",
+            "Always follow facility-specific heparin protocols, which outline titration parameters, monitoring frequency, and actions for critical lab values.",
+            "The sudden onset of a productive cough in a hospitalized patient, especially post-operatively, requires prompt investigation and implementation of appropriate infection control precautions pending diagnosis.",
+            "Recognizing social determinants of health, such as a client living in a second-floor walk-up apartment, is crucial for planning a safe and effective discharge, especially when mobility is compromised."
+        ],
+        "questionTrap": "A common trap is prioritizing communication or documentation over direct, immediate action. While notifying the provider is essential, the nurse's first independent action must be to stop the source of the problem—the heparin infusion—to prevent further harm.",
+        "mnemonic": "For high PTT, think 'STOP': S - Stop the infusion. T - Tell the provider. O - Observe for bleeding. P - Prepare for protamine sulfate (if ordered).",
+        "reviewUnits": [
+            "Pharmacology: Anticoagulants",
+            "Safety and Infection Control: Transmission-Based Precautions",
+            "Management of Care: Prioritization"
         ]
     },
-    "rationale": {
-        "correct": "1. **Stop the heparin infusion immediately:** The client's PTT is elevated at 95 seconds, exceeding the therapeutic range of 60-80 seconds, indicating an increased risk of bleeding. Holding the heparin infusion is the priority to prevent further anticoagulation. 2. **Notify the healthcare provider of the PTT result, heparin infusion status, and new respiratory symptoms:** The provider needs to be informed of the elevated PTT and the nurse's action of holding the heparin. Additionally, the new productive cough and pending chest X-ray results are crucial information. The provider can then determine if further intervention is needed, such as administering protamine sulfate (heparin antagonist), adjusting the heparin dose, or initiating antibiotic therapy. 3. **Initiate Airborne Precautions:** The patient's new productive cough with yellow sputum and pending chest X-ray to rule out pneumonia warrant initiation of Airborne Precautions while awaiting test results. This is essential to prevent potential spread of infection to other patients and staff.",
-        "incorrect": "Reassessing the patient in 1 hour is not the priority. While ongoing monitoring is important, the immediate risk of bleeding due to the elevated PTT necessitates immediate action (stopping the infusion and notifying the provider). Documenting the findings is important, but it is not the priority action. The patient is at risk for bleeding. Increasing the IV fluids is not indicated. The patient's blood pressure and hydration status are not identified as a problem. Preparing to administer protamine sulfate is important, but it is secondary to stopping the infusion and notifying the provider.",
-        "clinicalPearls": [
-            "Heparin is a high-alert medication requiring careful monitoring of coagulation studies (PTT or anti-Xa) to maintain therapeutic levels and prevent bleeding complications.",
-            "Protamine sulfate is the antidote for heparin and should be readily available when administering heparin.",
-            "Always double-check heparin dosages and infusion rates with another nurse due to the potential for serious adverse events.",
-            "New respiratory symptoms, especially productive cough, warrant investigation and appropriate infection control measures, including Airborne Precautions if indicated."
-        ],
-        "questionTrap": {
-            "trap": "The question includes several plausible actions, such as reassessing the patient and documenting the findings. These are important nursing responsibilities, but they are not the *priority* actions in this situation.",
-            "howToOvercome": "Focus on the immediate risk to the patient. The elevated PTT indicates a high risk of bleeding, making actions to stop the heparin and notify the provider the most crucial. Also consider the potential for infection and the need for appropriate precautions."
-        },
-        "mnemonic": {
-            "title": "H-A-L-T Heparin and A-I-R",
-            "expansion": "H: Hold the infusion. A: Assess for bleeding. L: Labs (PTT/anti-Xa). T: Tell the provider. A: Airborne Precautions if respiratory symptoms present. I: Isolate the patient. R: Respiratory assessment."
-        }
-    }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 3
+    },
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Safe and Effective Care Environment"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:16:46.333Z"
 }

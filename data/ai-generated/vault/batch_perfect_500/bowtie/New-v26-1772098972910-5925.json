@@ -1,189 +1,155 @@
 {
     "id": "New-v26-1772098972910-5925",
-    "stem": "A 68-year-old male presents to the emergency department with sudden onset right-sided weakness and slurred speech. His wife reports that he was fine this morning but started exhibiting these symptoms about an hour ago. His vital signs are: BP 180/100 mmHg, HR 88 bpm, RR 18 breaths/min, SpO2 95% on room air. The patient has a history of hypertension and hyperlipidemia. Identify the actions the nurse should take.",
     "type": "bowtie",
-    "NGNcues": [
-        "Sudden onset right-sided weakness",
-        "Slurred speech",
-        "BP 180/100 mmHg",
-        "History of hypertension and hyperlipidemia"
-    ],
-    "NGNtype": "clinicalJudgment",
+    "stem": "A 68-year-old male with a history of hypertension arrives with acute right-sided weakness and slurred speech that began one hour ago. The nurse suspects an acute ischemic stroke. Complete the bowtie by selecting the appropriate actions, condition, and parameters to monitor.",
+    "itemContext": {
+        "patient": {
+            "name": "John Smith",
+            "age": 68,
+            "sex": "Male",
+            "diagnosis": "Acute Ischemic Stroke"
+        },
+        "sbar": "S: (09:30) John Smith, a 68-year-old male, was brought to the ED by his wife for a sudden onset of right-sided facial droop, arm weakness, and slurred speech. The symptoms started at approximately 08:30, with the last known well time confirmed this morning.\nB: He has a known history of hypertension, managed with lisinopril, and hyperlipidemia, managed with atorvastatin. He has no known drug allergies and no recent trauma or surgeries.\nA: Patient is alert but confused, GCS 13. Obvious dysarthria and right-sided hemiparesis are noted. Vitals: BP 180/100 mmHg, HR 88/min, RR 18/min, SpO2 95% on room air. Fingerstick glucose is 110 mg/dL.\nR: I suspect an acute ischemic stroke. I am requesting immediate stroke team activation, a stat non-contrast head CT, and the establishment of two large-bore IVs.",
+        "tabs": [
+            {
+                "id": "sbar",
+                "title": "SBAR",
+                "content": "S: (09:30) John Smith, a 68-year-old male, was brought to the ED by his wife for a sudden onset of right-sided facial droop, arm weakness, and slurred speech. The symptoms started at approximately 08:30, with the last known well time confirmed this morning.<br>B: He has a known history of hypertension, managed with lisinopril, and hyperlipidemia, managed with atorvastatin. He has no known drug allergies and no recent trauma or surgeries.<br>A: Patient is alert but confused, GCS 13. Obvious dysarthria and right-sided hemiparesis are noted. Vitals: BP 180/100 mmHg, HR 88/min, RR 18/min, SpO2 95% on room air. Fingerstick glucose is 110 mg/dL.<br>R: I suspect an acute ischemic stroke. I am requesting immediate stroke team activation, a stat non-contrast head CT, and the establishment of two large-bore IVs."
+            },
+            {
+                "id": "history",
+                "title": "History and Physical",
+                "content": "<b>Patient History:</b><br>History of hypertension, hyperlipidemia. No known allergies.<br><br><b>Physical Examination:</b><br>Neurological: Alert but confused. GCS 13. Right facial droop present. Right hemiparesis with 2/5 strength in the right arm and 3/5 strength in the right leg. Dysarthria noted. Pupils equal, round, and reactive to light."
+            },
+            {
+                "id": "vitals",
+                "title": "Vital Signs",
+                "content": "<b>Time:</b> 09:30<br><b>Blood Pressure:</b> 180/100 mmHg<br><b>Heart Rate:</b> 88/min<br><b>Respiratory Rate:</b> 18/min<br><b>SpO2:</b> 95% on room air<br><b>Temperature:</b> 37.0°C (98.6°F)"
+            },
+            {
+                "id": "labs",
+                "title": "Labs",
+                "content": "<b>Point of Care (09:35):</b><br>Glucose, whole blood: 110 mg/dL<br><br><b>Pending:</b><br>Comprehensive Metabolic Panel<br>Complete Blood Count<br>Coagulation Studies (PT/INR, aPTT)"
+            },
+            {
+                "id": "mar",
+                "title": "MAR",
+                "content": "<b>Home Medications:</b><br>Lisinopril 20 mg PO daily<br>Atorvastatin 40 mg PO daily"
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<b>Non-contrast Head CT:</b> Ordered STAT (09:40)"
+            }
+        ]
+    },
     "actions": [
         {
             "id": "a1",
-            "text": "Administer Oxygen"
+            "text": "Activate stroke team",
+            "rationale": "Activating the stroke team mobilizes a specialized multidisciplinary group for rapid diagnosis and treatment, which is critical as 'time is brain' in stroke care."
         },
         {
             "id": "a2",
-            "text": "Start IV Fluids"
+            "text": "Establish two large-bore IV lines",
+            "rationale": "Establishing IV access is essential for administering potential treatments like thrombolytics (tPA), managing blood pressure, and providing hydration."
         },
         {
             "id": "a3",
-            "text": "Notify Provider"
+            "text": "Administer aspirin 325 mg PO",
+            "rationale": "This is a clinical flaw. Aspirin is contraindicated until a hemorrhagic stroke is ruled out by a non-contrast head CT, as it would worsen bleeding."
         },
         {
             "id": "a4",
-            "text": "Prepare for Intubation"
+            "text": "Administer IV labetalol",
+            "rationale": "This is a clinical flaw. Permissive hypertension is often allowed in acute ischemic stroke to maintain cerebral perfusion; rapidly lowering blood pressure can worsen ischemic injury."
         },
         {
             "id": "a5",
-            "text": "Administer Analgesia"
+            "text": "Prepare for endotracheal intubation",
+            "rationale": "This is a clinical flaw. There is no indication of airway compromise or respiratory failure (SpO2 95%, RR 18), making intubation unnecessary at this time."
         }
     ],
+    "potentialConditions": [
+        {
+            "id": "c1",
+            "text": "Acute Ischemic Stroke",
+            "rationale": "The sudden onset of focal neurological deficits (unilateral weakness, slurred speech) in a patient with vascular risk factors is the classic presentation of an acute ischemic stroke."
+        },
+        {
+            "id": "c2",
+            "text": "Hemorrhagic Stroke",
+            "rationale": "This is a clinical flaw. While possible, ischemic strokes are far more common (~87%). The initial management priorities are similar, but this presentation is classic for ischemia."
+        },
+        {
+            "id": "c3",
+            "text": "Hypoglycemic event",
+            "rationale": "This is a clinical flaw. Hypoglycemia can mimic stroke symptoms, but the patient's blood glucose of 110 mg/dL rules out this condition."
+        },
+        {
+            "id": "c4",
+            "text": "Hypertensive crisis",
+            "rationale": "This is a clinical flaw. While the patient is hypertensive, hypertensive crisis typically presents with headache or confusion, not focal deficits like hemiparesis."
+        },
+        {
+            "id": "c5",
+            "text": "Seizure",
+            "rationale": "This is a clinical flaw. A post-ictal state (Todd's paralysis) can cause focal weakness, but there was no report of seizure activity, making stroke a more likely diagnosis."
+        }
+    ],
+    "parameters": [
+        {
+            "id": "p1",
+            "text": "Neurological status",
+            "rationale": "Frequent neurological assessments are vital to monitor for changes in the patient's condition, which can indicate stroke progression or complications like cerebral edema."
+        },
+        {
+            "id": "p2",
+            "text": "Blood pressure",
+            "rationale": "Blood pressure must be closely monitored as it determines eligibility for thrombolytic therapy and needs careful management to ensure adequate cerebral perfusion."
+        },
+        {
+            "id": "p3",
+            "text": "Urine output",
+            "rationale": "This is a clinical flaw. While important for overall fluid status, urine output is not a priority parameter for monitoring in the hyperacute phase of a stroke."
+        },
+        {
+            "id": "p4",
+            "text": "Temperature",
+            "rationale": "This is a clinical flaw. Hyperthermia can worsen neurological outcomes, but it is not a primary parameter to monitor immediately unless a fever is present."
+        },
+        {
+            "id": "p5",
+            "text": "Pain score",
+            "rationale": "This is a clinical flaw. Pain is not a typical presenting symptom of an ischemic stroke, so monitoring a pain score is not a priority."
+        }
+    ],
+    "correctAnswer": {
+        "actions": [
+            "a1",
+            "a2"
+        ],
+        "condition": "c1",
+        "parameters": [
+            "p1",
+            "p2"
+        ]
+    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 6
     },
-    "NGNmodel": "bowTie",
-    "itemType": "bowtie",
     "pedagogy": {
-        "cjmmStep": "recognizeCues",
+        "cjmmStep": "Take Actions",
         "topicTags": [
             "Neurological",
-            "Stroke"
+            "Stroke",
+            "Emergency"
         ],
         "bloomLevel": "apply",
         "difficulty": 3,
         "nclexCategory": "Physiological Adaptation"
     },
-    "condition": "Neurological",
-    "rationale": {
-        "correct": "The patient is exhibiting signs and symptoms of a stroke. Rapid assessment and intervention are crucial to minimize brain damage. Actions such as notifying the healthcare provider, obtaining a CT scan, and preparing for thrombolytic therapy are essential.",
-        "mnemonic": "FAST (Face, Arms, Speech, Time)",
-        "incorrect": "Delaying notification of the healthcare provider or failing to prepare for potential interventions can lead to irreversible brain damage. Some actions are not appropriate at this stage of management.",
-        "questionTrap": "Distractors may include actions that are not immediately necessary or that would delay critical interventions.",
-        "clinicalPearls": [
-            "Time is brain in stroke management.",
-            "Rapid assessment and intervention are critical.",
-            "Elevated blood pressure is common in acute stroke but should be managed carefully."
-        ]
-    },
     "NGNversion": "2026",
-    "parameters": [
-        {
-            "id": "p1",
-            "text": "Vital Signs"
-        },
-        {
-            "id": "p2",
-            "text": "Oxygen Saturation"
-        },
-        {
-            "id": "p3",
-            "text": "Urine Output"
-        },
-        {
-            "id": "p4",
-            "text": "Pain Level"
-        },
-        {
-            "id": "p5",
-            "text": "Respiratory Rate"
-        }
-    ],
-    "itemContext": {
-        "sbar": "S: Patient presents with sudden onset right-sided weakness and slurred speech. B: History of hypertension and hyperlipidemia. A: BP 180/100, HR 88, RR 18, SpO2 95%. R: Needs immediate assessment and intervention.",
-        "tabs": [
-            {
-                "id": "sbar",
-                "title": "Sbar",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "physicalExam",
-                "title": "PhysicalExam",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "radiology",
-                "title": "Radiology",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "carePlan",
-                "title": "CarePlan",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "mar",
-                "title": "Mar",
-                "content": "<p>No significant findings at this time.</p>"
-            }
-        ],
-        "patient": {
-            "age": 68,
-            "sex": "Male",
-            "name": "John Smith",
-            "diagnosis": "Possible Acute Stroke"
-        }
-    },
-    "NGNconditions": [
-        "Possible Acute Stroke",
-        "Hypertension",
-        "Hyperlipidemia"
-    ],
-    "sentinelStatus": "healed_v2026_v23_bowtie_fix",
-    "correctActionIds": [
-        "a1",
-        "a2"
-    ],
-    "NGNbowTieElements": {
-        "outcome": [
-            "Minimize brain damage",
-            "Improve neurological function",
-            "Prevent complications"
-        ],
-        "condition": [
-            "Possible Acute Stroke"
-        ],
-        "intervention": [
-            "Administer thrombolytic therapy",
-            "Manage blood pressure",
-            "Monitor neurological status"
-        ]
-    },
-    "NGNcognitiveModel": "clinicalJudgmentMeasurementModel",
-    "NGNcorrectActions": [
-        "Notify the healthcare provider immediately.",
-        "Obtain a CT scan of the head.",
-        "Establish IV access.",
-        "Monitor vital signs closely.",
-        "Prepare for potential thrombolytic therapy.",
-        "Assess neurological status using NIHSS."
-    ],
-    "NGNcognitiveSkills": [
-        "recognizeCues",
-        "analyzeCues",
-        "prioritizeHypotheses",
-        "generateSolutions",
-        "takeAction",
-        "evaluateOutcomes"
-    ],
-    "NGNincorrectActions": [
-        "Administer antihypertensive medication without further orders.",
-        "Reassure the patient and monitor for improvement.",
-        "Delay notification of the healthcare provider.",
-        "Encourage oral intake."
-    ],
-    "correctParameterIds": [
-        "p1",
-        "p2"
-    ],
-    "potentialConditions": [
-        "Neurological",
-        "Pneumonia",
-        "Acute Myocardial Infarction",
-        "Pulmonary Embolism"
-    ]
+    "sentinelStatus": "healed_by_BARA_v2026_sync"
 }

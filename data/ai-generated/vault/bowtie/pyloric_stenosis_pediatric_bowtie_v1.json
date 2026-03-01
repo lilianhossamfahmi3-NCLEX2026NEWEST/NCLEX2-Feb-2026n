@@ -1,58 +1,211 @@
 {
-    "id": "pyloric_stenosis_pediatric_bowtie_v1",
+    "id": "pyloric_stenosis_pediatric_bowtie_v2",
     "type": "bowtie",
-    "stem": "A 5-week-old infant is brought to the emergency department with a 2-day history of projectile, non-bilious vomiting. The infant is lethargic with sunken fontanelles. An olive-shaped mass is palpated in the right upper quadrant (RUQ). Complete the bowtie to guide care.",
-    "actions": [
+    "ehr": {
+        "tabs": [
+            {
+                "id": "patient_info",
+                "title": "Patient Information",
+                "data": {
+                    "Name": "Leo Chen",
+                    "Age": "5 weeks",
+                    "Sex": "Male",
+                    "Weight": "3.8 kg",
+                    "Allergies": "No Known Allergies"
+                }
+            },
+            {
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "data": {
+                    "type": "SBAR",
+                    "note": "S: This is Nurse Alex in the ED regarding 5-week-old Leo Chen. He presents with a 2-day history of forceful, non-bilious projectile vomiting and lethargy.\n\nB: He was a full-term infant. Parents report constant hunger and decreased wet diapers over 24 hours.\n\nA: At 09:00, he is tachycardic (180/min) with moderate dehydration signs: sunken fontanelles, dry mucosa, cap refill 3 seconds. A firm, olive-shaped mass is palpable in the RUQ.\n\nR: Recommend immediate IV fluid resuscitation and urgent surgical consult for suspected pyloric stenosis."
+                }
+            },
+            {
+                "id": "vitals",
+                "title": "Vitals",
+                "data": [
+                    {
+                        "time": "09:00",
+                        "hr": "180",
+                        "rr": "45",
+                        "bp": "80/50",
+                        "temp_c": "37.1",
+                        "spo2": "99%",
+                        "notes": "Sunken fontanelles, dry mucous membranes, capillary refill 3 seconds."
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Labs",
+                "data": [
+                    {
+                        "time": "09:30",
+                        "test": "Metabolic Panel",
+                        "results": {
+                            "Sodium": {
+                                "value": "136",
+                                "unit": "mEq/L",
+                                "range": "135-145"
+                            },
+                            "Potassium": {
+                                "value": "3.0",
+                                "unit": "mEq/L",
+                                "range": "3.5-5.0",
+                                "flag": "low"
+                            },
+                            "Chloride": {
+                                "value": "88",
+                                "unit": "mEq/L",
+                                "range": "98-107",
+                                "flag": "low"
+                            },
+                            "Bicarbonate": {
+                                "value": "30",
+                                "unit": "mEq/L",
+                                "range": "22-29",
+                                "flag": "high"
+                            },
+                            "BUN": {
+                                "value": "25",
+                                "unit": "mg/dL",
+                                "range": "5-18",
+                                "flag": "high"
+                            },
+                            "Creatinine": {
+                                "value": "0.4",
+                                "unit": "mg/dL",
+                                "range": "0.2-0.5"
+                            },
+                            "Glucose": {
+                                "value": "90",
+                                "unit": "mg/dL",
+                                "range": "70-110"
+                            }
+                        }
+                    },
+                    {
+                        "time": "09:30",
+                        "test": "Venous Blood Gas",
+                        "results": {
+                            "pH": {
+                                "value": "7.50",
+                                "unit": "",
+                                "range": "7.32-7.42",
+                                "flag": "high"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "orders",
+                "title": "Provider Orders",
+                "data": [
+                    {
+                        "time": "09:15",
+                        "order": "Establish two peripheral IV lines."
+                    },
+                    {
+                        "time": "09:15",
+                        "order": "Administer 0.9% sodium chloride bolus, 20 mL/kg IV over 1 hour."
+                    },
+                    {
+                        "time": "09:15",
+                        "order": "Strict NPO."
+                    },
+                    {
+                        "time": "09:20",
+                        "order": "STAT abdominal ultrasound."
+                    },
+                    {
+                        "time": "09:20",
+                        "order": "Consult pediatric surgery."
+                    }
+                ]
+            }
+        ]
+    },
+    "stem": "A 5-week-old infant presents with projectile, non-bilious vomiting and signs of dehydration. An olive-shaped mass is palpated in the right upper quadrant. Based on the electronic health record, complete the bowtie to guide the infant's care.",
+    "potentialConditions": [
         {
-            "id": "action1",
-            "text": "Maintain NPO status and initiate intravenous (IV) fluids (D5NS with 20 mEq/L KCl)."
+            "id": "condition_pyloric_stenosis",
+            "text": "Hypertrophic Pyloric Stenosis"
         },
         {
-            "id": "action2",
-            "text": "Prepare the infant for surgical pyloromyotomy."
+            "id": "condition_gerd",
+            "text": "Gastroesophageal Reflux Disease (GERD)"
         },
         {
-            "id": "action4",
-            "text": "Apply a warm compress to the RUQ mass."
+            "id": "condition_intussusception",
+            "text": "Intussusception"
         },
         {
-            "id": "action3",
-            "text": "Encourage small, frequent bolus feedings."
+            "id": "condition_malrotation",
+            "text": "Malrotation with Volvulus"
         }
     ],
-    "potentialConditions": [
-        "Hypertrophic Pyloric Stenosis",
-        "Gastroesophageal Reflux Disease (GERD)",
-        "Intussusception",
-        "Malrotation with Volvulus"
+    "condition": "condition_pyloric_stenosis",
+    "actions": [
+        {
+            "id": "action_iv_fluids",
+            "text": "Initiate IV fluids and maintain NPO status."
+        },
+        {
+            "id": "action_surgery",
+            "text": "Prepare for surgical pyloromyotomy."
+        },
+        {
+            "id": "action_compress",
+            "text": "Apply warm compress to abdomen."
+        },
+        {
+            "id": "action_feedings",
+            "text": "Encourage small, frequent feedings."
+        }
     ],
-    "condition": "Hypertrophic Pyloric Stenosis",
     "parameters": [
         {
-            "id": "param3",
-            "text": "Auscultate and document bowel sound frequency and characteristics."
+            "id": "param_electrolytes",
+            "text": "Monitor serum electrolytes."
         },
         {
-            "id": "param4",
-            "text": "Measure and document abdominal circumference."
+            "id": "param_io_weight",
+            "text": "Monitor intake, output, and daily weight."
         },
         {
-            "id": "param1",
-            "text": "Monitor serum electrolytes (chloride and potassium)."
+            "id": "param_bowel_sounds",
+            "text": "Auscultate bowel sounds."
         },
         {
-            "id": "param2",
-            "text": "Monitor intake and output (I&O) and daily weight."
+            "id": "param_abd_circ",
+            "text": "Measure abdominal circumference."
         }
     ],
     "correctActionIds": [
-        "action1",
-        "action2"
+        "action_iv_fluids",
+        "action_surgery"
     ],
     "correctParameterIds": [
-        "param1",
-        "param2"
+        "param_electrolytes",
+        "param_io_weight"
     ],
+    "hoverRationales": {
+        "condition_pyloric_stenosis": "Correct. Hypertrophy of the pyloric sphincter muscle causes gastric outlet obstruction. This leads to the classic signs of projectile, non-bilious vomiting, dehydration, and metabolic alkalosis.",
+        "condition_gerd": "Incorrect. While GERD involves vomiting, it is typically not projectile or forceful. The presence of a palpable olive-shaped mass and severe dehydration makes pyloric stenosis more likely.",
+        "condition_intussusception": "Incorrect. Intussusception typically presents with intermittent, severe abdominal pain, a sausage-shaped abdominal mass, and 'currant jelly' stools, none of which are present here.",
+        "condition_malrotation": "Incorrect. This is a surgical emergency that presents with bilious (green) vomiting because the obstruction is distal to the ampulla of Vater. This infant's vomiting is non-bilious.",
+        "action_iv_fluids": "Correct. The infant is dehydrated with an electrolyte imbalance due to vomiting. IV fluids are critical for rehydration and correction, while NPO status prevents further vomiting and aspiration.",
+        "action_surgery": "Correct. A pyloromyotomy is the definitive surgical procedure to correct the gastric outlet obstruction. It is performed only after the infant's fluid and electrolyte status is stabilized.",
+        "action_compress": "Incorrect. A warm compress provides no therapeutic benefit for the muscular hypertrophy of pyloric stenosis. The priority is correcting fluid and electrolyte imbalances.",
+        "action_feedings": "Incorrect. Feeding is contraindicated as the gastric outlet is obstructed. This action would worsen vomiting, increase the risk of aspiration, and exacerbate dehydration.",
+        "param_electrolytes": "Correct. Persistent vomiting leads to loss of hydrogen and chloride ions, causing hypochloremic, hypokalemic metabolic alkalosis. Monitoring and correcting electrolytes is a priority.",
+        "param_io_weight": "Correct. These parameters are the most reliable indicators of the infant's hydration status and response to IV fluid resuscitation. They are essential for guiding therapy.",
+        "param_bowel_sounds": "Incorrect. While part of a standard assessment, bowel sounds are not a specific indicator for pyloric stenosis or the infant's response to fluid therapy. They may be hyperactive initially.",
+        "param_abd_circ": "Incorrect. Abdominal distention is not a primary feature of pyloric stenosis. This measurement is more critical for conditions like necrotizing enterocolitis or bowel obstruction."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -65,89 +218,9 @@
             "Fluid and Electrolytes"
         ]
     },
-    "rationale": {
-        "correct": "The clinical presentation of projectile, non-bilious vomiting, lethargy, sunken fontanelles, and a palpable olive-shaped mass in the RUQ strongly suggests hypertrophic pyloric stenosis. The priority is to correct dehydration and electrolyte imbalances (hypochloremic, hypokalemic metabolic alkalosis) with IV fluids and prepare the infant for surgical pyloromyotomy. Monitoring fluid and electrolyte balance, as well as I&O and daily weight, is crucial for assessing the effectiveness of interventions.",
-        "incorrect": "Initiating feedings would exacerbate the vomiting and increase the risk of aspiration. Applying a warm compress to the RUQ mass is not indicated and would not address the underlying problem. While assessing bowel sounds and abdominal circumference are part of a general abdominal assessment, they are not the primary indicators for monitoring the infant's stabilization and response to treatment in this specific condition.",
-        "clinicalPearls": [
-            "Hypertrophic pyloric stenosis typically presents between 2 and 8 weeks of age.",
-            "Non-bilious vomiting indicates an obstruction proximal to the duodenum."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on the palpable mass and overlooking the systemic effects of dehydration and electrolyte imbalance.",
-            "howToOvercome": "Recognize that the palpable mass is a key diagnostic finding, but addressing the dehydration and electrolyte imbalances is the immediate priority."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "\"Hypertrophic Pyloric Stenosis\" is the most likely diagnosis given the infant's age, symptoms, and physical exam findings.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Maintain NPO status and initiate intravenous (IV) fluids (D5NS with 20 mEq/L KCl)\" addresses the dehydration and electrolyte imbalances caused by persistent vomiting.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Prepare the infant for surgical pyloromyotomy\" is the definitive treatment for hypertrophic pyloric stenosis.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Apply a warm compress to the RUQ mass\" is not a necessary or helpful intervention for this condition.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Encourage small, frequent bolus feedings\" is contraindicated due to the pyloric obstruction and would worsen the vomiting.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Auscultate and document bowel sound frequency and characteristics\" is a general assessment finding but not the most critical parameter to monitor in this situation.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Measure and document abdominal circumference\" is a general assessment finding but not the most critical parameter to monitor in this situation.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Monitor serum electrolytes (chloride and potassium)\" is essential to assess and correct the electrolyte imbalances associated with pyloric stenosis.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Monitor intake and output (I&O) and daily weight\" is crucial for assessing fluid balance and the effectiveness of fluid resuscitation.",
-                "isCorrect": true
-            }
-        ],
-        "mnemonic": {
-            "title": "Pyloric Stenosis Management",
-            "expansion": "P - Pyloromyotomy Preparation\nI - IV Fluids (D5NS with KCl)\nO - Observe Electrolytes (K+, Cl-)\nS - Strict I&O monitoring"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Hypertrophic Pyloric Stenosis: Pathophysiology and Clinical Presentation",
-                "body": "Hypertrophic pyloric stenosis is characterized by hypertrophy of the pyloric muscle, leading to gastric outlet obstruction. Classic symptoms include projectile, non-bilious vomiting, dehydration, and a palpable olive-shaped mass in the RUQ. Electrolyte imbalances, particularly hypochloremic, hypokalemic metabolic alkalosis, are common.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Priority Nursing Interventions for Hypertrophic Pyloric Stenosis",
-                "body": "The priority nursing interventions include maintaining NPO status, initiating IV fluids (D5NS with KCl) to correct dehydration and electrolyte imbalances, and preparing the infant for surgical pyloromyotomy. Monitoring serum electrolytes, I&O, and daily weight are essential for assessing the effectiveness of treatment.",
-                "source": "Evidence-Based Nursing Practice"
-            },
-            {
-                "heading": "Differentiating Bilious and Non-Bilious Vomiting",
-                "body": "Non-bilious vomiting suggests an obstruction proximal to the duodenum, such as pyloric stenosis. Bilious vomiting indicates an obstruction distal to the duodenum.",
-                "source": "Pediatric Nursing Textbook"
-            }
-        ]
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "remediated_v2026_v1"
 }

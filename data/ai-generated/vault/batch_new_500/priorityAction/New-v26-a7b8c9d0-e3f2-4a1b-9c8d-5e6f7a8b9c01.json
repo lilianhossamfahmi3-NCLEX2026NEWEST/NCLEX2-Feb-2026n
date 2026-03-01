@@ -1,72 +1,179 @@
 {
     "id": "New-v26-a7b8c9d0-e3f2-4a1b-9c8d-5e6f7a8b9c01",
-    "type": "priorityAction",
-    "stem": "The nurse is preparing to administer medications to a patient with multiple comorbidities. Based on the patient's EHR, prioritize the nurse's actions.",
+    "type": "orderedResponse",
+    "stem": "The nurse is reviewing the client's electronic health record before the 08:00 medication administration. Drag the actions into the correct order of priority, from highest to lowest.",
+    "options": [
+        {
+            "id": "opt_1",
+            "label": "Initiate airborne isolation precautions."
+        },
+        {
+            "id": "opt_2",
+            "label": "Hold the scheduled dose of digoxin."
+        },
+        {
+            "id": "opt_3",
+            "label": "Notify the healthcare provider of critical lab values."
+        },
+        {
+            "id": "opt_4",
+            "label": "Administer the scheduled dose of potassium chloride."
+        },
+        {
+            "id": "opt_5",
+            "label": "Administer the scheduled dose of IV furosemide."
+        }
+    ],
+    "correctOrder": [
+        "opt_1",
+        "opt_2",
+        "opt_3",
+        "opt_4",
+        "opt_5"
+    ],
     "scoring": {
         "method": "dichotomous",
-        "maxPoints": 1
+        "maxPoints": 5
     },
     "itemContext": {
         "patient": {
             "name": "Ricardo Ramirez",
             "age": 78,
-            "gender": "Male",
-            "iso": "Telemetry Unit, Room 302",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "location": "Telemetry Unit, Room 302",
             "allergies": [
                 "Sulfa drugs"
             ],
             "conditions": [
-                "Tuberculosis"
+                "Congestive Heart Failure (CHF)",
+                "Atrial Fibrillation",
+                "Hypertension (HTN)",
+                "Diabetes Mellitus Type II",
+                "Chronic Kidney Disease (CKD) Stage 3",
+                "Pulmonary Tuberculosis (Active)"
             ]
         },
-        "sbar": "S: Ricardo Ramirez, 78-year-old male, admitted for CHF exacerbation and atrial fibrillation. History of HTN, DM type II, CKD stage 3, and recently diagnosed pulmonary tuberculosis. O: 06:00: Patient reports increased SOB and lower extremity edema. A: Current orders include furosemide 40mg IV BID, digoxin 0.125mg PO daily, potassium chloride 20mEq PO BID, and warfarin 5mg PO daily. INR this morning is 1.3. BP 100/60, HR 110 irregular, RR 24, SpO2 92% on 2L NC. Last dose of furosemide was given at 18:00 yesterday. Sputum sample sent for AFB smear and culture. A: Worsening CHF, risk for digoxin toxicity, subtherapeutic INR, and active tuberculosis requiring airborne precautions. R: Please evaluate and adjust medications as needed, particularly digoxin and warfarin. Consider holding digoxin and notifying physician of INR. Assess potassium level before administering potassium chloride at 08:00. Monitor BP closely after furosemide administration. Initiate airborne isolation precautions due to active TB and pending AFB results.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>100 mEq/L</td><td>95-105 mEq/L</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Digoxin</td><td>2.1 ng/mL</td><td>0.5-2.0 ng/mL</td></tr><tr><td>INR</td><td>1.3</td><td>2.0-3.0 (therapeutic range for warfarin)</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>BID</td><td>18:00</td></tr><tr><td>Digoxin</td><td>0.125 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>PO</td><td>BID</td><td>18:00</td></tr><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Yesterday 17:00",
+                        "noteType": "Admission Note",
+                        "author": "E. Johnson, RN",
+                        "text": "S: Client is a 78-year-old male admitted from home with a one-week history of worsening shortness of breath, fatigue, and bilateral lower extremity swelling. History of CHF, atrial fibrillation, HTN, DM II, and CKD Stage 3. Recently diagnosed with active pulmonary tuberculosis and started on treatment prior to admission. Lives in a multi-generational household.\nB: He reports decreased medication adherence over the past week. He has a known allergy to sulfa drugs. Admission vitals were stable. Placed on telemetry monitoring for atrial fibrillation.\nA: Client appears fatigued but is alert and oriented. Lungs with bibasilar crackles. 2+ pitting edema to bilateral lower legs. Irregularly irregular rhythm on monitor. Sputum sample sent for AFB smear and culture upon admission.\nR: Continue current home medications. Obtain baseline labs, including cardiac enzymes, BNP, and coagulation studies. Initiate fall precautions. Reinforce medication education."
+                    },
+                    {
+                        "timestamp": "Today 06:15",
+                        "noteType": "Progress Note",
+                        "author": "S. Chen, RN",
+                        "text": "S: Client reports feeling more short of breath this morning compared to yesterday. States, 'I feel like my heart is fluttering.' Denies chest pain but reports some mild nausea.\nB: Client has a history of CHF exacerbation and atrial fibrillation. He is currently on 2L of oxygen via nasal cannula. Morning labs from 06:00 are back and show critical values, including hypokalemia and an elevated digoxin level.\nA: Vitals trending towards hypotension and tachycardia. SpO2 has decreased overnight. Physical assessment reveals worsening crackles in lungs and increased peripheral edema. Client is at high risk for digoxin toxicity, further decompensation, and transmission of tuberculosis.\nR: Immediate intervention is required. Will hold morning digoxin dose. Plan to notify provider of critical lab results and change in client status. Ensure airborne precautions are implemented immediately. Prepare to administer potassium supplement as ordered."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>06:00</td><td>100/60</td><td>110 (irregular)</td><td>24</td><td>92% (2L NC)</td></tr><tr><td>04:00</td><td>110/70</td><td>100 (irregular)</td><td>22</td><td>94% (2L NC)</td></tr><tr><td>02:00</td><td>115/75</td><td>95 (irregular)</td><td>20</td><td>95% (2L NC)</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO₂</th></tr></thead><tbody><tr><td>06:00</td><td>100/60 mmHg (73)</td><td>110 (Irregular)</td><td>24</td><td>98.8°F (37.1°C)</td><td>92% on 2L NC</td></tr><tr><td>04:00</td><td>110/70 mmHg (83)</td><td>100 (Irregular)</td><td>22</td><td>98.7°F (37.1°C)</td><td>94% on 2L NC</td></tr><tr><td>02:00</td><td>115/75 mmHg (88)</td><td>95 (Irregular)</td><td>20</td><td>98.6°F (37.0°C)</td><td>95% on 2L NC</td></tr></tbody></table>"
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Sodium</td><td>138</td><td>mEq/L</td><td>135-145</td><td></td></tr><tr><td>Potassium</td><td>3.2</td><td>mEq/L</td><td>3.5-5.0</td><td>Low</td></tr><tr><td>Chloride</td><td>100</td><td>mEq/L</td><td>98-106</td><td></td></tr><tr><td>BUN</td><td>35</td><td>mg/dL</td><td>8-20</td><td>High</td></tr><tr><td>Creatinine</td><td>1.8</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>Digoxin Level</td><td>2.1</td><td>ng/mL</td><td>0.5-2.0</td><td>High</td></tr><tr><td>INR</td><td>1.3</td><td></td><td>2.0-3.0</td><td>Low</td></tr></tbody></table>"
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Yesterday 17:00 (Admission)",
+                        "assessment": "GENERAL: Alert and oriented x4, appears fatigued. CARDIOVASCULAR: S1/S2 heard, irregularly irregular rhythm. No murmurs. Capillary refill <3 seconds. 2+ pitting edema bilateral lower extremities to mid-calf. RESPIRATORY: Bibasilar crackles noted halfway up lung fields. Respirations slightly labored. NEUROLOGICAL: Grossly intact. GI/GU: Bowel sounds active x4. No tenderness on palpation."
+                    },
+                    {
+                        "timestamp": "Today 06:15 (Focused)",
+                        "assessment": "CARDIOVASCULAR: Tachycardic, irregularly irregular rhythm. Peripheral pulses 2+. 3+ pitting edema bilateral lower extremities. RESPIRATORY: Increased work of breathing. Crackles auscultated 2/3 of the way up posterior lung fields. Productive cough with clear sputum."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Chest X-ray (PA and Lateral)",
+                        "date": "Yesterday 18:30",
+                        "report": "FINDINGS: Moderate cardiomegaly is noted. There are signs of pulmonary venous congestion, including Kerley B lines and small bilateral pleural effusions, right greater than left. No focal consolidation, pneumothorax, or definite evidence of active parenchymal disease is seen. The findings are consistent with congestive heart failure.\n\nIMPRESSION: Radiographic evidence of moderate CHF exacerbation."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Yesterday 17:15</td><td>Admit to Telemetry Unit</td><td>Standing</td></tr><tr><td>Yesterday 17:15</td><td>Airborne Isolation Precautions</td><td>Standing</td></tr><tr><td>Yesterday 17:15</td><td>Vital signs every 4 hours</td><td>Standing</td></tr><tr><td>Yesterday 17:15</td><td>2L O₂ via Nasal Cannula, titrate to keep SpO₂ >92%</td><td>Standing</td></tr><tr><td>Yesterday 17:15</td><td>Cardiac Diet, 2-gram sodium restriction</td><td>Standing</td></tr><tr><td>Yesterday 17:15</td><td>Furosemide 40 mg IV</td><td>BID (08:00, 18:00)</td></tr><tr><td>Yesterday 17:15</td><td>Digoxin 0.125 mg PO</td><td>Daily (08:00)</td></tr><tr><td>Yesterday 17:15</td><td>Potassium Chloride 20 mEq PO</td><td>BID (08:00, 18:00)</td></tr><tr><td>Yesterday 17:15</td><td>Warfarin 5 mg PO</td><td>Daily (08:00)</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>BID</td><td>Yesterday 18:00</td></tr><tr><td>Digoxin</td><td>0.125 mg</td><td>PO</td><td>Daily</td><td>Yesterday 08:00</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>PO</td><td>BID</td><td>Yesterday 18:00</td></tr><tr><td>Warfarin</td><td>5 mg</td><td>PO</td><td>Daily</td><td>Yesterday 08:00</td></tr></tbody></table>"
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "Take Action",
         "nclexCategory": "Safe and Effective Care Environment",
         "difficulty": 5,
         "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs",
-            "Infection Control"
+            "Medication Administration",
+            "Infection Control",
+            "Prioritization",
+            "High-Alert Drugs"
         ]
     },
     "rationale": {
-        "correct": "The patient's elevated digoxin level (2.1 ng/mL), coupled with hypokalemia (3.2 mEq/L) and bradycardia relative to the patient's baseline, indicates a high risk of digoxin toxicity. Holding the digoxin and notifying the physician is crucial to prevent further complications. Initiating airborne precautions is essential given the diagnosis of active tuberculosis and the risk of airborne transmission. Administering potassium is vital to correct the hypokalemia, which predisposes to digoxin toxicity and arrhythmias. Evaluating renal function (BUN and creatinine) is important due to the patient's CKD and its impact on drug excretion. Lastly, monitoring BP after furosemide administration is essential to detect hypotension, which can be exacerbated by diuretic use, especially given the already low BP.",
-        "incorrect": "Administering furosemide without addressing the hypokalemia and potential digoxin toxicity could worsen the patient's condition and precipitate arrhythmias. Continuing warfarin without addressing the subtherapeutic INR (1.3) increases the risk of thromboembolic events, but is lower priority compared to digoxin toxicity and the immediate need for airborne precautions. Withholding potassium without addressing the hypokalemia can worsen the patient's cardiac function. Delaying notification of the physician about the digoxin level and INR will delay necessary interventions. Ignoring the active tuberculosis diagnosis and failing to initiate airborne precautions puts healthcare workers and other patients at risk.",
+        "correct": "The correct prioritization addresses the most immediate threats to safety for the client and others. The highest priority is initiating airborne precautions for active tuberculosis to prevent transmission. The next priority is addressing the critical lab values indicating digoxin toxicity (level 2.1 ng/mL) exacerbated by hypokalemia (3.2 mEq/L), which requires holding the digoxin dose. Following this, the provider must be notified of the critical findings to receive further orders. Then, the underlying hypokalemia must be corrected by administering potassium. Finally, the furosemide can be given to manage CHF symptoms once the more critical safety issues are addressed.",
+        "answerBreakdown": [
+            {
+                "option": "Initiate airborne isolation precautions.",
+                "order": 1,
+                "rationale": "This is the highest priority. Active pulmonary tuberculosis poses a significant transmission risk to healthcare staff and other clients. According to infection control principles, protecting others from a communicable disease is a paramount safety action that must be implemented immediately."
+            },
+            {
+                "option": "Hold the scheduled dose of digoxin.",
+                "order": 2,
+                "rationale": "This is the next priority. The client's digoxin level is toxic (2.1 ng/mL), and he is symptomatic (nausea, arrhythmia). The coexisting hypokalemia (K+ 3.2 mEq/L) significantly increases the risk of life-threatening arrhythmias from digoxin. Administering another dose would be unsafe and potentially fatal."
+            },
+            {
+                "option": "Notify the healthcare provider of critical lab values.",
+                "order": 3,
+                "rationale": "After ensuring immediate safety by initiating isolation and holding the toxic medication, the nurse must communicate the critical findings (high digoxin, low potassium, worsening renal function) to the provider. This is essential for collaborative management and obtaining new orders, such as for a digoxin antidote or changes in medication regimen."
+            },
+            {
+                "option": "Administer the scheduled dose of potassium chloride.",
+                "order": 4,
+                "rationale": "Correcting the hypokalemia is a high priority as it is a primary contributor to the client's risk for digoxin toxicity. Administering the potassium supplement helps stabilize the myocardial cells and reduce the risk of arrhythmias. This should be done before administering diuretics that could further deplete potassium."
+            },
+            {
+                "option": "Administer the scheduled dose of IV furosemide.",
+                "order": 5,
+                "rationale": "While the client has signs of fluid overload (worsening crackles, edema), administering the loop diuretic is the last priority in this sequence. Furosemide can worsen hypokalemia, further increasing the risk of digoxin toxicity. Additionally, given the client's borderline low blood pressure (100/60 mmHg), administering a diuretic requires careful consideration and should only occur after addressing the more immediate life-threats."
+            }
+        ],
         "clinicalPearls": [
-            "Hypokalemia increases the risk of digoxin toxicity.",
-            "Digoxin toxicity can manifest as bradycardia, nausea, vomiting, and visual disturbances.",
-            "Furosemide can exacerbate hypokalemia.",
-            "Patients with CKD are at higher risk of drug toxicity due to impaired renal excretion.",
-            "High alert medications such as digoxin, warfarin, and furosemide require careful monitoring.",
-            "Pulmonary Tuberculosis requires airborne isolation precautions to prevent the spread of the infection."
+            "Hypokalemia potentiates the effects of digoxin, increasing the risk of toxicity even at therapeutic levels. Key signs of toxicity include nausea, vomiting, vision changes (yellow-green halos), and cardiac arrhythmias.",
+            "Active pulmonary tuberculosis requires immediate implementation of airborne precautions, which include a private, negative-pressure room, and use of N95 respirators by all staff entering the room.",
+            "In clients with Chronic Kidney Disease (CKD), medications excreted by the kidneys, such as digoxin, have a longer half-life, leading to an increased risk of accumulation and toxicity. Renal function (BUN, Creatinine) must be monitored closely.",
+            "When prioritizing care, the hierarchy of safety is: 1) Immediate threat to others (infection control), 2) Immediate physiological threat to the client (ABCs, drug toxicity), 3) Communication of critical data, 4) Addressing underlying problems, 5) Treating symptoms."
         ],
         "questionTrap": {
-            "trap": "Many students focus solely on the low INR and prioritize adjusting the warfarin dose. While the INR is important, the immediate threat of digoxin toxicity is more critical. Additionally, the presence of active TB requires immediate isolation.",
-            "howToOvercome": "Carefully review all lab values and vital signs in conjunction with the medication list and patient diagnoses to identify the most pressing issue. Prioritize actions based on the immediate risk to the patient and public health."
+            "trap": "Focusing solely on the client's respiratory symptoms (shortness of breath, crackles) and prioritizing the administration of the diuretic (furosemide) to treat the CHF exacerbation. This ignores the more immediate and life-threatening risk of digoxin toxicity.",
+            "howToOvercome": "Always perform a comprehensive review of all available data before acting. Synthesize lab values, vital signs, and medications. Recognize that a critical lab value, especially for a high-alert drug like digoxin, often represents a more immediate threat than the symptoms it is intended to treat."
         },
         "mnemonic": {
-            "title": "D.I.G. & A.I.R.",
-            "expansion": "Drugs (high alert), Interactions, Geriatrics (renal decline) & Airborne Isolation Required"
+            "title": "SAFE MEDS",
+            "expansion": "Stop transmission (Airborne) -> Assess for toxicity (Hold Digoxin) -> Flag the provider (Notify) -> Electrolyte replacement (Potassium) -> Manage fluid (Furosemide) -> Evaluate response"
         }
-    },
-    "isolationType": "airborne"
+    }
 }

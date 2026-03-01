@@ -1,13 +1,18 @@
 {
     "id": "bowtie_v_tach_and_v_fib_ekg_recognition_v2026",
     "type": "bowtie",
-    "stem": "The nurse is caring for a 68-year-old male patient who suddenly became unresponsive. After quickly assessing the patient, the nurse calls for help and retrieves the crash cart. Review the patient's chart and determine the appropriate actions, potential condition, and parameters to monitor.",
+    "stem": "A nurse is leading resuscitation for a 68-year-old male who was found unresponsive and pulseless. The code team is managing the patient according to ACLS protocol. Based on the most recent rhythm check, determine the appropriate actions to take, the potential condition, and the parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
+                "title": "SBAR",
+                "content": "Situation: This is Nurse Miller leading a Code Blue in room 402. The patient is a 68-year-old male, found unresponsive and pulseless at 07:00. Background: He has a history of coronary artery disease and hypertension, admitted for syncope. Assessment: The patient is in cardiac arrest with an initial rhythm of V-Tach that degenerated into ventricular fibrillation. We have performed one defibrillation and administered epinephrine and amiodarone per ACLS. Recommendation: We are continuing high-quality CPR and require immediate direction for the next intervention."
+            },
+            {
+                "id": "notes",
                 "title": "Nurses' Notes",
-                "content": "07:00: Patient found unresponsive in bed. No pulse or respirations noted. Code Blue initiated. 07:01: CPR started by nursing staff. Oxygen 100% via bag-valve-mask. 07:02: Cardiac monitor attached, showing wide complex tachycardia. 07:03: IV access established in right antecubital fossa with 18g catheter. 07:04: First dose of epinephrine 1mg IV push administered. 07:06: Rhythm check shows no change; still wide complex tachycardia. Compressions continued. 07:08: Second dose of epinephrine 1mg IV push administered. 07:10: Rhythm check shows ventricular fibrillation. Defibrillation attempted at 200J. 07:12: Rhythm check shows no change; still ventricular fibrillation. Compressions continued. 07:14: Amiodarone 300mg IV push administered. 07:16: Rhythm check pending. Continue chest compressions."
+                "content": "07:00: Patient found unresponsive in bed. No pulse or respirations noted. Code Blue initiated. \n07:01: CPR started by nursing staff. Oxygen 100% via bag-valve-mask. \n07:02: Cardiac monitor attached, showing wide complex tachycardia. \n07:03: IV access established in right antecubital fossa with 18g catheter. \n07:04: First dose of epinephrine 1mg IV push administered. \n07:06: Rhythm check shows no change; still wide complex tachycardia. Compressions continued. \n07:08: Second dose of epinephrine 1mg IV push administered. \n07:10: Rhythm check shows ventricular fibrillation. Defibrillation attempted at 200J. \n07:12: Rhythm check shows no change; still ventricular fibrillation. Compressions continued. \n07:14: Amiodarone 300mg IV push administered. \n07:16: Rhythm check pending. Continue chest compressions."
             },
             {
                 "id": "vitals",
@@ -17,12 +22,12 @@
             {
                 "id": "labs",
                 "title": "Lab Results",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Units</th><th>Reference Range</th></tr></thead><tbody><tr><td>Potassium</td><td>4.2</td><td>mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>140</td><td>mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Magnesium</td><td>2.0</td><td>mg/dL</td><td>1.5-2.5 mg/dL</td></tr><tr><td>Troponin</td><td>0.01</td><td>ng/mL</td><td><0.04 ng/mL</td></tr></tbody></table>"
+                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Units</th><th>Reference Range</th></tr></thead><tbody><tr><td>Potassium</td><td>4.2</td><td>mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>140</td><td>mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Magnesium</td><td>2.0</td><td>mg/dL</td><td>1.5-2.5 mg/dL</td></tr><tr><td>Troponin</td><td>0.01</td><td>ng/mL</td><td>&lt;0.04 ng/mL</td></tr></tbody></table>"
             },
             {
                 "id": "exam",
                 "title": "Physical Exam",
-                "content": "General: Unresponsive male in bed. Skin: Pale, cool, and diaphoretic. Cardiovascular: No audible heart sounds. Respiratory: No chest rise or fall. Neurological: No response to stimuli."
+                "content": "General: Unresponsive male in bed. \nSkin: Pale, cool, and diaphoretic. \nCardiovascular: No audible heart sounds. \nRespiratory: No chest rise or fall. \nNeurological: No response to stimuli."
             },
             {
                 "id": "orders",
@@ -32,7 +37,7 @@
             {
                 "id": "mar",
                 "title": "MAR",
-                "content": "Epinephrine 1mg IV push (07:04, 07:08), Amiodarone 300mg IV push (07:14)"
+                "content": "Epinephrine 1mg IV push (07:04, 07:08)\nAmiodarone 300mg IV push (07:14)"
             }
         ]
     },
@@ -63,12 +68,24 @@
         }
     ],
     "potentialConditions": [
-        "Asystole",
-        "Ventricular Tachycardia",
-        "Ventricular Fibrillation",
-        "Pulseless Electrical Activity"
+        {
+            "id": "c1",
+            "text": "Asystole"
+        },
+        {
+            "id": "c2",
+            "text": "Ventricular Tachycardia"
+        },
+        {
+            "id": "c3",
+            "text": "Ventricular Fibrillation"
+        },
+        {
+            "id": "c4",
+            "text": "Pulseless Electrical Activity"
+        }
     ],
-    "condition": "Ventricular Fibrillation",
+    "condition": "c3",
     "parameters": [
         {
             "id": "p1",
@@ -115,101 +132,76 @@
         ]
     },
     "rationale": {
-        "correct": "Ventricular fibrillation (V-Fib) is a life-threatening arrhythmia requiring immediate defibrillation and continued chest compressions. End-tidal CO2 and heart rhythm monitoring are crucial to assess the effectiveness of interventions.",
-        "incorrect": "Incorrect options do not align with the immediate management of ventricular fibrillation or appropriate monitoring parameters.",
-        "answerBreakdown": [
+        "hoverRationales": [
             {
                 "id": "a1",
-                "text": "Continue chest compressions",
-                "correct": true,
-                "rationale": "Chest compressions are essential to provide circulation during cardiac arrest and should be continued without interruption as per ACLS guidelines."
+                "text": "Continuous chest compressions generate minimal but critical blood flow to the brain and myocardium. Interrupting them, even for a few seconds, worsens outcomes by dropping coronary and cerebral perfusion pressure."
             },
             {
                 "id": "a2",
-                "text": "Administer another dose of epinephrine 1mg IV push",
-                "correct": false,
-                "rationale": "Epinephrine is appropriate, but not the priority action immediately after a failed defibrillation attempt. The priority is to continue compressions and prepare for another defibrillation attempt if the rhythm persists. Epinephrine would be given after the next defibrillation attempt if unsuccessful."
+                "text": "Although epinephrine is due, the definitive treatment for ventricular fibrillation is defibrillation. Delaying the shock to administer medications is a critical prioritization error in the ACLS algorithm."
             },
             {
                 "id": "a3",
-                "text": "Prepare for synchronized cardioversion",
-                "correct": false,
-                "rationale": "Synchronized cardioversion is not used for ventricular fibrillation. Defibrillation is the appropriate intervention for V-fib."
+                "text": "Synchronized cardioversion delivers energy on the R-wave and is used for tachycardias with a pulse. Applying it to V-fib, which has no organized complexes, is a procedural flaw and ineffective."
             },
             {
                 "id": "a4",
-                "text": "Prepare for immediate defibrillation",
-                "correct": true,
-                "rationale": "Defibrillation is the definitive treatment for ventricular fibrillation. The patient has already received one shock without conversion, so preparing for another is crucial."
+                "text": "Ventricular fibrillation is chaotic ventricular quivering, producing no cardiac output. Defibrillation delivers a massive, unsynchronized electrical current to depolarize the entire myocardium simultaneously, allowing the SA node to resume pacing."
             },
             {
                 "id": "a5",
-                "text": "Administer atropine 0.5mg IV push",
-                "correct": false,
-                "rationale": "Atropine is not indicated in the treatment of ventricular fibrillation. It is used for symptomatic bradycardia or asystole/PEA after epinephrine."
+                "text": "Atropine is indicated for symptomatic bradycardia by blocking vagal input to the SA node. It has no effect on the chaotic electrical activity of ventricular fibrillation, making its use a pharmacological error."
             },
             {
                 "id": "a6",
-                "text": "Assess patient's airway",
-                "correct": false,
-                "rationale": "Airway assessment is important, but the airway is already being managed with a bag-valve-mask. The priority is circulation and defibrillation."
+                "text": "The patient's airway is currently managed with a bag-valve-mask. Pausing compressions or delaying defibrillation to reassess a secured airway is a life-threatening prioritization flaw during cardiac arrest."
+            },
+            {
+                "id": "c1",
+                "text": "This is a clinical flaw in rhythm interpretation. Asystole is a non-shockable rhythm characterized by the absence of cardiac electrical activity, which is inconsistent with the documented V-fib."
+            },
+            {
+                "id": "c2",
+                "text": "This is a clinical flaw in rhythm interpretation. While also a shockable rhythm, V-Tach has organized wide complexes, whereas the notes specify V-fib, a chaotic, disorganized rhythm."
+            },
+            {
+                "id": "c3",
+                "text": "Ventricular fibrillation is a lethal arrhythmia characterized by chaotic, uncoordinated ventricular contractions, resulting in no cardiac output. This aligns with the patient's pulseless state and the documented rhythm."
+            },
+            {
+                "id": "c4",
+                "text": "This is a clinical flaw in rhythm interpretation. PEA is a non-shockable rhythm with organized electrical activity but no pulse. The patient's documented rhythm is disorganized ventricular fibrillation."
             },
             {
                 "id": "p1",
-                "text": "Oxygen saturation",
-                "correct": false,
-                "rationale": "While important, oxygen saturation is less critical to monitor immediately compared to the effectiveness of chest compressions (EtCO2) and rhythm changes. The patient is already receiving 100% oxygen."
+                "text": "This is a clinical flaw in monitoring. Pulse oximetry requires pulsatile arterial flow to function, which is absent in cardiac arrest. Relying on this data is misleading and incorrect."
             },
             {
                 "id": "p2",
-                "text": "End-tidal CO2",
-                "correct": true,
-                "rationale": "End-tidal CO2 (EtCO2) reflects the effectiveness of chest compressions and pulmonary perfusion. A sudden rise in EtCO2 may indicate return of spontaneous circulation (ROSC)."
+                "text": "End-tidal CO2 directly reflects pulmonary blood flow, which is generated by chest compressions. Monitoring EtCO2 provides immediate feedback on compression quality and is the earliest indicator of ROSC."
             },
             {
                 "id": "p3",
-                "text": "Blood pressure",
-                "correct": false,
-                "rationale": "Blood pressure is not obtainable without a perfusing rhythm, so monitoring this is not immediately useful during active resuscitation. Focus should be on interventions to restore a perfusing rhythm."
+                "text": "This is a clinical flaw in monitoring. Blood pressure is a measure of cardiac output and systemic resistance, both of which are effectively zero in cardiac arrest. This parameter is unmeasurable until ROSC."
             },
             {
                 "id": "p4",
-                "text": "Level of consciousness",
-                "correct": false,
-                "rationale": "The patient is unresponsive; monitoring level of consciousness is not a priority during active resuscitation. The priority is restoring a perfusing rhythm."
+                "text": "This is a clinical flaw in assessment timing. The patient is unresponsive by definition of cardiac arrest. Neurological assessment is only performed after Return of Spontaneous Circulation (ROSC) is achieved."
             },
             {
                 "id": "p5",
-                "text": "Heart rhythm",
-                "correct": true,
-                "rationale": "Continuous heart rhythm monitoring is crucial to assess the effectiveness of interventions and identify any changes in the patient's cardiac status. It will determine if defibrillation was successful or if further interventions are needed."
+                "text": "The cardiac rhythm dictates the entire ACLS algorithm for pulseless arrest. Continuous monitoring is required to identify the rhythm, determine if it is shockable, and evaluate the response to defibrillation and medications."
             },
             {
                 "id": "p6",
-                "text": "Urine output",
-                "correct": false,
-                "rationale": "Urine output is not relevant in the acute management of cardiac arrest. Focus should be on restoring a perfusing rhythm."
+                "text": "This is a clinical flaw in monitoring focus. Urine output is a marker of long-term organ perfusion and is irrelevant during the acute minutes of a cardiac arrest resuscitation."
             }
-        ],
-        "clinicalPearls": [
-            "Ventricular fibrillation requires immediate defibrillation.",
-            "Continuous chest compressions are crucial during cardiac arrest.",
-            "End-tidal CO2 is a valuable indicator of the effectiveness of chest compressions.",
-            "Epinephrine and amiodarone are medications used in ACLS protocols for cardiac arrest.",
-            "Follow ACLS guidelines for the management of cardiac arrest."
-        ],
-        "questionTrap": {
-            "trap": "Choosing synchronized cardioversion instead of defibrillation. Assuming that administering medication is the priority over chest compressions. Forgetting the importance of monitoring the effectiveness of chest compressions.",
-            "howToOvercome": "Remember that V-fib requires defibrillation, not cardioversion. Prioritize interventions based on ACLS guidelines (CAB - Circulation, Airway, Breathing). Understand the importance of EtCO2 in monitoring the effectiveness of chest compressions."
-        },
-        "mnemonic": {
-            "title": "VFib Treatment",
-            "expansion": "D-CAB (Defibrillation, Circulation, Airway, Breathing)"
-        }
+        ]
     },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "healed_v2026_v12"
 }

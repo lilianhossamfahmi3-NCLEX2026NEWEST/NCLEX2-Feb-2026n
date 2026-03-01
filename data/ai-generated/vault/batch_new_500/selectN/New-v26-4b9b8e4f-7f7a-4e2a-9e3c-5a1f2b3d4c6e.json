@@ -1,114 +1,157 @@
 {
     "id": "New-v26-4b9b8e4f-7f7a-4e2a-9e3c-5a1f2b3d4c6e",
-    "type": "selectN",
-    "stem": "The nurse is reviewing the client's electronic health record (EHR). Based on the information provided, which findings require immediate intervention by the healthcare provider?",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "type": "selectAll",
+    "stem": "The nurse is reviewing the client's electronic health record. Based on the provided data, select all findings that require immediate intervention.",
+    "options": [
+        {
+            "id": "OPT_01",
+            "text": "Potassium level of 6.8 mEq/L"
+        },
+        {
+            "id": "OPT_02",
+            "text": "Sodium level of 152 mEq/L"
+        },
+        {
+            "id": "OPT_03",
+            "text": "Arterial blood gas (ABG): pH 7.28, PaCO2 30 mmHg, HCO3 18 mEq/L"
+        },
+        {
+            "id": "OPT_04",
+            "text": "BUN 65 mg/dL and Creatinine 3.5 mg/dL"
+        },
+        {
+            "id": "OPT_05",
+            "text": "White blood cell count (WBC) of 14,000/mm3"
+        },
+        {
+            "id": "OPT_06",
+            "text": "Blood pressure of 160/90 mmHg"
+        },
+        {
+            "id": "OPT_07",
+            "text": "Increasing confusion and restlessness"
+        },
+        {
+            "id": "OPT_08",
+            "text": "Temperature of 37.9°C (100.2°F)"
+        }
+    ],
+    "correctOptionIds": [
+        "OPT_01",
+        "OPT_03",
+        "OPT_04",
+        "OPT_07"
+    ],
     "itemContext": {
         "patient": {
             "name": "Robert Miller",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "72",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
-            ]
+            ],
+            "location": "Medical-Surgical Unit"
         },
-        "sbar": "Report:\n\nSituation: Robert Miller, a 72-year-old male, admitted 3 days prior for pneumonia, with a history of hypertension and benign prostatic hyperplasia (BPH).\n\nBackground: The patient initially responded well to IV antibiotics. However, urine output has been declining since 02:00. A Foley catheter was inserted at 06:00, yielding only 30 mL over 6 hours. \n\nAssessment: At 08:00, the patient is increasingly confused and restless. Vital signs: BP 160/90 mmHg, HR 110 bpm, RR 24 breaths/min, SpO2 92% on 2L NC, Temp 37.9°C (100.2°F). Bilateral lower extremity edema is noted. Auscultation reveals crackles in the lower lobes. Current medications include IV ceftriaxone and oral metoprolol. \n\nRecommendation: I suspect acute kidney injury (AKI) superimposed on chronic kidney disease (CKD) exacerbation. I recommend a STAT lab draw, including electrolytes, BUN, creatinine, and ABG. Please assess for fluid overload and consider a nephrology consult. The patient reports some nausea but denies vomiting.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>Sodium</td><td>152 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>6.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>108 mEq/L</td><td>96-106 mEq/L</td></tr><tr><td>BUN</td><td>65 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Creatinine</td><td>3.5 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Glucose</td><td>110 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>WBC</td><td>14,000/mm3</td><td>4,500-11,000/mm3</td></tr><tr><td>Hemoglobin</td><td>13.5 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Platelets</td><td>250,000/mm3</td><td>150,000-400,000/mm3</td></tr><tr><td>ABG: pH</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>ABG: PaCO2</td><td>30 mmHg</td><td>35-45 mmHg</td></tr><tr><td>ABG: HCO3</td><td>18 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>ABG: PaO2</td><td>88 mmHg</td><td>80-100 mmHg</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<h6>Admission Note - Day 1 at 14:00</h6><p><strong>Situation:</strong> Robert Miller is a 72-year-old male admitted from the emergency department with a diagnosis of community-acquired pneumonia. He reports a 4-day history of productive cough, fever, and shortness of breath.</p><p><strong>Background:</strong> Client has a past medical history of hypertension and benign prostatic hyperplasia (BPH). He lives alone in a rural area with limited access to transportation for follow-up care. Allergies include penicillin. Home medications include metoprolol.</p><p><strong>Assessment:</strong> Alert and oriented x3. Lungs with coarse crackles in the right lower lobe. SpO2 93% on room air. Vital signs stable. Appears fatigued but in no acute distress. IV access established.</p><p><strong>Recommendation:</strong> Admit to the medical-surgical unit. Start IV ceftriaxone. Administer home medications. Monitor vital signs, oxygen saturation, and respiratory status. Encourage fluid intake and incentive spirometry.</p><h6>Progress Note - Day 3 at 08:30</h6><p><strong>Situation:</strong> This is the nurse calling about Robert Miller. I am concerned about a rapid decline in his renal function and a significant change in mental status over the past six hours.</p><p><strong>Background:</strong> He was responding to IV ceftriaxone, but his urine output dropped significantly after 02:00. A Foley catheter inserted at 06:00 has drained only 30 mL. The client lives alone in a rural area, making consistent follow-up challenging.</p><p><strong>Assessment:</strong> He is now confused and restless. Vitals are trending towards instability: BP 160/90 mmHg, HR 110 bpm, RR 24/min, SpO2 92% on 2L NC. Physical exam reveals new-onset crackles in lower lung bases and bilateral lower extremity edema. STAT labs show critical hyperkalemia and metabolic acidosis.</p><p><strong>Recommendation:</strong> I request an immediate provider evaluation at the bedside. I recommend initiating hyperkalemia protocol, considering a fluid challenge versus diuretics, and a STAT nephrology consult for possible acute kidney injury.</p>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>02:00</td><td>140/80</td><td>90</td><td>20</td><td>95%</td><td>37.5°C</td></tr><tr><td>04:00</td><td>150/85</td><td>98</td><td>22</td><td>94%</td><td>37.7°C</td></tr><tr><td>06:00</td><td>155/88</td><td>105</td><td>23</td><td>93%</td><td>37.8°C</td></tr><tr><td>08:00</td><td>160/90</td><td>110</td><td>24</td><td>92%</td><td>37.9°C</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>02:00</td><td>140/80 mmHg (100)</td><td>90 bpm</td><td>20/min</td><td>95% on 2L NC</td><td>100.0°F (37.8°C)</td></tr><tr><td>04:00</td><td>150/85 mmHg (107)</td><td>98 bpm</td><td>22/min</td><td>94% on 2L NC</td><td>100.1°F (37.8°C)</td></tr><tr><td>06:00</td><td>155/88 mmHg (110)</td><td>105 bpm</td><td>23/min</td><td>93% on 2L NC</td><td>100.2°F (37.9°C)</td></tr><tr><td>08:00</td><td>160/90 mmHg (113)</td><td>110 bpm</td><td>24/min</td><td>92% on 2L NC</td><td>100.2°F (37.9°C)</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>q24h</td></tr><tr><td>Metoprolol</td><td>25 mg</td><td>PO</td><td>BID</td></tr><tr><td>Furosemide</td><td>20 mg</td><td>IV</td><td>PRN for fluid overload</td></tr><tr><td>Sodium Polystyrene Sulfonate</td><td>15 g</td><td>PO</td><td>q6h PRN for hyperkalemia</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<h6>Results from STAT draw at 08:00</h6><table><thead><tr><th>Lab</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Sodium</td><td>152</td><td>mEq/L</td><td>135-145</td><td>High</td></tr><tr><td>Potassium</td><td>6.8</td><td>mEq/L</td><td>3.5-5.0</td><td>High (Critical)</td></tr><tr><td>Chloride</td><td>108</td><td>mEq/L</td><td>96-106</td><td>High</td></tr><tr><td>BUN</td><td>65</td><td>mg/dL</td><td>8-20</td><td>High</td></tr><tr><td>Creatinine</td><td>3.5</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>Glucose</td><td>110</td><td>mg/dL</td><td>70-110</td><td>WNL</td></tr><tr><td>WBC</td><td>14.0</td><td>x10³/mm³</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Hemoglobin</td><td>13.5</td><td>g/dL</td><td>13.5-17.5</td><td>WNL</td></tr><tr><td>Platelets</td><td>250</td><td>x10³/mm³</td><td>150-400</td><td>WNL</td></tr><tr><td>pH</td><td>7.28</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>30</td><td>mmHg</td><td>35-45</td><td>Low</td></tr><tr><td>HCO₃</td><td>18</td><td>mEq/L</td><td>22-26</td><td>Low</td></tr><tr><td>PaO₂</td><td>88</td><td>mmHg</td><td>80-100</td><td>WNL</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<h6>Admission Exam - Day 1</h6><p><strong>General:</strong> Alert and oriented x3, appears fatigued.</p><p><strong>Cardiovascular:</strong> S1, S2 audible. Regular rate and rhythm. No murmurs. Capillary refill <3 seconds.</p><p><strong>Respiratory:</strong> Coarse crackles in right lower lobe. Breathing slightly labored. Productive cough.</p><p><strong>Neurological:</strong> GCS 15. Moves all extremities purposefully.</p><p><strong>Integumentary:</strong> Skin warm, dry, and intact.</p><h6>Focused Assessment - Day 3 at 08:00</h6><p><strong>General:</strong> Restless, agitated, and confused to time and place. Oriented to person only.</p><p><strong>Cardiovascular:</strong> Tachycardic. Pulses 2+ peripherally. 2+ pitting edema noted in bilateral lower extremities.</p><p><strong>Respiratory:</strong> Bilateral crackles auscultated in lower lung bases. Respirations shallow and rapid.</p><p><strong>Neurological:</strong> GCS 13 (E4, V4, M5). Unable to follow complex commands.</p>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No radiology reports available.</p>"
+                "content": "<h6>Chest X-ray - Day 3 at 07:00</h6><p><strong>INDICATION:</strong> Worsening shortness of breath, hypoxia.</p><p><strong>FINDINGS:</strong> Bilateral infiltrates in the lower lobes, consistent with pneumonia. Mild vascular congestion and small bilateral pleural effusions are noted, suggesting early fluid overload.</p><p><strong>IMPRESSION:</strong> Pneumonia with developing pulmonary edema.</p>"
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 14:00</td><td>Admit to Medical-Surgical Unit</td><td>Standing</td></tr><tr><td>Day 1, 14:05</td><td>Ceftriaxone 1 g in 100 mL NS</td><td>IV, Every 24 hours</td></tr><tr><td>Day 1, 14:05</td><td>Metoprolol 25 mg</td><td>PO, Twice daily</td></tr><tr><td>Day 1, 14:10</td><td>Furosemide 20 mg</td><td>IV, PRN for fluid overload</td></tr><tr><td>Day 3, 06:00</td><td>Insert indwelling urinary catheter</td><td>STAT</td></tr><tr><td>Day 3, 08:15</td><td>STAT Basic Metabolic Panel, CBC, ABG</td><td>STAT</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>Every 24 hours</td><td>Day 2, 14:00</td></tr><tr><td>Metoprolol</td><td>25 mg</td><td>PO</td><td>Twice daily</td><td>Day 3, 08:00</td></tr><tr><td>Furosemide</td><td>20 mg</td><td>IV</td><td>PRN</td><td>Not administered</td></tr><tr><td>Sodium Polystyrene Sulfonate</td><td>15 g</td><td>PO</td><td>PRN for hyperkalemia</td><td>Not administered</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Renal: AKI vs CKD & Electrolyte Emergencies"
+    "rationale": {
+        "correct": "The combination of critical hyperkalemia, metabolic acidosis, acute kidney injury (AKI), and altered mental status represents a life-threatening clinical emergency. Hyperkalemia at 6.8 mEq/L drastically increases the risk of fatal cardiac dysrhythmias by altering the resting membrane potential of cardiac myocytes. The metabolic acidosis (pH 7.28) exacerbates this by causing an intracellular-to-extracellular shift of potassium ions. The sharply elevated BUN and creatinine with oliguria confirm AKI, which is the underlying cause of the fluid, electrolyte, and acid-base disturbances. The client's confusion is a direct neurological manifestation of uremia, acidosis, and electrolyte imbalances, indicating severe systemic decompensation.",
+        "incorrect": "While other findings are abnormal, they are not as immediately life-threatening as the primary issues. Hypernatremia (152 mEq/L) can cause neurological symptoms but is a lower priority than the immediate cardiac threat of hyperkalemia. The elevated WBC count (14,000/mm³) indicates the underlying infection (pneumonia), which is being treated and is the likely trigger for the AKI, but the resulting metabolic crisis is the immediate priority. The hypertension (160/90 mmHg) and low-grade fever are likely consequences of the infection and fluid overload from renal failure; addressing the root causes (AKI, hyperkalemia) will help manage these signs.",
+        "answerBreakdown": [
+            {
+                "optionId": "OPT_01",
+                "content": "Correct. A potassium level of 6.8 mEq/L is a critical value. It significantly increases the risk of life-threatening cardiac dysrhythmias, such as ventricular fibrillation or asystole, by destabilizing the electrical conduction of the heart. This requires immediate intervention."
+            },
+            {
+                "optionId": "OPT_02",
+                "content": "Incorrect. While a sodium level of 152 mEq/L (hypernatremia) is abnormal and can contribute to confusion, it does not pose the same immediate risk of cardiac arrest as severe hyperkalemia. It is a secondary priority."
+            },
+            {
+                "optionId": "OPT_03",
+                "content": "Correct. The ABG results show a partially compensated metabolic acidosis. This condition impairs cellular function, reduces cardiac contractility, and worsens hyperkalemia by causing potassium to shift out of cells. It is a critical finding that requires urgent correction."
+            },
+            {
+                "optionId": "OPT_04",
+                "content": "Correct. The BUN of 65 mg/dL and creatinine of 3.5 mg/dL, especially in the context of declining urine output, are hallmark signs of severe acute kidney injury (AKI). This is the engine driving the life-threatening electrolyte and acid-base imbalances."
+            },
+            {
+                "optionId": "OPT_05",
+                "content": "Incorrect. The elevated WBC count indicates an ongoing infection, which is the likely precipitating cause of the client's deterioration. However, the infection is already being treated with antibiotics. The immediate life threats are the metabolic consequences of the infection (AKI, hyperkalemia), not the infection itself."
+            },
+            {
+                "optionId": "OPT_06",
+                "content": "Incorrect. The elevated blood pressure is likely a result of fluid overload from renal failure and the stress response. While it needs to be managed, it is a symptom of the underlying crisis. The priority is to treat the AKI and hyperkalemia, which may also help lower the blood pressure."
+            },
+            {
+                "optionId": "OPT_07",
+                "content": "Correct. A new and worsening change in mental status, such as confusion and restlessness, is a critical sign of severe physiological distress. In this client, it is likely caused by the combination of uremia, acidosis, and electrolyte imbalances, indicating brain dysfunction that requires immediate intervention."
+            },
+            {
+                "optionId": "OPT_08",
+                "content": "Incorrect. A temperature of 100.2°F (37.9°C) is a low-grade fever, consistent with the underlying pneumonia. It is not a critical finding compared to the severe metabolic and electrolyte derangements that pose an immediate threat to life."
+            }
+        ],
+        "clinicalPearls": [
+            "In patients with acute kidney injury, hyperkalemia is the most immediately life-threatening electrolyte abnormality due to its cardiotoxic effects.",
+            "New-onset confusion or altered mental status in an older adult should always be considered a critical finding until proven otherwise, often signaling hypoxia, infection, or metabolic disturbances.",
+            "Metabolic acidosis and hyperkalemia have a dangerous synergistic relationship; acidosis drives potassium out of cells into the bloodstream, worsening hyperkalemia, which in turn can worsen acidosis by impairing renal acid excretion."
+        ],
+        "questionTrap": "The primary trap is focusing on the source of the problem (the infection, indicated by WBC and fever) rather than the most immediate life-threatening consequences (the renal failure and resulting metabolic crisis). Always prioritize the problem that will cause the most harm in the shortest amount of time.",
+        "mnemonic": "Causes of Hyperkalemia: 'MACHINE' - M: Medications (ACE inhibitors, NSAIDs, Spironolactone), A: Acidosis (Metabolic), C: Cell destruction (rhabdomyolysis, burns), H: Hypoaldosteronism, I: Intake (excessive), N: Nephrons (renal failure), E: Excretion (impaired).",
+        "reviewUnits": [
+            "Fluid and Electrolyte Imbalances",
+            "Acid-Base Balance",
+            "Renal and Urinary Disorders",
+            "Cardiovascular Emergencies"
         ]
     },
-    "rationale": {
-        "correct": "The elevated potassium level of 6.8 mEq/L requires immediate intervention due to the risk of life-threatening cardiac arrhythmias. Hyperkalemia increases the resting membrane potential, making cells more excitable and prone to dysrhythmias. The arterial blood gas (ABG) results (pH 7.28, PaCO2 30 mmHg, HCO3 18 mEq/L) indicate metabolic acidosis, which exacerbates hyperkalemia by causing potassium to shift out of cells in exchange for hydrogen ions. This further increases the risk of cardiac complications and requires prompt correction. The elevated BUN (65 mg/dL) and creatinine (3.5 mg/dL), along with declining urine output, indicate worsening renal function consistent with AKI superimposed on CKD. This necessitates immediate action to prevent further kidney damage and potential complications such as fluid overload and uremia. The patient's increasing confusion and restlessness can be attributed to the combined effects of electrolyte imbalances (hyperkalemia, hypernatremia) and acidosis, all of which affect neurological function and demand immediate attention to prevent further deterioration.",
-        "incorrect": "While the elevated sodium level of 152 mEq/L (hypernatremia) warrants attention, it is generally less immediately life-threatening than hyperkalemia or severe acidosis. Hypernatremia can cause neurological symptoms, but the immediate risk of cardiac arrest from hyperkalemia is higher. The elevated white blood cell count (WBC) of 14,000/mm3 indicates infection, which is being treated with antibiotics (ceftriaxone). Although important, it is less critical than the electrolyte and acid-base imbalances that pose an immediate threat to cardiac and neurological function. The blood pressure of 160/90 mmHg is elevated, but in the context of the overall clinical picture, addressing the hyperkalemia and acidosis takes priority. While hypertension needs management, the immediate risk from electrolyte imbalances is more acute. While the temperature of 37.9°C (100.2°F) indicates a fever, it is not the most immediate threat to the patient's well-being compared to the severe electrolyte imbalances and acidosis. The fever is likely related to the underlying pneumonia, which is being treated.",
-        "clinicalPearls": [
-            "Hyperkalemia can cause life-threatening cardiac arrhythmias (peaked T waves, widened QRS complex) and requires immediate treatment, including calcium gluconate to stabilize cardiac membranes, insulin and glucose to shift potassium intracellularly, and sodium polystyrene sulfonate (Kayexalate) to remove potassium from the body.",
-            "Metabolic acidosis exacerbates hyperkalemia by shifting potassium out of cells. Correcting the acidosis can help reduce potassium levels.",
-            "Declining urine output with elevated BUN and creatinine are hallmarks of acute kidney injury (AKI). Prompt intervention is crucial to prevent irreversible kidney damage.",
-            "Confusion in the elderly can be a sign of electrolyte imbalances or acid-base disturbances. Always consider these factors when assessing altered mental status."
-        ],
-        "questionTrap": {
-            "trap": "The trap is to focus on the infection (elevated WBC) or the elevated blood pressure, which are important but less immediately life-threatening than the hyperkalemia and acidosis. The question requires prioritizing interventions based on the most immediate threats to the patient's well-being.",
-            "howToOvercome": "Prioritize findings based on the ABCs (Airway, Breathing, Circulation) and Maslow's hierarchy of needs. Electrolyte imbalances, especially hyperkalemia, directly impact cardiac function (circulation) and are thus the highest priority. Acidosis also affects oxygen delivery and cellular function, making it a high priority."
-        },
-        "mnemonic": {
-            "title": "I HATE potassium",
-            "expansion": "I = Insulin (shifts K+ intracellularly), H = Hyperventilation (corrects acidosis), A = Albuterol (shifts K+ intracellularly), T = Treat the cause, E = Eliminate potassium (Kayexalate, dialysis)"
-        }
+    "scoring": {
+        "method": "polytomous_penalty",
+        "maxPoints": 4
     },
-    "options": [
-        {
-            "key": "a",
-            "label": "Potassium level of 6.8 mEq/L",
-            "valid": true
-        },
-        {
-            "key": "b",
-            "label": "Sodium level of 152 mEq/L",
-            "valid": false
-        },
-        {
-            "key": "c",
-            "label": "Arterial blood gas (ABG): pH 7.28, PaCO2 30 mmHg, HCO3 18 mEq/L",
-            "valid": true
-        },
-        {
-            "key": "d",
-            "label": "BUN 65 mg/dL and Creatinine 3.5 mg/dL",
-            "valid": true
-        },
-        {
-            "key": "e",
-            "label": "Elevated white blood cell count (WBC) of 14,000/mm3",
-            "valid": false
-        },
-        {
-            "key": "f",
-            "label": "Blood pressure of 160/90 mmHg",
-            "valid": false
-        },
-        {
-            "key": "g",
-            "label": "Patient reports increasing confusion and restlessness.",
-            "valid": true
-        },
-        {
-            "key": "h",
-            "label": "Temperature of 37.9°C (100.2°F)",
-            "valid": false
-        }
-    ],
-    "isolationPrecautions": "Standard",
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity - Reduction of Risk Potential"
+    },
+    "correctOptionId": "OPT_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:31:04.227Z"
 }

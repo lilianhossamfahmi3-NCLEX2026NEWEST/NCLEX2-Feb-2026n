@@ -1,10 +1,63 @@
 {
-    "id": "stemi_cardiac_bowtie_v1",
+    "id": "stemi_cardiac_bowtie_v3",
     "type": "bowtie",
-    "stem": "A 55-year-old male presents with crushing substernal chest pain radiating to the left jaw. An ECG reveals ST-segment elevation in leads V2, V3, and V4. Vital signs: BP 155/92, HR 102. Complete the bowtie to manage this client.",
+    "stem": "The nurse is reviewing the electronic health record for a 55-year-old male client in the emergency department for acute chest pain. Based on the provided clinical data, identify the condition the client is most likely experiencing, the actions to take, and parameters to monitor.",
+    "ehr": {
+        "tabs": [
+            {
+                "id": "history_and_physical",
+                "title": "History & Physical",
+                "content": "Patient: John Smith, 55-year-old male.\n\nChief Complaint: Crushing substernal chest pain, 9/10, radiating to left jaw, started 1 hour ago.\n\nHistory of Present Illness: Patient was watching television when he experienced sudden onset of severe chest pain. Describes it as 'an elephant on my chest.' Associated diaphoresis and nausea. No relief from one sublingual nitroglycerin taken at home.\n\nPast Medical History: Hypertension, Hyperlipidemia.\n\nHome Medications: Lisinopril 10 mg daily, Atorvastatin 40 mg daily."
+            },
+            {
+                "id": "nurses_note",
+                "title": "Nurse's Note",
+                "content": "SBAR Report (ED Nurse to Cardiology)\n\nSituation: This is the ED nurse with an update on John Smith, a 55-year-old male who presented at 08:15 with crushing substernal chest pain, 9/10. \n\nBackground: He has a history of hypertension and hyperlipidemia. One home nitroglycerin was ineffective. \n\nAssessment: At 08:30, BP is 155/92, HR 102, SpO2 94%. He is diaphoretic. The 12-lead ECG shows ST-elevation in V2-V4, consistent with an anteroseptal STEMI. \n\nRecommendation: Aspirin 325 mg has been given. We need to activate the cardiac cath lab immediately."
+            },
+            {
+                "id": "vital_signs",
+                "title": "Vital Signs",
+                "content": "Time: 08:30\n\nBlood Pressure: 155/92 mmHg\nHeart Rate: 102/min\nRespiratory Rate: 22/min\nSpO2: 94% on room air\nTemperature: 37.1°C (98.8°F)"
+            },
+            {
+                "id": "diagnostics",
+                "title": "Diagnostics",
+                "content": "12-Lead ECG (08:25):\n- Rhythm: Sinus Tachycardia\n- Findings: ST-segment elevation of 3 mm in leads V2, V3, and V4.\n- Interpretation: Findings consistent with acute anteroseptal ST-elevation myocardial infarction."
+            },
+            {
+                "id": "laboratory_results",
+                "title": "Laboratory Results",
+                "content": "Time: 08:45\n\nTroponin I: 0.5 ng/mL (Reference range: <0.04 ng/mL)\nCK-MB: Pending\nComplete Blood Count (CBC): Within normal limits\nComprehensive Metabolic Panel (CMP): Within normal limits"
+            },
+            {
+                "id": "orders",
+                "title": "Orders",
+                "content": "Time: 08:30\nProvider: Dr. M. Chen\n\n- MONA protocol for chest pain\n- Oxygen to maintain SpO2 >94%\n- Aspirin 325 mg, chewable, STAT\n- Nitroglycerin 0.4 mg SL q5min x3 PRN chest pain, hold for SBP <90\n- Establish two large-bore IV lines\n- STAT 12-Lead ECG\n- STAT Troponin I, CK-MB, CBC, CMP"
+            }
+        ]
+    },
+    "potentialConditions": [
+        {
+            "id": "cond1",
+            "text": "Unstable angina"
+        },
+        {
+            "id": "cond2",
+            "text": "Aortic dissection"
+        },
+        {
+            "id": "cond3",
+            "text": "Pericarditis"
+        },
+        {
+            "id": "cond4",
+            "text": "ST-elevation myocardial infarction (STEMI)"
+        }
+    ],
+    "condition": "cond4",
     "actions": [
         {
-            "id": "action3",
+            "id": "action1",
             "text": "Apply heat packs to the chest wall."
         },
         {
@@ -12,32 +65,25 @@
             "text": "Prepare for emergent cardiac catheterization."
         },
         {
-            "id": "action1",
-            "text": "Administer 325 mg chewable aspirin."
+            "id": "action3",
+            "text": "Administer sublingual nitroglycerin."
         },
         {
             "id": "action4",
             "text": "Administer IM ketorolac for pain."
         }
     ],
-    "potentialConditions": [
-        "Unstable angina",
-        "Aortic dissection",
-        "Pericarditis",
-        "ST-elevation myocardial infarction (STEMI)"
-    ],
-    "condition": "ST-elevation myocardial infarction (STEMI)",
     "parameters": [
         {
             "id": "param1",
             "text": "Serum troponin and CK-MB levels."
         },
         {
-            "id": "param3",
+            "id": "param2",
             "text": "Abdominal circumference."
         },
         {
-            "id": "param2",
+            "id": "param3",
             "text": "Continuous ECG monitoring."
         },
         {
@@ -46,13 +92,27 @@
         }
     ],
     "correctActionIds": [
-        "action1",
-        "action2"
+        "action2",
+        "action3"
     ],
     "correctParameterIds": [
         "param1",
-        "param2"
+        "param3"
     ],
+    "hoverRationales": {
+        "cond1": "This is a clinical flaw. Unstable angina involves myocardial ischemia but typically does not cause ST-segment elevation, which indicates complete coronary occlusion and transmural infarction.",
+        "cond2": "This is a clinical flaw. Aortic dissection often presents with tearing chest pain radiating to the back and may show a widened mediastinum on imaging, neither of which are present here.",
+        "cond3": "This is a clinical flaw. Pericarditis typically causes diffuse, concave ST-segment elevation across multiple lead territories, unlike the localized elevation seen in this client's ECG.",
+        "cond4": "This addresses the pathophysiology. A STEMI results from a complete coronary artery occlusion by a thrombus, leading to transmural myocardial ischemia and necrosis. This process causes the characteristic ST-segment elevation on the ECG.",
+        "action1": "This is a clinical flaw. Heat packs are used for musculoskeletal pain and have no therapeutic effect on ischemic cardiac pain, which is caused by myocardial oxygen deprivation.",
+        "action2": "This addresses the pathophysiology. Emergent cardiac catheterization with percutaneous coronary intervention (PCI) is the definitive treatment to mechanically restore blood flow to the occluded coronary artery, preserving myocardial tissue.",
+        "action3": "This addresses the pathophysiology. Nitroglycerin is a vasodilator that reduces myocardial oxygen demand by decreasing preload. It also increases myocardial oxygen supply by dilating coronary arteries, helping to alleviate ischemic chest pain.",
+        "action4": "This is a clinical flaw. NSAIDs like ketorolac are contraindicated in suspected MI as they increase the risk of mortality, reinfarction, and heart failure by impairing myocardial healing.",
+        "param1": "This addresses the pathophysiology. Troponin and CK-MB are cardiac-specific enzymes released into the bloodstream during myocardial cell necrosis. Monitoring their levels confirms the diagnosis and quantifies the extent of heart muscle damage.",
+        "param2": "This is a clinical flaw. Abdominal circumference is a measure of visceral adiposity and a risk factor for heart disease, but it is irrelevant in the acute management of a myocardial infarction.",
+        "param3": "This addresses the pathophysiology. Continuous ECG monitoring is vital to detect and manage life-threatening arrhythmias, such as ventricular fibrillation, which are common and deadly complications of acute myocardial ischemia.",
+        "param4": "This is a clinical flaw. While important for baseline assessment, renal function labs are not the priority for diagnosing or managing the immediate life-threatening aspects of an acute STEMI."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -60,92 +120,14 @@
         "difficulty": 4,
         "topicTags": [
             "Cardiovascular",
-            "MI",
-            "STEMI"
-        ]
-    },
-    "rationale": {
-        "correct": "The client presents with classic signs and symptoms of a STEMI. The priority is to restore blood flow to the heart muscle through emergent cardiac catheterization and to prevent further platelet aggregation with aspirin. Continuous ECG monitoring is essential to detect dysrhythmias, and cardiac enzymes will confirm the diagnosis.",
-        "incorrect": "Heat packs are for muscle pain and are not indicated for cardiac chest pain. IM injections should be avoided in MI due to the potential for hematoma formation if thrombolytics are used. BUN and creatinine are not the priority markers for MI.",
-        "clinicalPearls": [
-            "\"Time is muscle\" – the goal for percutaneous coronary intervention (PCI) is < 90 minutes from arrival."
-        ],
-        "questionTrap": {
-            "trap": "Confusing STEMI with pericarditis.",
-            "howToOvercome": "Pericarditis typically presents with diffuse ST-segment elevation in all leads and is often relieved by leaning forward. STEMI presents with ST-segment elevation in specific leads, indicating regional ischemia."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"ST-elevation myocardial infarction (STEMI)\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Apply heat packs to the chest wall\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Prepare for emergent cardiac catheterization\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer 325 mg chewable aspirin\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer IM ketorolac for pain\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Serum troponin and CK-MB levels\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Abdominal circumference\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Continuous ECG monitoring\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"BUN and creatinine levels\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            }
-        ],
-        "mnemonic": {
-            "title": "EMI",
-            "expansion": "E = Elevation\nM = Myocardial\nI = Infarction\n\nKey Actions: Administer 325 mg chewable aspirin; Prepare for emergent cardiac catheterization.\nKey Monitoring: Serum troponin and CK-MB levels; Continuous ECG monitoring."
-        },
-        "reviewUnits": [
-            {
-                "heading": "ST-Elevation Myocardial Infarction – Pathophysiology & Recognition",
-                "body": "STEMI is characterized by ST-segment elevation on an ECG, indicating complete occlusion of a coronary artery. The priority is rapid reperfusion to minimize myocardial damage. This is achieved through emergent cardiac catheterization and administration of aspirin to prevent further clot formation. Continuous ECG monitoring is crucial to detect and manage potential dysrhythmias. Cardiac enzymes (troponin and CK-MB) are used to confirm myocardial damage. \"Time is muscle\" – the goal for PCI is < 90 minutes from arrival.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap – Confusing STEMI with Pericarditis",
-                "body": "Pericarditis typically presents with diffuse ST-segment elevation in all leads and is often relieved by leaning forward. STEMI presents with ST-segment elevation in specific leads, indicating regional ischemia.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for ST-Elevation Myocardial Infarction",
-                "body": "The priority nursing interventions are: Administer 325 mg chewable aspirin; Prepare for emergent cardiac catheterization. Monitor: Serum troponin and CK-MB levels; Continuous ECG monitoring. Heat packs are for muscle pain and are not indicated for cardiac chest pain. IM injections should be avoided in MI due to the potential for hematoma formation if thrombolytics are used. BUN and creatinine are not the priority markers for MI.",
-                "source": "Evidence-Based Nursing Practice"
-            }
+            "Myocardial Infarction",
+            "STEMI",
+            "Emergency"
         ]
     },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "remediated_v2026_v1"
 }

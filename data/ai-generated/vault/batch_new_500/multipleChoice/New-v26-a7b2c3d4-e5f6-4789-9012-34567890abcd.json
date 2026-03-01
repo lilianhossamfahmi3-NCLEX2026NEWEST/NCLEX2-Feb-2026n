@@ -1,7 +1,7 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-9012-34567890abcd",
     "type": "multipleChoice",
-    "stem": "The nurse is caring for a 6-month-old infant diagnosed with Tetralogy of Fallot who is scheduled for surgical repair. Which of the following nursing interventions is the PRIORITY immediately following surgical repair?",
+    "stem": "The nurse is caring for a 6-month-old infant immediately following surgical repair for Tetralogy of Fallot. Based on the clinical data, which nursing intervention is the priority?",
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
@@ -9,77 +9,308 @@
     "itemContext": {
         "patient": {
             "name": "Liam Miller",
-            "age": 6,
-            "gender": "Male",
+            "age": "6 months",
+            "sex": "Male",
+            "pronouns": "he/him",
             "iso": "PICU",
             "allergies": [
                 "NKDA"
-            ]
+            ],
+            "weight": "7.2 kg"
         },
-        "sbar": "SITUATION: Liam Miller, 6-month-old male, post-operative day 1 following total surgical repair of Tetralogy of Fallot. BACKGROUND: Admitted at 07:00 for surgical repair. Pre-op SpO2 was 75% on room air. Vitals stable during surgery. ASSESSMENT: At 08:00, current SpO2 is 92% on 30% FiO2 via nasal cannula. Heart rate 130 bpm, regular. Respiratory rate 36 breaths/min, even and unlabored. BP 90/60 mmHg. Chest tube output 5 mL/hr serosanguineous. Incision clean, dry, and intact. Pain score 2/10 (FLACC scale), medicated with scheduled acetaminophen at 06:00. Last dose of morphine IV 0.5mg given at 02:00. Alert and irritable. Recent ABG at 07:30 showed pH 7.36, PaCO2 42 mmHg, PaO2 78 mmHg, HCO3 23 mEq/L. Hemoglobin 12 g/dL, Hematocrit 36%. RECOMMENDATION: Continue to monitor respiratory status closely. Consider weaning FiO2 as tolerated. Monitor for signs of complications such as bleeding, infection, and arrhythmias. Notify provider for any significant changes.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG (07:30): pH 7.36, PaCO2 42 mmHg, PaO2 78 mmHg, HCO3 23 mEq/L. Hemoglobin 12 g/dL, Hematocrit 36%. WBC 9.0 x 10^3/uL, Platelets 250 x 10^3/uL."
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Acetaminophen 80mg PO q6h PRN pain (Last given 06:00). Morphine 0.5mg IV q4h PRN pain (Last given 02:00)."
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "type": "Admission Note",
+                        "author": "Pre-Op RN",
+                        "note": "S: Infant admitted to pediatric cardiac unit for scheduled complete surgical repair of Tetralogy of Fallot. Adult child at bedside reports infant has had several 'tet spells' at home, characterized by cyanosis and irritability, especially with crying.\nB: Diagnosed with TOF at 2 months. Pre-operative echocardiogram confirmed VSD, pulmonary stenosis, overriding aorta, and right ventricular hypertrophy. Has been managed with propranolol. Lives with adult child in a rural area with limited access to pediatric specialists, requiring a 3-hour drive for appointments.\nA: Awake, alert but irritable. Central and peripheral cyanosis noted. SpO2 78% on room air. HR 155, RR 45. Murmur audible. Capillary refill 3 seconds. Weight 7.2 kg. NPO since 02:00.\nR: Prepare for transport to operating room. Provide emotional support to family. Ensure all pre-operative checklists and consents are complete."
+                    },
+                    {
+                        "timestamp": "Day 1, 10:00",
+                        "type": "Progress Note",
+                        "author": "PICU RN",
+                        "note": "S: Infant is 2 hours post-op from total TOF repair. Currently intubated and sedated, but beginning to awaken. Ventilator settings are being weaned.\nB: Surgery was uncomplicated. Transferred from OR to PICU at 08:00. Arterial line in right radial artery for continuous BP monitoring. Two mediastinal chest tubes in place.\nA: Vitals are stabilizing. SpO2 is 94% on FiO2 35%. Heart rate is sinus tachycardia at 140 bpm. BP 88/52 mmHg (MAP 64). Respirations 32/min, synchronized with ventilator. Skin is pink with warm extremities. Cap refill <2 seconds. Chest tube output is 5 mL/hr serosanguineous fluid. Incision is clean, dry, intact. Sedation being weaned to assess neurological status.\nR: Continue hourly assessments. Monitor hemodynamic and respiratory status closely during ventilator weaning. Titrate oxygen to maintain SpO2 >92%. Monitor chest tube output for signs of hemorrhage. Manage pain and sedation per protocol."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "08:00: HR 130 bpm, RR 36 breaths/min, BP 90/60 mmHg, SpO2 92% on 30% FiO2 via nasal cannula, Temp 37.2°C (99°F) axillary. Pain 2/10 (FLACC)."
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "Time": "07:00 (Pre-op)",
+                        "HR": "155 bpm",
+                        "BP": "80/45 mmHg (MAP 57)",
+                        "RR": "45/min",
+                        "SpO2": "78% on RA",
+                        "Temp": "98.8°F (37.1°C)",
+                        "Pain": "4/10 (FLACC)"
+                    },
+                    {
+                        "Time": "08:00 (Post-op Arrival)",
+                        "HR": "148 bpm",
+                        "BP": "85/50 mmHg (MAP 62)",
+                        "RR": "35/min (Ventilated)",
+                        "SpO2": "93% on 40% FiO2",
+                        "Temp": "98.4°F (36.9°C)",
+                        "Pain": "Sedated"
+                    },
+                    {
+                        "Time": "10:00 (Current)",
+                        "HR": "140 bpm",
+                        "BP": "88/52 mmHg (MAP 64)",
+                        "RR": "32/min (Ventilated)",
+                        "SpO2": "94% on 35% FiO2",
+                        "Temp": "99.0°F (37.2°C)",
+                        "Pain": "2/10 (FLACC)"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "panels": [
+                    {
+                        "name": "Complete Blood Count (CBC) - 09:00",
+                        "results": [
+                            {
+                                "test": "WBC",
+                                "value": "12.5",
+                                "unit": "x 10³/μL",
+                                "range": "5.0-19.5",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "Hgb",
+                                "value": "11.8",
+                                "unit": "g/dL",
+                                "range": "10.5-13.5",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "Hct",
+                                "value": "35%",
+                                "unit": "%",
+                                "range": "33-39",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "Platelets",
+                                "value": "180",
+                                "unit": "x 10³/μL",
+                                "range": "150-450",
+                                "status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Arterial Blood Gas (ABG) - 09:30",
+                        "results": [
+                            {
+                                "test": "pH",
+                                "value": "7.37",
+                                "unit": "",
+                                "range": "7.35-7.45",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "PaCO₂",
+                                "value": "41",
+                                "unit": "mmHg",
+                                "range": "35-45",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "PaO₂",
+                                "value": "85",
+                                "unit": "mmHg",
+                                "range": "80-100",
+                                "status": "Normal"
+                            },
+                            {
+                                "test": "HCO₃⁻",
+                                "value": "24",
+                                "unit": "mEq/L",
+                                "range": "22-26",
+                                "status": "Normal"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "findings": [
+                    {
+                        "system": "Neurological",
+                        "finding": "Sedated but arouses to stimuli. Pupils equal, round, and reactive to light. Moves all extremities spontaneously."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "finding": "Sinus tachycardia on monitor, no ectopy. S1, S2 audible. Peripheral pulses 2+ and equal. Capillary refill <2 seconds. Extremities warm and pink."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "finding": "Intubated with endotracheal tube secured. Breath sounds clear and equal bilaterally. Chest rise is symmetrical with ventilated breaths."
+                    },
+                    {
+                        "system": "Integumentary",
+                        "finding": "Median sternotomy incision covered with a sterile dressing, clean, dry, and intact. No erythema or drainage noted."
+                    },
+                    {
+                        "system": "GU/GI",
+                        "finding": "Abdomen soft, non-distended. Foley catheter in place, draining clear yellow urine at 2 mL/kg/hr. Bowel sounds hypoactive."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "reports": [
+                    {
+                        "type": "Chest X-ray (Pre-operative)",
+                        "timestamp": "Day 1, 06:30",
+                        "report": "FINDINGS: The cardiac silhouette is boot-shaped, consistent with right ventricular hypertrophy. Pulmonary vascular markings are decreased. Lungs are clear. No pleural effusion or pneumothorax.\nIMPRESSION: Radiographic findings characteristic of Tetralogy of Fallot."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "Day 1, 08:00",
+                        "action": "Admit to PICU. Continuous cardiorespiratory and SpO2 monitoring.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 08:00",
+                        "action": "Maintain SpO2 >92%. Wean FiO2 as tolerated.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 08:00",
+                        "action": "Hourly vital signs, neurovascular checks, and I&O.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 08:00",
+                        "action": "Monitor mediastinal chest tube output hourly. Notify provider if >3 mL/kg/hr for 3 consecutive hours.",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "Day 1, 08:00",
+                        "action": "NPO. Maintain IV fluids as ordered.",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Fentanyl",
+                        "dose": "1-2 mcg/kg/hr IV",
+                        "route": "IV Infusion",
+                        "frequency": "Continuous",
+                        "lastAdministered": "Ongoing"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "15 mg/kg",
+                        "route": "IV",
+                        "frequency": "q6h",
+                        "lastAdministered": "Day 1, 08:30"
+                    },
+                    {
+                        "medication": "Furosemide",
+                        "dose": "1 mg/kg",
+                        "route": "IV",
+                        "frequency": "q12h",
+                        "lastAdministered": "Day 1, 09:00"
+                    },
+                    {
+                        "medication": "Cefazolin",
+                        "dose": "25 mg/kg",
+                        "route": "IV",
+                        "frequency": "q8h",
+                        "lastAdministered": "Day 1, 08:00"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "generateSolutions",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Pediatric: Congenital Heart Defects & Safety"
+            "Pediatric: Congenital Heart Defects & Safety",
+            "Post-Operative Care",
+            "Advanced Monitoring"
         ]
     },
     "rationale": {
-        "correct": "Maintaining adequate respiratory function and oxygenation is paramount in the immediate postoperative period following Tetralogy of Fallot repair. The infant's oxygen saturation (92% on 30% FiO2) and ABG values (PaO2 78 mmHg) indicate that the infant is maintaining adequate oxygenation, but close monitoring is essential to detect any early signs of respiratory compromise or hypoxemia, which can lead to significant complications in a post-operative cardiac patient. Weaning FiO2 is important but not the priority.",
-        "incorrect": "While pain management is important, it is not the immediate priority compared to ensuring adequate respiratory function. The infant's current pain score (2/10) suggests that pain is adequately controlled with scheduled acetaminophen and PRN morphine. Assessing for signs of infection is important, but not the immediate priority. Assessing for bleeding is also important, but the chest tube output is minimal and the incision site appears normal, making respiratory monitoring the priority at this moment.",
+        "correct": "The priority intervention is maintaining respiratory stability. After TOF repair, the pulmonary vasculature, previously accustomed to low flow, experiences a sudden increase in blood volume. This makes the infant highly susceptible to pulmonary edema, atelectasis, and respiratory failure. Close monitoring of respiratory status and titrating oxygen are critical to prevent hypoxemia and support cardiac function, directly aligning with the ABCs (Airway, Breathing, Circulation) of prioritization.",
+        "incorrect": "Pain management is important but secondary to respiratory function; the current FLACC score of 2/10 indicates pain is currently controlled. Assessing for infection is a standard part of post-op care, but it is not the most immediate life-threatening risk. Monitoring for bleeding is crucial, but the current chest tube output of 5 mL/hr is within normal limits (<3 mL/kg/hr), making it a lower priority than potential acute respiratory decompensation.",
+        "answerBreakdown": [
+            {
+                "optionId": "a",
+                "content": "This is incorrect. While pain control is vital for reducing cardiac stress, the patient's current FLACC score is 2/10, and a continuous fentanyl infusion is running. This indicates pain is adequately managed at this moment, making it a lower priority than respiratory assessment."
+            },
+            {
+                "optionId": "b",
+                "content": "This is correct. The pathophysiology of TOF repair involves redirecting blood flow to the lungs. This sudden hemodynamic shift places the infant at high risk for pulmonary complications. Therefore, maintaining a patent airway and ensuring adequate oxygenation is the absolute priority to prevent hypoxia and subsequent cardiac strain."
+            },
+            {
+                "optionId": "c",
+                "content": "This is incorrect. Surgical site infection is a risk, but it is not an immediate post-operative priority. Signs of infection typically develop over 24-72 hours. The immediate focus must be on life-sustaining hemodynamic and respiratory stability."
+            },
+            {
+                "optionId": "d",
+                "content": "This is incorrect. Post-operative hemorrhage and cardiac tamponade are serious risks. However, the clinical data shows a chest tube output of 5 mL/hr, which is well below the critical threshold for a 7.2 kg infant. While ongoing monitoring is essential, it is not the top priority given the stable output."
+            }
+        ],
         "clinicalPearls": [
-            "Post-operative management of Tetralogy of Fallot repair focuses on preventing complications such as arrhythmias, bleeding, infection, and respiratory distress.",
-            "Continuous monitoring of oxygen saturation, heart rate, respiratory rate, and blood pressure is essential in the immediate postoperative period.",
-            "Early detection and intervention for respiratory compromise can prevent life-threatening complications."
+            "Post-TOF repair, a key concern is managing the transition from a low pulmonary blood flow state to a high-flow state, which increases the risk of pulmonary edema.",
+            "Low cardiac output syndrome (LCOS) is a common complication after pediatric cardiac surgery, making vigilant hemodynamic monitoring (BP, HR, urine output, peripheral perfusion) essential.",
+            "Infants post-cardiac surgery are at high risk for arrhythmias due to surgical manipulation of the myocardium and electrolyte shifts. Continuous ECG monitoring is standard."
         ],
         "questionTrap": {
-            "trap": "The question trap lies in prioritizing other important post-operative care aspects such as pain management or infection control over the most immediate and potentially life-threatening issue: respiratory compromise.",
-            "howToOvercome": "Focus on the ABCs (Airway, Breathing, Circulation) and prioritize interventions that directly address the patient's respiratory status."
+            "trap": "The trap is choosing other valid but less urgent post-operative interventions. All options are correct nursing actions, but the question asks for the *priority*. Bleeding and pain are significant concerns, but acute respiratory failure is the most immediate threat in this specific clinical context.",
+            "howToOvercome": "Always apply the ABCs (Airway, Breathing, Circulation) framework. In a post-operative cardiac patient, especially after a procedure that fundamentally alters pulmonary circulation, breathing and oxygenation are paramount."
         },
         "mnemonic": {
-            "title": "HEART",
-            "expansion": "H- Hemodynamics, E- Electrolytes, A- Airway/Oxygenation, R-Renal function, T- Tissue perfusion"
+            "title": "POST-OP HEART",
+            "expansion": "P - Pulmonary status (priority!), O - Output (chest tube & urine), S - Site (incision), T - Temperature, H - Hemodynamics (BP, HR), E - Electrolytes, A - Arrhythmias, R - Rhythm, T - Tone (neuro status)"
         }
     },
     "options": [
         {
             "id": "a",
-            "text": "Assess pain level using a standardized pain scale and administer analgesics as needed.",
+            "text": "Assess pain level using the FLACC scale and titrate the fentanyl infusion.",
             "isCorrect": false
         },
         {
             "id": "b",
-            "text": "Monitor respiratory status closely and titrate oxygen to maintain SpO2 within prescribed parameters.",
+            "text": "Monitor respiratory status and titrate oxygen to maintain prescribed SpO2.",
             "isCorrect": true
         },
         {
             "id": "c",
-            "text": "Assess the surgical incision site for signs of infection and administer prophylactic antibiotics.",
+            "text": "Assess the sternal incision site for erythema, edema, or drainage.",
             "isCorrect": false
         },
         {
             "id": "d",
-            "text": "Monitor chest tube output and assess for signs of bleeding or cardiac tamponade.",
+            "text": "Monitor hourly chest tube output for signs of hemorrhage.",
             "isCorrect": false
         }
     ],

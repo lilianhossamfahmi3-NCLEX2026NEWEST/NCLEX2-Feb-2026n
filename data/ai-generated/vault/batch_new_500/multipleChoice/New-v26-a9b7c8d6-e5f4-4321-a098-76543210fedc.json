@@ -1,98 +1,308 @@
 {
     "id": "New-v26-a9b7c8d6-e5f4-4321-a098-76543210fedc",
     "type": "multipleChoice",
-    "stem": "Based on the available data and the patient's current presentation, which intervention is the MOST appropriate initial action?",
+    "vault": {
+        "category": "/multipleChoice",
+        "filename": "hypovolemic_shock_multipleChoice_v1.json"
+    },
+    "stem": "The nurse reviews the client's most recent data. Which action is the priority for the nurse to take at this time?",
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
     },
+    "correctId": "opt_a",
     "itemContext": {
         "patient": {
             "name": "Marcus Jones",
             "age": 68,
-            "gender": "Male",
+            "sex": "Male",
+            "pronouns": "he/him",
             "iso": "ICU",
             "allergies": [
                 "Penicillin"
             ],
             "conditions": [
-                "Droplet"
+                "Droplet Precautions (Precautionary for MVA)"
             ]
         },
-        "sbar": "S: Mr. Jones, 68-year-old male, admitted 3 hours ago post-MVA. Sustained fractured femur and lacerated spleen. | B: History of hypertension, managed with lisinopril. Received morphine 4mg IV at 0800 for pain. | A: At 0930, increasingly restless. BP 88/52 mmHg, HR 122 bpm, RR 28, SpO2 92% on 2L NC. Urine output 15 mL/hr. Lungs clear bilaterally. Pale and diaphoretic. Surgical team aware of splenic laceration. | R: Concerned about hypovolemic shock. Recommend immediate fluid resuscitation and consider vasopressors to stabilize BP and perfusion.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Hgb: 8.2 g/dL\nHct: 24.6%\nWBC: 14,000/µL\nPlatelets: 180,000/µL\nLactate: 4.5 mmol/L\nNa: 140 mEq/L\nK: 4.1 mEq/L\nCl: 100 mEq/L\nBUN: 28 mg/dL\nCreatinine: 1.8 mg/dL"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "07:15",
+                        "content": "S: Client is a 68-year-old male, Marcus Jones, admitted directly from the ED following a motor vehicle accident (MVA). He is the restrained driver in a high-speed collision. Reports severe left leg and abdominal pain.\nB: History of hypertension managed with lisinopril. Last dose was this morning. Allergies include penicillin. Client lives alone in a rural area, which delayed initial emergency response time. Adult child is en route to the hospital.\nA: Alert and oriented x3. Obvious deformity to the left femur. Abdomen is tender to palpation in the left upper quadrant with mild guarding. Two 18-gauge peripheral IVs established. Initial vital signs are stable. Lungs clear bilaterally. Skin is warm and dry.\nR: Continue monitoring vital signs per trauma protocol. Administer analgesia as ordered. Prepare for CT imaging to assess for internal injuries. Notify surgical team of admission and potential for operative intervention."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "09:30",
+                        "content": "S: Called to bedside for increased restlessness and agitation. Client states he feels 'dizzy' and 'can't catch his breath.'\nB: Client sustained a fractured femur and a confirmed splenic laceration via CT scan. Received morphine 4mg IV at 08:00 for pain. Has not received any fluid boluses since admission.\nA: Client is increasingly restless and anxious. Skin is pale, cool, and diaphoretic. BP is 88/52 mmHg, HR 122 bpm, RR 28/min, SpO₂ 92% on 2L NC. Capillary refill is >3 seconds. Urine output via indwelling catheter is only 15 mL in the past hour. Abdomen appears more distended. Lungs remain clear.\nR: Concerned for decompensating hypovolemic shock from splenic hemorrhage. Recommend immediate, aggressive fluid resuscitation to restore intravascular volume. Notify Rapid Response Team and surgeon for urgent intervention."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "0930: BP 88/52 mmHg, HR 122 bpm, RR 28, SpO2 92% on 2L NC, Temp 37.2°C (99.0°F)\n0900: BP 110/70 mmHg, HR 100 bpm, RR 20, SpO2 98% on room air"
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "time": "07:30",
+                        "bp": "128/78",
+                        "map": "95",
+                        "hr": "94",
+                        "rr": "18",
+                        "spo2": "99% on RA",
+                        "temp": "98.8°F (37.1°C)"
+                    },
+                    {
+                        "time": "09:00",
+                        "bp": "110/70",
+                        "map": "83",
+                        "hr": "100",
+                        "rr": "20",
+                        "spo2": "98% on RA",
+                        "temp": "99.0°F (37.2°C)"
+                    },
+                    {
+                        "time": "09:30",
+                        "bp": "88/52",
+                        "map": "64",
+                        "hr": "122",
+                        "rr": "28",
+                        "spo2": "92% on 2L NC",
+                        "temp": "99.0°F (37.2°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Morphine 4mg IV (0800)\nLisinopril 20mg PO (0700)\nOndansetron 4mg IV (PRN Nausea)"
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "test": "Hemoglobin (Hgb)",
+                        "result": "8.2",
+                        "unit": "g/dL",
+                        "range": "14-18",
+                        "status": "Low"
+                    },
+                    {
+                        "test": "Hematocrit (Hct)",
+                        "result": "24.6",
+                        "unit": "%",
+                        "range": "42-52",
+                        "status": "Low"
+                    },
+                    {
+                        "test": "Lactate",
+                        "result": "4.5",
+                        "unit": "mmol/L",
+                        "range": "0.5-2.2",
+                        "status": "High"
+                    },
+                    {
+                        "test": "WBC",
+                        "result": "14.0",
+                        "unit": "x10³/µL",
+                        "range": "4.5-11.0",
+                        "status": "High"
+                    },
+                    {
+                        "test": "Platelets",
+                        "result": "180",
+                        "unit": "x10³/µL",
+                        "range": "150-450",
+                        "status": "Normal"
+                    },
+                    {
+                        "test": "BUN",
+                        "result": "28",
+                        "unit": "mg/dL",
+                        "range": "10-20",
+                        "status": "High"
+                    },
+                    {
+                        "test": "Creatinine",
+                        "result": "1.8",
+                        "unit": "mg/dL",
+                        "range": "0.6-1.2",
+                        "status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "assessments": [
+                    {
+                        "timestamp": "07:15 (Admission)",
+                        "system": "General",
+                        "findings": "Alert and oriented x3, appears in moderate distress due to pain."
+                    },
+                    {
+                        "timestamp": "07:15 (Admission)",
+                        "system": "Cardiovascular",
+                        "findings": "S1, S2 audible. Rate tachycardic, rhythm regular. Pulses 2+ in all extremities. Capillary refill <2 seconds."
+                    },
+                    {
+                        "timestamp": "07:15 (Admission)",
+                        "system": "Respiratory",
+                        "findings": "Lungs clear to auscultation bilaterally. Breathing non-labored."
+                    },
+                    {
+                        "timestamp": "07:15 (Admission)",
+                        "system": "Abdomen",
+                        "findings": "Soft, tender to palpation in LUQ with mild guarding. Bowel sounds present."
+                    },
+                    {
+                        "timestamp": "09:30 (Focused)",
+                        "system": "General",
+                        "findings": "Restless, anxious, and agitated. Skin is pale, cool, and diaphoretic."
+                    },
+                    {
+                        "timestamp": "09:30 (Focused)",
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardia noted. Pulses are weak and thready (1+). Capillary refill is delayed, >3 seconds."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "CT scan shows splenic laceration with moderate hemoperitoneum. No other acute injuries identified."
+                "reports": [
+                    {
+                        "type": "CT Abdomen/Pelvis with Contrast",
+                        "timestamp": "08:45",
+                        "findings": "A grade III laceration of the spleen is identified with evidence of active arterial extravasation. A moderate-volume hemoperitoneum is present, predominantly in the left upper quadrant and pelvis. The liver, kidneys, and pancreas are unremarkable. No evidence of bowel injury. Left femur fracture is noted.",
+                        "impression": "Active hemorrhage from a grade III splenic laceration with moderate hemoperitoneum, consistent with acute traumatic injury."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "time": "07:20",
+                        "action": "NPO",
+                        "status": "Active"
+                    },
+                    {
+                        "time": "07:20",
+                        "action": "Vital signs every 15 minutes",
+                        "status": "Active"
+                    },
+                    {
+                        "time": "07:20",
+                        "action": "Continuous cardiac and SpO₂ monitoring",
+                        "status": "Active"
+                    },
+                    {
+                        "time": "07:20",
+                        "action": "Type and crossmatch for 4 units PRBCs",
+                        "status": "Stat"
+                    },
+                    {
+                        "time": "07:25",
+                        "action": "Consult Trauma Surgery",
+                        "status": "Stat"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "20mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "07:00 (Pre-admission)"
+                    },
+                    {
+                        "medication": "Morphine Sulfate",
+                        "dose": "4mg",
+                        "route": "IV Push",
+                        "frequency": "PRN Pain",
+                        "lastAdministered": "08:00"
+                    },
+                    {
+                        "medication": "Ondansetron",
+                        "dose": "4mg",
+                        "route": "IV Push",
+                        "frequency": "PRN Nausea",
+                        "lastAdministered": "N/A"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "apply",
+        "cjmmStep": "takeActions",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
+            "Cardiovascular: Shock & Hemodynamics",
+            "Trauma",
+            "Fluid & Electrolytes"
         ]
     },
     "rationale": {
-        "correct": "Rapid intravenous fluid resuscitation is the priority. The patient's vital signs (hypotension, tachycardia, tachypnea), lab values (low Hgb/Hct, elevated lactate), and clinical presentation (restlessness, decreased urine output, pallor, diaphoresis) strongly suggest hypovolemic shock secondary to blood loss from the splenic laceration. Fluid resuscitation aims to restore intravascular volume and improve tissue perfusion, which is critical to prevent further organ damage and improve patient outcomes. The elevated lactate indicates anaerobic metabolism due to poor perfusion.",
-        "incorrect": "Administering an antiemetic will not address the underlying cause of the patient's hemodynamic instability. While nausea may be present, stabilizing the patient's blood pressure and perfusion is the priority. | Increasing the oxygen flow rate might marginally improve oxygen saturation, but it will not address the hypovolemia and impaired tissue perfusion. The patient needs volume replacement to improve oxygen delivery. The SpO2 of 92% on 2L NC is acceptable in this situation, making this choice a lower priority. | Preparing for a blood transfusion is a reasonable step, but it is not the immediate priority. Fluid resuscitation should be initiated first to stabilize the patient and improve perfusion. Blood products can be administered after the initial fluid bolus if the patient remains unstable or the hemoglobin continues to drop.",
+        "correct": "The client is exhibiting clear signs of decompensated hypovolemic shock due to hemorrhage from the splenic laceration. The pathophysiology involves a critical loss of intravascular volume, leading to decreased venous return, reduced cardiac output, and subsequent tissue hypoperfusion. The priority action is to restore this lost volume immediately with rapid intravenous fluid resuscitation (e.g., isotonic crystalloids like 0.9% NaCl or Lactated Ringer's). This intervention directly addresses the primary problem—the 'empty tank'—to increase blood pressure, improve cardiac output, and restore organ perfusion, thereby preventing irreversible organ damage and cardiovascular collapse.",
+        "answerBreakdown": [
+            {
+                "id": "opt_a",
+                "content": "This is the correct priority. The client's hypotension (BP 88/52), tachycardia (HR 122), tachypnea (RR 28), low urine output (15 mL/hr), and elevated lactate (4.5 mmol/L) are classic signs of hypovolemic shock. The primary pathophysiological problem is inadequate circulating volume. Rapid fluid resuscitation is the cornerstone of initial management to restore preload and tissue perfusion."
+            },
+            {
+                "id": "opt_b",
+                "content": "This is incorrect. While the client may be nauseous due to poor perfusion of the GI tract, administering an antiemetic does not address the life-threatening circulatory collapse. This action fails to correct the underlying cause of instability and delays a critical, time-sensitive intervention. It is a secondary comfort measure, not a primary life-saving action."
+            },
+            {
+                "id": "opt_c",
+                "content": "This is incorrect. The client's SpO₂ of 92% on 2L NC indicates a problem with oxygen delivery, not necessarily oxygenation. The root cause is insufficient hemoglobin (Hgb 8.2) and poor circulation to carry oxygen to the tissues. While supplemental oxygen is appropriate, simply increasing the flow rate without correcting the volume deficit will not resolve the tissue hypoxia. The primary problem is circulatory, not respiratory."
+            },
+            {
+                "id": "opt_d",
+                "content": "This is incorrect because it is not the most immediate action. While a blood transfusion is necessary and should be prepared, initiating fluid resuscitation with crystalloids can be done immediately while waiting for the blood products to be typed, crossmatched, and delivered from the blood bank. The initial stabilization of blood pressure with fluids is the first step before replacing lost red blood cells."
+            }
+        ],
         "clinicalPearls": [
-            "In hypovolemic shock, the body compensates by increasing heart rate and respiratory rate to maintain cardiac output and oxygen delivery. However, these compensatory mechanisms eventually fail if the underlying cause is not addressed.",
-            "Lactate level is a marker of anaerobic metabolism and tissue hypoxia, which is elevated in shock states. It reflects the severity of hypoperfusion.",
-            "Urine output is a sensitive indicator of renal perfusion and overall fluid status. A decrease in urine output suggests inadequate circulating volume."
+            "In hypovolemic shock, the Mean Arterial Pressure (MAP) is a critical indicator of organ perfusion. A MAP below 65 mmHg is generally considered insufficient to perfuse vital organs like the kidneys and brain, as evidenced by the client's oliguria and restlessness.",
+            "The 'lethal triad' of trauma consists of hypothermia, acidosis (indicated by high lactate), and coagulopathy. Aggressive resuscitation helps to combat acidosis by improving perfusion, but care must be taken to warm fluids to prevent hypothermia.",
+            "A narrowed pulse pressure (the difference between systolic and diastolic BP) is an early sign of shock. In this case, the pulse pressure decreased from 40 mmHg (110/70) to 36 mmHg (88/52), indicating the heart is struggling to maintain stroke volume."
         ],
         "questionTrap": {
-            "trap": "The options involving oxygen and antiemetics are distractors that might seem relevant but don't address the underlying hypovolemia causing the shock state. Focusing on individual symptoms rather than the overall clinical picture can lead to an incorrect choice.",
-            "howToOvercome": "Focus on the ABCs (Airway, Breathing, Circulation). While airway and breathing are relatively stable, circulation is severely compromised. Identify the signs of hypovolemic shock and prioritize interventions that directly address the fluid deficit. Consider the underlying pathophysiology of shock."
+            "trap": "Focusing on a single abnormal finding, like the SpO₂ of 92%, can lead to choosing a respiratory intervention (increasing oxygen). This is a common trap where a symptom is treated without addressing the underlying systemic cause.",
+            "howToOvercome": "Synthesize all data points. The combination of hypotension, tachycardia, low Hgb, and high lactate points directly to a circulatory problem (hemorrhagic shock). Always prioritize interventions that address the most immediate threat to life, which in this case is circulatory collapse, following the C-A-B (Circulation, Airway, Breathing) sequence for a client with a pulse."
         },
         "mnemonic": {
-            "title": "Hypovolemic SHOCK",
-            "expansion": "Skin (cool, clammy), Hypotension, Output decreased (oliguria), Compensatory tachycardia, Kill lactate (elevated)"
+            "title": "SHOCK Management Priorities",
+            "expansion": "S - Secure IV access (large bore)\nH - Hemodynamic monitoring\nO - Oxygen administration\nC - Crystalloid/Colloid infusion (priority!)\nK - Keep patient warm"
         }
     },
     "options": [
         {
-            "key": "a",
+            "id": "opt_a",
             "label": "Initiate rapid intravenous fluid resuscitation.",
             "correct": true
         },
         {
-            "key": "b",
+            "id": "opt_b",
             "label": "Administer an antiemetic for nausea.",
             "correct": false
         },
         {
-            "key": "c",
+            "id": "opt_c",
             "label": "Increase the oxygen flow rate to 6L via nasal cannula.",
             "correct": false
         },
         {
-            "key": "d",
+            "id": "opt_d",
             "label": "Prepare for a blood transfusion.",
             "correct": false
         }
-    ],
-    "sentinelStatus": "quarantined:logic_error",
-    "logicErrors": [
-        "missing_correct_id"
     ]
 }

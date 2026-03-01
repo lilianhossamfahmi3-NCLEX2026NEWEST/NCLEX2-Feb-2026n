@@ -1,64 +1,309 @@
 {
     "id": "New-v26-a1b2c3d4-e5f6-7890-1234-567890abcdef",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a patient diagnosed with severe preeclampsia who delivered a healthy newborn 12 hours ago. Based on the EHR data, prioritize the following nursing actions from FIRST to LAST.",
+    "vaultPath": "/orderedResponse/maternal_preeclampsia_orderedResponse_v1.json",
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client who delivered 12 hours ago and has worsening severe preeclampsia. Based on the clinical data in the electronic health record, prioritize the nursing actions from first to last. Drag and drop the options into the correct sequence.",
+    "options": [
+        {
+            "id": "opt_1",
+            "content": "Administer the PRN IV labetalol."
+        },
+        {
+            "id": "opt_2",
+            "content": "Notify the healthcare provider of current findings."
+        },
+        {
+            "id": "opt_3",
+            "content": "Initiate seizure precautions per facility protocol."
+        },
+        {
+            "id": "opt_4",
+            "content": "Re-assess deep tendon reflexes and for clonus."
+        },
+        {
+            "id": "opt_5",
+            "content": "Perform a fundal check and assess lochia."
+        }
+    ],
+    "correctResponse": [
+        "opt_1",
+        "opt_2",
+        "opt_3",
+        "opt_4",
+        "opt_5"
+    ],
     "scoring": {
         "method": "dichotomous",
-        "maxPoints": 1
+        "maxPoints": 5
     },
     "itemContext": {
         "patient": {
             "name": "Maria Rodriguez",
             "age": 32,
-            "gender": "Female",
+            "sex": "Female",
+            "pronouns": "She/Her",
             "iso": "Postpartum Unit",
             "allergies": [
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "Situation: Maria Rodriguez, 32-year-old G2P2, delivered a healthy baby girl vaginally at 06:00. She has a history of chronic hypertension and was diagnosed with severe preeclampsia during this pregnancy. Background: She received magnesium sulfate during labor and delivery. Assessment: At 18:00, her BP is 168/102 mmHg, HR 92 bpm, RR 18, O2 sat 98% on room air. Deep tendon reflexes are 3+ with 2 beats of clonus. Urine output was 30 mL/hr over the last 2 hours. She reports a headache and blurred vision. Fundus is firm and at the umbilicus. Lochia rubra is moderate. Recommendation: I'm concerned about worsening preeclampsia and potential postpartum hemorrhage. I recommend continuing close monitoring of vital signs, magnesium sulfate infusion, and assessing for signs of HELLP syndrome.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr><tr><td>Hemoglobin</td><td>10.5 g/dL</td><td>12-16 g/dL</td></tr><tr><td>Platelets</td><td>90,000/mcL</td><td>150,000-400,000/mcL</td></tr><tr><td>AST</td><td>250 U/L</td><td>10-40 U/L</td></tr><tr><td>ALT</td><td>300 U/L</td><td>7-56 U/L</td></tr><tr><td>Creatinine</td><td>1.5 mg/dL</td><td>0.5-1.1 mg/dL</td></tr><tr><td>Uric Acid</td><td>8.2 mg/dL</td><td>2.4-6.0 mg/dL</td></tr></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr><tr><td>Magnesium Sulfate</td><td>2 g/hr</td><td>IV</td><td>Continuous Infusion</td><td>17:55</td></tr><tr><td>Labetalol</td><td>20 mg</td><td>IV</td><td>q 20 min PRN SBP > 160 mmHg</td><td>17:30</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q 4 hr PRN Headache</td><td>14:00</td></tr><tr><td>Oxycodone</td><td>5 mg</td><td>PO</td><td>q 4 hr PRN Pain</td><td>14:00</td></tr></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "06:30",
+                        "noteType": "Admission Note",
+                        "author": "L. Chen, RN",
+                        "text": "S: Client admitted to postpartum unit after vaginal delivery of a healthy newborn at 06:00. History of chronic hypertension, diagnosed with severe preeclampsia at 36 weeks gestation.\nB: G2P2. Received magnesium sulfate infusion during labor, which is continuing postpartum for seizure prophylaxis. Epidural anesthesia was used. Estimated blood loss 400 mL. Client reports significant stress due to recent job loss and lack of paid maternity leave, expressing anxiety about finances.\nA: Alert and oriented x4. Vitals stable on admission. Fundus firm at umbilicus. Lochia rubra moderate. Bonding with newborn at bedside.\nR: Continue magnesium sulfate infusion per protocol. Monitor vital signs every hour. Strict intake and output. Encourage skin-to-skin contact. Provide resources for financial counseling and social work consultation regarding SDOH concerns."
+                    },
+                    {
+                        "timestamp": "18:00",
+                        "noteType": "Progress Note",
+                        "author": "S. Jones, RN",
+                        "text": "S: Client reports a persistent, throbbing headache unrelieved by acetaminophen and is now complaining of blurred vision and seeing 'spots'.\nB: 32-year-old client, 12 hours postpartum, with a history of chronic hypertension and severe preeclampsia. Magnesium sulfate is infusing at 2 g/hr. Last dose of PRN IV labetalol was at 17:30.\nA: BP trending upward, now 168/102 mmHg (MAP 124). Tachycardic at 92 bpm. Neurologically, client is irritable with 3+ deep tendon reflexes and 2 beats of clonus present. Urine output has decreased to 30 mL/hr for the past two hours. Labs from 17:45 show thrombocytopenia and elevated liver enzymes, consistent with HELLP syndrome.\nR: Recommend immediate administration of PRN IV labetalol to manage severe hypertension. Will notify the provider of the critical assessment findings and lab results. Plan to implement seizure precautions. Continue close monitoring."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>O2 Sat</th></tr><tr><td>16:00</td><td>162/98</td><td>88</td><td>16</td><td>98%</td></tr><tr><td>17:00</td><td>166/100</td><td>90</td><td>17</td><td>98%</td></tr><tr><td>18:00</td><td>168/102</td><td>92</td><td>18</td><td>98%</td></tr></table>"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "16:00",
+                        "Temp": "99.1°F (37.3°C)",
+                        "HR": "88 bpm",
+                        "BP": "162/98 mmHg (MAP 119)",
+                        "RR": "16/min",
+                        "SpO2": "98% on Room Air"
+                    },
+                    {
+                        "Time": "17:00",
+                        "Temp": "99.2°F (37.3°C)",
+                        "HR": "90 bpm",
+                        "BP": "166/100 mmHg (MAP 122)",
+                        "RR": "17/min",
+                        "SpO2": "98% on Room Air"
+                    },
+                    {
+                        "Time": "18:00",
+                        "Temp": "99.3°F (37.4°C)",
+                        "HR": "92 bpm",
+                        "BP": "168/102 mmHg (MAP 124)",
+                        "RR": "18/min",
+                        "SpO2": "98% on Room Air"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Lab": "Hemoglobin",
+                        "Result": "10.5",
+                        "Unit": "g/dL",
+                        "Reference": "12.0-16.0",
+                        "Status": "Low"
+                    },
+                    {
+                        "Lab": "Platelets",
+                        "Result": "90,000",
+                        "Unit": "/mcL",
+                        "Reference": "150,000-400,000",
+                        "Status": "Low"
+                    },
+                    {
+                        "Lab": "Aspartate aminotransferase (AST)",
+                        "Result": "250",
+                        "Unit": "U/L",
+                        "Reference": "10-40",
+                        "Status": "High"
+                    },
+                    {
+                        "Lab": "Alanine aminotransferase (ALT)",
+                        "Result": "300",
+                        "Unit": "U/L",
+                        "Reference": "7-56",
+                        "Status": "High"
+                    },
+                    {
+                        "Lab": "Creatinine",
+                        "Result": "1.5",
+                        "Unit": "mg/dL",
+                        "Reference": "0.5-1.1",
+                        "Status": "High"
+                    },
+                    {
+                        "Lab": "Uric Acid",
+                        "Result": "8.2",
+                        "Unit": "mg/dL",
+                        "Reference": "2.4-6.0",
+                        "Status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Neurological",
+                        "Findings": "Alert but irritable. Reports persistent headache rated 7/10 and blurred vision. Deep tendon reflexes 3+ bilaterally in patella and biceps. 2 beats of ankle clonus present bilaterally."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "S1, S2 audible. Tachycardia with regular rhythm. No murmurs. Capillary refill <3 seconds. 1+ pitting edema in lower extremities."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Lungs clear to auscultation bilaterally. Respiratory effort unlabored."
+                    },
+                    {
+                        "System": "Gastrointestinal/Genitourinary",
+                        "Findings": "Bowel sounds active in all quadrants. Urine output via indwelling catheter 60 mL over past 2 hours. Urine is clear amber."
+                    },
+                    {
+                        "System": "Reproductive",
+                        "Findings": "Fundus is firm, midline, at the level of the umbilicus. Lochia rubra is moderate, with no large clots noted."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Study": "N/A",
+                        "Impression": "No imaging studies on file at this time."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan (Orders)",
+                "content": [
+                    {
+                        "Date/Time": "Today @ 06:15",
+                        "Action": "Magnesium Sulfate 2 g/hr IV continuous infusion",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Today @ 06:15",
+                        "Action": "Labetalol 20 mg IV push over 2 minutes PRN SBP > 160 mmHg or DBP > 110 mmHg. May repeat every 20 minutes.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Today @ 06:15",
+                        "Action": "Vital signs every 15 minutes x 4, then every 30 minutes x 2, then hourly.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Today @ 06:15",
+                        "Action": "Strict Intake and Output. Notify provider if urine output < 30 mL/hr.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Today @ 06:15",
+                        "Action": "Seizure precautions.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Date/Time": "Today @ 06:15",
+                        "Action": "NPO except for ice chips.",
+                        "Status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Magnesium Sulfate",
+                        "Dose": "2 g/hr",
+                        "Route": "IV",
+                        "Frequency": "Continuous Infusion",
+                        "Last Administered": "Ongoing"
+                    },
+                    {
+                        "Medication": "Labetalol",
+                        "Dose": "20 mg",
+                        "Route": "IV",
+                        "Frequency": "q 20 min PRN SBP > 160 mmHg",
+                        "Last Administered": "17:30"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "q 4 hr PRN Headache",
+                        "Last Administered": "14:00"
+                    },
+                    {
+                        "Medication": "Oxycodone",
+                        "Dose": "5 mg",
+                        "Route": "PO",
+                        "Frequency": "q 4 hr PRN Pain",
+                        "Last Administered": "14:00"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
+        "bloomLevel": "apply",
+        "cjmmStep": "generateSolutions",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential",
         "difficulty": 5,
         "topicTags": [
-            "Maternal: Preeclampsia & Postpartum Hemorrhage"
+            "Maternal Health",
+            "Postpartum Complications",
+            "Preeclampsia & HELLP Syndrome"
         ]
     },
     "rationale": {
-        "correct": "The patient's elevated blood pressure, headache, blurred vision, hyperreflexia with clonus, decreased platelets, and elevated liver enzymes indicate worsening preeclampsia and possible HELLP syndrome, placing her at high risk for seizures, stroke, and postpartum hemorrhage. Administering labetalol is crucial to rapidly lower the blood pressure to prevent these complications. Notifying the physician promptly facilitates further orders and potential interventions. Preparing for the administration of magnesium sulfate bolus, if ordered, is important in seizure prophylaxis. Monitoring for signs of postpartum hemorrhage is important given the history of preeclampsia. Assessing the fundus and lochia is essential, but less immediate than controlling the blood pressure and notifying the provider.",
-        "incorrect": "Delaying the administration of antihypertensive medication and failing to notify the physician first could lead to serious complications such as stroke or seizure. While monitoring for postpartum hemorrhage is important, it is secondary to addressing the immediate threat of uncontrolled hypertension and HELLP syndrome. Assessing fundus and lochia are routine postpartum assessments, but are not the priority given the constellation of patient's symptoms and lab values.",
+        "correct": "The client is exhibiting signs of worsening severe preeclampsia progressing to HELLP (Hemolysis, Elevated Liver enzymes, Low Platelets) syndrome. This is a life-threatening obstetric emergency. The priority is to manage the severe hypertension to prevent a cerebrovascular accident (stroke) or seizure. Therefore, administering the PRN IV labetalol is the first action. The second action is to immediately notify the provider with the updated assessment data (including CNS irritability) and critical lab values to facilitate further orders. The third action is to ensure client safety by initiating seizure precautions. Re-assessing reflexes and performing a fundal check are important but are lower priority than the immediate life-saving interventions.",
+        "answerBreakdown": [
+            {
+                "option": "opt_1",
+                "placement": 1,
+                "content": "Administer the PRN IV labetalol. This is the highest priority. The client's blood pressure of 168/102 mmHg constitutes a hypertensive crisis, placing her at immediate risk for stroke or placental abruption. The underlying pathophysiology of preeclampsia involves intense vasospasm and endothelial damage, and rapidly lowering the blood pressure is the most critical intervention to prevent end-organ damage."
+            },
+            {
+                "option": "opt_2",
+                "placement": 2,
+                "content": "Notify the healthcare provider of current findings. This is the second priority. After initiating the immediate intervention to control blood pressure, the provider must be informed to guide further management. The constellation of symptoms (headache, vision changes, clonus) and critical labs (low platelets, high LFTs) requires collaborative decision-making for potential magnesium bolus, further antihypertensives, or transfer to a higher level of care."
+            },
+            {
+                "option": "opt_3",
+                "placement": 3,
+                "content": "Initiate seizure precautions per facility protocol. This is the third priority. The client's hyperreflexia, clonus, headache, and visual disturbances are all signs of significant central nervous system irritability, indicating a high risk for an eclamptic seizure. While magnesium sulfate is infusing, the risk is still present and escalating, making proactive safety measures essential."
+            },
+            {
+                "option": "opt_4",
+                "placement": 4,
+                "content": "Re-assess deep tendon reflexes and for clonus. This is the fourth priority. This is an assessment, not an intervention. While crucial for monitoring the client's neurological status and for signs of magnesium toxicity, the initial assessment has already identified the life-threatening problems. The priority is to act on the data already collected before gathering more."
+            },
+            {
+                "option": "opt_5",
+                "placement": 5,
+                "content": "Perform a fundal check and assess lochia. This is the last priority in this sequence. While postpartum hemorrhage is a risk, especially with preeclampsia, the client's fundus is noted as firm and lochia moderate. The immediate, life-threatening risk is neurological (seizure/stroke) due to the hypertensive crisis, not hemorrhage. This is a routine postpartum assessment that is secondary to the emergent condition."
+            }
+        ],
         "clinicalPearls": [
-            "Preeclampsia can worsen postpartum, requiring continued monitoring and treatment.",
-            "HELLP syndrome (Hemolysis, Elevated Liver enzymes, Low Platelets) is a severe complication of preeclampsia.",
-            "Magnesium sulfate is used for seizure prophylaxis in preeclampsia, not primarily for blood pressure control."
+            "HELLP syndrome (Hemolysis, Elevated Liver enzymes, Low Platelets) is a severe variant of preeclampsia that can occur postpartum and carries a high risk of maternal mortality.",
+            "Oliguria (<30 mL/hr) is a key sign of worsening preeclampsia, indicating reduced renal perfusion due to vasospasm and potential kidney injury.",
+            "The triad of headache, visual disturbances, and hyperreflexia signals severe CNS irritability and is a warning sign of an impending eclamptic seizure."
         ],
         "questionTrap": {
-            "trap": "The question tempts the examinee to focus on routine postpartum assessments instead of recognizing the emergent signs of worsening preeclampsia.",
-            "howToOvercome": "Focus on the abnormal assessment findings and prioritize interventions based on ABCs (Airway, Breathing, Circulation) and potential for rapid deterioration."
+            "trap": "The question trap is prioritizing routine postpartum care (fundal/lochia check) over the life-threatening signs of a hypertensive crisis and HELLP syndrome. The NCLEX tests the ability to identify and act on the most urgent finding, which is often related to circulation (BP) and neurology.",
+            "howToOvercome": "Always use a framework like 'ABCs' or 'Maslow's Hierarchy' to prioritize. The client's severe hypertension is a critical circulatory problem that can lead to a catastrophic neurological event. Address the immediate threat to life before performing routine assessments."
         },
         "mnemonic": {
-            "title": "HELLP",
-            "expansion": "Hemolysis, Elevated Liver enzymes, Low Platelets (Signs of HELLP syndrome)"
+            "title": "HELLP Syndrome",
+            "expansion": "H (Hemolysis - breakdown of red blood cells), EL (Elevated Liver enzymes - indicating liver damage), LP (Low Platelets - impaired clotting)."
         }
     }
 }

@@ -1,120 +1,119 @@
 {
     "id": "New-v26-9a8b7c2d-3e4f-5061-7283-94a5b6c7d8e9",
-    "stem": "A 72-year-old male is admitted to the ICU with a confirmed right-sided ischemic stroke. He is receiving tissue plasminogen activator (tPA). Based on the assessment data, prioritize the following interventions in the order of their importance to manage the patient's condition effectively.",
     "type": "bowtie",
+    "stem": "The nurse is caring for a 72-year-old client receiving tPA for an ischemic stroke. One hour into the infusion, the nurse notes a change in the client's status. Based on the provided data, what actions should the nurse take and what parameters should be monitored to address the client's potential condition?",
     "actions": [
         {
             "id": "a1",
-            "text": "Administer Oxygen"
+            "text": "Stop the tPA infusion"
         },
         {
             "id": "a2",
-            "text": "Start IV Fluids"
+            "text": "Administer antihypertensive medication"
         },
         {
             "id": "a3",
-            "text": "Notify Provider"
+            "text": "Administer an antiemetic"
         },
         {
             "id": "a4",
-            "text": "Prepare for Intubation"
+            "text": "Increase IV fluid rate"
         },
         {
             "id": "a5",
-            "text": "Administer Analgesia"
+            "text": "Place the client in a supine position"
+        }
+    ],
+    "parameters": [
+        {
+            "id": "p1",
+            "text": "Neurological status"
+        },
+        {
+            "id": "p2",
+            "text": "Blood pressure"
+        },
+        {
+            "id": "p3",
+            "text": "Urine output"
+        },
+        {
+            "id": "p4",
+            "text": "Heart rhythm"
+        },
+        {
+            "id": "p5",
+            "text": "Temperature"
+        }
+    ],
+    "potentialConditions": [
+        {
+            "id": "c1",
+            "text": "Increased Intracranial Pressure"
+        },
+        {
+            "id": "c2",
+            "text": "Aspiration Pneumonia"
+        },
+        {
+            "id": "c3",
+            "text": "Hypertensive Crisis"
         }
     ],
     "scoring": {
-        "method": "linked",
-        "maxPoints": 6
+        "method": "dichotomous",
+        "maxPoints": 5
     },
-    "stimuli": {
-        "options": [
-            "Administer antihypertensive medication",
-            "Elevate the head of the bed",
-            "Monitor neurological status closely",
-            "Implement aspiration precautions",
-            "Prepare for potential intubation",
-            "Notify the physician of changes in condition"
+    "response": {
+        "actions": [
+            "a1",
+            "a2"
         ],
-        "categories": [
-            "First",
-            "Second",
-            "Third",
-            "Fourth",
-            "Fifth",
-            "Last"
-        ]
+        "parameters": [
+            "p1",
+            "p2"
+        ],
+        "condition": "c1"
+    },
+    "hoverRationales": {
+        "a1": "tPA increases the risk of bleeding. A neurological decline suggests potential hemorrhagic conversion, requiring immediate cessation of the thrombolytic to prevent further bleeding into the brain.",
+        "a2": "Severe hypertension increases cerebral blood flow and pressure, exacerbating cerebral edema and the risk of hemorrhagic transformation. Lowering BP is critical to protect the brain.",
+        "a3": "This treats a symptom (vomiting) but fails to address the life-threatening underlying cause, which is likely increased intracranial pressure.",
+        "a4": "Increasing the fluid rate can worsen cerebral edema and further elevate intracranial pressure, leading to more severe neurological injury.",
+        "a5": "A supine position impedes venous drainage from the head, which would dangerously increase intracranial pressure. The head of the bed should be elevated.",
+        "p1": "Changes in level of consciousness, pupillary response, and motor function are direct indicators of worsening cerebral edema or hemorrhage and rising intracranial pressure.",
+        "p2": "Blood pressure is a critical determinant of cerebral perfusion pressure and a key factor in the risk of hemorrhagic conversion. Close monitoring is essential to guide therapy.",
+        "p3": "While important for overall fluid balance, urine output is not a direct or immediate indicator of an acute neurological deterioration like increased ICP.",
+        "p4": "Although Cushing's triad can involve bradycardia, the immediate priority is assessing the direct neurological changes and blood pressure driving the crisis.",
+        "p5": "Fever can worsen neurological outcomes, but the client's temperature is currently normal, making this a lower priority than monitoring direct signs of acute brain injury.",
+        "c1": "The client's decreased level of consciousness (GCS 11), emesis, and hypertension are classic signs of rising intracranial pressure due to cerebral edema or hemorrhagic conversion following an ischemic stroke.",
+        "c2": "This is a potential complication of emesis but would not cause the acute neurological decline seen here. The neurological changes are the primary problem.",
+        "c3": "The hypertension is more likely a symptom of or contributor to the primary neurological event (increased ICP), rather than an isolated crisis. The focus must be on the brain."
     },
     "pedagogy": {
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "takeActions",
         "topicTags": [
-            "Neurological: Stroke & Increased ICP"
+            "Neurological",
+            "Stroke",
+            "Increased ICP",
+            "Pharmacology"
         ],
         "bloomLevel": "analyze",
         "difficulty": 5,
         "nclexCategory": "Reduction of Risk Potential"
     },
-    "response": {
-        "Last": "Notify the physician of changes in condition",
-        "Fifth": "Prepare for potential intubation",
-        "First": "Administer antihypertensive medication",
-        "Third": "Monitor neurological status closely",
-        "Fourth": "Implement aspiration precautions",
-        "Second": "Elevate the head of the bed"
-    },
-    "condition": "Neurological: Stroke & Increased ICP",
-    "rationale": {
-        "correct": "1. **Administer antihypertensive medication:** The patient's blood pressure is elevated (180/100 mmHg) and needs to be controlled per stroke protocol to prevent further neurological damage and hemorrhagic conversion. Rapid reduction of BP is crucial. 2. **Elevate the head of the bed:** Elevating the head of the bed promotes venous drainage from the brain, which can help reduce intracranial pressure (ICP) and improve cerebral perfusion. This is a standard intervention for patients with neurological compromise. 3. **Monitor neurological status closely:** Continuous neurological assessment is essential to detect any changes in the patient's condition, such as worsening GCS or new neurological deficits. Early detection allows for timely intervention. 4. **Implement aspiration precautions:** The patient's emesis and decreased GCS increase the risk of aspiration. Implementing aspiration precautions, such as positioning and suctioning, is crucial to prevent pneumonia. 5. **Prepare for potential intubation:** A GCS of 11 indicates a significant alteration in the patient's level of consciousness and airway protection. Preparing for intubation ensures that the patient's airway can be secured if their condition deteriorates further. 6. **Notify the physician of changes in condition:** While important, this is typically the final step after initiating immediate interventions. The priority is to stabilize the patient first.",
-        "mnemonic": {
-            "title": "BP-HEAD-MAN",
-            "expansion": "Blood Pressure control, Head elevation, Early neurological assessment, Aspiration precautions, Determine need for intubation, Medical notification after initial stabilization."
-        },
-        "incorrect": "Reversing the order will lead to improper management. For instance, notifying the physician before stabilizing the patient's BP or securing their airway delays critical interventions. Ignoring aspiration risk or not closely monitoring neurological status can lead to severe complications like aspiration pneumonia or undetected increases in ICP.",
-        "questionTrap": {
-            "trap": "Many students select 'Notify the physician' as one of the first actions. While important, it should follow immediate interventions to stabilize the patient.",
-            "howToOvercome": "Focus on the ABCs (Airway, Breathing, Circulation) and immediate actions needed to stabilize the patient before notifying the physician."
-        },
-        "clinicalPearls": [
-            "In acute stroke management, time is brain. Rapid assessment and intervention are critical to minimize neurological damage.",
-            "Hypertension is common in acute stroke and needs to be managed carefully to prevent hemorrhagic conversion.",
-            "Changes in GCS require immediate attention and may indicate increasing ICP or worsening neurological status."
-        ]
-    },
-    "parameters": [
-        {
-            "id": "p1",
-            "text": "Vital Signs"
-        },
-        {
-            "id": "p2",
-            "text": "Oxygen Saturation"
-        },
-        {
-            "id": "p3",
-            "text": "Urine Output"
-        },
-        {
-            "id": "p4",
-            "text": "Pain Level"
-        },
-        {
-            "id": "p5",
-            "text": "Respiratory Rate"
-        }
-    ],
     "itemContext": {
-        "sbar": "S: Robert Miller, a 72-year-old male, was admitted to the ICU at 08:00 today with new onset right-sided weakness and slurred speech. His family noted the onset of symptoms around 06:30 this morning. His initial NIHSS score upon arrival was 18, indicating a moderate to severe stroke. The patient is currently receiving tPA as per our established stroke protocol, initiated at 08:30. B: Mr. Miller has a past medical history significant for hypertension and hyperlipidemia, both managed with oral medications at home. He has no known drug allergies. A: At 09:15, a neurological assessment reveals a Glasgow Coma Scale (GCS) score of 11 (Eyes 3, Verbal 3, Motor 5). The right-sided weakness persists. His current vital signs are: BP 180/100 mmHg, HR 92 bpm, RR 22 breaths/min, and SpO2 94% on 2L nasal cannula. His temperature is 37.2°C. He experienced a new episode of emesis at 09:10. P: I recommend close and continuous monitoring of his neurological status. We need to aggressively manage his blood pressure per stroke protocol, aiming for a target SBP <180 mmHg. Strict aspiration precautions should be implemented immediately, given his GCS and recent emesis. We should also prepare for potential intubation and mechanical ventilation if his GCS declines further or if he demonstrates signs of respiratory distress. A STAT neurosurgery consult has already been called to evaluate the patient.",
+        "sbar": "S: This is the nurse for Robert Miller, a 72-year-old male receiving tPA for a right-sided ischemic stroke. B: He has a history of hypertension and hyperlipidemia. A: At 09:15, his GCS dropped to 11. His BP is 180/100 mmHg, RR 22, and he just had an episode of emesis. R: I am concerned he is developing increased intracranial pressure or hemorrhagic conversion and requires immediate intervention.",
         "tabs": [
             {
                 "id": "sbar",
-                "title": "Sbar",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "SBAR",
+                "content": "S: This is the nurse for Robert Miller, a 72-year-old male receiving tPA for a right-sided ischemic stroke. B: He has a history of hypertension and hyperlipidemia. A: At 09:15, his GCS dropped to 11. His BP is 180/100 mmHg, RR 22, and he just had an episode of emesis. R: I am concerned he is developing increased intracranial pressure or hemorrhagic conversion and requires immediate intervention."
             },
             {
                 "id": "vitals",
                 "title": "Vitals",
-                "content": "08:00: BP 170/95, HR 88, RR 20, SpO2 95% on RA, Temp 37.0°C; 08:30: BP 175/98, HR 90, RR 21, SpO2 94% on 2L NC, Temp 37.1°C; 09:00: BP 180/100, HR 92, RR 22, SpO2 94% on 2L NC, Temp 37.2°C; 09:15: BP 180/100, HR 92, RR 22, SpO2 94% on 2L NC, Temp 37.2°C, GCS 11 (E3, V3, M5)"
+                "content": "08:00: BP 170/95, HR 88, RR 20, SpO2 95% on RA, Temp 37.0°C\n08:30: BP 175/98, HR 90, RR 21, SpO2 94% on 2L NC, Temp 37.1°C\n09:00: BP 180/100, HR 92, RR 22, SpO2 94% on 2L NC, Temp 37.2°C\n09:15: BP 180/100, HR 92, RR 22, SpO2 94% on 2L NC, Temp 37.2°C, GCS 11 (E3, V3, M5)"
             },
             {
                 "id": "labs",
@@ -123,23 +122,23 @@
             },
             {
                 "id": "physicalExam",
-                "title": "PhysicalExam",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Physical Exam",
+                "content": "09:15: Neurological: GCS 11 (E3, V3, M5). Pupils equal and reactive. Left-sided facial droop. Left upper and lower extremity strength 1/5 with pronator drift. Right-sided strength 5/5. Slurred speech noted. Respiratory: Lungs clear to auscultation bilaterally. Cardiovascular: S1, S2 audible, regular rhythm."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No significant findings at this time.</p>"
+                "content": "07:45: Non-contrast CT head: No evidence of acute intracranial hemorrhage. Subtle hypoattenuation in the right MCA territory suggestive of early ischemic changes."
             },
             {
                 "id": "carePlan",
-                "title": "CarePlan",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Care Plan",
+                "content": "Stroke Protocol initiated. Frequent neurological checks. Maintain SBP < 180 mmHg. Aspiration precautions."
             },
             {
                 "id": "mar",
                 "title": "MAR",
-                "content": "tPA 0.9 mg/kg IV (started at 08:30), Labetalol 20 mg IV PRN for SBP >180 mmHg, Acetaminophen 650 mg PO PRN for Temp >38.3°C, Normal Saline 0.9% IV at 75 mL/hr"
+                "content": "Alteplase (tPA) 0.9 mg/kg IV infusion (started at 08:30)\nLabetalol 20 mg IV PRN for SBP >180 mmHg\nAcetaminophen 650 mg PO PRN for Temp >38.3°C\nNormal Saline 0.9% IV at 75 mL/hr"
             }
         ],
         "patient": {
@@ -151,20 +150,5 @@
                 "NKDA"
             ]
         }
-    },
-    "sentinelStatus": "healed_v2026_v23_bowtie_fix",
-    "correctActionIds": [
-        "a1",
-        "a2"
-    ],
-    "correctParameterIds": [
-        "p1",
-        "p2"
-    ],
-    "potentialConditions": [
-        "Neurological: Stroke & Increased ICP",
-        "Pneumonia",
-        "Acute Myocardial Infarction",
-        "Pulmonary Embolism"
-    ]
+    }
 }

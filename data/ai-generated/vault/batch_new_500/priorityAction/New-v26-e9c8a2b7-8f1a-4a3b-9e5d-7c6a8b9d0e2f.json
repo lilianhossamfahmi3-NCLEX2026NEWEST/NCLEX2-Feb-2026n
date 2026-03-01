@@ -1,65 +1,161 @@
 {
     "id": "New-v26-e9c8a2b7-8f1a-4a3b-9e5d-7c6a8b9d0e2f",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a patient in the emergency department experiencing thyroid storm. Based on the available information, select the FIVE most important actions the nurse should take *first*.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "selectN",
+    "stem": "The nurse is caring for a client in the emergency department with suspected thyroid storm. Based on the client's record, select the **5** priority actions the nurse should implement.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Administer propranolol intravenously."
+        },
+        {
+            "id": "opt_02",
+            "text": "Initiate a continuous cooling blanket."
+        },
+        {
+            "id": "opt_03",
+            "text": "Administer propylthiouracil (PTU) orally."
+        },
+        {
+            "id": "opt_04",
+            "text": "Administer a bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "opt_05",
+            "text": "Apply a non-rebreather mask at 15 L/min."
+        },
+        {
+            "id": "opt_06",
+            "text": "Administer aspirin for hyperthermia."
+        },
+        {
+            "id": "opt_07",
+            "text": "Administer furosemide to manage fluid status."
+        },
+        {
+            "id": "opt_08",
+            "text": "Prepare for immediate radioactive iodine therapy."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04",
+        "opt_05"
+    ],
     "itemContext": {
         "patient": {
             "name": "Eleanor Vance",
-            "age": 48,
-            "gender": "Female",
-            "iso": "ED Bed 3",
+            "age": "48",
+            "sex": "Female",
+            "pronouns": "she/her",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Eleanor Vance, 48-year-old female, presented to the ED at 06:00 with complaints of fever, palpitations, and altered mental status. Patient has a history of Graves' disease but reports non-compliance with medications. B: Patient's daughter states that Ms. Vance has been increasingly agitated and confused over the past 24 hours. She also reports a high fever she measured at home. A: On assessment at 06:15, patient is tachycardic (HR 160 bpm), hypertensive (BP 180/100 mmHg), temperature 104.5°F (40.3°C), and exhibiting tremors. She is diaphoretic and restless. Oxygen saturation is 94% on room air. Mental status is fluctuating; at times she is oriented to person only. R: I suspect thyroid storm. I have initiated continuous cardiac monitoring and obtained stat labs. I recommend immediate intervention to address hyperthermia, tachycardia, and potential respiratory compromise. Orders for IV fluids, antithyroid medications, and beta-blockers are pending. Oxygen per nasal cannula has been initiated at 2LPM.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>TSH</td><td><0.01 mIU/L</td><td>0.4-4.0 mIU/L</td></tr><tr><td>Free T4</td><td>7.5 ng/dL</td><td>0.8-2.7 ng/dL</td></tr><tr><td>Free T3</td><td>25 pg/mL</td><td>2.3-4.2 pg/mL</td></tr><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Glucose</td><td>110 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>WBC</td><td>14,000/µL</td><td>4,500-11,000/µL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<strong>Admission Note (ED) | 06:15</strong><br><strong>S:</strong> Eleanor Vance, a 48-year-old female, presents to the ED via private vehicle accompanied by her adult child. The client complains of a high fever, severe heart palpitations, and feeling 'very confused.'<br><strong>B:</strong> The client has a known history of Graves' disease but has been non-compliant with her medication regimen for several weeks due to financial constraints. Her adult child reports finding her increasingly agitated and confused over the last 24 hours, prompting the ED visit. She has no other significant medical history besides the known Graves' disease and a penicillin allergy.<br><strong>A:</strong> Client is diaphoretic, restless, with visible fine tremors in her hands. Tachycardia is noted at 162 bpm with an irregular rhythm on the monitor. BP is 182/102 mmHg. Temperature is 104.5°F (40.3°C). She is oriented to person only and is unable to follow complex commands. Lungs are clear, but respirations are rapid and shallow at 28/min. SpO₂ is 94% on room air.<br><strong>R:</strong> Suspect thyroid storm. Have initiated 2L O₂ via nasal cannula and continuous cardiac monitoring. Stat labs drawn. Need orders for aggressive hyperthermia management, beta-blockade, antithyroid medications, and IV fluid resuscitation. Will continue to monitor neurological and hemodynamic status closely."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Status</th></tr></thead><tbody><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN for fever</td><td>Pending</td></tr><tr><td>Normal Saline</td><td>1000 mL</td><td>IV</td><td>Bolus</td><td>Pending</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th><th>Telemetry</th></tr></thead><tbody><tr><td>06:00</td><td>180/100 mmHg (127)</td><td>160 bpm</td><td>28</td><td>94% on RA</td><td>104.5°F (40.3°C)</td><td>Atrial Fibrillation</td></tr><tr><td>06:15</td><td>182/102 mmHg (129)</td><td>162 bpm</td><td>28</td><td>94% on 2L NC</td><td>104.5°F (40.3°C)</td><td>Atrial Fibrillation</td></tr><tr><td>06:30</td><td>188/104 mmHg (132)</td><td>165 bpm</td><td>30</td><td>92% on 2L NC</td><td>104.9°F (40.5°C)</td><td>Atrial Fibrillation</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>180/100 mmHg</td><td>160 bpm</td><td>28</td><td>94% RA</td><td>104.5°F (40.3°C)</td></tr><tr><td>06:15</td><td>182/102 mmHg</td><td>162 bpm</td><td>28</td><td>94% RA</td><td>104.5°F (40.3°C)</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>TSH</td><td>&lt;0.01</td><td>mIU/L</td><td>0.4-4.0</td><td>Low</td></tr><tr><td>Free T4</td><td>7.5</td><td>ng/dL</td><td>0.8-2.7</td><td>High</td></tr><tr><td>Free T3</td><td>25</td><td>pg/mL</td><td>2.3-4.2</td><td>High</td></tr><tr><td>Sodium</td><td>140</td><td>mEq/L</td><td>135-145</td><td>Normal</td></tr><tr><td>Potassium</td><td>3.8</td><td>mEq/L</td><td>3.5-5.0</td><td>Normal</td></tr><tr><td>Glucose</td><td>110</td><td>mg/dL</td><td>70-110</td><td>Normal</td></tr><tr><td>WBC</td><td>14.0</td><td>x10³/µL</td><td>4.5-11.0</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<strong>Focused Assessment | 06:15</strong><br><strong>General:</strong> Appears acutely ill, restless, agitated.<br><strong>Neurological:</strong> GCS 13 (E4, V4, M5). Oriented to person only. Unable to follow complex commands. Pupils equal, round, reactive to light. Fine tremors noted in outstretched hands.<br><strong>Cardiovascular:</strong> Tachycardic, irregularly irregular rhythm. S1/S2 audible. No murmurs. Pulses 2+ and bounding peripherally.<br><strong>Respiratory:</strong> Tachypneic with shallow respirations. Lungs clear to auscultation bilaterally. No accessory muscle use noted.<br><strong>Integumentary:</strong> Skin is hot, flushed, and profusely diaphoretic. No rashes or lesions. Goiter is not readily palpable."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<strong>Chest X-ray (Portable, AP View) | 06:25</strong><br><strong>Indication:</strong> Tachycardia, fever, altered mental status.<br><strong>Findings:</strong> The cardiomediastinal silhouette is within normal limits. The lungs are clear without evidence of consolidation, effusion, or pulmonary edema. No acute osseous abnormalities.<br><strong>Impression:</strong> No acute cardiopulmonary process identified."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>06:20</td><td>Continuous cardiac and pulse oximetry monitoring</td><td>Active</td></tr><tr><td>06:20</td><td>IV access x2 large bore</td><td>Active</td></tr><tr><td>06:25</td><td>Propranolol 1 mg IV push over 1 minute</td><td>STAT, Pending</td></tr><tr><td>06:25</td><td>Propylthiouracil (PTU) 600 mg PO/NG</td><td>STAT, Pending</td></tr><tr><td>06:25</td><td>0.9% Sodium Chloride 1 L IV bolus</td><td>STAT, Pending</td></tr><tr><td>06:25</td><td>Initiate cooling blanket, set to 37°C</td><td>STAT, Pending</td></tr><tr><td>06:25</td><td>Acetaminophen 650 mg PO/PR for temp >101.5°F</td><td>PRN, Pending</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propylthiouracil (PTU)</td><td>600 mg</td><td>PO</td><td>STAT</td><td>Not yet given</td></tr><tr><td>Propranolol</td><td>1 mg</td><td>IV</td><td>STAT</td><td>Not yet given</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO/PR</td><td>q4h PRN Fever</td><td>Not yet given</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
-        "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
+    "rationale": {
+        "correct": "Thyroid storm is a life-threatening hypermetabolic state requiring immediate, multi-faceted intervention. The priorities are to block the systemic effects of thyroid hormone, inhibit new hormone synthesis, manage hyperthermia, provide hemodynamic support, and ensure adequate oxygenation to meet the body's extreme metabolic demands.",
+        "incorrect": "Incorrect actions are those that are either contraindicated, less effective, or not a priority in the acute phase. Administering aspirin is contraindicated as it can displace thyroid hormone from binding proteins, worsening the crisis. Diuretics would exacerbate dehydration. Radioactive iodine is a treatment for hyperthyroidism, not the acute storm, and can worsen it initially.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. Propranolol, a non-selective beta-blocker, is critical to rapidly control the severe cardiovascular manifestations (tachycardia, hypertension, atrial fibrillation) by blocking the adrenergic effects of excess thyroid hormone. This is a top priority to prevent cardiovascular collapse."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. Extreme hyperthermia (104.9°F / 40.5°C) can lead to CNS dysfunction and cellular damage. A cooling blanket provides aggressive, external cooling necessary to reduce the core body temperature more effectively than antipyretics alone."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. Propylthiouracil (PTU) is an antithyroid medication that blocks the synthesis of new thyroid hormones. It also has the added benefit of inhibiting the peripheral conversion of T4 to the more active T3, making it a cornerstone of treatment."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. The client is diaphoretic, febrile, and tachypneic, leading to significant insensible fluid losses and dehydration. An isotonic IV fluid bolus is essential for hemodynamic support, to correct dehydration, and to improve organ perfusion."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. The hypermetabolic state dramatically increases oxygen consumption. The client's SpO₂ is dropping (92%) despite a nasal cannula. A non-rebreather mask delivers a higher FiO₂ to prevent tissue hypoxia and support cellular function."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. Aspirin and other salicylates are contraindicated in thyroid storm. They can displace thyroid hormone from protein-binding sites, increasing the level of free, biologically active hormone in the circulation and worsening the thyrotoxicosis."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. The client is dehydrated due to fever and diaphoresis, not fluid overloaded. Administering a diuretic like furosemide would worsen dehydration, leading to hypovolemia, electrolyte imbalances, and potential cardiovascular collapse."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Incorrect. Radioactive iodine (RAI) therapy is a treatment for the underlying hyperthyroidism, not the acute storm. It works by destroying thyroid tissue over weeks to months and can cause an initial transient release of stored hormone, which would dangerously exacerbate the storm."
+            }
+        ],
+        "clinicalPearls": [
+            "In thyroid storm, always treat the cardiovascular symptoms with a beta-blocker (like propranolol) first, as this provides the most rapid stabilization.",
+            "Never administer aspirin for fever in a client with suspected thyroid storm; use non-salicylate antipyretics like acetaminophen in conjunction with active cooling measures.",
+            "PTU is often preferred over methimazole in the acute setting of thyroid storm because it also blocks the peripheral conversion of T4 to T3.",
+            "Look for a precipitating event for thyroid storm, such as infection (indicated by the high WBC), trauma, or medication non-compliance."
+        ],
+        "questionTrap": "A common trap is selecting aspirin to treat the high fever. While logical for most fevers, it is specifically contraindicated in thyroid storm due to its effect on protein-bound thyroid hormones. Always consider medication-disease interactions.",
+        "mnemonic": {
+            "title": "Thyroid STORM Management",
+            "expansion": "<strong>S</strong>uppress hormone synthesis (PTU/Methimazole)\n<strong>T</strong>reat symptoms (Beta-blockers, Cooling)\n<strong>O</strong>xygenate (High-flow O₂)\n<strong>R</strong>eplace fluids (IV hydration)\n<strong>M</strong>onitor continuously"
+        },
+        "reviewUnits": [
+            "Endocrine System Disorders",
+            "Pharmacology: Endocrine Agents",
+            "Emergency Nursing",
+            "Fluid and Electrolyte Balance"
         ]
     },
-    "rationale": {
-        "correct": "The priority actions in thyroid storm involve addressing the hypermetabolic state. Administering a beta-blocker (propranolol) helps to control tachycardia and reduce the effects of excessive thyroid hormones on the heart. Initiating cooling measures (cooling blanket) is crucial to reduce the dangerously high body temperature. Administering an antithyroid medication (PTU or methimazole) blocks further synthesis of thyroid hormones. Providing IV fluids (normal saline bolus) addresses dehydration from fever and diaphoresis and supports blood pressure. Administering oxygen supplementation via a non-rebreather mask addresses the increased oxygen demand due to the hypermetabolic state and the patient's compromised respiratory status.",
-        "incorrect": "Administering acetaminophen addresses fever but is less effective than active cooling measures in this acute situation. Encouraging oral fluids is contraindicated due to the patient's altered mental status and risk of aspiration. Monitoring blood glucose is important, but not a *first* priority when the patient is not hypoglycemic and the primary concern is the thyroid storm itself. Elevating the head of the bed may improve oxygenation, but active oxygen supplementation is a higher priority. Administering a diuretic will further dehydrate the patient and is not indicated in this scenario.",
-        "clinicalPearls": [
-            "Thyroid storm is a life-threatening emergency requiring immediate intervention.",
-            "Beta-blockers are crucial for controlling tachycardia and atrial fibrillation in thyroid storm.",
-            "Cooling measures must be aggressive to combat hyperthermia.",
-            "Antithyroid medications take time to work, so they are not the *first* intervention but are crucial for long-term management."
-        ],
-        "questionTrap": {
-            "trap": "Students might focus on individual symptoms (fever, tachycardia) rather than prioritizing the systemic effects of thyroid storm.",
-            "howToOvercome": "Focus on the underlying pathophysiology (hypermetabolic state) and prioritize interventions that address multiple symptoms and the root cause."
-        },
-        "mnemonic": {
-            "title": "Thyroid STORM",
-            "expansion": "Stress/Surgery, Trauma, Obstetric complications, Radioactive iodine therapy, Medication non-compliance/Missed doses"
-        }
-    }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:20:37.485Z"
 }

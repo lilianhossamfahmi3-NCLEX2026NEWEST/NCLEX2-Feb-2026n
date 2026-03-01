@@ -1,76 +1,335 @@
 {
     "id": "New-v26-d7e9b2a3-4c5d-4e6f-8a9b-0123456789ab",
     "type": "selectAll",
-    "stem": "The nurse is caring for a 68-year-old male patient, Mr. Jones, admitted to the ICU with septic shock. Based on the patient's current assessment and lab values, which of the following interventions are MOST appropriate? Select all that apply.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is reviewing the most recent clinical data for a client being treated for septic shock. Which interventions should the nurse anticipate implementing to manage the client's condition? Select all that apply.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Increase the norepinephrine infusion rate."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer a 1000 mL bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "opt_03",
+            "text": "Administer the scheduled dose of broad-spectrum antibiotics."
+        },
+        {
+            "id": "opt_04",
+            "text": "Prepare for arterial line insertion."
+        },
+        {
+            "id": "opt_05",
+            "text": "Place the client in a high-Fowler's position."
+        },
+        {
+            "id": "opt_06",
+            "text": "Obtain a repeat serum lactate level in 2 hours."
+        },
+        {
+            "id": "opt_07",
+            "text": "Request a prescription for a diuretic."
+        }
+    ],
+    "correctOptionId": [
+        "opt_01",
+        "opt_03",
+        "opt_04",
+        "opt_06"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Mr. Jones",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Mr. Jones, a 68-year-old male, was admitted to the ICU at 02:00 with septic shock. His initial BP was 80/40 mmHg, which improved to 92/56 mmHg after a 1L normal saline bolus. His current HR is 130 bpm, RR is 32 breaths/min, SpO2 is 91% on 4L nasal cannula, and temperature is 39.5°C. A: The patient shows minimal response to initial fluid resuscitation, with a urine output of 15 mL/hr and a lactate level of 4.8 mmol/L. His WBC count is 18,000/µL. Blood cultures are pending. Vasoactive support was initiated at 04:00 with norepinephrine at 5 mcg/min. R: Continue close monitoring of vital signs. Increase norepinephrine as needed per protocol. Obtain a repeat lactate level in 2 hours. Consider arterial line insertion for continuous BP monitoring. Broad-spectrum antibiotics have been ordered; ensure timely administration. Assess for the source of infection. Monitor urine output hourly. Check peripheral perfusion and mental status frequently. Evaluate the need for advanced airway management. B: Mr. Jones requires aggressive management of septic shock.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>WBC</td><td>18,000/µL</td><td>4,500-11,000/µL</td></tr><tr><td>Lactate</td><td>4.8 mmol/L</td><td>0.5-2.2 mmol/L</td></tr><tr><td>Creatinine</td><td>2.1 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>8-20 mg/dL</td></tr><tr><td>Glucose</td><td>180 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>Platelets</td><td>120,000/µL</td><td>150,000-400,000/µL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 02:00",
+                        "header": "ICU Admission Note",
+                        "body": "S: 68-year-old male brought to the emergency department by his adult child due to a 2-day history of productive cough, fever, and increasing confusion. \nB: Client has a history of COPD and type 2 diabetes mellitus. He lives alone in a rural community with known transportation barriers, which delayed him seeking care. He is allergic to Penicillin. \nA: On arrival, client was lethargic. Vital signs were: T 103.5°F (39.7°C), HR 135/min, RR 34/min, BP 80/40 mmHg, SpO2 88% on room air. Coarse crackles noted bilaterally. \nR: Initiated sepsis protocol. Transferred to ICU for management of septic shock. Started on 4L nasal cannula. Central venous catheter placed. A 1000 mL bolus of 0.9% sodium chloride was administered over 30 minutes."
+                    },
+                    {
+                        "timestamp": "Day 1, 04:00",
+                        "header": "ICU Progress Note",
+                        "body": "S: Client remains hypotensive and tachycardic despite initial fluid resuscitation. \nB: Norepinephrine infusion was initiated at 03:45 and is currently infusing at 5 mcg/min. \nA: Current vital signs: T 103.1°F (39.5°C), HR 130/min, RR 32/min, BP 92/56 mmHg (MAP 68 mmHg), SpO2 91% on 4L NC. Client remains lethargic. Skin is cool and clammy with delayed capillary refill. Urine output via indwelling catheter was 15 mL in the last hour. Initial lactate level is 4.8 mmol/L. \nR: Continue to titrate norepinephrine to maintain MAP >65 mmHg. Administer broad-spectrum antibiotics as ordered. Prepare for arterial line placement for continuous hemodynamic monitoring. Plan to re-evaluate serum lactate in 2 hours to assess response to therapy. Continue hourly intake and output monitoring."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th><th>Urine Output (mL/hr)</th></tr></thead><tbody><tr><td>03:00</td><td>80/40</td><td>135</td><td>34</td><td>88% (RA)</td><td>39.7°C</td><td>-</td></tr><tr><td>03:30</td><td>88/50</td><td>132</td><td>33</td><td>90% (4L NC)</td><td>39.6°C</td><td>5</td></tr><tr><td>04:00</td><td>92/56</td><td>130</td><td>32</td><td>91% (4L NC)</td><td>39.5°C</td><td>15</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "02:00",
+                        "HR": "135",
+                        "BP": "80/40 (MAP 53)",
+                        "RR": "34",
+                        "SpO2": "88% on Room Air",
+                        "Temp": "103.5°F (39.7°C)",
+                        "Urine Output": "N/A"
+                    },
+                    {
+                        "Time": "03:00",
+                        "HR": "132",
+                        "BP": "88/50 (MAP 63)",
+                        "RR": "33",
+                        "SpO2": "90% on 4L NC",
+                        "Temp": "103.3°F (39.6°C)",
+                        "Urine Output": "5 mL/hr"
+                    },
+                    {
+                        "Time": "04:00",
+                        "HR": "130",
+                        "BP": "92/56 (MAP 68)",
+                        "RR": "32",
+                        "SpO2": "91% on 4L NC",
+                        "Temp": "103.1°F (39.5°C)",
+                        "Urine Output": "15 mL/hr"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Status</th></tr></thead><tbody><tr><td>Norepinephrine</td><td>5 mcg/min</td><td>IV</td><td>Continuous</td><td>Active (Started 04:00)</td></tr><tr><td>Ceftriaxone</td><td>2g</td><td>IV</td><td>q24h</td><td>Scheduled (Next dose due 06:00)</td></tr><tr><td>Normal Saline</td><td>500 mL</td><td>IV</td><td>Bolus</td><td>Completed (03:30)</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Category": "Hematology",
+                        "Results": [
+                            {
+                                "Test": "WBC",
+                                "Result": "18.5",
+                                "Unit": "x10³/µL",
+                                "Reference": "4.5-11.0",
+                                "Status": "High"
+                            },
+                            {
+                                "Test": "Hgb",
+                                "Result": "12.8",
+                                "Unit": "g/dL",
+                                "Reference": "13.5-17.5",
+                                "Status": "Normal"
+                            },
+                            {
+                                "Test": "Platelets",
+                                "Result": "120",
+                                "Unit": "x10³/µL",
+                                "Reference": "150-400",
+                                "Status": "Low"
+                            }
+                        ]
+                    },
+                    {
+                        "Category": "Chemistry",
+                        "Results": [
+                            {
+                                "Test": "Lactate, Serum",
+                                "Result": "4.8",
+                                "Unit": "mmol/L",
+                                "Reference": "0.5-2.2",
+                                "Status": "High"
+                            },
+                            {
+                                "Test": "Creatinine",
+                                "Result": "2.1",
+                                "Unit": "mg/dL",
+                                "Reference": "0.6-1.2",
+                                "Status": "High"
+                            },
+                            {
+                                "Test": "BUN",
+                                "Result": "35",
+                                "Unit": "mg/dL",
+                                "Reference": "8-20",
+                                "Status": "High"
+                            },
+                            {
+                                "Test": "Glucose",
+                                "Result": "180",
+                                "Unit": "mg/dL",
+                                "Reference": "70-110",
+                                "Status": "High"
+                            }
+                        ]
+                    },
+                    {
+                        "Category": "Microbiology",
+                        "Results": [
+                            {
+                                "Test": "Blood Culture x2",
+                                "Result": "Pending",
+                                "Unit": "",
+                                "Reference": "No Growth",
+                                "Status": ""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 04:00",
+                        "system": "Neurological",
+                        "findings": "GCS 14 (E4, V4, M6). Lethargic but arousable to verbal stimuli. Oriented to person only."
+                    },
+                    {
+                        "timestamp": "Day 1, 04:00",
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardic with regular rhythm. S1 and S2 audible. Peripheral pulses +1 in all extremities. Capillary refill >3 seconds. Skin is cool and clammy."
+                    },
+                    {
+                        "timestamp": "Day 1, 04:00",
+                        "system": "Respiratory",
+                        "findings": "Tachypneic with moderate use of accessory muscles. Coarse crackles auscultated in bilateral lower lobes."
+                    },
+                    {
+                        "timestamp": "Day 1, 04:00",
+                        "system": "Gastrointestinal/Genitourinary",
+                        "findings": "Abdomen soft, non-distended with hypoactive bowel sounds. Indwelling urinary catheter in place, draining scant, concentrated urine."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No radiology reports available.</p>"
+                "content": [
+                    {
+                        "timestamp": "Day 1, 02:30",
+                        "procedure": "Chest X-Ray (Portable AP)",
+                        "report": "INDICATION: Fever, cough, hypoxia.\n\nFINDINGS: Bilateral lower lobe opacities are present, consistent with airspace disease. The cardiac silhouette is not enlarged. There is no evidence of pneumothorax or significant pleural effusion.\n\nIMPRESSION: Findings are highly suggestive of bilateral pneumonia, a likely source of sepsis."
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "<p>See SBAR in Item Context.</p>"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Time": "02:15",
+                        "Action": "1000 mL 0.9% Sodium Chloride IV bolus over 30 min",
+                        "Status": "STAT - Completed"
+                    },
+                    {
+                        "Time": "02:15",
+                        "Action": "Blood cultures x2, Lactate, CBC, CMP",
+                        "Status": "STAT - Results Pending"
+                    },
+                    {
+                        "Time": "03:45",
+                        "Action": "Norepinephrine IV infusion, titrate to maintain MAP > 65 mmHg",
+                        "Status": "Standing - Active"
+                    },
+                    {
+                        "Time": "04:00",
+                        "Action": "Ceftriaxone 2g IV",
+                        "Status": "Scheduled - Every 24 hours"
+                    },
+                    {
+                        "Time": "04:00",
+                        "Action": "Monitor urine output hourly",
+                        "Status": "Standing - Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Norepinephrine",
+                        "Dose": "5 mcg/min",
+                        "Route": "IV",
+                        "Frequency": "Continuous Infusion",
+                        "Last Administered": "Ongoing since 03:45"
+                    },
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "2 g",
+                        "Route": "IV",
+                        "Frequency": "Every 24 hours",
+                        "Last Administered": "Not yet administered"
+                    },
+                    {
+                        "Medication": "0.9% Sodium Chloride",
+                        "Dose": "1000 mL",
+                        "Route": "IV",
+                        "Frequency": "Bolus",
+                        "Last Administered": "03:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
+    "rationale": {
+        "correct": "The correct interventions focus on the core principles of septic shock management: improving tissue perfusion with vasopressors, treating the underlying infection with timely antibiotics, enabling precise hemodynamic monitoring, and evaluating the response to therapy via lactate levels.",
+        "incorrect": "The incorrect options are either unsafe or not indicated. Further aggressive fluid boluses are risky without evidence of fluid responsiveness and may worsen pulmonary status. Positional changes that can decrease preload are contraindicated in shock. Diuretics are harmful in the setting of hypoperfusion and acute kidney injury.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The client's MAP is barely at the minimum target of 65 mmHg (currently 68 mmHg) despite being on norepinephrine. The persistent tachycardia, oliguria, and elevated lactate indicate ongoing shock. Increasing the vasopressor infusion is a priority to improve vascular tone and organ perfusion."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. The client showed a minimal response to the initial 1000 mL bolus and now has evidence of end-organ dysfunction (oliguria, high creatinine) and pulmonary congestion (crackles). Administering another large fluid bolus without assessing for fluid responsiveness could lead to fluid overload and worsening respiratory failure."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. The Surviving Sepsis Campaign guidelines emphasize the administration of broad-spectrum antibiotics within one hour of sepsis recognition. Delaying antibiotics is associated with increased mortality. Since the source is likely pneumonia, treating the infection is critical to reversing the shock state."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. The client is hemodynamically unstable and requires continuous vasopressor titration. An arterial line provides real-time, accurate blood pressure monitoring, which is superior to non-invasive cuff pressures in shock states and essential for safe titration of potent medications like norepinephrine."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Incorrect. A high-Fowler's position would decrease venous return (preload) to the heart, which would likely worsen hypotension in a client with distributive shock. The client should be kept supine or in a slight reverse Trendelenburg if respiratory status is a concern, but never in a position that compromises circulation."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. The initial lactate level of 4.8 mmol/L indicates significant tissue hypoperfusion and anaerobic metabolism. Serial lactate measurements are essential to evaluate the effectiveness of resuscitation efforts. A decrease in lactate (lactate clearance) is a key therapeutic goal and indicates improved perfusion."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. The client has an acute kidney injury (elevated creatinine, low urine output) secondary to hypoperfusion. Administering a diuretic would cause further volume depletion, worsen hypotension, and exacerbate renal injury. The priority is to restore perfusion to the kidneys, not force diuresis."
+            }
+        ],
+        "clinicalPearls": [
+            "In septic shock, after initial fluid resuscitation, vasopressors are the primary intervention to achieve a target MAP of ≥65 mmHg and restore organ perfusion.",
+            "Lactate clearance is a critical marker of successful resuscitation. Failure of lactate levels to decrease within the first few hours is associated with higher mortality.",
+            "For every hour that antibiotic administration is delayed in septic shock, the risk of mortality increases significantly. Timeliness is a key nursing priority."
+        ],
+        "questionTrap": "A common trap is to continue administering fluid boluses based on hypotension alone, without considering the patient's response and the risk of fluid overload. Always re-evaluate after each intervention; in this case, the minimal BP response and oliguria suggest the need for vasopressors over more fluid.",
+        "mnemonic": {
+            "title": "SEPSIS BUNDLE (First 3 Hours)",
+            "expansion": "Lactate measurement, Obtain blood cultures, Broad-spectrum antibiotics, Fluid resuscitation (judiciously), Vasopressors for persistent hypotension."
+        },
+        "reviewUnits": [
+            "Cardiovascular: Shock & Hemodynamics",
+            "Pharmacology: Vasoactive Medications",
+            "Infection Control: Sepsis Management",
+            "Fluid & Electrolytes: Acid-Base Balance"
         ]
     },
-    "rationale": {
-        "correct": "Increasing the norepinephrine infusion rate is appropriate to maintain adequate blood pressure and tissue perfusion. The patient's current BP of 92/56 mmHg is still low, indicating a need for further vasopressor support to achieve a MAP >65 mmHg. Initiating continuous arterial blood pressure monitoring allows for real-time assessment of BP and titration of vasoactive medications, especially in unstable patients. The patient's urine output of 15 mL/hr indicates inadequate renal perfusion, necessitating close monitoring as it reflects end-organ perfusion. Administering scheduled antibiotics promptly is crucial to combat the underlying infection and prevent further deterioration; delaying antibiotics increases mortality in septic shock. Obtaining a repeat lactate level in 2 hours is important to assess the effectiveness of interventions and guide further treatment. A decreasing lactate level indicates improved tissue perfusion.  \n\nclinicalPearl: Titrate vasopressors to maintain a MAP >65 mmHg to ensure adequate organ perfusion.  Serial lactate measurements guide resuscitation efforts.",
-        "incorrect": "Administering a rapid fluid bolus of 1000 mL of normal saline may worsen pulmonary edema or fluid overload, particularly given the patient's marginal response to the initial fluid bolus and decreased urine output. In septic shock, fluid administration should be guided by hemodynamic assessment and signs of fluid overload should be monitored closely. While supplemental oxygen is important, increasing the oxygen flow rate may not address the underlying issue of poor tissue perfusion caused by shock. The patient is already on 4L NC; further interventions like mechanical ventilation may be needed if oxygenation does not improve. Placing the patient in Trendelenburg position is no longer recommended as it can impair respiratory function and increase intracranial pressure without significantly improving blood pressure. Decreasing the norepinephrine infusion is inappropriate because the patient's blood pressure remains low, indicating a need for continued vasopressor support to maintain adequate organ perfusion.\n\nclinicalPearl: Avoid aggressive fluid boluses without assessing for fluid overload.  Trendelenburg position is contraindicated in shock management.",
-        "clinicalPearls": [
-            "Septic shock requires aggressive management of both fluid resuscitation and vasopressor support to maintain adequate blood pressure and tissue perfusion.",
-            "Lactate levels are a crucial indicator of tissue perfusion and should be monitored serially to assess the effectiveness of interventions.",
-            "Early administration of broad-spectrum antibiotics is essential in the treatment of septic shock to combat the underlying infection.",
-            "MAP (Mean Arterial Pressure) is a key indicator of tissue perfusion and should be maintained above 65 mmHg in septic shock."
-        ],
-        "questionTrap": {
-            "trap": "The question trap is the inclination to focus solely on one aspect of the patient's condition (e.g., oxygenation) rather than considering the overall clinical picture of septic shock and the need for multi-faceted interventions.",
-            "howToOvercome": "To overcome this trap, analyze all the available data (vital signs, labs, urine output) and prioritize interventions that address the underlying pathophysiology of septic shock: inadequate tissue perfusion. Consider the interplay between fluid resuscitation, vasopressor support, antibiotics, and source control."
-        },
-        "mnemonic": {
-            "title": "SEPSIS",
-            "expansion": "Source identification (find the infection), Early antibiotics, Pressors (vasopressors), Saline resuscitation (judiciously), Inotropes (if needed), Support organ function."
-        }
+    "scoring": {
+        "method": "+/- Scoring",
+        "maxPoints": 4
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Application",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:29:15.739Z"
 }

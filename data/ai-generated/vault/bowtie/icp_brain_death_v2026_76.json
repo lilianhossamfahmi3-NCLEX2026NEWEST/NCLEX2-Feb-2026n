@@ -1,23 +1,28 @@
 {
     "id": "bowtie_icp_brain_death_v2026_76",
     "type": "bowtie",
-    "stem": "A 22-year-old trauma client has been in a deep coma with fixed and dilated pupils for 48 hours following a severe traumatic brain injury (TBI). Based on the documentation in the provided tabs, complete the bowtie by selecting the most likely condition, the two actions the nurse should take, and the two parameters the nurse should monitor.",
+    "stem": "A 22-year-old client with a severe traumatic brain injury is unresponsive with fixed, dilated pupils. The healthcare team is initiating the brain death protocol. Based on the EHR, select the potential condition, two actions to take, and two parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
                 "title": "SBAR",
-                "content": "<b>Situation:</b> Initiating brain death determination protocol.<br><b>Background:</b> 22-year-old male involved in a motor vehicle accident, resulting in severe diffuse axonal injury. Admitted 48 hours ago.<br><b>Assessment:</b> At 07:00, the client's GCS is 3T, with no spontaneous respirations. Pupils are fixed and dilated bilaterally. Corneal and gag reflexes are absent. The client is ventilator-dependent and pressor-dependent to maintain a MAP >65 mmHg. Current vitals: BP 90/52, HR 68, Temp 95.2°F.<br><b>Recommendation:</b> Continue brain death protocol per hospital policy. Neurology has ordered a formal apnea test. Notify the Organ Procurement Organization (OPO) per protocol if apnea test is positive."
-            },
-            {
-                "id": "protocol",
-                "title": "Brain Death Protocol Log",
-                "content": "<table><thead><tr><th>Criteria</th><th>Current Finding</th><th>Interpretation</th></tr></thead><tbody><tr><td>Pupillary Light Reflex</td><td>Absent (Fixed/Dilated)</td><td>Brainstem failure</td></tr><tr><td>Corneal / Gag Reflexes</td><td>Absent</td><td>Brainstem failure</td></tr><tr><td>Apnea Test</td><td>PCO2 reached 62 mmHg; No respiratory effort</td><td>Positive for Brain Death</td></tr><tr><td>Doll’s Eyes (Oculocephalic)</td><td>No eye movement</td><td>Brainstem failure</td></tr></tbody></table>"
+                "content": "<b>Situation:</b> At 07:00, we are initiating the brain death determination protocol for the 22-year-old male in ICU Bed 4.<br><b>Background:</b> He sustained a severe diffuse axonal injury from a motor vehicle accident 48 hours ago. He is ventilator and pressor-dependent.<br><b>Assessment:</b> GCS is 3T. Pupils are fixed and dilated. Corneal, gag, and oculocephalic reflexes are absent. He is poikilothermic with a core temp of 35.1°C (95.2°F). No spontaneous respirations over the ventilator.<br><b>Recommendation:</b> Continue protocol. Neurology has ordered a formal apnea test once normothermia is achieved. Notify the Organ Procurement Organization (OPO) per policy."
             },
             {
                 "id": "vitals",
                 "title": "Vital Signs",
-                "content": "BP 90/52 (Pressor dependent), HR 68, RR 0 (Ventilator dependent), T 95.2°F (Poikilothermia)."
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO2</th></tr></thead><tbody><tr><td>07:00</td><td>90/52 mmHg (65)</td><td>68/min</td><td>0/min (Ventilator set to 12/min)</td><td>35.1°C (95.2°F) Core</td><td>98%</td></tr></tbody></table><p><b>Notes:</b> Client is dependent on norepinephrine infusion to maintain MAP > 65 mmHg.</p>"
+            },
+            {
+                "id": "neuro",
+                "title": "Neurological",
+                "content": "<table><thead><tr><th>Assessment</th><th>Finding</th></tr></thead><tbody><tr><td>Glasgow Coma Scale (GCS)</td><td>3T (E1, V(T), M1)</td></tr><tr><td>Pupils</td><td>8mm, fixed, non-reactive to light bilaterally</td></tr><tr><td>Corneal Reflex</td><td>Absent bilaterally</td></tr><tr><td>Gag Reflex</td><td>Absent</td></tr><tr><td>Oculocephalic Reflex (Doll's Eyes)</td><td>Absent</td></tr><tr><td>Spontaneous Respirations</td><td>Absent</td></tr></tbody></table>"
+            },
+            {
+                "id": "protocol",
+                "title": "Brain Death Protocol",
+                "content": "<table><thead><tr><th>Criteria</th><th>Current Finding</th><th>Interpretation</th></tr></thead><tbody><tr><td>Pupillary Light Reflex</td><td>Absent</td><td>Consistent with brainstem failure</td></tr><tr><td>Corneal / Gag Reflexes</td><td>Absent</td><td>Consistent with brainstem failure</td></tr><tr><td>Oculocephalic Reflex</td><td>Absent</td><td>Consistent with brainstem failure</td></tr><tr><td>Apnea Test</td><td>Pending - Awaiting normothermia (Core Temp > 36°C)</td><td>Required for final diagnosis</td></tr></tbody></table>"
             }
         ]
     },
@@ -25,51 +30,62 @@
         "conditionOptions": [
             {
                 "id": "c1",
-                "text": "Persistent Vegetative State (PVS)"
+                "text": "Persistent Vegetative State (PVS)",
+                "hoverRationale": "Incorrect. PVS involves loss of higher cortical function but preserved brainstem function, including spontaneous respirations and sleep-wake cycles. This client has absent brainstem reflexes and apnea."
             },
             {
                 "id": "c2",
-                "text": "Clinical Brain Death"
+                "text": "Clinical Brain Death",
+                "hoverRationale": "Correct. This condition is the irreversible cessation of all brain function, including the brainstem. The client's absent reflexes, apnea, and coma are hallmark signs of this diagnosis."
             },
             {
                 "id": "c3",
-                "text": "Drug-induced Coma"
+                "text": "Drug-induced Coma",
+                "hoverRationale": "Incorrect. While a drug-induced coma can mimic brain death, it is a reversible condition. A toxicology screen would be performed to rule this out before a brain death diagnosis is confirmed."
             }
         ],
         "actionOptions": [
             {
                 "id": "a1",
-                "text": "Notify the local Organ Procurement Organization (OPO) as required by policy"
+                "text": "Notify the Organ Procurement Organization (OPO)",
+                "hoverRationale": "Correct. Federal law and hospital policy mandate timely notification to the OPO when a client meets clinical triggers for brain death. This allows the OPO to prepare for potential organ donation discussions."
             },
             {
                 "id": "a2",
-                "text": "Maintain hemodynamic stability (fluids/vasopressors) to preserve organ function"
+                "text": "Maintain hemodynamic stability for organ perfusion",
+                "hoverRationale": "Correct. After brain death, hypothalamic-pituitary dysfunction leads to hemodynamic instability. Maintaining MAP and organ perfusion with fluids and vasopressors is critical to preserve organ viability for potential donation."
             },
             {
                 "id": "a3",
-                "text": "Inform the family that the ventilator is supporting the client's breathing"
+                "text": "Explain ventilator function to the family",
+                "hoverRationale": "Incorrect. While family communication is vital, the priority actions are fulfilling legal requirements (OPO notification) and preserving the option of organ donation. This explanation may also be misleading if not carefully worded."
             },
             {
                 "id": "a4",
-                "text": "Initiate passive range-of-motion exercises"
+                "text": "Initiate passive range-of-motion exercises",
+                "hoverRationale": "Incorrect. Passive range-of-motion is not a priority. The focus shifts from restorative care to maintaining physiologic stability for organ procurement or compassionate withdrawal of support."
             }
         ],
         "parameterOptions": [
             {
                 "id": "p1",
-                "text": "Absence of brainstem reflexes and spontaneous respirations"
+                "text": "Absence of brainstem reflexes and spontaneous respirations",
+                "hoverRationale": "Correct. The core of the clinical diagnosis of brain death is the documented, irreversible absence of all brainstem reflexes and the inability to breathe spontaneously, confirmed by an apnea test."
             },
             {
                 "id": "p2",
-                "text": "Verification of a normothermic core temperature (> 36°C) for valid testing"
+                "text": "Confirm normothermic core temperature for testing",
+                "hoverRationale": "Correct. Hypothermia can depress CNS function and mimic brain death. A core temperature above 36°C is required to ensure that the absence of neurological function is not due to a reversible metabolic cause."
             },
             {
                 "id": "p3",
-                "text": "Monitor serum glucose levels"
+                "text": "Monitor serum glucose levels",
+                "hoverRationale": "Incorrect. While glucose monitoring is part of general critical care, it is not a specific parameter used to confirm or deny a diagnosis of brain death. The key parameters are neurological."
             },
             {
                 "id": "p4",
-                "text": "Assess for Trousseau's sign"
+                "text": "Assess for Trousseau's sign",
+                "hoverRationale": "Incorrect. Trousseau's sign indicates hypocalcemia and neuromuscular irritability. It is irrelevant to the diagnosis of brain death, which focuses on the absence of brainstem function."
             }
         ]
     },
@@ -95,61 +111,9 @@
             "Organ Donation"
         ]
     },
-    "rationale": {
-        "correct": "The client meets the clinical criteria for brain death (c2). Brain death is characterized by irreversible cessation of all functions of the entire brain, including the brainstem. Key findings include the absence of brainstem reflexes such as pupillary response, corneal reflex, and gag reflex, as well as the absence of spontaneous respirations (p1), confirmed by a formal apnea test. A critical prerequisite for accurate brain death determination is ensuring the client is normothermic (p2), as hypothermia can confound the assessment. Once brain death is confirmed, the nurse is responsible for notifying the OPO (a1) per hospital policy and maintaining hemodynamic stability (a2) to preserve organ viability if organ donation is being considered.",
-        "clinicalPearls": [
-            "Poikilothermia, the inability to regulate body temperature, is a common finding in brain death due to hypothalamic dysfunction.",
-            "While the nurse plays a crucial role in the brain death determination process, the actual request for organ donation is the responsibility of the OPO representative.",
-            "Fixed and dilated pupils in brain death are typically mid-position (4-6mm)."
-        ],
-        "questionTrap": {
-            "trap": "Assuming that initiating passive range-of-motion exercises is appropriate at this time.",
-            "howToOvercome": "While range-of-motion exercises are important for immobile clients, the priority in brain death is to maintain hemodynamic stability for potential organ donation."
-        },
-        "mnemonic": {
-            "title": "BRAIN DEATH",
-            "expansion": "Brainstem Reflexes Absent, Respirations Absent (Apnea Test), Absent motor response, Irreversible, No recovery."
-        }
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026",
-    "actions": [
-        {
-            "id": "a1",
-            "text": "Notify the local Organ Procurement Organization (OPO) as required by policy"
-        },
-        {
-            "id": "a2",
-            "text": "Maintain hemodynamic stability (fluids/vasopressors) to preserve organ function"
-        },
-        {
-            "id": "a3",
-            "text": "Inform the family that the ventilator is supporting the client's breathing"
-        },
-        {
-            "id": "a4",
-            "text": "Initiate passive range-of-motion exercises"
-        }
-    ],
-    "parameters": [
-        {
-            "id": "p1",
-            "text": "Absence of brainstem reflexes and spontaneous respirations"
-        },
-        {
-            "id": "p2",
-            "text": "Verification of a normothermic core temperature (> 36°C) for valid testing"
-        },
-        {
-            "id": "p3",
-            "text": "Monitor serum glucose levels"
-        },
-        {
-            "id": "p4",
-            "text": "Assess for Trousseau's sign"
-        }
-    ]
+    "sentinelStatus": "deep_healed_v2026"
 }

@@ -1,111 +1,149 @@
 {
     "id": "New-v26-e9b7a234-5c6d-4e8f-9a1b-2c3d4e5f6780",
     "type": "selectN",
-    "stem": "The nurse is preparing to administer medications to Mr. Johnson. Based on the provided information, which of the following actions should the nurse take *PRIOR* to administering the scheduled medications? Select all that apply.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is preparing to administer 08:00 medications. Based on the client's record, which 4 actions must the nurse perform before administration? Select 4.",
+    "options": [
+        {
+            "id": "optionA",
+            "text": "Assess the client's blood pressure."
+        },
+        {
+            "id": "optionB",
+            "text": "Check the client's capillary blood glucose."
+        },
+        {
+            "id": "optionC",
+            "text": "Review the morning potassium level."
+        },
+        {
+            "id": "optionD",
+            "text": "Evaluate the client's renal function (BUN and creatinine)."
+        },
+        {
+            "id": "optionE",
+            "text": "Assess the client's pain level."
+        },
+        {
+            "id": "optionF",
+            "text": "Review the medication administration record (MAR) for scheduled medications."
+        },
+        {
+            "id": "optionG",
+            "text": "Confirm the client can swallow safely."
+        }
+    ],
+    "correctOptionIds": [
+        "optionA",
+        "optionC",
+        "optionD",
+        "optionG"
+    ],
     "itemContext": {
         "patient": {
             "name": "Michael Johnson",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical Unit",
+            "age": "72",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ],
             "isolation": "Standard"
         },
-        "sbar": "07:30 SBAR: Mr. Johnson is a 72-year-old male admitted for heart failure exacerbation. His current weight is 90 kg. He reports increased shortness of breath and lower extremity edema. He has a history of hypertension, type 2 diabetes, and hyperlipidemia. This morning's (06:00) vital signs were: BP 160/92 mmHg, HR 98 bpm, RR 24, SpO2 92% on 2L nasal cannula. 07:00 lab results are now available. He is currently prescribed furosemide 40 mg IV BID, lisinopril 20 mg PO daily, metformin 500 mg PO BID, and atorvastatin 40 mg PO daily. The provider has ordered potassium chloride 20 mEq PO daily, based on morning lab results indicating hypokalemia. It is now 08:00. The patient is alert and oriented to person, place, and time. Ensure patient safety and medication efficacy prior to administration, considering his condition and lab results.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Chloride</td><td>100 mEq/L</td><td>95-105 mEq/L</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Glucose</td><td>180 mg/dL</td><td>70-110 mg/dL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (Yesterday 18:00)\nS: 72-year-old male admitted from home with a 3-day history of worsening dyspnea, orthopnea, and bilateral lower extremity swelling.\nB: History of hypertension, type 2 diabetes, and congestive heart failure (last EF 35%). Client lives alone in a third-floor walk-up apartment, reporting difficulty with medication adherence and attending appointments due to fatigue.\nA: Alert and oriented x3. Bilateral crackles in lower lung bases. 2+ pitting edema to mid-shin. SpO2 90% on room air. BP 165/98 mmHg.\nR: Admit to medical unit for management of acute decompensated heart failure. Initiate telemetry, oxygen via nasal cannula, and IV diuretics.\n\nProgress Note (Today 07:30)\nS: Client is awaiting 08:00 medication administration.\nB: Responded modestly to initial diuresis overnight.\nA: Reports feeling slightly less short of breath. Lungs have faint crackles remaining. 2+ pitting edema persists. Morning labs show hypokalemia (3.2 mEq/L) and acute kidney injury (BUN 35, Cr 1.8). Vitals stable but hypertensive.\nR: Administer scheduled medications. Administer new order for potassium chloride PO. Continue to monitor I&O, daily weights, and renal function closely."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>06:00</td><td>160/92 mmHg</td><td>98 bpm</td><td>24</td><td>92% on 2L NC</td></tr><tr><td>08:00</td><td>158/90 mmHg</td><td>96 bpm</td><td>22</td><td>93% on 2L NC</td></tr></tbody></table>"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp</th><th>HR</th><th>RR</th><th>BP (MAP)</th><th>SpO₂</th></tr></thead><tbody><tr><td>04:00</td><td>98.8°F (37.1°C)</td><td>102</td><td>26</td><td>162/94 mmHg (117)</td><td>91% on 2L NC</td></tr><tr><td>06:00</td><td>98.6°F (37.0°C)</td><td>98</td><td>24</td><td>160/92 mmHg (115)</td><td>92% on 2L NC</td></tr><tr><td>08:00</td><td>98.7°F (37.1°C)</td><td>96</td><td>22</td><td>158/90 mmHg (113)</td><td>93% on 2L NC</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>BID</td><td>06:00</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Metformin</td><td>500 mg</td><td>PO</td><td>BID</td><td>06:00</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>PO</td><td>Daily</td><td>-</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Sodium</td><td>138</td><td>mEq/L</td><td>135-145</td><td>Normal</td></tr><tr><td>Potassium</td><td>3.2</td><td>mEq/L</td><td>3.5-5.0</td><td>Low</td></tr><tr><td>Chloride</td><td>100</td><td>mEq/L</td><td>95-105</td><td>Normal</td></tr><tr><td>BUN</td><td>35</td><td>mg/dL</td><td>10-20</td><td>High</td></tr><tr><td>Creatinine</td><td>1.8</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>Glucose</td><td>180</td><td>mg/dL</td><td>70-110</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Focused Assessment (08:00)\nCardiovascular: S1, S2 audible. S3 gallop present. Rate tachycardic, rhythm regular. Capillary refill <3 seconds. 2+ pitting edema noted on bilateral lower extremities up to mid-shin.\nRespiratory: Respirations slightly labored on exertion. Faint bibasilar crackles on auscultation that do not clear with cough.\nNeurological: Alert and oriented to person, place, time, and situation."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "Chest X-ray (Yesterday 19:00)\n\nFINDINGS: Moderate cardiomegaly. Cephalization of pulmonary vasculature with small bilateral pleural effusions and interstitial edema, consistent with pulmonary edema.\n\nIMPRESSION: Findings are consistent with acute decompensated congestive heart failure."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Yesterday 18:30</td><td>Telemetry monitoring</td><td>Continuous</td></tr><tr><td>Yesterday 18:30</td><td>Daily weights</td><td>Daily at 06:00</td></tr><tr><td>Yesterday 18:30</td><td>Strict Intake & Output</td><td>Continuous</td></tr><tr><td>Yesterday 18:30</td><td>2-gram sodium, 1.5-liter fluid restriction diet</td><td>Standing</td></tr><tr><td>Yesterday 18:30</td><td>Oxygen via nasal cannula to maintain SpO₂ >92%</td><td>Standing</td></tr><tr><td>Today 07:15</td><td>Potassium Chloride 20 mEq PO</td><td>Daily</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily at 08:00</td><td>Yesterday 08:05</td></tr><tr><td>Metformin</td><td>500 mg</td><td>PO</td><td>BID at 08:00, 20:00</td><td>Yesterday 20:10</td></tr><tr><td>Atorvastatin</td><td>40 mg</td><td>PO</td><td>Daily at 08:00</td><td>Yesterday 08:05</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>PO</td><td>Daily at 08:00</td><td>N/A (New Order)</td></tr><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>BID at 09:00, 21:00</td><td>Yesterday 21:00</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
+    "rationale": {
+        "correct": "The four essential pre-administration actions are assessing blood pressure, reviewing potassium levels, evaluating renal function, and confirming swallowing ability. These actions directly address the primary safety risks associated with the client's medications (lisinopril, furosemide, potassium chloride) in the context of their current clinical state (heart failure, hypokalemia, acute kidney injury).",
+        "incorrect": "Checking blood glucose is relevant to the client's diabetes but is a lower priority than the immediate cardiovascular and renal risks. Pain assessment is not indicated by the client's presentation or scheduled medications. Reviewing the MAR is a routine procedural step, not a clinical assessment based on the client's data.",
+        "answerBreakdown": [
+            {
+                "optionId": "optionA",
+                "content": "Correct. The client is prescribed lisinopril, an ACE inhibitor, which can cause significant hypotension. This risk is amplified by concurrent diuretic therapy (furosemide). Assessing blood pressure is critical to prevent a hypotensive event."
+            },
+            {
+                "optionId": "optionB",
+                "content": "Incorrect. While the client's glucose is elevated, metformin does not typically cause acute hypoglycemia. The immediate life-threatening risks are related to hemodynamics and electrolytes, making this a lower priority assessment."
+            },
+            {
+                "optionId": "optionC",
+                "content": "Correct. The client's potassium is low (3.2 mEq/L), a common consequence of furosemide. A new order for potassium chloride is present. The nurse must confirm this lab value before administering the supplement to ensure the correct therapeutic action and prevent overcorrection."
+            },
+            {
+                "optionId": "optionD",
+                "content": "Correct. The client has an acute kidney injury (elevated BUN and creatinine). Both lisinopril and furosemide can impact renal function and are cleared by the kidneys. Assessing renal labs is vital to prevent drug toxicity and further renal damage."
+            },
+            {
+                "optionId": "optionE",
+                "content": "Incorrect. There is no clinical data or scheduled medication that makes pain assessment a priority action in this specific scenario. The focus must be on the risks associated with the prescribed cardiovascular and renal medications."
+            },
+            {
+                "optionId": "optionF",
+                "content": "Incorrect. Reviewing the MAR is a standard part of the 'five rights' of medication administration. However, the question asks for clinical actions based on the client's data, not routine procedural steps. This is a task, not a patient-specific assessment."
+            },
+            {
+                "optionId": "optionG",
+                "content": "Correct. This is a fundamental safety check for any oral medication. Clients with heart failure and dyspnea may have difficulty coordinating breathing and swallowing, increasing the risk of aspiration. This assessment is a crucial safety measure."
+            }
+        ],
+        "clinicalPearls": [
+            "Cardiorenal syndrome is a common complication in decompensated heart failure, where poor cardiac output leads to renal hypoperfusion and acute kidney injury. This necessitates careful monitoring of renal function when administering diuretics and ACE inhibitors.",
+            "An S3 heart sound in an adult is a classic sign of fluid volume overload and is often heard in heart failure exacerbations. It represents the 'sloshing' of blood in a compliant left ventricle.",
+            "ACE inhibitors (like lisinopril) can cause hyperkalemia, while loop diuretics (like furosemide) cause hypokalemia. Managing clients on both requires vigilant monitoring of potassium levels to avoid dysrhythmias."
+        ],
+        "questionTrap": "This question traps test-takers who confuse routine nursing tasks with priority clinical assessments. Reviewing the MAR is always done, but it is a procedural step. The correct answers are specific assessments prompted by the client's labs, vitals, and diagnoses.",
+        "mnemonic": "Use 'BARK' before you medicate: BP (for antihypertensives), Ability to swallow (for PO meds), Renal function (for nephrotoxic/renally cleared drugs), K+ level (for diuretics/supplements).",
+        "reviewUnits": [
+            "Pharmacology: Diuretics, ACE Inhibitors",
+            "Pathophysiology: Heart Failure, Acute Kidney Injury",
+            "Fluid & Electrolytes: Hypokalemia",
+            "Fundamentals: Medication Administration Safety"
         ]
     },
-    "rationale": {
-        "correct": "Assessing the patient's blood pressure is crucial because lisinopril, an ACE inhibitor, can cause hypotension, especially when combined with furosemide, a diuretic. Monitoring the patient's potassium level is vital before administering potassium chloride to avoid hyperkalemia, as the patient is already receiving a potassium supplement. Evaluating the patient's renal function (BUN and creatinine) is essential before administering furosemide, as impaired renal function can increase the risk of adverse effects and toxicity. Confirming the patient can swallow the potassium supplement is important because the medication is ordered PO, and the patient must be able to safely take the medication orally.",
-        "incorrect": "Checking the patient's blood glucose level is important, but not the priority since the medication is already ordered. While the patient has elevated glucose, the immediate concern revolves around the potassium and renal issues. Assessing the patient's pain level is not directly relevant to the administration of these specific medications. Reviewing the medication administration record (MAR) for scheduled medications is a standard practice, but the question asks what needs to be done *prior* to administering the scheduled medications. The MAR simply confirms what is scheduled.",
-        "clinicalPearls": [
-            "Always assess renal function before administering diuretics like furosemide to prevent complications.",
-            "Monitor potassium levels closely when administering potassium supplements, especially in patients with renal impairment, to avoid hyperkalemia.",
-            "Be vigilant for hypotension when administering antihypertensive medications, particularly in combination with diuretics, to prevent falls and injury.",
-            "The Beers criteria lists medications that have a high risk of adverse effects in older adults; be aware of these risks when administering medications to elderly patients."
-        ],
-        "questionTrap": {
-            "trap": "The question requires prioritizing actions. Many options are relevant to patient care, but the most critical actions related to the specific medications and patient's current condition must be identified.",
-            "howToOvercome": "Focus on the medications being administered and the patient's lab values. Identify potential risks associated with the medications and the patient's underlying conditions. Prioritize assessments that directly mitigate those risks."
-        },
-        "mnemonic": {
-            "title": "K-BAN",
-            "expansion": "Potassium (K) - Blood Pressure (B) - Assessment (A) - Neuro (N). Remember to check potassium and blood pressure prior to administering medications affecting these values."
-        }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
     },
-    "options": [
-        {
-            "id": "optionA",
-            "text": "Assess the patient's blood pressure.",
-            "correct": true,
-            "feedback": "Correct: Lisinopril can cause hypotension, especially when combined with furosemide. Monitor BP to prevent adverse effects."
-        },
-        {
-            "id": "optionB",
-            "text": "Check the patient's blood glucose level.",
-            "correct": false,
-            "feedback": "Incorrect: While important, it is not the priority action before administering these medications. Address electrolyte and renal issues first."
-        },
-        {
-            "id": "optionC",
-            "text": "Monitor the patient's potassium level.",
-            "correct": true,
-            "feedback": "Correct: The patient's potassium is low, and potassium chloride is ordered to correct this; monitoring prevents hyperkalemia. Prevent complications."
-        },
-        {
-            "id": "optionD",
-            "text": "Evaluate the patient's renal function (BUN and creatinine).",
-            "correct": true,
-            "feedback": "Correct: Furosemide can worsen renal function; elevated BUN and creatinine indicate impaired kidney function. Prevent toxicity."
-        },
-        {
-            "id": "optionE",
-            "text": "Assess the patient's pain level.",
-            "correct": false,
-            "feedback": "Incorrect: Pain assessment is important but not directly relevant to these medications. Focus on immediate medication-related concerns."
-        },
-        {
-            "id": "optionF",
-            "text": "Review the medication administration record (MAR) for scheduled medications.",
-            "correct": false,
-            "feedback": "Incorrect: Reviewing the MAR confirms what's scheduled, but the question asks what to do *prior* to administration. Focus on pre-administration assessments."
-        },
-        {
-            "id": "optionG",
-            "text": "Confirm the patient can swallow the potassium supplement.",
-            "correct": true,
-            "feedback": "Correct: The medication is ordered PO and needs to be swallowed. Ensure patient safety with oral medications."
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Pharmacological and Parenteral Therapies"
+    },
+    "correctOptionId": "optionA",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:02:09.168Z"
 }

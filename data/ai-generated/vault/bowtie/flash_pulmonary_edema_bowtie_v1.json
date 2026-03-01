@@ -1,48 +1,135 @@
 {
-    "id": "flash_pulmonary_edema_bowtie_v1",
+    "id": "flash_pulmonary_edema_bowtie_v2",
     "type": "bowtie",
-    "stem": "A client with a history of heart failure reports extreme anxiety and feeling like they are 'drowning' while lying down. Examination reveals pink, frothy sputum and diffuse crackles bilaterally. SpO2 is 84%. Complete the bowtie to stabilize the client.",
+    "sentinelStatus": "healed_v2026_v12",
+    "ehr": {
+        "tabs": [
+            {
+                "id": "notes",
+                "title": "Notes",
+                "active": true,
+                "type": "note",
+                "body": {
+                    "date": "2026-05-21T08:05:00Z",
+                    "note": "SBAR Report from Bedside RN to Provider:\n\nS: (08:00) This is the nurse for John Doe in room 402. He developed acute respiratory distress, is extremely anxious, and states, \"I feel like I'm drowning.\"\n\nB: Mr. Doe is a 68-year-old male with a history of HFrEF and hypertension. He was admitted for a syncopal episode. His home medications are furosemide and lisinopril.\n\nA: His SpO2 is 84% on a non-rebreather mask, HR 122, BP 168/94, RR 32. Auscultation reveals diffuse bilateral crackles. He is coughing up pink, frothy sputum.\n\nR: I believe he is in flash pulmonary edema and request you come to the bedside immediately."
+                }
+            },
+            {
+                "id": "vitals",
+                "title": "Vitals",
+                "type": "vitals",
+                "body": {
+                    "timestamp": "2026-05-21T08:00:00Z",
+                    "hr": 122,
+                    "bp": "168/94",
+                    "rr": 32,
+                    "temp": 37,
+                    "spo2": 84
+                }
+            },
+            {
+                "id": "labs",
+                "title": "Labs",
+                "type": "labs",
+                "body": [
+                    {
+                        "name": "B-type Natriuretic Peptide (BNP)",
+                        "value": "1250 pg/mL",
+                        "reference": "< 100 pg/mL"
+                    }
+                ]
+            },
+            {
+                "id": "medications",
+                "title": "Medications",
+                "type": "medications",
+                "body": [
+                    {
+                        "name": "Furosemide",
+                        "dose": "40 mg",
+                        "route": "PO",
+                        "frequency": "Daily"
+                    },
+                    {
+                        "name": "Lisinopril",
+                        "dose": "10 mg",
+                        "route": "PO",
+                        "frequency": "Daily"
+                    }
+                ]
+            }
+        ],
+        "patientProfile": {
+            "name": "Doe, John",
+            "age": 68,
+            "gender": "Male",
+            "dob": "1958-04-15",
+            "allergies": "Penicillin",
+            "codeStatus": "Full Code"
+        }
+    },
+    "stem": "The nurse reviews the SBAR report for a 68-year-old male client in acute respiratory distress. The client's condition is rapidly deteriorating. Complete the bowtie by selecting the condition the client is most likely experiencing, two actions the nurse should take, and two parameters to monitor.",
+    "potentialConditions": [
+        {
+            "id": "condition1",
+            "text": "Acute Pulmonary Edema (Flash)"
+        },
+        {
+            "id": "condition2",
+            "text": "Acute Respiratory Distress Syndrome (ARDS)"
+        },
+        {
+            "id": "condition3",
+            "text": "Severe Pneumonia"
+        },
+        {
+            "id": "condition4",
+            "text": "Anaphylactic Shock"
+        }
+    ],
+    "condition": "condition1",
     "actions": [
+        {
+            "id": "action1",
+            "text": "Administer IV Furosemide."
+        },
         {
             "id": "action2",
             "text": "Apply CPAP or BiPAP support."
         },
         {
-            "id": "action1",
-            "text": "Administer IV Furosemide (Lasix) as a bolus."
-        },
-        {
             "id": "action3",
-            "text": "Administer a rapid bolus of 500 mL Normal Saline."
+            "text": "Administer a 500 mL Normal Saline bolus."
         },
         {
             "id": "action4",
             "text": "Administer IV Propranolol."
+        },
+        {
+            "id": "action5",
+            "text": "Place client in Trendelenburg position."
         }
     ],
-    "potentialConditions": [
-        "Acute Pulmonary Edema (Flash)",
-        "ARDS",
-        "Severe Pneumonia",
-        "Acute Heart Failure"
-    ],
-    "condition": "Acute Pulmonary Edema (Flash)",
     "parameters": [
         {
-            "id": "param3",
-            "text": "Monitor blood glucose levels."
+            "id": "param1",
+            "text": "Monitor urine output."
         },
         {
             "id": "param2",
             "text": "Monitor oxygen saturation and lung sounds."
         },
         {
+            "id": "param3",
+            "text": "Monitor blood glucose levels."
+        },
+        {
             "id": "param4",
             "text": "Monitor daily weight."
         },
         {
-            "id": "param1",
-            "text": "Monitor urine output following diuretic administration."
+            "id": "param5",
+            "text": "Monitor for peripheral edema."
         }
     ],
     "correctActionIds": [
@@ -53,6 +140,22 @@
         "param1",
         "param2"
     ],
+    "hoverRationales": {
+        "condition1": "This diagnosis is correct. The rapid onset of severe dyspnea, hypoxemia, bilateral crackles, and pink frothy sputum in a client with heart failure are classic signs of acute cardiogenic pulmonary edema.",
+        "condition2": "Incorrect. While ARDS involves pulmonary edema, it is non-cardiogenic. The client's history of heart failure and elevated BNP strongly suggest a cardiac origin for the fluid overload.",
+        "condition3": "Incorrect. Severe pneumonia can cause hypoxemia and crackles, but it is less likely to cause pink, frothy sputum and would typically present with fever and signs of infection.",
+        "condition4": "Incorrect. Anaphylaxis involves vasodilation and potential airway edema, but the client's presentation with fluid overload symptoms (crackles, frothy sputum) is not consistent with this diagnosis.",
+        "action1": "Correct. IV furosemide is a potent loop diuretic that rapidly reduces preload by promoting diuresis and venodilation, decreasing the hydrostatic pressure causing fluid to leak into the alveoli.",
+        "action2": "Correct. Non-invasive positive pressure ventilation increases intrathoracic pressure, which decreases preload and afterload. It also provides PEEP to keep alveoli open, improving oxygenation and pushing fluid back into capillaries.",
+        "action3": "Incorrect. Administering a fluid bolus would drastically increase intravascular volume and preload. This would worsen the pulmonary edema and precipitate respiratory failure in a client already experiencing severe fluid overload.",
+        "action4": "Incorrect. Propranolol is a non-selective beta-blocker with negative inotropic effects. Administering it during acute decompensated heart failure would decrease cardiac contractility and worsen cardiac output, leading to further decompensation.",
+        "action5": "Incorrect. Placing the client in Trendelenburg position increases venous return to the heart (preload). This would exacerbate pulmonary congestion and worsen respiratory distress.",
+        "param1": "Correct. Monitoring urine output is critical for evaluating the effectiveness of diuretic therapy. A brisk response indicates successful reduction of the client's total body fluid volume and decreased pulmonary congestion.",
+        "param2": "Correct. Oxygen saturation directly measures the effectiveness of interventions on gas exchange. Clearing lung sounds indicate a reduction of fluid in the alveoli, signaling clinical improvement.",
+        "param3": "Incorrect. While the client may have diabetes, monitoring glucose is not the priority during a life-threatening respiratory crisis. The immediate focus must be on cardiorespiratory stabilization.",
+        "param4": "Incorrect. Daily weight is a key indicator for chronic heart failure management and long-term fluid status. However, it is not a sensitive parameter for monitoring rapid changes during an acute crisis.",
+        "param5": "Incorrect. While peripheral edema is a sign of fluid overload, assessing it is not a priority for monitoring the resolution of a life-threatening pulmonary edema crisis. Respiratory parameters are the immediate focus."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -64,89 +167,8 @@
             "Respiratory"
         ]
     },
-    "rationale": {
-        "correct": "Flash pulmonary edema indicates rapid fluid buildup in the lungs. The priorities are to remove fluid (diuretics) and use pressure to push fluid out of the alveoli (CPAP/BiPAP). Monitoring should focus on the success of diuresis (urine output) and respiratory improvement (oxygen saturation and lung sounds).",
-        "incorrect": "Administering an IV bolus would worsen the fluid overload. Beta-blockers can worsen acute heart failure (negative inotrope) during a crisis. Daily weight is for long-term monitoring, not acute crisis stabilization.",
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Acute Pulmonary Edema (Flash)\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Apply CPAP or BiPAP support.\" directly targets the acute pathophysiology of the suspected condition by providing positive pressure to improve oxygenation and reduce fluid in the alveoli.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer IV Furosemide (Lasix) as a bolus.\" directly targets the acute pathophysiology of the suspected condition by promoting rapid diuresis to reduce fluid overload.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer a rapid bolus of 500 mL Normal Saline.\" is inappropriate or secondary for a client experiencing this specific clinical crisis, as it would exacerbate fluid overload.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer IV Propranolol.\" is inappropriate or secondary for a client experiencing this specific clinical crisis, as it can worsen heart failure due to its negative inotropic effects.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Monitor blood glucose levels.\" is not the most sensitive or specific parameter for evaluating this patient's status in the context of acute pulmonary edema.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Oxygen saturation and lung sounds.\" provides high-fidelity data on the client's progress or clinical deterioration related to respiratory status and fluid overload.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Monitor daily weight.\" is not the most sensitive or specific parameter for evaluating this patient's immediate status during an acute pulmonary edema crisis. It is more relevant for long-term management.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Urine output following diuretic administration.\" provides high-fidelity data on the client's progress or clinical deterioration by assessing the effectiveness of the diuretic therapy in reducing fluid overload.",
-                "isCorrect": true
-            }
-        ],
-        "clinicalPearls": [
-            "Pink frothy sputum is a late, definitive sign of pulmonary edema, indicating significant fluid accumulation in the lungs.",
-            "Rapid intervention with diuretics and positive pressure ventilation is crucial in managing flash pulmonary edema to prevent respiratory failure."
-        ],
-        "questionTrap": {
-            "trap": "Positioning",
-            "howToOvercome": "Always sit the client upright (High-Fowler's) with legs dangling to reduce venous return (preload) and ease breathing."
-        },
-        "mnemonic": {
-            "title": "APE",
-            "expansion": "A = Acute\nP = Pulmonary\nE = Edema\n\nKey Actions: Administer IV Furosemide (Lasix) as a bolus; Apply CPAP or BiPAP support.\nKey Monitoring: Monitor urine output following diuretic administration; Monitor oxygen saturation and lung sounds."
-        },
-        "reviewUnits": [
-            {
-                "heading": "Acute Pulmonary Edema — Pathophysiology & Recognition",
-                "body": "Flash pulmonary edema indicates rapid fluid buildup in the lungs. Priorities are removing fluid (diuretics) and using pressure to push fluid out of the alveoli (CPAP/BiPAP). Monitoring should focus on the success of diuresis (urine output) and respiratory improvement (oxygen saturation and lung sounds). Pink frothy sputum is a late, definitive sign of pulmonary edema.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Positioning",
-                "body": "Always sit the client upright (High-Fowler's) with legs dangling to reduce venous return (preload) and ease breathing.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Acute Pulmonary Edema",
-                "body": "The priority nursing interventions are: Administer IV Furosemide (Lasix) as a bolus; Apply CPAP or BiPAP support. Monitor: Urine output following diuretic administration; Oxygen saturation and lung sounds. Administering an IV bolus would worsen the fluid overload. Beta-blockers can worsen acute heart failure (negative inotrope) during a crisis. Daily weight is for long-term monitoring, not acute crisis stabilization.",
-                "source": "Evidence-Based Nursing Practice"
-            }
-        ]
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
-    },
-    "sentinelStatus": "healed_v2026_v11"
+    }
 }

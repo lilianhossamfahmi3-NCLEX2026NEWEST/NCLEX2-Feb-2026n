@@ -1,102 +1,139 @@
 {
     "id": "New-v26-a8b2c3d4-e5f6-4789-9012-34567890abcd",
-    "type": "multipleChoice",
-    "stem": "The nurse is caring for a patient, Mrs. Emily Carter, who is 12 hours postpartum after a vaginal delivery. Based on the provided patient data, which interventions are MOST appropriate for the nurse to implement?",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "selectAll",
+    "stem": "The nurse is caring for a client 12 hours postpartum. Based on the clinical data provided in the electronic health record, which actions should the nurse take? Select all that apply.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Administer Methylergonovine 0.2 mg IM."
+        },
+        {
+            "id": "opt_02",
+            "text": "Notify the healthcare provider of current findings."
+        },
+        {
+            "id": "opt_03",
+            "text": "Encourage ambulation to the restroom to void."
+        },
+        {
+            "id": "opt_04",
+            "text": "Perform an in-and-out catheterization for suspected urinary retention."
+        },
+        {
+            "id": "opt_05",
+            "text": "Implement seizure precautions."
+        },
+        {
+            "id": "opt_06",
+            "text": "Request a PRN order for an antihypertensive medication."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_02",
+        "opt_04",
+        "opt_05",
+        "opt_06"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Emily Carter",
-            "age": 32,
-            "gender": "Female",
-            "iso": "Postpartum Unit",
+            "age": "32 years",
+            "sex": "Female",
+            "pronouns": "she/her",
             "allergies": [
                 "Sulfa Drugs"
-            ],
-            "airborneCondition": false,
-            "isolationSetToAirborne": false
+            ]
         },
-        "sbar": "S: Emily Carter, 32-year-old female, G2P2, 12 hours postpartum following a vaginal delivery. History of preeclampsia during pregnancy, managed with Magnesium Sulfate, discontinued at 04:00. Blood pressure is now 162/98.\nB: History of preeclampsia. Magnesium Sulfate discontinued at 04:00. Received Pitocin during labor. Estimated blood loss (EBL) 600 mL.\nA: At 06:00, patient reports headache (6/10) and blurred vision. Fundus firm, 2 cm above umbilicus, deviated to the right. Moderate lochia rubra with small clots. Vitals: T 37.1°C, HR 92 bpm, RR 18, BP 162/98, SpO2 98% on room air. Urinary output since delivery: 150 mL. Voided 50 mL at 05:30.\nR: Concerned about postpartum preeclampsia exacerbation and urinary retention. Requesting orders for CMP, CBC, urine protein, catheterization if unable to void, and antihypertensive medication if BP remains elevated.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>02:00</td><td>150/92</td><td>88</td><td>16</td><td>99%</td><td>37.0</td></tr><tr><td>04:00</td><td>158/96</td><td>90</td><td>18</td><td>98%</td><td>37.1</td></tr><tr><td>06:00</td><td>162/98</td><td>92</td><td>18</td><td>98%</td><td>37.1</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (Yesterday 18:00)\nS: Client is a 32-year-old G2P1 at 39 weeks gestation, admitted for induction of labor due to preeclampsia with severe features. Reports mild headache.\nB: History of chronic hypertension. Diagnosed with preeclampsia at 36 weeks. Started on Magnesium Sulfate infusion upon admission. Client lives in a rural area with limited access to transportation for frequent follow-up appointments.\nA: BP 155/100 mmHg, HR 85/min, RR 18/min, SpO2 99% on room air. 3+ proteinuria. DTRs 3+ with no clonus. FHR baseline 140s with moderate variability. Cervix 1 cm dilated, 50% effaced.\nR: Continue Magnesium Sulfate per protocol. Begin oxytocin for labor induction. Monitor maternal and fetal status closely.\n\nProgress Note (Today 06:00)\nS: Client is 12 hours postpartum, vaginal delivery. Reports worsening headache (6/10) and new-onset blurred vision.\nB: Magnesium Sulfate was discontinued at 04:00. Oxytocin was administered during labor. EBL was 600 mL. Last voided 50 mL at 05:30.\nA: BP 162/98 mmHg, HR 92/min, RR 18/min, SpO2 98% on room air. Fundus is firm, palpated 2 cm above the umbilicus and deviated to the right. Moderate lochia rubra. DTRs 3+. Trace clonus noted.\nR: Concerned for worsening postpartum preeclampsia and urinary retention. Will assess bladder, notify provider of findings, and anticipate orders for antihypertensives and management of urinary retention."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>10.8 g/dL</td><td>12-16 g/dL</td></tr><tr><td>Platelets</td><td>140,000/mcL</td><td>150,000-400,000/mcL</td></tr><tr><td>Uric Acid</td><td>7.8 mg/dL</td><td>2.4-6.0 mg/dL</td></tr><tr><td>Creatinine</td><td>1.1 mg/dL</td><td>0.5-1.0 mg/dL</td></tr><tr><td>AST</td><td>35 U/L</td><td>10-40 U/L</td></tr><tr><td>ALT</td><td>40 U/L</td><td>7-35 U/L</td></tr><tr><td>Urine Protein</td><td>+2</td><td>Negative</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂ (Source)</th><th>Temp °F (°C)</th></tr></thead><tbody><tr><td>02:00</td><td>150/92 mmHg (111)</td><td>88/min</td><td>16/min</td><td>99% (Room Air)</td><td>98.6 (37.0)</td></tr><tr><td>04:00</td><td>158/96 mmHg (117)</td><td>90/min</td><td>18/min</td><td>98% (Room Air)</td><td>98.8 (37.1)</td></tr><tr><td>06:00</td><td>162/98 mmHg (119)</td><td>92/min</td><td>18/min</td><td>98% (Room Air)</td><td>98.8 (37.1)</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN headache</td><td>02:00</td></tr><tr><td>Oxycodone</td><td>5 mg</td><td>PO</td><td>q4h PRN pain</td><td>02:00</td></tr><tr><td>Rho(D) Immune Globulin</td><td>300 mcg</td><td>IM</td><td>Once</td><td>05:00</td></tr><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>BID</td><td>06:00</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>10.8</td><td>g/dL</td><td>12.0-16.0</td><td>Low</td></tr><tr><td>Platelets</td><td>140</td><td>x10³/mcL</td><td>150-400</td><td>Low</td></tr><tr><td>Uric Acid</td><td>7.8</td><td>mg/dL</td><td>2.4-6.0</td><td>High</td></tr><tr><td>Creatinine</td><td>1.1</td><td>mg/dL</td><td>0.5-1.1</td><td>High</td></tr><tr><td>AST</td><td>35</td><td>U/L</td><td>10-40</td><td>Normal</td></tr><tr><td>ALT</td><td>40</td><td>U/L</td><td>7-35</td><td>High</td></tr><tr><td>Urine Protein</td><td>+2</td><td></td><td>Negative</td><td>Abnormal</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "(Today 06:00)\nNeurological: Alert and oriented x3. Reports headache (6/10) and blurred vision. Deep tendon reflexes (DTRs) 3+ in biceps and patellar. Trace clonus present bilaterally.\nCardiovascular: S1, S2 audible. Rate regular. 2+ pitting edema in lower extremities.\nRespiratory: Lungs clear to auscultation bilaterally. Effort unlabored.\nAbdomen: Fundus firm, 2 cm above umbilicus, deviated to the right. Bowel sounds active in all quadrants.\nGU: Moderate lochia rubra, no large clots. Perineum intact with minimal edema."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "No imaging reports available at this time."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Yesterday 18:05</td><td>Magnesium Sulfate 4g IV bolus over 20 min, then 2g/hr infusion</td><td>Discontinued at 04:00</td></tr><tr><td>Yesterday 19:00</td><td>Oxytocin infusion per protocol</td><td>Discontinued post-delivery</td></tr><tr><td>Today 01:00</td><td>Fundal checks and vital signs every 2 hours</td><td>Ongoing</td></tr><tr><td>Today 01:00</td><td>Acetaminophen 650 mg PO every 4 hours PRN pain/headache</td><td>PRN</td></tr><tr><td>Today 01:00</td><td>Oxycodone 5 mg PO every 4 hours PRN severe pain</td><td>PRN</td></tr><tr><td>Today 01:00</td><td>Docusate Sodium 100 mg PO BID</td><td>Scheduled</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN headache</td><td>02:00</td></tr><tr><td>Oxycodone</td><td>5 mg</td><td>PO</td><td>q4h PRN pain</td><td>02:00</td></tr><tr><td>Rho(D) Immune Globulin</td><td>300 mcg</td><td>IM</td><td>Once</td><td>05:00</td></tr><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>BID</td><td>06:00</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Maternal: Preeclampsia & Postpartum Hemorrhage"
+    "rationale": {
+        "correct": "The client is exhibiting signs of worsening postpartum preeclampsia with severe features, including a hypertensive crisis (BP 162/98), headache, blurred vision, and clonus. This condition can rapidly progress to eclampsia (seizures) or stroke. The priority actions are to ensure client safety, escalate care, and address the underlying pathophysiology. The deviated fundus indicates a full bladder, which can cause uterine atony and increases hemorrhage risk, requiring immediate bladder emptying. Notifying the provider, implementing seizure precautions, addressing urinary retention, and anticipating antihypertensive medication are all critical interventions.",
+        "incorrect": "Administering Methylergonovine is contraindicated as its potent vasoconstrictive properties would dangerously elevate the already high blood pressure. Encouraging ambulation is unsafe due to the client's blurred vision and risk of a seizure, which could lead to a fall and injury.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Incorrect. Methylergonovine is a uterotonic agent used for postpartum hemorrhage, but it is a potent vasoconstrictor and is strictly contraindicated in clients with hypertension or preeclampsia as it can precipitate a stroke."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. The combination of severe hypertension (162/98 mmHg), headache, blurred vision, and new-onset clonus represents a clinical emergency. The healthcare provider must be notified immediately to obtain orders for urgent intervention."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. While ambulation can help with voiding, it is unsafe for this client. The blurred vision and neurological irritability (headache, clonus) place her at high risk for a fall or a seizure. Safety is the priority."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. The fundus is displaced superiorly and to the right, a classic sign of a distended bladder. A full bladder impedes uterine contraction, increasing the risk of postpartum hemorrhage. Catheterization will empty the bladder, allow the uterus to contract, and provide an accurate urine output measurement."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. The client's neurological status is deteriorating, as evidenced by headache, blurred vision, and clonus. These are warning signs of an impending eclamptic seizure. Implementing seizure precautions (e.g., padding side rails, ensuring oxygen/suction are available) is a critical safety measure."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Correct. This is a proactive nursing action. Given the severe range blood pressure and symptoms, the nurse should notify the provider and also anticipate/request an order for a STAT antihypertensive like labetalol or hydralazine to prevent end-organ damage."
+            }
+        ],
+        "clinicalPearls": [
+            "Postpartum preeclampsia can develop for the first time after delivery, often within the first 48 hours but up to 6 weeks postpartum.",
+            "A fundus that is deviated from the midline (usually to the right) is a hallmark sign of a distended urinary bladder, which requires immediate intervention to prevent uterine atony.",
+            "Clonus (rhythmic, involuntary muscle contractions) is a sign of severe neuromuscular irritability and indicates a high risk for eclamptic seizures.",
+            "Methylergonovine is contraindicated in hypertension; oxytocin is the first-line uterotonic for a client with preeclampsia who is hemorrhaging."
+        ],
+        "questionTrap": "The primary trap is focusing solely on the deviated fundus as a sign of potential hemorrhage and selecting a uterotonic (Methylergonovine) without considering the client's severe hypertension, which makes that specific medication a dangerous choice. Always synthesize all data before acting.",
+        "mnemonic": "HELLP Syndrome (a severe form of preeclampsia): H (Hemolysis), EL (Elevated Liver enzymes), LP (Low Platelet count). While this client doesn't have the full syndrome, the low platelets and elevated ALT are concerning components.",
+        "reviewUnits": [
+            "Maternal/Newborn",
+            "Pharmacology",
+            "Safety and Infection Control"
         ]
     },
-    "rationale": {
-        "correct": "Monitoring blood pressure closely is crucial due to the risk of postpartum preeclampsia exacerbation. Hypertension needs to be promptly addressed to prevent complications like stroke or seizures. Catheterizing the patient is appropriate to relieve urinary retention, which can be caused by postpartum edema or medication effects. Accurate output measurement is important for assessing kidney function and fluid balance, especially in the context of preeclampsia.",
-        "incorrect": "Administering Methylergonovine is contraindicated in patients with hypertension and preeclampsia as it can further elevate blood pressure, potentially leading to a hypertensive crisis. Encouraging ambulation is generally beneficial postpartum, but in this case, the patient's blurred vision and elevated blood pressure increase the risk of falls, making it unsafe without further assessment and stabilization. Continuing Magnesium Sulfate is not indicated as it was discontinued 2 hours prior and the patient is demonstrating signs of worsening hypertension, potentially masking symptoms.",
-        "clinicalPearls": [
-            "Postpartum preeclampsia can occur up to 6 weeks after delivery.",
-            "Urinary retention is common postpartum and can exacerbate other complications.",
-            "Magnesium Sulfate is typically discontinued postpartum, but close monitoring for preeclampsia symptoms is vital."
-        ],
-        "questionTrap": {
-            "trap": "The question trap is to assume that since the patient is postpartum and Magnesium Sulfate was discontinued, the preeclampsia risk is gone. Also, the question might trick one into thinking that the patient needs a uterotonic.",
-            "howToOvercome": "Recognize the signs of postpartum preeclampsia exacerbation (elevated BP, headache, blurred vision) and prioritize interventions that address the immediate risks of hypertension and urinary retention. Remember that postpartum preeclampsia can occur even after delivery."
-        },
-        "mnemonic": {
-            "title": "POST-BIRTH",
-            "expansion": "Pain in chest, Obstructed breathing/SOB, Seizures, Thoughts of hurting yourself or baby, Bleeding (soaking through one pad/hour), Incision not healing, Red or swollen leg, Temperature of 100.4F or higher, Headache that doesn't get better, or vision changes"
-        }
+    "scoring": {
+        "method": "+/- Penalty",
+        "maxPoints": 4
     },
-    "options": [
-        {
-            "key": "a",
-            "label": "Administer Methylergonovine (Methergine) 0.2 mg IM.",
-            "isCorrect": false
-        },
-        {
-            "key": "b",
-            "label": "Monitor blood pressure closely and report significant elevations.",
-            "isCorrect": true
-        },
-        {
-            "key": "c",
-            "label": "Encourage ambulation to promote circulation and bladder emptying.",
-            "isCorrect": false
-        },
-        {
-            "key": "d",
-            "label": "Catheterize the patient to measure residual urine volume.",
-            "isCorrect": true
-        },
-        {
-            "key": "e",
-            "label": "Continue Magnesium Sulfate infusion at the previous rate.",
-            "isCorrect": false
-        }
-    ],
-    "sentinelStatus": "quarantined:logic_error",
-    "logicErrors": [
-        "missing_correct_id"
-    ]
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "correctOptionId": "opt_02",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:13:12.406Z"
 }

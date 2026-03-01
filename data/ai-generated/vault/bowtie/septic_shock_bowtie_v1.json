@@ -1,60 +1,186 @@
 {
-    "id": "septic_shock_bowtie_v1",
+    "id": "septic_shock_bowtie_v3",
     "type": "bowtie",
-    "stem": "A client with an indwelling urinary catheter has a temperature of 102.8°F (39.3°C), heart rate 124, and blood pressure 82/40 mmHg. The client remains hypotensive after a 2L intravenous fluid bolus. Complete the clinical bowtie.",
-    "causes": [
+    "sentinelStatus": "remediated_v2026_final",
+    "patient": {
+        "name": "Alan Turing",
+        "age": "78 years",
+        "gender": "Male",
+        "allergies": "Penicillin",
+        "medicalHistory": "Hypertension, Type 2 Diabetes Mellitus, Benign Prostatic Hyperplasia",
+        "primaryDiagnosis": "Status Post Left Total Hip Arthroplasty"
+    },
+    "tabs": [
         {
-            "id": "c3",
-            "text": "Decreased cardiac contractility"
+            "id": "clinicalFeed",
+            "label": "Clinical Feed",
+            "content": "SITUATION: Dr. Smith, this is Nurse Johnson on the Med-Surg unit. I'm calling about Mr. Alan Turing in room 404. He is acutely hypotensive, febrile, and lethargic. BACKGROUND: Mr. Turing is a 78-year-old male, 3 days post-op for a hip replacement, with an indwelling urinary catheter. His baseline blood pressure was 120/70 mmHg. ASSESSMENT: At 08:00, his vitals are: Temp 39.3°C, HR 124, BP 82/40 mmHg, MAP 54. We completed a 2L normal saline bolus, but his MAP remains below 65. RECOMMENDATION: I suspect septic shock. I recommend initiating vasopressor support and obtaining blood and urine cultures immediately."
         },
         {
-            "id": "c4",
-            "text": "Hemorrhage"
+            "id": "vitals",
+            "label": "Vital Signs",
+            "records": [
+                {
+                    "time": "08:00",
+                    "temperature": "39.3°C (102.8°F)",
+                    "heartRate": "124 bpm",
+                    "respiratoryRate": "26/min",
+                    "bloodPressure": "82/40 mmHg",
+                    "map": "54 mmHg",
+                    "spo2": "91% on room air"
+                },
+                {
+                    "time": "04:00",
+                    "temperature": "37.4°C (99.3°F)",
+                    "heartRate": "92 bpm",
+                    "respiratoryRate": "18/min",
+                    "bloodPressure": "118/72 mmHg",
+                    "map": "87 mmHg",
+                    "spo2": "96% on room air"
+                }
+            ]
+        },
+        {
+            "id": "labs",
+            "label": "Laboratory Results",
+            "records": [
+                {
+                    "test": "Complete Blood Count (CBC)",
+                    "time": "07:45",
+                    "results": [
+                        {
+                            "name": "WBC Count",
+                            "value": "18.5 x 10^9/L",
+                            "reference": "4.5-11.0 x 10^9/L"
+                        },
+                        {
+                            "name": "Neutrophils",
+                            "value": "88%",
+                            "reference": "40-75%"
+                        }
+                    ]
+                },
+                {
+                    "test": "Metabolic Panel",
+                    "time": "07:45",
+                    "results": [
+                        {
+                            "name": "Lactate",
+                            "value": "4.2 mmol/L",
+                            "reference": "0.5-2.2 mmol/L"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mar",
+            "label": "Medication Administration Record",
+            "records": [
+                {
+                    "time": "07:00",
+                    "medication": "Normal Saline 1000 mL IV Bolus",
+                    "status": "Completed at 07:30"
+                },
+                {
+                    "time": "07:30",
+                    "medication": "Normal Saline 1000 mL IV Bolus",
+                    "status": "Completed at 08:00"
+                }
+            ]
+        }
+    ],
+    "stem": "The nurse is caring for a client who remains hypotensive despite fluid resuscitation. After reviewing the electronic health record, complete the bowtie by identifying the most likely underlying causes, essential actions, and parameters to monitor.",
+    "potentialConditions": [
+        {
+            "id": "pc1",
+            "text": "Septic Shock",
+            "rationale": "The combination of fever, tachycardia, profound hypotension unresponsive to fluids, and laboratory signs of infection (leukocytosis, elevated lactate) strongly indicates septic shock, a type of distributive shock."
+        },
+        {
+            "id": "pc2",
+            "text": "Cardiogenic Shock",
+            "rationale": "This is less likely as there are no signs of primary cardiac failure like chest pain or new EKG changes. The primary signs point to a systemic inflammatory response, not a pump failure."
+        },
+        {
+            "id": "pc3",
+            "text": "Hypovolemic Shock",
+            "rationale": "While the client is relatively hypovolemic due to vasodilation, the cause is not overt fluid loss. The presence of high fever and leukocytosis points away from simple hypovolemia."
+        },
+        {
+            "id": "pc4",
+            "text": "Anaphylactic Shock",
+            "rationale": "This is unlikely as there is no history of recent exposure to a known allergen. Anaphylaxis typically presents with urticaria, angioedema, or wheezing, which are absent here."
+        }
+    ],
+    "condition": {
+        "id": "cond1",
+        "text": "Septic Shock"
+    },
+    "causes": [
+        {
+            "id": "c1",
+            "text": "Widespread systemic inflammation",
+            "rationale": "Sepsis triggers a massive, uncontrolled inflammatory response, leading to widespread endothelial damage, capillary leak, and organ dysfunction, which is the core pathophysiology of the client's shock state."
         },
         {
             "id": "c2",
-            "text": "Endotoxin-mediated vasodilation"
+            "text": "Endotoxin-mediated vasodilation",
+            "rationale": "Bacterial endotoxins trigger the release of potent vasodilators like nitric oxide. This leads to a dramatic decrease in systemic vascular resistance, causing profound hypotension characteristic of septic shock."
         },
         {
-            "id": "c1",
-            "text": "Widespread systemic inflammation"
+            "id": "c3",
+            "text": "Decreased cardiac contractility",
+            "rationale": "While myocardial depression can occur later in septic shock, the primary cause of hypotension is profound vasodilation. The client's problem is a failure of vascular tone, not primarily a pump failure."
+        },
+        {
+            "id": "c4",
+            "text": "Hemorrhage",
+            "rationale": "The client's fever and significantly elevated white blood cell count point towards an infectious process, not acute blood loss. Hemorrhagic shock would not typically present with a high temperature."
         }
     ],
-    "condition": "Septic Shock",
     "actions": [
         {
-            "id": "a4",
-            "text": "Administer oral antibiotics"
-        },
-        {
             "id": "a1",
-            "text": "Initiate vasopressor therapy (e.g., norepinephrine)"
+            "text": "Initiate vasopressor therapy",
+            "rationale": "The client is fluid-unresponsive, indicating profound vasodilation. Vasopressors are required to constrict blood vessels, increase systemic vascular resistance, and raise MAP to perfuse vital organs."
         },
         {
             "id": "a2",
-            "text": "Obtain blood and urine cultures"
+            "text": "Obtain blood and urine cultures",
+            "rationale": "Identifying the causative organism is critical for guiding targeted antibiotic therapy. Cultures should be drawn before administering antibiotics, if possible, without delaying treatment."
         },
         {
             "id": "a3",
-            "text": "Administer furosemide intravenously to reduce fluid overload"
+            "text": "Administer intravenous furosemide",
+            "rationale": "Furosemide is a diuretic that would remove volume from the intravascular space. This would worsen hypotension and shock in a client who is already vasodilated and relatively hypovolemic."
+        },
+        {
+            "id": "a4",
+            "text": "Administer oral antibiotics",
+            "rationale": "In a life-threatening condition like septic shock, oral medications are inappropriate due to slow and unreliable absorption. Rapid-acting intravenous broad-spectrum antibiotics are required immediately."
         }
     ],
     "parameters": [
         {
-            "id": "p4",
-            "text": "Daily weight"
+            "id": "p1",
+            "text": "Mean arterial pressure (MAP)",
+            "rationale": "MAP is the most critical hemodynamic parameter to monitor in shock. It reflects the average pressure in the arteries during one cardiac cycle and is a direct indicator of vital organ perfusion."
         },
         {
             "id": "p2",
-            "text": "Serial serum lactate levels"
-        },
-        {
-            "id": "p1",
-            "text": "Mean arterial pressure (MAP)"
+            "text": "Serial serum lactate levels",
+            "rationale": "Elevated lactate is a key indicator of tissue hypoxia and anaerobic metabolism from shock. Trending lactate levels downward is a primary goal and indicates successful resuscitation."
         },
         {
             "id": "p3",
-            "text": "White blood cell count (WBC)"
+            "text": "White blood cell count (WBC)",
+            "rationale": "While the initial WBC is a crucial diagnostic marker for sepsis, it does not change rapidly enough to be used for hour-to-hour monitoring of a client's response to resuscitation."
+        },
+        {
+            "id": "p4",
+            "text": "Daily weight",
+            "rationale": "While important for assessing fluid balance over a longer period, daily weight is not an acute indicator of hemodynamic stability or immediate response to intervention in a client with septic shock."
         }
     ],
     "correctCauseIds": [
@@ -69,96 +195,20 @@
         "p1",
         "p2"
     ],
+    "scoring": {
+        "method": "polytomous",
+        "maxPoints": 6
+    },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
         "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
+        "difficulty": "Hard",
         "topicTags": [
             "Septic Shock",
             "Sepsis",
-            "Emergency"
+            "Hemodynamic Instability",
+            "Critical Care"
         ]
-    },
-    "rationale": {
-        "correct": "Septic shock is characterized by systemic inflammation (c1) and massive vasodilation (c2). Since fluid boluses failed to adequately increase blood pressure, norepinephrine (a1) is needed to increase vascular resistance. Cultures (a2) are diagnostic and guide antibiotic therapy. Mean arterial pressure (MAP) (p1) and serial serum lactate levels (p2) are the primary monitoring parameters for shock resolution.",
-        "incorrect": "Furosemide (a3) would worsen the shock by further reducing preload. Oral antibiotics (a4) are too slow; intravenous administration is required.",
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Septic Shock\" is the most likely diagnosis given the client's fever, tachycardia, hypotension, and lack of response to fluid resuscitation, suggesting a systemic inflammatory response to infection.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer oral antibiotics\" is inappropriate as it is not the fastest route of administration for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Initiate vasopressor therapy (e.g., norepinephrine)\" directly targets the acute pathophysiology of the suspected condition by increasing vascular resistance and improving blood pressure.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Obtain blood and urine cultures\" directly targets the acute pathophysiology of the suspected condition by identifying the causative organism and guiding antibiotic selection.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer furosemide intravenously to reduce fluid overload\" is inappropriate as it could worsen hypotension by further reducing preload.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Daily weight\" is not the most sensitive or specific parameter for evaluating this patient's acute hemodynamic status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Serial serum lactate levels\" provides high-fidelity data on the client's progress or clinical deterioration by reflecting tissue perfusion and oxygenation.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Mean arterial pressure (MAP)\" provides high-fidelity data on the client's progress or clinical deterioration by indicating the adequacy of organ perfusion.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"White blood cell count (WBC)\" is not the most sensitive or specific parameter for evaluating this patient's immediate hemodynamic status.",
-                "isCorrect": false
-            }
-        ],
-        "clinicalPearls": [
-            "Target MAP is typically >= 65 mmHg in septic shock to ensure adequate organ perfusion.",
-            "Early recognition and treatment of sepsis are crucial to improving patient outcomes."
-        ],
-        "questionTrap": {
-            "trap": "The 'Fluid Overload' Trap",
-            "howToOvercome": "Don't be afraid to continue fluid resuscitation or initiate vasopressors in sepsis; avoid diuretics even if the client appears 'edematous' as they are likely experiencing capillary leak and third spacing of fluids."
-        },
-        "mnemonic": {
-            "title": "SS",
-            "expansion": "S = Septic\nS = Shock\n\nKey Actions: Initiate vasopressor therapy (e.g., norepinephrine); Obtain blood and urine cultures\nKey Monitoring: Mean arterial pressure (MAP); Serial serum lactate levels"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Sepsis Bundle",
-                "body": "Management focus is on rapid fluid resuscitation, vasopressor initiation, and antibiotic administration.",
-                "source": "Critical Care 2026"
-            }
-        ]
-    },
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
-    "potentialConditions": [
-        "Septic Shock",
-        "Distributive Shock",
-        "Cardiogenic Shock",
-        "Hypovolemic Shock"
-    ],
-    "sentinelStatus": "healed_v2026_v11"
+    }
 }

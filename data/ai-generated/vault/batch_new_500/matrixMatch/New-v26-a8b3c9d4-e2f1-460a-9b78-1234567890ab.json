@@ -1,138 +1,307 @@
 {
     "id": "New-v26-a8b3c9d4-e2f1-460a-9b78-1234567890ab",
     "type": "matrixMatch",
-    "stem": "The patient is exhibiting signs of sepsis. Based on the provided information, indicate which of the following findings are consistent with the listed conditions.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "stem": "The nurse is analyzing cues for a client with suspected sepsis. For each finding below, specify if it is consistent or inconsistent with the client's clinical picture of septic shock.",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Droplet Precautions",
+            "age": "72",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, 72-year-old male, admitted 3 days ago with pneumonia and a history of COPD and hypertension. B: Initially treated with IV antibiotics, but his condition has worsened. R: At 07:00, the patient was increasingly lethargic with a new onset fever of 39.2°C (102.6°F). His heart rate is 110 bpm, respiratory rate is 28, and BP is 90/50 mmHg. Urine output decreased to 20 mL/hr. O2 saturation is 90% on 2L nasal cannula. Lactate is elevated at 4.0 mmol/L. WBC is 15,000/mm3. A: Suspect sepsis secondary to pneumonia. Sepsis protocol initiated, including a 500 mL NS bolus. Blood cultures obtained. Ceftriaxone 1g IV due at 08:00. At 07:30, patient remains hypotensive, requiring increased oxygen support. Procalcitonin is elevated. Plan to repeat lactate in one hour. Continue close monitoring of vital signs.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 15,000/mm3 (High); Lactate: 4.0 mmol/L (High); Creatinine: 2.0 mg/dL (High); Platelets: 100,000/mm3 (Low); Procalcitonin: 5 ng/mL (High); Blood Cultures: Pending"
+                "id": "clinical_feed",
+                "title": "Nurses' Notes",
+                "content": [
+                    {
+                        "timestamp": "3 Days Prior, 14:00",
+                        "note_type": "Admission Note",
+                        "note": "S: Client presents to ED with productive cough, fever, and dyspnea. B: 72-year-old male with a history of COPD and hypertension. Lives alone; adult child lives out of state and is primary support. A: Vital signs stable on 2L NC. Chest x-ray confirms right lower lobe pneumonia. Appears dehydrated but is alert and oriented. R: Admitted to medical-surgical unit for IV antibiotics, hydration, and monitoring. Standard precautions initiated."
+                    },
+                    {
+                        "timestamp": "Today, 07:30",
+                        "note_type": "Progress Note",
+                        "note": "S: Client is increasingly lethargic and difficult to arouse. B: Admitted 3 days ago for pneumonia. Condition has acutely worsened over the last 2 hours despite initial antibiotic therapy. A: At 07:00, T 39.2°C, HR 110, RR 28, BP 90/50 (MAP 63). SpO₂ dropped to 90% on 2L NC. Urine output is now <0.5 mL/kg/hr. Skin is cool and clammy with mottling on lower extremities. Labs show lactate 4.0 mmol/L, WBC 15,000/mm³, and new-onset thrombocytopenia. Suspects progression to septic shock. R: Initiated sepsis protocol. Administered 500 mL NS bolus with minimal response. Blood cultures drawn. Awaiting 08:00 dose of Ceftriaxone. Recommend notifying provider for potential vasopressor support and transfer to ICU. Continue hourly monitoring."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: T 37.8°C (100.0°F), HR 92 bpm, RR 20, BP 120/80 mmHg, SpO2 94% on 2L NC, UO 40 mL/hr\n07:00: T 39.2°C (102.6°F), HR 110 bpm, RR 28, BP 90/50 mmHg, SpO2 90% on 2L NC, UO 20 mL/hr"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp °F (°C)",
+                        "HR (bpm)",
+                        "RR (br/min)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "SpO₂ (%)",
+                        "UO (mL/hr)"
+                    ],
+                    "rows": [
+                        [
+                            "04:00",
+                            "100.0 (37.8)",
+                            "92",
+                            "20",
+                            "120/80",
+                            "93",
+                            "94% on 2L NC",
+                            "40"
+                        ],
+                        [
+                            "06:00",
+                            "101.5 (38.6)",
+                            "104",
+                            "24",
+                            "105/65",
+                            "78",
+                            "92% on 2L NC",
+                            "30"
+                        ],
+                        [
+                            "07:00",
+                            "102.6 (39.2)",
+                            "110",
+                            "28",
+                            "90/50",
+                            "63",
+                            "90% on 2L NC",
+                            "20"
+                        ]
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 1g IV q24h (Due 08:00); Acetaminophen 650mg PO q4h PRN fever (Last dose 04:00); Normal Saline 0.9% IV bolus 500 mL (Initiated 07:00); Oxygen 2L NC"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "WBC",
+                            "15.0",
+                            "x 10⁹/L",
+                            "4.5 - 11.0",
+                            "High"
+                        ],
+                        [
+                            "Lactate",
+                            "4.0",
+                            "mmol/L",
+                            "0.5 - 2.2",
+                            "High"
+                        ],
+                        [
+                            "Creatinine",
+                            "2.0",
+                            "mg/dL",
+                            "0.6 - 1.2",
+                            "High"
+                        ],
+                        [
+                            "Platelets",
+                            "100",
+                            "x 10⁹/L",
+                            "150 - 450",
+                            "Low"
+                        ],
+                        [
+                            "Procalcitonin",
+                            "5.0",
+                            "ng/mL",
+                            "< 0.15",
+                            "High"
+                        ],
+                        [
+                            "Blood Cultures",
+                            "Pending",
+                            "",
+                            "No Growth",
+                            ""
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Admission",
+                        "findings": "GENERAL: Alert and oriented x3, in mild respiratory distress. CARDIOVASCULAR: Tachycardic, regular rhythm. Peripheral pulses 2+. Capillary refill <3 seconds. RESPIRATORY: Coarse crackles in right lower lobe. Productive cough. NEUROLOGICAL: No focal deficits. SKIN: Warm and dry."
+                    },
+                    {
+                        "timestamp": "Today, 07:15",
+                        "findings": "GENERAL: Lethargic, arouses to voice but drifts off. CARDIOVASCULAR: Tachycardic, thready peripheral pulses (1+). Capillary refill >4 seconds. Skin is cool, clammy, with mottling on lower extremities. RESPIRATORY: Diffuse crackles bilaterally. Increased work of breathing. NEUROLOGICAL: GCS 13 (E4, V4, M5). Disoriented to time."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray (3 days prior): Infiltrate in right lower lobe."
+                "content": {
+                    "report_type": "Chest X-ray, PA and Lateral",
+                    "date": "3 Days Prior",
+                    "findings": "There is dense consolidation with associated air bronchograms within the right lower lobe. The cardiomediastinal silhouette is within normal limits for age. The pleural spaces are clear with no evidence of effusion or pneumothorax. The visualized osseous structures are unremarkable.",
+                    "impression": "Findings are consistent with a right lower lobe pneumonia."
+                }
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Smith, 72-year-old male, admitted 3 days ago with pneumonia and a history of COPD and hypertension. B: Initially treated with IV antibiotics, but his condition has worsened. R: At 07:00, the patient was increasingly lethargic with a new onset fever of 39.2°C (102.6°F). His heart rate is 110 bpm, respiratory rate is 28, and BP is 90/50 mmHg. Urine output decreased to 20 mL/hr. O2 saturation is 90% on 2L nasal cannula. Lactate is elevated at 4.0 mmol/L. WBC is 15,000/mm3. A: Suspect sepsis secondary to pneumonia. Sepsis protocol initiated, including a 500 mL NS bolus. Blood cultures obtained. Ceftriaxone 1g IV due at 08:00. At 07:30, patient remains hypotensive, requiring increased oxygen support. Procalcitonin is elevated. Plan to repeat lactate in one hour. Continue close monitoring of vital signs."
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": {
+                    "headers": [
+                        "Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Today, 07:05",
+                            "Initiate Sepsis Protocol",
+                            "STAT"
+                        ],
+                        [
+                            "Today, 07:05",
+                            "Blood Cultures x2 sites (before antibiotics)",
+                            "STAT"
+                        ],
+                        [
+                            "Today, 07:05",
+                            "Lactate level",
+                            "STAT, repeat in 2 hours"
+                        ],
+                        [
+                            "Today, 07:05",
+                            "Normal Saline 0.9% 30 mL/kg IV bolus",
+                            "STAT"
+                        ],
+                        [
+                            "Standing",
+                            "Ceftriaxone 1g IV",
+                            "Every 24 hours"
+                        ],
+                        [
+                            "Standing",
+                            "Oxygen to maintain SpO₂ >92%",
+                            "Continuous"
+                        ],
+                        [
+                            "Standing",
+                            "Acetaminophen 650mg PO",
+                            "Every 4 hours PRN fever >101°F"
+                        ],
+                        [
+                            "Standing",
+                            "Notify provider for MAP <65 mmHg",
+                            "Standing"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Ceftriaxone",
+                            "1g",
+                            "IV",
+                            "Every 24 hours",
+                            "Yesterday, 08:00"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "650mg",
+                            "PO",
+                            "Every 4 hours PRN",
+                            "Today, 04:00"
+                        ],
+                        [
+                            "Normal Saline 0.9%",
+                            "500 mL",
+                            "IV Bolus",
+                            "STAT",
+                            "Today, 07:00"
+                        ]
+                    ]
+                }
             }
         ]
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
-        ]
-    },
-    "rationale": {
-        "correct": "Elevated lactate levels are a hallmark of sepsis, indicating anaerobic metabolism due to hypoperfusion. Thrombocytopenia (low platelets) is common in sepsis due to increased consumption and decreased production. Elevated creatinine suggests acute kidney injury, a frequent complication of sepsis due to decreased renal perfusion. Elevated procalcitonin is a marker of bacterial infection and is typically elevated in sepsis.",
-        "incorrect": "Normal WBC count is not typically associated with sepsis, as it is usually elevated due to the body's inflammatory response. Normal creatinine, platelet, procalcitonin, or lactate levels would not be expected in a patient experiencing sepsis. A normal temperature or low temperature (hypothermia) is seen in some cases of sepsis, but the patient in this scenario has a high fever. Hyperthermia is more common.",
-        "clinicalPearls": [
-            "Early recognition and treatment of sepsis are critical to improving patient outcomes.",
-            "The Surviving Sepsis Campaign provides evidence-based guidelines for sepsis management.",
-            "Lactate levels should be monitored serially to assess response to treatment."
-        ],
-        "questionTrap": {
-            "trap": "Students may focus only on the elevated temperature and WBC and miss the significance of the other lab values and vital sign changes, leading them to choose only findings consistent with infection but not specifically sepsis.",
-            "howToOvercome": "Emphasize the importance of considering the entire clinical picture, including vital signs, lab values, and patient presentation, to differentiate between infection and sepsis."
-        },
-        "mnemonic": {
-            "title": "S.E.P.S.I.S.",
-            "expansion": "Slurred speech or confusion; Extreme shivering or muscle pain, Fever; Pass no urine all day; Severe breathlessness; It feels like I’m going to die; Skin mottled or discolored."
-        }
     },
     "matrixMatch": {
         "rows": [
             {
                 "rowId": "Lactate",
-                "rowTitle": "Elevated Lactate"
+                "rowTitle": "Elevated Lactate (>2.2 mmol/L)"
             },
             {
                 "rowId": "Thrombocytopenia",
-                "rowTitle": "Thrombocytopenia"
+                "rowTitle": "Thrombocytopenia (<150 x 10⁹/L)"
             },
             {
                 "rowId": "ElevatedCreatinine",
-                "rowTitle": "Elevated Creatinine"
+                "rowTitle": "Elevated Creatinine (>1.2 mg/dL)"
             },
             {
                 "rowId": "ElevatedProcalcitonin",
-                "rowTitle": "Elevated Procalcitonin"
+                "rowTitle": "Elevated Procalcitonin (>2.0 ng/mL)"
             }
         ],
         "columns": [
             {
                 "colId": "Consistent",
-                "colTitle": "Consistent with Sepsis"
+                "colTitle": "Consistent"
             },
             {
                 "colId": "Inconsistent",
-                "colTitle": "Inconsistent with Sepsis"
+                "colTitle": "Inconsistent"
             }
         ]
     },
     "possibleResponses": {
         "Lactate-Consistent": {
-            "value": true,
-            "label": "Elevated Lactate - Consistent with Sepsis"
+            "value": true
         },
         "Lactate-Inconsistent": {
-            "value": false,
-            "label": "Elevated Lactate - Inconsistent with Sepsis"
+            "value": false
         },
         "Thrombocytopenia-Consistent": {
-            "value": true,
-            "label": "Thrombocytopenia - Consistent with Sepsis"
+            "value": true
         },
         "Thrombocytopenia-Inconsistent": {
-            "value": false,
-            "label": "Thrombocytopenia - Inconsistent with Sepsis"
+            "value": false
         },
         "ElevatedCreatinine-Consistent": {
-            "value": true,
-            "label": "Elevated Creatinine - Consistent with Sepsis"
+            "value": true
         },
         "ElevatedCreatinine-Inconsistent": {
-            "value": false,
-            "label": "Elevated Creatinine - Inconsistent with Sepsis"
+            "value": false
         },
         "ElevatedProcalcitonin-Consistent": {
-            "value": true,
-            "label": "Elevated Procalcitonin - Consistent with Sepsis"
+            "value": true
         },
         "ElevatedProcalcitonin-Inconsistent": {
-            "value": false,
-            "label": "Elevated Procalcitonin - Inconsistent with Sepsis"
+            "value": false
         }
     },
     "correctResponse": {
@@ -141,5 +310,54 @@
         "ElevatedCreatinine": "Consistent",
         "ElevatedProcalcitonin": "Consistent"
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "rationale": {
+        "correct": "The client's presentation of hypotension, tachycardia, fever, and altered mental status, combined with laboratory evidence of organ dysfunction (elevated lactate, elevated creatinine, thrombocytopenia), is definitive for septic shock. Each of the listed findings is a key pathophysiological marker of this life-threatening condition.",
+        "incorrect": "Selecting 'Inconsistent' for any of these findings would be incorrect. These are not isolated abnormalities but rather interconnected components of the systemic inflammatory response and subsequent organ failure characteristic of septic shock. Ignoring any of these cues would lead to an incomplete analysis of the client's critical state.",
+        "answerBreakdown": [
+            {
+                "optionId": "Lactate-Consistent",
+                "content": "Correct. Elevated lactate indicates widespread tissue hypoxia, forcing cells into anaerobic metabolism. This is a primary indicator of systemic hypoperfusion and is a critical diagnostic and prognostic marker in septic shock."
+            },
+            {
+                "optionId": "Thrombocytopenia-Consistent",
+                "content": "Correct. Thrombocytopenia in sepsis is caused by systemic inflammation leading to platelet activation, aggregation, and consumption. This process can progress to Disseminated Intravascular Coagulation (DIC), a severe complication of septic shock."
+            },
+            {
+                "optionId": "ElevatedCreatinine-Consistent",
+                "content": "Correct. Elevated creatinine reflects acute kidney injury (AKI). In septic shock, renal hypoperfusion and direct inflammatory damage to the renal tubules impair the kidney's ability to filter waste, leading to a rise in creatinine."
+            },
+            {
+                "optionId": "ElevatedProcalcitonin-Consistent",
+                "content": "Correct. Procalcitonin is a highly specific biomarker for systemic bacterial infections. Its significant elevation is a strong indicator that the systemic inflammatory response is driven by a bacterial source, helping to confirm sepsis."
+            }
+        ],
+        "clinicalPearls": [
+            "The qSOFA score (altered mental status, respiratory rate ≥22/min, systolic BP ≤100 mmHg) is a bedside tool to identify patients with suspected infection who are at greater risk for poor outcomes.",
+            "Fluid resuscitation in sepsis aims for a target Mean Arterial Pressure (MAP) of ≥65 mmHg. If fluids alone are insufficient, vasopressors like norepinephrine are initiated to achieve this goal.",
+            "The 'Surviving Sepsis Campaign' one-hour bundle prioritizes: measuring lactate, obtaining blood cultures, administering broad-spectrum antibiotics, and beginning rapid fluid administration for hypotension."
+        ],
+        "questionTrap": "The primary trap is failing to connect individual abnormal findings to the larger syndrome of septic shock. A high WBC count indicates infection, but the combination of hypotension (MAP <65), elevated lactate, and evidence of end-organ damage (AKI, thrombocytopenia) is what defines the progression to septic shock.",
+        "mnemonic": {
+            "title": "SEPSIS BUNDLE (Hour-1)",
+            "expansion": "B.L.A.F: Blood Cultures (obtain before antibiotics), Lactate (measure level), Antibiotics (administer broad-spectrum), Fluids (begin rapid administration for hypotension or high lactate). This mnemonic helps prioritize the first critical actions."
+        },
+        "reviewUnits": [
+            "Sepsis and Septic Shock",
+            "Hemodynamic Monitoring",
+            "Infection Control",
+            "Acid-Base Balance",
+            "Fluid and Electrolytes"
+        ]
+    },
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:29:08.643Z"
 }

@@ -1,60 +1,105 @@
 {
-    "id": "emphysema_bowtie_v1",
+    "id": "emphysema_bowtie_v2",
     "type": "bowtie",
-    "stem": "A client with a 40-pack-year smoking history presents with increasing shortness of breath and a chronic cough. Physical assessment reveals a 'barrel-shaped' chest and diminished breath sounds. Based on these cues, complete the clinical bowtie.",
+    "stem": "The nurse is caring for a 68-year-old client with a history of COPD who presents with increased dyspnea. The client has a barrel chest and an SpO2 of 89% on room air. Based on the available data, complete the bowtie to identify the most likely condition, appropriate actions, and parameters to monitor.",
+    "ehr": {
+        "tabs": [
+            {
+                "id": "patientInfo",
+                "label": "Patient Info",
+                "content": "Name: John Doe\nAge: 68\nGender: Male\nAllergies: No Known Drug Allergies (NKDA)"
+            },
+            {
+                "id": "historyAndPhysical",
+                "label": "History & Physical",
+                "content": "Chief Complaint: Worsening shortness of breath\n\nHistory of Present Illness: Client reports a 3-day history of increasing dyspnea on exertion and a productive cough with clear sputum. Reports feeling more fatigued than usual.\n\nPast Medical History: Chronic Obstructive Pulmonary Disease (COPD) diagnosed 5 years ago. Hypertension.\n\nSocial History: 40-pack-year smoking history; quit 1 year ago.\n\nPhysical Examination: Alert and oriented x3. Anxious appearance. Using accessory muscles to breathe. Chest has an increased anteroposterior diameter ('barrel chest'). Breath sounds are diminished bilaterally. No wheezes or crackles noted."
+            },
+            {
+                "id": "vitals",
+                "label": "Vitals",
+                "content": "Time: 08:00\nHeart Rate: 105 bpm\nBlood Pressure: 138/88 mmHg\nRespiratory Rate: 26/min\nTemperature: 37.1°C (98.8°F)\nSpO2: 89% on room air"
+            },
+            {
+                "id": "orders",
+                "label": "Orders",
+                "content": "Arterial Blood Gas (ABG) - STAT"
+            }
+        ]
+    },
+    "itemContext": {
+        "sbar": "Situation: John Doe, a 68-year-old male, presents with worsening shortness of breath and fatigue.\nBackground: He has a 40-pack-year smoking history and a diagnosis of COPD. At 08:00, his SpO2 is 89% on room air with a respiratory rate of 26/min.\nAssessment: Findings suggest an emphysema exacerbation with acute hypoxemia. He has a barrel chest and diminished breath sounds, indicating significant air trapping.\nRecommendation: Recommend initiating low-flow oxygen to maintain SpO2 88-92%, instructing on pursed-lip breathing, and obtaining a STAT ABG. Please confirm."
+    },
+    "potentialConditions": [
+        "Chronic Bronchitis",
+        "Emphysema",
+        "Pneumonia",
+        "Heart Failure"
+    ],
+    "condition": "Emphysema",
     "causes": [
         {
+            "id": "c1",
+            "text": "Chronic tobacco smoke exposure",
+            "hoverRationale": "Inhalation of tobacco smoke is the primary risk factor for emphysema, causing chronic inflammation and enzymatic destruction of alveolar walls, which leads to air trapping and impaired gas exchange."
+        },
+        {
             "id": "c2",
-            "text": "Alpha-1 antitrypsin deficiency"
+            "text": "Alpha-1 antitrypsin deficiency",
+            "hoverRationale": "This genetic disorder leads to a lack of a protective protein in the lungs. Uninhibited neutrophil elastase activity destroys alveolar elastin, causing early-onset emphysema."
         },
         {
             "id": "c3",
-            "text": "Occupational exposure to respiratory irritants"
-        },
-        {
-            "id": "c1",
-            "text": "Chronic tobacco smoke exposure"
+            "text": "Occupational exposure to irritants",
+            "hoverRationale": "While a contributing factor to COPD, it is less common and potent than chronic smoking in causing the specific alveolar destruction characteristic of emphysema."
         },
         {
             "id": "c4",
-            "text": "History of frequent respiratory infections"
+            "text": "History of frequent respiratory infections",
+            "hoverRationale": "Infections are a common trigger for COPD exacerbations but are not a primary cause of the underlying parenchymal destruction that defines emphysema."
         }
     ],
-    "condition": "Emphysema",
     "actions": [
         {
-            "id": "a2",
-            "text": "Administer bronchodilators via nebulizer"
+            "id": "a1",
+            "text": "Administer low-flow oxygen to maintain SpO2 88-92%",
+            "hoverRationale": "Correcting hypoxemia is a priority. Low-flow oxygen is used for clients with chronic CO2 retention to prevent suppression of the hypoxic respiratory drive."
         },
         {
-            "id": "a1",
-            "text": "Administer low-flow oxygen (1-2L via NC), titrate to SpO2 88-92%"
+            "id": "a2",
+            "text": "Administer bronchodilators via nebulizer",
+            "hoverRationale": "While useful for bronchospasm, the primary problem in emphysema is alveolar destruction, not bronchoconstriction. Oxygenation is the immediate priority."
         },
         {
             "id": "a3",
-            "text": "Instruct on pursed-lip breathing techniques"
+            "text": "Instruct on pursed-lip breathing techniques",
+            "hoverRationale": "This technique increases positive end-expiratory pressure (PEEP), which helps keep airways open during exhalation, reduces air trapping, and improves ventilation."
         },
         {
             "id": "a4",
-            "text": "Initiate chest physiotherapy and postural drainage"
+            "text": "Initiate chest physiotherapy",
+            "hoverRationale": "This intervention is for clearing excessive secretions, which is more characteristic of chronic bronchitis. Emphysema primarily involves air trapping, not mucus plugging."
         }
     ],
     "parameters": [
         {
             "id": "p1",
-            "text": "Oxygen saturation (SpO2) and arterial blood gases (ABGs)"
-        },
-        {
-            "id": "p4",
-            "text": "Fluid balance and hydration status"
+            "text": "Oxygen saturation (SpO2) and ABGs",
+            "hoverRationale": "These directly measure gas exchange effectiveness. SpO2 provides continuous oxygenation data, while ABGs give a definitive status of oxygenation, ventilation (PaCO2), and acid-base balance."
         },
         {
             "id": "p2",
-            "text": "Respiratory rate, depth, and effort"
+            "text": "Respiratory rate, depth, and effort",
+            "hoverRationale": "These are key indicators of work of breathing and impending respiratory failure. Increasing rate and effort signal worsening gas exchange and muscle fatigue."
         },
         {
             "id": "p3",
-            "text": "Sputum characteristics (color, consistency, amount)"
+            "text": "Sputum characteristics",
+            "hoverRationale": "While important for identifying a secondary infection, it does not directly reflect the client's immediate oxygenation or ventilation status, which is the primary concern."
+        },
+        {
+            "id": "p4",
+            "text": "Fluid balance and hydration status",
+            "hoverRationale": "Dehydration can thicken secretions, but monitoring fluid status is not a primary parameter for assessing the acute respiratory compromise seen in an emphysema exacerbation."
         }
     ],
     "correctCauseIds": [
@@ -71,89 +116,14 @@
     ],
     "pedagogy": {
         "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "recognizeCues",
         "nclexCategory": "Physiological Adaptation",
         "difficulty": 3,
         "topicTags": [
             "Emphysema",
             "COPD",
-            "Respiratory"
-        ]
-    },
-    "rationale": {
-        "correct": "Chronic tobacco smoke exposure (c1) is the leading cause of emphysema, damaging alveoli and impairing gas exchange. Alpha-1 antitrypsin deficiency (c2) is a genetic risk factor. Low-flow oxygen (a1) is essential to maintain SpO2 within 88-92% to avoid suppressing the hypoxic drive. Pursed-lip breathing (a3) helps prevent alveolar collapse and improves ventilation. Monitoring SpO2 and ABGs (p1) and respiratory rate/effort (p2) are crucial for assessing oxygenation and ventilation.",
-        "incorrect": "Occupational exposure to respiratory irritants (c3) can contribute to COPD but is less directly linked to emphysema than smoking or AAT deficiency. History of frequent respiratory infections (c4) can exacerbate COPD but doesn't cause emphysema. Administering bronchodilators via nebulizer (a2) is helpful for symptom management but not the priority. Chest physiotherapy and postural drainage (a4) are more appropriate for secretion clearance, not the primary issue in emphysema. Fluid balance and hydration status (p4) are important but less direct indicators of respiratory status. Sputum characteristics (p3) are relevant for infection, but less critical than oxygenation and ventilation.",
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Emphysema\" is the most likely diagnosis given the client's history, symptoms, and physical findings.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer bronchodilators via nebulizer\" is a supportive intervention but not the immediate priority.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer low-flow oxygen (1-2L via NC), titrate to SpO2 88-92%\" directly addresses the client's hypoxemia while avoiding suppression of the hypoxic drive.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Instruct on pursed-lip breathing techniques\" helps improve ventilation and prevent alveolar collapse.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Initiate chest physiotherapy and postural drainage\" is not the immediate priority unless excessive secretions are present.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Oxygen saturation (SpO2) and arterial blood gases (ABGs)\" provides essential data on the client's oxygenation and acid-base balance.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Fluid balance and hydration status\" is important but not the most critical parameter for immediate assessment.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Respiratory rate, depth, and effort\" provides valuable information about the client's respiratory status and potential distress.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Sputum characteristics (color, consistency, amount)\" are relevant for identifying infection but less critical than oxygenation and ventilation.",
-                "isCorrect": false
-            }
-        ],
-        "clinicalPearls": [
-            "Pursed-lip breathing increases airway pressure, keeping alveoli open longer and improving gas exchange.",
-            "In COPD patients, the respiratory drive is often stimulated by hypoxemia; avoid high-flow oxygen to prevent respiratory depression.",
-            "Barrel chest is a classic sign of emphysema, indicating chronic air trapping and hyperinflation of the lungs."
-        ],
-        "questionTrap": {
-            "trap": "The 'High Oxygen' Trap",
-            "howToOvercome": "Remember that 'Less is More' for stable COPD oxygenation targets (88-92%). High oxygen can suppress the hypoxic drive, leading to respiratory depression and CO2 retention."
-        },
-        "mnemonic": {
-            "title": "EMPHYSEMA",
-            "expansion": "E = Emphysema\nM = Monitor SpO2 and ABGs\nP = Pursed-lip breathing\nH = Hypoxic drive (avoid high FiO2)\nY = Yearly flu and pneumonia vaccines\nS = Smoking cessation\nE = Encourage activity as tolerated\nM = Medications (bronchodilators, steroids)\nA = Alpha-1 antitrypsin testing"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Emphysema",
-                "body": "Emphysema is characterized by permanent enlargement of air spaces distal to the terminal bronchioles, resulting in decreased gas exchange and hyperinflation of the lungs. Risk factors include smoking and alpha-1 antitrypsin deficiency.",
-                "source": "Resp Nursing 2026"
-            },
-            {
-                "heading": "COPD Management",
-                "body": "Key interventions for COPD management include smoking cessation, bronchodilators, inhaled corticosteroids, pulmonary rehabilitation, and oxygen therapy. Monitoring for complications such as respiratory infections and exacerbations is crucial.",
-                "source": "Med-Surg Nursing 2026"
-            }
+            "Respiratory",
+            "Gas Exchange"
         ]
     },
     "scoring": {
@@ -172,16 +142,7 @@
             "p3": -1,
             "p4": -1
         },
-        "maxPoints": 5
+        "maxPoints": 6
     },
-    "potentialConditions": [
-        "Chronic Bronchitis",
-        "Emphysema",
-        "Pneumonia",
-        "Heart Failure"
-    ],
-    "sentinelStatus": "healed_v2026_v11",
-    "itemContext": {
-        "sbar": "Situation: Client with a 40-pack-year smoking history presenting with increasing shortness of breath and chronic cough.\nBackground: Physical assessment reveals a 'barrel-shaped' chest, diminished breath sounds bilaterally, and SpO2 of 89% on room air. Patient reports increased fatigue and difficulty completing ADLs. History of COPD, diagnosed 5 years ago.\nAssessment: Possible emphysema exacerbation secondary to chronic COPD. Hypoxemia present. Requires intervention to improve oxygenation and ventilation. Rule out other causes of respiratory distress.\nRecommendation: Administer low-flow oxygen (1-2L via NC) to maintain SpO2 88-92%. Instruct and reinforce pursed-lip breathing technique. Monitor respiratory rate, effort, and SpO2 continuously. Obtain ABGs to assess acid-base balance. Consider bronchodilator therapy if wheezing is present. Notify provider of assessment findings and plan of care."
-    }
+    "sentinelStatus": "remediated_v2026_v1"
 }

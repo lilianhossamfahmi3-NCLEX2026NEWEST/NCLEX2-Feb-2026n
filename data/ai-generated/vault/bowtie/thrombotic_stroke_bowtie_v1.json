@@ -1,198 +1,167 @@
 {
-    "id": "thrombotic_stroke_bowtie_v1",
+    "id": "thrombotic_stroke_bowtie_v2",
     "type": "bowtie",
-    "stem": "A 70-year-old female is brought to the ED at 1400 by EMS. Her husband reports she developed sudden right-sided weakness and slurred speech at 1315. CT scan rules out hemorrhage. Which actions and parameters are most appropriate for managing this patient?",
+    "sentinelStatus": "remediated_v2026_v1",
+    "ehr": {
+        "patient": {
+            "name": "Jane Doe",
+            "age": "70 years",
+            "gender": "Female",
+            "allergies": "No Known Allergies",
+            "medicalHistory": "Hypertension, Hyperlipidemia",
+            "medications": "Lisinopril 10 mg daily, Atorvastatin 20 mg daily"
+        },
+        "tabs": [
+            {
+                "id": "vitals",
+                "label": "Vitals",
+                "data": [
+                    {
+                        "time": "14:00",
+                        "BP": "190/100 mmHg",
+                        "HR": "88/min",
+                        "RR": "18/min",
+                        "SpO2": "98% on room air",
+                        "Temp": "37.0 C (98.6 F)"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "label": "Laboratory Results",
+                "data": [
+                    {
+                        "test": "Glucose, point-of-care",
+                        "time": "14:10",
+                        "result": "115 mg/dL",
+                        "reference": "70-110 mg/dL"
+                    },
+                    {
+                        "test": "INR",
+                        "time": "14:20",
+                        "result": "1.0",
+                        "reference": "0.8-1.2"
+                    },
+                    {
+                        "test": "PTT",
+                        "time": "14:20",
+                        "result": "32 seconds",
+                        "reference": "25-35 seconds"
+                    },
+                    {
+                        "test": "Platelet Count",
+                        "time": "14:20",
+                        "result": "245,000/mm³",
+                        "reference": "150,000-450,000/mm³"
+                    }
+                ]
+            },
+            {
+                "id": "imaging",
+                "label": "Imaging",
+                "data": [
+                    {
+                        "test": "CT Head without contrast",
+                        "time": "14:25",
+                        "result": "No evidence of acute intracranial hemorrhage. Age-related cerebral atrophy noted."
+                    }
+                ]
+            }
+        ]
+    },
+    "clinicalFeed": "S: This is the nurse for Jane Doe, a 70-year-old female who presented at 14:00 with acute right-sided weakness and aphasia. B: Last known well was at 13:00. She has a history of hypertension and hyperlipidemia. A: Current BP is 190/100 mmHg. A non-contrast head CT shows no hemorrhage. The assessment is an acute ischemic stroke within the thrombolytic window. R: Recommend initiating measures to lower BP to <185/110 mmHg to proceed with IV alteplase administration per protocol.",
+    "stem": "The nurse is managing care for the client who presented with acute neurological deficits. The client has been diagnosed with an acute ischemic stroke and is a candidate for thrombolytic therapy. Complete the bowtie by selecting the appropriate actions to take and parameters to monitor.",
+    "potentialConditions": [
+        {
+            "id": "cond1",
+            "text": "Ischemic Stroke"
+        },
+        {
+            "id": "cond2",
+            "text": "Brain Tumor"
+        },
+        {
+            "id": "cond3",
+            "text": "Transient Ischemic Attack"
+        },
+        {
+            "id": "cond4",
+            "text": "Hemorrhagic Stroke"
+        }
+    ],
+    "condition": "cond1",
     "actions": [
         {
-            "id": "action4",
-            "text": "Perform a Lumbar Puncture",
-            "isCorrect": false
+            "id": "action1",
+            "text": "Perform a Lumbar Puncture"
         },
         {
             "id": "action2",
-            "text": "Maintain BP within specific parameters (e.g., <185/110 mmHg)",
-            "isCorrect": true
+            "text": "Maintain BP <185/110 mmHg"
         },
         {
             "id": "action3",
-            "text": "Administer IV Heparin bolus",
-            "isCorrect": false
+            "text": "Administer IV Heparin bolus"
         },
         {
-            "id": "action1",
-            "text": "Initiate IV Alteplase (tPA) according to protocol",
-            "isCorrect": true
+            "id": "action4",
+            "text": "Initiate IV Alteplase (tPA) protocol"
         }
     ],
-    "potentialConditions": [
-        "Ischemic Stroke",
-        "Brain Tumor",
-        "Transient Ischemic Attack",
-        "Hemorrhagic Stroke"
-    ],
-    "condition": "Ischemic Stroke",
     "parameters": [
         {
+            "id": "param1",
+            "text": "Blood Pressure monitoring"
+        },
+        {
             "id": "param2",
-            "text": "Blood Pressure monitoring",
-            "isCorrect": true
+            "text": "Monitoring for signs of bleeding"
         },
         {
             "id": "param3",
-            "text": "Monitoring for signs of bleeding (gums, IV sites)",
-            "isCorrect": false
+            "text": "Muscle strength grading"
         },
         {
             "id": "param4",
-            "text": "Muscle strength grading",
-            "isCorrect": false
-        },
-        {
-            "id": "param1",
-            "text": "Neurological status and NIH Stroke Scale assessment",
-            "isCorrect": true
+            "text": "Neurological status and NIHSS"
         }
     ],
     "correctActionIds": [
-        "action1",
-        "action2"
+        "action2",
+        "action4"
     ],
     "correctParameterIds": [
         "param1",
-        "param2"
+        "param4"
     ],
+    "hoverRationales": {
+        "cond1": "Pathophysiology: Sudden focal neurological deficits combined with a CT scan negative for hemorrhage strongly indicate an ischemic stroke, where a clot obstructs cerebral blood flow, leading to neuronal injury.",
+        "cond2": "Clinical Flaw: A brain tumor typically presents with a gradual onset of symptoms, headaches, or seizures, not the sudden, focal deficits seen in this client.",
+        "cond3": "Clinical Flaw: A Transient Ischemic Attack (TIA) involves temporary symptoms that resolve completely, usually within an hour. This client's symptoms are persistent, indicating a completed stroke.",
+        "cond4": "Clinical Flaw: A hemorrhagic stroke would show evidence of bleeding on the non-contrast CT scan. This client's CT scan was negative for hemorrhage, ruling out this condition.",
+        "action1": "Clinical Flaw: A lumbar puncture is not indicated for diagnosing an acute ischemic stroke and is contraindicated if intracranial pressure is elevated, as it increases the risk of cerebral herniation.",
+        "action2": "Pathophysiology: Blood pressure must be lowered to and maintained below 185/110 mmHg before and during alteplase administration to decrease the risk of hemorrhagic conversion, a major complication of thrombolytic therapy.",
+        "action3": "Clinical Flaw: Anticoagulants like heparin are contraindicated in the acute phase of ischemic stroke, especially when thrombolytics are used, as they significantly increase the risk of intracranial hemorrhage.",
+        "action4": "Pathophysiology: Alteplase is a thrombolytic that dissolves the fibrin clot causing the ischemia. Administering it within the therapeutic window restores blood flow to the penumbra, minimizing neuronal death.",
+        "param1": "Pathophysiology: Continuous BP monitoring is essential to ensure the pressure remains within the target range, which is critical for balancing the need for cerebral perfusion against the risk of hemorrhagic transformation.",
+        "param2": "Clinical Flaw: While monitoring for systemic bleeding is important, the most critical parameters to detect the life-threatening complication of hemorrhagic conversion are frequent neurological assessments and blood pressure monitoring.",
+        "param3": "Clinical Flaw: This is only one component of the comprehensive neurological assessment. Monitoring the full NIHSS and overall neurological status provides a more complete picture of the client's condition.",
+        "param4": "Pathophysiology: Frequent neurological assessments using the NIHSS are critical to monitor for improvement or deterioration, which reflects changes in cerebral perfusion and helps detect complications like hemorrhage early."
+    },
+    "scoring": {
+        "method": "plusMinus",
+        "maxPoints": 4
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
-        "nclexCategory": "Neurological/Stroke",
+        "nclexCategory": "Physiological Adaptation",
         "difficulty": 4,
         "topicTags": [
             "Neurological",
             "Stroke",
-            "Pharmacology"
+            "Pharmacology",
+            "Emergency"
         ]
-    },
-    "rationale": {
-        "correct": "The patient presents with signs and symptoms indicative of an acute ischemic stroke. Given the symptom onset within the thrombolytic window (typically 3-4.5 hours), initiating IV Alteplase (tPA) is the priority to dissolve the clot and restore blood flow to the affected brain tissue. Strict blood pressure control (typically <185/110 mmHg) is crucial before, during, and after tPA administration to minimize the risk of hemorrhagic conversion. Continuous neurological monitoring using the NIH Stroke Scale (NIHSS) is essential to assess the patient's response to treatment and detect any signs of deterioration. Blood pressure monitoring is also critical to maintain cerebral perfusion and prevent complications.",
-        "incorrect": "Lumbar puncture is not indicated in the acute management of ischemic stroke unless there is suspicion of meningitis or subarachnoid hemorrhage, which has been ruled out by CT scan. Heparin is contraindicated in the acute phase of ischemic stroke when tPA is being considered or administered due to the increased risk of bleeding. While monitoring for signs of bleeding is important, it is not the most immediate or sensitive parameter for evaluating the patient's response to tPA or detecting early complications. Muscle strength grading is part of the NIHSS but is not as critical as overall neurological status and blood pressure monitoring in the acute phase.",
-        "clinicalPearls": [
-            "Time is brain! Rapid assessment and intervention are crucial in stroke management.",
-            "The primary goal of tPA is to restore blood flow to the ischemic penumbra, the area of potentially salvageable brain tissue surrounding the core infarct.",
-            "Hypertension is common in acute stroke and must be carefully managed to prevent hemorrhagic conversion or further neurological damage."
-        ],
-        "questionTrap": {
-            "trap": "Focus on individual symptoms rather than the overall clinical picture.",
-            "howToOvercome": "Consider the constellation of symptoms and the time frame to arrive at the most likely diagnosis and appropriate interventions. Remember the importance of ruling out hemorrhage before considering thrombolytic therapy."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "Ischemic Stroke is the most likely diagnosis given the sudden onset of focal neurological deficits and the absence of hemorrhage on CT scan.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Lumbar puncture is not indicated in this scenario as hemorrhage has been ruled out.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Maintaining BP within specific parameters is crucial to prevent hemorrhagic conversion during and after tPA administration.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Heparin is contraindicated in the acute phase of ischemic stroke when tPA is being considered or administered.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Initiating IV Alteplase (tPA) is the priority intervention to restore blood flow to the affected brain tissue.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Blood pressure monitoring is essential to maintain cerebral perfusion and prevent complications.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "While important, monitoring for signs of bleeding is not the most immediate or sensitive parameter in the acute phase.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Muscle strength grading is part of the NIHSS but not as critical as overall neurological status and blood pressure in the acute phase.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Neurological status and NIH Stroke Scale are essential for assessing the patient's response to treatment and detecting any signs of deterioration.",
-                "isCorrect": true
-            }
-        ],
-        "mnemonic": {
-            "title": "FAST",
-            "expansion": "F = Face (drooping)\nA = Arms (weakness)\nS = Speech (slurred)\nT = Time (call 911 immediately)"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Ischemic Stroke Pathophysiology",
-                "body": "Ischemic stroke occurs when a blood clot blocks an artery supplying blood to the brain, leading to oxygen deprivation and neuronal damage. The ischemic penumbra is the area of potentially salvageable brain tissue surrounding the core infarct.",
-                "source": "UpToDate"
-            },
-            {
-                "heading": "tPA Administration",
-                "body": "Alteplase (tPA) is a thrombolytic agent that dissolves blood clots and restores blood flow to the affected brain tissue. It must be administered within a specific time window (typically 3-4.5 hours) from symptom onset.",
-                "source": "American Heart Association/American Stroke Association Guidelines"
-            },
-            {
-                "heading": "Blood Pressure Management in Acute Stroke",
-                "body": "Strict blood pressure control is crucial before, during, and after tPA administration to minimize the risk of hemorrhagic conversion. The target blood pressure is typically <185/110 mmHg.",
-                "source": "National Institute of Neurological Disorders and Stroke"
-            }
-        ]
-    },
-    "scoring": {
-        "method": "plusMinus",
-        "scoringRubric": {
-            "action1": {
-                "correct": 1,
-                "incorrect": -1
-            },
-            "action2": {
-                "correct": 1,
-                "incorrect": -1
-            },
-            "action3": {
-                "correct": -1,
-                "incorrect": 1
-            },
-            "action4": {
-                "correct": -1,
-                "incorrect": 1
-            },
-            "param1": {
-                "correct": 1,
-                "incorrect": -1
-            },
-            "param2": {
-                "correct": 1,
-                "incorrect": -1
-            },
-            "param3": {
-                "correct": -1,
-                "incorrect": 1
-            },
-            "param4": {
-                "correct": -1,
-                "incorrect": 1
-            }
-        },
-        "maxPoints": 4
-    },
-    "sentinelStatus": "healed_v2026_v11",
-    "itemContext": {
-        "sbar": "Situation: 70-year-old female with sudden right-sided weakness and slurred speech onset at 1315.\nBackground: Husband reports patient was last known well at 1300. CT scan negative for hemorrhage.\nAssessment: Right-sided weakness, slurred speech. GCS 14. NIHSS score pending. Vitals: BP 190/100 mmHg, HR 88 bpm, RR 18 breaths/min, SpO2 98% on room air.\nRecommendation: STAT neurology consult. Prepare for tPA administration if eligible. Strict BP control needed."
     }
 }

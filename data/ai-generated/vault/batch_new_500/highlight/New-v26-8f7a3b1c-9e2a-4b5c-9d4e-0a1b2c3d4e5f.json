@@ -1,94 +1,287 @@
 {
     "id": "New-v26-8f7a3b1c-9e2a-4b5c-9d4e-0a1b2c3d4e5f",
-    "type": "highlight",
-    "stem": "The patient is experiencing autonomic dysreflexia. Review the nurse's notes below. Identify all findings that indicate autonomic dysreflexia is occurring. Click on those findings to highlight them.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "type": "selectAll",
+    "stem": "The nurse is assessing a client with a T6 spinal cord injury. Based on the clinical data, which findings are consistent with autonomic dysreflexia? Select all that apply.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Severe, pounding headache"
+        },
+        {
+            "id": "opt_02",
+            "text": "Flushed and diaphoretic skin above the T6 level"
+        },
+        {
+            "id": "opt_03",
+            "text": "Blurred vision"
+        },
+        {
+            "id": "opt_04",
+            "text": "Cool skin with piloerection below the T6 level"
+        },
+        {
+            "id": "opt_05",
+            "text": "Client report of anxiety"
+        },
+        {
+            "id": "opt_06",
+            "text": "Distended and firm abdomen"
+        },
+        {
+            "id": "opt_07",
+            "text": "Patent urinary catheter draining clear urine"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 35,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "35 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Mr. Smith, a 35-year-old male with a T6 spinal cord injury sustained 6 months ago, reports a severe headache and feeling anxious. Reported at 14:00.\nB: History of autonomic dysreflexia. Foley catheter placed at 08:00 today for urinary retention. Last bowel movement was three days ago.\nA: At 14:00, BP is 210/110 mmHg, HR is 55 bpm. Diaphoretic above the level of injury and complaining of blurred vision. Foley catheter draining clear urine. Assess for autonomic dysreflexia causes; implement interventions.\nR: Check for Foley catheter kinks, assess for bowel impaction, administer PRN antihypertensive as ordered. Monitor BP closely.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Mr. Smith, a 35-year-old male with a T6 spinal cord injury sustained 6 months ago, reports a severe headache and feeling anxious. Reported at 14:00.\nB: History of autonomic dysreflexia. Foley catheter placed at 08:00 today for urinary retention. Last bowel movement was three days ago.\nA: At 14:00, BP is 210/110 mmHg, HR is 55 bpm. Diaphoretic above the level of injury and complaining of blurred vision. Foley catheter draining clear urine. Assess for autonomic dysreflexia causes; implement interventions.\nR: Check for Foley catheter kinks, assess for bowel impaction, administer PRN antihypertensive as ordered. Monitor BP closely."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Today at 08:00",
+                        "text": "S: Client admitted for management of neurogenic bladder following a T6 spinal cord injury 6 months ago.\nB: 35-year-old male, history of intermittent catheterization, but recently experiencing retention. No known history of autonomic dysreflexia. Lives alone in a second-floor apartment with no elevator, which poses a barrier to consistent follow-up care. Allergy to Penicillin.\nA: Vitals stable, BP 122/78 mmHg, HR 70/min. Abdomen soft, non-distended. Bladder scan shows 600 mL residual volume. Neurological exam unchanged from baseline.\nR: Insert indwelling urinary catheter as per urology orders. Monitor urine output and for signs of urinary tract infection. Continue scheduled bowel regimen."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Today at 14:00",
+                        "text": "S: Client reports a sudden, severe, pounding headache and feeling extremely anxious. States, \"I feel like my head is going to explode.\"\nB: Client has a T6 spinal cord injury. Indwelling urinary catheter was placed at 08:00. Last bowel movement was three days ago.\nA: BP is 210/110 mmHg, HR 55/min. Client is diaphoretic and flushed above the T6 injury level. Complains of blurred vision. Skin below T6 is cool with piloerection. Abdomen is distended and firm. Catheter is patent, draining clear urine. Suspect autonomic dysreflexia triggered by bowel impaction.\nR: Immediately sit client upright to 90 degrees. Loosen any restrictive clothing. Assess for catheter kinks. Perform digital rectal exam to check for impaction. Administer PRN hydralazine for severe hypertension as ordered. Continue to monitor vitals every 5 minutes."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "07/10/2024 13:00: WBC: 8.5 x 10^9/L, Hemoglobin: 14 g/dL, Platelets: 250 x 10^9/L, Sodium: 140 mEq/L, Potassium: 4.2 mEq/L, Creatinine: 1.0 mg/dL, BUN: 15 mg/dL, Urinalysis: Clear, yellow, no bacteria noted."
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "08:00",
+                        "BP (MAP)": "122/78 mmHg (93)",
+                        "HR": "70/min",
+                        "RR": "16/min",
+                        "SpO2": "99% on Room Air",
+                        "Temp": "98.4°F (36.9°C)"
+                    },
+                    {
+                        "Time": "12:00",
+                        "BP (MAP)": "124/80 mmHg (95)",
+                        "HR": "72/min",
+                        "RR": "18/min",
+                        "SpO2": "98% on Room Air",
+                        "Temp": "98.6°F (37.0°C)"
+                    },
+                    {
+                        "Time": "14:00",
+                        "BP (MAP)": "210/110 mmHg (143)",
+                        "HR": "55/min",
+                        "RR": "20/min",
+                        "SpO2": "98% on Room Air",
+                        "Temp": "99.1°F (37.3°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Hydralazine 10mg IV PRN for SBP > 180 mmHg - Last administered: N/A, Docusate Sodium 100mg PO Daily - Last administered: 07/10/2024 09:00, Senna 8.6mg PO PRN for constipation - Last administered: N/A"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "8.5",
+                        "Unit": "x10³/mcL",
+                        "Reference": "4.5-11.0",
+                        "Status": "WNL"
+                    },
+                    {
+                        "Test": "Hemoglobin",
+                        "Result": "14.0",
+                        "Unit": "g/dL",
+                        "Reference": "13.5-17.5",
+                        "Status": "WNL"
+                    },
+                    {
+                        "Test": "Platelets",
+                        "Result": "250",
+                        "Unit": "x10³/mcL",
+                        "Reference": "150-450",
+                        "Status": "WNL"
+                    },
+                    {
+                        "Test": "Sodium",
+                        "Result": "140",
+                        "Unit": "mEq/L",
+                        "Reference": "136-145",
+                        "Status": "WNL"
+                    },
+                    {
+                        "Test": "Potassium",
+                        "Result": "4.2",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "WNL"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "15",
+                        "Unit": "mg/dL",
+                        "Reference": "6-20",
+                        "Status": "WNL"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "1.0",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "WNL"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07/10/2024 14:00: BP: 210/110 mmHg, HR: 55 bpm, RR: 18, SpO2: 98% on room air, Temp: 98.6°F (37°C). 07/10/2024 08:00: BP: 120/80 mmHg, HR: 72 bpm, RR: 16, SpO2: 99% on room air, Temp: 98.4°F (36.9°C)"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Today at 08:00 (Admission)",
+                        "findings": "General: Alert and oriented x4.\nCardiovascular: S1, S2 audible. No murmurs. Capillary refill <3 seconds in upper extremities.\nRespiratory: Lungs clear to auscultation bilaterally.\nNeurological: T6 paraplegia. Sensation and motor function absent below T6.\nGI: Abdomen soft, non-distended. Bowel sounds normoactive.\nGU: Bladder scan shows 600 mL."
+                    },
+                    {
+                        "timestamp": "Today at 14:00 (Focused)",
+                        "findings": "General: Acutely distressed, complaining of severe headache.\nCardiovascular: Bradycardia noted.\nIntegumentary: Diaphoresis and flushing noted on face, neck, and upper chest. Skin below T6 is cool to touch with piloerection (goosebumps).\nNeurological: Complains of blurred vision. No change in motor/sensory level.\nGI: Abdomen firm and distended."
+                    }
+                ]
             },
             {
-                "id": "notes",
-                "title": "Nurse's Notes",
-                "content": "07/10/2024 14:00: Patient reports severe headache and feeling anxious. States \"I feel like my head is going to explode\". Skin is flushed above the level of injury. Complains of blurred vision. Foley catheter patent and draining clear urine. Abdomen is distended and firm to palpation. Denies nausea. States he feels cold and clammy below his level of injury."
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Today at 08:00",
+                        "Action": "Elevate head of bed to 90 degrees for SBP > 180 mmHg",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today at 08:00",
+                        "Action": "Daily bowel regimen (Docusate Sodium)",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today at 08:00",
+                        "Action": "Hydralazine 10 mg IV for SBP > 180 mmHg",
+                        "Frequency/Status": "PRN"
+                    },
+                    {
+                        "Order Date/Time": "Today at 08:00",
+                        "Action": "Senna 8.6 mg PO for no BM in 24 hours",
+                        "Frequency/Status": "PRN"
+                    },
+                    {
+                        "Order Date/Time": "Today at 08:00",
+                        "Action": "Insert indwelling urinary catheter",
+                        "Frequency/Status": "STAT (Completed at 08:00)"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Hydralazine",
+                        "Dose": "10 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN for SBP > 180 mmHg",
+                        "Last Administered": "Not yet administered"
+                    },
+                    {
+                        "Medication": "Docusate Sodium",
+                        "Dose": "100 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Today at 09:00"
+                    },
+                    {
+                        "Medication": "Senna",
+                        "Dose": "8.6 mg",
+                        "Route": "PO",
+                        "Frequency": "PRN",
+                        "Last Administered": "Not administered in last 72 hours"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Spinal Cord Injury & Autonomic Dysreflexia"
+    "rationale": {
+        "correct": "Autonomic dysreflexia (AD) is a life-threatening emergency in clients with spinal cord injuries at T6 or above. A noxious stimulus below the injury level (e.g., bowel impaction) triggers an unopposed sympathetic response, causing intense vasoconstriction and severe hypertension. The brain detects this and attempts a parasympathetic response via the vagus nerve, but the signal is blocked at the injury site. This results in bradycardia and compensatory vasodilation *above* the injury level, causing the classic signs of a severe headache, flushing, and diaphoresis. The extreme hypertension can also lead to blurred vision, while the vasoconstriction below the injury causes cool skin and piloerection.",
+        "incorrect": "Distractors represent either causes of AD, normal findings, or secondary psychological responses. It is critical to differentiate the primary pathophysiological signs of the AD response from its triggers or the client's emotional reaction to the event.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. A severe, pounding headache is a hallmark symptom of AD, caused directly by the sudden, extreme rise in intracranial pressure from severe hypertension."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. Flushing and diaphoresis (sweating) above the level of the spinal cord injury are classic signs resulting from compensatory parasympathetic vasodilation as the body tries to lower blood pressure."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. Blurred vision is a direct consequence of the hypertensive crisis affecting the retinal blood vessels and is a sign of severe end-organ effects."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. Cool skin and piloerection (goosebumps) below the level of injury are caused by the unopposed sympathetic vasoconstriction that is driving the hypertensive crisis."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Incorrect. While the client is often anxious, this is a secondary emotional response to the distressing and painful physical symptoms of AD, not a primary pathophysiological sign."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. A distended and firm abdomen is a potential *cause* or *trigger* of AD (suggesting bowel impaction), not a resulting sign or symptom of the condition itself. The question asks for findings consistent with the AD response."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. A patent, draining catheter is a normal and expected finding. This assessment data is useful for ruling out bladder distention as the cause, but it is not a sign *of* AD."
+            }
+        ],
+        "clinicalPearls": [
+            "The first and most critical nursing action for suspected AD is to immediately sit the client upright (High-Fowler's position) to use gravity to help lower the blood pressure via orthostatic hypotension.",
+            "Always investigate and eliminate the cause. The most common triggers are the 3 B's: Bladder (kinked catheter, retention), Bowel (impaction), and Breaks (skin breakdown, pressure, tight clothing).",
+            "AD is a medical emergency. If initial measures (sitting up, removing stimulus) do not resolve the hypertension quickly, rapid-acting antihypertensives like hydralazine or nifedipine are required to prevent stroke or seizure."
+        ],
+        "questionTrap": "A common trap is confusing the causes of AD (like a distended abdomen) with the symptoms of AD (like hypertension and headache). Carefully read the question to determine if it's asking for triggers or the clinical presentation of the response.",
+        "mnemonic": {
+            "title": "The 7 H's of Autonomic Dysreflexia",
+            "expansion": "Hypertension (severe), Headache (pounding), Heart rate (low - bradycardia), Hot (flushed, sweaty skin above injury), High (sit them up high!), Hindrance (find and remove the noxious stimulus), Hives (or piloerection/goosebumps)."
+        },
+        "reviewUnits": [
+            "Neurological Disorders",
+            "Spinal Cord Injury",
+            "Emergency Management"
         ]
     },
-    "rationale": {
-        "correct": "The correct findings indicative of autonomic dysreflexia are: Severe headache, Blood pressure 210/110 mmHg, Heart rate 55 bpm, Diaphoresis above the level of injury, and Blurred vision. Autonomic dysreflexia is characterized by a sudden onset of excessively high blood pressure, bradycardia, severe headache, and diaphoresis above the level of the injury. Blurred vision can also occur due to the elevated blood pressure. The pathophysiology involves an uninhibited sympathetic response to noxious stimuli below the level of the spinal cord injury, leading to vasoconstriction and hypertension. The body attempts to compensate through a vagal response, resulting in bradycardia.",
-        "incorrect": "Flushed skin above the level of injury, patient feeling anxious, abdomen distended and firm to palpation, patient feeling cold and clammy below level of injury, and clear urine are incorrect. While the patient feeling anxious and abdomen distended are important findings, they are not direct indicators of autonomic dysreflexia but contributing factors. Flushed skin above the level of injury and cold and clammy skin below the injury level is a characteristic, not the highlighted 'skin is flushed' alone. Clear urine is an expected finding with a functioning Foley catheter.",
-        "clinicalPearls": [
-            "Always assess for and address the most common causes of autonomic dysreflexia: bladder distention (kinked catheter, urinary retention), bowel impaction, and skin pressure.",
-            "Elevate the head of the bed to reduce blood pressure. Monitor BP every 5 minutes. Administer antihypertensive medication as ordered if conservative measures fail."
-        ],
-        "questionTrap": {
-            "trap": "Focusing only on the blood pressure reading and missing other critical signs and symptoms is a common trap. Also, overlooking less common symptoms like blurred vision can lead to an incomplete assessment.",
-            "howToOvercome": "Carefully review ALL the provided information, including vital signs, subjective reports, and physical assessment findings. Consider ALL symptoms, not just the most obvious ones."
-        },
-        "mnemonic": {
-            "title": "HEAD",
-            "expansion": "Headache, Elevated BP, Anxiety, Diaphoresis"
-        }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 4
     },
-    "correctResponse": [
-        "severe headache",
-        "Blood pressure 210/110 mmHg",
-        "Heart rate 55 bpm",
-        "diaphoretic above the level of injury",
-        "blurred vision"
-    ],
-    "distractorRationale": {
-        "Patient reports severe headache and feeling anxious.": "Anxiety is a contributing factor but not a direct sign of autonomic dysreflexia. Severe headache is a key indicator.",
-        "States \"I feel like my head is going to explode\".": "This is further elaboration on the severe headache, a key indicator.",
-        "Skin is flushed above the level of injury.": "Flushed skin above the level of injury combined with cold and clammy skin below the injury level is a characteristic of autonomic dysreflexia, but the 'skin is flushed' alone is not specific enough.",
-        "Complains of blurred vision.": "Blurred vision can occur due to the elevated blood pressure in autonomic dysreflexia.",
-        "Foley catheter patent and draining clear urine.": "Clear urine is an expected finding with a functioning Foley catheter and does not indicate autonomic dysreflexia.",
-        "Abdomen is distended and firm to palpation.": "Abdominal distension is a potential cause of autonomic dysreflexia (bowel impaction) but not a direct symptom.",
-        "Denies nausea.": "The absence of nausea does not indicate or rule out autonomic dysreflexia.",
-        "States he feels cold and clammy below his level of injury.": "Feeling cold and clammy below the level of injury is a characteristic of autonomic dysreflexia, especially in contrast to diaphoresis above the level of injury, but it's not a direct trigger.",
-        "BP: 210/110 mmHg": "Elevated blood pressure is a hallmark sign of autonomic dysreflexia.",
-        "HR: 55 bpm": "Bradycardia (low heart rate) is a common finding in autonomic dysreflexia due to the body's compensatory mechanisms in response to hypertension.",
-        "diaphoretic above the level of injury": "Diaphoresis (sweating) above the level of injury is a key sign of autonomic dysreflexia.",
-        "blurred vision": "Blurred vision is a symptom of autonomic dysreflexia caused by the sudden increase in blood pressure."
-    }
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:06:25.955Z"
 }

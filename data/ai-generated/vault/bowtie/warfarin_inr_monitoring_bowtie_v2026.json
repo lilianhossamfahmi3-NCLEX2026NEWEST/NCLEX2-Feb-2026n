@@ -1,23 +1,23 @@
 {
     "id": "bowtie_warfarin_inr_monitoring_v2026",
     "type": "bowtie",
-    "stem": "The nurse is reviewing the EHR of a patient on warfarin therapy. Based on the information presented, identify the appropriate nursing actions, the most likely condition, and the parameters that require close monitoring.",
+    "stem": "The nurse is reviewing the EHR for a 78-year-old client receiving warfarin three days after a total hip replacement. Based on the provided data, the nurse must plan the client's care. Select the appropriate actions to take, the potential condition the client is experiencing, and the parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
                 "title": "Nurses' Notes",
-                "content": "14:00 SBAR for Mr. David Lee, DOB 03/15/1948. Admitted 3 days ago for DVT prophylaxis post-hip replacement. Currently on warfarin 5mg PO daily, per protocol. 12:00 INR result is 4.5. Patient reports no new bleeding, bruising, or falls. Alert and oriented x3. Pain controlled with PRN acetaminophen. 13:00 Notified MD of INR result; verbal order received to hold warfarin today and recheck INR tomorrow. 13:15 Warfarin held. Discussed dietary considerations with patient, emphasizing consistent intake of vitamin K-rich foods. Encouraged adequate hydration. 13:30 Patient resting comfortably. Will continue to monitor for signs of bleeding and repeat INR as ordered. Educated patient on signs and symptoms of bleeding and importance of follow-up INR checks. 13:45 Patient denies any adverse effects of the medication or any new medications taken."
+                "content": "14:00 SBAR: (S) Good afternoon, this is the nurse for Mr. David Lee. I am calling about his 12:00 INR result, which is 4.5. His therapeutic target is 2.0-3.0 for DVT prophylaxis. (B) Mr. Lee is a 78-year-old male, admitted 3 days ago post-hip replacement and started on warfarin 5mg daily. (A) He is currently asymptomatic, with no signs of active bleeding or new bruising. His vital signs are stable. (R) I have held today's dose of warfarin per protocol and notified the provider, who confirmed the hold. I recommend we recheck his INR in the morning and continue close monitoring for bleeding."
             },
             {
                 "id": "vitals",
                 "title": "Vital Signs",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO2</th></tr></thead><tbody><tr><td>08:00</td><td>130/80</td><td>72</td><td>16</td><td>37.0</td><td>98%</td></tr><tr><td>12:00</td><td>128/78</td><td>74</td><td>16</td><td>37.1</td><td>99%</td></tr><tr><td>14:00</td><td>132/82</td><td>70</td><td>18</td><td>36.9</td><td>98%</td></tr></tbody></table>"
+                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO2</th></tr></thead><tbody><tr><td>08:00</td><td>130/80 mmHg</td><td>72/min</td><td>16/min</td><td>37.0 C</td><td>98%</td></tr><tr><td>12:00</td><td>128/78 mmHg</td><td>74/min</td><td>16/min</td><td>37.1 C</td><td>99%</td></tr><tr><td>14:00</td><td>132/82 mmHg</td><td>70/min</td><td>18/min</td><td>36.9 C</td><td>98%</td></tr></tbody></table>"
             },
             {
                 "id": "labs",
                 "title": "Lab Results",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Units</th><th>Reference Range</th></tr></thead><tbody><tr><td>INR</td><td>4.5</td><td>-</td><td>0.8-1.2</td></tr><tr><td>PT</td><td>40</td><td>seconds</td><td>11-13.5</td></tr><tr><td>Platelets</td><td>250,000</td><td>/mcL</td><td>150,000-450,000</td></tr><tr><td>Hemoglobin</td><td>14</td><td>g/dL</td><td>13.5-17.5</td></tr><tr><td>Hematocrit</td><td>42</td><td>%</td><td>41-53</td></tr></tbody></table>"
+                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Units</th><th>Reference Range</th></tr></thead><tbody><tr><td>INR</td><td>4.5</td><td></td><td>0.8-1.2 (non-anticoagulated)</td></tr><tr><td>PT</td><td>40</td><td>seconds</td><td>11-13.5</td></tr><tr><td>Platelets</td><td>250,000</td><td>/mcL</td><td>150,000-450,000</td></tr><tr><td>Hemoglobin</td><td>14</td><td>g/dL</td><td>13.5-17.5</td></tr><tr><td>Hematocrit</td><td>42</td><td>%</td><td>41-53</td></tr></tbody></table>"
             },
             {
                 "id": "exam",
@@ -26,13 +26,13 @@
             },
             {
                 "id": "orders",
-                "title": "Care Plan",
+                "title": "Provider's Orders",
                 "content": "<ul><li>Monitor INR daily.</li><li>Assess for signs and symptoms of bleeding.</li><li>Hold warfarin if INR > 3.5 and notify provider.</li><li>Educate patient on warfarin therapy and dietary considerations.</li></ul>"
             },
             {
                 "id": "mar",
                 "title": "MAR",
-                "content": "<ul><li>Warfarin 5mg PO daily (Hold per MD order on [current date])</li><li>Acetaminophen 500mg PO PRN for pain</li></ul>"
+                "content": "<ul><li>Warfarin 5mg PO daily (Held today at 13:15 per provider order)</li><li>Acetaminophen 500mg PO PRN for pain</li></ul>"
             }
         ]
     },
@@ -59,12 +59,24 @@
         }
     ],
     "potentialConditions": [
-        "Subtherapeutic anticoagulation",
-        "Therapeutic anticoagulation",
-        "Warfarin toxicity",
-        "Heparin-induced thrombocytopenia (HIT)"
+        {
+            "id": "pc1",
+            "text": "Subtherapeutic anticoagulation"
+        },
+        {
+            "id": "pc2",
+            "text": "Therapeutic anticoagulation"
+        },
+        {
+            "id": "pc3",
+            "text": "Warfarin toxicity"
+        },
+        {
+            "id": "pc4",
+            "text": "Heparin-induced thrombocytopenia (HIT)"
+        }
     ],
-    "condition": "Warfarin toxicity",
+    "condition": "pc3",
     "parameters": [
         {
             "id": "p1",
@@ -95,87 +107,33 @@
         "p1",
         "p4"
     ],
+    "hoverRationales": {
+        "a1": "Incorrect. Vitamin K is the antidote for warfarin but is reserved for clients with significant bleeding or a severely elevated INR, and it requires a provider's order. This client is stable and asymptomatic.",
+        "a2": "Correct. An INR of 4.5 indicates excessive anticoagulation, which significantly increases the risk of hemorrhage. Close monitoring for signs like bruising, petechiae, or occult bleeding is a critical safety measure.",
+        "a3": "Incorrect. The client's INR is already supratherapeutic. Increasing the warfarin dose would further elevate the INR and critically increase the risk of life-threatening hemorrhage.",
+        "a4": "Correct. Documenting the supratherapeutic INR, provider notification, and the action of holding the medication is a critical safety step. This ensures the entire healthcare team is aware of the client's increased bleeding risk.",
+        "a5": "Incorrect. A sudden increase in vitamin K-rich foods like green leafy vegetables can antagonize warfarin's effect and cause the INR to drop unpredictably. Patient education should focus on dietary consistency.",
+        "condition": "Correct. The client's INR of 4.5 is well above the therapeutic range of 2.0-3.0, indicating an excessive level of anticoagulation. This supratherapeutic state is defined as warfarin toxicity and carries a high risk for bleeding.",
+        "p1": "Correct. A drop in hemoglobin and hematocrit is a key indicator of blood loss, which may be occult in a client with a supratherapeutic INR. Monitoring these values helps detect internal bleeding.",
+        "p2": "Incorrect. While vital signs are important, hypotension and tachycardia are later signs of significant blood loss or shock. Monitoring for direct evidence of bleeding is more specific and proactive.",
+        "p3": "Incorrect. The white blood cell count is a marker for infection or inflammation. It is not directly affected by warfarin's anticoagulant properties or the associated risk of bleeding.",
+        "p4": "Correct. With a high INR, the client is at risk for gastrointestinal or genitourinary bleeding that may not be visible. Testing for occult blood is a proactive measure to detect early signs of hemorrhage.",
+        "p5": "Incorrect. Serum potassium levels are related to cardiac function and electrolyte balance. They are not a relevant parameter for monitoring complications related to warfarin toxicity."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
         "nclexCategory": "Physiological Adaptation",
         "difficulty": 4,
         "topicTags": [
-            "Warfarin INR Monitoring"
+            "Warfarin INR Monitoring",
+            "Anticoagulant Therapy",
+            "Pharmacological and Parenteral Therapies"
         ]
-    },
-    "rationale": {
-        "correct": "The patient's INR of 4.5 indicates warfarin toxicity, increasing the risk of bleeding. Monitoring for signs and symptoms of bleeding and documenting the INR result and actions taken are crucial steps in managing this condition.",
-        "incorrect": "Incorrect options do not directly address the immediate concern of warfarin toxicity and potential bleeding risk.",
-        "answerBreakdown": [
-            {
-                "id": "a1",
-                "text": "Administer vitamin K.",
-                "rationale": "Vitamin K is an antidote for warfarin and may be indicated, but the priority is to assess for bleeding and document findings. This is a later step after initial assessment."
-            },
-            {
-                "id": "a2",
-                "text": "Monitor for signs and symptoms of bleeding.",
-                "rationale": "Correct. An elevated INR increases the risk of bleeding, so close monitoring is essential. This includes assessing for bruising, hematuria, melena, and bleeding gums."
-            },
-            {
-                "id": "a3",
-                "text": "Increase the next dose of warfarin.",
-                "rationale": "Incorrect. The patient's INR is elevated, indicating a risk of bleeding. Increasing the dose would be contraindicated."
-            },
-            {
-                "id": "a4",
-                "text": "Document the INR result and actions taken.",
-                "rationale": "Correct. Proper documentation is crucial for effective communication and continuity of care."
-            },
-            {
-                "id": "a5",
-                "text": "Encourage increased intake of green leafy vegetables.",
-                "rationale": "Incorrect. While consistent vitamin K intake is important for patients on warfarin, increasing intake could further decrease the INR and potentially lead to subtherapeutic anticoagulation once the warfarin effect diminishes. The patient was already educated on dietary considerations earlier in the shift."
-            },
-            {
-                "id": "p1",
-                "text": "Hemoglobin and hematocrit levels",
-                "rationale": "Correct. These are important indicators of blood loss. A decrease in these values could indicate internal bleeding."
-            },
-            {
-                "id": "p2",
-                "text": "Blood pressure and heart rate",
-                "rationale": "Correct. Changes in vital signs, such as a decrease in blood pressure or an increase in heart rate, can be indicative of blood loss."
-            },
-            {
-                "id": "p3",
-                "text": "White blood cell count",
-                "rationale": "Incorrect. WBC count is not directly related to warfarin toxicity or bleeding risk."
-            },
-            {
-                "id": "p4",
-                "text": "Urine and stool for occult blood",
-                "rationale": "Correct. These tests can detect hidden bleeding, which is a concern with warfarin toxicity."
-            },
-            {
-                "id": "p5",
-                "text": "Potassium levels",
-                "rationale": "Incorrect. Potassium levels are not directly affected by warfarin or related to bleeding risk."
-            }
-        ],
-        "clinicalPearls": [
-            "An INR above the therapeutic range (typically 2.0-3.0 for most indications) indicates an increased risk of bleeding.",
-            "Vitamin K is the antidote for warfarin and can be administered to reverse its effects in cases of severe over-anticoagulation or bleeding.",
-            "Consistent dietary intake of vitamin K-rich foods is important for patients on warfarin to maintain a stable INR."
-        ],
-        "questionTrap": {
-            "trap": "Assuming that holding the warfarin is sufficient without further assessment.",
-            "howToOvercome": "Recognize that holding the medication is only the first step. Further assessment and monitoring are crucial to prevent complications."
-        },
-        "mnemonic": {
-            "title": "WARFARIN",
-            "expansion": "Watch for bleeding, Avoid trauma, Report signs, Follow-up INR, Avoid excess vitamin K, Remind about drug interactions, Instruct on consistent diet, Notify other providers."
-        }
     },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v8"
+    "sentinelStatus": "remediated_v2026_v9"
 }

@@ -1,71 +1,161 @@
 {
     "id": "New-v26-6d7a9b2c-8e4f-4a1b-9c5d-3e2a1f345678",
-    "type": "trend",
-    "stem": "The patient is being monitored for potential complications following an acute myocardial infarction. Based on the patient's electronic health record (EHR), including vital signs, laboratory results, and medication administration records, indicate whether each assessment finding reflects improvement, decline, or no change in the patient's condition. Drag and drop each assessment finding into the corresponding category.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "matrixMatch",
+    "stem": "The nurse is evaluating the client's response to treatment three days after an acute myocardial infarction. For each finding from the electronic health record, select whether it indicates the client's condition is improving, worsening, or showing no significant change.",
+    "rows": [
+        {
+            "id": "row1",
+            "text": "Troponin I trend"
+        },
+        {
+            "id": "row2",
+            "text": "BNP level at 12:00"
+        },
+        {
+            "id": "row3",
+            "text": "Bilateral lung sounds at 11:00"
+        },
+        {
+            "id": "row4",
+            "text": "Blood pressure trend from 07:00 to 12:00"
+        },
+        {
+            "id": "row5",
+            "text": "SpO₂ trend from 07:00 to 12:00"
+        }
+    ],
+    "columns": [
+        {
+            "id": "col1",
+            "text": "Improving"
+        },
+        {
+            "id": "col2",
+            "text": "Worsening"
+        },
+        {
+            "id": "col3",
+            "text": "No Change"
+        }
+    ],
+    "correctResponse": [
+        {
+            "rowId": "row1",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row2",
+            "columnId": "col2"
+        },
+        {
+            "rowId": "row3",
+            "columnId": "col2"
+        },
+        {
+            "rowId": "row4",
+            "columnId": "col2"
+        },
+        {
+            "rowId": "row5",
+            "columnId": "col2"
+        }
+    ],
     "itemContext": {
         "patient": {
             "name": "Jameson Tyrell",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Telemetry Unit",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "NKDA"
-            ],
-            "isolation": "Airborne"
+            ]
         },
-        "sbar": "S: Jameson Tyrell is a 68-year-old male admitted three days ago at 07:00 with an acute anterior wall myocardial infarction (MI). He underwent percutaneous coronary intervention (PCI) with stent placement. B: His medical history includes hypertension, hyperlipidemia, and a history of smoking. He initially reported chest pain at 07:00, rated 2/10, which was relieved with rest. O: At 10:00, his BP was 148/92 mmHg, HR 98 bpm, RR 22 breaths/min, and SpO2 94% on 2L nasal cannula. EKG shows sinus tachycardia without ST elevation. Troponin levels are trending downward. A: We are closely monitoring Mr. Tyrell for potential complications such as heart failure, arrhythmias, and stent thrombosis. Current medications include metoprolol, aspirin, clopidogrel, and lisinopril. At 11:00, the patient reported increased shortness of breath. Upon auscultation, new onset crackles were noted in bilateral lung bases. At 12:00, the MD was notified of these changes and a STAT dose of furosemide was administered.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>07:00</td><td>130/80</td><td>80</td><td>18</td><td>98%</td></tr><tr><td>10:00</td><td>148/92</td><td>98</td><td>22</td><td>94%</td></tr><tr><td>12:00</td><td>160/100</td><td>110</td><td>26</td><td>90%</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<h3>Admission Note - Day 1, 07:00</h3><p><strong>S:</strong> Client is a 68-year-old male presenting to the ED with substernal chest pain, rated 8/10, radiating to his left arm, onset 2 hours ago. Accompanied by diaphoresis and nausea.<br><strong>B:</strong> History of hypertension, hyperlipidemia, and a 40-pack-year smoking history. Client lives alone in a rural area, which delayed his seeking of care. He reports challenges with affording fresh produce (food desert).<br><strong>A:</strong> Vitals: BP 168/98 mmHg, HR 105 bpm, RR 24/min, SpO₂ 93% on room air. ECG shows ST-segment elevation in anterior leads. Initial Troponin I is elevated. Appears anxious and is clutching his chest.<br><strong>R:</strong> Initiated MONA protocol. Prepared for emergent cardiac catheterization for PCI. Admitted to the cardiac telemetry unit for post-procedure monitoring and management.</p><h3>Progress Note - Day 3, 13:00</h3><p><strong>S:</strong> Client reports worsening shortness of breath over the past 2 hours, especially when lying flat.<br><strong>B:</strong> Post-PCI Day 2 for anterior wall MI. Troponin levels have been trending down. Medicated with metoprolol at 11:00.<br><strong>A:</strong> Vitals at 12:00: BP 160/100 mmHg, HR 110 bpm, RR 26/min, SpO₂ 90% on 2L NC. New onset of bibasilar crackles noted on auscultation at 11:00. Client appears restless. BNP drawn at 12:00 is critically high at 600 pg/mL. The clinical picture is consistent with acute decompensated heart failure.<br><strong>R:</strong> Notified provider of findings. Received STAT order for Furosemide 40 mg IV, administered at 12:15. Will continue to monitor respiratory status, I&O, and vital signs closely. Plan to reassess lung sounds and SpO₂ in 1 hour.</p>"
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Normal Range</th></tr></thead><tbody><tr><td>Troponin I (07:00)</td><td>8.0 ng/mL</td><td>&lt;0.04 ng/mL</td></tr><tr><td>Troponin I (10:00)</td><td>4.0 ng/mL</td><td>&lt;0.04 ng/mL</td></tr><tr><td>Troponin I (12:00)</td><td>3.5 ng/mL</td><td>&lt;0.04 ng/mL</td></tr><tr><td>BNP (12:00)</td><td>600 pg/mL</td><td>&lt;100 pg/mL</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp °F (°C)</th><th>HR (bpm)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>RR (/min)</th><th>SpO₂</th></tr></thead><tbody><tr><td>Day 3, 07:00</td><td>98.6 (37.0)</td><td>80</td><td>130/80</td><td>97</td><td>18</td><td>98% on Room Air</td></tr><tr><td>Day 3, 10:00</td><td>98.8 (37.1)</td><td>98</td><td>148/92</td><td>111</td><td>22</td><td>94% on 2L NC</td></tr><tr><td>Day 3, 12:00</td><td>99.0 (37.2)</td><td>110</td><td>160/100</td><td>120</td><td>26</td><td>90% on 2L NC</td></tr><tr><td>Day 3, 13:00</td><td>98.9 (37.2)</td><td>102</td><td>152/94</td><td>113</td><td>22</td><td>93% on 2L NC</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Metoprolol</td><td>25 mg</td><td>PO</td><td>BID</td><td>11:00</td></tr><tr><td>Aspirin</td><td>81 mg</td><td>PO</td><td>Daily</td><td>09:00</td></tr><tr><td>Clopidogrel</td><td>75 mg</td><td>PO</td><td>Daily</td><td>09:00</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>09:00</td></tr><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>STAT</td><td>12:15</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan=5><strong>CARDIAC ENZYMES</strong></td></tr><tr><td>Troponin I (Day 3, 07:00)</td><td>8.0</td><td>ng/mL</td><td>&lt;0.04</td><td>High</td></tr><tr><td>Troponin I (Day 3, 10:00)</td><td>4.0</td><td>ng/mL</td><td>&lt;0.04</td><td>High</td></tr><tr><td>Troponin I (Day 3, 12:00)</td><td>3.5</td><td>ng/mL</td><td>&lt;0.04</td><td>High</td></tr><tr><td>BNP (Day 3, 12:00)</td><td>600</td><td>pg/mL</td><td>&lt;100</td><td>High</td></tr><tr><td colspan=5><strong>BASIC METABOLIC PANEL (Day 3, 12:00)</strong></td></tr><tr><td>Sodium</td><td>138</td><td>mEq/L</td><td>135-145</td><td></td></tr><tr><td>Potassium</td><td>3.9</td><td>mEq/L</td><td>3.5-5.0</td><td></td></tr><tr><td>BUN</td><td>22</td><td>mg/dL</td><td>7-20</td><td>High</td></tr><tr><td>Creatinine</td><td>1.3</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr></tbody></table>"
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Jameson Tyrell is a 68-year-old male admitted three days ago at 07:00 with an acute anterior wall myocardial infarction (MI). He underwent percutaneous coronary intervention (PCI) with stent placement. B: His medical history includes hypertension, hyperlipidemia, and a history of smoking. He initially reported chest pain at 07:00, rated 2/10, which was relieved with rest. O: At 10:00, his BP was 148/92 mmHg, HR 98 bpm, RR 22 breaths/min, and SpO2 94% on 2L nasal cannula. EKG shows sinus tachycardia without ST elevation. Troponin levels are trending downward. A: We are closely monitoring Mr. Tyrell for potential complications such as heart failure, arrhythmias, and stent thrombosis. Current medications include metoprolol, aspirin, clopidogrel, and lisinopril. At 11:00, the patient reported increased shortness of breath. Upon auscultation, new onset crackles were noted in bilateral lung bases. At 12:00, the MD was notified of these changes and a STAT dose of furosemide was administered."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<h3>Admission Exam - Day 1, 07:30</h3><p><strong>General:</strong> Anxious, diaphoretic male in moderate distress.<br><strong>Cardiovascular:</strong> Tachycardic with regular rhythm. S1, S2 noted. No murmurs, rubs, or gallops. Pulses 2+ throughout.<br><strong>Respiratory:</strong> Lungs clear to auscultation bilaterally. Respirations slightly labored.<br><strong>Neurological:</strong> Alert and oriented x4.</p><h3>Focused Assessment - Day 3, 11:00</h3><p><strong>Cardiovascular:</strong> Tachycardic with regular rhythm. S3 gallop now audible. 1+ pitting edema noted in bilateral lower extremities.<br><strong>Respiratory:</strong> Increased work of breathing. Fine crackles auscultated in bilateral lung bases, do not clear with cough.</p>"
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<h3>Chest X-ray - Day 3, 12:30</h3><p><strong>Indication:</strong> Acute dyspnea, hypoxia.<br><strong>Findings:</strong> Moderate cardiomegaly. There are findings of pulmonary venous congestion including Kerley B lines and small bilateral pleural effusions. Mild interstitial edema is present. No focal consolidation to suggest pneumonia.<br><strong>Impression:</strong> Radiographic evidence of acute congestive heart failure with pulmonary edema.</p>"
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 07:15</td><td>Cardiac Monitoring</td><td>Continuous</td></tr><tr><td>Day 1, 07:15</td><td>Oxygen to maintain SpO₂ >92%</td><td>Standing</td></tr><tr><td>Day 1, 09:00</td><td>Metoprolol 25 mg PO</td><td>BID</td></tr><tr><td>Day 1, 09:00</td><td>Aspirin 81 mg PO</td><td>Daily</td></tr><tr><td>Day 1, 09:00</td><td>Clopidogrel 75 mg PO</td><td>Daily</td></tr><tr><td>Day 1, 09:00</td><td>Lisinopril 10 mg PO</td><td>Daily</td></tr><tr><td>Day 3, 12:10</td><td>Furosemide 40 mg IV</td><td>STAT</td></tr><tr><td>Day 3, 12:10</td><td>Strict Intake & Output</td><td>Continuous</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Metoprolol</td><td>25 mg</td><td>PO</td><td>BID</td><td>Day 3, 11:00</td></tr><tr><td>Aspirin</td><td>81 mg</td><td>PO</td><td>Daily</td><td>Day 3, 09:00</td></tr><tr><td>Clopidogrel</td><td>75 mg</td><td>PO</td><td>Daily</td><td>Day 3, 09:00</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>Day 3, 09:00</td></tr><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>STAT</td><td>Day 3, 12:15</td></tr></tbody></table>"
             }
         ]
+    },
+    "rationale": {
+        "correct": "The client is developing acute decompensated heart failure as a complication of the recent MI. While the downward trend of Troponin I indicates the initial myocardial injury is resolving (improving), multiple other data points signal a worsening condition. The critically elevated BNP, new onset of crackles, worsening hypertension, tachycardia, tachypnea, and desaturation all point to left ventricular dysfunction and subsequent pulmonary edema. This requires urgent intervention, as evidenced by the STAT order for furosemide.",
+        "answerBreakdown": [
+            {
+                "optionId": "row1",
+                "content": "Troponin I is a protein released from damaged cardiac muscle. A downward trend indicates that the myocardial infarction is resolving and further necrosis is limited. This is an IMPROVING sign related to the initial injury."
+            },
+            {
+                "optionId": "row2",
+                "content": "B-type Natriuretic Peptide (BNP) is released by ventricles under stress and stretch, as seen in fluid overload. A level of 600 pg/mL is significantly elevated (ref <100) and indicates moderate to severe heart failure. This is a WORSENING sign."
+            },
+            {
+                "optionId": "row3",
+                "content": "The new onset of fine crackles in the lung bases, which were previously clear, is a classic sign of pulmonary edema. This occurs when left ventricular failure causes fluid to back up into the pulmonary circulation and leak into the alveoli. This is a WORSENING sign."
+            },
+            {
+                "optionId": "row4",
+                "content": "The blood pressure trend from 130/80 mmHg to 160/100 mmHg shows worsening hypertension. This increases afterload, forcing the already damaged heart to work harder, which can exacerbate heart failure. This is a WORSENING sign."
+            },
+            {
+                "optionId": "row5",
+                "content": "The SpO₂ trend from 98% on room air to 90% on 2L of oxygen indicates significant hypoxemia. This is caused by fluid in the alveoli (pulmonary edema) impairing gas exchange. This is a critical WORSENING sign."
+            }
+        ],
+        "clinicalPearls": [
+            "Post-MI heart failure is a common and serious complication. The nurse must monitor for signs of fluid overload, such as crackles, JVD, edema, and rising BNP.",
+            "A falling troponin level indicates the MI itself is resolving, but it does not rule out the development of mechanical or functional complications like heart failure.",
+            "An S3 heart sound (ventricular gallop) in an older adult is an early and specific sign of left ventricular failure and volume overload.",
+            "Elevated BUN and Creatinine post-MI can indicate cardiorenal syndrome, where acute cardiac dysfunction leads to impaired renal perfusion and acute kidney injury."
+        ],
+        "questionTrap": "The primary trap is focusing only on the improving Troponin I level and concluding the client is stable. This is a form of premature closure. A comprehensive analysis requires synthesizing all data points, including vitals, physical exam, and other labs, to recognize the new, life-threatening complication of heart failure.",
+        "mnemonic": "For signs of Left-Sided Heart Failure (pulmonary congestion), remember 'CHOP':\nC - Cough (frothy, pink-tinged sputum)\nH - Hemoptysis\nO - Orthopnea (difficulty breathing when lying flat)\nP - Pulmonary Congestion (crackles, rales, tachypnea)",
+        "reviewUnits": [
+            "Cardiovascular Disorders: Myocardial Infarction",
+            "Cardiovascular Disorders: Heart Failure",
+            "Pharmacology: Diuretics",
+            "Fluid and Electrolyte Imbalances"
+        ]
+    },
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 5
     },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Acute MI & Heart Failure"
-        ]
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
     },
-    "rationale": {
-        "correct": "Elevated BNP (Brain Natriuretic Peptide) indicates worsening heart failure due to increased ventricular stretching. Increased blood pressure suggests the heart is working harder and may be a sign of worsening heart failure or inadequate blood pressure control. Increased heart rate, especially in the context of shortness of breath and crackles, suggests the heart is compensating for decreased cardiac output. Increased respiratory rate and decreased SpO2 reflect respiratory distress likely due to pulmonary edema secondary to heart failure. Furosemide is administered to reduce fluid overload, which is a direct response to the patient's declining condition.",
-        "incorrect": "Decreasing troponin levels indicate the myocardial infarction is resolving and no further significant damage is occurring. However, this doesn't negate the development of heart failure. Metoprolol administration aims to decrease heart rate and blood pressure over time. While one dose may not immediately reverse the trend, it represents an intervention aimed at improvement. The reported chest pain decreasing to 2/10 from previous reports (though not explicitly stated in the SBAR, the admission diagnosis and initial reports would likely have indicated higher pain levels) is a positive indicator.",
-        "clinicalPearls": [
-            "BNP is a key indicator of heart failure severity.",
-            "Trends in vital signs are more informative than single data points.",
-            "Acute MI can lead to heart failure, even with successful PCI.",
-            "Crackles in the lungs indicate fluid accumulation and potential heart failure."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on the decreasing troponin levels might lead one to believe the patient is improving overall, overlooking the signs of developing heart failure.",
-            "howToOvercome": "Analyze all available data, including vital signs, lab results, and patient symptoms, to identify emerging complications despite improvement in other areas. Consider the interplay of different data points to form a complete clinical picture."
-        },
-        "mnemonic": {
-            "title": "BAD HFrEF",
-            "expansion": "B - BNP Elevated; A - Auscultation Crackles; D - Dyspnea; H - Hypertension; Fr - Fast HR; EF - Exercise Fatigue. This mnemonic helps remember the key signs and symptoms associated with Heart Failure with reduced Ejection Fraction (HFrEF)."
-        }
-    }
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:43:28.208Z"
 }

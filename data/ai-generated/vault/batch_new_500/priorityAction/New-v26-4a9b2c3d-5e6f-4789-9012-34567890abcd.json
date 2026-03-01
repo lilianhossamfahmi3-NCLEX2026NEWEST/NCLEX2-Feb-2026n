@@ -1,73 +1,131 @@
 {
     "id": "New-v26-4a9b2c3d-5e6f-4789-9012-34567890abcd",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a patient with acute pancreatitis who is experiencing severe abdominal pain and is at risk for hypovolemic shock. Based on the EHR data, prioritize the following nursing actions from first to last.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client with acute pancreatitis who is developing hypovolemic shock. Based on the client's electronic health record, drag the nursing actions into the correct order of priority, from first to last.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Increase the rate of intravenous fluid infusion per protocol."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer prescribed intravenous morphine for severe pain."
+        },
+        {
+            "id": "opt_03",
+            "text": "Perform a focused respiratory assessment, including auscultation."
+        },
+        {
+            "id": "opt_04",
+            "text": "Insert an indwelling urinary catheter to monitor output hourly."
+        },
+        {
+            "id": "opt_05",
+            "text": "Notify the healthcare provider of the client's current status."
+        }
+    ],
+    "correctOptionId": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04",
+        "opt_05"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 58,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "58",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ],
-            "conditions": [
-                "Airborne"
             ]
         },
-        "sbar": "1500 Report: Mr. Smith is a 58-year-old male admitted at 0800 today with acute pancreatitis secondary to alcohol abuse. He reports severe abdominal pain, rated 9/10. At 1430, morphine 4 mg IV was administered, but his pain remains 7/10. Current vital signs: BP 90/50 mmHg, HR 120 bpm, RR 24 breaths/min, SpO2 94% on 2L NC. His abdomen is rigid and tender to palpation. Amylase and lipase levels are significantly elevated per labs drawn at 1400. The patient is NPO and receiving IV fluids (Lactated Ringers) at 125 mL/hr. Urinary output has decreased since admission; the last recorded output at 1200 was 30 mL. Key concerns are the potential for hypovolemic shock and possible respiratory compromise. Requesting orders for increased fluid resuscitation and further pain management. Please monitor vital signs closely and assess for signs of worsening condition. Pending labs include CBC, CMP, and coagulation studies drawn at 1400.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Amylase</td><td>1800 U/L</td><td>30-110 U/L</td></tr><tr><td>Lipase</td><td>2500 U/L</td><td>0-160 U/L</td></tr><tr><td>Sodium</td><td>135 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>BUN</td><td>30 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Hemoglobin</td><td>16 g/dL</td><td>14-18 g/dL</td></tr><tr><td>Hematocrit</td><td>48%</td><td>42-52%</td></tr></tbody></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Lactated Ringers</td><td>125 mL/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Morphine</td><td>4 mg</td><td>IV</td><td>q4h PRN pain</td><td>1430</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IV</td><td>q6h PRN nausea</td><td>-</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (08:00): Client is a 58-year-old male admitted with a diagnosis of acute pancreatitis. He has a history of chronic alcohol use and reports recent job loss leading to increased consumption. He presents with severe, radiating epigastric pain (9/10), nausea, and vomiting. Client is NPO, with IV access established and Lactated Ringers infusing. \n\nProgress Note (15:00): S: Client reports ongoing severe abdominal pain, now 8/10, despite receiving morphine at 14:30. States feeling dizzy and weak. B: Admitted at 08:00 for acute pancreatitis. History of alcohol use disorder. Lives alone and has limited social support. A: Vitals trending towards instability: BP 90/50 mmHg, HR 120 bpm, RR 24/min, SpO2 94% on 2L NC. Abdomen is rigid and diffusely tender. Labs from 14:00 show elevated pancreatic enzymes, AKI, and hypokalemia. Urine output is minimal. The clinical picture is consistent with third-spacing and developing hypovolemic shock. R: Recommend initiating fluid resuscitation protocol and escalating care. Continue close monitoring of hemodynamic status."
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>1400</td><td>95/60 mmHg</td><td>110 bpm</td><td>22 breaths/min</td><td>95% on 2L NC</td><td>37.5°C</td></tr><tr><td>1430</td><td>90/50 mmHg</td><td>120 bpm</td><td>24 breaths/min</td><td>94% on 2L NC</td><td>37.6°C</td></tr><tr><td>1500</td><td>90/50 mmHg</td><td>120 bpm</td><td>24 breaths/min</td><td>94% on 2L NC</td><td>37.6°C</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>14:00</td><td>95/60 mmHg (72)</td><td>110 bpm</td><td>22/min</td><td>95% on 2L NC</td><td>99.5°F (37.5°C)</td></tr><tr><td>14:30</td><td>90/50 mmHg (63)</td><td>120 bpm</td><td>24/min</td><td>94% on 2L NC</td><td>99.7°F (37.6°C)</td></tr><tr><td>15:00</td><td>90/50 mmHg (63)</td><td>120 bpm</td><td>24/min</td><td>94% on 2L NC</td><td>99.7°F (37.6°C)</td></tr></tbody></table>"
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Amylase</td><td>1800</td><td>U/L</td><td>30-110</td><td>High</td></tr><tr><td>Lipase</td><td>2500</td><td>U/L</td><td>0-160</td><td>High</td></tr><tr><td>Sodium</td><td>135</td><td>mEq/L</td><td>135-145</td><td></td></tr><tr><td>Potassium</td><td>3.2</td><td>mEq/L</td><td>3.5-5.0</td><td>Low</td></tr><tr><td>BUN</td><td>30</td><td>mg/dL</td><td>10-20</td><td>High</td></tr><tr><td>Creatinine</td><td>1.8</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>Hemoglobin</td><td>16</td><td>g/dL</td><td>14-18</td><td></td></tr><tr><td>Hematocrit</td><td>48</td><td>%</td><td>42-52</td><td></td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Focused Assessment (15:00):\nCardiovascular: Tachycardic with regular rhythm. S1/S2 audible. Pulses +1 in lower extremities. Capillary refill 3 seconds.\nRespiratory: Lungs clear to auscultation bilaterally. Respirations shallow but unlabored.\nAbdomen: Distended, firm, and rigid. Marked tenderness to light palpation in epigastric and periumbilical areas. Bowel sounds hypoactive in all quadrants. Cullen's and Grey Turner's signs absent.\nNeurological: Alert and oriented x3, though appears anxious and fatigued."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "Abdominal CT with Contrast (10:00):\n\nFINDINGS: The pancreas appears diffusely enlarged and edematous with peripancreatic fat stranding. Moderate volume of simple-appearing peripancreatic fluid is noted. There is no evidence of pancreatic necrosis, abscess, or pseudocyst formation. The common bile duct is not dilated.\n\nIMPRESSION: Findings are consistent with acute interstitial edematous pancreatitis."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Today 08:15</td><td>NPO</td><td>Standing</td></tr><tr><td>Today 08:15</td><td>Lactated Ringers IV infusion</td><td>Continuous at 125 mL/hr</td></tr><tr><td>Today 08:15</td><td>Initiate fluid resuscitation protocol for MAP < 65 mmHg</td><td>Standing</td></tr><tr><td>Today 08:15</td><td>Morphine 2-4 mg IV</td><td>Every 2 hours PRN severe pain</td></tr><tr><td>Today 08:15</td><td>Ondansetron 4 mg IV</td><td>Every 6 hours PRN nausea</td></tr><tr><td>Today 08:15</td><td>Insert indwelling urinary catheter</td><td>STAT</td></tr><tr><td>Today 08:15</td><td>Monitor intake and output</td><td>Every hour</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Lactated Ringers</td><td>125 mL/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Morphine</td><td>4 mg</td><td>IV</td><td>q2h PRN pain</td><td>14:30</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IV</td><td>q6h PRN nausea</td><td>08:30</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
+    "rationale": {
+        "correct": "The correct sequence of actions follows the Circulation, Breathing, and Disability (modified ABC) framework while addressing the most immediate life-threat. The client's hypotension (MAP 63 mmHg), tachycardia (120 bpm), and elevated BUN/Creatinine indicate hypovolemic shock from massive fluid shifts (third-spacing). Therefore, the first priority is to restore circulating volume. Pain is a high priority but is secondary to hemodynamic stabilization. Subsequent actions focus on critical assessments and interventions needed to manage the client and report findings effectively.",
+        "incorrect": "Incorrectly prioritizing these actions can lead to rapid deterioration. Delaying fluid resuscitation will worsen shock, leading to multi-organ failure. Prioritizing pain medication before fluids is dangerous, as opioids can exacerbate hypotension. Delaying respiratory assessment misses the early signs of ARDS, a fatal complication of pancreatitis. Notifying the provider before taking any action wastes critical time when the nurse can intervene to stabilize the client.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct Step 1. The client's MAP of 63 mmHg is below the threshold for adequate organ perfusion (typically >65 mmHg). This is a life-threatening circulatory crisis. Increasing IV fluids is the immediate priority to combat hypovolemia and prevent irreversible shock."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct Step 2. Severe pain increases metabolic rate and cardiac workload, which is detrimental in a shock state. Once fluid resuscitation is initiated to address the primary life threat, managing severe pain is the next priority to decrease physiological stress."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct Step 3. Acute pancreatitis causes a massive systemic inflammatory response, which can lead to fluid leaking into the alveoli, causing Acute Respiratory Distress Syndrome (ARDS). Assessing respiratory status is a critical surveillance action after immediate circulatory and pain needs are met."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct Step 4. Accurate, hourly urine output is the most sensitive non-invasive indicator of renal perfusion and the adequacy of fluid resuscitation. Inserting a catheter is a necessary intervention to obtain this data, which is vital for ongoing management and for reporting to the provider."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct Step 5. The nurse should notify the provider after initiating immediate life-saving interventions and gathering essential data. This allows for a concise, accurate SBAR report (current vitals, fluids started, urine output, respiratory status), leading to more effective and rapid collaborative treatment decisions."
+            }
+        ],
+        "clinicalPearls": [
+            "In acute pancreatitis, hypovolemia is caused by 'third-spacing,' where fluid shifts from the intravascular space into the retroperitoneal and peritoneal cavities due to inflammation.",
+            "Systemic Inflammatory Response Syndrome (SIRS) is a major risk in pancreatitis and can rapidly progress to multi-organ dysfunction, with ARDS and acute kidney injury being common complications.",
+            "Hypocalcemia (not shown in labs but a key risk) can occur in severe pancreatitis due to saponification, where calcium binds to free fatty acids in areas of fat necrosis. Monitor for Chvostek's and Trousseau's signs."
+        ],
+        "questionTrap": "The most common trap is prioritizing pain management over hemodynamic stabilization. The client's report of severe pain is compelling, but the objective data of hypotension and tachycardia points to a life-threatening circulation problem that must be addressed first. Always follow the ABCs.",
+        "mnemonic": "For pancreatitis priorities, think 'FLUIDS FIRST'. In shock, you must 'Fill the Tank' (increase IV fluids) before addressing anything else. Pain medication can wait 5 minutes; organ perfusion cannot.",
+        "reviewUnits": [
+            "Gastrointestinal Disorders: Pancreatitis",
+            "Fluid & Electrolyte Imbalances",
+            "Shock Management: Hypovolemic Shock",
+            "Pharmacology: Vasoactive & Opioid Medications"
         ]
     },
-    "rationale": {
-        "correct": "The correct order is: 1. Increase the IV fluid infusion rate. 2. Administer prescribed pain medication. 3. Monitor urine output. 4. Assess respiratory status. 5. Notify the physician of the patient's condition. Increasing fluid resuscitation is paramount due to the patient's hypotension and signs of hypovolemia, which are critical in preventing hypovolemic shock. Addressing pain is important, but after ensuring adequate circulation. Monitoring urine output is vital for assessing renal perfusion and fluid balance. Assessing respiratory status is important due to potential for ARDS or pleural effusions secondary to pancreatitis. Notifying the physician is crucial but follows immediate interventions to stabilize the patient.",
-        "incorrect": "Incorrect prioritization can lead to adverse patient outcomes. Delaying fluid resuscitation in a patient with hypovolemia can result in organ damage and shock. Prioritizing pain management before addressing circulatory issues can mask worsening symptoms and delay critical interventions. Neglecting to monitor urine output can lead to undetected fluid imbalances and renal complications. Failure to assess respiratory status can delay treatment for respiratory compromise. Waiting to notify the physician delays important orders for managing the patient's complex condition.",
-        "clinicalPearls": [
-            "In acute pancreatitis, hypovolemia is a major concern due to fluid shifts into the retroperitoneal space.",
-            "Pain management is essential but secondary to addressing life-threatening circulatory or respiratory issues.",
-            "Close monitoring of vital signs and urine output is crucial for assessing the effectiveness of interventions."
-        ],
-        "questionTrap": {
-            "trap": "Many students may prioritize pain management first due to the patient's complaint of severe pain. While addressing pain is important, it is crucial to first stabilize the patient's circulatory status to prevent hypovolemic shock.",
-            "howToOvercome": "Focus on the ABCs (Airway, Breathing, Circulation) and prioritize interventions that address immediate threats to the patient's life. Always consider the potential for complications and prioritize actions that prevent or mitigate those risks."
-        },
-        "mnemonic": {
-            "title": "I-O-A-M-N",
-            "expansion": "Increase fluids, Offer pain meds, Assess urine, Monitor breathing, Notify MD"
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:12:31.562Z"
 }

@@ -1,123 +1,164 @@
 {
-    "id": "New-v26-89a7b2c3-4d5e-4678-9012-34567890abcd",
-    "type": "selectN",
-    "stem": "The healthcare provider is reviewing the electronic health record (EHR) for Mr. Johnson, a 67-year-old male admitted for acute respiratory distress syndrome (ARDS) secondary to sepsis. Based on the information provided in the EHR, which of the following findings require immediate intervention by the nurse? Select all that apply.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "id": "v26-upgraded-89a7b2c3-4d5e-4678-9012-34567890abcd",
+    "type": "selectAll",
+    "stem": "The nurse is reviewing the electronic health record for a 67-year-old client with ARDS secondary to sepsis. Based on the provided data, which findings require immediate intervention? Select all that apply.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "SpO2 of 88%"
+        },
+        {
+            "id": "opt_02",
+            "text": "Heart rate of 120 bpm"
+        },
+        {
+            "id": "opt_03",
+            "text": "Temperature of 38.5°C (101.3°F)"
+        },
+        {
+            "id": "opt_04",
+            "text": "PaCO2 of 55 mmHg"
+        },
+        {
+            "id": "opt_05",
+            "text": "Urine output of 20 mL/hr for the last two hours"
+        },
+        {
+            "id": "opt_06",
+            "text": "WBC count of 18.0 x 10³/mm³"
+        },
+        {
+            "id": "opt_07",
+            "text": "Lactate level of 4.5 mmol/L"
+        },
+        {
+            "id": "opt_08",
+            "text": "Peak inspiratory pressure (PIP) of 35 cm H2O"
+        },
+        {
+            "id": "opt_09",
+            "text": "Arterial pH of 7.28"
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_04",
+        "opt_05",
+        "opt_07",
+        "opt_09"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Johnson, Michael",
-            "age": 67,
-            "gender": "Male",
-            "iso": "Airborne, Contact & Droplet",
+            "age": "67 years",
+            "sex": "Male",
+            "pronouns": "He/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Michael Johnson, a 67-year-old male, admitted at 03:00 with ARDS secondary to sepsis. Intubated and mechanically ventilated.\nB: History of hypertension and COPD. Three days prior to admission, he developed a fever and productive cough. Blood cultures positive for *Klebsiella pneumoniae*.\nA: At 07:00, ABG: pH 7.28, PaCO2 55 mmHg, PaO2 65 mmHg, HCO3 24 mEq/L, SpO2 88%. Current vent settings: FiO2 60%, PEEP 10 cm H2O, RR 20, Tidal Volume 400 mL. Peak inspiratory pressure (PIP) 35 cm H2O. Restless and agitated; HR 120 bpm, BP 100/60 mmHg. Urine output 20 mL/hr for the past two hours.\nR: Immediately assess and adjust ventilator settings. Increase sedation for patient-ventilator synchrony. Contact provider regarding hypotension. Monitor labs and urine output closely.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>Value</th></tr></thead><tbody><tr><td>Heart Rate</td><td>120 bpm</td></tr><tr><td>Blood Pressure</td><td>100/60 mmHg</td></tr><tr><td>Respiratory Rate</td><td>20 breaths/min (Ventilator)</td></tr><tr><td>SpO2</td><td>88%</td></tr><tr><td>Temperature</td><td>38.5°C (101.3°F)</td></tr><tr><td>EtCO2</td><td>30 mmHg</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<h6>Admission Note: Day 1 @ 03:00</h6><p><b>S:</b> 67-year-old male, Mr. Michael Johnson, admitted from ED with acute respiratory distress secondary to sepsis. Intubated for profound hypoxemia.<br><b>B:</b> History of COPD and hypertension. Presented to ED with a 3-day history of fever, productive cough, and worsening dyspnea. Blood cultures drawn in ED are pending. Client lives alone in a rural area with limited access to transportation, which delayed him seeking care.<br><b>A:</b> On admission: T 101.3°F, HR 115, BP 105/65, RR 28, SpO2 85% on non-rebreather. Bilateral crackles throughout lung fields. Appears lethargic. Initial lactate 4.1 mmol/L.<br><b>R:</b> Admitted to ICU. Intubated and placed on mechanical ventilation. Initiated sepsis protocol with IV fluids and broad-spectrum antibiotics (Ceftriaxone, Vancomycin). Awaiting chest x-ray results.</p><h6>Progress Note: Day 1 @ 07:00</h6><p><b>S:</b> Client remains intubated and sedated. Blood cultures from ED now positive for <i>Klebsiella pneumoniae</i>.<br><b>B:</b> Ventilator settings: FiO2 60%, PEEP 10 cm H2O. Propofol and Fentanyl infusions for sedation.<br><b>A:</b> Restless and agitated despite sedation. HR 120, BP 100/60 (MAP 73). SpO2 fluctuating 88-90%. Peak inspiratory pressure (PIP) is 35 cm H2O. Urine output only 20 mL/hr for the past two hours. ABG at 06:45 shows pH 7.28, PaCO2 55, PaO2 65, HCO3 24.<br><b>R:</b> Requires immediate re-evaluation of ventilatory support and sedation to improve synchrony and gas exchange. Assess fluid status and perfusion due to oliguria and persistent tachycardia.</p>"
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>WBC</td><td>18,000/mm3</td><td>4,500-11,000/mm3</td></tr><tr><td>Hemoglobin</td><td>11.0 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Platelets</td><td>150,000/mm3</td><td>150,000-400,000/mm3</td></tr><tr><td>Sodium</td><td>148 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>2.0 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>BUN</td><td>35 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Lactate</td><td>4.5 mmol/L</td><td>0.5-2.2 mmol/L</td></tr><tr><td>Procalcitonin</td><td>25 ng/mL</td><td>&lt; 0.15 ng/mL</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>HR (bpm)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>RR (/min)</th><th>SpO₂</th><th>Temp °F (°C)</th></tr></thead><tbody><tr><td>03:00</td><td>115</td><td>105/65</td><td>78</td><td>28</td><td>85% on NRB</td><td>101.3 (38.5)</td></tr><tr><td>05:00</td><td>118</td><td>102/62</td><td>75</td><td>20 (Vent)</td><td>90% on Vent</td><td>101.1 (38.4)</td></tr><tr><td>07:00</td><td>120</td><td>100/60</td><td>73</td><td>20 (Vent)</td><td>88% on Vent</td><td>101.3 (38.5)</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>2 g</td><td>IV</td><td>q12h</td><td>06:00</td></tr><tr><td>Vancomycin</td><td>1 g</td><td>IV</td><td>q12h</td><td>06:00</td></tr><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1h PRN</td><td>07:30</td></tr><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td><td>N/A</td></tr><tr><td>Normal Saline</td><td>500 mL</td><td>IV</td><td>Bolus PRN for SBP &lt; 90</td><td>N/A</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan=\"5\"><b>Complete Blood Count</b></td></tr><tr><td>WBC</td><td>18.0</td><td>x 10³/mm³</td><td>4.5 - 11.0</td><td>High</td></tr><tr><td>Hgb</td><td>11.0</td><td>g/dL</td><td>13.5 - 17.5</td><td>Low</td></tr><tr><td>Platelets</td><td>150</td><td>x 10³/mm³</td><td>150 - 400</td><td>Normal</td></tr><tr><td colspan=\"5\"><b>Metabolic Panel</b></td></tr><tr><td>Sodium</td><td>148</td><td>mEq/L</td><td>135 - 145</td><td>High</td></tr><tr><td>Potassium</td><td>3.2</td><td>mEq/L</td><td>3.5 - 5.0</td><td>Low</td></tr><tr><td>BUN</td><td>35</td><td>mg/dL</td><td>10 - 20</td><td>High</td></tr><tr><td>Creatinine</td><td>2.0</td><td>mg/dL</td><td>0.6 - 1.2</td><td>High</td></tr><tr><td colspan=\"5\"><b>Arterial Blood Gas (06:45)</b></td></tr><tr><td>pH</td><td>7.28</td><td></td><td>7.35 - 7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>55</td><td>mmHg</td><td>35 - 45</td><td>High</td></tr><tr><td>PaO₂</td><td>65</td><td>mmHg</td><td>80 - 100</td><td>Low</td></tr><tr><td>HCO₃</td><td>24</td><td>mEq/L</td><td>22 - 26</td><td>Normal</td></tr><tr><td colspan=\"5\"><b>Inflammatory Markers</b></td></tr><tr><td>Lactate</td><td>4.5</td><td>mmol/L</td><td>0.5 - 2.2</td><td>High</td></tr><tr><td>Procalcitonin</td><td>25</td><td>ng/mL</td><td>< 0.15</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<h6>Admission (03:00)</h6><ul><li><b>General:</b> Lethargic, appears acutely ill.</li><li><b>Respiratory:</b> Tachypneic with use of accessory muscles. Coarse bilateral crackles throughout all lung fields.</li><li><b>Cardiovascular:</b> Tachycardic, S1/S2 audible. Pulses +2 peripherally. Capillary refill 3 seconds.</li><li><b>Neurological:</b> GCS 13 (E4, V4, M5). Moves all extremities.</li></ul><h6>Focused (07:00)</h6><ul><li><b>Respiratory:</b> Intubated, on mechanical ventilation. Diminished breath sounds with persistent bilateral crackles. No spontaneous respiratory effort over the set rate.</li><li><b>Cardiovascular:</b> Sinus tachycardia on monitor. Pulses remain +2. Skin is warm and flushed.</li><li><b>Neurological:</b> Sedated, RASS -3 (responds to voice). Pupils equal and reactive to light.</li></ul>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No radiology reports available.</p>"
+                "content": "<h6>Chest X-ray (AP, Portable) - Day 1 @ 03:30</h6><p><b>FINDINGS:</b> Extensive, diffuse bilateral airspace opacities consistent with pulmonary edema. No evidence of cardiomegaly or significant pleural effusion. Endotracheal tube tip is appropriately positioned 4 cm above the carina.</p><p><b>IMPRESSION:</b> Radiographic findings are highly suggestive of Acute Respiratory Distress Syndrome (ARDS).</p>"
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "<p>See the SBAR information above.</p>"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1 @ 03:10</td><td>Intubate for acute hypoxemic respiratory failure</td><td>STAT</td></tr><tr><td>Day 1 @ 03:15</td><td>Mechanical Ventilation: AC mode, TV 400mL, RR 20, PEEP 10, FiO2 60%</td><td>Standing</td></tr><tr><td>Day 1 @ 03:15</td><td>Titrate Propofol infusion to maintain RASS -3 to -4</td><td>Standing</td></tr><tr><td>Day 1 @ 03:20</td><td>Arterial blood gas 1 hour post-intubation and PRN</td><td>Standing</td></tr><tr><td>Day 1 @ 03:20</td><td>Indwelling urinary catheter to monitor output hourly</td><td>Standing</td></tr><tr><td>Day 1 @ 03:20</td><td>Fentanyl 50 mcg IV</td><td>PRN q1h for pain/agitation</td></tr><tr><td>Day 1 @ 03:20</td><td>Normal Saline 500 mL IV bolus</td><td>PRN for SBP < 90 mmHg</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>2 g</td><td>IV</td><td>q12h</td><td>Day 1 @ 06:00</td></tr><tr><td>Vancomycin</td><td>1 g</td><td>IV</td><td>q12h</td><td>Day 1 @ 06:00</td></tr><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td><td>Started Day 1 @ 03:15</td></tr><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1h PRN</td><td>Day 1 @ 07:30</td></tr><tr><td>Normal Saline</td><td>500 mL</td><td>IV</td><td>Bolus PRN</td><td>N/A</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "recognizeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
+    "rationale": {
+        "correct": "The combination of severe hypoxemia (SpO2 88%), ventilatory failure (PaCO2 55 mmHg), metabolic acidosis (pH 7.28, Lactate 4.5 mmol/L), and end-organ hypoperfusion (Urine output 20 mL/hr) indicates a life-threatening state of decompensated septic shock and worsening ARDS. These findings represent critical failures in oxygenation, ventilation, and perfusion that require immediate intervention to prevent irreversible organ damage and death.",
+        "incorrect": "Tachycardia (HR 120), fever (38.5°C), and leukocytosis (WBC 18.0) are expected pathophysiological responses to severe sepsis and are already being addressed with antibiotics and supportive care. While the elevated peak inspiratory pressure (PIP 35) is concerning for potential barotrauma and requires monitoring, it is a secondary priority compared to the immediate life-threats of severe acidosis, hypoxemia, and systemic hypoperfusion.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. An SpO2 of 88% despite an FiO2 of 60% indicates severe hypoxemia and significant intrapulmonary shunting, a hallmark of ARDS. This level of oxygen desaturation places the client at immediate risk for cellular hypoxia and organ failure."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. Sinus tachycardia is an expected compensatory response to sepsis-induced vasodilation, fever, and hypoxemia. While it indicates physiological stress, the priority is to treat the underlying causes (hypoxia, hypoperfusion) rather than the tachycardia itself."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. Fever is a normal immunological response to the underlying infection (*Klebsiella pneumoniae*). Broad-spectrum antibiotics have been administered, which is the definitive treatment. While antipyretics may be given for comfort, the fever itself is not the most immediate life-threat."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. A PaCO2 of 55 mmHg indicates acute ventilatory failure, meaning the lungs are unable to effectively eliminate carbon dioxide. This leads to respiratory acidosis, which can impair cardiac function and cellular metabolism, requiring immediate ventilator adjustments."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. A urine output of 20 mL/hr (less than 0.5 mL/kg/hr) is defined as oliguria and is a critical sign of acute kidney injury (AKI) due to systemic hypoperfusion from septic shock. This indicates inadequate circulation and impending organ failure."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. Leukocytosis (elevated WBC count) is a hallmark of a bacterial infection and is an expected finding in a client with sepsis. The primary intervention, administration of antibiotics, is already in progress."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. A lactate level of 4.5 mmol/L is a critical value indicating widespread tissue hypoxia and a shift to anaerobic metabolism. This is a strong predictor of mortality in sepsis and signals the need for urgent resuscitation to improve oxygen delivery."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Incorrect. An elevated PIP of 35 cm H2O suggests decreased lung compliance ('stiff lungs') common in ARDS. While this increases the risk of ventilator-induced lung injury and must be addressed, it is a lower priority than correcting the life-threatening gas exchange and perfusion abnormalities."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Correct. An arterial pH of 7.28 indicates significant acidemia. Acidosis impairs myocardial contractility, reduces the effectiveness of vasopressors, and disrupts normal cellular function. This is a direct threat to life that must be corrected immediately."
+            }
+        ],
+        "clinicalPearls": [
+            "In ARDS, the primary goal is to maintain adequate oxygenation (PaO2 > 60 mmHg, SpO2 > 90%) while minimizing ventilator-induced lung injury (VILI) by using low tidal volumes and appropriate PEEP.",
+            "Oliguria (urine output < 0.5 mL/kg/hr) is often the first sign of acute kidney injury in septic shock and signals inadequate systemic perfusion, even with a seemingly acceptable blood pressure.",
+            "Serum lactate is a critical biomarker in sepsis. A level > 4 mmol/L is associated with a high risk of mortality and indicates the need for aggressive resuscitation to restore tissue perfusion."
+        ],
+        "questionTrap": "Do not be distracted by expected findings. Sepsis is defined by infection and the body's response. Therefore, fever, tachycardia, and high WBC are characteristic signs, not the most urgent problems to fix. The most urgent problems are the *consequences* of that response: organ failure (lungs, kidneys) and metabolic collapse (acidosis, high lactate).",
+        "mnemonic": "Use 'ARDS-SHOCK' for immediate priorities:\n- **A**cidosis (Correct the pH)\n- **R**espiratory Failure (Fix O2 & CO2)\n- **D**ecreased Perfusion (Address Lactate)\n- **S**hock (Kidney failure - low UO)",
+        "reviewUnits": [
+            "Critical Care",
+            "Respiratory System",
+            "Fluid & Electrolytes",
+            "Acid-Base Balance"
         ]
     },
-    "rationale": {
-        "correct": "An SpO2 of 88% indicates severe hypoxemia, demanding immediate intervention to improve oxygenation, such as increasing FiO2 or adjusting PEEP. A PaCO2 of 55 mmHg signifies respiratory acidosis, necessitating ventilator adjustments to enhance CO2 removal, like increasing respiratory rate or tidal volume. A urine output of 20 mL/hr suggests acute kidney injury (AKI) secondary to hypoperfusion, requiring immediate fluid resuscitation and blood pressure support. A lactate level of 4.5 mmol/L indicates anaerobic metabolism and tissue hypoxia, requiring immediate interventions to improve oxygen delivery and tissue perfusion. A pH of 7.28 indicates acidemia, likely respiratory acidosis given the elevated PaCO2; this requires immediate intervention to improve ventilation and oxygenation. ClinicalPearl: In ARDS, permissive hypercapnia may be tolerated to minimize ventilator-induced lung injury, but severe acidosis requires correction.",
-        "incorrect": "A heart rate of 120 bpm is elevated (sinus tachycardia) but is a common compensatory response to sepsis and ARDS; addressing the underlying cause is the priority. A temperature of 38.5°C (101.3°F) indicates fever, expected with sepsis; antibiotics are already administered, making it a lower priority. A WBC count of 18,000/mm3 indicates leukocytosis, expected with sepsis; antibiotics are already administered, making it a lower priority. A peak inspiratory pressure (PIP) of 35 cm H2O is elevated, suggesting increased airway resistance or decreased lung compliance, but is not immediately life-threatening compared to hypoxemia and acidosis. QuestionTrap: Focus on the ABCs (Airway, Breathing, Circulation). While infection and elevated PIP are concerning, impaired oxygenation, ventilation, perfusion, and acid-base balance pose the most immediate threat. Mnemonic: ABC-VITAL (Airway, Breathing, Circulation - Ventilation, Infusion, Treatment, Assessment, Labs).",
-        "clinicalPearls": [
-            "In ARDS, maintaining adequate oxygenation and ventilation is paramount. Monitor ABGs and adjust ventilator settings accordingly.",
-            "Hypotension in sepsis can lead to decreased organ perfusion and further compromise oxygen delivery. Volume resuscitation and vasopressors may be necessary.",
-            "Elevated lactate levels are a sign of tissue hypoxia and anaerobic metabolism, indicating inadequate oxygen delivery at the cellular level.",
-            "Low urine output can indicate decreased renal perfusion secondary to hypovolemia or hypotension. It can worsen ARDS outcomes."
-        ],
-        "questionTrap": {
-            "trap": "Some options may seem concerning, but the question asks for the *most immediate* interventions. Focus on the parameters that directly reflect oxygenation, ventilation, and perfusion.",
-            "howToOvercome": "Prioritize interventions based on the ABCs (Airway, Breathing, Circulation) and consider which findings pose the greatest immediate threat to the patient's survival."
-        },
-        "mnemonic": {
-            "title": "O2 STATS",
-            "expansion": "Oxygenation, Tissue perfusion, Acid-base balance, Treatment response, Systemic effects (of interventions)."
-        }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 5
     },
-    "options": [
-        {
-            "key": "a",
-            "label": "SpO2 of 88%.",
-            "correct": true
-        },
-        {
-            "key": "b",
-            "label": "Heart rate of 120 bpm.",
-            "correct": false
-        },
-        {
-            "key": "c",
-            "label": "Temperature of 38.5°C (101.3°F).",
-            "correct": false
-        },
-        {
-            "key": "d",
-            "label": "PaCO2 of 55 mmHg.",
-            "correct": true
-        },
-        {
-            "key": "e",
-            "label": "Urine output of 20 mL/hr for the last two hours.",
-            "correct": true
-        },
-        {
-            "key": "f",
-            "label": "WBC count of 18,000/mm3.",
-            "correct": false
-        },
-        {
-            "key": "g",
-            "label": "Lactate level of 4.5 mmol/L.",
-            "correct": true
-        },
-        {
-            "key": "h",
-            "label": "Peak inspiratory pressure (PIP) of 35 cm H2O.",
-            "correct": false
-        },
-        {
-            "key": "i",
-            "label": "pH of 7.28",
-            "correct": true
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Recognize Cues",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:47:13.344Z"
 }

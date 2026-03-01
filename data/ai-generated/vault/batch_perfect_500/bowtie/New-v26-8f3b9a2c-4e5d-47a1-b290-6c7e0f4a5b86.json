@@ -1,172 +1,365 @@
 {
     "id": "New-v26-8f3b9a2c-4e5d-47a1-b290-6c7e0f4a5b86",
-    "stem": "A 68-year-old male patient is admitted to the cardiac care unit (CCU) with a diagnosis of acute myocardial infarction (MI) and new-onset heart failure. Based on the EHR data, determine the appropriate interventions, the likely conditions, and the potential complications for this patient.",
     "type": "bowtie",
-    "actions": [
+    "stem": "The nurse is assessing a 68-year-old client admitted for an acute myocardial infarction who is now showing signs of rapid deterioration. The client is hypotensive, lethargic, and has new-onset pulmonary crackles. Complete the bowtie to address the client's evolving condition.",
+    "potentialCauses": [
         {
-            "id": "a1",
-            "text": "Administer Oxygen"
+            "id": "pc1",
+            "text": "Coronary artery disease"
         },
         {
-            "id": "a2",
-            "text": "Start IV Fluids"
+            "id": "pc2",
+            "text": "Uncontrolled hypertension"
         },
         {
-            "id": "a3",
-            "text": "Notify Provider"
+            "id": "pc3",
+            "text": "Chronic kidney disease"
         },
         {
-            "id": "a4",
-            "text": "Prepare for Intubation"
+            "id": "pc4",
+            "text": "Valvular heart disease"
         },
         {
-            "id": "a5",
-            "text": "Administer Analgesia"
+            "id": "pc5",
+            "text": "Anemia"
         }
     ],
+    "potentialCondition": [
+        {
+            "id": "pd1",
+            "text": "Cardiogenic Shock"
+        },
+        {
+            "id": "pd2",
+            "text": "Pulmonary Embolism"
+        },
+        {
+            "id": "pd3",
+            "text": "Acute Respiratory Distress Syndrome"
+        },
+        {
+            "id": "pd4",
+            "text": "Septic Shock"
+        }
+    ],
+    "actionsToTake": [
+        {
+            "id": "at1",
+            "text": "Administer IV furosemide"
+        },
+        {
+            "id": "at2",
+            "text": "Prepare for vasopressor infusion"
+        },
+        {
+            "id": "at3",
+            "text": "Administer a 500 mL normal saline bolus"
+        },
+        {
+            "id": "at4",
+            "text": "Administer metoprolol IV"
+        },
+        {
+            "id": "at5",
+            "text": "Encourage ambulation"
+        }
+    ],
+    "parametersToMonitor": [
+        {
+            "id": "pm1",
+            "text": "Mean Arterial Pressure (MAP)"
+        },
+        {
+            "id": "pm2",
+            "text": "Urine output"
+        },
+        {
+            "id": "pm3",
+            "text": "Pain level"
+        },
+        {
+            "id": "pm4",
+            "text": "Temperature"
+        },
+        {
+            "id": "pm5",
+            "text": "Abdominal girth"
+        }
+    ],
+    "correctResponse": {
+        "potentialCauses": [
+            "pc1",
+            "pc2"
+        ],
+        "potentialCondition": "pd1",
+        "actionsToTake": [
+            "at1",
+            "at2"
+        ],
+        "parametersToMonitor": [
+            "pm1",
+            "pm2"
+        ]
+    },
     "scoring": {
-        "method": "linkage",
-        "maxPoints": 6
+        "method": "rationale",
+        "maxPoints": 5
     },
     "pedagogy": {
         "cjmmStep": "analyzeCues",
         "topicTags": [
-            "Cardiovascular: Acute MI & Heart Failure"
+            "Cardiovascular",
+            "Acute Myocardial Infarction",
+            "Heart Failure",
+            "Shock"
         ],
         "bloomLevel": "analyze",
         "difficulty": 5,
         "nclexCategory": "Physiological Adaptation"
     },
-    "condition": "Cardiovascular: Acute MI & Heart Failure",
-    "rationale": {
-        "correct": "The patient's elevated Troponin I and CK-MB levels confirm myocardial damage, indicating an acute MI. The elevated BNP, crackles in the lungs, and decreased oxygen saturation suggest the development of heart failure. Administering oxygen is essential to improve oxygen saturation and reduce hypoxemia. Furosemide is indicated to reduce fluid overload associated with heart failure, alleviating pulmonary congestion and improving breathing. Monitoring intake and output is crucial to assess the effectiveness of diuretic therapy and prevent dehydration or electrolyte imbalances. The most likely conditions are acute myocardial infarction and heart failure. A potential complication is cardiogenic shock, indicated by the patient's hypotension, tachycardia, and signs of poor perfusion. Airborne precautions should be implemented due to the initial presentation and to rule out any respiratory infections.",
-        "mnemonic": {
-            "title": "MONA",
-            "expansion": "Morphine, Oxygen, Nitroglycerin, Aspirin (Remember that order is not necessarily the priority in real life, and other interventions may be required first)"
-        },
-        "incorrect": "Incorrect options fail to recognize the significance of the patient's lab values, vital signs, and clinical presentation. For instance, withholding oxygen in the presence of hypoxemia can worsen myocardial ischemia and compromise tissue oxygenation. Delaying diuretic administration can exacerbate pulmonary congestion and increase the risk of respiratory distress. Not monitoring intake and output prevents the nurse from accurately assessing the patient's fluid balance and response to treatment. Incorrectly identifying the conditions or potential complications indicates a lack of understanding of the pathophysiology of MI and heart failure. Focusing on only one aspect of the patient's condition (e.g., only the MI without recognizing the heart failure) leads to incomplete or inappropriate interventions. Failing to implement airborne precautions could lead to potential transmission of infectious diseases to other healthcare workers and patients.",
-        "questionTrap": {
-            "trap": "The question trap is to focus solely on the MI and miss the signs of developing heart failure (crackles, elevated BNP).",
-            "howToOvercome": "Carefully assess all data points, including vital signs, lab results, and auscultation findings, to develop a comprehensive understanding of the patient's condition."
-        },
-        "clinicalPearls": [
-            "In patients with acute MI and heart failure, prioritize interventions that improve oxygenation, reduce cardiac workload, and prevent complications such as cardiogenic shock.",
-            "Serial monitoring of cardiac enzymes (Troponin I, CK-MB) and BNP is essential to assess the extent of myocardial damage and the severity of heart failure.",
-            "Careful fluid management is crucial in patients with heart failure to avoid fluid overload and pulmonary edema.",
-            "Airborne precautions are essential until respiratory infections are ruled out."
-        ]
+    "hoverRationales": {
+        "pc1": "Correct. Atherosclerotic plaque rupture in a coronary artery caused the myocardial infarction, leading to severe left ventricular dysfunction and pump failure.",
+        "pc2": "Correct. Chronic hypertension causes left ventricular hypertrophy and increased myocardial oxygen demand, making the heart more vulnerable to ischemia and subsequent failure.",
+        "pc3": "Incorrect. While the client has elevated creatinine, chronic kidney disease is a comorbidity, not the acute precipitating cause of the myocardial infarction and subsequent shock.",
+        "pc4": "Incorrect. The physical exam lacks evidence of a new or changed murmur, which would suggest an acute valvular catastrophe as the primary cause of shock.",
+        "pc5": "Incorrect. Anemia can worsen ischemia, but it is not a primary cause of an acute MI. The client's lab results do not indicate significant anemia.",
+        "pd1": "Correct. The extensive myocardial infarction has severely impaired the heart's pumping ability, leading to decreased cardiac output, systemic hypotension, and pulmonary congestion.",
+        "pd2": "Incorrect. This client's presentation includes ST-elevation and markedly elevated cardiac enzymes, which are classic for an acute myocardial infarction, not a pulmonary embolism.",
+        "pd3": "Incorrect. ARDS is non-cardiogenic pulmonary edema. This client's pulmonary edema is cardiogenic, confirmed by the MI, elevated BNP, and signs of heart failure.",
+        "pd4": "Incorrect. The client has no signs of infection, such as fever or elevated white blood cell count. The clinical picture is clearly cardiovascular in origin.",
+        "at1": "Correct. Furosemide, a loop diuretic, reduces preload by promoting diuresis. This decreases pulmonary venous pressure, alleviating the pulmonary edema caused by left ventricular failure.",
+        "at2": "Correct. Vasopressors cause peripheral vasoconstriction, which increases systemic vascular resistance and mean arterial pressure, restoring perfusion to vital organs.",
+        "at3": "Incorrect. Administering a fluid bolus would increase preload on an already failing ventricle, dangerously worsening pulmonary edema and respiratory distress.",
+        "at4": "Incorrect. Metoprolol is a beta-blocker with negative inotropic effects. It is contraindicated as it would further suppress myocardial contractility and worsen shock.",
+        "at5": "Incorrect. Ambulation increases myocardial oxygen demand. The client requires strict bed rest to minimize cardiac workload and preserve myocardial tissue.",
+        "pm1": "Correct. MAP is the most accurate indicator of vital organ perfusion. Monitoring MAP is essential to guide vasopressor therapy and ensure adequate blood flow.",
+        "pm2": "Correct. Urine output is a direct reflection of renal perfusion. Oliguria is a key sign of end-organ hypoperfusion in shock states.",
+        "pm3": "Incorrect. While pain control is important, monitoring hemodynamic parameters like MAP and urine output is the priority for assessing perfusion and survival in shock.",
+        "pm4": "Incorrect. Temperature monitoring is not a priority in cardiogenic shock unless an infectious etiology is suspected. The primary focus is on perfusion.",
+        "pm5": "Incorrect. This parameter is irrelevant to the acute management of cardiogenic shock. It is used to monitor conditions like ascites or bowel obstruction."
     },
-    "parameters": [
-        {
-            "id": "p1",
-            "text": "Vital Signs"
-        },
-        {
-            "id": "p2",
-            "text": "Oxygen Saturation"
-        },
-        {
-            "id": "p3",
-            "text": "Urine Output"
-        },
-        {
-            "id": "p4",
-            "text": "Pain Level"
-        },
-        {
-            "id": "p5",
-            "text": "Respiratory Rate"
-        }
-    ],
     "itemContext": {
-        "sbar": "S: Robert Smith, 68-year-old male, admitted at 08:00 today. C/O severe chest pain radiating to left arm, rated 8/10. Hx of HTN, hyperlipidemia. B: Found unresponsive at home by wife. EMS report indicates possible MI. EKG shows ST elevation in leads II, III, aVF. Pt has a history of smoking and sedentary lifestyle. O: Currently, at 09:15, patient is on 2L NC O2 sat 92%. BP 90/60, HR 110, RR 24. Crackles auscultated bilaterally. Received aspirin 325mg and morphine 4mg IVP in ED. Troponin I is elevated at 1.8 ng/mL. Urine output decreased. Patient is anxious and diaphoretic. A: Acute MI complicated by acute heart failure. R: Continue O2, titrate to maintain SpO2 > 92%. Monitor vital signs closely, including urine output. Prepare for possible administration of diuretics and further cardiac interventions, such as PCI. Consult cardiology stat. Consider continuous cardiac monitoring and 12-lead EKG. Assess pain level and medicate accordingly. Implement airborne precautions until further notice.",
+        "patient": {
+            "name": "John Smith",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "Sulfa Drugs"
+            ],
+            "isolation": "Standard Precautions"
+        },
         "tabs": [
             {
-                "id": "sbar",
-                "title": "Sbar",
-                "content": "<p>No significant findings at this time.</p>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "type": "Nurse's Note - SBAR to Provider",
+                        "timestamp": "09:20",
+                        "content": "S: Dr. Adams, this is the nurse for John Smith in CCU-2. I'm calling about his acute deterioration. B: He was admitted at 08:00 for an inferior STEMI. He has a history of uncontrolled hypertension. A: His BP has dropped to 90/60, MAP is 70, and he's lethargic with new JVD and bilateral crackles. Urine output is less than 30 mL/hr. I believe he is in cardiogenic shock. R: I need you to evaluate him immediately. I am preparing to administer the furosemide you ordered."
+                    },
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "08:00",
+                        "content": "S: 68-year-old male admitted from ED with severe substernal chest pain (8/10) radiating to left arm. B: History of hypertension and hyperlipidemia. 40-pack-year smoking history, sedentary lifestyle. Found diaphoretic and short of breath by adult child. Pre-hospital ECG showed ST-elevation in inferior leads. Received aspirin 325 mg PO. A: Appears anxious, skin is cool and clammy. Tachycardic. Lungs clear on admission. O2 at 2L NC initiated. R: Transfer to CCU for continuous monitoring and probable cardiac catheterization. Awaiting initial lab results. Cardiology has been consulted and is aware."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th></tr></thead><tbody><tr><td>08:00</td><td>80/50</td><td>120</td><td>28</td><td>88%</td></tr><tr><td>08:30</td><td>90/60</td><td>115</td><td>26</td><td>90%</td></tr><tr><td>09:00</td><td>90/60</td><td>110</td><td>24</td><td>92%</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "08:00",
+                        "Temp": "98.2°F (36.8°C)",
+                        "HR": "105",
+                        "RR": "22",
+                        "BP": "100/68",
+                        "MAP": "79",
+                        "SpO2": "95% on Room Air"
+                    },
+                    {
+                        "Time": "08:45",
+                        "Temp": "98.4°F (36.9°C)",
+                        "HR": "108",
+                        "RR": "24",
+                        "BP": "94/62",
+                        "MAP": "73",
+                        "SpO2": "94% on 2L NC"
+                    },
+                    {
+                        "Time": "09:15",
+                        "Temp": "98.3°F (36.8°C)",
+                        "HR": "110",
+                        "RR": "26",
+                        "BP": "90/60",
+                        "MAP": "70",
+                        "SpO2": "92% on 2L NC"
+                    }
+                ]
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Troponin I</td><td>1.8 ng/mL</td><td><0.04 ng/mL</td></tr><tr><td>CK-MB</td><td>9.5 ng/mL</td><td><5.0 ng/mL</td></tr><tr><td>BNP</td><td>600 pg/mL</td><td><100 pg/mL</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Creatinine</td><td>1.2 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></tbody></table>"
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Troponin I",
+                        "Value": "1.8",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.04",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "CK-MB",
+                        "Value": "9.5",
+                        "Unit": "ng/mL",
+                        "Reference": "<5.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "BNP",
+                        "Value": "600",
+                        "Unit": "pg/mL",
+                        "Reference": "<100",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Potassium",
+                        "Value": "3.8",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Sodium",
+                        "Value": "138",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "1.3",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    }
+                ]
             },
             {
                 "id": "physicalExam",
-                "title": "PhysicalExam",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Physical Exam",
+                "assessments": [
+                    {
+                        "timestamp": "08:00 (Admission)",
+                        "findings": "GENERAL: 68-year-old male, anxious and alert. Skin is cool and diaphoretic. NEUROLOGICAL: Alert and oriented x4. CARDIOVASCULAR: Tachycardic rhythm. S1, S2, and S3 gallop present. Pulses 2+ in all extremities. RESPIRATORY: Lungs clear to auscultation bilaterally. Effort is unlabored."
+                    },
+                    {
+                        "timestamp": "09:15 (Focused)",
+                        "findings": "NEUROLOGICAL: Lethargic, slow to respond. Oriented to person only. CARDIOVASCULAR: Tachycardic rhythm. Heart sounds are distant. Jugular venous distention (JVD) present at 30-degree elevation. RESPIRATORY: Tachypneic with use of accessory muscles. Bilateral crackles auscultated in lower lobes. EXTREMITIES: 1+ pitting edema noted bilaterally in lower legs."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No significant findings at this time.</p>"
+                "reports": [
+                    {
+                        "type": "Chest X-ray (Portable)",
+                        "timestamp": "08:30",
+                        "content": "FINDINGS: The cardiac silhouette is enlarged. There is evidence of pulmonary vascular congestion with small bilateral pleural effusions and Kerley B lines noted in the lung bases. No evidence of focal consolidation or pneumothorax. IMPRESSION: Findings are consistent with cardiomegaly and acute pulmonary edema."
+                    }
+                ]
             },
             {
                 "id": "carePlan",
-                "title": "CarePlan",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "08:00",
+                        "action": "Continuous cardiac and SpO2 monitoring",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "08:00",
+                        "action": "Vital signs q30min",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "08:00",
+                        "action": "Strict Intake & Output",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "08:00",
+                        "action": "Bed rest",
+                        "status": "Active"
+                    },
+                    {
+                        "timestamp": "08:00",
+                        "action": "12-lead ECG STAT",
+                        "status": "Completed"
+                    },
+                    {
+                        "timestamp": "08:00",
+                        "action": "Portable Chest X-ray STAT",
+                        "status": "Completed"
+                    },
+                    {
+                        "timestamp": "08:00",
+                        "action": "Cardiac enzyme panel, BNP, CBC, CMP STAT",
+                        "status": "Completed"
+                    },
+                    {
+                        "timestamp": "09:20",
+                        "action": "Furosemide 40 mg IVP STAT",
+                        "status": "New"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Given</th></tr></thead><tbody><tr><td>Aspirin</td><td>325 mg</td><td>PO</td><td>Once</td><td>07:45</td></tr><tr><td>Morphine Sulfate</td><td>4 mg</td><td>IVP</td><td>PRN q2h</td><td>08:30</td></tr><tr><td>Oxygen</td><td>2 L</td><td>Nasal Cannula</td><td>Continuous</td><td>-</td></tr></tbody></table>"
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Aspirin",
+                        "dose": "325 mg",
+                        "route": "PO",
+                        "frequency": "ONCE",
+                        "lastAdministered": "07:45"
+                    },
+                    {
+                        "medication": "Morphine Sulfate",
+                        "dose": "4 mg",
+                        "route": "IVP",
+                        "frequency": "PRN q2h for pain",
+                        "lastAdministered": "08:30"
+                    },
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "10 mg",
+                        "route": "PO",
+                        "frequency": "DAILY",
+                        "lastAdministered": "N/A (Due 10:00)"
+                    },
+                    {
+                        "medication": "Atorvastatin",
+                        "dose": "80 mg",
+                        "route": "PO",
+                        "frequency": "DAILY",
+                        "lastAdministered": "N/A (Due 10:00)"
+                    },
+                    {
+                        "medication": "Furosemide",
+                        "dose": "40 mg",
+                        "route": "IVP",
+                        "frequency": "STAT",
+                        "lastAdministered": "N/A (New Order)"
+                    }
+                ]
             }
-        ],
-        "patient": {
-            "age": 68,
-            "iso": "USA",
-            "name": "Robert Smith",
-            "gender": "Male",
-            "allergies": [
-                "Sulfa Drugs"
-            ],
-            "isolation": "Airborne"
-        }
-    },
-    "outcomeLine": {
-        "outcomeA": [
-            "Administer oxygen via nasal cannula.",
-            "Administer furosemide IV.",
-            "Monitor intake and output."
-        ],
-        "outcomeB": [
-            "Withhold oxygen administration.",
-            "Restrict fluids.",
-            "Encourage ambulation."
-        ],
-        "condition": [
-            "Acute Myocardial Infarction",
-            "Hypervolemia",
-            "Hypokalemia",
-            "Heart Failure",
-            "Pulmonary Embolism"
-        ],
-        "complication": [
-            "Cardiogenic Shock",
-            "Hypovolemic Shock",
-            "Pulmonary Edema",
-            "Cardiac Tamponade",
-            "Atrial Fibrillation"
         ]
     },
-    "sentinelStatus": "healed_v2026_v23_bowtie_fix",
-    "correctActionIds": [
-        "a1",
-        "a2"
-    ],
-    "correctParameterIds": [
-        "p1",
-        "p2"
-    ],
-    "potentialConditions": [
-        "Cardiovascular: Acute MI & Heart Failure",
-        "Pneumonia",
-        "Acute Myocardial Infarction",
-        "Pulmonary Embolism"
-    ]
+    "sentinelStatus": "repaired_2026_v1_bowtie"
 }

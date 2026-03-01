@@ -1,18 +1,18 @@
 {
-    "id": "bowtie_pain_scale_interpretation_v2026",
+    "id": "bowtie_sciatica_management_v2026",
     "type": "bowtie",
-    "stem": "Following the EHR review, determine the appropriate nursing actions, the most likely condition, and the parameters that require monitoring for the patient with lower back pain.",
+    "stem": "The nurse is caring for a 45-year-old male with acute lower back pain radiating down his left leg. Based on the electronic health record, the nurse confirms the client is experiencing sciatica. What actions should the nurse take, and what parameters require monitoring to manage this condition and prevent complications?",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
-                "title": "Nurses' Notes",
-                "content": "10/26 07:00. S: Patient reports a pain level of 7/10 in the lower back, radiating down the left leg. States pain started yesterday after helping a friend move furniture. Denies any previous back issues. O: Patient is alert and oriented x3. Ambulating with a slight limp. Facial grimacing noted with movement. Vitals stable. A: Acute lower back pain, likely musculoskeletal in origin. Rule out nerve impingement. P: Administered ibuprofen 400mg PO. Encouraged to use heat pack. Educated on proper body mechanics and stretching exercises. Will reassess pain level in 1 hour. 10/26 08:00. Patient reports pain level decreased to 5/10 after ibuprofen administration. Continues to use heat pack. Encouraged to continue prescribed regimen."
+                "title": "Handoff Report",
+                "content": "S: Reporting on the 45-year-old male in 204, admitted at 06:00 for acute lower back pain radiating down his left leg after lifting furniture yesterday.\n\nB: No significant past medical history. Physical exam shows a positive straight leg raise on the left. All labs are within normal limits.\n\nA: Pain is currently 5/10 at 08:00, down from 8/10 after 400mg ibuprofen at 07:00. Vitals are stable. The client has acute sciatica and is at risk for worsening nerve compression.\n\nR: Continue neurovascular checks, monitor for bowel/bladder changes, and encourage ambulation as tolerated. Reinforce education on body mechanics."
             },
             {
                 "id": "vitals",
                 "title": "Vital Signs",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>130/80</td><td>88</td><td>18</td><td>98%</td><td>37.0</td></tr><tr><td>07:00</td><td>132/82</td><td>92</td><td>20</td><td>97%</td><td>37.2</td></tr><tr><td>08:00</td><td>128/78</td><td>86</td><td>18</td><td>98%</td><td>37.1</td></tr></tbody></table>"
+                "content": "<table><thead><tr><th>Time</th><th>BP (mmHg)</th><th>HR (/min)</th><th>RR (/min)</th><th>SpO2 (%)</th><th>Temp (°C)</th></tr></thead><tbody><tr><td>06:00</td><td>130/80</td><td>88</td><td>18</td><td>98</td><td>37.0</td></tr><tr><td>07:00</td><td>132/82</td><td>92</td><td>20</td><td>97</td><td>37.2</td></tr><tr><td>08:00</td><td>128/78</td><td>86</td><td>18</td><td>98</td><td>37.1</td></tr></tbody></table>"
             },
             {
                 "id": "labs",
@@ -22,12 +22,12 @@
             {
                 "id": "exam",
                 "title": "Physical Exam",
-                "content": "General: Alert and oriented, appears uncomfortable. Neuro: Sensation intact in all extremities. Musculoskeletal: Lower back tenderness to palpation, muscle spasm noted. Positive straight leg raise on the left side at 60 degrees. Cardiovascular: Regular rate and rhythm, no murmurs. Respiratory: Clear to auscultation bilaterally."
+                "content": "General: Alert and oriented, appears uncomfortable.\nNeuro: Sensation intact in all extremities. No saddle anesthesia noted.\nMusculoskeletal: Lower back tenderness to palpation, muscle spasm noted. Positive straight leg raise on the left side at 60 degrees.\nCardiovascular: Regular rate and rhythm, no murmurs.\nRespiratory: Clear to auscultation bilaterally."
             },
             {
                 "id": "orders",
                 "title": "Care Plan",
-                "content": "<ul><li>Administer Ibuprofen 400mg PO q6h PRN for pain.</li><li>Apply heat pack to lower back for 20 minutes TID.</li><li>Encourage ambulation as tolerated.</li><li>Educate on proper body mechanics.</li><li>Assess pain level q2h.</li></ul>"
+                "content": "<ul><li>Administer Ibuprofen 400mg PO q6h PRN for pain.</li><li>Apply heat pack to lower back for 20 minutes TID.</li><li>Encourage ambulation as tolerated.</li><li>Educate on proper body mechanics.</li><li>Assess pain level q2h.</li><li>Monitor neurovascular status of lower extremities q4h.</li></ul>"
             },
             {
                 "id": "mar",
@@ -52,15 +52,31 @@
         {
             "id": "a4",
             "text": "Encourage strict bed rest."
+        },
+        {
+            "id": "a5",
+            "text": "Apply a cold pack to the lumbar area."
         }
     ],
     "potentialConditions": [
-        "Musculoskeletal Strain",
-        "Sciatica",
-        "Renal Colic",
-        "Spinal Stenosis"
+        {
+            "id": "pc1",
+            "text": "Musculoskeletal Strain"
+        },
+        {
+            "id": "pc2",
+            "text": "Sciatica"
+        },
+        {
+            "id": "pc3",
+            "text": "Renal Colic"
+        },
+        {
+            "id": "pc4",
+            "text": "Spinal Stenosis"
+        }
     ],
-    "condition": "Musculoskeletal Strain",
+    "condition": "pc2",
     "parameters": [
         {
             "id": "p1",
@@ -77,6 +93,10 @@
         {
             "id": "p4",
             "text": "Lower extremity motor and sensory function."
+        },
+        {
+            "id": "p5",
+            "text": "Urine output."
         }
     ],
     "correctActionIds": [
@@ -84,9 +104,25 @@
         "a3"
     ],
     "correctParameterIds": [
-        "p1",
-        "p3"
+        "p2",
+        "p4"
     ],
+    "hoverRationales": {
+        "a1": "Standardized pain assessment provides an objective measure to evaluate the patient's response to interventions and track the progression of symptoms, which is crucial for managing nerve-related pain.",
+        "a2": "This action is incorrect because a muscle relaxant has not been prescribed in the client's orders. The nurse must adhere to the current medication orders.",
+        "a3": "Sciatica is often exacerbated by mechanical stress on the spine. Educating the client on proper body mechanics helps reduce strain on the lumbar nerve roots, preventing further injury and promoting healing.",
+        "a4": "This action is clinically flawed as prolonged bed rest can lead to deconditioning and may worsen outcomes. Gentle activity and ambulation as tolerated are recommended to maintain muscle strength.",
+        "a5": "This action is incorrect because the provider has ordered a heat pack, not a cold pack. Applying cold would be contrary to the current care plan.",
+        "pc1": "This diagnosis is too general. While a strain may be the cause, the radiating pain and positive straight leg raise test point to a more specific condition involving nerve root irritation.",
+        "pc2": "The client's presentation of lower back pain radiating down the leg (radiculopathy), combined with a positive straight leg raise test, are classic signs of sciatic nerve root irritation.",
+        "pc3": "This is incorrect. Renal colic typically presents as severe, colicky flank pain that may radiate to the groin and is not associated with a positive straight leg raise test.",
+        "pc4": "This is unlikely. While spinal stenosis can cause similar symptoms, it is a chronic condition often seen in older adults, and the pain is typically relieved by leaning forward, which is not noted here.",
+        "p1": "While pain assessment is an important part of care, monitoring for neurological decline is a higher priority in a client with signs of nerve compression to prevent permanent deficits.",
+        "p2": "Changes in bowel or bladder function, such as incontinence or retention, can indicate severe spinal nerve compression known as cauda equina syndrome, which is a surgical emergency.",
+        "p3": "Although a valid safety check, monitoring for skin breakdown from the heat pack is a lower priority than assessing for acute neurological deterioration, which can have permanent consequences.",
+        "p4": "Worsening weakness, numbness, or tingling in the lower extremities signifies increasing nerve compression. Monitoring motor and sensory function is critical for early detection of neurological decline.",
+        "p5": "Monitoring urine output is not a specific parameter for sciatica unless renal issues are also suspected or the client develops urinary retention, which would be captured by monitoring bladder function."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -94,79 +130,14 @@
         "difficulty": 4,
         "topicTags": [
             "Pain Management",
-            "Musculoskeletal Disorders"
+            "Musculoskeletal Disorders",
+            "Sciatica",
+            "Neurological Assessment"
         ]
-    },
-    "rationale": {
-        "correct": "Assessing pain using a standardized scale allows for consistent monitoring and evaluation of the patient's pain experience and the effectiveness of interventions. Educating on proper body mechanics and posture helps prevent further injury and promotes healing. Monitoring pain level provides data on the effectiveness of interventions. Skin integrity monitoring prevents burns from the heat pack.",
-        "incorrect": "Muscle relaxants may be used in some cases, but are not always necessary and can have side effects. Strict bed rest can weaken muscles and prolong recovery; ambulation as tolerated is preferred. Bowel and bladder function is not typically affected by a musculoskeletal strain unless there is nerve compression. Lower extremity motor and sensory function should be monitored to rule out nerve impingement, but is not a primary parameter for a simple strain.",
-        "answerBreakdown": [
-            {
-                "id": "a1",
-                "text": "Assess pain using a standardized pain scale.",
-                "correct": true,
-                "rationale": "Pain scales provide a consistent and objective measure of pain intensity, allowing for effective monitoring and evaluation of treatment effectiveness."
-            },
-            {
-                "id": "a2",
-                "text": "Administer prescribed muscle relaxant.",
-                "correct": false,
-                "rationale": "While muscle relaxants may be used in some cases, they are not always necessary and can have side effects. Other interventions should be tried first."
-            },
-            {
-                "id": "a3",
-                "text": "Educate on proper body mechanics and posture.",
-                "correct": true,
-                "rationale": "Proper body mechanics and posture can help manage pain and prevent further injury."
-            },
-            {
-                "id": "a4",
-                "text": "Encourage strict bed rest.",
-                "correct": false,
-                "rationale": "Prolonged bed rest can weaken muscles and delay recovery. Encouraging ambulation as tolerated helps maintain muscle strength and promotes circulation."
-            },
-            {
-                "id": "p1",
-                "text": "Pain level and characteristics.",
-                "correct": true,
-                "rationale": "Monitoring pain level and characteristics is essential to evaluate the effectiveness of interventions and adjust treatment as needed."
-            },
-            {
-                "id": "p2",
-                "text": "Bowel and bladder function.",
-                "correct": false,
-                "rationale": "Bowel and bladder function are not typically affected by a musculoskeletal strain unless there is nerve compression, which is not indicated in this scenario."
-            },
-            {
-                "id": "p3",
-                "text": "Skin integrity at the heat pack application site.",
-                "correct": true,
-                "rationale": "Heat application can cause burns if not monitored properly. Assessing skin integrity helps prevent complications."
-            },
-            {
-                "id": "p4",
-                "text": "Lower extremity motor and sensory function.",
-                "correct": false,
-                "rationale": "While important to assess initially to rule out nerve involvement, ongoing monitoring of motor and sensory function is not a primary parameter for a simple strain."
-            }
-        ],
-        "clinicalPearls": [
-            "Musculoskeletal strains are common causes of lower back pain, often resulting from overuse or injury.",
-            "Non-pharmacological pain management techniques can be effective in managing musculoskeletal pain and reducing reliance on medication.",
-            "Regular assessment and monitoring of pain are essential to evaluate treatment effectiveness and adjust interventions as needed."
-        ],
-        "questionTrap": {
-            "trap": "Assuming medication is always the best first step in pain management.",
-            "howToOvercome": "Consider non-pharmacological methods first, and reserve medication for more severe pain or when other treatments are ineffective."
-        },
-        "mnemonic": {
-            "title": "RICE",
-            "expansion": "Rest, Ice, Compression, Elevation (for musculoskeletal injuries)"
-        }
     },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "healed_v2026_v12"
 }

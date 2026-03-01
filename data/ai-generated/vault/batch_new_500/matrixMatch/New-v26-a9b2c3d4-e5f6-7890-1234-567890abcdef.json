@@ -1,86 +1,269 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-7890-1234-567890abcdef",
     "type": "matrixMatch",
-    "stem": "The patient is experiencing autonomic dysreflexia. For each assessment finding, indicate whether it is consistent with autonomic dysreflexia or requires further investigation.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 5
-    },
+    "stem": "The nurse is caring for a client with a T6 spinal cord injury. For each finding, determine if it is consistent with autonomic dysreflexia or requires further investigation for an alternative cause.",
+    "rows": [
+        {
+            "id": "row1",
+            "text": "Blood pressure 210/110 mmHg"
+        },
+        {
+            "id": "row2",
+            "text": "Heart rate 55/min"
+        },
+        {
+            "id": "row3",
+            "text": "Skin flushing above the level of injury"
+        },
+        {
+            "id": "row4",
+            "text": "WBC count 7.5 x 10³/µL"
+        },
+        {
+            "id": "row5",
+            "text": "Bladder scan shows 600 mL urine"
+        }
+    ],
+    "columns": [
+        {
+            "id": "col1",
+            "text": "Consistent with Autonomic Dysreflexia"
+        },
+        {
+            "id": "col2",
+            "text": "Requires Further Investigation"
+        }
+    ],
+    "correctPattern": [
+        {
+            "rowId": "row1",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row2",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row3",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row4",
+            "columnId": "col2"
+        },
+        {
+            "rowId": "row5",
+            "columnId": "col1"
+        }
+    ],
     "itemContext": {
         "patient": {
             "name": "James Miller",
-            "age": 45,
-            "gender": "Male",
-            "iso": "ICU",
-            "isolation": "droplet",
+            "age": "45 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Patient James Miller, 45-year-old male with a T6 spinal cord injury sustained 5 years ago, reporting a severe headache and blurred vision at 15:00. B: Patient has been stable until now, with a baseline blood pressure around 110/70 mmHg. He is on scheduled baclofen. A: At 15:15, blood pressure is 210/110 mmHg, heart rate 55 bpm. Skin is flushed above the level of injury, patient is diaphoretic, and goosebumps are present. Patient complains of nasal congestion. Bladder scan showed 600 mL urine. Bowel movement was yesterday. Neurological exam shows no new deficits besides those expected from his SCI. Lungs are clear. O: I suspect autonomic dysreflexia. I have elevated the head of the bed. I am requesting orders for immediate intervention to lower blood pressure and address the cause. Monitor vitals every 5 minutes. Notify provider with changes. Anticipate need for catheterization.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L, K: 4.2 mEq/L, Cl: 100 mEq/L, HCO3: 24 mEq/L, BUN: 15 mg/dL, Creatinine: 1.0 mg/dL, WBC: 7.5 x 10^3/uL"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 15:15",
+                        "note": "S: Client is a 45-year-old male with a T6 spinal cord injury, reporting a sudden, severe, pounding headache and blurred vision starting at 15:00.\nB: History of T6 SCI 5 years ago. Baseline BP is typically 110/70 mmHg. Last bowel movement was yesterday. Client lives alone in a modified apartment and reports recent financial stress, which has impacted his ability to afford regular caregiver assistance. He has a known allergy to Penicillin.\nA: At 15:15, BP is 210/110 mmHg (MAP 143), HR 55/min, RR 18/min, SpO2 98% on room air. Skin is flushed and diaphoretic above the T6 dermatome. Piloerection noted on upper extremities. Client complains of nasal congestion. Bladder scan reveals 600 mL of urine. No signs of skin breakdown noted on initial check.\nR: Suspect autonomic dysreflexia secondary to bladder distention. Elevated head of bed to 90 degrees. Requesting a stat order for an indwelling urinary catheter and PRN antihypertensive. Will continue to monitor BP every 2-5 minutes and notify provider immediately."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "15:00: BP 210/110 mmHg, HR 55 bpm, RR 18, SpO2 98% RA, Temp 98.8°F (37.1°C); 14:00: BP 112/72 mmHg, HR 68 bpm, RR 16, SpO2 99% RA, Temp 98.6°F (37°C)"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "13:00",
+                        "Temp": "98.6°F (37.0°C)",
+                        "HR": "68/min",
+                        "BP": "112/72 mmHg (MAP 85)",
+                        "RR": "16/min",
+                        "SpO₂": "99% on Room Air"
+                    },
+                    {
+                        "Time": "15:00",
+                        "Temp": "98.8°F (37.1°C)",
+                        "HR": "60/min",
+                        "BP": "188/102 mmHg (MAP 131)",
+                        "RR": "18/min",
+                        "SpO₂": "98% on Room Air"
+                    },
+                    {
+                        "Time": "15:15",
+                        "Temp": "98.8°F (37.1°C)",
+                        "HR": "55/min",
+                        "BP": "210/110 mmHg (MAP 143)",
+                        "RR": "18/min",
+                        "SpO₂": "98% on Room Air"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Baclofen 20mg PO TID (08:00, 16:00, 24:00), Docusate sodium 100mg PO daily, PRN acetaminophen for pain."
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "WBC",
+                        "Value": "7.5",
+                        "Unit": "x 10³/µL",
+                        "Reference": "4.5-11.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Sodium (Na)",
+                        "Value": "140",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Potassium (K)",
+                        "Value": "4.2",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "1.0",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "Normal"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "General",
+                        "Findings": "Alert, oriented, in visible distress due to severe headache."
+                    },
+                    {
+                        "System": "Neurological",
+                        "Findings": "GCS 15. Sensation absent below T6 dermatome. Motor strength 0/5 in lower extremities, 5/5 in upper extremities. No new focal deficits."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Bradycardic rhythm, S1/S2 audible. No murmurs. Capillary refill <2 seconds in upper extremities."
+                    },
+                    {
+                        "System": "Integumentary",
+                        "Findings": "Marked diaphoresis and flushing of skin on face, neck, and shoulders (above T6). Piloerection on arms. Skin below T6 is pale and cool."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Report": "No imaging performed during this acute event."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1, 15:15",
+                        "Action": "Elevate head of bed to 90 degrees",
+                        "Frequency/Status": "Stat"
+                    },
+                    {
+                        "Order Date/Time": "Standing",
+                        "Action": "Monitor vital signs every 4 hours",
+                        "Frequency/Status": "Routine"
+                    },
+                    {
+                        "Order Date/Time": "Standing",
+                        "Action": "Assess for signs of autonomic dysreflexia with any new symptom",
+                        "Frequency/Status": "PRN"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Baclofen",
+                        "Dose": "20 mg",
+                        "Route": "PO",
+                        "Frequency": "TID",
+                        "Last Administered": "Day 1, 08:00"
+                    },
+                    {
+                        "Medication": "Docusate Sodium",
+                        "Dose": "100 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "Day 1, 08:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "q6h PRN pain",
+                        "Last Administered": "Day 0, 22:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Spinal Cord Injury & Autonomic Dysreflexia"
-        ]
-    },
     "rationale": {
-        "correct": "Autonomic dysreflexia, triggered by noxious stimuli below the level of the spinal cord injury, leads to an exaggerated sympathetic response. This results in severe hypertension as the body attempts to compensate. The baroreceptors detect the elevated blood pressure and trigger a parasympathetic response, causing bradycardia. Vasodilation above the level of injury causes skin flushing, while diaphoresis is due to increased sympathetic activity. Bladder distention is a common cause of autonomic dysreflexia due to the stimulation of sensory receptors in the bladder wall, sending signals that the body cannot properly regulate due to the spinal cord injury.",
-        "incorrect": "A normal WBC count does not directly indicate the presence or absence of autonomic dysreflexia. While infection can be a potential trigger for autonomic dysreflexia, the WBC count alone does not confirm or deny this. Further investigation is needed to rule out infection as the underlying cause. The focus should be on the acute symptoms and vital sign abnormalities.",
+        "correct": "Autonomic dysreflexia (AD) is a life-threatening condition in individuals with spinal cord injuries at T6 or above. A noxious stimulus below the injury level (e.g., bladder distention) triggers an imbalanced sympathetic nervous system response, causing massive vasoconstriction below the injury. This results in severe, acute hypertension. The body's baroreceptors detect this hypertension and attempt to compensate by stimulating the parasympathetic nervous system via the vagus nerve. This leads to bradycardia and vasodilation above the level of injury, causing flushing and diaphoresis.",
+        "incorrect": "A normal finding, such as a stable WBC count, does not fit the acute, emergent picture of AD. While infection can be a trigger for AD, a normal lab value in the context of severe hypertension and bradycardia is not a primary sign of the syndrome itself. It is a piece of data that requires further investigation to rule out concurrent issues or alternative triggers if a more obvious cause like bladder distention is not found.",
+        "answerBreakdown": [
+            {
+                "rowId": "row1",
+                "content": "Correct. Severe hypertension (e.g., systolic >150 mmHg or 20-40 mmHg above baseline) is the hallmark sign of AD, caused by unopposed sympathetic discharge leading to vasoconstriction below the level of injury."
+            },
+            {
+                "rowId": "row2",
+                "content": "Correct. Bradycardia is a classic compensatory response to severe hypertension. Baroreceptors in the carotid sinus and aortic arch detect the high BP and trigger a vagal response, slowing the heart rate."
+            },
+            {
+                "rowId": "row3",
+                "content": "Correct. Vasodilation above the level of the spinal cord injury is a compensatory mechanism attempting to lower blood pressure, resulting in flushing and diaphoresis on the face, neck, and upper chest."
+            },
+            {
+                "rowId": "row4",
+                "content": "Correct. A normal WBC count is not a sign of AD. It is a neutral finding. While infection can trigger AD, this normal value suggests an infectious process is not the immediate cause, requiring the nurse to investigate other triggers."
+            },
+            {
+                "rowId": "row5",
+                "content": "Correct. Bladder distention is the most common noxious stimulus (trigger) for AD. A volume of 600 mL is significant retention and is the likely cause of this client's episode."
+            }
+        ],
         "clinicalPearls": [
-            "Always assess for bladder distention and bowel impaction in patients with spinal cord injuries presenting with signs of autonomic dysreflexia.",
-            "Elevate the head of the bed immediately to lower blood pressure. This helps reduce venous return and subsequently lowers blood pressure through gravitational effects.",
-            "Administer antihypertensive medications as prescribed to quickly lower blood pressure and prevent complications such as stroke or seizure."
+            "Autonomic dysreflexia is a medical emergency. The first nursing action is to sit the client upright (elevate HOB to 90 degrees) to promote orthostatic hypotension and lower the blood pressure.",
+            "The three most common causes of AD are the 3 B's: Bladder (distention), Bowel (impaction), and Breakdown (skin pressure/injury). Always assess these systems first.",
+            "If removing the noxious stimulus does not quickly resolve the hypertension, rapid-acting antihypertensive medications like nifedipine or hydralazine may be required."
         ],
-        "questionTrap": {
-            "trap": "The normal lab values might distract you into thinking the patient is stable and not experiencing a medical emergency. Focusing on the BP and symptoms described in the SBAR should guide you to the correct answer.",
-            "howToOvercome": "Prioritize the ABCs and recognize that vital sign changes are more indicative of the immediate problem than stable lab values. Connect the symptoms to the pathophysiology of autonomic dysreflexia. Remember that autonomic dysreflexia is a clinical diagnosis based on symptoms and vital signs."
-        },
-        "mnemonic": {
-            "title": "AD",
-            "expansion": "A: Assess BP (High!), D: Determine & remove the cause (Bladder, Bowel, Skin)"
-        }
+        "questionTrap": "The primary trap is misinterpreting 'Requires Further Investigation' as an abnormal finding. A normal lab value like the WBC count doesn't fit the classic AD pattern, so while it's reassuring, the nurse must investigate other causes for the client's crisis, rather than assuming it's part of the AD presentation.",
+        "mnemonic": "For AD causes, remember the '3 B's':\n- Bladder (distention, UTI, blocked catheter)\n- Bowel (impaction, constipation)\n- Breakdown (skin pressure, tight clothing, ingrown toenail)"
     },
-    "matrixMatchOptions": {
-        "rows": [
-            "Blood pressure 210/110 mmHg",
-            "Heart rate 55 bpm",
-            "Skin flushing above the level of injury",
-            "WBC count 7.5 x 10^3/uL",
-            "Bladder scan shows 600 mL urine"
-        ],
-        "columns": [
-            "Consistent with Autonomic Dysreflexia",
-            "Requires Further Investigation"
-        ],
-        "matches": {
-            "Blood pressure 210/110 mmHg": "Consistent with Autonomic Dysreflexia",
-            "Heart rate 55 bpm": "Consistent with Autonomic Dysreflexia",
-            "Skin flushing above the level of injury": "Consistent with Autonomic Dysreflexia",
-            "WBC count 7.5 x 10^3/uL": "Requires Further Investigation",
-            "Bladder scan shows 600 mL urine": "Consistent with Autonomic Dysreflexia"
-        }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:32:51.975Z"
 }

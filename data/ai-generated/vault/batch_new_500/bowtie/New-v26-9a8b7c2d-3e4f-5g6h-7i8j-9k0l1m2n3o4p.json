@@ -1,7 +1,7 @@
 {
     "id": "New-v26-9a8b7c2d-3e4f-5g6h-7i8j-9k0l1m2n3o4p",
     "type": "bowtie",
-    "stem": "The nurse is caring for a 78-year-old male client admitted with suspected sepsis. Based on the data in the electronic health record, drag the two most appropriate actions to take, the client's primary condition, and the two most important parameters to monitor.",
+    "stem": "The nurse is evaluating a 78-year-old male client who is unresponsive to initial treatment for a suspected infection. Based on the EHR data, identify the client's condition, the two priority actions to take, and the two parameters to monitor.",
     "itemContext": {
         "patient": {
             "age": "78 years",
@@ -17,14 +17,9 @@
                 "title": "Clinical Feed",
                 "content": [
                     {
-                        "note_type": "Admission Note",
-                        "timestamp": "03:00",
-                        "content": "S: 78-year-old male admitted from a skilled nursing facility with acute altered mental status, fever, and hypotension. His adult child is at the bedside.\nB: History of type 2 diabetes mellitus and hypertension. Hospitalized for pneumonia two weeks ago and completed a course of levofloxacin. The client lives alone in a senior apartment with known transportation difficulties, which limits access to grocery stores. Penicillin allergy noted.\nA: Client is lethargic, disoriented to time and place. Skin is warm and flushed. Tachycardic at 122/min, tachypneic at 28/min, BP 88/50 mmHg (MAP 63). Temp 102.0°F (38.9°C). SpO₂ 90% on 2L NC. Suspected sepsis, qSOFA score is 3.\nR: Sepsis protocol initiated. Awaiting stat lab results including lactate and blood cultures. Will begin fluid resuscitation and prepare broad-spectrum antibiotics pending culture results. Continue close hemodynamic monitoring."
-                    },
-                    {
-                        "note_type": "Progress Note",
+                        "note_type": "SBAR Handoff",
                         "timestamp": "05:00",
-                        "content": "S: Client remains lethargic and hypotensive despite initial interventions.\nB: 500 mL Normal Saline bolus administered over 30 minutes. Blood cultures and stat labs have been drawn and sent.\nA: BP remains low at 84/46 mmHg (MAP 59). Tachycardia persists at 130/min. Respiratory rate is 32/min. Temperature is now 102.8°F (39.3°C). SpO₂ is 91% on 2L NC. Lab results show significant leukocytosis and lactic acidosis. The client's condition is consistent with septic shock.\nR: Continue with the 30 mL/kg fluid bolus as ordered. Administer STAT antibiotics now that cultures are obtained. Prepare for potential vasopressor support if MAP remains <65 mmHg after fluid resuscitation. Notify provider of critical lab values and persistent hypotension."
+                        "content": "S: This is the nurse for the 78-year-old male in room 402, admitted at 03:00 for suspected sepsis. He has acute altered mental status and persistent hypotension despite initial fluid resuscitation.\nB: History includes type 2 diabetes, hypertension, and a penicillin allergy.\nA: Current MAP is 59 mmHg, HR 130/min, temp 39.3°C. Stat labs show lactate 4.5 and WBC 18.5. The client is in septic shock.\nR: Continuing the 30 mL/kg fluid bolus and have administered STAT antibiotics. Recommend preparing for vasopressor support."
                     }
                 ]
             },
@@ -333,84 +328,67 @@
         ]
     },
     "rationale": {
-        "correct": "The client's presentation of hypotension (MAP < 65 mmHg), tachycardia, fever, altered mental status, and elevated lactate (>2 mmol/L) despite initial fluid challenges is the hallmark of septic shock. The pathophysiology involves a dysregulated host response to infection, leading to widespread vasodilation, increased capillary permeability, and maldistribution of blood flow. This results in profound tissue hypoperfusion. The priority actions are to restore intravascular volume with a 30 mL/kg crystalloid bolus and to treat the underlying infection with broad-spectrum antibiotics. Monitoring Mean Arterial Pressure (MAP) is critical to assess perfusion to vital organs, and serial serum lactate levels are essential to evaluate the body's response to resuscitation and the clearance of metabolic acidosis from tissue hypoxia.",
-        "answerBreakdown": [
+        "hoverRationales": [
             {
-                "optionId": "action_1",
-                "content": "Correct. Aggressive fluid resuscitation is a cornerstone of sepsis management to counteract the profound vasodilation and capillary leak, thereby increasing preload and improving cardiac output and tissue perfusion."
+                "id": "action_1",
+                "text": "Correct. Septic shock causes profound vasodilation and capillary leak, leading to relative hypovolemia. Aggressive fluid resuscitation with 30 mL/kg of crystalloid is essential to restore intravascular volume and improve tissue perfusion."
             },
             {
-                "optionId": "action_2",
-                "content": "Correct. Early administration of broad-spectrum antibiotics is critical to control the source of infection and has been shown to significantly reduce mortality in septic shock. Cultures must be drawn first to guide future therapy."
+                "id": "action_2",
+                "text": "Correct. Septic shock is driven by a dysregulated response to infection. Early administration of broad-spectrum antibiotics is critical to control the infectious source, reduce the inflammatory cascade, and decrease mortality."
             },
             {
-                "optionId": "action_3",
-                "content": "Incorrect. While treating fever is important for comfort and reducing metabolic demand, it is not the immediate life-saving priority compared to restoring perfusion and treating the infection."
+                "id": "action_3",
+                "text": "Incorrect. While fever increases metabolic demand, it is a symptom. The clinical flaw is prioritizing symptom management over life-saving interventions like restoring perfusion and treating the infection source."
             },
             {
-                "optionId": "action_4",
-                "content": "Incorrect. Although holding a beta-blocker in the setting of hypotension is a clinically sound decision, it is a secondary action. The primary, life-sustaining interventions of fluid and antibiotics must be performed first."
+                "id": "action_4",
+                "text": "Incorrect. Holding a beta-blocker is appropriate given the client's hypotension. However, the clinical flaw is selecting this as a priority action over the immediate, life-sustaining interventions of fluid resuscitation and antibiotic administration."
             },
             {
-                "optionId": "action_5",
-                "content": "Incorrect. The client's altered mental status is most likely a manifestation of sepsis-associated encephalopathy due to systemic inflammation and hypoperfusion. While a CT might be considered later if the mental status does not improve with treatment, it is not the initial priority."
+                "id": "action_5",
+                "text": "Incorrect. The altered mental status is most likely due to sepsis-associated encephalopathy from systemic inflammation and hypoperfusion. The clinical flaw is pursuing a diagnostic test for a secondary symptom before stabilizing the client's hemodynamics."
             },
             {
-                "optionId": "condition_1",
-                "content": "Correct. The client meets the criteria for septic shock: a suspected infection plus persistent hypotension requiring vasopressors to maintain MAP ≥65 mmHg and a serum lactate level >2 mmol/L."
+                "id": "condition_1",
+                "text": "Correct. The client meets the criteria for septic shock, which involves a suspected infection, persistent hypotension (MAP < 65 mmHg) despite fluid resuscitation, and evidence of tissue hypoperfusion (lactate > 2 mmol/L)."
             },
             {
-                "optionId": "condition_2",
-                "content": "Incorrect. While dehydration is a component of the fluid deficit in sepsis, the primary condition is septic shock, which encompasses the systemic inflammatory response and organ dysfunction."
+                "id": "condition_2",
+                "text": "Incorrect. While the client is volume-depleted, dehydration is only a component of the larger syndrome. The clinical flaw is failing to recognize the systemic inflammatory response and organ dysfunction that define septic shock."
             },
             {
-                "optionId": "condition_3",
-                "content": "Incorrect. Urosepsis is a potential source of the infection, but 'Septic Shock' is the correct term for the resulting systemic condition of circulatory and metabolic failure."
+                "id": "condition_3",
+                "text": "Incorrect. Urosepsis is a potential source of infection, but it is not the client's overall physiological state. The clinical flaw is identifying a possible source rather than the resulting life-threatening condition of circulatory and metabolic failure."
             },
             {
-                "optionId": "condition_4",
-                "content": "Incorrect. The chest x-ray findings do not support pneumonia as the active source of infection, making this diagnosis less likely."
+                "id": "condition_4",
+                "text": "Incorrect. The chest x-ray is clear, making active pneumonia an unlikely source of the client's current condition. The clinical flaw is selecting a diagnosis that is contradicted by available diagnostic data."
             },
             {
-                "optionId": "condition_5",
-                "content": "Incorrect. Although the client is hyperglycemic, the primary driver of instability is infection and hypoperfusion, not an osmotic crisis characteristic of HHS."
+                "id": "condition_5",
+                "text": "Incorrect. Although the client is hyperglycemic, the primary clinical picture is driven by infection and hemodynamic collapse. The clinical flaw is misattributing the client's instability to a metabolic crisis rather than the overwhelming infection."
             },
             {
-                "optionId": "param_1",
-                "content": "Correct. MAP is the most critical hemodynamic parameter to monitor as it reflects the average pressure in the arteries during one cardiac cycle and is a better indicator of vital organ perfusion than systolic BP alone. The goal is typically to maintain a MAP ≥65 mmHg."
+                "id": "param_1",
+                "text": "Correct. MAP is the most accurate indicator of vital organ perfusion. Monitoring MAP is critical to titrate fluids and vasopressors to the goal of ≥65 mmHg, ensuring adequate blood flow to the brain, kidneys, and heart."
             },
             {
-                "optionId": "param_2",
-                "content": "Correct. Serum lactate is a key biomarker of tissue hypoxia and anaerobic metabolism. Rising levels indicate worsening shock, while falling levels (lactate clearance) are a primary indicator of successful resuscitation."
+                "id": "param_2",
+                "text": "Correct. Serum lactate is a direct marker of anaerobic metabolism resulting from tissue hypoxia. Monitoring lactate clearance is a key indicator of the effectiveness of resuscitation and predicts patient outcomes."
             },
             {
-                "optionId": "param_3",
-                "content": "Incorrect. Temperature is an important vital sign for monitoring the infectious process, but it does not directly measure the adequacy of tissue perfusion or the response to fluid resuscitation."
+                "id": "param_3",
+                "text": "Incorrect. Temperature reflects the inflammatory response but does not directly measure tissue perfusion or the adequacy of resuscitation. The clinical flaw is choosing a general indicator of infection over a specific marker of shock."
             },
             {
-                "optionId": "param_4",
-                "content": "Incorrect. The WBC count confirms the presence of infection but is not a dynamic parameter used to guide immediate resuscitation efforts. It changes too slowly to be useful for minute-to-minute management."
+                "id": "param_4",
+                "text": "Incorrect. The WBC count confirms infection but is a static value that changes slowly. The clinical flaw is selecting a diagnostic marker rather than a dynamic parameter used to guide real-time resuscitation efforts."
             },
             {
-                "optionId": "param_5",
-                "content": "Incorrect. While important, SpO₂ only measures peripheral oxygen saturation and does not reflect the adequacy of oxygen delivery to or utilization by the tissues, which is the core problem in shock states."
+                "id": "param_5",
+                "text": "Incorrect. SpO₂ measures peripheral oxygenation of hemoglobin but does not reflect oxygen delivery to or utilization by the tissues. The clinical flaw is confusing peripheral oxygenation with systemic tissue perfusion, which is the core problem in shock."
             }
-        ],
-        "clinicalPearls": [
-            "The Surviving Sepsis Campaign recommends the 'Hour-1 Bundle': measure lactate, obtain blood cultures, administer broad-spectrum antibiotics, begin rapid fluid resuscitation, and apply vasopressors if hypotensive during or after fluid resuscitation to maintain a MAP ≥65 mmHg.",
-            "qSOFA (Quick Sepsis-related Organ Failure Assessment) is a bedside tool using three criteria: Respiratory Rate ≥22/min, Altered Mental Status, and Systolic BP ≤100 mmHg. A score of ≥2 suggests a high risk for poor outcomes in patients with suspected infection.",
-            "Sepsis-induced hypotension is defined as a systolic blood pressure <90 mmHg, a MAP <70 mmHg, or a systolic BP decrease >40 mmHg from baseline. Septic shock is sepsis with persistent hypotension requiring vasopressors despite adequate fluid resuscitation."
-        ],
-        "questionTrap": "A common trap is to prioritize treating individual symptoms, such as giving acetaminophen for fever or focusing solely on the high blood glucose. The key is to recognize the systemic syndrome of septic shock and prioritize interventions that restore perfusion and treat the underlying infection.",
-        "mnemonic": {
-            "title": "SEPSIS RESUSCITATION",
-            "expansion": "Start fluids (30 mL/kg bolus)\nEnsure cultures are drawn\nProvide antibiotics early\nSource control (identify and manage)\nIncrease perfusion (vasopressors for MAP <65)\nScrutinize lactate levels"
-        },
-        "reviewUnits": [
-            "Critical Care",
-            "Infection Control",
-            "Pharmacology",
-            "Hemodynamics"
         ]
     },
     "scoring": {

@@ -1,64 +1,330 @@
 {
     "id": "New-v26-mm890abc-4567-8901-2345-67890abcdef0",
     "type": "matrixMatch",
-    "stem": "The nurse is preparing to administer medications to Mr. Jones. Based on the provided information, determine if the following actions are indicated or contraindicated for each medication order. Click on the appropriate choice for each medication.",
+    "stem": "The nurse is reviewing the 08:00 medication orders for a client with pneumonia and new-onset atrial fibrillation. For each medication, determine if the action is indicated or contraindicated based on the client's current clinical data. Select one option for each row.",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 4
     },
     "itemContext": {
         "patient": {
             "name": "Jones, Michael",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical-Surgical Unit",
+            "age": "72 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Mr. Jones, 72-year-old male with hypertension and type 2 diabetes, admitted for pneumonia. Penicillin allergy noted. R: Increasing confusion since 02:00. BP elevated to 170/95 mmHg at 04:00. New onset atrial fibrillation. O: At 06:00, alert but disoriented to place/time. RR 24, SpO2 92% on 2L NC. A-fib on monitor, rate 110. Labs: hypokalemia, elevated glucose, digoxin level elevated. A: Potential medication interactions/adverse effects causing altered mental status and arrhythmia. Elevated digoxin and electrolyte imbalance concerning. Requesting clarification on digoxin, furosemide, and potassium orders. Need to address BP and A-fib. Consider holding digoxin. Monitor potassium levels closely.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L, K: 3.4 mEq/L, Cl: 100 mEq/L, BUN: 35 mg/dL, Creatinine: 1.8 mg/dL, Glucose: 210 mg/dL, Digoxin Level: 1.8 ng/mL"
+                "id": "nurses_notes",
+                "title": "Clinical Feed (Nurses' Notes)",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 22:00",
+                        "note_type": "Admission Note",
+                        "note": "S: 72-year-old male admitted from home with a 3-day history of productive cough, fever, and shortness of breath. History of hypertension and type 2 diabetes. Known allergy to Penicillin. Lives alone in a second-floor apartment with no elevator access, reports difficulty with grocery shopping.\nB: Diagnosed with community-acquired pneumonia. On lisinopril, metformin, and furosemide at home. Last dose of home medications was this morning. Baseline renal function from 1 month ago was normal.\nA: Alert and oriented x3. Temp 101.5°F, HR 92, BP 148/86, RR 22, SpO2 94% on room air. Coarse crackles in the right lower lobe. IV fluids initiated, antibiotics started after cultures drawn. Blood glucose 198 mg/dL.\nR: Continue monitoring, administer scheduled medications, encourage incentive spirometry, and titrate oxygen to maintain SpO2 >92%."
+                    },
+                    {
+                        "timestamp": "Day 2, 06:30",
+                        "note_type": "Progress Note (SBAR)",
+                        "note": "S: Client developed increasing confusion overnight. At 04:00, noted to be in new-onset atrial fibrillation with a rapid ventricular response on telemetry.\nB: Client has a history of hypertension and type 2 diabetes, now being treated for pneumonia. He is receiving IV fluids and antibiotics. His home medications include lisinopril and furosemide.\nA: Currently alert but disoriented to place and time. BP 165/90 mmHg, HR 110-120 and irregular, RR 24, SpO2 92% on 2L nasal cannula. Morning labs show hypokalemia (K 3.4 mEq/L), acute kidney injury (Creatinine 1.8 mg/dL), and a high-normal digoxin level of 1.8 ng/mL. The client appears restless.\nR: Recommend holding the scheduled doses of digoxin, furosemide, and lisinopril pending physician evaluation. Administer the scheduled potassium supplement. Continue close cardiac and neurological monitoring."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "02:00: BP 150/88, HR 88, RR 20, SpO2 95% on RA. 04:00: BP 170/95, HR 110 (A-Fib), RR 24, SpO2 92% on 2L NC. 06:00: BP 165/90, HR 110 (A-Fib), RR 24, SpO2 92% on 2L NC"
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp °F (°C)",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (breaths/min)",
+                        "SpO₂ (%)"
+                    ],
+                    "rows": [
+                        [
+                            "02:00",
+                            "100.8 (38.2)",
+                            "88 (Sinus Rhythm)",
+                            "150/88",
+                            "109",
+                            "20",
+                            "95% on Room Air"
+                        ],
+                        [
+                            "04:00",
+                            "100.2 (37.9)",
+                            "110 (Atrial Fibrillation)",
+                            "170/95",
+                            "120",
+                            "24",
+                            "92% on 2L NC"
+                        ],
+                        [
+                            "06:00",
+                            "99.9 (37.7)",
+                            "115 (Atrial Fibrillation)",
+                            "165/90",
+                            "115",
+                            "24",
+                            "92% on 2L NC"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Sodium (Na)",
+                            "140",
+                            "mEq/L",
+                            "136-145",
+                            ""
+                        ],
+                        [
+                            "Potassium (K)",
+                            "3.4",
+                            "mEq/L",
+                            "3.5-5.0",
+                            "Low"
+                        ],
+                        [
+                            "Chloride (Cl)",
+                            "100",
+                            "mEq/L",
+                            "98-106",
+                            ""
+                        ],
+                        [
+                            "BUN",
+                            "35",
+                            "mg/dL",
+                            "10-20",
+                            "High"
+                        ],
+                        [
+                            "Creatinine",
+                            "1.8",
+                            "mg/dL",
+                            "0.6-1.2",
+                            "High"
+                        ],
+                        [
+                            "Glucose",
+                            "210",
+                            "mg/dL",
+                            "70-110 (Fasting)",
+                            "High"
+                        ],
+                        [
+                            "Digoxin Level",
+                            "1.8",
+                            "ng/mL",
+                            "0.5-0.9 (Therapeutic)",
+                            "High"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Neurological",
+                        "findings": "Alert, but disoriented to place and time. Restless. Follows simple commands."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Irregularly irregular rhythm, rate 115. S1, S2 noted. No murmurs. 1+ bilateral pedal edema."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Coarse crackles auscultated in right lower lobe. Respirations slightly labored on 2L NC."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "report_type": "Chest X-ray (PA and Lateral)",
+                    "timestamp": "Day 1, 22:30",
+                    "findings": "Lungs show evidence of consolidation in the right lower lobe, consistent with lobar pneumonia. No pleural effusion or pneumothorax is visualized. The cardiac silhouette is mildly enlarged.",
+                    "impression": "Right lower lobe pneumonia."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": {
+                    "headers": [
+                        "Date/Time",
+                        "Order",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 22:15",
+                            "Ceftriaxone 1g IV every 24 hours",
+                            "Active"
+                        ],
+                        [
+                            "Day 1, 22:15",
+                            "0.9% Sodium Chloride at 75 mL/hr",
+                            "Active"
+                        ],
+                        [
+                            "Day 1, 22:15",
+                            "Titrate O2 to maintain SpO2 > 92%",
+                            "Active"
+                        ],
+                        [
+                            "Day 2, 04:30",
+                            "Digoxin 0.125 mg IV STAT x1",
+                            "Completed"
+                        ],
+                        [
+                            "Day 2, 06:00",
+                            "STAT Basic Metabolic Panel & Digoxin Level",
+                            "Completed"
+                        ],
+                        [
+                            "Scheduled",
+                            "Digoxin 0.25 mg PO daily at 08:00",
+                            "Active"
+                        ],
+                        [
+                            "Scheduled",
+                            "Furosemide 40 mg PO BID at 08:00 and 20:00",
+                            "Active"
+                        ],
+                        [
+                            "Scheduled",
+                            "Lisinopril 20 mg PO daily at 08:00",
+                            "Active"
+                        ],
+                        [
+                            "Scheduled",
+                            "Potassium Chloride 20 mEq PO daily at 08:00",
+                            "Active"
+                        ]
+                    ]
+                }
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "Digoxin 0.25 mg PO daily, Lisinopril 20 mg PO daily, Metformin 500 mg PO BID, Furosemide 40 mg PO BID, Potassium Chloride 20 mEq PO daily"
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Digoxin",
+                            "0.25 mg",
+                            "PO",
+                            "Daily",
+                            "Day 1, 08:00"
+                        ],
+                        [
+                            "Furosemide",
+                            "40 mg",
+                            "PO",
+                            "BID",
+                            "Day 1, 20:00"
+                        ],
+                        [
+                            "Lisinopril",
+                            "20 mg",
+                            "PO",
+                            "Daily",
+                            "Day 1, 08:00"
+                        ],
+                        [
+                            "Potassium Chloride",
+                            "20 mEq",
+                            "PO",
+                            "Daily",
+                            "Day 1, 08:00"
+                        ],
+                        [
+                            "Metformin",
+                            "500 mg",
+                            "PO",
+                            "BID",
+                            "Day 1, 20:00"
+                        ]
+                    ]
+                }
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
+        "bloomLevel": "Analyzing",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Pharmacological and Parenteral Therapies",
         "difficulty": 5,
         "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs"
+            "Medication Administration",
+            "Drug Toxicity",
+            "Electrolyte Imbalance",
+            "Renal Function"
         ]
     },
     "rationale": {
-        "correct": "Digoxin is contraindicated due to an elevated digoxin level of 1.8 ng/mL, approaching toxic levels (generally >2.0 ng/mL). The patient also exhibits new-onset atrial fibrillation and confusion, indicative of digoxin toxicity. Furosemide is contraindicated as it can exacerbate existing hypokalemia (K: 3.4 mEq/L), increasing the risk of cardiac arrhythmias. Lisinopril is contraindicated due to the patient's elevated blood pressure (165/90 mmHg). Administering Lisinopril could further compromise blood pressure. Potassium Chloride is indicated to correct the patient's hypokalemia (K: 3.4 mEq/L), which can worsen cardiac arrhythmias and muscle weakness. Correcting hypokalemia is crucial for cardiac stability.",
-        "incorrect": "Administering Digoxin with an elevated level can lead to severe toxicity, including life-threatening arrhythmias. Administering Furosemide without correcting the potassium level could worsen the hypokalemia, increasing the risk of cardiac arrhythmias. Administering Lisinopril, when the blood pressure is already elevated, may not be the priority and the elevated BP needs to be addressed first. Holding Potassium Chloride with a low potassium level can lead to further complications related to hypokalemia, including arrhythmias and muscle weakness.",
-        "clinicalPearls": [
-            "Always correlate lab values, especially electrolytes and drug levels, with clinical findings before medication administration.",
-            "Be vigilant for signs and symptoms of drug toxicity, particularly with high-alert medications like digoxin. Early recognition can prevent severe complications.",
-            "Consider the patient's current clinical status, vital signs, and trends when determining medication appropriateness. Avoid automatic administration without assessment."
+        "correct": "The nurse must analyze current lab values and vital signs to determine medication safety. Digoxin, furosemide, and lisinopril are contraindicated due to signs of toxicity, electrolyte imbalance, and acute kidney injury. Potassium chloride is indicated to correct critical hypokalemia, which is exacerbating the client's cardiac instability.",
+        "incorrect": "Administering contraindicated medications would place the client at high risk for life-threatening arrhythmias (from digoxin toxicity and worsening hypokalemia with furosemide) and further renal damage (from lisinopril). Withholding the indicated potassium supplement would fail to address a root cause of the client's arrhythmia and risk for digoxin toxicity.",
+        "answerBreakdown": [
+            {
+                "row": "Digoxin 0.25 mg PO daily",
+                "correctColumn": "Contraindicated",
+                "explanation": "The client is exhibiting classic signs of digoxin toxicity (confusion, new-onset atrial fibrillation). The digoxin level of 1.8 ng/mL is high-normal, but toxicity is significantly potentiated by both hypokalemia (K 3.4 mEq/L) and impaired renal function (Creatinine 1.8 mg/dL), which slows drug clearance. Administering more digoxin would be unsafe."
+            },
+            {
+                "row": "Furosemide 40 mg PO BID",
+                "correctColumn": "Contraindicated",
+                "explanation": "Furosemide is a potassium-wasting loop diuretic. The client is already hypokalemic (K 3.4 mEq/L). Administering furosemide would further deplete potassium stores, worsening the risk of cardiac arrhythmias and increasing the client's sensitivity to digoxin. The potassium level must be corrected before administering this medication."
+            },
+            {
+                "row": "Lisinopril 20 mg PO daily",
+                "correctColumn": "Contraindicated",
+                "explanation": "While the client's blood pressure is elevated, the significantly elevated BUN (35) and Creatinine (1.8) indicate an acute kidney injury (AKI). ACE inhibitors like lisinopril can decrease glomerular filtration pressure and worsen renal function in the setting of AKI. The provider must be consulted to clarify the cause of the AKI before administering this medication."
+            },
+            {
+                "row": "Potassium Chloride 20 mEq PO daily",
+                "correctColumn": "Indicated",
+                "explanation": "The client's potassium level is 3.4 mEq/L, which is below the normal range (hypokalemia). This electrolyte imbalance is a critical finding as it increases the risk of life-threatening cardiac arrhythmias and potentiates digoxin toxicity. Correcting the hypokalemia is a priority intervention to promote cardiac stability."
+            }
         ],
-        "questionTrap": {
-            "trap": "The question traps the test taker into automatically associating Lisinopril with hypertension management, overlooking the patient's current elevated BP and the need for further assessment before administration. It also requires the examinee to prioritize interventions based on the patient's immediate needs and potential risks of each medication.",
-            "howToOvercome": "Thoroughly analyze all available data, including lab values, vital signs, and the patient's current clinical presentation. Prioritize actions based on the immediate needs of the patient and potential risks associated with each medication. Avoid assumptions and rely on comprehensive assessment."
-        },
+        "clinicalPearls": [
+            "Digoxin has a narrow therapeutic index. Always assess for signs of toxicity (GI upset, visual changes, confusion, arrhythmias) and check potassium levels before administration, as hypokalemia increases the risk of toxicity.",
+            "Acute Kidney Injury (AKI) is a common complication in acutely ill older adults. Always check BUN and creatinine before administering potentially nephrotoxic drugs or medications cleared by the kidneys, such as ACE inhibitors.",
+            "Never treat a number in isolation. A 'normal' or 'high-normal' drug level can still be toxic in the presence of electrolyte disturbances or organ dysfunction."
+        ],
+        "questionTrap": "The primary trap is focusing on a single piece of data, such as treating the high blood pressure with lisinopril, without synthesizing the complete clinical picture. The elevated creatinine is the key data point that makes lisinopril contraindicated in this specific context. Another trap is seeing the digoxin level is technically below 2.0 ng/mL and assuming it's safe, ignoring the clinical signs of toxicity and potentiating factors.",
         "mnemonic": {
-            "title": "ALT-MEDS",
-            "expansion": "Assess Labs, Trends, Medications, Evaluate, Decide, Safety - A systematic approach to medication administration ensuring patient safety and optimal outcomes."
+            "title": "HOLD-SAFE",
+            "expansion": "Use this checklist before giving high-risk cardiac meds:\nH - Hypokalemia present?\nO - Output decreasing / Creatinine rising?\nL - Level of consciousness changed?\nD - Drug level high or borderline?\n\nS - Signs of toxicity present?\nA - Arrhythmias new on monitor?\nF - Fluid status (dehydrated)?\nE - Electrolytes checked?"
         }
     },
     "matrixMatchOptions": {
@@ -79,5 +345,6 @@
         "Lisinopril 20 mg PO daily": "Contraindicated",
         "Potassium Chloride 20 mEq PO daily": "Indicated"
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:10:34.129Z"
 }

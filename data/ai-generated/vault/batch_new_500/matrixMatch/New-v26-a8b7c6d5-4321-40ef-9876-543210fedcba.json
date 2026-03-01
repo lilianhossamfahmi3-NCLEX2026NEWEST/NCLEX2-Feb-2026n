@@ -1,95 +1,286 @@
 {
     "id": "New-v26-a8b7c6d5-4321-40ef-9876-543210fedcba",
-    "type": "matrixMatch",
-    "stem": "The nurse is caring for a patient with suspected sepsis. Based on the patient's current condition and available data, determine which interventions are indicated and which are contraindicated. Select appropriate cells in each row.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
+    "type": "multipleChoice",
+    "stem": "The nurse is reviewing the client's data. Which action is the highest priority for the nurse to take at this time?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Administer a 500 mL bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "opt_02",
+            "text": "Request an order for vasopressors from the provider."
+        },
+        {
+            "id": "opt_03",
+            "text": "Administer PRN acetaminophen 650 mg PO."
+        },
+        {
+            "id": "opt_04",
+            "text": "Re-check the client's blood glucose level."
+        }
+    ],
+    "correctOptionId": "opt_01",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact & Droplet Precautions",
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, 78-year-old male, admitted at 07:00 with suspected pneumonia, history of COPD and Diabetes Mellitus. B: Since 10:00, noted increased confusion and decreased urine output. Vitals: Temp 38.9°C, HR 110 bpm, RR 28 breaths/min, BP 88/50 mmHg, SpO2 91% on 2L nasal cannula. Labs pending. A: Concern for sepsis secondary to pneumonia. Blood cultures ordered, awaiting results. Lactate 3.5 mmol/L. Alert and oriented to person/place. Broad-spectrum antibiotics (Vancomycin & Cefepime) initiated at 11:00. R: Requires close monitoring, especially BP and urine output. Possible fluid bolus for hypotension. Continue antibiotics. Monitor urine output hourly, report deterioration immediately. Last bowel movement three days ago. Foley catheter inserted at 11:30, yielding 30mL amber urine. Current time: 12:00.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/mm3; Lactate: 3.5 mmol/L; Creatinine: 2.1 mg/dL; BUN: 35 mg/dL; Blood Cultures: Pending; Urine Cultures: Pending; Procalcitonin: 2.8 ng/mL"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "note_type": "Admission Note",
+                        "content": "S: Client is a 78-year-old male brought to the ED by his adult child with a 4-day history of productive cough, fever, and shortness of breath. Reports feeling weak and 'not himself.'\nB: History of COPD and Type 2 Diabetes Mellitus. Client lives alone in a rural area with limited access to transportation, which delayed him seeking care. Last primary care visit was over a year ago. Takes metformin and uses an albuterol inhaler as needed. Allergic to Penicillin.\nA: Appears fatigued. Lungs with coarse crackles in the right lower lobe. Vital signs on admission were stable. Admitted to the medical-surgical unit for management of suspected community-acquired pneumonia.\nR: Plan is to obtain blood and sputum cultures, start empiric antibiotics, provide supplemental oxygen, and monitor respiratory status closely. IV access established."
+                    },
+                    {
+                        "timestamp": "Day 1, 12:00",
+                        "note_type": "Progress Note",
+                        "content": "S: Client is increasingly confused, oriented only to person. Adult child at bedside is concerned about his rapid decline.\nB: Admitted at 07:00 for pneumonia. Since 10:00, has become progressively more hypotensive and tachycardic. Broad-spectrum antibiotics (Vancomycin & Cefepime) were initiated at 11:00. A Foley catheter was placed at 11:30 with only 30 mL of dark amber urine returned over 30 minutes.\nA: Client meets criteria for septic shock. He is hypotensive with a MAP of 63 mmHg, tachycardic, tachypneic, and hypoxemic despite oxygen. Lactate is critically elevated at 4.2 mmol/L, and creatinine is 2.1 mg/dL, indicating acute kidney injury and end-organ dysfunction. Skin is cool and clammy with delayed capillary refill.\nR: Immediate fluid resuscitation is required to improve tissue perfusion and mean arterial pressure. Continue close monitoring of vital signs, hourly urine output, and mental status. Notify provider of poor response to initial interventions."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "11:00: T 38.7°C, HR 105, RR 26, BP 90/52, SpO2 92% on 2L NC; 11:30: T 38.8°C, HR 108, RR 27, BP 89/51, SpO2 91% on 2L NC; 12:00: T 38.9°C, HR 110, RR 28, BP 88/50, SpO2 91% on 2L NC"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "11:00",
+                        "Temp": "101.7°F (38.7°C)",
+                        "HR": "105 bpm",
+                        "RR": "26/min",
+                        "BP": "90/52 mmHg",
+                        "MAP": "65 mmHg",
+                        "SpO₂": "92% on 2L NC"
+                    },
+                    {
+                        "Time": "11:30",
+                        "Temp": "101.8°F (38.8°C)",
+                        "HR": "108 bpm",
+                        "RR": "27/min",
+                        "BP": "89/51 mmHg",
+                        "MAP": "64 mmHg",
+                        "SpO₂": "91% on 2L NC"
+                    },
+                    {
+                        "Time": "12:00",
+                        "Temp": "102.0°F (38.9°C)",
+                        "HR": "110 bpm",
+                        "RR": "28/min",
+                        "BP": "88/50 mmHg",
+                        "MAP": "63 mmHg",
+                        "SpO₂": "91% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Vancomycin 1.5g IV q12h (Started 11:00); Cefepime 2g IV q8h (Started 11:00); Acetaminophen 650mg PO PRN fever >38.5°C; Docusate 100mg PO daily; Normal Saline 0.9% IV at 100mL/hr"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "WBC",
+                        "Result": "18.5",
+                        "Unit": "x10³/μL",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Lactate",
+                        "Result": "4.2",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "2.1",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "35",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Glucose",
+                        "Result": "198",
+                        "Unit": "mg/dL",
+                        "Reference": "70-110",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Procalcitonin",
+                        "Result": "2.8",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.5",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Blood Cultures",
+                        "Result": "Pending",
+                        "Unit": "",
+                        "Reference": "",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 12:00",
+                        "assessment_type": "Focused Assessment",
+                        "findings": "GENERAL: Appears acutely ill, fatigued.\nNEUROLOGICAL: GCS 14 (E4, V4, M6). Oriented to person only. Restless.\nCARDIOVASCULAR: Tachycardic with S1/S2 regular. Pulses +1 in lower extremities. Capillary refill >3 seconds. Skin is cool and clammy.\nRESPIRATORY: Tachypneic with shallow respirations. Coarse crackles auscultated in right lower lobe. Using accessory muscles.\nGI/GU: Abdomen soft, non-tender. Foley catheter in place, draining scant, dark amber urine."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "report_type": "Chest X-ray (PA and Lateral)",
+                        "timestamp": "Day 1, 08:00",
+                        "findings": "Lungs show evidence of consolidation in the right lower lobe. No pleural effusion or pneumothorax is identified. Cardiomediastinal silhouette is within normal limits.",
+                        "impression": "Right lower lobe opacity consistent with pneumonia."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "Day 1, 10:30",
+                        "action": "Vancomycin 1.5g IV",
+                        "frequency": "Every 12 hours",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 10:30",
+                        "action": "Cefepime 2g IV",
+                        "frequency": "Every 8 hours",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 10:30",
+                        "action": "0.9% Sodium Chloride IV",
+                        "frequency": "at 100 mL/hr",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 10:30",
+                        "action": "Acetaminophen 650mg PO",
+                        "frequency": "PRN every 4 hours for Temp >101.3°F (38.5°C)",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1, 10:30",
+                        "action": "Blood cultures x2, Lactate, CBC, BMP, Procalcitonin",
+                        "frequency": "STAT",
+                        "status": "Completed"
+                    },
+                    {
+                        "order_time": "Day 1, 11:30",
+                        "action": "Insert indwelling urinary catheter",
+                        "frequency": "STAT",
+                        "status": "Completed"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Vancomycin",
+                        "dose": "1.5g",
+                        "route": "IV",
+                        "frequency": "q12h",
+                        "last_administered": "Day 1, 11:00"
+                    },
+                    {
+                        "medication": "Cefepime",
+                        "dose": "2g",
+                        "route": "IV",
+                        "frequency": "q8h",
+                        "last_administered": "Day 1, 11:00"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "650mg",
+                        "route": "PO",
+                        "frequency": "q4h PRN",
+                        "last_administered": "Not yet administered"
+                    },
+                    {
+                        "medication": "0.9% Sodium Chloride",
+                        "dose": "100 mL/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "last_administered": "Ongoing"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
-        ]
-    },
     "rationale": {
-        "correct": "Administering a fluid bolus is indicated to address the patient's hypotension, a key sign of sepsis-induced hypoperfusion. Monitoring urine output hourly is crucial for assessing renal function and response to fluid resuscitation. Continuing antibiotics is essential to combat the suspected infection. Initiating vasopressors is indicated if hypotension persists despite adequate fluid resuscitation; the current BP of 88/50 suggests this may be necessary soon. clinicalPearl: Early intervention in sepsis is critical.",
-        "incorrect": "Administering an anti-diarrheal is contraindicated because the patient is constipated, not experiencing diarrhea. Restricting fluids is contraindicated in sepsis as the patient is hypotensive and requires fluid resuscitation to improve tissue perfusion. Discontinuing antibiotics is contraindicated as the patient has a suspected infection and the antibiotics are crucial for treatment. Administering a potassium supplement is not indicated based on the provided information; there is no indication of hypokalemia. questionTrap: Overlooking the complete clinical picture of sepsis (hypotension, tachycardia, altered mental status) by focusing solely on one aspect (e.g., fever) can lead to incorrect decisions.",
+        "correct": "The client is in septic shock, characterized by persistent hypotension (MAP < 65 mmHg) and signs of end-organ dysfunction (elevated lactate, acute kidney injury, confusion) despite ongoing IV fluids at a maintenance rate. The pathophysiological priority is to correct the intravascular volume deficit caused by systemic vasodilation and capillary leak. Administering a rapid fluid bolus is the first-line intervention to increase preload, improve cardiac output, and restore tissue perfusion, as recommended by the Surviving Sepsis Campaign guidelines.",
+        "incorrect": "Requesting vasopressors is premature; they are indicated for hypotension that persists *after* adequate fluid resuscitation. Administering acetaminophen treats the fever but does not address the life-threatening hemodynamic instability. While hyperglycemia is present and needs management, correcting the circulatory collapse (perfusion) is a higher priority than checking blood glucose, following the Airway-Breathing-Circulation (ABC) principle.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The client's MAP of 63 mmHg, tachycardia, and elevated lactate indicate hypoperfusion. The immediate priority is to restore circulating volume with a fluid bolus to improve blood pressure and organ perfusion."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. Vasopressors are a second-line treatment for septic shock. They are used when hypotension is refractory to initial fluid resuscitation. The nurse must administer fluids first before escalating to vasopressor therapy."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. While the client has a fever, treating it is not the priority. The root cause of the client's instability is hypoperfusion from distributive shock, which must be addressed first. This action treats a symptom, not the life-threatening problem."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. The client has a history of diabetes and is hyperglycemic, but this is not the most immediate life threat. Hemodynamic instability (a 'C' - Circulation problem) takes precedence over managing blood glucose levels."
+            }
+        ],
         "clinicalPearls": [
-            "Early recognition and treatment of sepsis are crucial to improving patient outcomes.",
-            "The Surviving Sepsis Campaign guidelines provide evidence-based recommendations for managing sepsis.",
-            "Monitor for signs of multi-drug resistance, especially in patients with recent antibiotic use or hospitalizations."
+            "In septic shock, the initial fluid resuscitation target is typically 30 mL/kg of crystalloid fluid administered within the first 3 hours.",
+            "A Mean Arterial Pressure (MAP) of at least 65 mmHg is the initial target to ensure adequate perfusion of vital organs.",
+            "Lactate is a key marker of tissue hypoxia; a rising or persistently elevated lactate level indicates ongoing hypoperfusion and is associated with increased mortality.",
+            "The client's rural location and delayed care seeking is a Social Determinant of Health (SDOH) that contributed to the severity of his illness, highlighting the importance of access to care."
         ],
-        "questionTrap": {
-            "trap": "The question trap lies in focusing solely on one aspect of the patient's presentation (e.g., fever) without considering the overall clinical picture of sepsis, which includes hypotension, tachycardia, and altered mental status.",
-            "howToOvercome": "Carefully evaluate all available data (vitals, labs, SBAR) to identify the key signs and symptoms of sepsis and determine the appropriate interventions based on the complete clinical picture."
-        },
-        "mnemonic": {
-            "title": "SEPSIS",
-            "expansion": "Seek source, Early antibiotics, Prevent hypotension, Suppress inflammation, Individualize treatment, Support organ function."
-        }
-    },
-    "matrix": {
-        "rows": [
-            "Administer a fluid bolus.",
-            "Monitor urine output hourly.",
-            "Continue antibiotics as ordered.",
-            "Initiate vasopressors if hypotension persists after fluid resuscitation.",
-            "Administer an anti-diarrheal.",
-            "Restrict fluids.",
-            "Discontinue antibiotics.",
-            "Administer a potassium supplement."
-        ],
-        "columns": [
-            "Indicated",
-            "Contraindicated"
+        "questionTrap": "The trap is choosing an intervention that is plausible but not the highest priority. All options are reasonable nursing considerations for this client, but only fluid resuscitation directly addresses the immediate life-threatening circulatory collapse. Avoid treating symptoms (fever) or secondary issues (glucose) before stabilizing circulation.",
+        "mnemonic": "SEPSIS BUNDLE (First Hour):\n- B: Blood cultures before antibiotics.\n- L: Lactate level measurement.\n- A: Administer broad-spectrum Antibiotics.\n- F: Fluid resuscitation (30 mL/kg crystalloid for hypotension).\n- V: Vasopressors if hypotensive during or after fluid resuscitation to maintain MAP ≥ 65 mmHg.",
+        "reviewUnits": [
+            "Sepsis and Septic Shock",
+            "Hemodynamic Monitoring",
+            "Fluid and Electrolyte Balance",
+            "Pharmacology: Antibiotics and Vasoactive Agents"
         ]
     },
-    "answerKey": {
-        "Administer a fluid bolus.": "Indicated",
-        "Monitor urine output hourly.": "Indicated",
-        "Continue antibiotics as ordered.": "Indicated",
-        "Initiate vasopressors if hypotension persists after fluid resuscitation.": "Indicated",
-        "Administer an anti-diarrheal.": "Contraindicated",
-        "Restrict fluids.": "Contraindicated",
-        "Discontinue antibiotics.": "Contraindicated",
-        "Administer a potassium supplement.": "Contraindicated"
-    }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:30:05.782Z"
 }

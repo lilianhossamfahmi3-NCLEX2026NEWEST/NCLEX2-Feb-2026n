@@ -1,107 +1,111 @@
 {
     "id": "New-v26-8f4a7b2c-9d3e-41a5-9b6f-7a8c9e2d3b1a",
-    "type": "selectN",
-    "stem": "The healthcare provider is evaluating the patient's laboratory results and current clinical status. Based on the available information, which interventions are MOST appropriate for this patient?",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
-    "itemContext": {
-        "patient": {
-            "name": "Jameson Reyes",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Airborne IC",
-            "allergies": [
-                "Penicillin"
-            ]
+    "type": "multipleChoice",
+    "stem": "The nurse assesses the client who is experiencing increasing respiratory distress. Based on the trends in the client's clinical data, which action is the highest priority for the nurse to take at this time?",
+    "options": [
+        {
+            "id": "option-1",
+            "text": "Initiate non-invasive positive pressure ventilation (BiPAP)."
         },
-        "sbar": "S: Jameson Reyes, a 62-year-old male, admitted 3 days ago for pneumonia, now showing increased work of breathing. B: History includes COPD, hypertension, and recent influenza A infection. O: At 06:00, SpO2 is 88% on 6L nasal cannula. Respiratory rate is 32, labored. Heart rate is 110, blood pressure is 160/90. Coarse crackles are auscultated bilaterally. ABG results: pH 7.28, PaCO2 60 mmHg, PaO2 55 mmHg, HCO3 25 mEq/L. The patient is increasingly anxious and restless. A: Acute respiratory failure, likely ARDS secondary to pneumonia, with increased CO2 retention. There's a potential need for intubation if the condition worsens. Elevate the head of the bed. Notify respiratory therapy for evaluation. Closely monitor vital signs, especially respiratory status. Obtain a STAT chest x-ray. Consider a BiPAP trial. Assess level of consciousness frequently. Prepare for potential rapid sequence intubation. Ensure suction equipment is readily available. At 06:15, the patient is becoming more confused. Initiate continuous cardiac monitoring.",
+        {
+            "id": "option-2",
+            "text": "Administer a 500 mL bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "option-3",
+            "text": "Elevate the head of the bed to 90 degrees."
+        },
+        {
+            "id": "option-4",
+            "text": "Encourage the client to use the incentive spirometer."
+        }
+    ],
+    "correctOptionId": "option-1",
+    "itemContext": {
+        "sbar": "S: This is the nurse for Jameson Reyes, a 62-year-old male in room 402, admitted for pneumonia. He is now in acute respiratory distress.\nB: Mr. Reyes has a history of COPD and hypertension and was diagnosed with influenza A last week. He is allergic to Penicillin. He lives alone in a rural area, which may pose challenges for post-discharge follow-up.\nA: At 06:00, the client is anxious, restless, and confused. His respiratory rate is 32/min and labored with accessory muscle use. SpO₂ is 88% on a 6L nasal cannula. Vitals are trending poorly: HR 110, BP 160/90. Auscultation reveals coarse crackles bilaterally. An ABG at 05:45 showed acute hypercapnic respiratory failure (pH 7.28, PaCO₂ 60 mmHg, PaO₂ 55 mmHg).\nR: Immediate intervention is required. I recommend initiating BiPAP to improve ventilation and will be notifying the rapid response team. We should prepare for potential intubation if he fails to improve.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>pH</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>60 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>55 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>25 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>14,000/µL</td><td>4,500-11,000/µL</td></tr><tr><td>Lactate</td><td>2.8 mmol/L</td><td>0.5-2.2 mmol/L</td></tr></tbody></table>"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>05:00</td><td>150/85 mmHg (107)</td><td>100 bpm</td><td>28/min</td><td>90% on 4L NC</td><td>101.3°F (38.5°C)</td></tr><tr><td>05:30</td><td>155/88 mmHg (110)</td><td>105 bpm</td><td>30/min</td><td>89% on 5L NC</td><td>101.3°F (38.5°C)</td></tr><tr><td>06:00</td><td>160/90 mmHg (113)</td><td>110 bpm</td><td>32/min</td><td>88% on 6L NC</td><td>101.3°F (38.5°C)</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>05:00</td><td>150/85</td><td>100</td><td>28</td><td>90% on 4L NC</td><td>38.5°C</td></tr><tr><td>05:30</td><td>155/88</td><td>105</td><td>30</td><td>89% on 5L NC</td><td>38.5°C</td></tr><tr><td>06:00</td><td>160/90</td><td>110</td><td>32</td><td>88% on 6L NC</td><td>38.5°C</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Value</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>pH</td><td>7.28</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>60</td><td>mmHg</td><td>35-45</td><td>High</td></tr><tr><td>PaO₂</td><td>55</td><td>mmHg</td><td>80-100</td><td>Low</td></tr><tr><td>HCO₃</td><td>25</td><td>mEq/L</td><td>22-26</td><td>Normal</td></tr><tr><td>WBC</td><td>14.0</td><td>x10³/µL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Lactate</td><td>2.8</td><td>mmol/L</td><td>0.5-2.2</td><td>High</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Albuterol</td><td>2.5 mg</td><td>Nebulizer</td><td>q4h PRN</td><td>04:00</td></tr><tr><td>Ipratropium</td><td>0.5 mg</td><td>Nebulizer</td><td>q4h PRN</td><td>04:00</td></tr><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>q24h</td><td>00:00</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>00:00</td></tr></tbody></table>"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<strong>General:</strong> Anxious, restless, in moderate respiratory distress.<br><strong>Respiratory:</strong> Tachypneic with a rate of 32/min. Labored breathing with use of accessory muscles. Coarse crackles auscultated throughout all lung fields bilaterally.<br><strong>Cardiovascular:</strong> Tachycardic, S1/S2 audible, no murmurs. Pulses 2+ peripherally.<br><strong>Neurological:</strong> Alert but increasingly confused. Oriented to person only."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<strong>Chest X-ray (Admission, 3 days ago)</strong><br><strong>FINDINGS:</strong> Bilateral interstitial and alveolar infiltrates, more pronounced in the lower lobes, consistent with multifocal pneumonia. No evidence of large pleural effusion or pneumothorax. Cardiomediastinal silhouette is within normal limits.<br><strong>IMPRESSION:</strong> Findings are consistent with bilateral pneumonia."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 14:00</td><td>Admit to medical unit with telemetry monitoring</td><td>Standing</td></tr><tr><td>Day 1, 14:00</td><td>Oxygen therapy to maintain SpO₂ > 92%</td><td>Standing, Titrate</td></tr><tr><td>Day 1, 14:00</td><td>IV fluids: 0.9% Sodium Chloride</td><td>75 mL/hr</td></tr><tr><td>Day 1, 14:00</td><td>Regular diet, as tolerated</td><td>Standing</td></tr><tr><td>Day 1, 14:00</td><td>Activity: Bed rest with bathroom privileges</td><td>Standing</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>q24h</td><td>Day 3, 09:00</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>Day 3, 09:00</td></tr><tr><td>Albuterol/Ipratropium</td><td>2.5 mg/0.5 mg</td><td>Nebulizer</td><td>q4h PRN</td><td>Day 3, 04:00</td></tr></tbody></table>"
             }
-        ]
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
-        ]
+        ],
+        "patient": {
+            "age": "62 years",
+            "sex": "Male",
+            "allergies": [
+                "Penicillin"
+            ]
+        }
     },
     "rationale": {
-        "correct": "Initiating BiPAP therapy assists with ventilation and oxygenation, addressing hypercapnia and hypoxemia. Elevating the head of the bed improves lung expansion and ventilation. Preparing for intubation is vital due to the patient's deteriorating respiratory status. A STAT chest x-ray helps identify worsening pneumonia or complications like pneumothorax. Respiratory therapy optimizes respiratory support.",
-        "incorrect": "Administering IV fluids could worsen pulmonary edema in ARDS, exacerbating distress. Deep breathing and coughing may exhaust the patient, increasing the work of breathing and anxiety.",
-        "clinicalPearls": [
-            "Prioritize interventions addressing oxygenation and ventilation in acute respiratory failure.",
-            "ARDS management focuses on supportive care and treating the underlying cause.",
-            "Early recognition and intervention are crucial in preventing respiratory arrest."
+        "correct": "The client is in acute hypercapnic respiratory failure, evidenced by the low pH (7.28) and high PaCO₂ (60 mmHg). Non-invasive positive pressure ventilation (BiPAP) is the highest priority because it provides immediate ventilatory support to decrease the work of breathing, improve alveolar ventilation to expel CO₂, and enhance oxygenation, thereby directly treating the life-threatening condition.",
+        "incorrect": "Administering an IV fluid bolus is contraindicated as it can worsen pulmonary edema in a client with pneumonia or ARDS. Elevating the head of the bed is a helpful supportive measure but does not correct the underlying ventilation failure. Using an incentive spirometer is inappropriate for a client in acute distress as it would further increase the work of breathing and cause fatigue.",
+        "answerBreakdown": [
+            {
+                "optionId": "option-1",
+                "content": "Correct. BiPAP is the priority intervention to address both hypoxemia and hypercapnia by providing ventilatory support, reducing the work of breathing, and improving gas exchange."
+            },
+            {
+                "optionId": "option-2",
+                "content": "Incorrect. This client's respiratory failure is not due to hypovolemia. An IV fluid bolus could increase hydrostatic pressure and worsen pulmonary edema, further impairing gas exchange."
+            },
+            {
+                "optionId": "option-3",
+                "content": "Incorrect. While elevating the head of the bed is a beneficial supportive measure to improve lung expansion, it is not the priority therapeutic intervention required to reverse acute respiratory failure."
+            },
+            {
+                "optionId": "option-4",
+                "content": "Incorrect. Incentive spirometry is used for lung expansion post-operatively or to prevent atelectasis. It is contraindicated in a client with acute respiratory distress as it increases respiratory muscle fatigue."
+            }
         ],
-        "questionTrap": {
-            "trap": "Selecting interventions focused solely on oxygenation without addressing ventilation (CO2 removal) in a patient with hypercapnic respiratory failure.",
-            "howToOvercome": "Carefully analyze the ABG results to identify the primary problem (hypoxemia vs. hypercapnia) and select interventions that address both aspects of respiratory failure."
-        },
-        "mnemonic": {
-            "title": "ARDS Management",
-            "expansion": "A: Airway support (consider intubation), R: Respiratory support (BiPAP/mechanical ventilation), D: Decrease lung injury (low tidal volume ventilation), S: Support circulation (manage hypotension)"
-        }
+        "clinicalPearls": [
+            "Acute hypercapnic respiratory failure is defined by a PaCO₂ > 45 mmHg and a pH < 7.35, indicating inadequate ventilation.",
+            "Non-invasive positive pressure ventilation (NIPPV) like BiPAP is a first-line treatment for COPD exacerbations and acute cardiogenic pulmonary edema to avoid intubation.",
+            "A key sign of impending respiratory arrest is a change in mental status (e.g., confusion, lethargy), which is caused by hypercapnia and/or severe hypoxemia."
+        ],
+        "questionTrap": "The trap is choosing a correct but lower-priority 'supportive' measure (like elevating the head of the bed) over a direct therapeutic intervention (BiPAP) that addresses the life-threatening pathophysiology.",
+        "mnemonic": "For signs of respiratory distress, remember 'WOB-UP': W - Work of breathing increased, O - Oxygen saturation decreased, B - Breathing rate abnormal (tachy/bradypnea), U - Use of accessory muscles, P - Positioning (tripod).",
+        "reviewUnits": [
+            "Respiratory Failure",
+            "Acid-Base Balance",
+            "Non-invasive Ventilation"
+        ]
     },
-    "options": [
-        {
-            "key": "optionA",
-            "label": "Initiate BiPAP therapy.",
-            "correct": true
-        },
-        {
-            "key": "optionB",
-            "label": "Administer a bolus of intravenous fluids.",
-            "correct": false
-        },
-        {
-            "key": "optionC",
-            "label": "Elevate the head of the bed.",
-            "correct": true
-        },
-        {
-            "key": "optionD",
-            "label": "Prepare for intubation.",
-            "correct": true
-        },
-        {
-            "key": "optionE",
-            "label": "Obtain a STAT chest x-ray.",
-            "correct": true
-        },
-        {
-            "key": "optionF",
-            "label": "Encourage deep breathing and coughing exercises.",
-            "correct": false
-        },
-        {
-            "key": "optionG",
-            "label": "Notify respiratory therapy for evaluation.",
-            "correct": true
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:35:12.548Z"
 }

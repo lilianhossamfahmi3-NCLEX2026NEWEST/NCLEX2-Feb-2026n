@@ -1,15 +1,57 @@
 {
-    "id": "rsv_bronchiolitis_pediatric_bowtie_v1",
+    "id": "rsv_bronchiolitis_pediatric_bowtie_v2",
     "type": "bowtie",
-    "stem": "An 8-month-old infant is admitted at 1400 with a 3-day history of runny nose, cough, and decreased feeding. Today, the infant is tachypneic (RR 64) with intercostal retractions and clear nasal drainage. Complete the bowtie to guide management.",
+    "ehr": {
+        "patient": {
+            "id": "infant_chen_l",
+            "name": "Liam Chen",
+            "dob": "2025-06-15T08:00:00Z",
+            "age": "8 months",
+            "gender": "Male",
+            "weight": "8.2 kg",
+            "allergies": "No Known Allergies"
+        },
+        "tabs": [
+            {
+                "id": "nurses_note",
+                "label": "Nurse's Note",
+                "content": "Date: 2026-02-15\nTime: 14:15\n\nS: Dr. Smith, this is Nurse Jones. I'm calling about Liam Chen, an 8-month-old admitted at 14:00 for worsening respiratory distress and lethargy.\n\nB: He has a 3-day history of cough, rhinorrhea, and poor feeding. His breathing has become significantly more labored today.\n\nA: Vitals: RR 64/min with intercostal retractions, SpO2 93% on room air, HR 160/min, Temp 38.1°C. He has copious clear nasal secretions.\n\nR: I suspect bronchiolitis. I recommend starting humidified oxygen to keep SpO2 >92% and performing nasal suctioning. I will continue close monitoring."
+            },
+            {
+                "id": "vitals",
+                "label": "Vital Signs",
+                "content": "Time: 14:00\nHeart Rate: 160/min\nRespiratory Rate: 64/min\nSpO2: 93% on room air\nTemperature: 38.1°C (Axillary)\nBlood Pressure: 88/50 mmHg"
+            }
+        ]
+    },
+    "stem": "The nurse is caring for an 8-month-old infant admitted for respiratory distress. After reviewing the electronic health record (EHR), the nurse must determine the appropriate actions to take and parameters to monitor. Complete the bowtie based on the available data.",
+    "potentialConditions": [
+        {
+            "id": "cond1",
+            "text": "Croup"
+        },
+        {
+            "id": "cond2",
+            "text": "RSV / Bronchiolitis"
+        },
+        {
+            "id": "cond3",
+            "text": "Pertussis"
+        },
+        {
+            "id": "cond4",
+            "text": "Reactive Airway Disease"
+        }
+    ],
+    "condition": "cond2",
     "actions": [
         {
-            "id": "action2",
+            "id": "action1",
             "text": "Provide humidified oxygen and monitor SpO2."
         },
         {
-            "id": "action1",
-            "text": "Perform frequent nasal suctioning with a bulb syringe."
+            "id": "action2",
+            "text": "Perform frequent nasal suctioning."
         },
         {
             "id": "action3",
@@ -17,32 +59,33 @@
         },
         {
             "id": "action4",
-            "text": "Initiate intravenous chest physiotherapy (CPT)."
+            "text": "Initiate chest physiotherapy (CPT)."
+        },
+        {
+            "id": "action5",
+            "text": "Administer a nebulized bronchodilator."
         }
     ],
-    "potentialConditions": [
-        "Croup",
-        "RSV / Bronchiolitis",
-        "Pertussis",
-        "Reactive Airway Disease"
-    ],
-    "condition": "RSV / Bronchiolitis",
     "parameters": [
         {
-            "id": "param4",
+            "id": "param1",
             "text": "Assess skin color."
         },
         {
-            "id": "param1",
-            "text": "Monitor respiratory rate and effort (work of breathing)."
-        },
-        {
             "id": "param2",
-            "text": "Monitor hydration status and intake and output (I&O)."
+            "text": "Monitor respiratory rate and effort."
         },
         {
             "id": "param3",
+            "text": "Monitor hydration status and I&O."
+        },
+        {
+            "id": "param4",
             "text": "Auscultate bowel sounds."
+        },
+        {
+            "id": "param5",
+            "text": "Check capillary blood glucose."
         }
     ],
     "correctActionIds": [
@@ -50,9 +93,25 @@
         "action2"
     ],
     "correctParameterIds": [
-        "param1",
-        "param2"
+        "param2",
+        "param3"
     ],
+    "hoverRationales": {
+        "cond1": "Croup typically presents with a sudden onset of a 'barking' cough, inspiratory stridor, and hoarseness due to laryngeal inflammation, which are not features of this infant's presentation.",
+        "cond2": "This diagnosis aligns with the infant's age, gradual onset of upper respiratory symptoms, and progression to lower respiratory tract involvement (tachypnea, retractions, wheezing), which is characteristic of viral bronchiolitis.",
+        "cond3": "Pertussis (whooping cough) is characterized by paroxysmal coughing fits followed by a high-pitched 'whoop' and possible post-tussive emesis. This infant's primary signs are tachypnea and retractions, not paroxysmal coughing.",
+        "cond4": "While wheezing can occur, reactive airway disease (asthma) is less common in this age group and typically involves a stronger bronchospastic component. The prominent nasal congestion points more towards bronchiolitis.",
+        "action1": "Bronchiolitis causes airway inflammation and mucus plugging, leading to ventilation-perfusion mismatch and hypoxemia. Supplemental humidified oxygen improves oxygen saturation and soothes inflamed airways.",
+        "action2": "Infants are obligate nose breathers. Clearing copious nasal secretions with suctioning is critical to relieve upper airway obstruction, reduce the work of breathing, and improve feeding.",
+        "action3": "Bronchiolitis is a viral illness, most commonly caused by RSV. Antibiotics are ineffective against viruses and are not indicated unless a secondary bacterial infection is confirmed.",
+        "action4": "Routine chest physiotherapy is not recommended for bronchiolitis. It has not been shown to improve outcomes and can increase infant agitation, respiratory distress, and oxygen consumption.",
+        "action5": "Bronchodilators are generally not recommended for routine use in bronchiolitis as the primary pathology is inflammation and debris, not bronchoconstriction. They have not been shown to provide significant benefit.",
+        "param1": "While cyanosis is a late and ominous sign of respiratory failure, monitoring respiratory effort and oxygen saturation provides earlier and more sensitive data on the infant's status.",
+        "param2": "Tachypnea, retractions, and nasal flaring are key indicators of the severity of respiratory distress in bronchiolitis. Closely monitoring these parameters is essential for detecting clinical deterioration.",
+        "param3": "Tachypnea and poor feeding place infants with bronchiolitis at high risk for dehydration. Monitoring urine output, mucous membranes, and fontanels is crucial for assessing fluid balance.",
+        "param4": "Bowel sounds are not directly affected by the pathophysiology of bronchiolitis. This assessment is a low priority compared to respiratory and hydration status unless abdominal distension is a primary concern.",
+        "param5": "While severe illness can affect glucose levels, this is not a primary or routine parameter to monitor in uncomplicated bronchiolitis unless the infant is lethargic or has poor perfusion."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -64,100 +123,9 @@
             "Infection Control"
         ]
     },
-    "rationale": {
-        "correct": "The infant presents with classic signs of RSV bronchiolitis: rhinorrhea, cough, tachypnea, and increased work of breathing. RSV causes inflammation and necrosis of the bronchiolar epithelium, leading to increased mucus production and airway obstruction. Infants are obligate nose breathers, making nasal congestion a significant problem. Frequent nasal suctioning helps clear the airway, improving gas exchange. Humidified oxygen supports oxygenation by increasing the partial pressure of oxygen in the inspired air and preventing further drying of the airway. Monitoring respiratory rate, effort, hydration status, and I&Os allows for early detection of clinical deterioration and guides fluid management.",
-        "incorrect": "RSV bronchiolitis is a viral infection; antibiotics are ineffective. Chest physiotherapy is generally not recommended for bronchiolitis as it can be poorly tolerated and may not improve outcomes. While skin color (e.g., cyanosis) is an important assessment parameter, respiratory rate, work of breathing, hydration status, and I&Os provide more sensitive and specific indicators of the infant's respiratory and fluid balance status in the acute phase.",
-        "clinicalPearls": [
-            "Implement Contact and Droplet precautions for RSV to prevent nosocomial spread.",
-            "Ribavirin is an antiviral medication that may be considered in severe cases of RSV, particularly in immunocompromised infants, but is not a first-line treatment.",
-            "Palivizumab is a monoclonal antibody used for RSV prophylaxis in high-risk infants (e.g., premature infants, those with chronic lung disease or congenital heart disease)."
-        ],
-        "questionTrap": {
-            "trap": "Feeding safety",
-            "howToOvercome": "If the respiratory rate is > 60 breaths per minute, the infant is at high risk for aspiration due to uncoordinated swallowing and breathing. The infant should be NPO or receive IV fluids until the respiratory rate decreases and feeding safety can be reassessed."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"RSV / Bronchiolitis\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Provide humidified oxygen and monitor SpO2.\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Perform frequent nasal suctioning with a bulb syringe.\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer oral antibiotics.\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Initiate intravenous chest physiotherapy (CPT).\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Assess skin color.\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Respiratory rate and effort (work of breathing).\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Hydration status and intake and output (I&O).\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Auscultate bowel sounds.\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            }
-        ],
-        "mnemonic": {
-            "title": "RB",
-            "expansion": "R = RSV\nB = Bronchiolitis\n\nKey Actions: Perform frequent nasal suctioning with a bulb syringe; Provide humidified oxygen and monitor SpO2.\nKey Monitoring: Monitor respiratory rate and effort (work of breathing); Monitor hydration status and intake and output (I&O)."
-        },
-        "reviewUnits": [
-            {
-                "heading": "RSV / Bronchiolitis — Pathophysiology & Recognition",
-                "body": "RSV causes inflammation and necrosis of the bronchiolar epithelium, leading to increased mucus production and airway obstruction. Infants are obligate nose breathers, making nasal congestion a significant problem. Frequent nasal suctioning helps clear the airway, improving gas exchange. Humidified oxygen supports oxygenation by increasing the partial pressure of oxygen in the inspired air and preventing further drying of the airway. Monitoring respiratory rate, effort, hydration status, and I&Os allows for early detection of clinical deterioration and guides fluid management. Implement Contact and Droplet precautions for RSV.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Feeding safety",
-                "body": "If the respiratory rate is > 60 breaths per minute, the infant is at high risk for aspiration due to uncoordinated swallowing and breathing. The infant should be NPO or receive IV fluids until the respiratory rate decreases and feeding safety can be reassessed.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for RSV / Bronchiolitis",
-                "body": "The priority nursing interventions are: Perform frequent nasal suctioning with a bulb syringe; Provide humidified oxygen and monitor SpO2. Monitor: Respiratory rate and effort (work of breathing); Monitor hydration status and intake and output (I&O). RSV is viral; antibiotics won't help. CPT is not routinely used for bronchiolitis as it can be stressful for the infant. While skin color is important, work of breathing and hydration are more sensitive monitoring points for RSV progression.",
-                "source": "Evidence-Based Nursing Practice"
-            }
-        ]
-    },
     "scoring": {
         "method": "polytomous",
-        "maxPoints": 5,
-        "SATA": {
-            "action1": 1,
-            "action2": 1,
-            "action3": -1,
-            "action4": -1,
-            "param1": 1,
-            "param2": 1,
-            "param3": -1,
-            "param4": -1
-        }
+        "maxPoints": 5
     },
     "sentinelStatus": "healed_v2026_v11"
 }

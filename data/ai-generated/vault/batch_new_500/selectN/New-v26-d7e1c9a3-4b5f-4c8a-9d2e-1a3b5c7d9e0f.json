@@ -1,93 +1,139 @@
 {
     "id": "New-v26-d7e1c9a3-4b5f-4c8a-9d2e-1a3b5c7d9e0f",
-    "type": "selectN",
-    "stem": "The patient's condition is deteriorating despite initial interventions. Based on the available information, which of the following actions should the nurse prioritize *NEXT*?",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 3
-    },
+    "type": "selectAll",
+    "stem": "The nurse evaluates the client's deteriorating condition. Based on the data in the electronic health record, which actions should the nurse implement immediately? Select all that apply.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Increase the 0.9% sodium chloride infusion rate."
+        },
+        {
+            "id": "opt_02",
+            "text": "Decrease the regular insulin infusion rate."
+        },
+        {
+            "id": "opt_03",
+            "text": "Administer the PRN IV potassium chloride."
+        },
+        {
+            "id": "opt_04",
+            "text": "Administer a STAT bolus of furosemide."
+        },
+        {
+            "id": "opt_05",
+            "text": "Administer IV sodium bicarbonate."
+        },
+        {
+            "id": "opt_06",
+            "text": "Request a STAT neurology consult."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_03"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Medical ICU",
+            "name": "Marcus Thorne",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "He/him",
             "allergies": [
                 "Penicillin"
-            ]
+            ],
+            "iso": "Medical ICU"
         },
-        "sbar": "S: John Smith, 68-year-old male, admitted two days ago for Hyperosmolar Hyperglycemic Syndrome (HHS). B: History of poorly controlled Type 2 DM. Admitted with altered mental status and glucose of 980 mg/dL. A: At 07:00, the patient's glucose is 650 mg/dL, but mental status is worsening; now lethargic and difficult to arouse. Urine output decreased to 15 mL/hr over the last hour. Vitals: BP 90/50 mmHg, HR 120 bpm, RR 28 and deep, SpO2 94% on 2L NC. ABG: pH 7.28, PaCO2 28 mmHg, HCO3 14 mEq/L. K+ 3.1 mEq/L. Continuous insulin infusion at 3 units/hr. A: Possible fluid deficit, worsening acidosis, and hypokalemia despite treatment. R: Requesting orders for increased IV fluid rate, potassium replacement, and evaluation for possible bicarbonate administration. Needs close monitoring. Last BM was three days ago. Called provider at 07:15.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Glucose</td><td>650 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>Potassium</td><td>3.1 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>148 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Chloride</td><td>108 mEq/L</td><td>95-105 mEq/L</td></tr><tr><td>Bicarbonate</td><td>14 mEq/L</td><td>22-28 mEq/L</td></tr><tr><td>BUN</td><td>45 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>2.0 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>pH (ABG)</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>PaCO2 (ABG)</td><td>28 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2 (ABG)</td><td>90 mmHg</td><td>80-100 mmHg</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<h5>Admission Note - Day 1, 18:00</h5><p><strong>S:</strong> Client is a 68-year-old male brought to the ED by his adult child due to profound lethargy and confusion for the past 24 hours. Adult child reports client has been excessively thirsty and urinating frequently for several days.</p><p><strong>B:</strong> History of poorly controlled Type 2 Diabetes Mellitus, hypertension, and hyperlipidemia. Client lives alone in a rural area with limited access to fresh food and pharmacy services, which has complicated his diabetes management. Fingerstick glucose in ED was >600 mg/dL.</p><p><strong>A:</strong> Alert to name only, not oriented to time or place. Mucous membranes are dry, skin turgor is poor. Lungs clear. Tachycardic. Abdomen soft. Admitted to ICU for management of Hyperosmolar Hyperglycemic Syndrome (HHS).</p><p><strong>R:</strong> Initiated IV access, started 0.9% sodium chloride infusion. Started continuous regular insulin infusion per protocol. Placed on continuous cardiac monitoring. Awaiting lab results.</p><h5>Progress Note - Day 2, 07:00</h5><p><strong>S:</strong> Client's mental status has declined over the past hour. Now difficult to arouse, responding only to painful stimuli.</p><p><strong>B:</strong> Admitted yesterday for HHS. Has been receiving continuous IV fluids and an insulin infusion. Urine output has been steadily decreasing.</p><p><strong>A:</strong> Vitals: BP 90/50 mmHg (MAP 63), HR 120 bpm (Sinus Tachycardia), RR 28/min (deep, Kussmaul-like), SpO₂ 94% on 2L NC. Temp 99.0°F (37.2°C). Urine output is 15 mL over the last hour. Recent labs show persistent hyperglycemia (650 mg/dL), worsening metabolic acidosis (pH 7.28, HCO3 14), and critical hypokalemia (K+ 3.1 mEq/L). The client is severely volume depleted, leading to hypotension and acute kidney injury.</p><p><strong>R:</strong> Provider has been notified of the change in status and new lab values. Awaiting new orders. Recommend immediate fluid resuscitation and electrolyte correction.</p>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th><th>Urine Output</th></tr></thead><tbody><tr><td>06:00</td><td>100/60</td><td>110</td><td>24</td><td>96%</td><td>37.2°C</td><td>30 mL/hr</td></tr><tr><td>07:00</td><td>90/50</td><td>120</td><td>28</td><td>94%</td><td>37.2°C</td><td>15 mL/hr</td></tr></tbody></table>"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th><th>Urine Output (mL/hr)</th></tr></thead><tbody><tr><td>04:00</td><td>110/70 (83)</td><td>105</td><td>22</td><td>96% on 2L NC</td><td>99.1°F (37.3°C)</td><td>40</td></tr><tr><td>06:00</td><td>100/60 (73)</td><td>110</td><td>24</td><td>96% on 2L NC</td><td>99.0°F (37.2°C)</td><td>30</td></tr><tr><td>07:00</td><td>90/50 (63)</td><td>120</td><td>28</td><td>94% on 2L NC</td><td>99.0°F (37.2°C)</td><td>15</td></tr></tbody></table><p><strong>Telemetry:</strong> Sinus Tachycardia. Rate 120-125 bpm. No ectopy noted.</p>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Insulin Regular</td><td>3 units/hr</td><td>IV</td><td>Continuous Infusion</td><td>Ongoing</td></tr><tr><td>0.9% Sodium Chloride</td><td>100 mL/hr</td><td>IV</td><td>Continuous Infusion</td><td>Ongoing</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>IV</td><td>Every 4 hours PRN for K+ < 3.5</td><td>06:00</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Value</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Glucose</td><td>650</td><td>mg/dL</td><td>70-110</td><td>High</td></tr><tr><td>Potassium</td><td>3.1</td><td>mEq/L</td><td>3.5-5.0</td><td>Low</td></tr><tr><td>Sodium</td><td>148</td><td>mEq/L</td><td>135-145</td><td>High</td></tr><tr><td>Chloride</td><td>108</td><td>mEq/L</td><td>95-105</td><td>High</td></tr><tr><td>Bicarbonate (HCO3)</td><td>14</td><td>mEq/L</td><td>22-28</td><td>Low</td></tr><tr><td>BUN</td><td>45</td><td>mg/dL</td><td>10-20</td><td>High</td></tr><tr><td>Creatinine</td><td>2.0</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td colspan='5'><strong>Arterial Blood Gas (ABG)</strong></td></tr><tr><td>pH</td><td>7.28</td><td></td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>28</td><td>mmHg</td><td>35-45</td><td>Low</td></tr><tr><td>PaO₂</td><td>90</td><td>mmHg</td><td>80-100</td><td>Normal</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<h5>Admission Exam - Day 1, 18:15</h5><p><strong>General:</strong> Appears lethargic, arouses to verbal stimuli but is confused.</p><p><strong>Neurological:</strong> GCS 13 (E4, V4, M5). Not oriented to time or place.</p><p><strong>Cardiovascular:</strong> S1, S2 audible. Tachycardic rate, regular rhythm. Pulses +2 peripherally.</p><p><strong>Respiratory:</strong> Lungs clear to auscultation bilaterally. Respirations are deep and rapid.</p><p><strong>Gastrointestinal:</strong> Abdomen soft, non-tender. Bowel sounds hypoactive.</p><p><strong>Integumentary:</strong> Skin warm, dry. Mucous membranes are dry. Skin turgor >3 seconds.</p><h5>Focused Exam - Day 2, 07:05</h5><p><strong>Neurological:</strong> Difficult to arouse, responds to painful stimuli by withdrawing. GCS 8 (E2, V2, M4).</p><p><strong>Cardiovascular:</strong> Tachycardia persists. Capillary refill >4 seconds.</p><p><strong>Integumentary:</strong> Skin is cool to the touch peripherally. Mucous membranes are parched.</p>"
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<h5>Chest X-Ray (Portable, AP View) - Day 1, 19:00</h5><p><strong>Indication:</strong> Altered mental status, rule out pneumonia.</p><p><strong>Findings:</strong> Lungs are clear without evidence of consolidation, effusion, or pulmonary edema. Cardiomediastinal silhouette is within normal limits. Bony structures are unremarkable.</p><p><strong>Impression:</strong> No acute cardiopulmonary process.</p>"
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 18:30</td><td>Admit to Medical ICU.</td><td>Standing</td></tr><tr><td>Day 1, 18:30</td><td>NPO</td><td>Standing</td></tr><tr><td>Day 1, 18:30</td><td>Vital signs, neuro checks</td><td>Every 1 hour</td></tr><tr><td>Day 1, 18:30</td><td>Continuous cardiac monitoring</td><td>Standing</td></tr><tr><td>Day 1, 18:30</td><td>Hourly blood glucose checks</td><td>Standing</td></tr><tr><td>Day 1, 18:30</td><td>0.9% Sodium Chloride</td><td>Continuous IV at 100 mL/hr</td></tr><tr><td>Day 1, 18:30</td><td>Regular Insulin Infusion</td><td>Start at 3 units/hr IV</td></tr><tr><td>Day 1, 18:30</td><td>Potassium Chloride 20 mEq in 100mL NS</td><td>IVPB over 1 hour PRN for K+ < 3.5 mEq/L</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Insulin, Regular</td><td>3 units/hr</td><td>IV</td><td>Continuous Infusion</td><td>Ongoing</td></tr><tr><td>0.9% Sodium Chloride</td><td>100 mL/hr</td><td>IV</td><td>Continuous Infusion</td><td>Ongoing</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>IV</td><td>PRN for K+ < 3.5</td><td>Not yet administered</td></tr></tbody></table>"
             }
-        ],
-        "isolation": "standard"
-    },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
-        "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
         ]
     },
     "rationale": {
-        "correct": "Increasing the IV fluid infusion rate is crucial to address the patient's dehydration and hypotension, which are contributing to decreased urine output and worsening mental status. Rapid fluid replacement helps restore circulating volume and improve renal perfusion. Administering IV potassium chloride is essential to correct the hypokalemia, which can lead to cardiac arrhythmias and further complications. The insulin infusion rate should be carefully evaluated, but not necessarily decreased immediately, as hyperglycemia still needs to be addressed while cautiously correcting the acidosis and potassium levels. Close monitoring of glucose and potassium levels is vital during this process. \n\nclinicalPearl: Monitor for signs of fluid overload, especially in patients with cardiac or renal dysfunction.",
-        "incorrect": "Decreasing the insulin infusion rate may lead to a rebound in glucose levels, exacerbating the HHS and potentially leading to further neurological decline. Administering sodium bicarbonate is controversial and not a first-line treatment for HHS-related acidosis; it can worsen hypokalemia and cause cerebral edema. Bicarbonate is typically reserved for severe acidemia (pH < 7.0) and should be used cautiously. Administering a bolus of furosemide would further deplete fluids and electrolytes in a dehydrated patient, exacerbating the existing hypovolemia and hypokalemia. Contacting the provider is already done; further actions must be taken based on that communication.\n\nclinicalPearl: Avoid rapid correction of hyperglycemia to prevent cerebral edema. Monitor neurological status closely during treatment.",
-        "clinicalPearls": [
-            "In HHS, fluid resuscitation is paramount, often requiring several liters of isotonic saline in the initial hours to restore intravascular volume and improve tissue perfusion.",
-            "Potassium replacement is crucial in HHS management, even if the initial potassium level is normal, as insulin administration shifts potassium intracellularly, potentially leading to life-threatening hypokalemia.",
-            "Avoid rapid correction of hyperglycemia to prevent cerebral edema. A gradual reduction in glucose levels is preferred to minimize the risk of neurological complications."
+        "correct": "The client's hypotension (BP 90/50), tachycardia (HR 120), oliguria (15 mL/hr), and poor perfusion indicate severe hypovolemic shock secondary to osmotic diuresis from HHS. The immediate priority is to restore intravascular volume by increasing the IV fluid rate. Concurrently, the client has critical hypokalemia (K+ 3.1 mEq/L), which is exacerbated by the ongoing insulin infusion driving potassium into the cells. This must be corrected immediately to prevent life-threatening cardiac dysrhythmias.",
+        "incorrect": "Decreasing the insulin infusion would worsen hyperglycemia and acidosis. Furosemide is contraindicated as it would exacerbate the severe dehydration. Sodium bicarbonate is not indicated for this level of acidosis (pH 7.28) and can cause paradoxical CNS acidosis and worsen hypokalemia. A neurology consult is a lower priority than immediate hemodynamic and electrolyte stabilization.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The client is hypotensive (MAP 63), tachycardic, and oliguric, all signs of profound fluid volume deficit. Aggressive fluid resuscitation is the cornerstone of HHS management to restore tissue perfusion and correct electrolyte imbalances."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. While the insulin infusion contributes to hypokalemia, the client's glucose is still dangerously high at 650 mg/dL. The priority is to correct the potassium and continue treating the hyperglycemia. Stopping or decreasing insulin would worsen the metabolic derangement."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. The potassium level of 3.1 mEq/L is critically low. Insulin therapy shifts potassium intracellularly, which will worsen the hypokalemia. This places the client at high risk for fatal cardiac arrhythmias. The PRN order is available and should be administered immediately."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. Furosemide is a loop diuretic that would cause further fluid and electrolyte loss. Administering it to a client with severe hypovolemia and hypotension would be catastrophic and could lead to cardiovascular collapse."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Incorrect. Sodium bicarbonate is generally reserved for severe metabolic acidosis (pH < 7.0) due to risks like worsening hypokalemia and paradoxical CNS acidosis. The client's acidosis (pH 7.28) is primarily due to dehydration and will likely correct with fluid resuscitation."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. While the client has a declining neurological status, the root cause is metabolic (HHS, dehydration). The immediate life-threatening priorities are hemodynamic instability and critical hypokalemia. The neurological status should improve with metabolic correction."
+            }
         ],
-        "questionTrap": {
-            "trap": "The low pH might tempt you to select bicarbonate administration, but this is rarely used in HHS due to the risk of paradoxical CNS acidosis and is usually reserved for severe acidemia (pH <7.0).",
-            "howToOvercome": "Carefully assess the underlying cause of the acidosis (ketones vs. dehydration) and prioritize fluid resuscitation and electrolyte replacement before considering bicarbonate. Consider the potential risks of bicarbonate administration in HHS."
-        },
-        "mnemonic": {
-            "title": "HHS Management",
-            "expansion": "Hydrate: Replace fluids aggressively. Hyperglycemia: Correct with insulin. Hypokalemia: Replace potassium. Support: Monitor vitals and mental status."
-        }
+        "clinicalPearls": [
+            "In HHS management, fluid resuscitation is the absolute first priority, often preceding insulin administration, to stabilize hemodynamics and improve renal perfusion.",
+            "Insulin therapy should not be initiated if the serum potassium is < 3.3 mEq/L, as insulin will drive potassium into cells, worsening hypokalemia and risking cardiac arrest. Correct potassium first.",
+            "A rapid decrease in serum osmolality from overly aggressive fluid and insulin therapy can lead to cerebral edema, a devastating complication. Monitor neurological status closely during treatment."
+        ],
+        "questionTrap": "The deteriorating neurological status might tempt you to prioritize a neurology consult. However, in HHS, altered mental status is an expected finding directly related to hyperosmolality and dehydration. The priority is to treat the underlying metabolic cause, not to consult another service before stabilizing the patient.",
+        "mnemonic": "For HHS priorities, remember 'HI-K': Hydration (aggressive IV fluids first!), Insulin (to lower glucose), and Kalium (the Latin word for potassium, which must be corrected before or during insulin therapy).",
+        "reviewUnits": [
+            "Endocrine Disorders",
+            "Fluid and Electrolytes",
+            "Acid-Base Balance",
+            "Critical Care Nursing"
+        ]
     },
-    "options": [
-        {
-            "key": "a",
-            "label": "Increase the IV fluid infusion rate.",
-            "valid": true
-        },
-        {
-            "key": "b",
-            "label": "Decrease the insulin infusion rate.",
-            "valid": false
-        },
-        {
-            "key": "c",
-            "label": "Administer IV potassium chloride.",
-            "valid": true
-        },
-        {
-            "key": "d",
-            "label": "Administer a bolus of furosemide.",
-            "valid": false
-        },
-        {
-            "key": "e",
-            "label": "Administer sodium bicarbonate.",
-            "valid": false
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "polytomousPlusMinus",
+        "maxPoints": 2
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:40:50.054Z"
 }

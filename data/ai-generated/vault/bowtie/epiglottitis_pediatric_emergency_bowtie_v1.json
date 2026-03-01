@@ -1,57 +1,115 @@
 {
-    "id": "epiglottitis_pediatric_emergency_bowtie_v1",
+    "id": "epiglottitis_pediatric_emergency_bowtie_v3",
     "type": "bowtie",
-    "stem": "A 4-year-old child is brought to the Emergency Department (ED) at 1400 with a high fever, muffled voice, and is drooling while sitting forward in a 'tripod' position. He appears anxious and is not coughing. Complete the bowtie to guide management.",
+    "ehr": {
+        "tabs": [
+            {
+                "id": "nurses_note",
+                "title": "Nurse's Note",
+                "content": "Date: [Current Date]\nTime: 14:05\n\nSBAR Report to Attending Physician:\n\nSituation: This is Nurse Alex in the ED. I'm calling about Leo, a 4-year-old male who presented at 14:00 with acute respiratory distress.\n\nBackground: Leo has no significant past medical history. His parents report a sudden onset of high fever and sore throat this morning. He is up-to-date on most immunizations but missed his 4-year-old boosters, including Hib.\n\nAssessment: He is anxious, drooling, and sitting in a tripod position with a muffled voice. Vital signs are: T 39.8°C, HR 140, RR 32, SpO2 91% on room air. Inspiratory stridor is audible.\n\nRecommendation: I need you at the bedside immediately. We are preparing for emergent airway management. Please advise on next orders."
+            },
+            {
+                "id": "vitals",
+                "title": "Vital Signs",
+                "content": "Time: 14:00\nTemperature: 39.8°C (103.6°F)\nHeart Rate: 140/min\nRespiratory Rate: 32/min\nBlood Pressure: 95/60 mmHg\nSpO2: 91% on room air"
+            },
+            {
+                "id": "history_physical",
+                "title": "History & Physical",
+                "content": "Patient: Leo Chen\nAge: 4 years\nAllergies: No Known Allergies\nImmunizations: Incomplete (missed 4-year boosters, including Hib)\nPresenting Complaint: High fever, sore throat, difficulty breathing. Child is sitting upright, leaning forward, and drooling. Appears anxious and in distress. Muffled voice noted. Lungs clear to auscultation bilaterally. Inspiratory stridor present."
+            }
+        ]
+    },
+    "stem": "The nurse in the emergency department is caring for a 4-year-old child with acute respiratory distress. The nurse suspects acute epiglottitis based on the client's electronic health record. Complete the bowtie by selecting the appropriate actions to take and parameters to monitor.",
+    "potentialConditions": [
+        {
+            "id": "pc1",
+            "text": "Acute Epiglottitis",
+            "rationale": "Correct. Acute epiglottitis is a bacterial infection causing severe inflammation of the epiglottis. This leads to life-threatening airway obstruction, presenting with the classic signs of drooling, distress, dysphonia, and tripod positioning, all seen in this client."
+        },
+        {
+            "id": "pc2",
+            "text": "Croup (Laryngotracheobronchitis)",
+            "rationale": "Incorrect. Croup is typically viral and presents with a distinctive 'barking' cough and hoarseness. This client has a muffled voice and no cough, which is inconsistent with croup."
+        },
+        {
+            "id": "pc3",
+            "text": "Peritonsillar Abscess",
+            "rationale": "Incorrect. A peritonsillar abscess typically presents with a unilateral sore throat, 'hot potato' voice, and uvular deviation. These findings are not present in this client's assessment."
+        },
+        {
+            "id": "pc4",
+            "text": "Retropharyngeal Abscess",
+            "rationale": "Incorrect. A retropharyngeal abscess often presents with neck stiffness and pain on movement, in addition to drooling and fever. This client's primary signs are respiratory distress and tripod positioning."
+        },
+        {
+            "id": "pc5",
+            "text": "Bacterial Tracheitis",
+            "rationale": "Incorrect. Bacterial tracheitis typically presents with a brassy cough and purulent secretions, often following a viral illness. This client's sudden onset, muffled voice, and lack of cough point away from this diagnosis."
+        }
+    ],
     "actions": [
         {
-            "id": "action3",
-            "text": "Avoid examining the throat with a tongue depressor"
+            "id": "a1",
+            "text": "Prepare for emergent intubation",
+            "rationale": "Correct. Severe epiglottic swelling can cause sudden, complete airway obstruction. Preparing for emergent intubation is the highest priority to secure a patent airway and prevent respiratory arrest."
         },
         {
-            "id": "action4",
-            "text": "Defer obtaining an oropharyngeal culture"
+            "id": "a2",
+            "text": "Initiate IV antibiotics",
+            "rationale": "Correct. Acute epiglottitis is a bacterial infection. Prompt administration of IV antibiotics is essential to treat the underlying pathogen, reduce inflammation, and prevent systemic complications like sepsis."
         },
         {
-            "id": "action1",
-            "text": "Prepare for emergent intubation or tracheostomy"
+            "id": "a3",
+            "text": "Administer nebulized racemic epinephrine",
+            "rationale": "Incorrect. Racemic epinephrine is used for subglottic edema seen in croup. Its use in epiglottitis is not indicated and would waste critical time needed for definitive airway management."
         },
         {
-            "id": "action2",
-            "text": "Initiate IV antibiotics and fluids"
+            "id": "a4",
+            "text": "Place the child in a supine position",
+            "rationale": "Incorrect. Placing the child in a supine position is dangerous as it can cause the swollen epiglottis to fall backward and completely occlude the airway, leading to immediate respiratory arrest."
+        },
+        {
+            "id": "a5",
+            "text": "Obtain a throat culture",
+            "rationale": "Incorrect. Using a tongue blade or attempting a throat culture can provoke laryngospasm in a child with epiglottitis. This can cause a sudden, complete airway obstruction and is strictly contraindicated."
         }
     ],
-    "potentialConditions": [
-        "Acute Epiglottitis",
-        "Croup (Laryngotracheobronchitis)",
-        "Peritonsillar Abscess",
-        "Retropharyngeal Abscess"
-    ],
-    "condition": "Acute Epiglottitis",
     "parameters": [
         {
-            "id": "param1",
-            "text": "Respiratory effort and presence of stridor"
+            "id": "p1",
+            "text": "Respiratory effort and stridor",
+            "rationale": "Correct. Worsening stridor and increased work of breathing (retractions) are direct signs of progressive airway narrowing from epiglottic swelling. This indicates impending respiratory failure."
         },
         {
-            "id": "param4",
-            "text": "Level of consciousness"
+            "id": "p2",
+            "text": "Oxygen saturation",
+            "rationale": "Correct. Oxygen saturation reflects the effectiveness of gas exchange. A decline in SpO2 is a critical indicator of worsening airway obstruction and impending respiratory failure, requiring immediate intervention."
         },
         {
-            "id": "param2",
-            "text": "Heart rate and Oxygen saturation"
+            "id": "p3",
+            "text": "Level of consciousness",
+            "rationale": "Incorrect. A change in level of consciousness is a late sign of significant hypoxia. Relying on this parameter would delay intervention until the client is already in severe distress or near respiratory arrest."
         },
         {
-            "id": "param3",
-            "text": "Skin color and temperature"
+            "id": "p4",
+            "text": "Temperature",
+            "rationale": "Incorrect. While fever is present, it is a symptom of the infection, not a direct measure of airway patency. The immediate life threat is airway obstruction, making this a lower priority."
+        },
+        {
+            "id": "p5",
+            "text": "Cough characteristics",
+            "rationale": "Incorrect. The absence of a cough is a diagnostic feature that helps differentiate epiglottitis from croup. It is not a dynamic parameter to monitor for deterioration."
         }
     ],
+    "condition": "pc1",
     "correctActionIds": [
-        "action1",
-        "action2"
+        "a1",
+        "a2"
     ],
     "correctParameterIds": [
-        "param1",
-        "param2"
+        "p1",
+        "p2"
     ],
     "pedagogy": {
         "bloomLevel": "analyze",
@@ -64,91 +122,9 @@
             "Emergency"
         ]
     },
-    "rationale": {
-        "correct": "Epiglottitis is a medical emergency characterized by rapid inflammation of the epiglottis, potentially leading to airway obstruction. The classic presentation includes the 'tripod' position, drooling, dysphagia, distress, and a muffled voice. The priority is securing the airway through emergent intubation or tracheostomy. IV antibiotics are crucial to treat the underlying bacterial infection, commonly Haemophilus influenzae type b (Hib). Fluids are administered to maintain hydration and support circulation. Monitoring respiratory effort, stridor, heart rate, and oxygen saturation are essential to assess the patient's condition and response to treatment.",
-        "incorrect": "Examining the throat with a tongue depressor or obtaining an oropharyngeal culture is contraindicated in suspected epiglottitis. These actions can trigger laryngospasm and complete airway obstruction. Focus should be on maintaining a calm environment and preparing for immediate airway intervention. Bowel sounds and throat color are not relevant to the acute management of epiglottitis.",
-        "clinicalPearls": [
-            "Maintain a calm environment to minimize anxiety and potential airway constriction.",
-            "Avoid agitating the child, as crying can worsen airway obstruction.",
-            "Have emergency airway equipment readily available at the bedside.",
-            "Epiglottitis is most commonly caused by Haemophilus influenzae type b (Hib), but other bacteria can also be responsible."
-        ],
-        "questionTrap": {
-            "trap": "Coughing",
-            "howToOvercome": "Croup is characterized by a barking cough, while epiglottitis typically presents with minimal or no cough due to pain and airway swelling. Focus on the other key symptoms: drooling, tripod positioning, and muffled voice."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Acute Epiglottitis\" is the only diagnosis that accounts for the constellation of clinical findings present: high fever, muffled voice, drooling, tripod positioning, and absence of cough.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Prepare for emergent intubation or tracheostomy\" directly addresses the primary threat of airway obstruction in acute epiglottitis. This is the highest priority intervention.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Initiate IV antibiotics and fluids\" directly targets the underlying bacterial infection and supports hydration and circulation. This is a crucial intervention after airway stabilization.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Avoid examining the throat with a tongue depressor\" is crucial as it can trigger laryngospasm and complete airway obstruction.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Defer obtaining an oropharyngeal culture\" is important as it can trigger laryngospasm and complete airway obstruction. Diagnosis is often clinical and confirmed after airway stabilization.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Respiratory effort and presence of stridor\" provides essential data on the effectiveness of interventions and the patient's respiratory status. Stridor indicates upper airway obstruction.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Heart rate and Oxygen saturation\" provides critical information about the patient's cardiovascular and respiratory function. Changes in these parameters can indicate worsening respiratory distress.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Level of consciousness\" is not the most relevant parameter for immediate assessment and management of epiglottitis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Skin color and temperature\" are less specific indicators of respiratory distress compared to respiratory effort, stridor, heart rate, and oxygen saturation.",
-                "isCorrect": false
-            }
-        ],
-        "mnemonic": {
-            "title": "AEIOU TIPS for Epiglottitis",
-            "expansion": "A = Airway (Protect the airway first! Intubation/Tracheostomy)\nE = Epiglottitis\nI = IV Antibiotics (Treat the infection)\nO = Observe Respiratory Status (Stridor, effort)\nU = Understand Contraindications (No throat exam!)\n\nT = Tripod Position\nI = Increased Drooling\nP = Prepare for Intubation\nS = Stridor"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Acute Epiglottitis — Pathophysiology & Recognition",
-                "body": "Epiglottitis is a rapidly progressive bacterial infection of the epiglottis and surrounding structures, leading to severe inflammation and potential airway obstruction. Key signs and symptoms include: high fever, sore throat, dysphagia, drooling, muffled voice, and the characteristic 'tripod' position. Absence of cough is also a key indicator. It is a medical emergency requiring immediate intervention.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Coughing",
-                "body": "Distinguish epiglottitis from croup. Croup presents with a barking cough, while epiglottitis typically has minimal or no cough due to pain and airway swelling. Focus on the other key symptoms: drooling, tripod positioning, and muffled voice.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Acute Epiglottitis",
-                "body": "The priority nursing interventions are: Prepare for emergent intubation or tracheostomy; Initiate IV antibiotics and fluids. Monitor: Respiratory effort and presence of stridor; Heart rate and Oxygen saturation. Contraindications: NEVER perform a throat exam or put anything in the mouth as it can trigger laryngospasm and total airway closure. Oropharyngeal cultures are also dangerous for the same reason in an un-intubated child. Maintain a calm environment.",
-                "source": "Evidence-Based Nursing Practice"
-            }
-        ]
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "remediated_v2026_v2"
 }

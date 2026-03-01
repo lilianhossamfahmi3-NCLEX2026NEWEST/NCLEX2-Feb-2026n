@@ -1,48 +1,170 @@
 {
-    "id": "dka_emergency_bowtie_v1",
+    "id": "dka_emergency_bowtie_v2",
     "type": "bowtie",
-    "stem": "An 18-year-old with Type 1 Diabetes is admitted at 1400 with thirst, polyuria, and confusion. SBAR: Patient reports 3 days of increased thirst and urination. Alert and oriented to person only. Labs: Glucose 540 mg/dL, pH 7.22, HCO3 12 mEq/L, Ketones positive in urine. Complete the bowtie to plan the clinical management.",
-    "actions": [
+    "ehr": {
+        "tabs": [
+            {
+                "id": "patient_info",
+                "title": "Patient Information",
+                "data": {
+                    "Name": "John Doe",
+                    "Age": "18 years",
+                    "Gender": "Male",
+                    "DOB": "YYYY-MM-DD",
+                    "Allergies": "No Known Allergies",
+                    "Past Medical History": "Type 1 Diabetes Mellitus (diagnosed at age 12)"
+                }
+            },
+            {
+                "id": "nurses_notes",
+                "title": "Nurses' Notes",
+                "data": [
+                    {
+                        "time": "14:15",
+                        "note": "SITUATION: This is the ED nurse at 14:15. I am calling about John Doe, an 18-year-old male with type 1 diabetes presenting with altered mental status and signs of severe dehydration.\nBACKGROUND: He has had a viral illness for three days with poor intake and has missed several insulin doses.\nASSESSMENT: He is tachycardic to 125, hypotensive at 90/60, with Kussmaul respirations. He is lethargic, has a fruity breath odor, and his point-of-care glucose is 540 mg/dL.\nRECOMMENDATION: I request immediate orders to initiate the DKA protocol, starting with IV fluids and an insulin infusion."
+                    }
+                ]
+            },
+            {
+                "id": "lab_results",
+                "title": "Laboratory Results",
+                "data": {
+                    "Comprehensive Metabolic Panel (CMP)": [
+                        {
+                            "test": "Sodium",
+                            "value": "132 mEq/L",
+                            "range": "136-145 mEq/L"
+                        },
+                        {
+                            "test": "Potassium",
+                            "value": "4.2 mEq/L",
+                            "range": "3.5-5.0 mEq/L"
+                        },
+                        {
+                            "test": "Chloride",
+                            "value": "98 mEq/L",
+                            "range": "98-106 mEq/L"
+                        },
+                        {
+                            "test": "Bicarbonate (HCO3)",
+                            "value": "12 mEq/L",
+                            "range": "22-29 mEq/L"
+                        },
+                        {
+                            "test": "BUN",
+                            "value": "30 mg/dL",
+                            "range": "10-20 mg/dL"
+                        },
+                        {
+                            "test": "Creatinine",
+                            "value": "1.5 mg/dL",
+                            "range": "0.6-1.2 mg/dL"
+                        },
+                        {
+                            "test": "Glucose",
+                            "value": "540 mg/dL",
+                            "range": "74-106 mg/dL"
+                        },
+                        {
+                            "test": "Anion Gap",
+                            "value": "22 mEq/L",
+                            "range": "8-16 mEq/L"
+                        }
+                    ],
+                    "Arterial Blood Gas (ABG)": [
+                        {
+                            "test": "pH",
+                            "value": "7.22",
+                            "range": "7.35-7.45"
+                        },
+                        {
+                            "test": "PaCO2",
+                            "value": "28 mmHg",
+                            "range": "35-45 mmHg"
+                        },
+                        {
+                            "test": "HCO3",
+                            "value": "12 mEq/L",
+                            "range": "22-26 mEq/L"
+                        }
+                    ],
+                    "Urinalysis": [
+                        {
+                            "test": "Ketones",
+                            "value": "Large",
+                            "range": "Negative"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "stem": "An 18-year-old client with Type 1 Diabetes is admitted to the emergency department with a hyperglycemic crisis. After reviewing the client's record, the nurse prepares to intervene. Complete the bowtie to select the priority condition, actions, and parameters for this client's care.",
+    "potentialConditions": [
         {
-            "id": "action4",
-            "text": "Start 5% Dextrose with 0.45% NS immediately."
+            "id": "cond1",
+            "text": "Diabetic Ketoacidosis (DKA)",
+            "hoverRationale": "The triad of hyperglycemia (>250 mg/dL), ketosis, and metabolic acidosis (pH <7.3, HCO3 <18) confirms DKA. This results from absolute insulin deficiency leading to uncontrolled lipolysis and ketone production."
         },
         {
+            "id": "cond2",
+            "text": "Lactic Acidosis",
+            "hoverRationale": "This condition involves elevated lactate levels, typically from tissue hypoxia. While acidosis is present, the primary driver is lactate, not ketones, and the client's profound hyperglycemia points away from this diagnosis."
+        },
+        {
+            "id": "cond3",
+            "text": "Alcoholic Ketoacidosis",
+            "hoverRationale": "This is caused by heavy alcohol use and starvation, leading to ketosis with normal or low glucose levels. The client's profound hyperglycemia makes this diagnosis unlikely."
+        },
+        {
+            "id": "cond4",
+            "text": "Hyperosmolar Hyperglycemic State (HHS)",
+            "hoverRationale": "HHS is characterized by severe hyperglycemia without significant ketosis or acidosis. The client's positive ketones and low pH are hallmark signs of DKA, not HHS."
+        }
+    ],
+    "condition": "Diabetic Ketoacidosis (DKA)",
+    "actions": [
+        {
             "id": "action1",
-            "text": "Initiate IV 0.9% Normal Saline bolus."
+            "text": "Initiate IV 0.9% Normal Saline bolus.",
+            "hoverRationale": "DKA causes profound dehydration from osmotic diuresis. Isotonic fluid resuscitation is the first priority to restore intravascular volume, improve tissue perfusion, and enhance renal clearance of glucose and ketones."
         },
         {
             "id": "action2",
-            "text": "Start Regular Insulin infusion (0.1 units/kg/hr)."
+            "text": "Start Regular Insulin infusion (0.1 units/kg/hr).",
+            "hoverRationale": "A continuous insulin infusion is essential to inhibit further ketone production, correct the metabolic acidosis, and gradually lower blood glucose. This addresses the core hormonal deficit causing DKA."
         },
         {
             "id": "action3",
-            "text": "Administer STAT Subcutaneous Glargine."
+            "text": "Administer STAT Subcutaneous Glargine.",
+            "hoverRationale": "Glargine is a long-acting basal insulin with a slow onset. It is not suitable for the acute management of DKA, which requires a rapid-acting, titratable IV insulin infusion."
+        },
+        {
+            "id": "action4",
+            "text": "Start 5% Dextrose with 0.45% NS immediately.",
+            "hoverRationale": "Adding dextrose is contraindicated when the blood glucose is severely elevated. Dextrose-containing fluids are only initiated once the glucose level falls to approximately 250 mg/dL to prevent hypoglycemia."
         }
     ],
-    "potentialConditions": [
-        "Diabetic Ketoacidosis (DKA)",
-        "Lactic Acidosis",
-        "Alcoholic Ketoacidosis",
-        "Hyperosmolar Hyperglycemic State (HHS)"
-    ],
-    "condition": "Diabetic Ketoacidosis (DKA)",
     "parameters": [
         {
             "id": "param1",
-            "text": "Monitor Blood Glucose levels hourly."
-        },
-        {
-            "id": "param4",
-            "text": "Assess Hemoglobin A1c."
-        },
-        {
-            "id": "param3",
-            "text": "Assess Weight and skin turgor."
+            "text": "Monitor Blood Glucose levels hourly.",
+            "hoverRationale": "Frequent glucose monitoring is critical to guide the titration of the insulin infusion. This ensures a controlled reduction in glucose and prevents iatrogenic hypoglycemia or cerebral edema."
         },
         {
             "id": "param2",
-            "text": "Monitor Serum Potassium and Anion Gap."
+            "text": "Monitor Serum Potassium and Anion Gap.",
+            "hoverRationale": "Insulin drives potassium into cells, risking severe hypokalemia. The anion gap reflects the severity of the metabolic acidosis; its closure indicates successful treatment and resolution of ketosis."
+        },
+        {
+            "id": "param3",
+            "text": "Assess Weight and skin turgor.",
+            "hoverRationale": "While useful for general hydration status, daily weights and skin turgor are not sensitive enough for real-time monitoring of fluid resuscitation effectiveness in the acute phase of DKA."
+        },
+        {
+            "id": "param4",
+            "text": "Assess Hemoglobin A1c.",
+            "hoverRationale": "Hemoglobin A1c reflects average blood glucose control over the past 2-3 months. It provides no information about the client's acute metabolic state and is not a priority for immediate management."
         }
     ],
     "correctActionIds": [
@@ -61,93 +183,13 @@
         "topicTags": [
             "Endocrine",
             "Diabetes",
-            "DKA"
-        ]
-    },
-    "rationale": {
-        "correct": "The patient presents with classic signs and symptoms of DKA: hyperglycemia (540 mg/dL), metabolic acidosis (pH 7.22, HCO3 12 mEq/L), and ketonuria. The priority is to address dehydration and hyperglycemia. An initial bolus of 0.9% Normal Saline (action1) restores intravascular volume, improving perfusion and aiding in glucose excretion. A continuous Regular Insulin infusion (action2) is crucial to gradually lower blood glucose and correct the metabolic acidosis by inhibiting lipolysis and ketogenesis. Hourly blood glucose monitoring (param1) is essential to titrate the insulin infusion and prevent hypoglycemia. Monitoring serum potassium and anion gap (param2) is vital because insulin shifts potassium intracellularly, potentially causing hypokalemia, and the anion gap reflects the severity of metabolic acidosis.",
-        "incorrect": "Starting 5% Dextrose with 0.45% NS immediately (action4) is contraindicated as it would further elevate blood glucose levels. Dextrose is added only when glucose levels fall below 250 mg/dL to prevent hypoglycemia. Subcutaneous Glargine (action3) is a long-acting insulin and is not appropriate for the acute management of DKA. Hemoglobin A1c (param4) reflects long-term glycemic control and is not useful in the acute setting. Weight and skin turgor (param3) are less sensitive indicators of hydration status compared to other parameters.",
-        "clinicalPearls": [
-            "Always assess potassium levels before initiating insulin therapy in DKA. Hypokalemia can lead to life-threatening arrhythmias.",
-            "Monitor the anion gap to assess the effectiveness of treatment. A decreasing anion gap indicates resolution of metabolic acidosis.",
-            "Educate patients on sick day management, including the importance of monitoring blood glucose and ketone levels, and adjusting insulin doses as needed."
-        ],
-        "questionTrap": {
-            "trap": "Potassium depletion",
-            "howToOvercome": "Even if initial potassium levels appear normal, total body potassium is often depleted in DKA due to osmotic diuresis. Insulin administration will further drive potassium intracellularly, potentially leading to severe hypokalemia. Proactive potassium replacement is often necessary."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Diabetic Ketoacidosis (DKA)\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Start 5% Dextrose with 0.45% NS immediately.\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Initiate IV 0.9% Normal Saline bolus.\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Start Regular Insulin infusion (0.1 units/kg/hr).\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer STAT Subcutaneous Glargine.\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Blood Glucose levels hourly.\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Hemoglobin A1c.\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Weight and skin turgor.\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Serum Potassium and Anion Gap.\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            }
-        ],
-        "mnemonic": {
-            "title": "DKA Treatment",
-            "expansion": "D: Dehydration - IV fluids (0.9% NS)\nK: K+ - Monitor and replace potassium\nA: Acidosis - Insulin infusion"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Diabetic Ketoacidosis — Pathophysiology & Recognition",
-                "body": "DKA is a life-threatening complication of diabetes characterized by hyperglycemia, metabolic acidosis, and ketonemia. It primarily occurs in individuals with type 1 diabetes due to absolute insulin deficiency. The lack of insulin leads to increased lipolysis, resulting in the production of ketone bodies, which cause metabolic acidosis. Hyperglycemia leads to osmotic diuresis, causing dehydration and electrolyte imbalances.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Potassium depletion",
-                "body": "Even if initial potassium levels appear normal, total body potassium is often depleted in DKA due to osmotic diuresis. Insulin administration will further drive potassium intracellularly, potentially leading to severe hypokalemia. Proactive potassium replacement is often necessary.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Diabetic Ketoacidosis",
-                "body": "The priority nursing interventions for DKA include: 1. Fluid resuscitation with IV 0.9% Normal Saline to correct dehydration. 2. Insulin infusion to lower blood glucose and correct metabolic acidosis. 3. Electrolyte monitoring and replacement, particularly potassium. 4. Frequent monitoring of blood glucose, arterial blood gases, and anion gap. 5. Addressing the underlying cause of DKA, such as infection or missed insulin doses.",
-                "source": "Evidence-Based Nursing Practice"
-            }
+            "DKA",
+            "Acid-Base Balance"
         ]
     },
     "scoring": {
         "method": "polytomous",
-        "maxPoints": 4
+        "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "BARA_remediated_v2026_f1"
 }

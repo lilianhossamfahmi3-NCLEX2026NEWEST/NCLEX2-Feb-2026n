@@ -1,53 +1,123 @@
 {
-    "id": "intussusception_pediatric_bowtie_v1",
+    "id": "intussusception_pediatric_bowtie_v2",
     "type": "bowtie",
-    "stem": "A 9-month-old infant presents with sudden, episodic abdominal pain, drawing his knees to his chest. He passed a 'currant jelly' stool. Select the MOST appropriate actions and parameters to guide care.",
+    "ehr": {
+        "patientProfile": {
+            "name": "Chen, Liam",
+            "dob": "Approx. 9 months ago",
+            "age": "9 months",
+            "gender": "Male",
+            "allergies": "NKA",
+            "weight": "9.1 kg (20 lbs)"
+        },
+        "tabs": [
+            {
+                "id": "vitals",
+                "label": "Vitals",
+                "content": "Time: 14:45\nTemperature: 37.1°C (98.8°F)\nHeart Rate: 145/min\nRespiratory Rate: 35/min\nBlood Pressure: 88/52 mmHg\nSpO2: 99% on room air"
+            },
+            {
+                "id": "nursesNotes",
+                "label": "Nurses' Notes",
+                "content": "14:00: Infant brought to ED by parents for episodes of sudden, loud crying. During episodes, infant pulls knees to chest. Parents report he is difficult to console. Lethargic between episodes.\n\n14:45: During assessment, a sausage-shaped mass was palpated in the right upper quadrant. Infant passed a stool that was red, mucoid, and resembled currant jelly."
+            },
+            {
+                "id": "diagnostics",
+                "label": "Diagnostics",
+                "content": "Abdominal Ultrasound Report:\n\nFindings consistent with ileocolic intussusception. No evidence of perforation or significant ischemia at this time."
+            }
+        ]
+    },
+    "clinicalFeed": {
+        "type": "SBAR",
+        "text": "Dr. Evans, this is Nurse Miller in the pediatric ED at 15:00. I'm calling about Liam Chen, a 9-month-old infant with confirmed intussusception who is having episodes of severe, colicky pain. He presented with paroxysmal crying, drawing his knees to his chest, and passed a 'currant jelly' stool. Vitals are stable, but he is lethargic between episodes, and we palpated a sausage-shaped mass in the RUQ. I recommend we proceed with the planned therapeutic air enema and continue NPO status with IV fluids."
+    },
+    "stem": "The nurse is reviewing the plan of care for a 9-month-old infant diagnosed with intussusception. The infant presented with episodic, severe abdominal pain and passed a 'currant jelly' stool. Complete the bowtie by selecting the appropriate actions, the condition the client is experiencing, and parameters to monitor.",
+    "potentialConditions": [
+        {
+            "id": "condition1",
+            "text": "Intussusception",
+            "hoverRationale": "Correct: Telescoping of the intestine leads to venous congestion, causing edema and ischemia. This results in the classic triad of colicky pain, a palpable sausage-shaped mass, and bloody, mucus-filled 'currant jelly' stools."
+        },
+        {
+            "id": "condition2",
+            "text": "Pyloric Stenosis",
+            "hoverRationale": "Incorrect: This condition involves hypertrophy of the pyloric sphincter, causing progressive, non-bilious projectile vomiting and a palpable olive-shaped mass. It does not cause bloody stools or the type of colicky pain seen here."
+        },
+        {
+            "id": "condition3",
+            "text": "Volvulus",
+            "hoverRationale": "Incorrect: This involves the twisting of the intestine, leading to acute obstruction and ischemia. It typically presents with bilious vomiting and constant, severe abdominal pain, rather than intermittent colicky pain."
+        },
+        {
+            "id": "condition4",
+            "text": "Meckel's Diverticulum",
+            "hoverRationale": "Incorrect: This congenital anomaly typically presents with painless, significant rectal bleeding (maroon-colored stools) due to ulceration, not the severe colicky pain and palpable mass seen in intussusception."
+        },
+        {
+            "id": "condition5",
+            "text": "Gastroenteritis",
+            "hoverRationale": "Incorrect: This is an infection causing inflammation of the GI tract, leading to diarrhea and vomiting. While stools can be bloody, the presence of a palpable mass and severe, paroxysmal pain is not characteristic."
+        }
+    ],
+    "condition": "condition1",
     "actions": [
         {
             "id": "action1",
-            "text": "Prepare for an air or barium enema."
-        },
-        {
-            "id": "action3",
-            "text": "Offer clear liquids until pain subsides."
-        },
-        {
-            "id": "action4",
-            "text": "Attempt manual reduction of the mass via abdominal palpation."
+            "text": "Prepare for a therapeutic air enema.",
+            "hoverRationale": "Correct: Insufflating air into the colon creates pressure that can successfully push the telescoped segment of the bowel back into its normal position, resolving the obstruction non-surgically."
         },
         {
             "id": "action2",
-            "text": "Initiate IV fluids and maintain NPO status."
-        }
-    ],
-    "potentialConditions": [
-        "Pyloric Stenosis",
-        "Volvulus",
-        "Meckel's Diverticulum",
-        "Intussusception"
-    ],
-    "condition": "Intussusception",
-    "parameters": [
-        {
-            "id": "param2",
-            "text": "Assess for signs of bowel perforation (rigidity, fever)."
+            "text": "Initiate IV fluids and maintain NPO status.",
+            "hoverRationale": "Correct: NPO status rests the bowel, preventing further distention. IV fluids are essential to correct dehydration from vomiting and third-spacing and to maintain hemodynamic stability before the reduction procedure."
         },
         {
-            "id": "param3",
-            "text": "Monitor urine specific gravity."
+            "id": "action3",
+            "text": "Administer an opioid analgesic.",
+            "hoverRationale": "Incorrect: While pain control is important, administering opioids can mask the signs of peritonitis or bowel perforation, such as a rigid abdomen, delaying the diagnosis of a life-threatening complication."
         },
         {
-            "id": "param4",
-            "text": "Measure head circumference."
+            "id": "action4",
+            "text": "Offer clear liquids.",
+            "hoverRationale": "Incorrect: Providing oral fluids is contraindicated in a client with a bowel obstruction. This can increase vomiting, abdominal distention, and the risk of aspiration."
         },
         {
-            "id": "param1",
-            "text": "Monitor characteristics of stool (consistency, color)."
+            "id": "action5",
+            "text": "Attempt manual reduction via abdominal palpation.",
+            "hoverRationale": "Incorrect: This procedure is not performed by nurses and is generally contraindicated due to the significant risk of causing bowel perforation, which would require emergency surgery."
         }
     ],
     "correctActionIds": [
         "action1",
         "action2"
+    ],
+    "parameters": [
+        {
+            "id": "param1",
+            "text": "Signs of bowel perforation.",
+            "hoverRationale": "Correct: Prolonged bowel obstruction and ischemia can lead to necrosis and perforation. Monitoring for fever, tachycardia, and a rigid, board-like abdomen is critical for early detection of this surgical emergency."
+        },
+        {
+            "id": "param2",
+            "text": "Stool characteristics.",
+            "hoverRationale": "Correct: The passage of a normal, brown stool is a key indicator that the intussusception has spontaneously reduced. This finding must be reported immediately as it may negate the need for a therapeutic enema."
+        },
+        {
+            "id": "param3",
+            "text": "Urine specific gravity.",
+            "hoverRationale": "Incorrect: While monitoring hydration status is important, it is a secondary priority compared to assessing for acute, life-threatening complications like perforation or monitoring for resolution of the primary problem."
+        },
+        {
+            "id": "param4",
+            "text": "Head circumference.",
+            "hoverRationale": "Incorrect: Measuring head circumference is a routine assessment for infant growth and development. It has no relevance to the pathophysiology or management of an acute gastrointestinal emergency like intussusception."
+        },
+        {
+            "id": "param5",
+            "text": "Presence of projectile vomiting.",
+            "hoverRationale": "Incorrect: This assessment finding is the hallmark sign of pyloric stenosis. While the infant may vomit, it is not the specific, defining parameter to monitor for intussusception."
+        }
     ],
     "correctParameterIds": [
         "param1",
@@ -64,81 +134,29 @@
         ]
     },
     "rationale": {
-        "correct": "The infant's presentation (sudden abdominal pain, drawing knees to chest, currant jelly stool) is highly suggestive of intussusception. An air or barium enema is both diagnostic and therapeutic. Maintaining NPO status and initiating IV fluids are crucial for stabilization. Monitoring stool characteristics and signs of perforation are essential for assessing treatment effectiveness and potential complications.",
-        "incorrect": "Offering clear liquids is inappropriate given the potential for bowel obstruction and the need for possible intervention. Manual reduction is contraindicated due to the risk of perforation. Head circumference is not relevant to this condition.",
+        "correct": "The infant's presentation of sudden colicky abdominal pain, drawing knees to the chest, a palpable sausage-shaped mass, and 'currant jelly' stool is the classic presentation for intussusception. The priority actions are to stabilize the client with IV fluids while keeping them NPO and preparing for a non-surgical reduction via an air enema. It is critical to monitor for the passage of a normal brown stool (indicating reduction) and for signs of perforation (fever, rigid abdomen), which is a surgical emergency.",
+        "incorrect": "Offering liquids is contraindicated in bowel obstruction. Manual reduction is dangerous and not within the nursing scope. Opioids can mask signs of perforation. Monitoring head circumference is irrelevant. Monitoring for projectile vomiting is specific to pyloric stenosis. Urine specific gravity is a lower priority than monitoring for acute complications.",
         "clinicalPearls": [
-            "The passage of normal brown stool may indicate spontaneous reduction of the intussusception, requiring immediate notification of the provider.",
-            "A rigid abdomen or fever suggests bowel perforation, contraindicating an enema."
+            "The passage of a normal brown stool may indicate spontaneous reduction of the intussusception, requiring immediate notification of the provider as the planned procedure may be canceled.",
+            "A rigid, board-like abdomen, fever, or sudden cessation of pain followed by lethargy can signal bowel perforation, which is a medical emergency contraindicating an enema."
         ],
         "questionTrap": {
-            "trap": "Rigid abdomen",
-            "howToOvercome": "A rigid abdomen or fever suggests bowel perforation, contraindicating an enema. Prioritize assessment for peritonitis."
+            "trap": "Masking Symptoms",
+            "howToOvercome": "While the infant is in pain, administering opioid analgesics before a definitive diagnosis and plan are in place is risky. Opioids can mask the signs of worsening pathology, such as the development of peritonitis from a bowel perforation. The priority is definitive treatment (enema) which will also resolve the pain."
         },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Intussusception\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Prepare for an air or barium enema\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Offer clear liquids until pain subsides\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Attempt manual reduction of the mass via abdominal palpation\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Initiate IV fluids and maintain NPO status\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Signs of bowel perforation (rigidity, fever)\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Monitor urine specific gravity\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Measure head circumference\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Characteristics of stool (consistency, color)\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            }
-        ],
         "mnemonic": {
-            "title": "INTUSSUSCEPTION",
-            "expansion": "I = Intussusception\n\nKey Actions: Prepare for an air or barium enema; Initiate IV fluids and maintain NPO status\nKey Monitoring: Characteristics of stool (consistency, color); Assess for signs of bowel perforation (rigidity, fever)"
+            "title": "INTUSSUSCEPTION CARE",
+            "expansion": "I - IV Fluids & NPO\nN - Note stool changes (brown stool = good!)\nT - Therapeutic enema preparation\nU - Unrelenting pain or fever (report!)\nS - Sausage-shaped mass\nS - Signs of perforation (rigid abdomen)"
         },
         "reviewUnits": [
             {
-                "heading": "Intussusception — Pathophysiology & Recognition",
-                "body": "Telescoping bowel = Intussusception. Currant jelly stool (blood+mucus) is the classic sign. Air/Barium enema is both diagnostic and therapeutic (reduces the telescoping). Monitoring stool is key; if a normal brown stool occurs, it may have resolved spontaneously. The presence of a normal brown stool means the intussusception has likely reduced; notify the provider immediately as surgery/enema may be cancelled.",
+                "heading": "Intussusception: Pathophysiology & Recognition",
+                "body": "Intussusception is the telescoping of one segment of the intestine into another, typically the ileum into the cecum. This leads to obstruction, inflammation, edema, and eventually ischemia. The classic triad of symptoms is sudden-onset intermittent abdominal pain, a palpable sausage-shaped abdominal mass, and 'currant jelly' stools (a mix of blood and mucus).",
                 "source": "NCLEX-RN Clinical Review 2026"
             },
             {
-                "heading": "Testing Trap — Rigid abdomen",
-                "body": "If the abdomen becomes rigid or the fever spikes, it suggests perforation/peritonitis, and the enema should NOT be performed. Prioritize assessment for peritonitis.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
                 "heading": "Priority Interventions for Intussusception",
-                "body": "The priority nursing interventions are: Prepare for an air or barium enema; Initiate IV fluids and maintain NPO status. Monitor: Characteristics of stool (consistency, color); Assess for signs of bowel perforation (rigidity, fever). The child must stay NPO until resolution to prevent further distension/complications. Manual reduction is contraindicated due to the risk of perforation. Head circumference is irrelevant.",
+                "body": "The priority nursing interventions are to maintain NPO status, initiate IV fluids for hydration and electrolyte balance, and prepare for a diagnostic and therapeutic procedure, most commonly a hydrostatic (barium) or pneumatic (air) enema. These enemas can often successfully reduce the intussusception. Surgery is required if reduction is unsuccessful or if perforation is present.",
                 "source": "Evidence-Based Nursing Practice"
             }
         ]
@@ -147,5 +165,5 @@
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "remediated_v2026_high_fidelity"
 }

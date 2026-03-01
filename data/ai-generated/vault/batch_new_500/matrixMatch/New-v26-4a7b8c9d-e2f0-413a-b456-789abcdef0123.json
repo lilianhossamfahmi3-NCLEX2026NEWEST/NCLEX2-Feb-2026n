@@ -1,95 +1,417 @@
 {
     "id": "New-v26-4a7b8c9d-e2f0-413a-b456-789abcdef0123",
     "type": "matrixMatch",
-    "stem": "The patient's condition is rapidly deteriorating. Based on the assessment data, determine whether each intervention is indicated, contraindicated, or not relevant at this time.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 6
-    },
-    "itemContext": {
-        "patient": {
-            "name": "Jameson Walker",
-            "age": 58,
-            "gender": "Male",
-            "iso": "ICU",
-            "allergies": [
-                "Penicillin"
-            ],
-            "condition": "Droplet"
-        },
-        "sbar": "S: Jameson Walker, 58-year-old male in ICU, is rapidly declining. B: Admitted at 04:00 for pneumonia; history of Type 2 Diabetes (non-compliant with diet, managed with oral hypoglycemics). A: At 11:00, patient unresponsive to verbal stimuli, exhibiting Kussmaul respirations and fruity breath. Vitals: HR 130 bpm, BP 90/60 mmHg, RR 36, Temp 38.9°C (102°F), SpO2 92% on 2L NC. Labs: Glucose 650 mg/dL, pH 7.2, HCO3 10 mEq/L, positive serum ketones, TSH <0.01 mIU/L, Free T4 >6 ng/dL. Patient is agitated and diaphoretic. R: STAT orders for insulin drip, fluids, and electrolyte replacement are in place. Concerns include Diabetic Ketoacidosis (DKA) complicated by possible thyroid storm. Droplet precautions are in effect for pneumonia. Requesting immediate guidance on optimal management.",
-        "tabs": [
+    "stem": "The nurse is developing a plan of care for a client experiencing a metabolic crisis. Based on the data in the electronic health record, determine if each potential action is Indicated, Contraindicated, or Non-Essential.",
+    "matrix": {
+        "rows": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Jameson Walker, 58-year-old male in ICU, is rapidly declining. B: Admitted at 04:00 for pneumonia; history of Type 2 Diabetes (non-compliant with diet, managed with oral hypoglycemics). A: At 11:00, patient unresponsive to verbal stimuli, exhibiting Kussmaul respirations and fruity breath. Vitals: HR 130 bpm, BP 90/60 mmHg, RR 36, Temp 38.9°C (102°F), SpO2 92% on 2L NC. Labs: Glucose 650 mg/dL, pH 7.2, HCO3 10 mEq/L, positive serum ketones, TSH <0.01 mIU/L, Free T4 >6 ng/dL. Patient is agitated and diaphoretic. R: STAT orders for insulin drip, fluids, and electrolyte replacement are in place. Concerns include Diabetic Ketoacidosis (DKA) complicated by possible thyroid storm. Droplet precautions are in effect for pneumonia. Requesting immediate guidance on optimal management."
+                "id": "row1",
+                "text": "Initiate a continuous intravenous infusion of regular insulin."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 130 mEq/L\nK: 5.8 mEq/L\nCl: 98 mEq/L\nHCO3: 10 mEq/L\nBUN: 40 mg/dL\nCreatinine: 2.1 mg/dL\nGlucose: 650 mg/dL\npH: 7.2\npCO2: 20 mmHg\npO2: 95 mmHg\nSerum Ketones: Positive\nTSH: <0.01 mIU/L\nFree T4: >6 ng/dL"
+                "id": "row2",
+                "text": "Administer a 1-liter bolus of 0.9% sodium chloride intravenously."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "11:00:\nHR: 130 bpm\nBP: 90/60 mmHg\nRR: 36\nTemp: 38.9°C (102°F)\nSpO2: 92% on 2L NC\nGCS: 10"
+                "id": "row3",
+                "text": "Prepare to administer intravenous potassium chloride."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Scheduled:\nCeftriaxone 1g IV q24h\nMetformin 500mg PO BID (hold per orders)\nPRN:\nAcetaminophen 650mg PO q4h PRN for fever (last given 06:00)\nNew Orders:\nRegular Insulin IV drip (protocol order)\n0.9% Normal Saline 1L bolus\nPotassium Chloride 40 mEq IV piggyback"
+                "id": "row4",
+                "text": "Administer propranolol intravenously as prescribed."
+            },
+            {
+                "id": "row5",
+                "text": "Apply a cooling blanket and administer antipyretics."
+            },
+            {
+                "id": "row6",
+                "text": "Administer propylthiouracil (PTU) orally."
+            }
+        ],
+        "columns": [
+            {
+                "id": "col1",
+                "text": "Indicated"
+            },
+            {
+                "id": "col2",
+                "text": "Contraindicated"
+            },
+            {
+                "id": "col3",
+                "text": "Non-Essential"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
+    "correctResponse": [
+        {
+            "rowId": "row1",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row2",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row3",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row4",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row5",
+            "columnId": "col1"
+        },
+        {
+            "rowId": "row6",
+            "columnId": "col1"
+        }
+    ],
+    "itemContext": {
+        "patient": {
+            "age": "58 years",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "Penicillin"
+            ]
+        },
+        "tabs": [
+            {
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 04:00",
+                        "text": "S: Client is a 58-year-old male brought to the ED by his adult child with complaints of productive cough, fever, and shortness of breath for 3 days. B: History of Type 2 Diabetes Mellitus for 10 years, managed with metformin; reports poor dietary adherence recently. No known history of thyroid disease. Allergic to penicillin. A: T 100.4°F (38.0°C), HR 98, BP 128/76 mmHg, RR 22, SpO₂ 95% on 2L nasal cannula. Coarse crackles auscultated in the right lower lobe. Client is alert and oriented x4. Blood glucose on admission was 210 mg/dL. R: Admitted to medical-surgical unit for community-acquired pneumonia. Started on IV ceftriaxone. Continue home metformin for now. Monitor vital signs and glucose levels."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 11:00",
+                        "text": "S: Called to bedside for rapid change in client's condition. B: Client was stable overnight but became progressively more agitated this morning. Metformin was held with breakfast due to nausea. A: Client is now unresponsive to verbal stimuli, only withdraws to painful stimuli. Respirations are deep and rapid (Kussmaul) with a distinct fruity odor on his breath. Skin is hot and profusely diaphoretic. Vitals: HR 130 (sinus tachycardia), BP 90/60 mmHg (MAP 70), RR 36, T 102.0°F (38.9°C), SpO₂ 92% on 2L NC. STAT labs reveal severe metabolic acidosis, hyperglycemia (650 mg/dL), positive serum ketones, and markedly elevated free T4 with suppressed TSH. R: Suspect concurrent Diabetic Ketoacidosis (DKA) and Thyroid Storm precipitated by pneumonia. Initiating DKA and thyroid storm protocols. Requesting immediate ICU transfer and endocrinology consult."
+                    }
+                ]
+            },
+            {
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR (bpm)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "RR (breaths/min)",
+                        "SpO₂ (%)",
+                        "Temp °F (°C)"
+                    ],
+                    "rows": [
+                        [
+                            "04:00",
+                            "98",
+                            "128/76",
+                            "93",
+                            "22",
+                            "95% on 2L NC",
+                            "100.4 (38.0)"
+                        ],
+                        [
+                            "08:00",
+                            "110",
+                            "110/70",
+                            "83",
+                            "28",
+                            "93% on 2L NC",
+                            "101.2 (38.4)"
+                        ],
+                        [
+                            "11:00",
+                            "130",
+                            "90/60",
+                            "70",
+                            "36",
+                            "92% on 2L NC",
+                            "102.0 (38.9)"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "Sodium (Na+)",
+                            "130",
+                            "mEq/L",
+                            "136-145",
+                            "Low"
+                        ],
+                        [
+                            "Potassium (K+)",
+                            "5.8",
+                            "mEq/L",
+                            "3.5-5.0",
+                            "High"
+                        ],
+                        [
+                            "Chloride (Cl-)",
+                            "98",
+                            "mEq/L",
+                            "98-106",
+                            "Normal"
+                        ],
+                        [
+                            "Bicarbonate (HCO3-)",
+                            "10",
+                            "mEq/L",
+                            "22-28",
+                            "Low"
+                        ],
+                        [
+                            "BUN",
+                            "40",
+                            "mg/dL",
+                            "10-20",
+                            "High"
+                        ],
+                        [
+                            "Creatinine",
+                            "2.1",
+                            "mg/dL",
+                            "0.6-1.2",
+                            "High"
+                        ],
+                        [
+                            "Glucose",
+                            "650",
+                            "mg/dL",
+                            "70-110",
+                            "High"
+                        ],
+                        [
+                            "Anion Gap",
+                            "22",
+                            "mEq/L",
+                            "8-12",
+                            "High"
+                        ],
+                        [
+                            "pH",
+                            "7.20",
+                            "",
+                            "7.35-7.45",
+                            "Low"
+                        ],
+                        [
+                            "pCO2",
+                            "20",
+                            "mmHg",
+                            "35-45",
+                            "Low"
+                        ],
+                        [
+                            "Serum Ketones",
+                            "Positive",
+                            "",
+                            "Negative",
+                            "Abnormal"
+                        ],
+                        [
+                            "TSH",
+                            "<0.01",
+                            "mIU/L",
+                            "0.4-4.0",
+                            "Low"
+                        ],
+                        [
+                            "Free T4",
+                            ">6.0",
+                            "ng/dL",
+                            "0.8-1.8",
+                            "High"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 04:00 (Admission)",
+                        "findings": "GENERAL: Alert and oriented x4, in mild respiratory distress.\nCARDIOVASCULAR: S1, S2 audible. Tachycardia. No murmurs. Capillary refill <3 seconds.\nRESPIRATORY: Coarse crackles in right lower lobe. Productive cough with yellow sputum. Labored breathing.\nNEUROLOGICAL: GCS 15. Moves all extremities. No focal deficits.\nSKIN: Warm, dry."
+                    },
+                    {
+                        "timestamp": "Day 1, 11:00 (Focused)",
+                        "findings": "GENERAL: Unresponsive to verbal stimuli, withdraws from painful stimuli.\nNEUROLOGICAL: GCS 10 (E2, V2, M6). \nRESPIRATORY: Deep, rapid (Kussmaul) respirations at 36/min. Distinct fruity odor on breath.\nSKIN: Flushed, hot to touch, and profusely diaphoretic."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Chest X-ray (PA and Lateral)",
+                        "timestamp": "Day 1, 04:30",
+                        "report": "FINDINGS: There is consolidation in the right lower lobe. The cardiomediastinal silhouette is normal. No pleural effusion or pneumothorax is seen. The pulmonary vasculature is within normal limits.\n\nIMPRESSION: Right lower lobe opacity consistent with pneumonia."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 11:05",
+                            "Transfer to Intensive Care Unit",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 11:05",
+                            "0.9% Sodium Chloride 1 Liter IV Bolus",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 11:05",
+                            "Initiate regular insulin IV infusion per DKA protocol",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 11:05",
+                            "Continuous cardiac monitoring",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 11:05",
+                            "Hourly point-of-care glucose monitoring",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 04:15",
+                            "Ceftriaxone 1g IV",
+                            "q24h"
+                        ],
+                        [
+                            "Day 1, 04:15",
+                            "Acetaminophen 650mg PO",
+                            "q4h PRN for Temp >101°F"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Ceftriaxone",
+                            "1g",
+                            "IV",
+                            "q24h",
+                            "Day 1, 04:30"
+                        ],
+                        [
+                            "Metformin",
+                            "500mg",
+                            "PO",
+                            "BID",
+                            "Held"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "650mg",
+                            "PO",
+                            "q4h PRN",
+                            "Day 1, 06:00"
+                        ]
+                    ]
+                }
+            }
         ]
     },
     "rationale": {
-        "correct": "Insulin administration is crucial in DKA to facilitate glucose uptake into cells and correct metabolic acidosis. IV fluids (0.9% Normal Saline) address severe dehydration from osmotic diuresis in DKA and hypermetabolism in thyroid storm. Potassium replacement is necessary as insulin shifts potassium intracellularly, risking hypokalemia. Beta-blockers (e.g., Propranolol) manage tachycardia, arrhythmias, and adrenergic symptoms of thyroid storm. Cooling blankets manage hyperthermia from thyroid storm and infection. Propylthiouracil (PTU) inhibits thyroid hormone synthesis, a key intervention in thyroid storm.",
-        "incorrect": "Dextrose is contraindicated initially in DKA due to already high glucose levels; it's used later if hypoglycemia occurs from insulin. Antipyretics alone are insufficient for severe hyperthermia compounded by thyroid storm. Sodium bicarbonate is generally avoided unless pH is <7.0 due to risks of rebound alkalosis and cerebral edema. Increasing oxygen flow may be needed if SpO2 doesn't improve, but it's not primary. Diuretics are contraindicated due to existing severe dehydration from DKA.",
+        "correct": "This client is experiencing two simultaneous life-threatening endocrine emergencies: Diabetic Ketoacidosis (DKA) and Thyroid Storm, likely precipitated by pneumonia. The plan of care must address both conditions urgently. DKA management focuses on correcting dehydration, hyperglycemia, acidosis, and electrolyte imbalances. Thyroid storm management focuses on blocking new hormone synthesis, blocking the effects of existing hormone, and managing systemic decompensation like hyperthermia and tachycardia. All the listed interventions are indicated because they target critical aspects of this dual crisis.",
+        "incorrect": "Contraindicated actions would include administering dextrose-containing fluids initially (worsening hyperglycemia) or diuretics (exacerbating severe dehydration). Non-essential actions might include routine procedures that can be delayed until the client is stabilized. Given the severity of both DKA and thyroid storm, aggressive, multi-modal therapy is essential, and none of the listed interventions are non-essential or contraindicated.",
+        "answerBreakdown": [
+            {
+                "rowId": "row1",
+                "content": "Indicated. An insulin infusion is the cornerstone of DKA treatment. It facilitates cellular uptake of glucose, halts ketone production, and helps correct the metabolic acidosis."
+            },
+            {
+                "rowId": "row2",
+                "content": "Indicated. Both DKA (osmotic diuresis) and thyroid storm (hypermetabolism, diaphoresis) cause profound dehydration and hypotension. Aggressive fluid resuscitation with an isotonic crystalloid like 0.9% sodium chloride is a first-line priority to restore intravascular volume."
+            },
+            {
+                "rowId": "row3",
+                "content": "Indicated. Although the initial serum potassium is high due to acidosis shifting K+ out of cells, the client has a total-body potassium deficit. Insulin therapy will drive potassium back into the cells, causing a rapid and potentially fatal drop in serum levels. Potassium replacement is crucial once urine output is confirmed and serum K+ begins to fall."
+            },
+            {
+                "rowId": "row4",
+                "content": "Indicated. Propranolol, a beta-blocker, is essential for managing the severe adrenergic symptoms of thyroid storm, such as extreme tachycardia (130 bpm) and agitation. It helps protect the heart from the effects of excessive thyroid hormone."
+            },
+            {
+                "rowId": "row5",
+                "content": "Indicated. The client's temperature is 102.0°F (38.9°C). Hyperthermia in thyroid storm significantly increases metabolic demand and oxygen consumption. External cooling measures and antipyretics are critical to reduce fever and its systemic effects."
+            },
+            {
+                "rowId": "row6",
+                "content": "Indicated. Propylthiouracil (PTU) is an antithyroid medication that blocks the synthesis of new thyroid hormones. This is a primary treatment for thyroid storm, addressing the root cause of the hypermetabolic state."
+            }
+        ],
         "clinicalPearls": [
-            "Monitor potassium levels closely during insulin administration in DKA.",
-            "Recognize overlapping symptoms of DKA and thyroid storm for timely intervention.",
-            "Early beta-blocker administration improves outcomes in thyroid storm."
+            "In DKA, serum potassium may be initially normal or high due to an acidosis-induced extracellular shift, but total body potassium is always depleted. Insulin therapy will cause a rapid drop, necessitating replacement.",
+            "Thyroid storm is often precipitated by a stressor like infection (pneumonia in this case), surgery, or trauma in a client with underlying, often undiagnosed, hyperthyroidism.",
+            "The anion gap, calculated as (Na+) – (Cl- + HCO3-), is a key diagnostic marker in DKA. A value > 12 suggests metabolic acidosis from an accumulation of unmeasured anions, such as ketones."
         ],
-        "questionTrap": {
-            "trap": "The trap is focusing solely on DKA or thyroid storm, overlooking the potential concurrent condition. Elevated temperature and thyroid hormone levels suggest a combined presentation.",
-            "howToOvercome": "Review all labs and vitals, considering both DKA and thyroid storm criteria. Prioritize interventions addressing both conditions."
-        },
+        "questionTrap": "The primary trap is 'diagnostic overshadowing,' where the obvious signs of DKA (hyperglycemia, ketones, acidosis) cause the test-taker to miss the concurrent, more subtle signs of thyroid storm (extreme tachycardia, high fever, low TSH/high T4). This could lead to incorrectly classifying thyroid-specific interventions like beta-blockers or PTU as non-essential.",
         "mnemonic": {
-            "title": "S.T.O.R.M.",
-            "expansion": "Surgery/Stress, Thyroid hormone increase, Oxygen demand increase, Rapid heart rate, Malignant hyperthermia (fever)"
-        }
-    },
-    "matrixMatchOptions": {
-        "rows": [
-            "Administer Insulin IV",
-            "Administer IV Fluids (0.9% NS)",
-            "Administer Potassium Chloride IV",
-            "Administer Beta-Blockers (e.g., Propranolol)",
-            "Apply Cooling Blankets",
-            "Administer Propylthiouracil (PTU)"
-        ],
-        "columns": [
-            "Indicated",
-            "Contraindicated",
-            "Not Relevant"
+            "title": "DKA Management: 'SICK DKA'",
+            "expansion": "Saline (0.9% NaCl first), Insulin (regular IV), Check K+ (and replace), Dextrose (add to IV when glucose is ~250 mg/dL), K+ (re-check), Acidosis (monitor/correct)"
+        },
+        "reviewUnits": [
+            "Endocrine Disorders",
+            "Fluid and Electrolyte Imbalances",
+            "Acid-Base Balance",
+            "Pharmacology: Insulin, Beta-Blockers"
         ]
     },
-    "correctResponse": {
-        "Administer Insulin IV": "Indicated",
-        "Administer IV Fluids (0.9% NS)": "Indicated",
-        "Administer Potassium Chloride IV": "Indicated",
-        "Administer Beta-Blockers (e.g., Propranolol)": "Indicated",
-        "Apply Cooling Blankets": "Indicated",
-        "Administer Propylthiouracil (PTU)": "Indicated"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 6
     },
-    "isolationPrecautions": "Droplet",
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:03:34.479Z"
 }

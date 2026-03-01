@@ -1,29 +1,101 @@
 {
-    "id": "New-v26-1772098373179-2934",
-    "stem": "A 68-year-old male is admitted to the cardiac unit with a diagnosis of acute myocardial infarction (MI). He reports chest pain, shortness of breath, and nausea. His vital signs are: BP 90/60 mmHg, HR 110 bpm, RR 28, SpO2 90% on room air. The ECG shows ST-segment elevation in the anterior leads. The patient is diaphoretic and anxious. Based on the information provided, determine which actions are indicated, contraindicated, or irrelevant for this patient.",
+    "id": "New-v26-1772098373179-2934-REMEDIATED",
+    "stem": "A 68-year-old male with an acute anterior ST-elevation myocardial infarction (STEMI) develops hypotension, tachycardia, and hypoxemia. The client is diaphoretic, anxious, and reports severe chest pain. Based on the client's presentation, complete the bowtie by selecting the appropriate actions, condition, and parameters to monitor.",
     "type": "bowtie",
     "actions": [
         {
             "id": "a1",
-            "text": "Administer Oxygen"
+            "text": "Administer oxygen"
         },
         {
             "id": "a2",
-            "text": "Start IV Fluids"
+            "text": "Administer IV fluid bolus"
         },
         {
             "id": "a3",
-            "text": "Notify Provider"
+            "text": "Notify Rapid Response Team"
         },
         {
             "id": "a4",
-            "text": "Prepare for Intubation"
+            "text": "Prepare for defibrillation"
         },
         {
             "id": "a5",
-            "text": "Administer Analgesia"
+            "text": "Administer morphine sulfate"
         }
     ],
+    "potentialConditions": [
+        {
+            "id": "c1",
+            "text": "Cardiogenic Shock"
+        },
+        {
+            "id": "c2",
+            "text": "Pulmonary Embolism"
+        },
+        {
+            "id": "c3",
+            "text": "Hypovolemic Shock"
+        },
+        {
+            "id": "c4",
+            "text": "Anaphylactic Reaction"
+        },
+        {
+            "id": "c5",
+            "text": "Cardiac Tamponade"
+        }
+    ],
+    "parameters": [
+        {
+            "id": "p1",
+            "text": "Blood pressure"
+        },
+        {
+            "id": "p2",
+            "text": "Urine output"
+        },
+        {
+            "id": "p3",
+            "text": "Oxygen saturation"
+        },
+        {
+            "id": "p4",
+            "text": "Pain level"
+        },
+        {
+            "id": "p5",
+            "text": "Cardiac rhythm"
+        }
+    ],
+    "correctAnswer": {
+        "actions": [
+            "a1",
+            "a3"
+        ],
+        "condition": "c1",
+        "parameters": [
+            "p1",
+            "p3"
+        ]
+    },
+    "hoverRationales": {
+        "a1": "Correct. The patient's SpO2 of 90% indicates hypoxemia. Supplemental oxygen increases arterial oxygen saturation, improving myocardial oxygen supply and reducing the workload on the heart.",
+        "a2": "Incorrect. The patient's hypotension is due to pump failure (cardiogenic shock). Administering a fluid bolus would increase preload and worsen pulmonary edema, further straining the failing ventricle.",
+        "a3": "Correct. The patient is hemodynamically unstable and showing signs of cardiogenic shock. The Rapid Response Team can provide immediate critical care expertise and advanced interventions like vasopressors.",
+        "a4": "Incorrect. The patient's ECG shows sinus tachycardia, not a shockable rhythm like ventricular fibrillation. Defibrillation is not indicated and would be harmful.",
+        "a5": "Incorrect. While morphine is used for MI pain, the priority is addressing hemodynamic instability. Morphine can cause vasodilation and worsen hypotension, so notifying the provider/RRT first is the safer action.",
+        "c1": "Correct. This condition is caused by severe impairment of the heart's pumping ability from a large MI. The patient's hypotension, tachycardia, tachypnea, and hypoxemia are classic signs of cardiogenic shock.",
+        "c2": "Incorrect. While a PE can cause shortness of breath and tachycardia, the presence of ST-segment elevation on the ECG is a hallmark sign of an acute MI, making PE a less likely primary cause.",
+        "c3": "Incorrect. Hypovolemic shock is caused by fluid loss. This patient has no history of bleeding or dehydration, and the underlying cause is a confirmed MI, pointing to a cardiac origin for the shock state.",
+        "c4": "Incorrect. Anaphylaxis involves an allergic trigger and typically presents with urticaria, angioedema, and wheezing, none of which are present. The patient's symptoms are classic for a cardiac event.",
+        "c5": "Incorrect. Cardiac tamponade presents with Beck's triad (hypotension, JVD, muffled heart sounds). While hypotension is present, the primary findings of a STEMI make cardiogenic shock the most direct cause.",
+        "p1": "Correct. Hypotension is a defining feature of cardiogenic shock and a critical indicator of systemic perfusion. Frequent blood pressure monitoring is essential to guide therapy and assess the patient's response.",
+        "p2": "Incorrect. While urine output is a valuable indicator of end-organ perfusion, it is a later and less immediate sign compared to blood pressure and oxygen saturation in this acute decompensation phase.",
+        "p3": "Correct. The patient is hypoxemic (SpO2 90%), likely due to developing pulmonary edema from left ventricular failure. Monitoring SpO2 is critical to assess respiratory status and the effectiveness of oxygen therapy.",
+        "p4": "Incorrect. Although managing pain is important in an MI, in the context of life-threatening cardiogenic shock, hemodynamic parameters like blood pressure and oxygenation take precedence for immediate monitoring.",
+        "p5": "Incorrect. Continuous ECG monitoring is standard for an MI patient. However, the immediate life threat is pump failure and hypoxemia, making blood pressure and oxygen saturation the most critical parameters to track."
+    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 6
@@ -33,83 +105,39 @@
         "topicTags": [
             "Cardiovascular",
             "Myocardial Infarction",
-            "Acute Coronary Syndrome"
+            "Cardiogenic Shock"
         ],
         "bloomLevel": "analyze",
         "difficulty": 4,
         "nclexCategory": "Physiological Adaptation"
     },
-    "condition": "Cardiovascular",
-    "rationale": {
-        "correct": "Administering oxygen is indicated to improve oxygen saturation. Administering aspirin is indicated as it is an antiplatelet and helps prevent further clot formation. Administering nitroglycerin is indicated to dilate coronary arteries and improve blood flow. ECG monitoring is indicated to assess for changes in cardiac rhythm. Morphine is indicated for pain management and vasodilation. Elevating the head of the bed helps improve breathing. Monitoring vital signs is crucial to assess the patient's response to interventions.",
-        "mnemonic": "MONA (Morphine, Oxygen, Nitroglycerin, Aspirin) - a common mnemonic for initial MI management.",
-        "incorrect": "Placing the patient in Trendelenburg position is contraindicated as it can worsen respiratory distress and increase cardiac workload. Withholding nitroglycerin is contraindicated as it helps alleviate chest pain and improve blood flow. Administering a beta-blocker without an order and in the presence of hypotension is contraindicated as it can further lower blood pressure. Initiating ambulation is contraindicated due to the patient's unstable condition. Encouraging deep breathing exercises is irrelevant in the acute phase of MI when the priority is to improve oxygenation and reduce cardiac workload. Providing a high-sodium meal is irrelevant and potentially harmful for a patient with cardiac issues.",
-        "questionTrap": "The question traps are related to interventions that are either harmful or not immediately relevant in the acute phase of MI. For example, Trendelenburg position can worsen respiratory distress, and ambulation is not appropriate for an unstable patient.",
-        "clinicalPearls": [
-            "In acute MI, the priority is to restore blood flow to the heart muscle.",
-            "Nitroglycerin should be used cautiously in patients with hypotension.",
-            "Morphine can help reduce pain and anxiety in patients with MI."
-        ]
-    },
-    "parameters": [
-        {
-            "id": "p1",
-            "text": "Vital Signs"
-        },
-        {
-            "id": "p2",
-            "text": "Oxygen Saturation"
-        },
-        {
-            "id": "p3",
-            "text": "Urine Output"
-        },
-        {
-            "id": "p4",
-            "text": "Pain Level"
-        },
-        {
-            "id": "p5",
-            "text": "Respiratory Rate"
-        }
-    ],
     "itemContext": {
-        "sbar": "S: Patient reports chest pain, shortness of breath, and nausea. O: BP 90/60, HR 110, RR 28, SpO2 90% on room air, ST-segment elevation in anterior leads, diaphoretic, anxious. A: Acute MI. R: Implement interventions to improve oxygenation and cardiac output.",
+        "sbar": "S: (08:30) This is the nurse for John Smith, a 68-year-old male admitted for an acute MI. He is reporting severe, crushing substernal chest pain rated 9/10, radiating to his left arm, with significant shortness of breath and nausea.\nB: He has a history of hypertension and hyperlipidemia. He was admitted 30 minutes ago from the ED. No known drug allergies.\nA: He is hypotensive at 90/60 mmHg, tachycardic at 110 bpm, and tachypneic at 28/min. SpO2 is 90% on room air. He is pale, diaphoretic, and anxious. ECG confirms an anterior STEMI.\nR: I am concerned about impending cardiogenic shock. I need orders for immediate intervention.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "Sbar",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Vital Signs",
+                "content": "<table><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr><tr><td>08:30</td><td>90/60 mmHg</td><td>110 bpm</td><td>28/min</td><td>90% (Room Air)</td><td>37.0°C (98.6°F)</td></tr></table>"
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Laboratory Results",
+                "content": "<table><tr><th>Test</th><th>Result</th><th>Reference Range</th></tr><tr><td>Troponin I</td><td><strong>5.2 ng/mL</strong></td><td>&lt;0.04 ng/mL</td></tr><tr><td>WBC</td><td>12.5 x 10<sup>9</sup>/L</td><td>4.5-11.0 x 10<sup>9</sup>/L</td></tr><tr><td>Hgb</td><td>14.1 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Platelets</td><td>250 x 10<sup>9</sup>/L</td><td>150-450 x 10<sup>9</sup>/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.1 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>BUN</td><td>22 mg/dL</td><td>7-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.1 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></table>"
             },
             {
                 "id": "physicalExam",
-                "title": "PhysicalExam",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Nurse's Note",
+                "content": "<strong>08:30:</strong> Patient is alert and oriented x3, appears anxious. Reports 9/10 crushing substernal chest pain. Skin is pale, cool, and diaphoretic. Cardiovascular: Tachycardic with S1/S2 audible. Lungs: Crackles noted at bases bilaterally. Abdomen: Soft, non-distended, with active bowel sounds. Extremities: Peripheral pulses are +1 and equal bilaterally."
             },
             {
                 "id": "radiology",
-                "title": "Radiology",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "carePlan",
-                "title": "CarePlan",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Diagnostics",
+                "content": "<strong>12-Lead ECG Report (08:15):</strong><br><strong>Rhythm:</strong> Sinus Tachycardia<br><strong>Heart Rate:</strong> 110 bpm<br><strong>Findings:</strong> ST-segment elevation of 3-4 mm in leads V1-V4.<br><strong>Interpretation:</strong> Acute anterior wall ST-elevation myocardial infarction (STEMI)."
             },
             {
                 "id": "mar",
-                "title": "Mar",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "MAR",
+                "content": "<p>No medications administered at this time.</p>"
             }
         ],
         "patient": {
@@ -119,118 +147,5 @@
             "diagnosis": "Acute Myocardial Infarction (MI)"
         }
     },
-    "sentinelStatus": "healed_v2026_v23_bowtie_fix",
-    "responseOptions": [
-        {
-            "text": "Administer oxygen via nasal cannula to maintain SpO2 > 92%",
-            "target": "indicated",
-            "optionId": "administerOxygen"
-        },
-        {
-            "text": "Place the patient in Trendelenburg position",
-            "target": "contraindicated",
-            "optionId": "placeTrendelenburg"
-        },
-        {
-            "text": "Administer aspirin 325 mg PO",
-            "target": "indicated",
-            "optionId": "administerAspirin"
-        },
-        {
-            "text": "Withhold nitroglycerin due to hypotension",
-            "target": "contraindicated",
-            "optionId": "withholdNitroglycerin"
-        },
-        {
-            "text": "Administer nitroglycerin 0.4 mg SL PRN chest pain",
-            "target": "indicated",
-            "optionId": "administerNitroglycerin"
-        },
-        {
-            "text": "Administer a beta-blocker to lower heart rate",
-            "target": "contraindicated",
-            "optionId": "administerBetaBlocker"
-        },
-        {
-            "text": "Initiate ambulation to prevent complications",
-            "target": "contraindicated",
-            "optionId": "initiateAmbulation"
-        },
-        {
-            "text": "Continuous ECG monitoring",
-            "target": "indicated",
-            "optionId": "ecgMonitoring"
-        },
-        {
-            "text": "Encourage deep breathing exercises",
-            "target": "irrelevant",
-            "optionId": "encourageDeepBreathing"
-        },
-        {
-            "text": "Provide a high-sodium meal to improve blood pressure",
-            "target": "irrelevant",
-            "optionId": "provideHighSodiumMeal"
-        },
-        {
-            "text": "Administer morphine 2 mg IV PRN chest pain",
-            "target": "indicated",
-            "optionId": "administerMorphine"
-        },
-        {
-            "text": "Elevate the head of the bed",
-            "target": "indicated",
-            "optionId": "elevateHeadOfBed"
-        },
-        {
-            "text": "Monitor vital signs every 5 minutes",
-            "target": "indicated",
-            "optionId": "monitorVitalSigns"
-        }
-    ],
-    "bowTieCategories": {
-        "outcome": {
-            "title": "Outcome",
-            "options": [
-                "Improved oxygen saturation",
-                "Reduced chest pain",
-                "Stable vital signs",
-                "Restored blood flow to the heart",
-                "Decreased anxiety"
-            ]
-        },
-        "condition": {
-            "title": "Condition",
-            "options": [
-                "Acute Myocardial Infarction (MI)",
-                "Hypotension",
-                "Chest Pain",
-                "Shortness of Breath",
-                "ST-segment elevation"
-            ]
-        },
-        "intermediate": {
-            "title": "Intermediate",
-            "options": [
-                "Decreased cardiac output",
-                "Inadequate oxygenation",
-                "Coronary artery occlusion",
-                "Increased myocardial workload",
-                "Pain and anxiety"
-            ]
-        }
-    },
-    "correctActionIds": [
-        "a1",
-        "a2"
-    ],
-    "correctParameterIds": [
-        "p1",
-        "p2"
-    ],
-    "potentialConditions": [
-        "Cardiovascular",
-        "Pneumonia",
-        "Acute Myocardial Infarction",
-        "Pulmonary Embolism"
-    ]
+    "sentinelStatus": "REMEDIATED_BARA_2026_HF"
 }

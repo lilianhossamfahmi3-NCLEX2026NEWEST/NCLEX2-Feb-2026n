@@ -1,64 +1,121 @@
 {
-    "id": "superior_vena_cava_syndrome_bowtie_v1",
+    "id": "superior_vena_cava_syndrome_bowtie_v2",
     "type": "bowtie",
-    "stem": "A client with lung cancer presents at 1400 with facial and neck edema, distended neck veins, and a 'full' feeling in the head. Symptoms worsen when he leans forward. Complete the bowtie to guide care.",
+    "ehr": {
+        "patient": {
+            "id": "patient-001",
+            "name": "John Davis",
+            "age": "68 years",
+            "gender": "Male",
+            "dob": "1958-05-12",
+            "allergies": "No Known Allergies",
+            "medicalHistory": "Non-small cell lung cancer (Stage III), Hypertension"
+        },
+        "tabs": [
+            {
+                "id": "history",
+                "label": "History & Physical",
+                "content": "Patient is a 68-year-old male with a 3-month history of Stage III non-small cell lung cancer. Currently receiving chemotherapy regimen Cisplatin/Pemetrexed. Reports increasing shortness of breath over the past week. Today, presents with acute swelling of the face and neck."
+            },
+            {
+                "id": "vitals",
+                "label": "Vitals",
+                "content": "Time: 08:00\nTemperature: 37.1°C (98.8°F)\nHeart Rate: 98 bpm\nRespiratory Rate: 22 breaths/min\nBlood Pressure: 148/88 mmHg\nSpO2: 94% on room air"
+            },
+            {
+                "id": "labs",
+                "label": "Labs",
+                "content": "Sodium: 138 mEq/L\nPotassium: 4.1 mEq/L\nChloride: 102 mEq/L\nBUN: 18 mg/dL\nCreatinine: 1.0 mg/dL\nGlucose: 110 mg/dL\nCalcium: 9.5 mg/dL"
+            }
+        ]
+    },
+    "clinicalFeed": "S: This is the nurse for John Davis in room 402. At 08:00, he developed acute facial and neck swelling, complaining of a 'full' feeling in his head and worsening shortness of breath. B: Mr. Davis is a 68-year-old male with stage III non-small cell lung cancer. A: He has significant periorbital edema, jugular vein distention, and tachypnea with an SpO2 of 94%. I suspect Superior Vena Cava syndrome. R: I need you to assess him immediately for this oncologic emergency.",
+    "stem": "The nurse is caring for a 68-year-old client with lung cancer who develops acute facial edema and jugular vein distention. Based on the client's presentation, the nurse suspects an oncologic emergency. Complete the bowtie to indicate appropriate actions and parameters to monitor.",
+    "potentialConditions": [
+        {
+            "id": "condition1",
+            "text": "Superior Vena Cava (SVC) Syndrome"
+        },
+        {
+            "id": "condition2",
+            "text": "Cardiac Tamponade"
+        },
+        {
+            "id": "condition3",
+            "text": "Tension Pneumothorax"
+        },
+        {
+            "id": "condition4",
+            "text": "Anaphylaxis"
+        },
+        {
+            "id": "condition5",
+            "text": "Aortic Dissection"
+        }
+    ],
+    "condition": "condition1",
     "actions": [
         {
             "id": "action1",
             "text": "Position the client in high-Fowler's",
             "isCorrect": true,
-            "rationale": "High-Fowler's position promotes venous drainage from the head and upper body, reducing pressure on the superior vena cava and alleviating symptoms like facial edema and distended neck veins."
-        },
-        {
-            "id": "action4",
-            "text": "Place the client in a Trendelenburg position",
-            "isCorrect": false,
-            "rationale": "Trendelenburg position increases venous pressure in the head and neck, exacerbating the symptoms of SVC syndrome and potentially increasing intracranial pressure."
-        },
-        {
-            "id": "action3",
-            "text": "Apply tight restrictive clothing to manage edema",
-            "isCorrect": false,
-            "rationale": "Restrictive clothing can impede venous return from the upper body, worsening edema and potentially compromising circulation. It is contraindicated in SVC syndrome."
+            "hoverRationale": "This position uses gravity to promote venous drainage from the head and upper body. This reduces pressure on the superior vena cava, which can alleviate edema and intracranial pressure."
         },
         {
             "id": "action2",
-            "text": "Prepare for emergent radiation therapy or stenting",
+            "text": "Prepare for emergent radiation therapy",
             "isCorrect": true,
-            "rationale": "Radiation therapy or stenting aims to debulk the tumor compressing the SVC, relieving the obstruction and restoring normal blood flow. This is a critical intervention to prevent further complications."
+            "hoverRationale": "Radiation is a definitive treatment that shrinks the tumor compressing the SVC. This restores normal venous return from the upper body, resolving the underlying cause of the oncologic emergency."
+        },
+        {
+            "id": "action3",
+            "text": "Place the client in a Trendelenburg position",
+            "isCorrect": false,
+            "hoverRationale": "This position lowers the head below the heart, which dramatically increases venous pressure in the head and neck. This would worsen cerebral edema and could precipitate a neurological crisis."
+        },
+        {
+            "id": "action4",
+            "text": "Administer a 500 mL normal saline bolus",
+            "isCorrect": false,
+            "hoverRationale": "Administering a fluid bolus increases intravascular volume, which will worsen venous congestion and edema in a client with an obstructed superior vena cava. Diuretics are more likely to be indicated."
+        },
+        {
+            "id": "action5",
+            "text": "Apply restrictive clothing to manage edema",
+            "isCorrect": false,
+            "hoverRationale": "Applying restrictive clothing or devices would further impede venous return from the upper extremities and neck. This action would worsen the client's edema and venous congestion."
         }
     ],
-    "potentialConditions": [
-        "Superior Vena Cava (SVC) Syndrome",
-        "Cardiac Tamponade",
-        "Tension Pneumothorax",
-        "Aortic Dissection"
-    ],
-    "condition": "Superior Vena Cava (SVC) Syndrome",
     "parameters": [
         {
             "id": "param1",
-            "text": "Neurological status and mental clarity",
+            "text": "Neurological status",
             "isCorrect": true,
-            "rationale": "SVC syndrome can lead to increased intracranial pressure due to impaired venous drainage from the brain. Monitoring neurological status and mental clarity is crucial to detect early signs of cerebral edema or decreased perfusion."
-        },
-        {
-            "id": "param3",
-            "text": "Urine output",
-            "isCorrect": false,
-            "rationale": "While monitoring fluid balance is important, urine output is not a primary indicator of SVC syndrome severity or response to treatment. Other parameters are more directly related to the pathophysiology."
+            "hoverRationale": "Impaired venous drainage from the brain increases intracranial pressure, risking cerebral edema and seizures. Monitoring neurological status is critical to detect early signs of this life-threatening complication."
         },
         {
             "id": "param2",
             "text": "Airway patency and breathing effort",
             "isCorrect": true,
-            "rationale": "Edema in the neck and upper airway can compromise airway patency and breathing. Monitoring respiratory status is essential to ensure adequate oxygenation and ventilation. Stridor or dyspnea indicates impending airway obstruction."
+            "hoverRationale": "Progressive edema of the neck, larynx, and pharynx can lead to airway compression and obstruction. Assessing for stridor, dyspnea, and work of breathing is vital to prevent respiratory arrest."
+        },
+        {
+            "id": "param3",
+            "text": "Urine output",
+            "isCorrect": false,
+            "hoverRationale": "While important for overall fluid status, urine output is not a direct or sensitive indicator of SVC compression or its complications. The primary threats are airway and neurological compromise."
         },
         {
             "id": "param4",
-            "text": "Serum Calcium",
+            "text": "Blood pressure in both arms",
             "isCorrect": false,
-            "rationale": "Serum calcium levels are not directly affected by SVC syndrome. While hypercalcemia can occur in some cancers, it is not a primary concern in the acute management of SVC syndrome."
+            "hoverRationale": "Comparing blood pressure between arms is a key assessment for aortic dissection, not SVC syndrome. This assessment does not provide relevant data for the client's current condition."
+        },
+        {
+            "id": "param5",
+            "text": "Serum calcium level",
+            "isCorrect": false,
+            "hoverRationale": "Serum calcium is not directly affected by SVC obstruction. While hypercalcemia of malignancy is a separate oncologic emergency, it is not the priority assessment for this client's presentation."
         }
     ],
     "correctActionIds": [
@@ -69,6 +126,11 @@
         "param1",
         "param2"
     ],
+    "rationale": "Superior Vena Cava (SVC) syndrome is an oncologic emergency caused by tumor compression of the SVC, obstructing venous return from the head, neck, and upper extremities. This leads to facial/neck edema and distended veins. The priority actions are to reduce venous pressure by placing the client in high-Fowler's position and preparing for definitive treatment like radiation or stenting to relieve the obstruction. Critical monitoring includes assessing for airway compromise due to laryngeal edema and neurological changes from increased intracranial pressure.",
+    "scoring": {
+        "method": "polytomous",
+        "maxPoints": 5
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -77,93 +139,7 @@
         "topicTags": [
             "Oncology",
             "Emergency",
-            "SVC"
+            "SVC Syndrome"
         ]
-    },
-    "rationale": {
-        "correct": "Superior Vena Cava (SVC) syndrome is an oncologic emergency resulting from external compression or obstruction of the SVC, often by a tumor. This obstruction impairs venous return from the head, neck, and upper extremities, leading to characteristic signs like facial and neck edema, distended neck veins, and a feeling of fullness in the head. Symptoms worsen when leaning forward due to increased venous pressure. The priority is to alleviate pressure on the SVC by positioning the client in high-Fowler's to promote venous drainage and preparing for definitive treatment such as emergent radiation therapy or stenting to debulk the tumor. Monitoring airway patency and neurological status is crucial due to the risk of airway compromise from edema and increased intracranial pressure from impaired venous drainage.",
-        "incorrect": "Trendelenburg position and restrictive clothing exacerbate venous congestion. Urine output and serum calcium are not primary monitoring parameters in SVC syndrome. Focusing on these distracts from critical assessments.",
-        "clinicalPearls": [
-            "Stokes' sign (edema of the neck and face) is a hallmark of SVC syndrome.",
-            "SVC syndrome can be a sign of advanced malignancy.",
-            "Rapid intervention is crucial to prevent life-threatening complications like airway obstruction and cerebral edema."
-        ],
-        "questionTrap": {
-            "trap": "Thinking it's Right-sided HF",
-            "howToOvercome": "If the edema is strictly in the upper body (Face/Arms) and associated with malignancy, think SVC. Right-sided heart failure typically presents with lower extremity edema and other systemic signs."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Superior Vena Cava (SVC) Syndrome\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Position the client in high-Fowler's\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Place the client in a Trendelenburg position\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Apply tight restrictive clothing to management edema\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Prepare for emergent radiation therapy or stenting\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Neurological status and mental clarity\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Urine output\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Airway patency and breathing effort\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Serum Calcium\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            }
-        ],
-        "mnemonic": {
-            "title": "SVC",
-            "expansion": "S = Superior\nV = Vena\nC = Cava\n\nKey Actions: Position the client in high-Fowler's; Prepare for emergent radiation therapy or stenting\nKey Monitoring: Neurological status and mental clarity; Airway patency and breathing effort"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Superior Vena Cava — Pathophysiology & Recognition",
-                "body": "SVC syndrome is an oncologic emergency caused by compression of the SVC by a tumor. Facial edema and JVD are classic. Priority is reducing pressure (Positioning) and debulking the tumor (Radiation/Stent). Monitoring Focus: Airway (edema can spread) and Neuro (increased ICP from poor drainage). Stokes' sign (edema of the neck and face) is a hallmark of SVC syndrome.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Thinking it's Right-sided HF",
-                "body": "If the edema is strictly in the upper body (Face/Arms) and associated with malignancy, think SVC.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Superior Vena Cava",
-                "body": "The priority nursing interventions are: Position the client in high-Fowler's; Prepare for emergent radiation therapy or stenting. Monitor: Neurological status and mental clarity; Airway patency and breathing effort. Restrictive clothing and Trendelenburg will worsen the venous congestion in the head and neck. Urine output and Calcium are not the primary monitoring points for SVC.",
-                "source": "Evidence-Based Nursing Practice"
-            }
-        ]
-    },
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
-    "sentinelStatus": "healed_v2026_v11"
+    }
 }

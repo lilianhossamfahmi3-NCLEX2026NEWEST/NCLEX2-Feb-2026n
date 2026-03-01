@@ -1,64 +1,153 @@
 {
     "id": "New-v26-8a9b2c3d-4e5f-6071-8293-a4b5c6d7e8f9",
-    "type": "trend",
-    "stem": "The patient's condition is trending. Review the information in the patient's chart, paying close attention to the vital signs, lab results, and medication administration records. Based on the available information, select the THREE most appropriate nursing interventions to implement NEXT.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "selectN",
+    "stem": "The nurse is reviewing the client's electronic health record. Based on the trended data, the client is deteriorating. Select the 3 nursing interventions the nurse should implement immediately.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Administer a 30 mL/kg crystalloid fluid bolus."
+        },
+        {
+            "id": "opt_02",
+            "text": "Obtain blood cultures from two different sites."
+        },
+        {
+            "id": "opt_03",
+            "text": "Activate the Rapid Response Team (RRT)."
+        },
+        {
+            "id": "opt_04",
+            "text": "Administer the PRN acetaminophen for fever."
+        },
+        {
+            "id": "opt_05",
+            "text": "Reassess vital signs in 30 minutes."
+        },
+        {
+            "id": "opt_06",
+            "text": "Place the client in a high-Fowler's position."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_03"
+    ],
     "itemContext": {
         "patient": {
             "name": "John Smith",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Contact and Droplet",
+            "age": "72",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ]
+            ],
+            "iso": "Contact and Droplet Precautions"
         },
-        "sbar": "S: John Smith, 72-year-old male, admitted 3 days ago with pneumonia. He has a history of COPD and type 2 diabetes. R: He initially responded to IV antibiotics, but his condition has worsened over the last 12 hours. At 06:00, he was alert and oriented. A: Now, at 08:00, he is increasingly confused, with a temperature of 102.5°F (39.2°C), heart rate of 120 bpm, respiratory rate of 32 breaths/min, and blood pressure of 88/50 mmHg. Urine output has decreased significantly. Labs show elevated WBC and lactate. Cultures are pending, but gram-negative rods were identified on initial sputum gram stain. He's on vancomycin and cefepime. B: I'm concerned about sepsis and possible multi-drug resistance. I need orders for fluid resuscitation, vasopressors, and further investigation into antibiotic resistance.",
         "tabs": [
             {
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "note_type": "Admission Note",
+                        "content": "S: Client is a 72-year-old male brought to the ED by his adult child with a 3-day history of productive cough, fever, and worsening shortness of breath. Reports feeling weak and fatigued.\nB: History of COPD for 10 years (uses inhalers at home) and Type 2 Diabetes Mellitus controlled with metformin. Penicillin allergy causes anaphylaxis. Lives alone in a rural area with known transportation difficulties for follow-up appointments. Last hospitalized 8 months ago for a COPD exacerbation.\nA: Vitals on admission: T 101.1°F, HR 96, RR 24, BP 128/76, SpO₂ 93% on room air. Coarse crackles in the right lower lobe. Alert and oriented x4. Chest X-ray confirms right lower lobe pneumonia. Sputum and blood cultures obtained.\nR: Admitted to the medical-surgical unit for community-acquired pneumonia. Started on IV fluids, vancomycin, and cefepime. Placed on contact and droplet precautions."
+                    },
+                    {
+                        "timestamp": "Day 3, 08:00",
+                        "note_type": "Progress Note",
+                        "content": "S: Calling about Mr. John Smith in room 402. He has become acutely confused and hemodynamically unstable over the last hour.\nB: He is a 72-year-old male admitted 3 days ago for pneumonia, with a history of COPD and T2DM. He has a known penicillin allergy. He was responding to IV vancomycin and cefepime until this morning. His social history is significant for living in a food desert, which complicates his diabetic management at home.\nA: At 08:00, he is disoriented to time and place. Vitals are: T 102.5°F, HR 120 bpm, RR 32/min, BP 88/50 mmHg (MAP 63), SpO₂ 90% on 2L NC. Urine output has dropped to 20 mL/hr. His skin is warm and flushed. Recent labs show lactate is 4.0 mmol/L and creatinine is 1.8 mg/dL.\nR: I am concerned he is developing septic shock. I am activating the Rapid Response Team and requesting orders for aggressive fluid resuscitation and a vasopressor titration protocol."
+                    }
+                ]
+            },
+            {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "| Time  | Temperature (°F/°C) | Heart Rate (bpm) | Respiratory Rate (breaths/min) | Blood Pressure (mmHg) | SpO2 (%) | Urine Output (mL/hr) |\n|-------|-----------------------|--------------------|--------------------------------|-----------------------|----------|----------------------|\n| 06:00 | 99.5/37.5             | 98                 | 20                             | 120/70                | 95       | 60                   |\n| 07:00 | 101.2/38.4            | 108                | 24                             | 100/60                | 93       | 45                   |\n| 08:00 | 102.5/39.2            | 120                | 32                             | 88/50                 | 90       | 20                   |"
+                "title": "Vitals & Telemetry",
+                "content": "| Time  | Temp °F (°C) | HR (bpm) | RR (/min) | BP (mmHg) (MAP) | SpO₂ (%) on O₂ | UO (mL/hr) |\n|---|---|---|---|---|---|---|\n| 06:00 | 99.5 (37.5) | 98 | 20 | 120/70 (87) | 95% on Room Air | 60 |\n| 07:00 | 101.2 (38.4) | 108 | 24 | 100/60 (73) | 93% on 2L NC | 45 |\n| 08:00 | 102.5 (39.2) | 120 | 32 | 88/50 (63) | 90% on 2L NC | 20 |"
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "| Lab           | Result | Normal Range         |\n|---------------|--------|----------------------|\n| WBC           | 18,000 | 4,500 - 11,000/µL    |\n| Lactate       | 4.0    | 0.5 - 2.2 mmol/L     |\n| Creatinine    | 1.8    | 0.6 - 1.2 mg/dL      |\n| BUN           | 30     | 8 - 20 mg/dL         |\n| Platelets     | 150,000| 150,000 - 400,000/µL |\n| Sputum Gram Stain | Gram-negative rods | N/A                  |"
+                "title": "Lab Diagnostics",
+                "content": "| Result | Unit | Reference Range | Status |\n|---|---|---|---|\n| **Complete Blood Count** | | | |\n| WBC | 18.5 | 4.5-11.0 x 10³/μL | High |\n| Hgb | 13.8 | 13.2-17.3 g/dL | WNL |\n| Platelets | 155 | 150-400 x 10³/μL | WNL |\n| **Metabolic Panel** | | | |\n| Sodium | 137 | 136-145 mEq/L | WNL |\n| Potassium | 4.1 | 3.5-5.0 mEq/L | WNL |\n| BUN | 30 | 8-20 mg/dL | High |\n| Creatinine | 1.8 | 0.6-1.2 mg/dL | High |\n| Glucose | 188 | 70-110 mg/dL | High |\n| **Inflammatory Markers** | | | |\n| Lactate | 4.0 | 0.5-2.2 mmol/L | High |\n| **Microbiology** | | | |\n| Sputum Gram Stain | Gram-negative rods identified | N/A | N/A |"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "| System | Findings (Day 3, 08:00) |\n|---|---|\n| **General** | Acutely confused, disoriented to time and place. Appears distressed. |\n| **Cardiovascular** | Tachycardic with S1/S2 audible. Pulses +1 peripherally. Capillary refill >3 seconds. |\n| **Respiratory** | Tachypneic with use of accessory muscles. Coarse crackles auscultated in bilateral lower lobes. |\n| **Neurological** | GCS 13 (E4, V4, M5). Not following commands consistently. |\n| **Skin** | Warm, flushed, dry mucous membranes. |"
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "| Report Type | Chest X-ray (Portable AP) - Day 1, 15:30 |\n|---|---|\n| **Findings** | Lungs are hyperinflated consistent with underlying COPD. There is a dense consolidation in the right lower lobe, consistent with pneumonia. The cardiomediastinal silhouette is within normal limits. No evidence of pneumothorax or significant pleural effusion. |\n| **Impression** | Right lower lobe pneumonia. |"
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "| Date/Time | Action | Frequency/Status |\n|---|---|---|\n| Day 1, 14:30 | Vital signs | q4h and PRN |\n| Day 1, 14:30 | Continuous pulse oximetry | Continuous |\n| Day 1, 14:30 | Intake and Output | q1h |\n| Day 1, 14:30 | 0.9% Sodium Chloride | 75 mL/hr |\n| Day 1, 14:30 | Vancomycin 1g in 250mL NS | IV q12h |\n| Day 1, 14:30 | Cefepime 2g in 100mL NS | IV q8h |\n| Day 1, 14:30 | Acetaminophen 650 mg | PO q4h PRN for temp >101°F |\n| Day 1, 14:30 | Albuterol/Ipratropium | Nebulizer q6h PRN for wheezing |"
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "| Medication      | Dose    | Route | Frequency | Last Administered |\n|-----------------|---------|-------|-----------|--------------------|\n| Vancomycin      | 1g      | IV    | q12h      | 07:00             |\n| Cefepime        | 2g      | IV    | q8h       | 06:00             |\n| Acetaminophen   | 650mg   | PO    | q4h PRN   | 04:00             |\n| Famotidine      | 20mg    | IV    | q12h      | 07:00             |"
+                "title": "MAR Console",
+                "content": "| Medication | Dose | Route | Frequency | Last Administered |\n|---|---|---|---|---|\n| Vancomycin | 1g | IV | q12h | Day 3, 07:00 |\n| Cefepime | 2g | IV | q8h | Day 3, 06:00 |\n| Acetaminophen | 650mg | PO | q4h PRN | Day 3, 04:00 |\n| Famotidine | 20mg | IV | q12h | Day 3, 07:00 |\n| Metformin | 500mg | PO | Daily | Day 3, 08:00 |"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+    "rationale": {
+        "correct": "The client's presentation—hypotension (MAP <65 mmHg), tachycardia, tachypnea, altered mental status, and elevated lactate (>2 mmol/L)—is indicative of septic shock, a life-threatening medical emergency. The priority interventions align with the Hour-1 Sepsis Bundle. This includes aggressive fluid resuscitation to restore intravascular volume, obtaining blood cultures before administering new antibiotics to guide therapy, and activating the RRT to bring critical care expertise to the bedside for rapid escalation of care.",
+        "incorrect": "While treating the fever with acetaminophen is appropriate, it is not the immediate priority over hemodynamic stabilization. Delaying action to reassess in 30 minutes is dangerous and can lead to irreversible organ damage. Placing the client in a high-Fowler's position is used for respiratory distress with stable blood pressure; in a hypotensive state, it can decrease cerebral perfusion and worsen the client's condition.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The client's MAP is 63 mmHg, indicating hypotension and inadequate organ perfusion. The Surviving Sepsis Campaign guidelines recommend an initial fluid bolus of 30 mL/kg of crystalloid to combat vasodilation and capillary leak, which is the primary pathophysiological mechanism of septic shock."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. Obtaining blood cultures from at least two different sites before administering new or changed antibiotics is a critical step. This helps identify the causative organism and its sensitivities, allowing for de-escalation to targeted antibiotic therapy and improved antimicrobial stewardship."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. The client meets multiple criteria for RRT activation (e.g., acute change in mental status, RR >30, HR >120, SBP <90). Activating the RRT mobilizes a team with advanced skills to stabilize the client, facilitate transfer to a higher level of care, and prevent cardiac arrest."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. The fever is a symptom of the underlying systemic infection. While it should be managed, the life-threatening issue is circulatory collapse and tissue hypoperfusion. Prioritizing an antipyretic over fluid resuscitation and escalation of care is a critical error."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Incorrect. This represents a failure to act. The trend data clearly shows a rapid decline. Waiting another 30 minutes to intervene in a client with septic shock allows for further progression of organ dysfunction and increases mortality."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. This intervention is contraindicated. While a high-Fowler's position can ease the work of breathing, it will also cause blood to pool in the lower extremities, further reducing venous return and cardiac output in a client who is already severely hypotensive."
+            }
+        ],
+        "clinicalPearls": [
+            "Lactate >2 mmol/L is a key indicator of tissue hypoperfusion, even with a normal BP. A level >4 mmol/L, as seen in this client, is associated with a significant increase in mortality in sepsis.",
+            "The qSOFA score (altered mental status, RR ≥22/min, SBP ≤100 mmHg) is a quick bedside tool to identify patients with suspected infection who are at greater risk for poor outcomes. This client's score is 3, indicating high risk.",
+            "In septic shock, hypotension may persist despite fluid resuscitation, necessitating vasopressors (e.g., norepinephrine) to maintain a Mean Arterial Pressure (MAP) ≥65 mmHg, the minimum pressure needed for adequate organ perfusion."
+        ],
+        "questionTrap": "Symptom vs. Syndrome Trap: The high fever (102.5°F) might tempt you to prioritize antipyretics. However, the fever is just one symptom of the life-threatening syndrome of septic shock. Always prioritize interventions that address perfusion and hemodynamic stability over symptomatic treatment.",
+        "mnemonic": {
+            "title": "SEPSIS RESPONSE",
+            "expansion": "Start Fluids, Escalate Care (RRT), Pan-Culture (blood, urine, sputum), Start Antibiotics (after cultures), Investigate Lactate, Support Vitals (pressors)."
+        },
+        "reviewUnits": [
+            "Adult Health: Critical Care",
+            "Pharmacology: IV Fluids & Antibiotics",
+            "Fundamentals: Prioritization & Delegation"
         ]
     },
-    "rationale": {
-        "correct": "Initiating a rapid response is crucial due to the patient's deteriorating condition, meeting the criteria for sepsis (hypotension, tachycardia, tachypnea, altered mental status, elevated lactate). Administering a fluid bolus is essential to address the hypotension and tissue hypoperfusion associated with sepsis. Contacting the provider to discuss the potential need for vasopressors and escalation of care is vital, given the patient's persistent hypotension despite initial interventions.",
-        "incorrect": "Administering acetaminophen is not the priority in this situation. While the patient has a fever, addressing the sepsis and hemodynamic instability takes precedence. Reassessing vital signs in 30 minutes is insufficient given the severity of the patient's condition. Immediate intervention is required. Continuing to monitor urine output hourly is necessary, but not a primary intervention to immediately address the patient's unstable condition. Obtain a wound culture is not the priority as the primary concern is sepsis secondary to suspected pneumonia.",
-        "clinicalPearls": [
-            "Sepsis is a life-threatening condition requiring rapid recognition and intervention.",
-            "Early fluid resuscitation and vasopressor support are critical in managing sepsis-induced hypotension.",
-            "Consider multi-drug resistant organisms in patients with recent antibiotic use or hospitalizations."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on the fever and overlooking the other signs of sepsis can lead to selecting interventions that are not the priority.",
-            "howToOvercome": "Carefully assess all vital signs, lab values, and the patient's overall clinical presentation to identify the key indicators of sepsis and prioritize interventions accordingly."
-        },
-        "mnemonic": {
-            "title": "S.E.P.S.I.S.",
-            "expansion": "Suspect infection, Evaluate quickly, Prevent further deterioration, Start antibiotics, Identify source, Support organ function"
-        }
-    }
+    "scoring": {
+        "method": "zeroOne",
+        "maxPoints": 3
+    },
+    "pedagogy": {
+        "bloomLevel": "apply",
+        "cjmmStep": "takeActions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:44:46.656Z"
 }

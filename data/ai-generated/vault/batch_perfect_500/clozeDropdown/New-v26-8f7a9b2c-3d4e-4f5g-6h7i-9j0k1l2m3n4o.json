@@ -3,136 +3,436 @@
     "stem": "Based on the patient's presentation, the most likely diagnosis is <u>[DIAGNOSIS]</u>. The priority nursing intervention is <u>[INTERVENTION]</u>. A potential complication of this condition is <u>[COMPLICATION]</u>.",
     "type": "clozeDropdown",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 3
     },
     "pedagogy": {
         "cjmmStep": "analyzeCues",
         "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
+            "Endocrine",
+            "Thyroid Storm",
+            "Medical-Surgical"
         ],
         "bloomLevel": "analyze",
         "difficulty": 5,
         "nclexCategory": "Physiological Adaptation"
     },
     "rationale": {
-        "correct": "The patient's presentation (fever, tachycardia, hypertension, altered mental status, low TSH, high Free T4) is most consistent with thyroid storm, a life-threatening exacerbation of hyperthyroidism. The priority nursing intervention is to manage the hyperthermia and cardiovascular instability. This includes administering antithyroid medications (PTU or methimazole), beta-blockers (propranolol) to control heart rate, and cooling measures to reduce fever. Untreated thyroid storm can lead to heart failure and death.",
-        "mnemonic": {
-            "title": "Thyroid STORM",
-            "expansion": "Stress/Surgery, Trauma, Obstetric complications, Radioiodine therapy, Missed medication, infection, drugs (amiodarone)."
+        "correct": "The constellation of extreme hyperthermia, severe tachycardia, hypertension, altered mental status, and a history of Graves' disease with medication non-adherence points directly to thyroid storm. The pathophysiology involves a massive release of thyroid hormones, creating a hypermetabolic state and profound adrenergic stimulation. The priority is to block the effects of these hormones with antithyroid drugs and beta-blockers, and to manage systemic symptoms like hyperthermia. The immense cardiac workload (tachycardia, hypertension, increased metabolic demand) can overwhelm the heart, leading to high-output heart failure, a life-threatening complication.",
+        "answerBreakdown": {
+            "DIAGNOSIS": {
+                "Thyroid Storm": "Correct. This diagnosis is supported by the history of Graves' disease, medication non-adherence, and the classic triad of fever, tachycardia, and altered mental status, confirmed by a suppressed TSH (<0.01) and elevated Free T4 (7.0).",
+                "Diabetic Ketoacidosis (DKA)": "Incorrect. While hyperglycemia and metabolic acidosis are present, they are secondary to the hypermetabolic state of thyroid storm. The primary driver is thyroid hormone excess, not insulin deficiency. The profoundly low TSH is the key differentiator.",
+                "Hyperosmolar Hyperglycemic State (HHS)": "Incorrect. HHS typically presents with more profound dehydration and hyperglycemia without significant acidosis. This patient has significant metabolic acidosis (HCO3-: 16), making DKA or another process more likely than HHS.",
+                "Hypothyroidism": "Incorrect. This is the opposite of the patient's presentation. Hypothyroidism (myxedema coma) would present with bradycardia, hypothermia, and hypotension."
+            },
+            "INTERVENTION": {
+                "Administer antithyroid medications and beta-blockers": "Correct. This is the priority intervention. Antithyroid drugs (e.g., PTU, methimazole) block new hormone synthesis, while beta-blockers (e.g., propranolol) control the life-threatening cardiovascular effects (tachycardia, hypertension).",
+                "Administer intravenous insulin": "Incorrect. While the glucose is high, administering insulin without addressing the underlying thyroid storm is not the priority. The hyperglycemia is stress-induced. Treating the thyroid storm will help stabilize glucose levels. Insulin may be needed, but it is not the primary, life-saving intervention.",
+                "Administer oral hypoglycemic agents": "Incorrect. Oral agents are too slow-acting for this acute crisis and are not appropriate for this level of hyperglycemia and critical illness.",
+                "Administer thyroid hormone replacement": "Incorrect. This would be lethal, as the patient is already experiencing a massive excess of thyroid hormone. This is the treatment for hypothyroidism."
+            },
+            "COMPLICATION": {
+                "Heart Failure": "Correct. The extreme, sustained tachycardia and increased myocardial oxygen demand caused by the hypermetabolic state can lead to high-output cardiac failure, arrhythmia, and cardiovascular collapse.",
+                "Hypoglycemia": "Incorrect. The patient's condition causes profound hyperglycemia due to increased gluconeogenesis and glycogenolysis. Hypoglycemia would only be a risk from overtreatment with insulin.",
+                "Hyperkalemia": "Incorrect. The patient's potassium is low (3.2 mEq/L), not high. Hypokalemia can be exacerbated by adrenergic stimulation driving potassium into cells.",
+                "Acute Kidney Injury": "Incorrect. While the patient's creatinine is elevated, indicating some degree of kidney injury likely from dehydration, it is a consequence of the overall state, not the most specific or life-threatening complication of the cardiac strain caused by thyroid storm. Heart failure is the more direct and immediate life-threatening complication."
+            }
         },
-        "incorrect": "DKA and HHS are incorrect because while hyperglycemia is present, the primary driver of the patient's condition is the thyroid hormone excess. Although the patient has acidosis, it is not the primary problem. The patient’s labs show a low TSH and high Free T4 level, indicating hyperthyroidism. While managing hyperglycemia is important, it is not the priority over stabilizing the cardiovascular system and reducing thyroid hormone levels. Hypothyroidism is the opposite of the patient’s presentation. The patient has hyperthermia, tachycardia, and elevated Free T4 levels.",
+        "mnemonic": {
+            "title": "STORM Management",
+            "expansion": "Suppress hormone synthesis (PTU/Methimazole), Tame adrenergic symptoms (Beta-blockers), Offset fever (Cooling blankets/Acetaminophen), Regulate with steroids (Hydrocortisone), Monitor cardiac function."
+        },
         "questionTrap": {
-            "trap": "Focusing solely on the elevated glucose level might lead to considering DKA or HHS, overlooking the more critical thyroid-related symptoms.",
-            "howToOvercome": "Carefully analyze all lab values, vital signs, and the patient's history of Graves' disease. Prioritize conditions that pose the most immediate threat to the patient's life."
+            "trap": "Distraction by the high glucose (650 mg/dL) and acidosis, leading to an incorrect diagnosis of DKA as the primary problem.",
+            "howToOvercome": "Synthesize all data points. While glucose and pH are abnormal, the extreme vital signs and the specific thyroid lab results (TSH <0.01, Free T4 7.0) are the definitive indicators of the root cause. Always connect the patient's history (Graves' disease) to the current presentation."
         },
         "clinicalPearls": [
-            "Thyroid storm is a medical emergency requiring prompt recognition and treatment.",
-            "Beta-blockers are used to control the adrenergic symptoms of thyroid storm (tachycardia, hypertension).",
-            "Cooling blankets and acetaminophen are used to manage hyperthermia."
+            "Thyroid storm is a life-threatening endocrine emergency, often triggered by a stressor like infection or medication non-compliance in a patient with hyperthyroidism.",
+            "Propranolol is the preferred beta-blocker as it not only controls heart rate but also partially blocks the peripheral conversion of T4 to the more active T3.",
+            "Aspirin should be avoided for fever management in thyroid storm as it can displace thyroid hormone from binding proteins, worsening the crisis."
         ]
     },
     "itemContext": {
-        "sbar": "S: Jane Doe, 48-year-old female, admitted at 03:00 for altered mental status. History of Graves' disease, recently discontinued methimazole against medical advice. B: Patient found at home confused and diaphoretic. Glucose via glucometer was HI. EMS report indicates rapid heart rate and agitation. Patient was not wearing a mask. A: 07:00 assessment reveals: HR 180 bpm, BP 190/110 mmHg, RR 32 breaths/min (deep and rapid), Temp 104.5°F (40.3°C). Patient is restless, confused, and exhibiting tremors. STAT lab results are pending. O2 saturation is 92% on room air. Droplet precautions initiated due to elevated temperature and unknown infectious etiology. P: Anticipate orders for IV fluids, cooling measures, and medications to address potential thyroid storm. Monitor for signs of respiratory distress and cardiac arrhythmias. Contact provider immediately with lab results.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "Sbar",
-                "content": "<p>No significant findings at this time.</p>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 03:00",
+                        "header": "Admission Note - Emergency Department",
+                        "body": "S: Patient is a 48-year-old female with a history of Graves' disease, brought in by EMS for acute-onset altered mental status. Her adult child reports the patient stopped taking her methimazole about two weeks ago, stating she 'felt better.'\n\nB: Found at home agitated, confused, and profusely diaphoretic. EMS reports sinus tachycardia up to 180 bpm and a fingerstick glucose reading of 'HI.' Patient lives alone in a second-floor apartment with no air conditioning; a recent heatwave has been reported. She has no known drug allergies.\n\nA: On arrival, the patient is restless and unable to follow complex commands. She is tachycardic, hypertensive, and febrile. Skin is hot and moist. Fine tremors noted in outstretched hands. Lungs are clear but respirations are deep and rapid. A palpable, non-tender goiter is present.\n\nR: Initiated two large-bore IVs. Administered a 1L 0.9% NaCl bolus. Placed on cardiac monitor and continuous pulse oximetry. STAT labs including thyroid panel, ABG, and cardiac enzymes drawn. Awaiting transfer to ICU."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "header": "Progress Note - ICU",
+                        "body": "S: Patient has been transferred from the ED for management of suspected thyroid storm. She remains agitated and confused.\n\nB: History of Graves' disease with recent methimazole non-adherence. Initial labs from ED confirm severely suppressed TSH and elevated Free T4, along with hyperglycemia and metabolic acidosis.\n\nA: Vitals remain critical: HR 180, BP 190/110, Temp 104.5°F. Patient is on a cooling blanket. Cardiac monitor shows sinus tachycardia with frequent PVCs. Urine output has been minimal since admission. GCS is stable at 12. She is not oriented to time or place.\n\nR: Continue IV fluid resuscitation. Awaiting endocrinology consult. Prepare to administer propranolol and propylthiouracil (PTU) per protocol once confirmed by provider. Continue close monitoring of cardiac rhythm, vital signs, and neurological status. Maintain seizure precautions."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: HR 180 bpm, BP 190/110 mmHg, RR 32 breaths/min, Temp 104.5°F (40.3°C), SpO2 92% RA, GCS 12 (E3 V4 M5)"
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "HR",
+                        "BP (MAP)",
+                        "RR",
+                        "Temp",
+                        "SpO₂",
+                        "Telemetry"
+                    ],
+                    "rows": [
+                        [
+                            "03:15 (ED)",
+                            "178",
+                            "184/102 (129)",
+                            "30",
+                            "103.8°F (39.9°C)",
+                            "93% on RA",
+                            "Sinus Tachycardia"
+                        ],
+                        [
+                            "07:00 (ICU)",
+                            "180",
+                            "190/110 (137)",
+                            "32",
+                            "104.5°F (40.3°C)",
+                            "92% on 2L NC",
+                            "Sinus Tachycardia w/ frequent PVCs"
+                        ],
+                        [
+                            "07:30 (ICU)",
+                            "182",
+                            "192/114 (140)",
+                            "34",
+                            "104.7°F (40.4°C)",
+                            "91% on 2L NC",
+                            "Sinus Tachycardia w/ multifocal PVCs"
+                        ]
+                    ]
+                }
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "Na+: 148 mEq/L, K+: 3.2 mEq/L, Cl-: 105 mEq/L, Glucose: 650 mg/dL, BUN: 30 mg/dL, Creatinine: 1.8 mg/dL, pH: 7.30, pCO2: 30 mmHg, HCO3-: 16 mEq/L, TSH: <0.01 uIU/mL, Free T4: 7.0 ng/dL"
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        {
+                            "panel": "Chemistry Panel",
+                            "values": [
+                                [
+                                    "Sodium (Na+)",
+                                    "148",
+                                    "mEq/L",
+                                    "136-145",
+                                    "High"
+                                ],
+                                [
+                                    "Potassium (K+)",
+                                    "3.2",
+                                    "mEq/L",
+                                    "3.5-5.0",
+                                    "Low"
+                                ],
+                                [
+                                    "Chloride (Cl-)",
+                                    "105",
+                                    "mEq/L",
+                                    "98-106",
+                                    "WNL"
+                                ],
+                                [
+                                    "Glucose",
+                                    "650",
+                                    "mg/dL",
+                                    "74-106",
+                                    "Critical High"
+                                ],
+                                [
+                                    "BUN",
+                                    "30",
+                                    "mg/dL",
+                                    "10-20",
+                                    "High"
+                                ],
+                                [
+                                    "Creatinine",
+                                    "1.8",
+                                    "mg/dL",
+                                    "0.6-1.2",
+                                    "High"
+                                ]
+                            ]
+                        },
+                        {
+                            "panel": "Arterial Blood Gas (ABG)",
+                            "values": [
+                                [
+                                    "pH",
+                                    "7.30",
+                                    "",
+                                    "7.35-7.45",
+                                    "Low"
+                                ],
+                                [
+                                    "pCO2",
+                                    "30",
+                                    "mmHg",
+                                    "35-45",
+                                    "Low"
+                                ],
+                                [
+                                    "HCO3-",
+                                    "16",
+                                    "mEq/L",
+                                    "22-26",
+                                    "Low"
+                                ]
+                            ]
+                        },
+                        {
+                            "panel": "Thyroid Panel",
+                            "values": [
+                                [
+                                    "TSH",
+                                    "<0.01",
+                                    "uIU/mL",
+                                    "0.4-4.0",
+                                    "Critical Low"
+                                ],
+                                [
+                                    "Free T4",
+                                    "7.0",
+                                    "ng/dL",
+                                    "0.8-1.8",
+                                    "Critical High"
+                                ]
+                            ]
+                        }
+                    ]
+                }
             },
             {
                 "id": "physicalExam",
-                "title": "PhysicalExam",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Neurological",
+                        "findings": "GCS 12 (E3 V4 M5). Restless, agitated, not oriented to time or place. Pupils equal and reactive to light. Fine tremors noted in bilateral hands."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Extreme tachycardia with a rate of 180 bpm. Pulses are 3+ and bounding. S1 and S2 audible, no murmurs appreciated over the tachycardia. No jugular vein distention."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "findings": "Respirations are deep and rapid at 32 breaths/min. Lungs clear to auscultation bilaterally. No accessory muscle use noted."
+                    },
+                    {
+                        "system": "Integumentary",
+                        "findings": "Skin is flushed, hot to the touch, and profusely diaphoretic."
+                    },
+                    {
+                        "system": "Endocrine",
+                        "findings": "Symmetrical, non-tender, palpable goiter present. No bruit auscultated."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No significant findings at this time.</p>"
+                "content": [
+                    {
+                        "type": "Chest X-ray (Portable, 1 view)",
+                        "timestamp": "Day 1, 04:00",
+                        "report": "Indication: Tachycardia, tachypnea, altered mental status.\n\nFindings: The cardiomediastinal silhouette is top-normal in size. Lungs are clear of consolidation, effusion, or edema. Bony structures are unremarkable.\n\nImpression: No acute cardiopulmonary process identified."
+                    }
+                ]
             },
             {
                 "id": "carePlan",
-                "title": "CarePlan",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 03:10",
+                            "Establish 2 large-bore peripheral IVs",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 03:10",
+                            "0.9% Sodium Chloride 1000 mL IV bolus",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 03:10",
+                            "STAT Labs: CBC, CMP, ABG, Thyroid Panel, Cardiac Enzymes",
+                            "STAT"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Continuous cardiac monitoring and pulse oximetry",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Apply cooling blanket",
+                            "PRN for Temp > 103°F (39.4°C)"
+                        ],
+                        [
+                            "Day 1, 03:15",
+                            "Seizure precautions",
+                            "Standing"
+                        ],
+                        [
+                            "Day 1, 03:20",
+                            "Insert indwelling urinary catheter",
+                            "STAT"
+                        ]
+                    ]
+                }
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "Scheduled: Methimazole 5mg PO daily (discontinued), Multivitamin PO daily. PRN: Acetaminophen 650mg PO q4h PRN for fever, Ondansetron 4mg IV q6h PRN for nausea."
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Methimazole",
+                            "5 mg",
+                            "PO",
+                            "Daily",
+                            "Over 2 weeks ago (per family)"
+                        ],
+                        [
+                            "Multivitamin",
+                            "1 tablet",
+                            "PO",
+                            "Daily",
+                            "Yesterday"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "650 mg",
+                            "PO",
+                            "q4h PRN Fever",
+                            "Not administered"
+                        ],
+                        [
+                            "Ondansetron",
+                            "4 mg",
+                            "IV",
+                            "q6h PRN Nausea",
+                            "Not administered"
+                        ],
+                        [
+                            "0.9% Sodium Chloride",
+                            "1000 mL",
+                            "IV",
+                            "Bolus",
+                            "Day 1, 03:10"
+                        ]
+                    ]
+                }
             }
         ],
         "patient": {
-            "age": 48,
-            "iso": "Medical ICU",
             "name": "Jane Doe",
+            "age": 48,
             "gender": "Female",
+            "pronouns": "She/Her",
             "allergies": [
-                "NKDA"
-            ]
+                "No Known Drug Allergies"
+            ],
+            "iso": "Medical ICU"
         }
     },
     "sentinelStatus": "healed_v2026_v20_qi_final",
     "correctResponse": {
         "DIAGNOSIS": "Thyroid Storm",
-        "COMPLICATION": "Heart Failure",
-        "INTERVENTION": "Administer antithyroid medications and beta-blockers"
+        "INTERVENTION": "Administer antithyroid medications and beta-blockers",
+        "COMPLICATION": "Heart Failure"
     },
     "responseOptions": [
         {
+            "id": "opt_diag_1",
             "label": "Thyroid Storm",
             "value": "DIAGNOSIS"
         },
         {
+            "id": "opt_diag_2",
             "label": "Diabetic Ketoacidosis (DKA)",
             "value": "DIAGNOSIS"
         },
         {
+            "id": "opt_diag_3",
             "label": "Hyperosmolar Hyperglycemic State (HHS)",
             "value": "DIAGNOSIS"
         },
         {
+            "id": "opt_diag_4",
             "label": "Hypothyroidism",
             "value": "DIAGNOSIS"
         },
         {
+            "id": "opt_int_1",
             "label": "Administer antithyroid medications and beta-blockers",
             "value": "INTERVENTION"
         },
         {
+            "id": "opt_int_2",
             "label": "Administer intravenous insulin",
             "value": "INTERVENTION"
         },
         {
+            "id": "opt_int_3",
             "label": "Administer oral hypoglycemic agents",
             "value": "INTERVENTION"
         },
         {
+            "id": "opt_int_4",
             "label": "Administer thyroid hormone replacement",
             "value": "INTERVENTION"
         },
         {
+            "id": "opt_comp_1",
             "label": "Heart Failure",
             "value": "COMPLICATION"
         },
         {
+            "id": "opt_comp_2",
             "label": "Hypoglycemia",
             "value": "COMPLICATION"
         },
         {
+            "id": "opt_comp_3",
             "label": "Hyperkalemia",
             "value": "COMPLICATION"
         },
         {
+            "id": "opt_comp_4",
             "label": "Acute Kidney Injury",
             "value": "COMPLICATION"
         }

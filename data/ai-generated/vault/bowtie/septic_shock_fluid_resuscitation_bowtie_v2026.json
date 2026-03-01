@@ -1,13 +1,13 @@
 {
     "id": "bowtie_septic_shock_fluid_resuscitation_v2026",
     "type": "bowtie",
-    "stem": "The nurse is caring for a 68-year-old male patient admitted with suspected septic shock. After reviewing the patient's EHR, including the nurse's notes, vital signs, lab results, physical exam findings, care plan, and MAR, identify the appropriate actions to take, the most likely underlying condition, and the parameters that require close monitoring.",
+    "stem": "The nurse is caring for a 68-year-old male who developed hypotension and fever after a urinary catheter insertion. The patient's vital signs have not significantly improved after an initial fluid bolus. Complete the bowtie by selecting the appropriate actions, the potential condition, and the parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
-                "title": "Nurses' Notes",
-                "content": "10/26 07:00 S: Patient reports feeling weak and dizzy. States, \"I feel like I'm going to pass out.\" O: Patient alert and oriented x3, but appears pale and diaphoretic. BP 90/50 mmHg, HR 120 bpm, RR 28, Temp 38.9°C (102°F), SpO2 92% on room air. Recent urinary catheter insertion due to urinary retention. 10/26 07:15: 500 mL bolus of 0.9% NaCl initiated per order. 10/26 07:30: BP 95/55 mmHg, HR 115 bpm, RR 26, SpO2 94% on 2L NC. A: Patient exhibiting signs of possible septic shock secondary to urinary tract infection. Increased work of breathing. R: Continue fluid resuscitation, monitor vital signs closely, notify provider of any changes. Obtain blood cultures."
+                "title": "SBAR",
+                "content": "07:35 S: This is the nurse for the 68-year-old male in room 402. I'm calling about his persistent hypotension. B: He has a history of BPH and had a urinary catheter placed this morning. He has since developed a fever of 39.1°C, tachycardia to 115, and hypotension. A: His BP is 95/55 mmHg after one 500 mL fluid bolus. He has increased work of breathing. Labs show a lactate of 4.5 and procalcitonin of 15. I suspect urosepsis progressing to septic shock. R: I request you assess the patient now for further orders, including continued fluid resuscitation and potential vasopressor support."
             },
             {
                 "id": "vitals",
@@ -39,52 +39,78 @@
     "actions": [
         {
             "id": "a1",
-            "text": "Administer a second bolus of 0.9% normal saline."
+            "text": "Administer a second bolus of 0.9% normal saline.",
+            "rationale": "Septic shock causes massive vasodilation and capillary leak, leading to relative hypovolemia. Aggressive fluid resuscitation is critical to restore intravascular volume, improve preload, and increase cardiac output and tissue perfusion."
         },
         {
             "id": "a2",
-            "text": "Administer vasopressors."
+            "text": "Administer vasopressors.",
+            "rationale": "Vasopressors are indicated for persistent hypotension after adequate fluid resuscitation. Administering them prematurely without sufficient intravascular volume can worsen tissue ischemia by constricting already underfilled vessels."
         },
         {
             "id": "a3",
-            "text": "Elevate the head of the bed to 30 degrees."
+            "text": "Elevate the head of the bed to 30 degrees.",
+            "rationale": "While this position can ease work of breathing, it is not a priority intervention for hemodynamic instability in septic shock. It may also worsen hypotension by reducing venous return to the heart."
         },
         {
             "id": "a4",
-            "text": "Prepare for intubation and mechanical ventilation."
+            "text": "Prepare for intubation and mechanical ventilation.",
+            "rationale": "Septic shock increases metabolic demand and respiratory muscle fatigue, leading to respiratory failure. Preparing for intubation is a proactive measure to secure the airway and reduce the work of breathing, ensuring adequate oxygenation."
         },
         {
             "id": "a5",
-            "text": "Decrease the rate of IV fluids to KVO."
+            "text": "Decrease the rate of IV fluids to KVO.",
+            "rationale": "This action is contraindicated as it would severely worsen hypovolemia and shock. The patient requires aggressive fluid administration, not restriction, to combat the distributive shock state."
         }
     ],
     "potentialConditions": [
-        "Hypovolemic Shock",
-        "Cardiogenic Shock",
-        "Anaphylactic Shock",
-        "Septic Shock"
+        {
+            "id": "pc1",
+            "text": "Hypovolemic Shock",
+            "rationale": "This condition is caused by absolute fluid loss, such as from hemorrhage. While the patient is relatively hypovolemic, the presence of fever, high WBC, and elevated procalcitonin points to an infectious etiology."
+        },
+        {
+            "id": "pc2",
+            "text": "Cardiogenic Shock",
+            "rationale": "This results from primary cardiac pump failure. The patient's warm, flushed skin is inconsistent with the cool, clammy skin typical of cardiogenic shock, and there is no history of acute cardiac events."
+        },
+        {
+            "id": "pc3",
+            "text": "Anaphylactic Shock",
+            "rationale": "This is an acute allergic reaction. The patient's presentation lacks key features like urticaria, angioedema, or a known allergen exposure, making this diagnosis unlikely."
+        },
+        {
+            "id": "pc4",
+            "text": "Septic Shock",
+            "rationale": "This is a distributive shock resulting from a dysregulated host response to infection. The patient's fever, hypotension, tachycardia, elevated inflammatory markers (WBC, procalcitonin), and organ dysfunction (high lactate, creatinine) confirm this diagnosis."
+        }
     ],
-    "condition": "Septic Shock",
+    "condition": "pc4",
     "parameters": [
         {
             "id": "p1",
-            "text": "Level of consciousness"
+            "text": "Level of consciousness",
+            "rationale": "While important, level of consciousness is a general indicator of cerebral perfusion. More specific parameters are needed to directly assess the response to fluid resuscitation and peripheral perfusion."
         },
         {
             "id": "p2",
-            "text": "Urine output"
+            "text": "Urine output",
+            "rationale": "Urine output is a sensitive indicator of renal perfusion and reflects the adequacy of systemic circulation. Monitoring this parameter is crucial to gauge the effectiveness of fluid resuscitation in restoring organ perfusion."
         },
         {
             "id": "p3",
-            "text": "Bowel sounds"
+            "text": "Bowel sounds",
+            "rationale": "Bowel sounds are not a primary or sensitive indicator for assessing the immediate response to interventions in septic shock. Changes in bowel sounds occur much later in the clinical course."
         },
         {
             "id": "p4",
-            "text": "Capillary refill"
+            "text": "Capillary refill",
+            "rationale": "Capillary refill time is a direct measure of peripheral tissue perfusion. A prolonged refill time indicates poor circulation, and its improvement is a key goal of fluid resuscitation and other shock therapies."
         },
         {
             "id": "p5",
-            "text": "Pupil reaction"
+            "text": "Pupil reaction",
+            "rationale": "Pupil reaction assesses brainstem function and is not a relevant parameter for monitoring hemodynamic status or the effectiveness of fluid resuscitation in septic shock."
         }
     ],
     "correctActionIds": [
@@ -104,85 +130,9 @@
             "Septic Shock Fluid Resuscitation"
         ]
     },
-    "rationale": {
-        "correct": "Septic shock requires aggressive fluid resuscitation to improve preload and cardiac output. Intubation and mechanical ventilation may be required to support oxygenation and ventilation if the patient's respiratory status deteriorates. Urine output is a key indicator of renal perfusion and overall fluid status. Capillary refill provides information about peripheral perfusion.",
-        "incorrect": "Vasopressors are typically used after adequate fluid resuscitation has been attempted. Elevating the head of the bed can improve respiratory effort but is not a primary intervention for septic shock. Decreasing the rate of IV fluids would be detrimental in this situation. Bowel sounds and pupil reaction are not primary parameters to monitor in septic shock.",
-        "answerBreakdown": [
-            {
-                "actionId": "a1",
-                "rationale": "Administering a second bolus of 0.9% normal saline is appropriate as fluid resuscitation is a cornerstone of septic shock management to improve cardiac output and blood pressure."
-            },
-            {
-                "actionId": "a2",
-                "rationale": "Administering vasopressors is generally indicated after initial fluid resuscitation has failed to restore adequate blood pressure. While vasopressors may eventually be necessary, they are not the first-line intervention."
-            },
-            {
-                "actionId": "a3",
-                "rationale": "Elevating the head of the bed to 30 degrees can improve respiratory effort but is not a primary intervention in septic shock management. It may be considered as supportive care."
-            },
-            {
-                "actionId": "a4",
-                "rationale": "Preparing for intubation and mechanical ventilation is crucial if the patient exhibits signs of respiratory distress or declining oxygen saturation despite supplemental oxygen."
-            },
-            {
-                "actionId": "a5",
-                "rationale": "Decreasing the rate of IV fluids to KVO (keep vein open) is contraindicated in septic shock as it would further compromise tissue perfusion. Aggressive fluid resuscitation is essential."
-            },
-            {
-                "condition": "Hypovolemic Shock",
-                "rationale": "Hypovolemic shock results from decreased intravascular volume, often due to hemorrhage or dehydration. While fluid resuscitation is crucial, the underlying cause differs from septic shock."
-            },
-            {
-                "condition": "Cardiogenic Shock",
-                "rationale": "Cardiogenic shock occurs due to the heart's inability to pump blood effectively. Fluid resuscitation must be carefully managed to avoid fluid overload, making this less likely than septic shock given the patient's presentation."
-            },
-            {
-                "condition": "Anaphylactic Shock",
-                "rationale": "Anaphylactic shock is a severe allergic reaction causing vasodilation and bronchospasm. While hypotension is present, the clinical picture is less consistent with the provided data compared to septic shock."
-            },
-            {
-                "condition": "Septic Shock",
-                "rationale": "Septic shock is a distributive shock caused by a systemic infection. The patient's elevated WBC, lactate, creatinine, BUN, procalcitonin, fever, tachycardia, hypotension, and potential source of infection (urinary catheter) strongly suggest septic shock."
-            },
-            {
-                "parameterId": "p1",
-                "rationale": "Level of consciousness is important to monitor, but it is not as specific to fluid resuscitation as other parameters."
-            },
-            {
-                "parameterId": "p2",
-                "rationale": "Urine output is a critical indicator of renal perfusion and overall fluid status during fluid resuscitation. Decreased urine output may indicate inadequate fluid resuscitation or worsening renal function."
-            },
-            {
-                "parameterId": "p3",
-                "rationale": "Bowel sounds are not directly related to fluid resuscitation or septic shock management."
-            },
-            {
-                "parameterId": "p4",
-                "rationale": "Capillary refill is an indicator of peripheral perfusion. Monitoring capillary refill helps assess the effectiveness of fluid resuscitation in improving tissue perfusion."
-            },
-            {
-                "parameterId": "p5",
-                "rationale": "Pupil reaction is not a primary parameter to monitor during fluid resuscitation in septic shock."
-            }
-        ],
-        "clinicalPearls": [
-            "Aggressive fluid resuscitation is crucial in the initial management of septic shock.",
-            "Monitor vital signs and urine output closely to assess the effectiveness of fluid resuscitation.",
-            "Consider the need for vasopressors if blood pressure remains low despite adequate fluid resuscitation.",
-            "Early recognition and treatment of septic shock can significantly improve patient outcomes."
-        ],
-        "questionTrap": {
-            "trap": "The question may trick you into focusing solely on blood pressure without considering the overall clinical picture and the need for respiratory support.",
-            "howToOvercome": "Consider the patient's respiratory status and the potential need for intubation if oxygenation and ventilation are compromised."
-        },
-        "mnemonic": {
-            "title": "FLUIDS",
-            "expansion": "Fluids, Lactate, Urine output, Infection source control, Diagnostics (cultures), Support respiratory"
-        }
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "healed_v2026_v13"
 }

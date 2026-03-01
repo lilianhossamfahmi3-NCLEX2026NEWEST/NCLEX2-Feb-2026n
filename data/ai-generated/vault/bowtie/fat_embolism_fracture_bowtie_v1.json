@@ -1,32 +1,104 @@
 {
-    "id": "fat_embolism_fracture_bowtie_v1",
+    "id": "fat_embolism_fracture_bowtie_v3",
     "type": "bowtie",
-    "stem": "A 24-year-old male with a fractured femur 24 hours ago suddenly becomes confused and develops a petechial rash on his chest. His SpO2 is 86% on room air. Complete the bowtie to manage this crisis.",
+    "sentinelStatus": "healed_v2026_v13",
+    "clinicalFeed": "S: Dr. Smith, this is the nurse for John Doe in room 402. I'm calling about an acute change at 08:30. B: He's a 24-year-old male, 24 hours post-op from a right femur ORIF. His recovery was stable until now. A: He is suddenly agitated, confused, and tachypneic with an SpO2 of 86% on room air. He has a new petechial rash on his chest and axillae. Vitals are HR 122, RR 28. R: I suspect Fat Embolism Syndrome. I need you to come assess him immediately.",
+    "stem": "A 24-year-old male client is 24 hours post-operative from a femur fracture repair. The nurse finds the client is acutely confused, has a new petechial rash on his chest, and an SpO2 of 86%. Based on the client's presentation, complete the bowtie by selecting the appropriate actions, potential condition, and parameters to monitor.",
+    "ehr": {
+        "tabs": [
+            {
+                "id": "patientProfile",
+                "label": "Patient Profile",
+                "content": {
+                    "name": "John Doe",
+                    "age": "24 years",
+                    "gender": "Male",
+                    "dob": "YYYY-MM-DD",
+                    "allergies": "No Known Allergies"
+                }
+            },
+            {
+                "id": "historyAndPhysical",
+                "label": "History & Physical",
+                "content": {
+                    "history": "Patient is a 24-year-old male who sustained a closed right femur fracture in a motor vehicle collision yesterday. No other significant injuries. No significant past medical history.",
+                    "physicalExam": "Post-operative day 1 from open reduction and internal fixation with intramedullary nail. Surgical site clean, dry, and intact. Distal pulses, sensation, and motor function intact in right lower extremity."
+                }
+            },
+            {
+                "id": "vitals",
+                "label": "Vitals",
+                "content": [
+                    {
+                        "time": "08:30",
+                        "hr": "122 bpm",
+                        "bp": "130/78 mmHg",
+                        "rr": "28/min",
+                        "temp": "37.8°C (100.0°F)",
+                        "spo2": "86% (Room Air)"
+                    },
+                    {
+                        "time": "04:00",
+                        "hr": "84 bpm",
+                        "bp": "124/72 mmHg",
+                        "rr": "16/min",
+                        "temp": "37.1°C (98.8°F)",
+                        "spo2": "98% (Room Air)"
+                    }
+                ]
+            },
+            {
+                "id": "nursesNotes",
+                "label": "Nurses' Notes",
+                "content": [
+                    {
+                        "time": "08:30",
+                        "note": "Called to room by patient's roommate. Patient is agitated and confused, does not know where he is. Noted fine, non-blanching petechial rash across upper chest, neck, and in axillae. Lungs with scattered crackles. Tachycardic and tachypneic. SpO2 is 86% on room air. Provider paged STAT."
+                    },
+                    {
+                        "time": "04:00",
+                        "note": "Patient resting comfortably. Neurovascular checks of right lower extremity are within normal limits. Denies pain. Vitals stable."
+                    }
+                ]
+            }
+        ]
+    },
+    "potentialConditions": [
+        {
+            "id": "condition1",
+            "text": "Fat Embolism Syndrome (FES)"
+        },
+        {
+            "id": "condition2",
+            "text": "Acute Respiratory Distress Syndrome (ARDS)"
+        },
+        {
+            "id": "condition3",
+            "text": "Pneumonia"
+        },
+        {
+            "id": "condition4",
+            "text": "Pulmonary Embolism (PE)"
+        }
+    ],
     "actions": [
         {
             "id": "action1",
             "text": "Apply high-flow oxygen."
         },
         {
-            "id": "action3",
+            "id": "action2",
             "text": "Administer STAT IV heparin."
         },
         {
-            "id": "action4",
+            "id": "action3",
             "text": "Prepare for a lumbar puncture."
         },
         {
-            "id": "action2",
+            "id": "action4",
             "text": "Initiate IV fluids and maintain bed rest."
         }
     ],
-    "potentialConditions": [
-        "Fat Embolism Syndrome (FES)",
-        "ARDS",
-        "Pneumonia",
-        "Pulmonary Embolism"
-    ],
-    "condition": "Fat Embolism Syndrome (FES)",
     "parameters": [
         {
             "id": "param1",
@@ -34,25 +106,40 @@
         },
         {
             "id": "param2",
-            "text": "Mental status (Confusion/Agitation)."
-        },
-        {
-            "id": "param4",
-            "text": "BUN and creatinine."
+            "text": "Mental status."
         },
         {
             "id": "param3",
+            "text": "BUN and creatinine."
+        },
+        {
+            "id": "param4",
             "text": "Serum calcium."
         }
     ],
+    "condition": "condition1",
     "correctActionIds": [
         "action1",
-        "action2"
+        "action4"
     ],
     "correctParameterIds": [
         "param1",
         "param2"
     ],
+    "hoverRationales": {
+        "condition1": "Correct. Fat globules released from the fractured femur have embolized to the lungs and brain. This causes the classic triad of respiratory failure, neurological changes, and a petechial rash, which is pathognomonic for FES.",
+        "condition2": "Incorrect. While FES can cause ARDS, the presence of a petechial rash and acute neurological changes are specific hallmarks of FES. ARDS is a potential sequela, not the primary diagnosis causing this unique symptom triad.",
+        "condition3": "Incorrect. Pneumonia is an infectious process that typically presents with fever and productive cough. This client's sudden onset of neurological and dermatological symptoms following trauma is inconsistent with a typical infectious etiology.",
+        "condition4": "Incorrect. A thromboembolic PE does not cause a petechial rash, which results from microvascular occlusion by fat globules. The rash is a key finding that differentiates FES from a typical PE.",
+        "action1": "Correct. Fat emboli obstructing pulmonary capillaries cause a severe ventilation-perfusion mismatch, leading to acute hypoxemia. Applying high-flow oxygen is the priority intervention to support tissue oxygenation and prevent further organ damage.",
+        "action2": "Incorrect. Heparin is an anticoagulant for thromboemboli and has no effect on fat globules. Administering it is inappropriate for FES and would not address the underlying pathophysiology of microvascular fat occlusion.",
+        "action3": "Incorrect. A lumbar puncture is an invasive procedure to assess cerebrospinal fluid, typically for infection. The client's confusion is caused by cerebral fat emboli, a diagnosis that does not require a lumbar puncture.",
+        "action4": "Correct. Supportive care is key in FES. IV fluids maintain hemodynamic stability and tissue perfusion, while bed rest and immobilization of the fracture prevent further embolization of fat globules from the bone marrow.",
+        "param1": "Correct. Monitoring SpO2 is critical as progressive hypoxemia is a hallmark of FES. It directly reflects the extent of pulmonary capillary occlusion by fat emboli and the client's response to oxygen therapy.",
+        "param2": "Correct. Cerebral embolization by fat globules causes neurological decline. Monitoring mental status is vital to track the progression of cerebral ischemia and the severity of the syndrome's impact on the central nervous system.",
+        "param3": "Incorrect. While renal failure is a late complication, BUN and creatinine are not priority parameters for monitoring this acute cardiorespiratory and neurological crisis. Monitoring oxygenation and neurological status is the immediate priority.",
+        "param4": "Incorrect. Hypocalcemia can occur as free fatty acids bind calcium, but this is a secondary metabolic finding. It is not a priority for monitoring the immediate life-threatening respiratory and neurological deterioration seen in FES."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -64,88 +151,8 @@
             "Emergency"
         ]
     },
-    "rationale": {
-        "correct": "Long bone fracture + Hypoxia + Confusion + Petechiae = FES. Unlike PE, FES includes the petechial rash (hallmark). Priority is supportive care (oxygen, fluids) and minimizing movement of the fracture site.",
-        "incorrect": "Heparin is for blood clots (PE/DVT) but not used for fat emboli. LP is for CNS infections. While FES affects mental status, it is due to emboli, not a need for spinal fluid analysis.",
-        "clinicalPearls": [
-            "Petechiae across the chest and neck are the definitive sign differentiating FES from PE."
-        ],
-        "questionTrap": {
-            "trap": "Early vs. Late",
-            "howToOvercome": "FES usually occurs 24-72 hours after the fracture."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Fat Embolism Syndrome (FES)\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Apply high-flow oxygen\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer STAT IV heparin\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Prepare for a lumbar puncture\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Initiate IV fluids and maintain bed rest\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Oxygen saturation (SpO2)\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Mental status (Confusion/Agitation)\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"BUN and creatinine\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Serum calcium\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            }
-        ],
-        "mnemonic": {
-            "title": "FES",
-            "expansion": "F = Fat\nE = Embolism\nS = Syndrome\n\nKey Actions: Apply high-flow oxygen; Initiate IV fluids and maintain bed rest\nKey Monitoring: Oxygen saturation (SpO2); Mental status (Confusion/Agitation)"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Fat Embolism Syndrome — Pathophysiology & Recognition",
-                "body": "Long bone fracture + Hypoxia + Confusion + Petechiae = FES. Unlike PE, FES includes the petechial rash (hallmark). Priority is supportive care (oxygen, fluids) and minimizing movement of the fracture site. Petechiae across the chest and neck are the definitive sign differentiating FES from PE.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Early vs. Late",
-                "body": "FES usually occurs 24-72 hours after the fracture.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Fat Embolism Syndrome",
-                "body": "The priority nursing interventions are: Apply high-flow oxygen; Initiate IV fluids and maintain bed rest. Monitor: Oxygen saturation (SpO2); Mental status (Confusion/Agitation). Heparin is for blood clots (PE/DVT) but not used for fat emboli. LP is for CNS infections. While FES affects mental status, it is due to emboli, not a need for spinal fluid analysis.",
-                "source": "Evidence-Based Nursing Practice"
-            }
-        ]
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
-    },
-    "sentinelStatus": "healed_v2026_v11"
+    }
 }

@@ -1,15 +1,101 @@
 {
-    "id": "malignant_hyperthermia_surgical_bowtie_v1",
+    "id": "malignant_hyperthermia_surgical_bowtie_v2",
     "type": "bowtie",
-    "stem": "During an emergency appendectomy, the client's end-tidal CO2 rises sharply, and his jaw becomes rigid. His temperature begins to rise rapidly (39.4°C and climbing). Which condition is most likely? What are the priority actions and parameters to monitor?",
+    "sentinelStatus": "remediated_v2026_bara_v1",
+    "ehr": {
+        "tabs": [
+            {
+                "id": "vitals",
+                "title": "Vitals",
+                "data": [
+                    {
+                        "time": "09:00",
+                        "label": "Intraoperative",
+                        "values": {
+                            "HR": "78",
+                            "BP": "124/76",
+                            "RR": "12 (Vent)",
+                            "Temp": "37.0°C",
+                            "SpO2": "99%",
+                            "ETCO2": "38 mmHg"
+                        }
+                    },
+                    {
+                        "time": "09:30",
+                        "label": "Intraoperative",
+                        "values": {
+                            "HR": "145",
+                            "BP": "150/90",
+                            "RR": "28 (Vent)",
+                            "Temp": "39.4°C",
+                            "SpO2": "94%",
+                            "ETCO2": "75 mmHg"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "medications",
+                "title": "Medications",
+                "data": [
+                    {
+                        "category": "Anesthetics",
+                        "medications": [
+                            {
+                                "name": "Sevoflurane",
+                                "route": "Inhalation",
+                                "dose": "Per protocol",
+                                "frequency": "Continuous"
+                            },
+                            {
+                                "name": "Succinylcholine",
+                                "route": "IV",
+                                "dose": "100 mg",
+                                "frequency": "Once for intubation"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "history",
+                "title": "History & Physical",
+                "data": {
+                    "historyOfPresentIllness": "28-year-old male presented to the emergency department with right lower quadrant abdominal pain, nausea, and low-grade fever. Diagnosed with acute appendicitis and scheduled for an emergency appendectomy.",
+                    "pastMedicalHistory": "No significant past medical history.",
+                    "familyHistory": "Patient denies any known family history of problems with anesthesia.",
+                    "allergies": "No known allergies."
+                }
+            }
+        ]
+    },
+    "clinicalFeed": {
+        "type": "sbar",
+        "text": "S: This is the OR nurse for the patient in OR 3. We have a critical change. B: He is a 28-year-old male undergoing an emergency appendectomy. Anesthesia was induced with sevoflurane and succinylcholine. A: At 09:30, his ETCO2 spiked to 75 mmHg, he developed jaw rigidity, and his heart rate is 145/min. His temperature is now 39.4°C and climbing rapidly. I suspect malignant hyperthermia. R: I need orders for immediate intervention, including dantrolene, and assistance from the MH response team."
+    },
+    "stem": "The nurse is caring for a client undergoing an emergency appendectomy who develops sudden jaw rigidity, hypercarbia, and a rapid temperature increase to 39.4°C. The nurse recognizes these findings indicate a life-threatening intraoperative complication. What actions should the nurse take, and what parameters should be monitored?",
+    "potentialConditions": [
+        {
+            "id": "cond1",
+            "text": "Malignant Hyperthermia (MH)"
+        },
+        {
+            "id": "cond2",
+            "text": "Thyroid Storm"
+        },
+        {
+            "id": "cond3",
+            "text": "Neuroleptic Malignant Syndrome (NMS)"
+        },
+        {
+            "id": "cond4",
+            "text": "Serotonin Syndrome"
+        }
+    ],
     "actions": [
         {
             "id": "action1",
             "text": "Administer IV Dantrolene Sodium STAT"
-        },
-        {
-            "id": "action4",
-            "text": "Apply external cooling measures"
         },
         {
             "id": "action2",
@@ -17,25 +103,14 @@
         },
         {
             "id": "action3",
+            "text": "Apply external cooling measures"
+        },
+        {
+            "id": "action4",
             "text": "Administer STAT IV Atropine"
         }
     ],
-    "potentialConditions": [
-        "Malignant Hyperthermia (MH)",
-        "Thyroid Storm",
-        "Neuroleptic Malignant Syndrome (NMS)",
-        "Serotonin Syndrome"
-    ],
-    "condition": "Malignant Hyperthermia (MH)",
     "parameters": [
-        {
-            "id": "param4",
-            "text": "Urine Myoglobin"
-        },
-        {
-            "id": "param3",
-            "text": "Serum Creatine Kinase (CK)"
-        },
         {
             "id": "param1",
             "text": "Body temperature and Heart rate"
@@ -43,8 +118,17 @@
         {
             "id": "param2",
             "text": "End-tidal CO2 (ETCO2) levels"
+        },
+        {
+            "id": "param3",
+            "text": "Urine Myoglobin"
+        },
+        {
+            "id": "param4",
+            "text": "Serum Creatine Kinase (CK)"
         }
     ],
+    "condition": "cond1",
     "correctActionIds": [
         "action1",
         "action2"
@@ -53,6 +137,20 @@
         "param1",
         "param2"
     ],
+    "hoverRationales": {
+        "cond1": "Malignant hyperthermia is a hypermetabolic crisis triggered by anesthetic agents. Uncontrolled calcium release from the sarcoplasmic reticulum causes sustained muscle contraction, leading to hypercarbia, rigidity, and hyperthermia.",
+        "cond2": "While causing hyperthermia and tachycardia, thyroid storm does not typically present with the acute onset of muscle rigidity and a sharp rise in end-tidal CO2 during anesthesia.",
+        "cond3": "NMS is a reaction to neuroleptic medications, not anesthetic agents. Its onset is typically slower (days to weeks) compared to the rapid development seen in this intraoperative scenario.",
+        "cond4": "This syndrome is caused by excess serotonergic activity and is not triggered by general anesthetics. While it can cause hyperthermia, the classic triad also includes autonomic instability and altered mental status, not intraoperative jaw rigidity.",
+        "action1": "Dantrolene is the specific antidote for malignant hyperthermia. It works by inhibiting calcium release from the sarcoplasmic reticulum, directly counteracting the underlying pathophysiology of the crisis.",
+        "action2": "The first step is to remove the triggering agent (inhalation anesthetic). Hyperventilation with 100% oxygen helps correct respiratory acidosis by eliminating excess CO2 and improves oxygenation.",
+        "action3": "While cooling is a necessary supportive measure to manage hyperthermia, it is not a priority over removing the trigger and administering the antidote. These primary actions must be performed first.",
+        "action4": "Atropine is an anticholinergic used for bradycardia. It is contraindicated here as it can worsen tachycardia and would not address the core hypermetabolic process of malignant hyperthermia.",
+        "param1": "Continuous monitoring of core body temperature and heart rate is essential to assess the severity of the hypermetabolic state and the patient's response to dantrolene and cooling interventions.",
+        "param2": "A rapid, unexplained rise in ETCO2 is one of the earliest and most sensitive signs of malignant hyperthermia. Monitoring its level is crucial to track the hypermetabolic process and response to treatment.",
+        "param3": "Monitoring for myoglobinuria is important to detect rhabdomyolysis, a potential complication of MH. However, this is a secondary assessment, not a primary parameter for managing the acute crisis.",
+        "param4": "Elevated CK levels confirm muscle breakdown but peak hours after the initial event. It is a diagnostic and complication-monitoring tool, not a parameter for immediate crisis management."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -61,91 +159,12 @@
         "topicTags": [
             "Surgical",
             "Emergency",
-            "Pharmacology"
-        ]
-    },
-    "rationale": {
-        "correct": "Malignant Hyperthermia (MH) is a rare, life-threatening hypermetabolic crisis triggered by certain anesthetic agents, particularly volatile inhaled anesthetics (e.g., sevoflurane, isoflurane) and the depolarizing muscle relaxant succinylcholine. The genetic predisposition involves mutations in genes encoding the ryanodine receptor (RYR1), which regulates calcium release in skeletal muscle. When exposed to triggering agents, uncontrolled calcium release leads to sustained muscle contraction, rigidity (often starting with the jaw), and a dramatic increase in metabolism. This hypermetabolic state results in increased oxygen consumption, carbon dioxide production (leading to a rapid rise in ETCO2), and heat generation, causing a rapid rise in body temperature. Tachycardia is also present due to the increased metabolic demand. The priority is to immediately discontinue the triggering agents and administer dantrolene sodium, a muscle relaxant that inhibits calcium release from the sarcoplasmic reticulum. Hyperventilation with 100% oxygen helps to eliminate accumulated CO2. Monitoring temperature and ETCO2 is crucial to assess the effectiveness of treatment.",
-        "incorrect": "Atropine is an anticholinergic medication used to treat bradycardia and reduce secretions; it is not indicated in MH and will not address the underlying pathophysiology. Applying external heat is contraindicated as it will exacerbate the hyperthermia. While thyroid storm, NMS, and serotonin syndrome can present with elevated temperature, the rapid rise in ETCO2 and jaw rigidity are more specific to MH. Urine protein and blood glucose are not primary indicators for MH. Serum Creatine Kinase (CK) and Urine Myoglobin are important to monitor for Rhabdomyolysis, a complication of MH, but are not the initial parameters to monitor.",
-        "clinicalPearls": [
-            "Early signs of MH can be subtle, such as unexplained tachycardia, tachypnea, or increased ETCO2. Prompt recognition and intervention are critical to prevent severe complications. Always inquire about a family history of adverse reactions to anesthesia. Consider using non-triggering anesthetic agents in patients with a known or suspected susceptibility to MH. The Malignant Hyperthermia Association of the United States (MHAUS) provides valuable resources and support for healthcare professionals and patients."
-        ],
-        "questionTrap": {
-            "trap": "Thinking Fever is the first sign",
-            "howToOvercome": "Muscle rigidity (especially jaw rigidity or masseter spasm) and a rapidly increasing ETCO2 are often the earliest indicators of MH, preceding a significant rise in temperature."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Malignant Hyperthermia (MH)\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer IV Dantrolene Sodium STAT\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Apply external cooling measures\" is appropriate for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Terminate inhalation anesthetics and hyperventilate with 100% O2\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer STAT IV Atropine\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Urine Myoglobin\" is not the most sensitive or specific parameter for evaluating this patient's initial status. While important for monitoring rhabdomyolysis, it's not a primary indicator for initial assessment.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Serum Creatine Kinase (CK)\" is not the most sensitive or specific parameter for evaluating this patient's initial status. While important for monitoring rhabdomyolysis, it's not a primary indicator for initial assessment.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Body temperature and Heart rate\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"End-tidal CO2 (ETCO2) levels\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            }
-        ],
-        "mnemonic": {
-            "title": "MH",
-            "expansion": "M = Malignant\nH = Hyperthermia\n\nKey Actions: Administer IV Dantrolene Sodium STAT; Terminate inhalation anesthetics and hyperventilate with 100% O2\nKey Monitoring: Body temperature and Heart rate; End-tidal CO2 (ETCO2) levels"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Malignant Hyperthermia — Pathophysiology & Recognition",
-                "body": "MH is a genetic reaction to succinylcholine or gas anesthetics. High ETCO2 and muscle rigidity are early signs; high fever is a LATE sign. Priority is the antidote (Dantrolene) and stopping the trigger. Temp and ETCO2 are critical monitoring points. MH is an autosomal dominant genetic disorder; always ask about family history of anesthesia problems.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Thinking Fever is the first sign",
-                "body": "Muscle rigidity (jaw) and high CO2 are the earliest indicators.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Malignant Hyperthermia",
-                "body": "The priority nursing interventions are: Administer IV Dantrolene Sodium STAT; Terminate inhalation anesthetics and hyperventilate with 100% O2. Monitor: Body temperature and Heart rate; End-tidal CO2 (ETCO2) levels. Atropine won't help MH muscle hypermetabolism. Heat will kill the client. MH is a hypermetabolic state needing cooling, not heating.",
-                "source": "Evidence-Based Nursing Practice"
-            }
+            "Pharmacology",
+            "Anesthesia"
         ]
     },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
-    },
-    "sentinelStatus": "healed_v2026_v11"
+    }
 }

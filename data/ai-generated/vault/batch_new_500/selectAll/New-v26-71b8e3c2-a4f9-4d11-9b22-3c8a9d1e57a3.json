@@ -1,107 +1,150 @@
 {
     "id": "New-v26-71b8e3c2-a4f9-4d11-9b22-3c8a9d1e57a3",
     "type": "selectAll",
-    "stem": "The patient's condition is deteriorating despite current interventions. Based on the provided information, which of the following interventions should the nurse anticipate implementing *next*?",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is caring for a client with pneumonia whose condition is rapidly deteriorating. Based on the trends in the client's electronic health record, which interventions should the nurse anticipate preparing for next? (Select all that apply).",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Initiate mechanical ventilation."
+        },
+        {
+            "id": "opt_02",
+            "text": "Increase the FiO2 on the Venturi mask to 80%."
+        },
+        {
+            "id": "opt_03",
+            "text": "Administer a 500 mL bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "opt_04",
+            "text": "Administer a scheduled bronchodilator treatment."
+        },
+        {
+            "id": "opt_05",
+            "text": "Obtain orders for sedation and paralytics."
+        },
+        {
+            "id": "opt_06",
+            "text": "Encourage use of the incentive spirometer."
+        },
+        {
+            "id": "opt_07",
+            "text": "Prepare for therapeutic prone positioning."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_05",
+        "opt_07"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Jameson Tyrell",
-            "age": 67,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "67 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ],
-            "airborne": true
+            ]
         },
-        "sbar": "S: Jameson Tyrell, 67-year-old male, admitted 3 days ago for pneumonia, now exhibiting worsening respiratory distress. O2 saturation is persistently in the low 80s despite being on a 60% FiO2 via Venturi mask. RR is 34 and labored. States, “I can’t breathe.”\nB: History of COPD and hypertension. Initial CXR showed bilateral infiltrates. He was started on ceftriaxone and azithromycin.\nA: Patient is developing acute respiratory distress syndrome (ARDS). ABG at 14:00 showed pH 7.30, PaCO2 55, PaO2 58, HCO3 24. Vitals at 14:15: HR 122, BP 100/60, Temp 38.8°C. Chest X-ray shows worsening bilateral infiltrates.\nR: Anticipate need for intubation and mechanical ventilation. Prepare for potential transfer to a higher level of care. Contact respiratory therapy for immediate assistance. Consider proning the patient after intubation. Obtain orders for sedation and paralytics as indicated. Monitor closely for further deterioration.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>14:15</td><td>122</td><td>100/60</td><td>34</td><td>82% (60% FiO2)</td><td>38.8°C</td></tr><tr><td>13:15</td><td>118</td><td>108/64</td><td>30</td><td>85% (60% FiO2)</td><td>38.5°C</td></tr><tr><td>12:15</td><td>115</td><td>112/68</td><td>28</td><td>88% (60% FiO2)</td><td>38.2°C</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (Day 1, 09:00):\nS: Client is a 67-year-old male brought to the ED by his adult child with a 3-day history of productive cough, fever, and increasing shortness of breath. \nB: History of COPD, hypertension. Smokes 1 pack per day. Lives alone in a rural area with limited access to transportation, delaying his visit. \nA: Appears fatigued. T: 101.5°F, HR 105, RR 24, BP 130/80, SpO2 91% on room air. Coarse crackles in bilateral lower lobes. Chest X-ray confirms bilateral pneumonia. \nR: Admit to medical-surgical unit. Start IV 0.9% sodium chloride at 75 mL/hr. Administer ceftriaxone and azithromycin after blood cultures are drawn. Place on 2L nasal cannula. \n\nProgress Note (Day 3, 14:30):\nS: Client reports severe dyspnea, stating, \"I can't catch my breath.\" He is visibly anxious and agitated.\nB: Transferred to ICU this morning for worsening hypoxemia. Oxygen requirements have escalated from a nasal cannula to a 60% Venturi mask with no significant improvement. \nA: Client is in acute respiratory distress. RR 34/min, labored, with use of accessory muscles. SpO2 is 82%. HR 122, BP 100/60. ABG from 14:00 shows severe hypoxemia and hypercapnia. Worsening diffuse bilateral opacities on chest x-ray are consistent with ARDS.\nR: Immediate intervention is required for acute respiratory failure. Notify respiratory therapy and provider for immediate bedside evaluation. Anticipate rapid sequence intubation and initiation of mechanical ventilation. Prepare sedation and paralytic agents. Discuss potential for prone positioning with the team."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>55 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>58 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>14,000/µL</td><td>4,500-11,000/µL</td></tr><tr><td>Lactate</td><td>2.8 mmol/L</td><td>0.5-2.2 mmol/L</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>HR (bpm)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>RR (/min)</th><th>SpO₂</th><th>Temp °F (°C)</th></tr></thead><tbody><tr><td>14:15</td><td>122</td><td>100/60</td><td>73</td><td>34</td><td>82% on 60% Venturi mask</td><td>101.8 (38.8)</td></tr><tr><td>13:15</td><td>118</td><td>108/64</td><td>79</td><td>30</td><td>85% on 60% Venturi mask</td><td>101.3 (38.5)</td></tr><tr><td>12:15</td><td>115</td><td>112/68</td><td>83</td><td>28</td><td>88% on 50% Venturi mask</td><td>100.8 (38.2)</td></tr></tbody></table>"
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan=4><b>Arterial Blood Gas (ABG) - 14:00</b></td></tr><tr><td>pH</td><td></td><td>7.35-7.45</td><td style='color:red;'>Low</td></tr><tr><td>&nbsp;&nbsp;Value</td><td>7.30</td><td></td><td></td></tr><tr><td>PaCO₂</td><td>mmHg</td><td>35-45</td><td style='color:red;'>High</td></tr><tr><td>&nbsp;&nbsp;Value</td><td>55</td><td></td><td></td></tr><tr><td>PaO₂</td><td>mmHg</td><td>80-100</td><td style='color:red;'>Low (Critical)</td></tr><tr><td>&nbsp;&nbsp;Value</td><td>58</td><td></td><td></td></tr><tr><td>HCO₃⁻</td><td>mEq/L</td><td>22-26</td><td>Normal</td></tr><tr><td>&nbsp;&nbsp;Value</td><td>24</td><td></td><td></td></tr><tr><td colspan=4><b>Complete Blood Count (CBC) - 12:00</b></td></tr><tr><td>WBC</td><td>x10³/µL</td><td>4.5-11.0</td><td style='color:red;'>High</td></tr><tr><td>&nbsp;&nbsp;Value</td><td>14.5</td><td></td><td></td></tr><tr><td colspan=4><b>Metabolic Panel - 12:00</b></td></tr><tr><td>Lactate</td><td>mmol/L</td><td>0.5-2.2</td><td style='color:red;'>High</td></tr><tr><td>&nbsp;&nbsp;Value</td><td>2.8</td><td></td><td></td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Performed at 14:20\n\n**General:** Anxious, agitated, in obvious respiratory distress.\n\n**Respiratory:** Tachypneic with a rate of 34/min. Labored breathing with significant use of sternocleidomastoid and intercostal muscles. Diffuse bilateral crackles auscultated throughout all lung fields, worse at bases. No wheezing noted.\n\n**Cardiovascular:** Tachycardic, S1/S2 audible, no murmurs. Pulses 2+ peripherally. Skin is cool and diaphoretic.\n\n**Neurological:** Alert but anxious. Able to state name but difficulty speaking in full sentences due to dyspnea."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<table><thead><tr><th>Date</th><th>Test</th><th>Result</th></tr></thead><tbody><tr><td>Today</td><td>Chest X-Ray</td><td>Worsening bilateral infiltrates</td></tr><tr><td>3 days ago</td><td>Chest X-Ray</td><td>Bilateral infiltrates</td></tr></tbody></table>"
+                "content": "**Test:** Chest X-ray (Portable, AP view)\n**Date:** Day 3, 13:45\n\n**Reason for Exam:** Worsening hypoxemia and respiratory distress.\n\n**Findings:** Comparison is made to the admission study from 2 days prior. There is a significant interval increase in diffuse, bilateral airspace opacities, consistent with worsening pulmonary edema. The cardiac silhouette is not enlarged. No large pleural effusions are seen. The findings are classic for severe airspace disease.\n\n**Impression:** Worsening diffuse bilateral infiltrates, highly suspicious for the development of Acute Respiratory Distress Syndrome (ARDS) in the clinical setting of pneumonia and sepsis."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>q24h</td></tr><tr><td>Azithromycin</td><td>500 mg</td><td>IV</td><td>q24h</td></tr><tr><td>Albuterol/Ipratropium</td><td>2.5 mg/0.5 mg</td><td>Neb</td><td>q4h PRN</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN Fever</td></tr><tr><td>Normal Saline</td><td>1000 mL</td><td>IV</td><td>Continuous at 50 mL/hr</td></tr></tbody></table>"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 3, 10:00</td><td>Titrate oxygen to maintain SpO₂ > 90%</td><td>Standing</td></tr><tr><td>Day 3, 09:15</td><td>Transfer to Intensive Care Unit</td><td>STAT</td></tr><tr><td>Day 1, 09:30</td><td>Ceftriaxone 1 g in 50 mL D5W</td><td>IV Piggyback, q24h</td></tr><tr><td>Day 1, 09:30</td><td>Azithromycin 500 mg in 250 mL NS</td><td>IV Piggyback, q24h</td></tr><tr><td>Day 1, 09:30</td><td>0.9% Sodium Chloride</td><td>IV Continuous at 50 mL/hr</td></tr><tr><td>Day 1, 09:30</td><td>Albuterol/Ipratropium nebulizer</td><td>q4h PRN for wheezing</td></tr><tr><td>Day 1, 09:30</td><td>Acetaminophen 650 mg</td><td>PO, q4h PRN for Temp > 101°F</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>q24h</td><td>Day 3, 09:35</td></tr><tr><td>Azithromycin</td><td>500 mg</td><td>IV</td><td>q24h</td><td>Day 3, 09:35</td></tr><tr><td>0.9% Sodium Chloride</td><td>50 mL/hr</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Albuterol/Ipratropium</td><td>2.5 mg/0.5 mg</td><td>Nebulizer</td><td>q4h PRN</td><td>Day 3, 10:00</td></tr><tr><td>Acetaminophen</td><td>650 mg</td><td>PO</td><td>q4h PRN Fever</td><td>Day 3, 12:30</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
+    "rationale": {
+        "correct": "The client is exhibiting signs of acute respiratory distress syndrome (ARDS) secondary to pneumonia, characterized by refractory hypoxemia (PaO2 58 mmHg despite 60% FiO2), tachypnea, and bilateral infiltrates on chest x-ray. The primary intervention is to secure the airway and provide mechanical ventilation to support oxygenation and ventilation. Sedation and paralytics are necessary to facilitate intubation, reduce oxygen consumption, and prevent ventilator dyssynchrony. Prone positioning is a key evidence-based therapy for moderate to severe ARDS that improves ventilation-perfusion (V/Q) matching by recruiting dependent alveoli and shifting perfusion to better-aerated lung regions.",
+        "incorrect": "Increasing the FiO2 is unlikely to be effective due to the refractory nature of hypoxemia in ARDS, which is caused by intrapulmonary shunting, not just a diffusion limitation. Administering an IV fluid bolus is contraindicated as it can worsen the non-cardiogenic pulmonary edema characteristic of ARDS. Bronchodilators are not indicated as the primary issue is alveolar flooding and collapse, not bronchoconstriction. Encouraging incentive spirometry is inappropriate and impossible for a client in severe respiratory distress who requires mechanical support.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The client's ABGs (PaO2 58, PaCO2 55) and clinical presentation (RR 34, SpO2 82% on 60% FiO2) indicate acute respiratory failure, which is a primary indication for intubation and mechanical ventilation."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. This is an example of refractory hypoxemia. The low SpO2 despite a high FiO2 (60%) suggests significant intrapulmonary shunting. Simply increasing the FiO2 will not correct the underlying V/Q mismatch and may increase the risk of oxygen toxicity."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. ARDS involves increased capillary permeability leading to non-cardiogenic pulmonary edema. Administering additional fluids would likely worsen alveolar flooding and further impair gas exchange."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. While the client has a history of COPD, the current physical exam does not note wheezing, and the primary pathology of ARDS is alveolar damage, not bronchospasm. This intervention does not address the root cause."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. To safely intubate and manage a client on mechanical ventilation, especially one with ARDS who may require high pressures, sedation and often neuromuscular blockade (paralytics) are essential to ensure patient comfort, safety, and synchrony with the ventilator."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. This intervention is appropriate for preventing or treating atelectasis in a stable, cooperative client. It is completely inappropriate for a client in severe respiratory failure who is unable to take deep breaths and is on the verge of intubation."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Correct. Prone positioning is a proven intervention for moderate-to-severe ARDS (defined by a PaO2/FiO2 ratio < 150). It improves oxygenation by recruiting collapsed alveoli in the posterior lung regions and improving V/Q matching. The nurse should anticipate this order."
+            }
+        ],
+        "clinicalPearls": [
+            "Refractory hypoxemia, a hallmark of ARDS, is when PaO2 remains low despite increasing concentrations of inspired oxygen (FiO2). This is due to blood shunting past non-ventilated, fluid-filled alveoli.",
+            "The PaO2/FiO2 ratio is a key indicator of ARDS severity. For this client, the P/F ratio is 58 / 0.60 = 96.7, which indicates severe ARDS (<100).",
+            "Fluid management in ARDS is critical. A conservative or 'dry' fluid strategy is preferred after initial resuscitation to avoid worsening pulmonary edema.",
+            "The SBAR note highlights a Social Determinant of Health (SDOH): living in a rural area with limited transportation, which led to a delay in seeking care and potentially contributed to the severity of the illness."
+        ],
+        "questionTrap": "The trap is choosing interventions that treat general respiratory symptoms (like increasing oxygen or giving bronchodilators) without recognizing the specific pathophysiology of ARDS, which requires advanced interventions like mechanical ventilation and proning.",
+        "mnemonic": {
+            "title": "ARDS Interventions",
+            "expansion": "A.R.D.S.\nA - Airway (intubate)\nR - Reposition (prone)\nD - Diuresis (conservative fluids)\nS - Sedation & Support (paralytics, nutrition, prevent complications)"
+        },
+        "reviewUnits": [
+            "Respiratory Failure",
+            "ARDS",
+            "Mechanical Ventilation",
+            "Pharmacology: Sedatives & Paralytics"
         ]
     },
-    "rationale": {
-        "correct": "Initiating mechanical ventilation is indicated due to the patient's worsening respiratory distress, hypoxemia (PaO2 58 mmHg), and hypercapnia (PaCO2 55 mmHg). These values confirm acute respiratory failure, necessitating ventilatory support. Prone positioning improves oxygenation in ARDS by redistributing lung perfusion and ventilation, reducing atelectasis. Obtaining orders for sedation and paralytics is essential to facilitate mechanical ventilation, minimize patient discomfort, and prevent ventilator dyssynchrony during rapid sequence intubation (RSI). Increasing the FiO2 further is unlikely to be effective as the patient is already on 60% FiO2 with minimal improvement in oxygen saturation. ClinicalPearl: ARDS often requires high levels of PEEP and FiO2 to maintain adequate oxygenation.",
-        "incorrect": "Increasing the FiO2 is unlikely to be effective as the patient's oxygen saturation remains low despite being on a high concentration of oxygen (60%). Administering a bolus of intravenous fluids may worsen pulmonary edema in ARDS, exacerbating respiratory distress. Bronchodilators are not the primary treatment for ARDS and would not address the underlying alveolar damage and inflammation. Encouraging deep breathing and coughing may be difficult and ineffective given the patient's severe respiratory distress and fatigue. QuestionTrap: Focusing solely on immediate oxygen saturation improvement without addressing the underlying respiratory failure can lead to incorrect choices.",
-        "clinicalPearls": [
-            "ARDS is characterized by refractory hypoxemia, meaning that the PaO2 remains low despite increasing the FiO2.",
-            "Prone positioning improves oxygenation in ARDS by redistributing lung perfusion and ventilation, and improving V/Q matching."
-        ],
-        "questionTrap": {
-            "trap": "Selecting options that seem like they would immediately improve oxygen saturation without addressing the underlying cause of the respiratory failure.",
-            "howToOvercome": "Focus on the ABG results, chest x-ray findings, and the overall clinical picture to identify the need for more aggressive interventions like mechanical ventilation and prone positioning."
-        },
-        "mnemonic": {
-            "title": "ARDS Management",
-            "expansion": "A: Airway Management (Intubation/Ventilation), R: Reposition (Prone), D: Diuretics (Cautious Fluid Management), S: Sedation and Paralysis"
-        }
+    "scoring": {
+        "method": "+/- Scoring",
+        "maxPoints": 3
     },
-    "responseOptions": [
-        {
-            "id": "option1",
-            "text": "Initiate mechanical ventilation.",
-            "correct": true
-        },
-        {
-            "id": "option2",
-            "text": "Increase the FiO2 to 80%.",
-            "correct": false
-        },
-        {
-            "id": "option3",
-            "text": "Administer a 500 mL bolus of intravenous fluids.",
-            "correct": false
-        },
-        {
-            "id": "option4",
-            "text": "Administer a bronchodilator treatment.",
-            "correct": false
-        },
-        {
-            "id": "option5",
-            "text": "Obtain orders for sedation and paralytics.",
-            "correct": true
-        },
-        {
-            "id": "option6",
-            "text": "Encourage deep breathing and coughing.",
-            "correct": false
-        },
-        {
-            "id": "option7",
-            "text": "Prepare for prone positioning.",
-            "correct": true
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Application",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:31:22.040Z"
 }

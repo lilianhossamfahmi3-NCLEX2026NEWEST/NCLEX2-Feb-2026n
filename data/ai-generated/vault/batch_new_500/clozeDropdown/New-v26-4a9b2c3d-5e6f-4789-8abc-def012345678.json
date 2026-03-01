@@ -1,96 +1,337 @@
 {
     "id": "New-v26-4a9b2c3d-5e6f-4789-8abc-def012345678",
     "type": "clozeDropdown",
-    "stem": "Infant Michael is at increased risk for complications related to his Tetralogy of Fallot repair. Based on the provided information, select the most appropriate intervention for each clinical concern below:\n\nTo address potential hypercyanotic spells, administer [{1:oxygen|epinephrine|prostaglandin E1}].\nFor managing fluid overload indicated by weight gain and edema, administer [{2:diuretics|vasopressors|inotropes}].\nTo prevent infective endocarditis, administer [{3:prophylactic antibiotics|anticoagulants|antiarrhythmics}] prior to dental procedures.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 3
-    },
+    "stem": "The nurse is updating the plan of care for a 6-year-old client, 3 days post-operative for a Tetralogy of Fallot repair. Complete the following sentences by selecting the most appropriate option from each dropdown list.",
+    "prompt": "To address potential hypercyanotic spells, the nurse should anticipate administering [{1}]. For managing fluid overload, the nurse should anticipate administering [{2}]. To prevent infective endocarditis prior to dental procedures, the nurse should anticipate administering [{3}].",
+    "dropdowns": [
+        {
+            "blankId": "1",
+            "options": [
+                {
+                    "id": "opt_1a",
+                    "text": "oxygen"
+                },
+                {
+                    "id": "opt_1b",
+                    "text": "epinephrine"
+                },
+                {
+                    "id": "opt_1c",
+                    "text": "prostaglandin E1"
+                }
+            ],
+            "correctOptionId": "opt_1a"
+        },
+        {
+            "blankId": "2",
+            "options": [
+                {
+                    "id": "opt_2a",
+                    "text": "diuretics"
+                },
+                {
+                    "id": "opt_2b",
+                    "text": "vasopressors"
+                },
+                {
+                    "id": "opt_2c",
+                    "text": "inotropes"
+                }
+            ],
+            "correctOptionId": "opt_2a"
+        },
+        {
+            "blankId": "3",
+            "options": [
+                {
+                    "id": "opt_3a",
+                    "text": "prophylactic antibiotics"
+                },
+                {
+                    "id": "opt_3b",
+                    "text": "anticoagulants"
+                },
+                {
+                    "id": "opt_3c",
+                    "text": "antiarrhythmics"
+                }
+            ],
+            "correctOptionId": "opt_3a"
+        }
+    ],
     "itemContext": {
         "patient": {
             "name": "Michael Rodriguez",
-            "age": 6,
-            "gender": "Male",
-            "iso": "Pediatric ICU",
+            "age": "6 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
-                "NKDA"
-            ]
+                "No Known Drug Allergies"
+            ],
+            "dob": "2018-05-10",
+            "mrn": "MR789123"
         },
-        "sbar": "SITUATION: Michael Rodriguez, a 6-year-old male, is 3 days post-Tetralogy of Fallot repair. BACKGROUND: Admitted to the Pediatric ICU at 07:00 today. His initial post-operative course was stable. At 13:00, increased work of breathing and mild cyanosis were noted. He has gained 0.5 kg since yesterday. ASSESSMENT: Current vital signs at 15:00: HR 130 bpm, RR 36, SpO2 88% on room air, BP 90/60 mmHg. Auscultation reveals mild crackles bilaterally. Lab results show normal electrolytes. He is scheduled for a dental cleaning tomorrow at 10:00. The physician was notified. RECOMMENDATION: Evaluate for a potential hypercyanotic spell, fluid overload, and the need for infective endocarditis prophylaxis. Consider ordering a chest x-ray and adjusting medications as needed. Continue to closely monitor vital signs and respiratory status. I will call back at 17:00 for an update.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 138 mEq/L, K: 4.2 mEq/L, Cl: 100 mEq/L, HCO3: 24 mEq/L, BUN: 10 mg/dL, Creatinine: 0.6 mg/dL, WBC: 9.0 x 10^3/uL, Hgb: 12.5 g/dL, Hct: 37.5%"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Day 1 @ 08:00",
+                        "note_type": "Admission Note",
+                        "note": "S: Client admitted to PICU from OR following Tetralogy of Fallot repair. Extubated in OR. B: 6-year-old male with no known allergies. Surgical course was reported as uncomplicated. A: Awake, alert, and oriented. Vitals stable on monitor. Sternal incision is clean, dry, and intact with steri-strips. Chest tube in situ, draining minimal serosanguinous fluid. Lungs are clear to auscultation bilaterally. Peripheral pulses are strong and equal. Pain is currently well-controlled. R: Continue continuous cardiorespiratory monitoring. Administer PRN analgesia as prescribed. Encourage use of incentive spirometer every hour while awake. Monitor chest tube output and fluid balance via strict I&O. Maintain NPO status until bowel sounds return, then advance diet as tolerated. Family updated on plan of care."
+                    },
+                    {
+                        "timestamp": "Day 3 @ 15:00",
+                        "note_type": "Progress Note",
+                        "note": "S: Client is irritable and demonstrating increased work of breathing with mild perioral cyanosis. B: Post-operative course was stable until this morning. Client has gained 0.5 kg since yesterday's weight. He lives with his parents in a rural area with limited access to specialty pediatric care. A dental cleaning is scheduled for tomorrow. A: Vitals: HR 130, RR 36, SpO2 88% on room air, BP 90/60 mmHg. Auscultation reveals new-onset crackles in bilateral lower lung bases. 1+ pitting edema noted in lower extremities. Capillary refill is 2 seconds. R: Physician notified of change in status. Recommend initiating supplemental oxygen via nasal cannula, administering a stat dose of IV furosemide for suspected fluid overload, and confirming the plan for infective endocarditis prophylaxis prior to the dental procedure. Will obtain a chest x-ray as ordered."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "07:00: HR 110 bpm, RR 24, SpO2 95% on room air, BP 95/65 mmHg\n11:00: HR 120 bpm, RR 28, SpO2 92% on room air, BP 92/62 mmHg\n15:00: HR 130 bpm, RR 36, SpO2 88% on room air, BP 90/60 mmHg"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "Day 3 @ 07:00",
+                        "Temp": "98.8°F (37.1°C)",
+                        "HR": "110 bpm",
+                        "RR": "24/min",
+                        "SpO2": "95% on RA",
+                        "BP": "95/65 mmHg (MAP 75)",
+                        "Pain": "2/10"
+                    },
+                    {
+                        "Time": "Day 3 @ 11:00",
+                        "Temp": "99.1°F (37.3°C)",
+                        "HR": "120 bpm",
+                        "RR": "28/min",
+                        "SpO2": "92% on RA",
+                        "BP": "92/62 mmHg (MAP 72)",
+                        "Pain": "3/10"
+                    },
+                    {
+                        "Time": "Day 3 @ 15:00",
+                        "Temp": "99.0°F (37.2°C)",
+                        "HR": "130 bpm",
+                        "RR": "36/min",
+                        "SpO2": "88% on RA",
+                        "BP": "90/60 mmHg (MAP 70)",
+                        "Pain": "5/10 (irritable)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Acetaminophen 160mg PO q4h PRN for pain/fever, Morphine 2mg IV q4h PRN for pain, Cefazolin 500mg IV q8h (last dose: 08:00)"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Sodium (Na)",
+                        "Result": "138",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Potassium (K)",
+                        "Result": "4.2",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Chloride (Cl)",
+                        "Result": "100",
+                        "Unit": "mEq/L",
+                        "Reference": "98-106",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "10",
+                        "Unit": "mg/dL",
+                        "Reference": "7-18",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "0.6",
+                        "Unit": "mg/dL",
+                        "Reference": "0.5-1.1",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "WBC",
+                        "Result": "9.0",
+                        "Unit": "x 10³/µL",
+                        "Reference": "5.0-10.0",
+                        "Status": "Normal"
+                    },
+                    {
+                        "Test": "Hemoglobin",
+                        "Result": "12.5",
+                        "Unit": "g/dL",
+                        "Reference": "12.0-16.0",
+                        "Status": "Normal"
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1 @ 08:00 (Admission)",
+                        "findings": "GENERAL: Awake, alert, appropriate for age. CARDIOVASCULAR: S1, S2 audible. Regular rate and rhythm. Capillary refill <2 seconds. Peripheral pulses 2+ and equal. RESPIRATORY: Lungs clear to auscultation bilaterally. Unlabored respirations. NEUROLOGICAL: Moves all extremities spontaneously. Pupils equal, round, reactive to light."
+                    },
+                    {
+                        "timestamp": "Day 3 @ 15:00 (Focused)",
+                        "findings": "GENERAL: Irritable, easily distressed. RESPIRATORY: Tachypnea with increased work of breathing. Mild perioral cyanosis noted. Auscultation reveals crackles in bilateral lower lung bases. CARDIOVASCULAR: Tachycardia. Pulses remain 2+. EXTREMITIES: 1+ pitting edema noted in bilateral lower extremities."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": [
+                    {
+                        "type": "Chest X-ray (Portable AP)",
+                        "timestamp": "Day 3 @ 15:30",
+                        "report": "INDICATION: Increased work of breathing and hypoxia post-cardiac surgery. FINDINGS: Mild pulmonary vascular congestion and small bilateral pleural effusions are noted, consistent with developing fluid overload. The cardiomediastinal silhouette is within expected post-operative limits. No evidence of pneumothorax or focal consolidation. IMPRESSION: Mild cardiopulmonary edema."
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See separate SBAR section."
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "Day 1 @ 07:30",
+                        "action": "Continuous cardiorespiratory monitoring",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1 @ 07:30",
+                        "action": "Vital signs every 2 hours",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1 @ 07:30",
+                        "action": "Daily weights",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1 @ 07:30",
+                        "action": "Strict Intake & Output",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1 @ 07:30",
+                        "action": "Cardiac diet, low sodium",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "Day 1 @ 07:30",
+                        "action": "Notify provider for SpO2 < 92% or signs of respiratory distress",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Cefazolin",
+                        "dose": "500 mg",
+                        "route": "IV",
+                        "frequency": "q8h",
+                        "last_admin": "Day 3 @ 08:00"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "160 mg",
+                        "route": "PO",
+                        "frequency": "q4h PRN Pain/Fever",
+                        "last_admin": "Day 3 @ 12:00"
+                    },
+                    {
+                        "medication": "Morphine",
+                        "dose": "2 mg",
+                        "route": "IV",
+                        "frequency": "q4h PRN Pain",
+                        "last_admin": "Day 3 @ 09:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Pediatric: Congenital Heart Defects & Safety"
+    "rationale": {
+        "correct": "The correct plan involves administering oxygen to manage hypoxemia during a hypercyanotic spell, using diuretics to treat fluid overload evidenced by weight gain and crackles, and providing prophylactic antibiotics to prevent infective endocarditis during an upcoming dental procedure, which is a high-risk event for bacteremia.",
+        "incorrect": "Incorrect interventions either fail to address the underlying pathophysiology or are inappropriate for the clinical situation. Epinephrine is not a first-line treatment for Tet spells. Vasopressors and inotropes are not indicated for fluid overload without hypotension or pump failure. Anticoagulants and antiarrhythmics do not prevent infective endocarditis.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1a",
+                "content": "Correct. Hypercyanotic 'Tet' spells involve a sudden decrease in pulmonary blood flow, causing severe hypoxemia. Administering 100% oxygen acts as a pulmonary vasodilator and increases the partial pressure of alveolar oxygen, which helps to improve oxygen saturation."
+            },
+            {
+                "optionId": "opt_1b",
+                "content": "Incorrect. Epinephrine is a potent vasoconstrictor and inotrope. It is not used for Tet spells as it can worsen tachycardia and increase myocardial oxygen consumption without addressing the primary issue of right-to-left shunting."
+            },
+            {
+                "optionId": "opt_1c",
+                "content": "Incorrect. Prostaglandin E1 is used in neonates with ductal-dependent congenital heart defects to keep the ductus arteriosus open. It is not relevant for a 6-year-old child who has already undergone surgical repair."
+            },
+            {
+                "optionId": "opt_2a",
+                "content": "Correct. The client's 0.5 kg weight gain, bilateral crackles, and pitting edema are classic signs of fluid volume excess. Diuretics, such as furosemide, promote renal excretion of water and sodium, reducing preload and alleviating pulmonary and systemic congestion."
+            },
+            {
+                "optionId": "opt_2b",
+                "content": "Incorrect. Vasopressors are used to increase blood pressure during hypotensive states. The client's blood pressure is stable, and administering a vasopressor would inappropriately increase systemic vascular resistance (afterload), placing further strain on the post-operative heart."
+            },
+            {
+                "optionId": "opt_2c",
+                "content": "Incorrect. Inotropes are used to increase cardiac contractility in cases of heart failure or cardiogenic shock. The primary issue here is fluid overload, not impaired contractility. The first-line treatment is to remove excess fluid."
+            },
+            {
+                "optionId": "opt_3a",
+                "content": "Correct. Clients with repaired congenital heart defects, especially those with residual defects or prosthetic material, are at high risk for infective endocarditis (IE). Dental procedures can cause transient bacteremia, so prophylactic antibiotics are the standard of care to prevent bacterial seeding on cardiac structures."
+            },
+            {
+                "optionId": "opt_3b",
+                "content": "Incorrect. Anticoagulants are used to prevent thrombus formation. They have no role in preventing bacterial infections like infective endocarditis."
+            },
+            {
+                "optionId": "opt_3c",
+                "content": "Incorrect. Antiarrhythmics are used to manage cardiac dysrhythmias. While arrhythmias can be a post-operative complication, these medications are not used for IE prophylaxis."
+            }
+        ],
+        "clinicalPearls": [
+            "The classic intervention for a Tet spell is the knee-chest position, which increases systemic vascular resistance and promotes pulmonary blood flow, followed by oxygen administration.",
+            "Post-operative cardiac surgery patients are at high risk for fluid shifts and renal dysfunction, making daily weights the most sensitive indicator of fluid balance changes.",
+            "Infective endocarditis prophylaxis guidelines are specific; they are recommended for high-risk cardiac conditions before dental procedures involving gingival manipulation or perforation of the oral mucosa."
+        ],
+        "questionTrap": "Do not automatically select a powerful cardiac medication like epinephrine for a cardiac patient in distress. Always match the intervention to the specific pathophysiology. Here, the cyanosis is due to shunting (a flow problem), not an electrical or anaphylactic issue.",
+        "mnemonic": {
+            "title": "PROVE (Tetralogy of Fallot)",
+            "expansion": "P: Pulmonary Stenosis; R: Right Ventricular Hypertrophy; O: Overriding Aorta; V: Ventricular Septal Defect; E: Early Cyanosis ('Tet' Spells)."
+        },
+        "reviewUnits": [
+            "Pediatric Cardiology",
+            "Pharmacology: Cardiovascular Agents",
+            "Post-operative Nursing Care"
         ]
     },
-    "rationale": {
-        "correct": "Oxygen administration is crucial during hypercyanotic spells (also known as Tet spells) to increase the amount of oxygen available to the tissues, improving oxygen saturation. Diuretics are administered to reduce fluid overload by promoting excretion of excess fluid, alleviating pulmonary congestion. Prophylactic antibiotics are administered before dental procedures to prevent bacteria from entering the bloodstream and causing infective endocarditis in patients with congenital heart defects.",
-        "incorrect": "Epinephrine is used in cases of severe bradycardia or anaphylaxis, not typically for hypercyanotic spells related to Tetralogy of Fallot. Prostaglandin E1 is used to keep the ductus arteriosus open in neonates with certain congenital heart defects, not for managing hypercyanotic spells after surgical repair. Vasopressors are used to increase blood pressure in hypotensive patients, which is not the primary concern in fluid overload. Inotropes are used to increase the contractility of the heart, which is not indicated for managing fluid overload. Anticoagulants are used to prevent blood clots, which is not the primary concern for preventing infective endocarditis. Antiarrhythmics are used to treat heart rhythm abnormalities, which are not routinely used as prophylaxis against infective endocarditis.",
-        "clinicalPearls": [
-            "Tet spells are characterized by sudden, marked cyanosis and decreased blood flow to the lungs. Knee-chest position can also help to increase systemic vascular resistance and improve pulmonary blood flow.",
-            "Monitor for signs of fluid overload, such as edema, weight gain, and respiratory distress. Diuretics may be necessary to manage fluid balance.",
-            "Infective endocarditis prophylaxis is essential before procedures that can introduce bacteria into the bloodstream in patients with repaired congenital heart defects."
-        ],
-        "questionTrap": {
-            "trap": "Students may incorrectly associate epinephrine with any type of respiratory distress or cardiac compromise without considering the specific underlying cause.",
-            "howToOvercome": "Carefully assess the patient's specific condition and the underlying pathophysiology before selecting interventions. Epinephrine is typically used for anaphylaxis or cardiac arrest, not for managing hypercyanotic spells."
-        },
-        "mnemonic": {
-            "title": "BOOTS (Tetralogy of Fallot)",
-            "expansion": "B: Bicuspid pulmonary valve (Pulmonary Stenosis), O: Overriding aorta, O: Opening in the septum (Ventricular Septal Defect), T: Thickened right ventricle (Right Ventricular Hypertrophy), S: Severe Cyanosis"
-        }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 3
     },
-    "distractorRationale": {
-        "1": {
-            "oxygen": "Correct. Oxygen administration is crucial during hypercyanotic spells to increase the amount of oxygen available to the tissues.",
-            "epinephrine": "Incorrect. Epinephrine is used in cases of severe bradycardia or anaphylaxis, not typically for hypercyanotic spells related to Tetralogy of Fallot.",
-            "prostaglandin E1": "Incorrect. Prostaglandin E1 is used to keep the ductus arteriosus open in neonates with certain congenital heart defects, not for managing hypercyanotic spells after surgical repair."
-        },
-        "2": {
-            "diuretics": "Correct. Diuretics are administered to reduce fluid overload by promoting excretion of excess fluid.",
-            "vasopressors": "Incorrect. Vasopressors are used to increase blood pressure in hypotensive patients, which is not the primary concern in fluid overload.",
-            "inotropes": "Incorrect. Inotropes are used to increase the contractility of the heart, which is not indicated for managing fluid overload."
-        },
-        "3": {
-            "prophylactic antibiotics": "Correct. Prophylactic antibiotics are administered before dental procedures to prevent bacteria from entering the bloodstream and causing infective endocarditis in patients with congenital heart defects.",
-            "anticoagulants": "Incorrect. Anticoagulants are used to prevent blood clots, which is not the primary concern for preventing infective endocarditis.",
-            "antiarrhythmics": "Incorrect. Antiarrhythmics are used to treat heart rhythm abnormalities, which are not routinely used as prophylaxis against infective endocarditis."
-        }
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Integrity: Pharmacological and Parenteral Therapies"
     },
-    "metatags": {
-        "droplet": "true",
-        "isoSetting": "droplet"
-    },
-    "sentinelStatus": "deep_healed_v2026"
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:56:20.979Z"
 }

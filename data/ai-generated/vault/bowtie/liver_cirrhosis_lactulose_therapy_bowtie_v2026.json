@@ -1,18 +1,18 @@
 {
     "id": "bowtie_liver_cirrhosis_lactulose_therapy_v2026",
     "type": "bowtie",
-    "stem": "The nurse is caring for a client with liver cirrhosis who is receiving lactulose. Based on the provided information, what actions are most important for the nurse to take? For each action, indicate the potential condition and the parameter to monitor.",
+    "stem": "The nurse is caring for a client with liver cirrhosis who is receiving lactulose for hepatic encephalopathy and is now having frequent watery stools. Review the client's electronic health record. What actions should the nurse take, what condition is developing, and what parameters require monitoring?",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
                 "title": "Nurses' Notes",
-                "content": "07:00 SBAR: Patient is a 68-year-old male with liver cirrhosis, admitted for increased confusion and elevated ammonia levels. \n07:05 Pt received lactulose 30 mL PO at 06:00. Pt is somnolent but arousable to verbal stimuli. \n07:10 Noted 3 episodes of watery stools since midnight. Abdomen is soft with normoactive bowel sounds in all quadrants. \n07:15 Skin turgor is slightly diminished. Mucous membranes are dry. Urine output has decreased to 20 mL/hr for the past 2 hours. \n07:20 Notified the provider of the changes in mental status and increased frequency of bowel movements. New order received. \n07:25 Will continue to monitor mental status, stool frequency, and fluid balance per orders. Patient education regarding lactulose side effects provided to family. Bedside commode available. Fall precautions in place. \n07:30 Documented vital signs and lab results in EHR. Will continue to assess and document findings."
+                "content": "SBAR Report, 08:00:\n\n**Situation:** This is the nurse for the 68-year-old male in room 4, admitted for hepatic encephalopathy. He is experiencing frequent, large-volume watery stools after receiving lactulose.\n\n**Background:** Admitted yesterday for altered mental status with a history of alcohol-induced cirrhosis. Lactulose 30 mL was started every 6 hours. He has had three watery stools since 00:00.\n\n**Assessment:** At 08:00, he is tachycardic at 105/min and hypotensive at 110/60 mmHg. Urine output is 20 mL/hr. He appears lethargic with dry mucous membranes.\n\n**Recommendation:** I am concerned about his fluid volume status and require new orders."
             },
             {
                 "id": "vitals",
                 "title": "Vital Signs",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>00:00</td><td>130/80</td><td>88</td><td>18</td><td>98%</td><td>37.0°C</td></tr><tr><td>04:00</td><td>120/70</td><td>92</td><td>20</td><td>97%</td><td>37.2°C</td></tr><tr><td>08:00</td><td>110/60</td><td>105</td><td>24</td><td>95%</td><td>37.5°C</td></tr></tbody></table>"
+                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>00:00</td><td>130/80 mmHg</td><td>88/min</td><td>18/min</td><td>98%</td><td>37.0°C</td></tr><tr><td>04:00</td><td>120/70 mmHg</td><td>92/min</td><td>20/min</td><td>97%</td><td>37.2°C</td></tr><tr><td>08:00</td><td>110/60 mmHg</td><td>105/min</td><td>24/min</td><td>95%</td><td>37.5°C</td></tr></tbody></table>"
             },
             {
                 "id": "labs",
@@ -22,17 +22,17 @@
             {
                 "id": "exam",
                 "title": "Physical Exam",
-                "content": "General: Appears somnolent, arousable to verbal stimuli. Skin: Dry mucous membranes, poor skin turgor. Abdomen: Soft, normoactive bowel sounds in all quadrants. Neuro: Disoriented to time and place."
+                "content": "General: Appears somnolent, arousable to verbal stimuli.\nSkin: Dry mucous membranes, poor skin turgor.\nAbdomen: Soft, normoactive bowel sounds in all quadrants.\nNeuro: Disoriented to time and place."
             },
             {
                 "id": "orders",
                 "title": "Care Plan",
-                "content": "1. Administer lactulose 30 mL PO q6h. 2. Monitor mental status q2h. 3. Monitor stool frequency and consistency. 4. Maintain strict I&O. 5. Monitor serum electrolytes daily. 6. Fall precautions."
+                "content": "1. Administer lactulose 30 mL PO q6h.\n2. Monitor mental status q2h.\n3. Monitor stool frequency and consistency.\n4. Maintain strict I&O.\n5. Monitor serum electrolytes daily.\n6. Fall precautions."
             },
             {
                 "id": "mar",
                 "title": "MAR",
-                "content": "Lactulose 30 mL PO q6h PRN for elevated ammonia. Last dose given 06:00."
+                "content": "Lactulose 30 mL PO q6h. Last dose given 06:00."
             }
         ]
     },
@@ -59,12 +59,24 @@
         }
     ],
     "potentialConditions": [
-        "Hepatic encephalopathy worsening",
-        "Hypovolemia",
-        "Electrolyte imbalance",
-        "Gastrointestinal bleeding"
+        {
+            "id": "c1",
+            "text": "Hepatic encephalopathy worsening"
+        },
+        {
+            "id": "c2",
+            "text": "Hypovolemia"
+        },
+        {
+            "id": "c3",
+            "text": "Electrolyte imbalance"
+        },
+        {
+            "id": "c4",
+            "text": "Gastrointestinal bleeding"
+        }
     ],
-    "condition": "Hypovolemia",
+    "condition": "c2",
     "parameters": [
         {
             "id": "p1",
@@ -88,13 +100,35 @@
         }
     ],
     "correctActionIds": [
-        "a1",
+        "a2",
         "a4"
     ],
     "correctParameterIds": [
         "p1",
         "p3"
     ],
+    "hoverRationales": {
+        "actions": {
+            "a1": "This is a clinical flaw. While ongoing assessment is important, the available data in the EHR already provides clear evidence of significant dehydration. The priority is to take immediate action to correct the problem.",
+            "a2": "The client is experiencing excessive osmotic diarrhea, a side effect of lactulose, leading to hypovolemia. Holding the next dose is a critical action to prevent further fluid and electrolyte loss while awaiting new provider orders.",
+            "a3": "This is a clinical flaw. Administering more lactulose would exacerbate the osmotic diarrhea, worsening the client's dehydration and electrolyte imbalances. This action is contraindicated given the current assessment findings.",
+            "a4": "Encouraging oral fluids is a direct intervention to counteract the fluid loss from diarrhea. This action helps restore intravascular volume and prevent further complications of dehydration, such as acute kidney injury.",
+            "a5": "This is a clinical flaw. Hemodialysis is not indicated for hypovolemia. It is a treatment for severe renal failure or refractory hyperammonemia, neither of which is the primary, treatable problem at this time."
+        },
+        "potentialConditions": {
+            "c1": "This is a clinical flaw. While the client has encephalopathy, the acute changes in vital signs, labs, and physical exam findings point more urgently to hypovolemia as the most immediate life-threatening condition.",
+            "c2": "The client's tachycardia, hypotension, decreased urine output, poor skin turgor, and elevated BUN/creatinine are classic signs of fluid volume deficit, a direct and common complication of aggressive lactulose therapy.",
+            "c3": "This is a clinical flaw. While the client has hyponatremia and hypokalemia, these are consequences of the primary problem, which is hypovolemia from diarrhea. Treating the hypovolemia is the priority.",
+            "c4": "This is a clinical flaw. There is no evidence of bleeding, such as hematemesis or melena. The client's symptoms are fully explained by the known side effects of lactulose."
+        },
+        "parameters": {
+            "p1": "Diarrhea from lactulose causes significant loss of electrolytes, particularly potassium and sodium. Monitoring serum levels is essential to guide replacement therapy and prevent cardiac dysrhythmias or neurological complications.",
+            "p2": "This is a clinical flaw. While monitoring mental status is important for hepatic encephalopathy, it is a less specific indicator for tracking the resolution of hypovolemia. Fluid balance parameters are more direct.",
+            "p3": "Urine output is a sensitive indicator of renal perfusion and overall fluid volume status. A decrease in urine output is an early and critical sign of worsening hypovolemia and potential acute kidney injury.",
+            "p4": "This is a clinical flaw. Abdominal girth is monitored to assess for ascites, a chronic complication of cirrhosis. It is not a relevant parameter for monitoring acute fluid loss from diarrhea.",
+            "p5": "This is a clinical flaw. The nurse is already aware that frequent watery stools are the cause of the problem. The priority is monitoring the client's systemic response to the fluid loss, not the cause itself."
+        }
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -105,51 +139,12 @@
         ]
     },
     "rationale": {
-        "correct": "The client is showing signs of hypovolemia due to excessive stooling from lactulose therapy. Assessing for dehydration and encouraging fluid intake are crucial to prevent further complications. Monitoring serum electrolytes is vital as dehydration can lead to electrolyte imbalances, especially hypokalemia and hyponatremia. Monitoring urine output provides valuable data on fluid balance and kidney function.",
-        "incorrect": "Holding lactulose (a2) may be necessary if hypovolemia is severe, but it doesn't address the immediate need for rehydration. Administering lactulose (a3) would worsen the hypovolemia. Hemodialysis (a5) is not indicated at this time as the primary issue is fluid loss. Hepatic encephalopathy may be a concern, but the immediate threat is hypovolemia. Monitoring mental status (p2) is important for hepatic encephalopathy but less directly related to hypovolemia. Abdominal girth (p4) is more relevant to ascites, not dehydration. Stool frequency (p5) is already known to be high.",
-        "answerBreakdown": [
-            {
-                "actionId": "a1",
-                "condition": "Hypovolemia",
-                "parameterId": "p1",
-                "rationale": "Assessing for dehydration signs (poor skin turgor, dry mucous membranes) is critical in a client with increased stool output. Hypovolemia can lead to electrolyte imbalances. Monitoring electrolytes helps guide fluid and electrolyte replacement therapy."
-            },
-            {
-                "actionId": "a1",
-                "condition": "Hypovolemia",
-                "parameterId": "p3",
-                "rationale": "Assessing for dehydration signs (poor skin turgor, dry mucous membranes) is critical in a client with increased stool output. Reduced urine output is a key indicator of hypovolemia. Monitoring urine output helps assess the severity of fluid deficit."
-            },
-            {
-                "actionId": "a4",
-                "condition": "Hypovolemia",
-                "parameterId": "p1",
-                "rationale": "Encouraging increased fluid intake addresses the fluid volume deficit caused by excessive stooling. Hypovolemia can lead to electrolyte imbalances. Monitoring electrolytes helps guide fluid and electrolyte replacement therapy."
-            },
-            {
-                "actionId": "a4",
-                "condition": "Hypovolemia",
-                "parameterId": "p3",
-                "rationale": "Encouraging increased fluid intake addresses the fluid volume deficit caused by excessive stooling. Reduced urine output is a key indicator of hypovolemia. Monitoring urine output helps assess the effectiveness of fluid replacement."
-            }
-        ],
-        "clinicalPearls": [
-            "Lactulose reduces ammonia levels by promoting its excretion through stool. However, excessive lactulose can cause severe diarrhea and dehydration.",
-            "When administering lactulose, closely monitor the client for signs of dehydration and electrolyte imbalances, especially hypokalemia and hyponatremia.",
-            "Always assess the client's fluid status and adjust lactulose doses accordingly. If dehydration occurs, consider temporarily holding or reducing the dose."
-        ],
-        "questionTrap": {
-            "trap": "Many students may focus solely on the elevated ammonia levels and choose actions related to hepatic encephalopathy without recognizing the immediate threat of hypovolemia.",
-            "howToOvercome": "Carefully assess all available data, including vital signs, physical exam findings, and lab results, to identify the most pressing clinical issue. Prioritize interventions based on the ABCs (Airway, Breathing, Circulation) and the severity of the client's condition."
-        },
-        "mnemonic": {
-            "title": "Lactulose Complications",
-            "expansion": "L - Liquid stools\nA - Assess dehydration\nC - Check electrolytes\nT - Titrate dose\nU - Urine output monitoring\nL - Lower ammonia\nO - Observe mental status\nS - Skin turgor\nE - Evaluate effectiveness"
-        }
+        "correct": "The client shows classic signs of hypovolemia (tachycardia, hypotension, low urine output) from excessive lactulose-induced diarrhea. The priority actions are to stop the cause by holding the next dose of lactulose and to treat the fluid deficit by encouraging oral fluids. Monitoring serum electrolytes and urine output is vital to track response to treatment, kidney function, and guide electrolyte replacement.",
+        "incorrect": "Assessing for dehydration (a1) is redundant as the data is already present. Administering more lactulose (a3) is contraindicated. Hemodialysis (a5) is not indicated. While hepatic encephalopathy is a concern, the immediate threat is hypovolemia. Monitoring mental status (p2), abdominal girth (p4), or stool frequency (p5) are less direct ways to assess the client's response to rehydration."
     },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "healed_v2026_v12"
 }

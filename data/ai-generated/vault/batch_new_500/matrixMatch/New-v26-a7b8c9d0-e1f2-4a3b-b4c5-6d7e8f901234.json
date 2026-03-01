@@ -1,92 +1,146 @@
 {
     "id": "New-v26-a7b8c9d0-e1f2-4a3b-b4c5-6d7e8f901234",
-    "type": "matrixMatch",
+    "type": "matrixMultipleChoice",
     "stem": "The patient is exhibiting signs and symptoms related to heart failure. Based on the assessment data in the EHR, indicate whether each finding supports right-sided heart failure, left-sided heart failure, or both.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 5
+    "matrixRows": [
+        {
+            "id": "row1",
+            "text": "Crackles bilaterally"
+        },
+        {
+            "id": "row2",
+            "text": "Peripheral edema"
+        },
+        {
+            "id": "row3",
+            "text": "Elevated BNP"
+        },
+        {
+            "id": "row4",
+            "text": "Tachycardia"
+        },
+        {
+            "id": "row5",
+            "text": "Hyponatremia"
+        }
+    ],
+    "matrixColumns": [
+        {
+            "id": "col1",
+            "text": "Right-Sided Heart Failure"
+        },
+        {
+            "id": "col2",
+            "text": "Left-Sided Heart Failure"
+        },
+        {
+            "id": "col3",
+            "text": "Both"
+        }
+    ],
+    "solution": {
+        "row1": "col2",
+        "row2": "col1",
+        "row3": "col3",
+        "row4": "col3",
+        "row5": "col3"
     },
     "itemContext": {
         "patient": {
             "name": "Jameson, Robert",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "age": "72",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ],
-            "isolation": "Airborne"
+            ]
         },
-        "sbar": "S: Robert Jameson, a 72-year-old male, admitted two days ago for an acute MI. This morning, he developed new onset dyspnea and lower extremity edema. His O2 saturation is 88% on room air. B: He has a history of hypertension and hyperlipidemia. The acute MI was confirmed by troponin levels and EKG changes. A: At 07:00, the patient reported increased shortness of breath. Auscultation revealed crackles bilaterally in the lower lobes. Lower extremity edema is 2+ bilaterally. He is currently receiving 0.9% NS IV at 20 mL/hr. His medications include metoprolol, lisinopril, aspirin, and furosemide. At 07:30, furosemide 40mg IV push was administered. R: I recommend further evaluation for possible heart failure exacerbation and potential adjustments to his medication regimen. I will continue to monitor his vital signs, oxygen saturation, and respiratory status. I notified Dr. Smith at 07:35.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>Troponin I</td><td>3.5 ng/mL</td><td>&lt;0.04 ng/mL</td></tr><tr><td>BNP</td><td>850 pg/mL</td><td>&lt;100 pg/mL</td></tr><tr><td>Sodium</td><td>132 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Potassium</td><td>4.0 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Creatinine</td><td>1.4 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "<b>Admission Note (Day 1, 14:00)</b><br>Patient admitted to telemetry unit for management of NSTEMI. Post-PCI to LAD with one stent placed. Hemodynamically stable. History of hypertension and hyperlipidemia. Reports adherence to medications. On continuous cardiac monitoring. IV fluids initiated for hydration.<br><br><b>Progress Note (Day 3, 07:30)</b><br><b>S:</b> Patient reports, \"I can't catch my breath, and my feet are swollen like balloons. I had to sleep in the recliner last night.\"<br><b>B:</b> 72-year-old male, post-NSTEMI (Day 3). History of HTN, HLD. Lives alone in a second-floor apartment with no elevator, reports difficulty with grocery shopping leading to reliance on processed foods. IV fluids were discontinued at 22:00 last night.<br><b>A:</b> Alert, oriented x3. Appears anxious, using accessory muscles. RR 28/min, SpO2 88% on room air, increased to 92% on 2L NC. HR 110 bpm, BP 100/60 mmHg. Auscultation reveals bilateral basilar crackles. S3 gallop noted. 2+ pitting edema to mid-calves. JVD present at 45-degree angle.<br><b>R:</b> Administered furosemide 40 mg IV STAT as ordered. Notified Dr. Smith of acute decompensation. Recommend cardiology consult, STAT chest x-ray, and BNP level. Continue close monitoring of respiratory status and vital signs."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>Result</th><th>Time</th></tr></thead><tbody><tr><td>Heart Rate</td><td>110 bpm</td><td>07:30</td></tr><tr><td>Blood Pressure</td><td>100/60 mmHg</td><td>07:30</td></tr><tr><td>Respiratory Rate</td><td>28 breaths/min</td><td>07:30</td></tr><tr><td>Oxygen Saturation</td><td>88% (Room Air)</td><td>07:30</td></tr><tr><td>Temperature</td><td>98.6°F</td><td>07:30</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>HR (bpm)</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>RR (/min)</th><th>SpO₂</th><th>Temp °F (°C)</th></tr></thead><tbody><tr><td>04:00</td><td>88</td><td>128/78</td><td>95</td><td>18</td><td>96% on RA</td><td>98.6 (37.0)</td></tr><tr><td>07:00</td><td>105</td><td>110/70</td><td>83</td><td>24</td><td>90% on RA</td><td>98.7 (37.1)</td></tr><tr><td>07:30</td><td>110</td><td>100/60</td><td>73</td><td>28</td><td>88% on RA</td><td>98.6 (37.0)</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Metoprolol</td><td>25 mg</td><td>PO</td><td>BID</td><td>06:00</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Aspirin</td><td>81 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>PRN</td><td>07:30</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Troponin I</td><td>3.5</td><td>ng/mL</td><td>&lt;0.04</td><td>High</td></tr><tr><td>BNP</td><td>850</td><td>pg/mL</td><td>&lt;100</td><td>High</td></tr><tr><td>Sodium</td><td>132</td><td>mEq/L</td><td>135-145</td><td>Low</td></tr><tr><td>Potassium</td><td>4.0</td><td>mEq/L</td><td>3.5-5.0</td><td>WNL</td></tr><tr><td>Creatinine</td><td>1.4</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<b>Assessment Time: 07:00</b><br><b>Cardiovascular:</b> Tachycardic with regular rhythm. S1, S2, and S3 gallop present on auscultation. Jugular venous distention (JVD) noted at 45-degree elevation. Capillary refill <3 seconds in upper extremities. Pulses 2+ in all extremities. 2+ pitting edema noted bilaterally from feet to mid-calves.<br><b>Respiratory:</b> Increased work of breathing with use of accessory muscles. Bilateral inspiratory crackles auscultated in lower lung lobes. Patient unable to speak in full sentences.<br><b>Neurological:</b> Alert and oriented x3. Appears anxious."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<b>Type:</b> Chest X-ray (AP, Portable)<br><b>Date:</b> Day 3, 08:00<br><b>Findings:</b> There is moderate cardiomegaly. Cephalization of the pulmonary vasculature is present, indicating pulmonary venous hypertension. Small bilateral pleural effusions and Kerley B lines are noted, consistent with interstitial edema.<br><b>Impression:</b> Findings are consistent with acute cardiogenic pulmonary edema."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 14:00</td><td>Admit to Medical-Surgical Telemetry Unit</td><td>Standing</td></tr><tr><td>Day 1, 14:00</td><td>Continuous cardiac monitoring</td><td>Standing</td></tr><tr><td>Day 1, 14:00</td><td>Cardiac diet, 2-gram Sodium restriction</td><td>Standing</td></tr><tr><td>Day 1, 14:00</td><td>Strict Intake & Output</td><td>Standing</td></tr><tr><td>Day 1, 14:00</td><td>Daily weights</td><td>qAM</td></tr><tr><td>Day 1, 14:00</td><td>Activity as tolerated</td><td>Standing</td></tr><tr><td>Day 3, 07:35</td><td>Furosemide 40 mg IV</td><td>STAT, one-time</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Metoprolol Succinate</td><td>25 mg</td><td>PO</td><td>Daily</td><td>Day 3, 06:00</td></tr><tr><td>Lisinopril</td><td>10 mg</td><td>PO</td><td>Daily</td><td>Day 3, 06:00</td></tr><tr><td>Aspirin</td><td>81 mg</td><td>PO</td><td>Daily</td><td>Day 3, 06:00</td></tr><tr><td>Furosemide</td><td>40 mg</td><td>IV</td><td>PRN for dyspnea/SpO2 &lt;92%</td><td>Day 3, 07:30</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Acute MI & Heart Failure"
-        ]
-    },
     "rationale": {
-        "correct": "Elevated BNP and crackles bilaterally indicate fluid overload, a hallmark of heart failure. Crackles are more indicative of left-sided heart failure due to pulmonary congestion, where fluid backs up into the lungs. Peripheral edema is a primary sign of right-sided heart failure due to systemic venous congestion, increasing hydrostatic pressure. Tachycardia is a compensatory mechanism seen in both left and right-sided heart failure as the heart attempts to maintain cardiac output. Hyponatremia can occur in both due to fluid retention, leading to dilution of sodium levels. The elevated troponin is related to the recent MI, but the BNP is indicative of heart failure.",
-        "incorrect": "Failing to recognize the specific signs and symptoms related to left-sided versus right-sided heart failure will lead to incorrect categorization. Understanding the pathophysiology behind each symptom is crucial. For example, edema is caused by increased hydrostatic pressure in the venous system in right-sided heart failure, while crackles are caused by fluid backing up into the lungs in left-sided heart failure.",
+        "correct": "The patient's recent NSTEMI has likely caused left ventricular dysfunction, leading to left-sided heart failure. This is characterized by the backup of blood into the pulmonary circulation, causing pulmonary edema (crackles). As left-sided failure progresses, increased pulmonary pressure strains the right ventricle, leading to right-sided failure. This causes systemic venous congestion, resulting in peripheral edema and JVD. Tachycardia, elevated BNP, and dilutional hyponatremia are systemic responses seen in both types of heart failure.",
+        "incorrect": "Incorrectly categorizing these findings demonstrates a misunderstanding of heart failure pathophysiology. Attributing peripheral edema to left-sided failure or crackles to right-sided failure ignores the direction of blood flow and the specific ventricle that is failing. While many signs are common to both, the primary location of fluid backup (lungs vs. systemic circulation) is the key differentiator.",
+        "answerBreakdown": [
+            {
+                "optionId": "row1",
+                "content": "<b>Correct: Left-Sided Heart Failure.</b> Crackles are caused by fluid shifting from the pulmonary capillaries into the alveoli due to increased hydrostatic pressure. This is a direct result of the left ventricle's inability to effectively pump blood forward, causing a backup into the lungs."
+            },
+            {
+                "optionId": "row2",
+                "content": "<b>Correct: Right-Sided Heart Failure.</b> Peripheral edema results from increased pressure in the systemic venous system. The failing right ventricle cannot pump blood to the lungs efficiently, causing blood to back up in the body's veins, leading to fluid accumulation in dependent areas."
+            },
+            {
+                "optionId": "row3",
+                "content": "<b>Correct: Both.</b> B-type Natriuretic Peptide (BNP) is released by ventricular myocytes in response to stretching from volume or pressure overload. Since both left and right ventricular failure involve ventricular stretch, an elevated BNP is a hallmark of both conditions."
+            },
+            {
+                "optionId": "row4",
+                "content": "<b>Correct: Both.</b> Tachycardia is a compensatory mechanism. The sympathetic nervous system increases heart rate to try and maintain cardiac output when stroke volume is decreased due to ventricular failure. This response occurs regardless of which ventricle is primarily affected."
+            },
+            {
+                "optionId": "row5",
+                "content": "<b>Correct: Both.</b> Dilutional hyponatremia occurs in advanced heart failure due to excess fluid retention (from RAAS activation and ADH secretion) which dilutes the body's sodium concentration. This is a systemic effect of the neurohormonal response to low cardiac output, seen in both left and right-sided failure."
+            }
+        ],
         "clinicalPearls": [
-            "BNP is a key diagnostic marker for heart failure; levels correlate with the severity of ventricular dysfunction.",
-            "Crackles indicate fluid in the alveoli and are a sign of pulmonary edema, often auscultated in the lower lobes.",
-            "Peripheral edema is a sign of systemic venous congestion, commonly seen in the lower extremities and sacral area in bedridden patients."
+            "Left-sided heart failure is the most common cause of right-sided heart failure. This combined condition is known as biventricular failure.",
+            "An S3 heart sound ('ventricular gallop') is a classic auscultatory finding indicating fluid overload and decreased ventricular compliance, often heard in early diastole.",
+            "Jugular Venous Distention (JVD) is a direct indicator of elevated right atrial pressure (central venous pressure) and is a key physical exam finding for right-sided heart failure."
         ],
-        "questionTrap": {
-            "trap": "The question trap is to assume that all signs and symptoms of heart failure are indicative of both left and right-sided heart failure. Students may also incorrectly attribute all respiratory symptoms to left-sided heart failure without considering the underlying mechanisms.",
-            "howToOvercome": "Focus on the specific mechanisms causing each symptom. Remember that left-sided heart failure primarily affects the lungs, leading to pulmonary symptoms, while right-sided heart failure primarily affects the systemic circulation, leading to peripheral symptoms."
-        },
-        "mnemonic": {
-            "title": "ABCDs of Heart Failure",
-            "expansion": "A: Activity intolerance (dyspnea). B: BNP elevated. C: Crackles (pulmonary congestion). D: Dependent edema (peripheral edema)."
-        }
-    },
-    "matrixMatchOptions": {
-        "rows": [
-            "Crackles bilaterally",
-            "Peripheral edema",
-            "Elevated BNP",
-            "Tachycardia",
-            "Hyponatremia"
-        ],
-        "columns": [
-            "Right-Sided Heart Failure",
-            "Left-Sided Heart Failure",
-            "Both"
+        "questionTrap": "The trap is confusing symptoms of fluid overload with their specific origin. While both sides of the heart can fail, the initial location of fluid backup (lungs vs. periphery) is key. Do not assume 'fluid is fluid'; trace the pathophysiology back to the failing ventricle.",
+        "mnemonic": "<b>L-sided HF = Lungs:</b> Pulmonary Congestion (Crackles, Dyspnea, Orthopnea).<br><b>R-sided HF = Rest of Body:</b> Systemic Congestion (JVD, Peripheral Edema, Ascites, Hepatomegaly).",
+        "reviewUnits": [
+            "Cardiovascular Disorders",
+            "Heart Failure",
+            "Fluid and Electrolytes",
+            "Hemodynamic Monitoring"
         ]
     },
-    "solution": {
-        "Crackles bilaterally": "Left-Sided Heart Failure",
-        "Peripheral edema": "Right-Sided Heart Failure",
-        "Elevated BNP": "Both",
-        "Tachycardia": "Both",
-        "Hyponatremia": "Both"
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:27:12.232Z"
 }

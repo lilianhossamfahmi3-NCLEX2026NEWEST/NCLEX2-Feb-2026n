@@ -1,74 +1,320 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-9012-34567890abcd",
-    "type": "trend",
-    "stem": "The patient's condition is trending. Review the patient information and complete the table below by indicating if the parameter is improving, declining, or unchanged. Base your decision on the provided data. The initial assessment occurred at 07:00. Current time is 09:00.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
+    "type": "matrixMatch",
+    "stem": "The nurse is evaluating the client's trend data between 07:00 and 09:00. For each clinical parameter below, select whether the finding is improving, declining, or unchanged based on the data in the client's record. Each row must have exactly one selection.",
+    "rows": [
+        {
+            "id": "row1",
+            "text": "Oxygenation"
+        },
+        {
+            "id": "row2",
+            "text": "Ventilation"
+        },
+        {
+            "id": "row3",
+            "text": "Acid-Base Balance"
+        },
+        {
+            "id": "row4",
+            "text": "Hemodynamic Stability"
+        },
+        {
+            "id": "row5",
+            "text": "Inflammatory Response"
+        }
+    ],
+    "columns": [
+        {
+            "id": "col1",
+            "text": "Improving"
+        },
+        {
+            "id": "col2",
+            "text": "Declining"
+        },
+        {
+            "id": "col3",
+            "text": "Unchanged"
+        }
+    ],
+    "correctResponse": {
+        "row1": "col2",
+        "row2": "col2",
+        "row3": "col2",
+        "row4": "col2",
+        "row5": "col2"
     },
     "itemContext": {
         "patient": {
             "name": "Jameson Riley",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Airborne Isolation",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ],
-            "conditions": [
-                "Pneumonia",
-                "ARDS"
-            ]
+            "weight": "85 kg"
         },
-        "sbar": "S: Mr. Jameson Riley is a 68-year-old male admitted two days ago for pneumonia, now with suspected ARDS. He's showing signs of potential secondary infection and is in Airborne Isolation due to suspected drug-resistant organism. His O2 saturation is dropping despite increasing FiO2. At 09:00, he reports increased shortness of breath and fatigue.\n\nB: He has a history of COPD and hypertension, managed with daily medications. Admitted for pneumonia and initially treated with ceftriaxone. Now showing worsening respiratory distress, requiring escalating respiratory support. Recent sputum culture is pending, but initial gram stain showed gram-negative rods.\n\nA: Respiratory failure secondary to probable ARDS, complicated by possible bacterial resistance. Increasing supplemental oxygen needs with minimal improvement. CXR shows bilateral infiltrates consistent with ARDS. At 07:00: SpO2 90% on FiO2 0.40, RR 28, HR 110, BP 140/90. ABG: pH 7.32, PaCO2 55, PaO2 65, HCO3 24. At 08:00: FiO2 increased to 0.60, SpO2 88%.\n\nR: I recommend immediate assessment by respiratory therapy for possible intubation and mechanical ventilation. Consult infectious disease for antibiotic stewardship. Consider proning and neuromuscular blockade if ventilation is initiated. Obtain repeat sputum culture and consider bronchoscopy if no improvement is seen with current interventions.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>07:00</th><th>09:00</th></tr></thead><tbody><tr><td>pH</td><td>7.32</td><td>7.28</td></tr><tr><td>PaCO2 (mmHg)</td><td>55</td><td>62</td></tr><tr><td>PaO2 (mmHg)</td><td>65</td><td>58</td></tr><tr><td>HCO3 (mEq/L)</td><td>24</td><td>23</td></tr><tr><td>Lactate (mmol/L)</td><td>1.5</td><td>2.9</td></tr><tr><td>WBC (x10^3/uL)</td><td>14</td><td>15</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Nurses' Notes",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 14:00",
+                        "note_type": "Admission Note",
+                        "note": "Client is a 68-year-old male admitted from a long-term care facility with a 3-day history of productive cough, fever, and worsening dyspnea. Diagnosed with community-acquired pneumonia. History of COPD and hypertension. Client lives alone in a rural area with limited transportation, which delayed seeking care. On admission, client is alert and oriented x3, appears fatigued. Placed on 2L NC. IV access established. Sputum and blood cultures obtained. Ceftriaxone initiated per protocol. Placed in a private room under standard precautions pending culture results."
+                    },
+                    {
+                        "timestamp": "Day 3, 09:05",
+                        "note_type": "Progress Note (SBAR)",
+                        "note": "S: Client's respiratory status has significantly declined over the past 2 hours. He is reporting severe shortness of breath and appears anxious. Currently on 80% FiO2 via high-flow nasal cannula with minimal improvement in SpO2.\n\nB: Admitted 2 days ago for pneumonia, now has developed ARDS. History of COPD and hypertension. Sputum cultures from admission grew a multi-drug resistant organism. Client is in airborne isolation.\n\nA: Client is in acute respiratory failure secondary to ARDS. He is exhibiting refractory hypoxemia, tachypnea, and tachycardia. ABG from 09:00 shows worsening respiratory acidosis. Bilateral crackles are audible throughout all lung fields. He is using accessory muscles to breathe.\n\nR: Recommend immediate consultation with the intensivist and respiratory therapy for emergent intubation and initiation of mechanical ventilation. Prepare for arterial line placement for continuous hemodynamic monitoring."
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>07:00</th><th>09:00</th></tr></thead><tbody><tr><td>SpO2 (on FiO2)</td><td>90% (0.40)</td><td>88% (0.60)</td></tr><tr><td>RR (breaths/min)</td><td>28</td><td>34</td></tr><tr><td>HR (beats/min)</td><td>110</td><td>125</td></tr><tr><td>BP (mmHg)</td><td>140/90</td><td>130/80</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp °F (°C)",
+                        "HR (bpm)",
+                        "RR (breaths/min)",
+                        "BP (mmHg)",
+                        "MAP (mmHg)",
+                        "SpO₂ (%)"
+                    ],
+                    "rows": [
+                        [
+                            "09:00",
+                            "101.5 (38.6)",
+                            "125",
+                            "34",
+                            "130/80",
+                            "97",
+                            "86% on 80% HFNC"
+                        ],
+                        [
+                            "08:00",
+                            "101.2 (38.4)",
+                            "118",
+                            "32",
+                            "135/85",
+                            "102",
+                            "88% on 60% HFNC"
+                        ],
+                        [
+                            "07:00",
+                            "100.9 (38.3)",
+                            "110",
+                            "28",
+                            "140/90",
+                            "107",
+                            "90% on 40% HFNC"
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "panel": "Arterial Blood Gas (09:00)",
+                        "results": [
+                            {
+                                "lab": "pH",
+                                "result": "7.28",
+                                "unit": "",
+                                "reference": "7.35-7.45",
+                                "status": "Low"
+                            },
+                            {
+                                "lab": "PaCO₂",
+                                "result": "62",
+                                "unit": "mmHg",
+                                "reference": "35-45",
+                                "status": "High"
+                            },
+                            {
+                                "lab": "PaO₂",
+                                "result": "58",
+                                "unit": "mmHg",
+                                "reference": "80-100",
+                                "status": "Low"
+                            },
+                            {
+                                "lab": "HCO₃⁻",
+                                "result": "23",
+                                "unit": "mEq/L",
+                                "reference": "22-26",
+                                "status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "panel": "Complete Blood Count (CBC) & Metabolic Panel",
+                        "results": [
+                            {
+                                "lab": "WBC",
+                                "result": "15.2",
+                                "unit": "x10³/μL",
+                                "reference": "4.5-11.0",
+                                "status": "High"
+                            },
+                            {
+                                "lab": "Lactate",
+                                "result": "2.9",
+                                "unit": "mmol/L",
+                                "reference": "0.5-2.2",
+                                "status": "High"
+                            },
+                            {
+                                "lab": "Procalcitonin",
+                                "result": "2.5",
+                                "unit": "ng/mL",
+                                "reference": "< 0.15",
+                                "status": "High"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "system": "Respiratory",
+                        "findings": "Increased work of breathing with use of accessory muscles. Bilateral coarse crackles auscultated throughout all lung fields. Tachypneic with shallow respirations."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "findings": "Tachycardia with S1, S2 audible. No murmurs, rubs, or gallops. Capillary refill 3 seconds. Peripheral pulses 2+ and equal bilaterally."
+                    },
+                    {
+                        "system": "Neurological",
+                        "findings": "Alert but anxious and restless. Follows simple commands. Oriented to person and place, unsure of time."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Date/Time</th></tr></thead><tbody><tr><td>Chest X-Ray</td><td>Bilateral infiltrates</td><td>Today, 06:00</td></tr></tbody></table>"
+                "content": {
+                    "report_type": "Chest X-Ray (Portable, AP View)",
+                    "timestamp": "Day 3, 06:00",
+                    "body": "FINDINGS: There are diffuse, bilateral, and patchy airspace opacities consistent with pulmonary edema. The cardiac silhouette is not enlarged. Pleural effusions are not clearly visualized. These findings have significantly worsened compared to the admission film from two days prior.\n\nIMPRESSION: Radiographic findings are highly suggestive of Acute Respiratory Distress Syndrome (ARDS). Non-cardiogenic pulmonary edema."
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td><td>08:00</td></tr><tr><td>Furosemide</td><td>20mg</td><td>IV</td><td>q12h</td><td>06:00</td></tr><tr><td>Morphine</td><td>2mg</td><td>IV</td><td>q4h PRN</td><td>Not administered since 02:00</td></tr></tbody></table>"
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": [
+                    {
+                        "timestamp": "Day 3, 07:15",
+                        "action": "Titrate High-Flow Nasal Cannula (HFNC) to maintain SpO₂ > 90%",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 3, 07:00",
+                        "action": "Arterial Blood Gas (ABG) now and in 2 hours",
+                        "status": "STAT"
+                    },
+                    {
+                        "timestamp": "Day 2, 18:00",
+                        "action": "Initiate Airborne Isolation Precautions",
+                        "status": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 14:30",
+                        "action": "Lorazepam 1 mg IV PRN every 6 hours for anxiety",
+                        "status": "PRN"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Ceftriaxone",
+                        "dose": "1g",
+                        "route": "IV",
+                        "frequency": "q24h",
+                        "last_administered": "Day 3, 08:00"
+                    },
+                    {
+                        "medication": "Furosemide",
+                        "dose": "20mg",
+                        "route": "IV",
+                        "frequency": "q12h",
+                        "last_administered": "Day 3, 06:00"
+                    },
+                    {
+                        "medication": "Lorazepam",
+                        "dose": "1mg",
+                        "route": "IV",
+                        "frequency": "q6h PRN anxiety",
+                        "last_administered": "Day 3, 04:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
+    "rationale": {
+        "correct": "The client is experiencing a rapid decline across all major physiological systems, indicative of progressing ARDS and impending respiratory failure. The data shows worsening hypoxemia despite increased oxygen support, worsening hypercapnia, developing acidosis, increasing tachycardia, and rising inflammatory markers. Each parameter indicates a negative trajectory requiring urgent intervention.",
+        "incorrect": "Marking any parameter as 'Improving' or 'Unchanged' demonstrates a failure to synthesize the available clinical data. For example, while the blood pressure has only slightly decreased, the concurrent sharp rise in heart rate and lactate indicates developing shock, not hemodynamic improvement. Misinterpreting these trends could lead to a critical delay in life-saving interventions like mechanical ventilation.",
+        "answerBreakdown": [
+            {
+                "optionId": "row1",
+                "content": "Oxygenation is declining. The SpO₂ has dropped from 90% to 86% while the required FiO₂ has doubled from 40% to 80%. The PaO₂ of 58 mmHg confirms severe hypoxemia. This pattern is the hallmark of refractory hypoxemia in ARDS."
+            },
+            {
+                "optionId": "row2",
+                "content": "Ventilation is declining. The respiratory rate has increased from 28 to 34 breaths/min, indicating severe respiratory distress and muscle fatigue. The PaCO₂ has risen from a baseline (not shown) to 62 mmHg, confirming ventilatory failure (inability to clear CO₂)."
+            },
+            {
+                "optionId": "row3",
+                "content": "Acid-Base Balance is declining. The pH has dropped to 7.28, which is a significant acidemia. This is primarily driven by the high PaCO₂ (respiratory acidosis), with no metabolic compensation (HCO₃⁻ is normal)."
+            },
+            {
+                "optionId": "row4",
+                "content": "Hemodynamic Stability is declining. The heart rate has increased from 110 to 125 bpm, a compensatory response to hypoxia and stress. The lactate level has risen to 2.9 mmol/L, indicating tissue hypoxia and a shift to anaerobic metabolism, a precursor to shock."
+            },
+            {
+                "optionId": "row5",
+                "content": "Inflammatory Response is declining. The WBC count remains elevated and is trending upward (from 14 to 15.2, per chart context), and the procalcitonin is significantly elevated at 2.5 ng/mL, indicating a severe, ongoing bacterial infection is driving the ARDS process."
+            }
+        ],
+        "clinicalPearls": [
+            "Refractory hypoxemia, where PaO₂ remains low despite escalating FiO₂, is a defining characteristic of ARDS and signals the need for mechanical ventilation.",
+            "The PaO₂/FiO₂ (P/F) ratio is a key metric for staging ARDS severity. A ratio < 200 indicates moderate ARDS, and < 100 indicates severe ARDS. This client's P/F ratio is 58/0.8 = 72.5, indicating severe ARDS.",
+            "In ARDS, rising PaCO₂ combined with tachypnea is an ominous sign of impending respiratory muscle fatigue and ventilatory collapse.",
+            "An increasing lactate level in a septic or hypoxic patient is a critical indicator of tissue hypoperfusion and progression towards septic shock."
+        ],
+        "questionTrap": "A common trap is to view the blood pressure (140/90 to 130/80) in isolation and consider it 'improving' or 'normalizing'. However, in the context of worsening hypoxia, tachycardia, and rising lactate, this drop in BP is a sign of failing compensation and impending cardiovascular collapse, not improvement.",
+        "mnemonic": "For ARDS management, remember 'ARDSNET':\nA - Analgesia/sedation\nR - Restrict fluids (conservative strategy)\nD - Diuresis\nS - Steroids (controversial, case-dependent)\nN - Neuromuscular blockade\nE - ECMO (Extracorporeal Membrane Oxygenation)\nT - Tidal volume (low, 6 mL/kg ideal body weight)",
+        "reviewUnits": [
+            "Respiratory Failure",
+            "Acute Respiratory Distress Syndrome (ARDS)",
+            "Arterial Blood Gas (ABG) Interpretation",
+            "Hemodynamic Monitoring",
+            "Mechanical Ventilation"
         ]
     },
-    "rationale": {
-        "correct": "The patient's pH is declining, indicating worsening acidosis. The PaCO2 is increasing, reflecting worsening respiratory acidosis. The PaO2 is declining despite increased FiO2, showing worsening hypoxemia, indicative of refractory hypoxemia in ARDS. The respiratory rate is increasing, indicating the patient is working harder to breathe, suggesting respiratory muscle fatigue. Lactate is increasing, showing a trend towards anaerobic metabolism due to tissue hypoxia.",
-        "incorrect": "If the assessment is marked as improving or unchanged when the data clearly shows a decline, it indicates a failure to recognize the deteriorating condition of the patient. Focusing solely on one vital sign (e.g., blood pressure decreasing, which might be seen as positive) without considering the overall clinical picture can lead to misinterpretation. Failing to recognize the significance of worsening ABGs and increasing lactate levels is a critical error.",
-        "clinicalPearls": [
-            "Trend analysis is crucial in identifying early signs of respiratory failure and ARDS progression.",
-            "Arterial blood gas values are paramount in assessing acid-base balance and oxygenation in respiratory distress.",
-            "Changes in vital signs should be interpreted in the context of the patient's overall clinical presentation, including lab values and radiological findings.",
-            "Refractory hypoxemia, defined as persistent low PaO2 despite increasing FiO2, is a hallmark of ARDS."
-        ],
-        "questionTrap": {
-            "trap": "The decreasing blood pressure from 140/90 to 130/80 might be misinterpreted as a positive trend. However, in the context of worsening respiratory distress and increasing lactate, it could signify impending shock or fatigue, indicating a late sign of decompensation.",
-            "howToOvercome": "Focus on the overall clinical picture and prioritize respiratory parameters and ABG results. Consider whether the decrease in blood pressure is a sign of improvement or a sign of decompensation. Evaluate trends in conjunction with other indicators of respiratory function."
-        },
-        "mnemonic": {
-            "title": "ARDS Criteria (Berlin)",
-            "expansion": "Acute onset, Respiratory distress, Diffuse bilateral infiltrates, Severe hypoxemia (PaO2/FiO2 ≤ 300). This helps remember the key diagnostic criteria for ARDS."
-        }
-    }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 5,
+        "scoringType": "row"
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:51:00.997Z"
 }

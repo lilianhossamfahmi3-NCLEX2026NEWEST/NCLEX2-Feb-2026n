@@ -1,23 +1,59 @@
 {
-    "id": "opioid_toxicity_emergency_bowtie_v1",
+    "id": "opioid_toxicity_emergency_bowtie_v3",
     "type": "bowtie",
-    "stem": "A 28-year-old is brought to the ER at 1400 with pinpoint pupils, respirations of 6/min, and shallow breathing. He is unresponsive to painful stimuli. Using SBAR format, complete the bowtie to manage this opioid overdose.",
+    "sentinelStatus": "healed_v2026_v13",
+    "clinicalFeed": "Situation: This is the ED nurse calling about a 28-year-old male who arrived at 14:00, found unresponsive by friends. Background: His friends report a history of heroin use and found drug paraphernalia at the scene. His last known well was at 13:30. Assessment: He is unresponsive with a GCS of 3. Vitals are: RR 6/min and shallow, HR 58/min, BP 90/60 mmHg, SpO2 82%. Pupils are pinpoint. Recommendation: I suspect acute opioid toxicity and am preparing for immediate intervention.",
+    "ehr": {
+        "patient": {
+            "id": "pt_john_doe_28m",
+            "name": "John Doe",
+            "age": 28,
+            "gender": "Male"
+        },
+        "tabs": [
+            {
+                "id": "vitals",
+                "label": "Vital Signs",
+                "data": [
+                    {
+                        "time": "14:00",
+                        "hr": "58",
+                        "bp": "90/60",
+                        "rr": "6",
+                        "spo2": "82%",
+                        "temp": "36.1 C (97.0 F)"
+                    }
+                ]
+            },
+            {
+                "id": "nursesNotes",
+                "label": "Nurses' Notes",
+                "data": [
+                    {
+                        "time": "14:00",
+                        "note": "Client brought to ED by friends, found unresponsive. Friends report a history of heroin use. Client is unresponsive to painful stimuli. Respirations are shallow at 6/min. Pupils are 1mm, equal, and nonreactive ('pinpoint'). Skin is cool and clammy. GCS estimated at 3."
+                    }
+                ]
+            }
+        ]
+    },
+    "stem": "The nurse is evaluating a 28-year-old client who arrived at 14:00 with signs of a substance overdose. Based on the provided clinical data, the nurse must act. Select the potential condition, two actions the nurse should take, and two parameters to monitor.",
     "actions": [
         {
-            "id": "action3",
-            "text": "Initiate IV Flumazenil"
+            "id": "action1",
+            "text": "Administer IV Naloxone"
         },
         {
             "id": "action2",
             "text": "Provide ventilatory support with a bag-valve-mask (BVM)"
         },
         {
-            "id": "action4",
-            "text": "Administer IV Atropine"
+            "id": "action3",
+            "text": "Initiate IV Flumazenil"
         },
         {
-            "id": "action1",
-            "text": "Administer IV Naloxone"
+            "id": "action4",
+            "text": "Administer IV Atropine"
         }
     ],
     "potentialConditions": [
@@ -29,20 +65,20 @@
     "condition": "Opioid Toxicity (Overdose)",
     "parameters": [
         {
-            "id": "param4",
-            "text": "Blood Glucose"
-        },
-        {
             "id": "param1",
             "text": "Respiratory rate and depth"
+        },
+        {
+            "id": "param2",
+            "text": "Level of consciousness (GCS)"
         },
         {
             "id": "param3",
             "text": "Pupil size and reaction"
         },
         {
-            "id": "param2",
-            "text": "Level of consciousness (GCS)"
+            "id": "param4",
+            "text": "Blood Glucose"
         }
     ],
     "correctActionIds": [
@@ -53,6 +89,20 @@
         "param1",
         "param2"
     ],
+    "hoverRationales": {
+        "action1": "Naloxone is a competitive opioid antagonist that rapidly reverses the respiratory depression and CNS effects of opioids by displacing them from mu-opioid receptors. This is a critical, life-saving intervention.",
+        "action2": "The client's respiratory rate of 6/min indicates severe respiratory depression and impending failure. Immediate ventilatory support is essential to correct hypoxia and hypercapnia, preventing cardiac arrest and brain injury.",
+        "action3": "Flumazenil is a benzodiazepine antagonist. Administering it for an opioid overdose is ineffective and delays appropriate treatment, which is a critical clinical flaw.",
+        "action4": "Atropine is an anticholinergic used to treat symptomatic bradycardia. The client's primary problem is respiratory depression, not a primary cardiac issue; the bradycardia is likely secondary to hypoxia.",
+        "Clonidine Toxicity": "While clonidine toxicity presents similarly, the client's reported history of heroin use makes opioid overdose the most probable diagnosis. Misdiagnosis would delay life-saving naloxone administration.",
+        "Alcohol Intoxication": "Severe alcohol intoxication causes CNS depression but typically results in normal or dilated pupils, not pinpoint pupils. This clinical sign is inconsistent with the client's presentation.",
+        "Benzodiazepine Overdose": "While benzodiazepine overdose causes CNS and respiratory depression, it typically does not cause pinpoint pupils. Pupils are usually normal-sized, making this diagnosis less likely.",
+        "Opioid Toxicity (Overdose)": "The classic triad of respiratory depression (RR 6/min), central nervous system depression (unresponsive), and pupillary miosis (pinpoint pupils) is pathognomonic for opioid toxicity.",
+        "param1": "This is the most critical parameter to monitor. The effectiveness of naloxone is primarily judged by the improvement in respiratory effort, which directly addresses the life-threatening aspect of the overdose.",
+        "param2": "Monitoring the client's level of consciousness is crucial for assessing the reversal of CNS depression. An improving Glasgow Coma Scale (GCS) score indicates a positive response to naloxone.",
+        "param3": "While pinpoint pupils are a diagnostic sign, they are not the most sensitive parameter for monitoring acute response to treatment. Respiratory and neurological status are the priorities.",
+        "param4": "Hypoglycemia can cause altered mental status, but it is not a primary feature of opioid overdose. This is not a priority parameter for monitoring the response to naloxone."
+    },
     "pedagogy": {
         "bloomLevel": "apply",
         "cjmmStep": "takeAction",
@@ -64,95 +114,8 @@
             "Substance Use"
         ]
     },
-    "rationale": {
-        "correct": "The patient presents with classic signs of opioid toxicity: pinpoint pupils (miosis), respiratory depression, and unresponsiveness. The priority is to reverse the respiratory depression with naloxone and support ventilation with a BVM. Monitoring respiratory rate, depth, and level of consciousness (GCS) are crucial to assess the effectiveness of interventions and detect any deterioration. Naloxone acts as an opioid antagonist, binding to opioid receptors and reversing the effects of the opioid. BVM provides immediate respiratory support, ensuring adequate oxygenation and preventing hypoxia.",
-        "incorrect": "Flumazenil is a benzodiazepine antagonist and is not indicated for opioid overdose. Atropine is used to treat bradycardia, but the primary issue in opioid overdose is respiratory depression, not bradycardia. While bradycardia can occur secondary to hypoxia, addressing the respiratory depression is the priority. Blood glucose monitoring is not a primary concern in the initial management of opioid overdose. Pupil size and reaction, while indicative of opioid use, are not the most sensitive parameters for monitoring the patient's response to treatment.",
-        "clinicalPearls": [
-            "Naloxone has a shorter half-life (30-90 minutes) than many opioids (e.g., morphine, heroin, fentanyl). Repeated doses or continuous infusion of naloxone may be necessary to prevent recurrent respiratory depression as the opioid effects return. Monitor for withdrawal symptoms (agitation, vomiting) after naloxone administration.",
-            "Consider alternative causes of altered mental status and respiratory depression if the patient does not respond to naloxone.",
-            "Pulmonary edema is a potential complication of opioid overdose, especially with IV drug use. Monitor for signs of respiratory distress and administer oxygen as needed."
-        ],
-        "questionTrap": {
-            "trap": "Thinking Narcan is the ONLY priority",
-            "howToOvercome": "Oxygenation/Ventilation is ALWAYS the priority in a client who isn't breathing effectively, even before the antidote. Prioritize airway, breathing, and circulation (ABCs)."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Opioid Toxicity (Overdose)\" is the only diagnosis that accounts for the constellation of clinical findings present. Pinpoint pupils, respiratory depression, and unresponsiveness are hallmark signs.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Initiate IV Flumazenil\" is inappropriate for opioid overdose. Flumazenil is a benzodiazepine antagonist.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Provide ventilatory support with a bag-valve-mask (BVM)\" directly addresses the acute respiratory depression caused by the opioid overdose, ensuring adequate oxygenation.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer IV Atropine\" is inappropriate as the primary intervention. While bradycardia may be present, the priority is reversing respiratory depression.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer IV Naloxone\" directly targets the opioid receptors, reversing the effects of the opioid and restoring respiratory drive.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Blood Glucose\" is not the most sensitive or specific parameter for evaluating this patient's status in the context of suspected opioid overdose.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Respiratory rate and depth\" provides crucial information about the patient's respiratory status and response to interventions.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Pupil size and reaction\" is not the most sensitive or specific parameter for evaluating the patient's response to treatment after initial assessment.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Level of consciousness (GCS)\" provides valuable information about the patient's neurological status and response to interventions.",
-                "isCorrect": true
-            }
-        ],
-        "mnemonic": {
-            "title": "ROPE",
-            "expansion": "R = Respiratory depression (priority)\nO = Opioid toxicity\nP = Pinpoint pupils\nE = Emergency\n\nKey Actions: Administer IV Naloxone; Provide ventilatory support with BVM\nKey Monitoring: Respiratory rate and depth; Level of consciousness (GCS)"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Opioid Toxicity — Pathophysiology & Recognition",
-                "body": "Opioid toxicity results in central nervous system and respiratory depression due to opioid receptor binding. Classic signs include pinpoint pupils, decreased respiratory rate and depth, and altered mental status. Naloxone is a competitive opioid antagonist that reverses these effects. BVM provides immediate respiratory support.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Thinking Narcan is the ONLY priority",
-                "body": "While naloxone is essential, always prioritize airway, breathing, and circulation (ABCs). Ensure adequate ventilation before and during naloxone administration.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Opioid Toxicity",
-                "body": "The priority nursing interventions are: 1. Provide ventilatory support with a BVM to ensure adequate oxygenation. 2. Administer IV naloxone to reverse the effects of the opioid. 3. Monitor respiratory rate, depth, and level of consciousness closely.",
-                "source": "Evidence-Based Nursing Practice"
-            },
-            {
-                "heading": "SBAR Communication",
-                "body": "Situation: 28-year-old male brought to ER at 1400 with suspected opioid overdose.\nBackground: Patient found unresponsive with pinpoint pupils and shallow respirations of 6/min. No known medical history available.\nAssessment: Patient unresponsive to painful stimuli, GCS score low, significant respiratory depression.\nRecommendation: Administer IV naloxone immediately and continue ventilatory support with BVM. Monitor respiratory status and level of consciousness closely. Consider continuous naloxone infusion if needed.",
-                "source": "Nursing Communication Best Practices"
-            }
-        ]
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
-    },
-    "sentinelStatus": "healed_v2026_v11"
+    }
 }

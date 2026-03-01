@@ -1,33 +1,43 @@
 {
     "id": "bowtie_myxedema_coma_v2026_9",
     "type": "bowtie",
-    "stem": "An 81-year-old female is brought to the ED by her daughter. Based on the documentation in the Metabolic Inventory & Thermal Regulation Log, complete the bowtie by selecting the most likely condition, the two actions the nurse should take, and the two parameters the nurse should monitor.",
+    "stem": "The nurse is caring for an 81-year-old female with altered mental status and severe hypothermia. Based on the client's electronic health record, the nurse recognizes a life-threatening condition requiring immediate intervention. Complete the bowtie by selecting the potential condition, two indicated actions, and two parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "<b>Situation:</b> 81-year-old female brought to the ED with altered mental status and hypothermia. Daughter reports a history of hypothyroidism and states her mother has 'forgotten to take her pills' for several weeks. Found unresponsive in a cold house. Initial vital signs are concerning.<br><br><b>Background:</b> Patient has a known history of hypothyroidism, managed with levothyroxine. Daughter reports poor medication adherence in recent weeks. Patient was found at home in a severely hypothermic state.<br><br><b>Assessment:</b> On arrival at 08:15, the patient is stuporous, responding weakly to stimuli. Skin is very dry and thickened, with notable puffiness and periorbital edema. Vital signs: BP 88/52, HR 42 (bradycardia), RR 8 (shallow), SpO2 86% on room air. Core temperature is 94.2°F (34.6°C). Serum TSH is 92.0 mIU/L (High), and Free T4 is 0.1 ng/dL (Low).<br><br><b>Recommendation:</b> Given the patient's presentation and history, Myxedema Coma is suspected. Immediate interventions are required, including gentle rewarming, respiratory support, and IV levothyroxine administration. Continuous monitoring of vital signs and respiratory status is essential."
+                "id": "patient_info",
+                "title": "Patient Information",
+                "content": "<table><thead><tr><th>Field</th><th>Data</th></tr></thead><tbody><tr><td>Name</td><td>Jane Doe</td></tr><tr><td>Age</td><td>81 Years</td></tr><tr><td>Gender</td><td>Female</td></tr><tr><td>Allergies</td><td>No Known Allergies</td></tr><tr><td>Code Status</td><td>Full Code</td></tr></tbody></table>"
             },
             {
-                "id": "metabolic",
-                "title": "Metabolic Inventory & Thermal Regulation Log",
-                "content": "<table><thead><tr><th>Assessment Item</th><th>Current Finding</th><th>Interpretation</th></tr></thead><tbody><tr><td>Core Temperature</td><td>94.2°F (34.6°C)</td><td>Severe Hypothermia</td></tr><tr><td>Mental Status</td><td>Stuporous; Weak response to stimulus</td><td>Depressed CNS</td></tr><tr><td>Serum TSH</td><td>92.0 mIU/L (High)</td><td>Severe primary failure</td></tr><tr><td>Free T4</td><td>0.1 ng/dL (Low)</td><td>Critical insufficiency</td></tr></tbody></table>"
+                "id": "sbar",
+                "title": "SBAR",
+                "content": "<b>S:</b> This is the nurse for Jane Doe, an 81-year-old female who arrived at 08:15 with altered mental status. She has a known history of hypothyroidism with recent medication non-adherence.<br><br><b>B:</b> The client was found unresponsive by her daughter in a cold home. Her last dose of levothyroxine was reportedly several weeks ago.<br><br><b>A:</b> She is stuporous, bradycardic to 42/min, hypotensive at 88/52 mmHg, and severely hypothermic at 34.6°C. Respiratory rate is 8/min with an SpO2 of 86% on room air.<br><br><b>R:</b> I suspect myxedema coma. I recommend immediate IV access, preparation for intubation, IV levothyroxine, and passive rewarming."
             },
             {
                 "id": "vitals",
                 "title": "Vital Signs",
-                "content": "BP 88/52, HR 42 (Bradycardia), RR 8 (Shallow), SpO2 86% on RA."
+                "content": "<table><thead><tr><th>Time</th><th>BP (mmHg)</th><th>HR (/min)</th><th>RR (/min)</th><th>SpO2 (%)</th><th>Temp (°C)</th></tr></thead><tbody><tr><td>08:15</td><td>88/52</td><td>42</td><td>8</td><td>86 (Room Air)</td><td>34.6 (Tympanic)</td></tr></tbody></table>"
+            },
+            {
+                "id": "nurses_notes",
+                "title": "Nurses' Notes",
+                "content": "<b>08:15:</b> Client arrives in ED via private vehicle with daughter. Client is stuporous, responds only to painful stimuli with moaning. Skin is cool, dry, and pale with non-pitting edema noted on face and extremities. Periorbital edema present. Lungs with shallow respirations. Heart tones are distant with severe bradycardia noted on monitor. Abdomen soft, hypoactive bowel sounds."
+            },
+            {
+                "id": "lab_results",
+                "title": "Laboratory Results",
+                "content": "<table><thead><tr><th>Test</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>Thyroid-Stimulating Hormone (TSH)</td><td><b>92.0 mIU/L</b></td><td>0.4 - 4.0 mIU/L</td></tr><tr><td>Free Thyroxine (T4)</td><td><b>0.1 ng/dL</b></td><td>0.8 - 1.8 ng/dL</td></tr></tbody></table>"
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-Ray: No acute abnormalities detected."
+                "content": "<b>Chest X-Ray:</b> No acute abnormalities detected."
             },
             {
                 "id": "mar",
                 "title": "MAR",
-                "content": "Levothyroxine 100 mcg PO daily (last dose approximately 3 weeks ago)"
+                "content": "Levothyroxine 100 mcg PO daily (last dose approximately 3 weeks ago per daughter)"
             }
         ]
     },
@@ -35,51 +45,62 @@
         "conditionOptions": [
             {
                 "id": "c1",
-                "text": "Thyroid Storm (Thyrotoxicosis)"
+                "text": "Thyroid Storm (Thyrotoxicosis)",
+                "rationale": "This is incorrect. Thyroid storm presents with hyperthermia, tachycardia, and hypertension, which are opposite to this client's findings of hypothermia, bradycardia, and hypotension."
             },
             {
                 "id": "c2",
-                "text": "Myxedema Coma"
+                "text": "Myxedema Coma",
+                "rationale": "This is correct. Profound, untreated hypothyroidism leads to a drastic slowing of all metabolic processes. This systemic decrease in cellular energy production results in severe hypothermia, bradycardia, hypoventilation, and altered mental status."
             },
             {
                 "id": "c3",
-                "text": "Septic Shock (Hypothermic Presentation)"
+                "text": "Septic Shock (Hypothermic Presentation)",
+                "rationale": "This is incorrect. While septic shock can present with hypothermia, the profound bradycardia and extremely abnormal thyroid labs strongly point to an endocrine cause rather than a primary infectious process."
             }
         ],
         "actionOptions": [
             {
                 "id": "a1",
-                "text": "Apply passive rewarming with blankets and warm IV fluids"
+                "text": "Apply passive rewarming with blankets",
+                "rationale": "This is a correct action. Passive rewarming is crucial to gradually increase core body temperature without causing rapid vasodilation, which could worsen hypotension and lead to cardiovascular collapse."
             },
             {
                 "id": "a2",
-                "text": "Prepare for emergent IV Levothyroxine (T4) administration"
+                "text": "Prepare for IV Levothyroxine administration",
+                "rationale": "This is a correct action. IV levothyroxine is the priority medication to correct the profound hypothyroidism causing the myxedema coma. Oral administration is ineffective due to altered consciousness and poor gut absorption."
             },
             {
                 "id": "a3",
-                "text": "Administer high-dose Beta-blockers to control the heart rate"
+                "text": "Administer high-dose beta-blockers",
+                "rationale": "This is an incorrect action. Beta-blockers would further decrease the client's already dangerously low heart rate and blood pressure, precipitating cardiovascular collapse."
             },
             {
                 "id": "a4",
-                "text": "Apply cooling blankets and ice packs to the axilla"
+                "text": "Apply cooling blankets and ice packs",
+                "rationale": "This is an incorrect action. The client is severely hypothermic. Applying cooling measures would worsen this condition and would be life-threatening."
             }
         ],
         "parameterOptions": [
             {
                 "id": "p1",
-                "text": "Continuous core temperature monitoring"
+                "text": "Continuous core temperature",
+                "rationale": "This is a correct parameter to monitor. Continuous monitoring of core temperature is essential to evaluate the effectiveness of rewarming interventions and prevent over-correction."
             },
             {
                 "id": "p2",
-                "text": "Respiratory effort and arterial blood gases (ABGs)"
+                "text": "Respiratory effort and ABGs",
+                "rationale": "This is a correct parameter to monitor. Myxedema coma causes respiratory depression and hypoventilation, leading to hypercapnia and hypoxia. Monitoring respiratory status is critical to guide interventions like mechanical ventilation."
             },
             {
                 "id": "p3",
-                "text": "Blood glucose levels (Check for hypoglycemia)"
+                "text": "Blood glucose levels",
+                "rationale": "This is an incorrect parameter. While hypoglycemia can occur, the immediate life threats are respiratory failure and cardiovascular collapse. Monitoring respiratory status and core temperature are the highest priorities."
             },
             {
                 "id": "p4",
-                "text": "Hourly urine output"
+                "text": "Hourly urine output",
+                "rationale": "This is an incorrect parameter. While renal function is important, the primary life threats are respiratory failure and cardiovascular collapse. Monitoring respiratory effort and core temperature takes precedence in this acute phase."
             }
         ]
     },
@@ -102,64 +123,13 @@
         "topicTags": [
             "Myxedema Coma",
             "Hypothyroidism",
-            "Endocrine Emergency"
+            "Endocrine Emergency",
+            "Critical Care"
         ]
-    },
-    "rationale": {
-        "correct": "The client presents with a classic clinical picture of Myxedema Coma (c2), characterized by severe hypothermia, bradycardia, respiratory depression, and altered mental status. The extremely elevated TSH and low free T4 levels confirm severe hypothyroidism. The primary nursing actions are aimed at gentle rewarming (a1) to prevent rapid vasodilation and shock, and emergent IV levothyroxine (T4) administration (a2) to replace the deficient hormone. Continuous monitoring of core temperature (p1) is crucial to assess the effectiveness of rewarming efforts and prevent hyperthermia. Monitoring respiratory effort and arterial blood gases (ABGs) (p2) is essential due to the risk of respiratory failure associated with myxedema coma.",
-        "clinicalPearls": [
-            "In primary hypothyroidism, the pituitary gland attempts to compensate for low T4 levels by producing excessive TSH.",
-            "Rewarming should be passive to avoid rapid vasodilation and cardiovascular collapse.",
-            "Myxedema coma is a life-threatening condition often precipitated by infection, surgery, or abrupt cessation of thyroid hormone replacement."
-        ],
-        "questionTrap": {
-            "trap": "Aggressively rewarming the patient.",
-            "howToOvercome": "Use blankets and warm IV fluids (Passive). Avoid heating pads or active external rewarming, as it can cause rapid vasodilation, hypotension, and cardiovascular collapse."
-        },
-        "mnemonic": {
-            "title": "Myxedema Coma: \"LOW and SLOW\"",
-            "expansion": "L-Low Temp. O-Obtunded. W-Weakness. A-Altered Mental Status. N-Nonresponsive. D-Depressed Respirations. S-Slow HR. L-Low BP. O-Oxygenation Low. W-Weight Gain (Edema)"
-        }
     },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026",
-    "actions": [
-        {
-            "id": "a1",
-            "text": "Apply passive rewarming with blankets and warm IV fluids"
-        },
-        {
-            "id": "a2",
-            "text": "Prepare for emergent IV Levothyroxine (T4) administration"
-        },
-        {
-            "id": "a3",
-            "text": "Administer high-dose Beta-blockers to control the heart rate"
-        },
-        {
-            "id": "a4",
-            "text": "Apply cooling blankets and ice packs to the axilla"
-        }
-    ],
-    "parameters": [
-        {
-            "id": "p1",
-            "text": "Continuous core temperature monitoring"
-        },
-        {
-            "id": "p2",
-            "text": "Respiratory effort and arterial blood gases (ABGs)"
-        },
-        {
-            "id": "p3",
-            "text": "Blood glucose levels (Check for hypoglycemia)"
-        },
-        {
-            "id": "p4",
-            "text": "Hourly urine output"
-        }
-    ]
+    "sentinelStatus": "remediated_v2026"
 }

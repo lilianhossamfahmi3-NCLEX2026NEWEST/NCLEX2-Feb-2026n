@@ -1,13 +1,13 @@
 {
     "id": "bowtie_abnormal_newborn_assessment_v2026",
     "type": "bowtie",
-    "stem": "The nurse in the newborn nursery is assessing a 4-hour-old term neonate. Based on the clinical data in the EHR, the nurse identifies the priority nursing actions, the most likely underlying condition, and the clinical parameters that require monitoring.",
+    "stem": "The nurse is assessing a 4-hour-old term neonate born via cesarean section who is exhibiting signs of respiratory distress. After reviewing the client's electronic health record, the nurse must take immediate action. Complete the bowtie by identifying the priority actions, the most likely condition, and the parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
-                "title": "Nurses' Notes",
-                "content": "10:00: Term male newborn, born via repeat C-section 4 hours ago. Apgar scores were 8 at 1 minute and 9 at 5 minutes. Initial assessment was unremarkable.\n10:15: Nurse notes the infant is exhibiting mild nasal flaring and intermittent grunting during quiet sleep.\n10:30: Infant is tachypneic. BS (breath sounds) are clear but breath sounds seem slightly diminished. Infant is currently in a radiant warmer.\n10:45: Mother reports infant 'seems to be breathing fast and making a noise when he breathes out.'"
+                "title": "SBAR",
+                "content": "Dr. Smith, this is the nursery nurse calling at 10:50. Situation: I have a 4-hour-old term male infant, born via scheduled C-section, with escalating respiratory distress. Background: Apgars were 8 and 9. He was stable until the last hour. Assessment: His RR is now 82 with grunting, flaring, and retractions. SpO2 has dropped to 89% on room air. A stat chest X-ray is consistent with transient tachypnea of the newborn. Recommendation: I request an order to transfer him to the NICU for oxygen support and continuous monitoring."
             },
             {
                 "id": "vitals",
@@ -20,9 +20,9 @@
                 "content": "Chest X-Ray (10:45):\nFindings: Increased lung volumes with flat diaphragms. Prominent vascular markings and 'sunburst' appearance from the hila. Fluid in the interlobar fissures noted. No evidence of consolidation or pneumothorax."
             },
             {
-                "id": "exam",
-                "title": "Physical Exam",
-                "content": "Appearance: Pink trunk with mild acrocyanosis.\nRespiratory: Tachypnea present (RR 84). Mild intercostal retractions. Audible grunting. Clear breath sounds throughout.\nCardiovascular: Normal S1, S2. Capillary refill <3 seconds.\nGI/GU: Abdomen soft, non-distended. Has not yet voided or passed meconium."
+                "id": "history_physical",
+                "title": "History & Physical",
+                "content": "<b>Birth History:</b> Term male infant, born at 07:00 via scheduled cesarean section. Apgar scores: 8 at 1 minute, 9 at 5 minutes. No meconium-stained fluid noted at delivery.<br><br><b>Physical Examination (10:30):</b><br><b>Appearance:</b> Pink trunk with mild acrocyanosis.<br><b>Respiratory:</b> Tachypnea present (RR 82). Mild intercostal retractions. Audible grunting. Clear breath sounds throughout.<br><b>Cardiovascular:</b> Normal S1, S2. Capillary refill <3 seconds.<br><b>GI/GU:</b> Abdomen soft, non-distended. Has not yet voided or passed meconium."
             }
         ]
     },
@@ -85,6 +85,28 @@
         "p1",
         "p4"
     ],
+    "hoverRationales": {
+        "actions": {
+            "a1": "Clinical Flaw: Antibiotics are for infection. There are no signs of sepsis, such as temperature instability or elevated white blood cell count, making this intervention unnecessary at this time.",
+            "a2": "Pathophysiology: The infant's respiratory distress and hypoxemia (SpO2 89%) are due to retained fetal lung fluid. Supplemental oxygen is essential to correct hypoxemia and reduce the work of breathing.",
+            "a3": "Pathophysiology: The infant's tachypnea (RR > 60), grunting, and oxygen requirement indicate significant respiratory distress. This necessitates transfer to a higher level of care like the NICU for continuous monitoring and respiratory support.",
+            "a4": "Clinical Flaw: Feeding an infant with a respiratory rate over 60 breaths/minute, especially with signs of distress, significantly increases the risk of aspiration. The infant should be kept NPO.",
+            "a5": "Clinical Flaw: Gastric lavage is not indicated for respiratory distress caused by retained lung fluid. This procedure is typically used for toxic ingestions or to clear the stomach of meconium."
+        },
+        "potentialConditions": {
+            "Meconium Aspiration Syndrome (MAS)": "Clinical Flaw: MAS requires a history of meconium-stained amniotic fluid at birth. This infant's history and chest X-ray findings are not consistent with this diagnosis.",
+            "Transient Tachypnea of the Newborn (TTN)": "Pathophysiology: TTN is caused by delayed clearance of fetal lung fluid, common in C-section births. The clinical signs (tachypnea, grunting) and classic X-ray findings (sunburst pattern, fluid in fissures) confirm this diagnosis.",
+            "Respiratory Distress Syndrome (RDS)": "Clinical Flaw: RDS is primarily a disease of prematurity caused by surfactant deficiency. This is a term infant, and the X-ray shows fluid retention, not the characteristic ground-glass appearance of RDS.",
+            "Neonatal Sepsis": "Clinical Flaw: While sepsis can cause respiratory distress, this infant lacks other key signs like temperature instability or poor perfusion. The presentation is more consistent with a primary respiratory issue."
+        },
+        "parameters": {
+            "p1": "Pathophysiology: Monitoring respiratory rate and work of breathing (retractions, grunting) is critical to assess the clearance of lung fluid and the resolution of TTN. Improvement indicates effective fluid reabsorption.",
+            "p2": "Clinical Flaw: While important for overall neonatal stability, hypoglycemia is not the primary or most immediate concern related to TTN. Respiratory status takes precedence.",
+            "p3": "Clinical Flaw: The infant's temperature has been stable. While thermoregulation is important, it is not a specific parameter for monitoring the progression or resolution of TTN itself.",
+            "p4": "Pathophysiology: Oxygen saturation directly reflects the adequacy of gas exchange, which is impaired by the retained lung fluid in TTN. Monitoring SpO2 is essential to titrate oxygen therapy and evaluate clinical improvement.",
+            "p5": "Clinical Flaw: Urine output is a key indicator of hydration and renal function. However, it is not a direct or primary parameter for monitoring the acute respiratory status in TTN."
+        }
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -95,48 +117,9 @@
             "Respiratory Disorders"
         ]
     },
-    "rationale": {
-        "correct": "The newborn is exhibiting classic signs of Transient Tachypnea of the Newborn (TTN), which is common after C-section deliveries due to the lack of 'thoracic squeeze' that helps clear fetal lung fluid. The X-ray findings (fluid in fissures, sunburst pattern) are pathognomonic for TTN. The priority actions are to support oxygenation and ensure the infant is monitored in an environment capable of acute care (NICU). Respiratory effort and SpO2 are the primary parameters to evaluate the resolution of the fluid clearance.",
-        "incorrect": "Neonatal sepsis would typically present with temperature instability (hypothermia often) and poor perfusion, which are absent here. RDS is more common in premature infants and shows 'ground glass' appearance on X-ray, not fluid in fissures. MAS requires a history of meconium-stained fluid and shows patchier infiltrates. Gavage feeding is not the immediate priority for an infant with acute tachypnea.",
-        "answerBreakdown": [
-            {
-                "optionId": "a1",
-                "rationale": "Incorrect. There are no signs of infection present (normal WBC, clear X-ray fields except for fluid)."
-            },
-            {
-                "optionId": "a2",
-                "rationale": "Correct. Supportive oxygen is the mainstay of TTN management while fluid is reabsorbed."
-            },
-            {
-                "optionId": "a3",
-                "rationale": "Correct. An infant with RR > 60 and grunting requires higher acuity monitoring in the NICU."
-            },
-            {
-                "optionId": "a4",
-                "rationale": "Incorrect. Tachypneic infants are often kept NPO to prevent aspiration; gavage feeding is not the immediate priority."
-            },
-            {
-                "optionId": "a5",
-                "rationale": "Incorrect. Gastric lavage is not indicated for respiratory distress."
-            }
-        ],
-        "clinicalPearls": [
-            "TTN is 'Wet Lungs'. It typically resolves in 24-72 hours as the lymphatic system clears the remaining fetal lung fluid.",
-            "C-section is a major risk factor for TTN.",
-            "Always differentiate TTN from RDS using gestational age and X-ray findings."
-        ],
-        "questionTrap": {
-            "trap": "Thinking all newborns with respiratory distress have sepsis or infections.",
-            "howToOvercome": "Carefully assess the delivery method and the specific X-ray description (fluid in fissures = TTN)."
-        },
-        "mnemonic": {
-            "title": "TTN vs RDS",
-            "expansion": "TTN is Term/Transient/Table (C-section Table). RDS is Retractions/Reduced age/Rugged (Ground glass)."
-        }
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "remediated_v2026_v14"
 }

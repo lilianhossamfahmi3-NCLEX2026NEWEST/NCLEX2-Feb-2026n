@@ -1,121 +1,357 @@
 {
-    "id": "New-v26-DKAThyroidStormSATA",
-    "type": "selectN",
-    "stem": "A 72-year-old male patient is admitted to the ICU at 06:00 with altered mental status. The admitting diagnosis is suspected HHS with possible thyroid storm. Based on the EHR data, which of the following interventions are MOST appropriate at this time? Select all that apply.",
+    "id": "thyroidStormHHS_selectAll_v1",
+    "type": "selectAll",
+    "stem": "A 72-year-old client is admitted to the ICU with diabetic ketoacidosis and concurrent thyroid storm. Based on the data in the electronic health record, which interventions are most appropriate for the nurse to implement? Select all that apply.",
     "options": [
         {
-            "id": "option1",
-            "text": "Administer Propranolol 1mg IV push.",
-            "correct": true
+            "id": "opt_01",
+            "text": "Administer propranolol 1 mg IV push."
         },
         {
-            "id": "option2",
-            "text": "Administer 0.9% NS IV at 500 mL/hr.",
-            "correct": true
+            "id": "opt_02",
+            "text": "Infuse 0.9% sodium chloride at 500 mL/hr."
         },
         {
-            "id": "option3",
-            "text": "Initiate insulin drip per protocol.",
-            "correct": true
+            "id": "opt_03",
+            "text": "Initiate a regular insulin infusion per protocol."
         },
         {
-            "id": "option4",
-            "text": "Administer potassium chloride 20 mEq IV.",
-            "correct": true
+            "id": "opt_04",
+            "text": "Administer potassium chloride 20 mEq IVPB."
         },
         {
-            "id": "option5",
-            "text": "Apply cooling blankets and ice packs.",
-            "correct": true
+            "id": "opt_05",
+            "text": "Apply a hypothermia blanket and axillary ice packs."
         },
         {
-            "id": "option6",
-            "text": "Administer 5% dextrose IV.",
-            "correct": false
+            "id": "opt_06",
+            "text": "Administer 5% dextrose in 0.45% sodium chloride."
         },
         {
-            "id": "option7",
-            "text": "Encourage oral fluid intake.",
-            "correct": false
+            "id": "opt_07",
+            "text": "Encourage oral intake of clear fluids."
         },
         {
-            "id": "option8",
-            "text": "Administer hydrochlorothiazide 25 mg PO.",
-            "correct": false
+            "id": "opt_08",
+            "text": "Administer hydrochlorothiazide 25 mg PO."
         },
         {
-            "id": "option9",
-            "text": "Monitor urine output every 4 hours.",
-            "correct": false
+            "id": "opt_09",
+            "text": "Measure urine output every 4 hours."
         },
         {
-            "id": "option10",
-            "text": "Administer metformin 500 mg PO.",
-            "correct": false
+            "id": "opt_10",
+            "text": "Administer metformin 500 mg PO."
         }
     ],
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04",
+        "opt_05"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 72,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "72 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, a 72-year-old male, admitted to the ICU at 06:00 from the ED. He presents with altered mental status, Kussmaul respirations, and severe dehydration. History of poorly managed type 2 diabetes and hyperthyroidism. B: Patient found unresponsive at home; blood glucose >600 mg/dL in the field. A: Vitals: BP 90/60 mmHg, HR 140 bpm, RR 36 and deep, SpO2 92% on room air, Temp 103.2°F (39.6°C). Labs show elevated T3 and T4. Suspect Hyperosmolar Hyperglycemic State (HHS) complicated by possible thyroid storm. R: Initiated 0.9% Normal Saline at 500 mL/hr and insulin drip per protocol. Need orders for thyroid storm management, including beta-blockers and antithyroid meds. Assess mental status changes and continuous cardiac monitoring due to high HR and arrhythmia risk. Consider electrolyte repletion based on labs.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Glucose: 620 mg/dL, Sodium: 150 mEq/L, Potassium: 3.0 mEq/L, Chloride: 105 mEq/L, Bicarbonate: 10 mEq/L, BUN: 40 mg/dL, Creatinine: 2.0 mg/dL, pH: 7.28, pCO2: 28 mmHg, pO2: 95 mmHg, TSH: <0.01 mIU/L, Free T3: 10 pg/mL (Normal: 2.0-4.4 pg/mL), Free T4: 4.0 ng/dL (Normal: 0.9-1.7 ng/dL)"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 06:00",
+                        "body": "S: 72-year-old male admitted from ED with altered mental status. B: Found unresponsive at home by a neighbor. History of poorly managed type 2 diabetes and hyperthyroidism. Client lives alone and reports difficulty affording medications and regular follow-up appointments, citing transportation issues. Field blood glucose was >600 mg/dL. A: Appears severely dehydrated with dry mucous membranes and poor skin turgor. Tachycardic at 140 bpm, hypotensive at 90/60 mmHg. Temp 103.2°F (39.6°C). Deep, rapid respirations at 36/min. GCS 10. Initial labs suggest Diabetic Ketoacidosis (DKA) with hyperosmolar features and concurrent thyroid storm. R: Placed on cardiac monitor. Initiated 0.9% Normal Saline bolus. Awaiting orders for insulin therapy and management of suspected thyroid storm. Recommend continuous monitoring and frequent reassessment."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 1, 07:00",
+                        "body": "S: Reassessing client one hour after admission. B: IV fluid resuscitation with 0.9% NS is infusing at 500 mL/hr. Insulin drip protocol has been ordered but not yet initiated. A: Client remains tachycardic (135 bpm) and hypotensive (94/62 mmHg). Temperature remains elevated at 103.0°F (39.4°C). Neurological status is unchanged, GCS 10. Cardiac monitor shows sinus tachycardia. Urine output via indwelling catheter is minimal. Fingerstick glucose remains high at 590 mg/dL. R: Continue fluid resuscitation. Prepare to initiate insulin drip per protocol. Anticipate orders for beta-blockers, antithyroid medications, and electrolyte replacement based on critical lab values. Continue hourly vital signs and neurological checks."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "0.9% NS IV at 500 mL/hr, Insulin Regular IV drip (protocol based on glucose level), Acetaminophen 650mg PO PRN for fever"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "06:00",
+                        "HR": "140",
+                        "BP": "90/60 (70)",
+                        "RR": "36",
+                        "SpO2": "92% on RA",
+                        "Temp": "103.2°F (39.6°C)",
+                        "GCS": "10"
+                    },
+                    {
+                        "Time": "06:30",
+                        "HR": "138",
+                        "BP": "92/61 (71)",
+                        "RR": "34",
+                        "SpO2": "93% on RA",
+                        "Temp": "103.1°F (39.5°C)",
+                        "GCS": "10"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR": "135",
+                        "BP": "94/62 (73)",
+                        "RR": "32",
+                        "SpO2": "94% on 2L NC",
+                        "Temp": "103.0°F (39.4°C)",
+                        "GCS": "10"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: BP 90/60 mmHg, HR 140 bpm, RR 36, SpO2 92%, Temp 103.2°F (39.6°C), GCS: 10"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Test": "Glucose",
+                        "Result": "620",
+                        "Unit": "mg/dL",
+                        "Reference": "70-110",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Sodium",
+                        "Result": "150",
+                        "Unit": "mEq/L",
+                        "Reference": "135-145",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Potassium",
+                        "Result": "3.0",
+                        "Unit": "mEq/L",
+                        "Reference": "3.5-5.0",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Bicarbonate (HCO3)",
+                        "Result": "10",
+                        "Unit": "mEq/L",
+                        "Reference": "22-28",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "BUN",
+                        "Result": "40",
+                        "Unit": "mg/dL",
+                        "Reference": "10-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Creatinine",
+                        "Result": "2.0",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Test": "Arterial pH",
+                        "Result": "7.28",
+                        "Unit": "",
+                        "Reference": "7.35-7.45",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "TSH",
+                        "Result": "<0.01",
+                        "Unit": "mIU/L",
+                        "Reference": "0.4-4.0",
+                        "Status": "Low"
+                    },
+                    {
+                        "Test": "Free T4",
+                        "Result": "4.0",
+                        "Unit": "ng/dL",
+                        "Reference": "0.9-1.7",
+                        "Status": "High"
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Smith, a 72-year-old male, admitted to the ICU at 06:00 from the ED. He presents with altered mental status, Kussmaul respirations, and severe dehydration. History of poorly managed type 2 diabetes and hyperthyroidism. B: Patient found unresponsive at home; blood glucose >600 mg/dL in the field. A: Vitals: BP 90/60 mmHg, HR 140 bpm, RR 36 and deep, SpO2 92% on room air, Temp 103.2°F (39.6°C). Labs show elevated T3 and T4. Suspect Hyperosmolar Hyperglycemic State (HHS) complicated by possible thyroid storm. R: Initiated 0.9% Normal Saline at 500 mL/hr and insulin drip per protocol. Need orders for thyroid storm management, including beta-blockers and antithyroid meds. Assess mental status changes and continuous cardiac monitoring due to high HR and arrhythmia risk. Consider electrolyte repletion based on labs."
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "system": "General",
+                        "findings": "Acutely ill-appearing, restless."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "system": "Neurological",
+                        "findings": "GCS 10 (E3, V2, M5). Disoriented to time and place. Does not follow commands."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "system": "Cardiovascular",
+                        "findings": "Sinus tachycardia on monitor. S1, S2 audible. Pulses +1 peripherally. Capillary refill >3 seconds."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "system": "Respiratory",
+                        "findings": "Deep, rapid respirations. Lungs clear to auscultation bilaterally."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:00",
+                        "system": "Integumentary",
+                        "findings": "Skin is hot, flushed, and diaphoretic. Mucous membranes are dry. Skin turgor is poor with tenting noted."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Chest X-Ray (Portable, AP)",
+                        "timestamp": "Day 1, 06:45",
+                        "report": "FINDINGS: Lungs are clear without evidence of consolidation, edema, or pneumothorax. Cardiomediastinal silhouette is within normal limits. Bony structures are unremarkable.\n\nIMPRESSION: No acute cardiopulmonary process."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "order_time": "06:15",
+                        "action": "Admit to ICU",
+                        "status": "Complete"
+                    },
+                    {
+                        "order_time": "06:15",
+                        "action": "Continuous cardiac and SpO2 monitoring",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "06:15",
+                        "action": "0.9% Sodium Chloride at 500 mL/hr",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "06:20",
+                        "action": "STAT ABG, CMP, CBC, Thyroid Panel",
+                        "status": "Complete"
+                    },
+                    {
+                        "order_time": "06:20",
+                        "action": "Insert indwelling urinary catheter",
+                        "status": "Active"
+                    },
+                    {
+                        "order_time": "06:45",
+                        "action": "Initiate Regular Insulin Infusion per DKA protocol",
+                        "status": "Pending"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "0.9% Sodium Chloride",
+                        "dose": "500 mL/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "last_admin": "N/A"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "650 mg",
+                        "route": "PO/PR",
+                        "frequency": "q4h PRN Temp >101.5°F",
+                        "last_admin": "Not Given"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
-        "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
+    "rationale": {
+        "correct": "The client presents with a dual crisis of DKA and thyroid storm, requiring simultaneous, aggressive management. Key interventions include: blocking the systemic adrenergic effects of excess thyroid hormone with a beta-blocker (propranolol); correcting severe dehydration and hypovolemia with isotonic fluids (0.9% NS); managing hyperglycemia and acidosis with an insulin infusion; correcting hypokalemia, which is exacerbated by insulin, with IV potassium; and managing severe hyperthermia with active cooling measures.",
+        "incorrect": "Interventions that would worsen the client's condition are incorrect. Dextrose solutions are contraindicated in severe hyperglycemia. Oral fluids are unsafe due to altered mental status and aspiration risk. Diuretics like hydrochlorothiazide would exacerbate severe dehydration. Infrequent monitoring (q4h) is unsafe in a critical care setting. Oral hypoglycemics like metformin are inappropriate for acute DKA management, which requires IV insulin.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The client's sinus tachycardia (HR 135-140 bpm) is a life-threatening manifestation of thyroid storm. Propranolol, a non-selective beta-blocker, is essential to block the peripheral effects of excessive thyroid hormones, thereby reducing heart rate and controlling cardiovascular symptoms."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. The client is severely dehydrated from osmotic diuresis (due to hyperglycemia) and hyperthermia, evidenced by hypotension, tachycardia, and poor skin turgor. Aggressive fluid resuscitation with isotonic crystalloids like 0.9% sodium chloride is the first-line treatment to restore intravascular volume and improve tissue perfusion."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. The client's glucose is 620 mg/dL with metabolic acidosis (pH 7.28, HCO3 10), confirming DKA. An IV regular insulin infusion is necessary to correct hyperglycemia by facilitating glucose uptake into cells and to resolve ketosis and acidosis."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. The initial potassium is low at 3.0 mEq/L. Insulin therapy drives potassium from the extracellular to the intracellular space, which will worsen hypokalemia and can precipitate fatal cardiac dysrhythmias. Therefore, potassium replacement must be initiated before or concurrently with insulin."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct. A temperature of 103.2°F (39.6°C) indicates severe hyperthermia, a hallmark of thyroid storm. This high metabolic state increases oxygen demand and cardiac workload. Active cooling measures like a hypothermia blanket and ice packs are critical to reduce body temperature and metabolic rate."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. Administering a dextrose-containing solution is contraindicated when the blood glucose is 620 mg/dL. Dextrose is typically added to IV fluids only after the blood glucose falls to approximately 200-250 mg/dL to prevent hypoglycemia during insulin therapy."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. The client has an altered mental status (GCS 10) and is disoriented. Encouraging oral intake poses a significant risk of aspiration. Fluid replacement must be administered intravenously."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Incorrect. Hydrochlorothiazide is a diuretic that would exacerbate the client's existing severe dehydration and hypovolemia. It is strongly contraindicated in this clinical context."
+            },
+            {
+                "optionId": "opt_09",
+                "content": "Incorrect. In a critically ill client with DKA and thyroid storm undergoing aggressive fluid resuscitation, urine output must be monitored hourly to assess renal perfusion and the adequacy of fluid replacement. Monitoring every 4 hours is insufficient and unsafe."
+            },
+            {
+                "optionId": "opt_10",
+                "content": "Incorrect. Metformin is an oral hypoglycemic agent used for managing type 2 diabetes on an outpatient basis. It is not used in the acute management of DKA, which requires the rapid, titratable action of an IV insulin infusion."
+            }
+        ],
+        "clinicalPearls": [
+            "In DKA/HHS, never start an insulin drip if the serum potassium is <3.3 mEq/L. Correct the hypokalemia first to prevent life-threatening arrhythmias.",
+            "Thyroid storm is a hypermetabolic state where fever, tachycardia, and altered mental status are key signs. Management focuses on blocking hormone synthesis, release, and peripheral effects.",
+            "The presence of significant acidosis (pH <7.30, HCO3 <18) with severe hyperglycemia points towards DKA, even if the glucose level is high enough for HHS. Some patients present with a mixed picture."
+        ],
+        "questionTrap": "This question presents two simultaneous, life-threatening endocrine emergencies. The trap is focusing on only one diagnosis (e.g., only treating the DKA) and neglecting the critical interventions required for the other (thyroid storm). You must synthesize all data to identify and treat both conditions concurrently.",
+        "mnemonic": {
+            "title": "STORM Management",
+            "expansion": "S - Stop hormone synthesis (e.g., PTU/methimazole)\nT - Tame the heart (Beta-blockers like propranolol)\nO - Offset the fever (Cooling measures, acetaminophen)\nR - Replace fluids & electrolytes (IVF, correct K+)\nM - Monitor continuously (ICU level care)"
+        },
+        "reviewUnits": [
+            "Endocrine Emergencies",
+            "Fluid & Electrolytes",
+            "Acid-Base Balance",
+            "Pharmacology: Insulin & Beta-Blockers",
+            "Critical Care Nursing"
         ]
     },
-    "rationale": {
-        "correct": "Administering a beta-blocker (e.g., Propranolol) is crucial to block the effects of excessive thyroid hormone on the heart, reducing heart rate and blood pressure. Administering IV fluids (0.9% NS) is essential to address dehydration resulting from HHS and to improve tissue perfusion. Initiating an insulin drip as per protocol addresses the hyperglycemia in HHS by facilitating glucose uptake into cells. Administering potassium chloride is essential due to the hypokalemia evidenced by the lab results, which can be exacerbated by insulin administration. Applying cooling blankets or ice packs is important to manage hyperthermia associated with thyroid storm.",
-        "incorrect": "Administering dextrose is contraindicated as the patient is already hyperglycemic. Encouraging oral fluids is inappropriate due to the patient's altered mental status, increasing the risk of aspiration. Administering a thiazide diuretic is contraindicated due to dehydration and electrolyte imbalances associated with HHS. Monitoring urine output every 4 hours is insufficient; hourly monitoring is needed to assess fluid resuscitation effectiveness. Administering oral antidiabetic medications is inappropriate in the acute setting of HHS; IV insulin is required.",
-        "clinicalPearls": [
-            "In HHS, the primary focus is on rehydration, insulin administration, and electrolyte correction.",
-            "Thyroid storm requires a multi-faceted approach, including beta-blockers, antithyroid medications, and supportive care.",
-            "Altered mental status necessitates close monitoring for neurological changes and aspiration risk."
-        ],
-        "questionTrap": {
-            "trap": "The question focuses on a combination of HHS and potential thyroid storm, leading to confusion about the priorities of care. Test-takers may focus solely on one condition and miss interventions addressing the other.",
-            "howToOvercome": "Carefully analyze the clinical data (vitals, labs) to identify all present problems (hyperglycemia, dehydration, hyperthermia, tachycardia) and choose interventions that address ALL active issues, not just the most obvious one."
-        },
-        "mnemonic": {
-            "title": "THYROID STORM",
-            "expansion": "T - Temperature (manage hyperthermia), H - Hydration (IV fluids), Y - Yes (Beta-blockers like Propranolol), R - Replenish (Electrolytes like Potassium), O - Oxygen (Support respiratory function), I - Insulin (Manage hyperglycemia), D - Dextrose (Avoid, already hyperglycemic), S - Support (Monitor and manage complications), T - Thyroid hormone production block (Antithyroid drugs), O - Observe (Mental status and vital signs), R - Rest (Reduce stimulation), M - Monitor (Cardiac function)"
-        }
-    }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "Application",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:00:09.498Z"
 }

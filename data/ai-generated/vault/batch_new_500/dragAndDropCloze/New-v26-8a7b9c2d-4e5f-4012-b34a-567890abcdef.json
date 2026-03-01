@@ -1,90 +1,220 @@
 {
     "id": "New-v26-8a7b9c2d-4e5f-4012-b34a-567890abcdef",
-    "type": "dragAndDropCloze",
-    "stem": "Based on the patient's presentation and lab results, the nurse should prioritize interventions aimed at addressing potential sepsis. Complete the following statements by dragging the appropriate options into the blanks.\n\nThe patient's elevated temperature and decreased blood pressure indicate possible [Blank 1]. The nurse should administer [Blank 2] as prescribed. Given the patient's history of MRSA, the nurse should anticipate an order for [Blank 3] while awaiting culture results. To accurately monitor the patient's response to treatment, the nurse should closely monitor [Blank 4].",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 4
-    },
-    "itemContext": {
-        "patient": {
-            "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact Precautions",
-            "allergies": [
-                "Penicillin"
-            ]
+    "type": "multipleChoice",
+    "stem": "The nurse has reviewed the client's updated clinical data. Which action is the highest priority for the nurse to implement immediately to address the client's hemodynamic instability?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Initiate a rapid infusion of 0.9% sodium chloride."
         },
-        "sbar": "S: Mr. John Smith, 78-year-old male, admitted 3 days ago for pneumonia, reports increased weakness and chills. He is alert but increasingly lethargic. B: Mr. Smith has a history of MRSA pneumonia one year ago, successfully treated with Vancomycin. He is currently receiving Ceftriaxone for his present pneumonia. A: At 07:00, his temperature was 39.2°C (102.5°F), heart rate 110, respiratory rate 24, blood pressure 88/50 mmHg, and SpO2 92% on 2L nasal cannula. Urine output decreased to 20 mL/hr over the last 2 hours. Pending lab results include blood cultures, but yesterday's WBC count was 15,000/mm3. Lactate is 3.5 mmol/L and Creatinine 2.1 mg/dL. A: I'm concerned about septic shock given vital sign changes, decreased urine output, elevated lactate, and increased WBC. R: I recommend stat blood cultures, repeat lactate, and a 500 mL fluid bolus. Consider changing antibiotic coverage to Vancomycin based on history and pending cultures. Continuously monitor MAP to assess response.",
+        {
+            "id": "opt_02",
+            "text": "Administer the next scheduled dose of ceftriaxone."
+        },
+        {
+            "id": "opt_03",
+            "text": "Request a STAT chest x-ray to assess pneumonia progression."
+        },
+        {
+            "id": "opt_04",
+            "text": "Administer PRN acetaminophen for the client's fever."
+        }
+    ],
+    "correctOptionId": "opt_01",
+    "itemContext": {
+        "sbar": "S (07:00): Calling about Mr. John Smith in room 402. He is reporting increased weakness, lethargy, and severe chills. His blood pressure has dropped significantly to 88/50 mmHg.\n\nB: He is a 78-year-old male admitted 3 days ago for community-acquired pneumonia. His history is significant for MRSA pneumonia one year ago. He lives alone in a rural community with limited transportation, which is a barrier to care. He has a known allergy to Penicillin. His current antibiotic is Ceftriaxone.\n\nA: Vitals are trending downwards: T 102.5°F (39.2°C), HR 110, RR 24, BP 88/50 (MAP 63), SpO₂ 92% on 2L NC. Urine output is oliguric at 20 mL/hr for the past two hours. Recent labs show WBC 18.5 x 10³/μL, lactate 4.2 mmol/L, and creatinine 2.1 mg/dL. He appears flushed and his skin is warm.\n\nR: I am concerned he is developing septic shock. I recommend initiating the sepsis protocol immediately. I need an order for a 30 mL/kg crystalloid fluid bolus and to draw repeat blood cultures before starting a broad-spectrum antibiotic like Vancomycin.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/mm3\nLactate: 3.5 mmol/L\nCreatinine: 2.1 mg/dL\nBlood Cultures: Pending"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "05:00",
+                        "Temp": "99.9°F (37.7°C)",
+                        "HR": "98",
+                        "RR": "20",
+                        "BP": "110/70",
+                        "MAP": "83",
+                        "SpO2": "95% on Room Air"
+                    },
+                    {
+                        "Time": "06:00",
+                        "Temp": "101.8°F (38.8°C)",
+                        "HR": "104",
+                        "RR": "22",
+                        "BP": "100/60",
+                        "MAP": "73",
+                        "SpO2": "94% on 2L NC"
+                    },
+                    {
+                        "Time": "07:00",
+                        "Temp": "102.5°F (39.2°C)",
+                        "HR": "110",
+                        "RR": "24",
+                        "BP": "88/50",
+                        "MAP": "63",
+                        "SpO2": "92% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "06:00: T 38.8°C (101.8°F), HR 98, RR 20, BP 100/60, SpO2 94% on RA\n07:00: T 39.2°C (102.5°F), HR 110, RR 24, BP 88/50, SpO2 92% on 2L NC\nUrine Output (last 2 hrs): 20 mL/hr"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "WBC",
+                        "Value": "18.5",
+                        "Unit": "x 10³/μL",
+                        "Reference": "4.5-11.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Lactate",
+                        "Value": "4.2",
+                        "Unit": "mmol/L",
+                        "Reference": "0.5-2.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Creatinine",
+                        "Value": "2.1",
+                        "Unit": "mg/dL",
+                        "Reference": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Procalcitonin",
+                        "Value": "12.5",
+                        "Unit": "ng/mL",
+                        "Reference": "<0.15",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "BUN",
+                        "Value": "35",
+                        "Unit": "mg/dL",
+                        "Reference": "7-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Blood Cultures",
+                        "Value": "Pending",
+                        "Unit": "",
+                        "Reference": "No Growth",
+                        "Status": ""
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Ceftriaxone 2g IV q24h\nAcetaminophen 650mg PO q4h PRN fever"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Time: 07:00 (Focused Assessment)\n\nGeneral: Appears lethargic but rousable to voice. Flushed appearance.\n\nCardiovascular: Tachycardic with S1/S2 regular. Capillary refill 3 seconds. Peripheral pulses +1 bilaterally.\n\nRespiratory: Tachypneic with use of accessory muscles. Coarse crackles auscultated in the right lower lobe.\n\nSkin: Warm and dry to the touch."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No recent radiology reports available."
+                "content": "Type: Chest X-ray (PA and Lateral)\nDate: Admission Day 1\n\nFindings: Lungs show evidence of consolidation in the right lower lobe, consistent with pneumonia. No pleural effusion or pneumothorax is noted. The cardiomediastinal silhouette is within normal limits.\n\nImpression: Right lower lobe pneumonia."
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See SBAR in main prompt."
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Day 1 @ 09:00",
+                        "Action": "0.9% Sodium Chloride @ 75 mL/hr continuous infusion",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Day 1 @ 09:00",
+                        "Action": "Ceftriaxone 2g IVPB every 24 hours",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Day 1 @ 09:00",
+                        "Action": "Acetaminophen 650 mg PO every 4 hours PRN for temp > 101°F (38.3°C)",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Day 3 @ 07:05",
+                        "Action": "STAT blood cultures, lactate, and CBC",
+                        "Status": "Ordered"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "2g",
+                        "Route": "IVPB",
+                        "Frequency": "q24h",
+                        "Last Administered": "Day 2 @ 09:00"
+                    },
+                    {
+                        "Medication": "Acetaminophen",
+                        "Dose": "650 mg",
+                        "Route": "PO",
+                        "Frequency": "q4h PRN",
+                        "Last Administered": "Day 3 @ 06:15"
+                    }
+                ]
             }
         ],
-        "availableOptions": [
-            "Fluid resuscitation",
-            "Vancomycin",
-            "Mean Arterial Pressure (MAP)",
-            "Septic shock",
-            "Ceftriaxone",
-            "Serum Creatinine"
-        ],
-        "correctAssociations": {
-            "Blank 1": "Septic shock",
-            "Blank 2": "Fluid resuscitation",
-            "Blank 3": "Vancomycin",
-            "Blank 4": "Mean Arterial Pressure (MAP)"
+        "patient": {
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "Penicillin"
+            ]
         }
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Safe and Effective Care Environment",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
-        ]
     },
     "rationale": {
-        "correct": "Septic shock: The patient's elevated temperature, decreased blood pressure, increased WBC count, and elevated lactate indicate possible septic shock, a life-threatening condition caused by the body's overwhelming response to an infection.  clinicalPearl: Early recognition is key. Fluid resuscitation: Hypotension in sepsis requires prompt fluid resuscitation to improve blood pressure and tissue perfusion. clinicalPearl: Crystalloids are typically the first-line choice. Vancomycin: Given the patient's history of MRSA, empiric antibiotic coverage should include Vancomycin while awaiting culture results. clinicalPearl: Always consider patient history when selecting antibiotics. Mean Arterial Pressure (MAP): MAP is a crucial indicator of tissue perfusion. Monitoring MAP helps determine the effectiveness of fluid resuscitation and vasopressor therapy. clinicalPearl: A MAP of 65 mmHg or greater is generally desired in sepsis.",
-        "incorrect": "Choosing incorrect options would fail to address the critical signs and symptoms of sepsis and could lead to further deterioration of the patient's condition. Ceftriaxone is already being administered and may not be effective against MRSA. Serum Creatinine is important for monitoring kidney function, but MAP is more directly related to the immediate management of septic shock.",
-        "clinicalPearls": [
-            "Early recognition and treatment of sepsis are crucial for improving patient outcomes.",
-            "Fluid resuscitation is a cornerstone of sepsis management.",
-            "Empiric antibiotic therapy should be broad-spectrum and cover likely pathogens.",
-            "Monitoring MAP is essential for assessing tissue perfusion in septic patients."
+        "correct": "The client is exhibiting classic signs of septic shock: hypotension (MAP < 65 mmHg), tachycardia, tachypnea, fever, and evidence of end-organ dysfunction (oliguria, elevated lactate, elevated creatinine). The pathophysiological priority is to correct the distributive shock caused by systemic vasodilation and capillary leak. A rapid infusion of isotonic crystalloids (0.9% sodium chloride) is the first-line intervention to increase intravascular volume, improve preload, and restore tissue perfusion.",
+        "incorrect": "The incorrect options are either not the immediate priority or address symptoms rather than the life-threatening circulatory collapse. While antibiotics are crucial, they do not correct hypotension. Diagnostics are delayed until the patient is stabilized. Treating fever is a low priority compared to restoring perfusion.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. According to the Surviving Sepsis Campaign guidelines, the immediate priority for a client with sepsis-induced hypotension is aggressive fluid resuscitation (30 mL/kg crystalloid) to restore circulatory volume and improve mean arterial pressure (MAP), thereby preventing irreversible organ damage."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. While administering antibiotics is a critical component of the sepsis bundle and should be done within one hour, it is not the first priority. The ABCs (Airway, Breathing, Circulation) dictate that restoring circulation via fluid resuscitation to correct life-threatening hypotension must be done first."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. This is a diagnostic action. The client already has a diagnosis of pneumonia, and the current clinical picture points to a complication (septic shock), not a new diagnosis. Intervening to correct the shock state is the priority over further imaging, which would delay life-saving treatment."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. This action treats a symptom (fever) but does not address the root cause of the hemodynamic instability, which is systemic vasodilation and hypoperfusion. While managing fever can decrease metabolic demand, it is not the priority over restoring blood pressure and organ perfusion."
+            }
         ],
-        "questionTrap": {
-            "trap": "Many students may focus solely on the elevated temperature and miss the significance of the hypotension, decreased urine output, and elevated lactate in the context of a previous MRSA infection, leading them to overlook the possibility of septic shock and the need for broader antibiotic coverage.",
-            "howToOvercome": "Carefully analyze all vital signs and lab results in conjunction with the patient's medical history to identify patterns and trends that suggest sepsis. Consider the patient's risk factors for multi-drug resistant organisms when selecting empiric antibiotic therapy."
-        },
-        "mnemonic": {
-            "title": "S.E.P.S.I.S.",
-            "expansion": "Suspect Infection, Evaluate for source, Prevent further spread, Start antibiotics early, Initiate fluid resuscitation, Support organ function."
-        }
+        "clinicalPearls": [
+            "In septic shock, remember the 'Hour-1 Bundle': Measure lactate, obtain blood cultures, administer broad-spectrum antibiotics, and begin rapid fluid resuscitation for hypotension.",
+            "A Mean Arterial Pressure (MAP) of < 65 mmHg is a critical threshold indicating inadequate organ perfusion. The primary goal of initial resuscitation is to achieve a MAP ≥ 65 mmHg.",
+            "Elevated lactate (>2 mmol/L) is a key marker of tissue hypoxia and anaerobic metabolism. A lactate level >4 mmol/L is associated with a high risk of mortality and mandates immediate, aggressive resuscitation."
+        ],
+        "questionTrap": "The primary trap is choosing antibiotics over fluids. Both are time-sensitive and crucial, but the immediate threat to life is circulatory collapse. Test-takers must prioritize interventions based on the ABCs (Airway, Breathing, Circulation). Correcting the 'C' with fluids is the most immediate life-saving action.",
+        "mnemonic": "For Sepsis Shock, remember 'Fill the TANK, then FIGHT the bug.' 'Fill the TANK' refers to rapid fluid resuscitation to correct hypotension. 'FIGHT the bug' refers to administering broad-spectrum antibiotics after obtaining cultures.",
+        "reviewUnits": [
+            "Sepsis and Septic Shock",
+            "Hemodynamic Monitoring",
+            "Fluid and Electrolyte Balance",
+            "Pharmacology: Antimicrobials"
+        ]
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "takeAction",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T16:58:12.968Z"
 }

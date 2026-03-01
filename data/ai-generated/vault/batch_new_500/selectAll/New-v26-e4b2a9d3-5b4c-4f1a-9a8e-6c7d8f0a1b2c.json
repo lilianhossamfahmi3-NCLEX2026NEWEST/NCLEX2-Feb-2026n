@@ -1,102 +1,133 @@
 {
     "id": "New-v26-e4b2a9d3-5b4c-4f1a-9a8e-6c7d8f0a1b2c",
     "type": "selectAll",
-    "stem": "The nurse is preparing to administer medications to Mr. Jones. Based on the information provided in the EHR, which of the following actions should the nurse take *PRIOR* to administering the medications? Select all that apply.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "stem": "Based on the EHR, which actions must the nurse take before administering the newly ordered STAT medications? Select all that apply.",
+    "options": [
+        {
+            "id": "option-0",
+            "text": "Withhold the scheduled 09:00 lisinopril dose."
+        },
+        {
+            "id": "option-1",
+            "text": "Place the client on continuous cardiac monitoring."
+        },
+        {
+            "id": "option-2",
+            "text": "Administer the furosemide 40 mg IV push as ordered."
+        },
+        {
+            "id": "option-3",
+            "text": "Notify the healthcare provider of the current vital signs and lab results."
+        },
+        {
+            "id": "option-4",
+            "text": "Withhold the STAT digoxin dose."
+        }
+    ],
+    "correctOptionIds": [
+        "option-1",
+        "option-3",
+        "option-4"
+    ],
     "itemContext": {
         "patient": {
             "name": "Robert Jones",
-            "age": 72,
-            "gender": "Male",
-            "iso": "Medical Unit",
+            "age": "72",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Robert Jones, 72-year-old male, admitted yesterday at 16:00 for CHF exacerbation. \nB: History of CHF, hypertension, and type 2 diabetes. Home medications include lisinopril, metformin, and digoxin. \nA: At 08:00, patient reports increased shortness of breath and lower extremity edema. Oxygen saturation is 92% on 2L nasal cannula. The provider has ordered furosemide 40mg IV push STAT, digoxin 0.125mg IV push STAT, and potassium chloride 20mEq PO BID. Current BP 100/60 mmHg, HR 58 bpm, RR 24 breaths/min. Last digoxin level was 0.7 ng/mL drawn this morning at 06:00. Potassium is 3.2 mEq/L at 08:00. Creatinine is 1.8 mg/dL at 08:00. Patient is alert and oriented x3.\nR: I recommend holding the digoxin dose and notifying the provider due to the low heart rate and borderline low blood pressure. The potassium chloride should be given after provider approval. ",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>Creatinine</td><td>1.8 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Digoxin</td><td>0.7 ng/mL</td><td>0.5-2.0 ng/mL</td></tr><tr><td>Glucose</td><td>180 mg/dL</td><td>70-110 mg/dL</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note - Yesterday, 16:00\nS: Robert Jones is a 72-year-old male admitted from his primary care provider's office with a chief complaint of worsening shortness of breath, fatigue, and a 10 lb weight gain over the past week.\nB: He has a history of congestive heart failure (EF 35%), hypertension, and type 2 diabetes. Client lives alone in a second-floor apartment with no elevator and reports difficulty affording fresh groceries, often relying on canned soups. He reports non-adherence to his low-sodium diet.\nA: On admission, client was dyspneic with minimal exertion. Bilateral crackles noted in lower lung bases. 2+ pitting edema in lower extremities. Vitals: BP 148/88 mmHg, HR 92 bpm, RR 22, SpO2 94% on room air.\nR: Admitted to the medical unit for management of acute decompensated heart failure. Initiated on 2L O2 via nasal cannula.\n\nProgress Note - Today, 08:00\nS: Client reports feeling more short of breath this morning than yesterday. States, \"I feel like I can't catch my breath, and my legs are more swollen.\"\nB: Overnight, client had difficulty sleeping and required the head of the bed to be elevated to 90 degrees. Urine output has been minimal. No chest pain reported.\nA: Current vitals: BP 100/60 mmHg (MAP 73), HR 58 bpm, RR 24, SpO2 92% on 2L NC. Auscultation reveals crackles halfway up the lung fields bilaterally. 3+ pitting edema noted to mid-shin. Client is alert and oriented x4. Morning labs show hypokalemia and elevated creatinine.\nR: STAT orders for IV furosemide and IV digoxin received. Will hold digoxin due to bradycardia and notify provider of all findings before administering any new medications."
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>Value</th><th>Time</th></tr></thead><tbody><tr><td>Blood Pressure</td><td>100/60 mmHg</td><td>08:00</td></tr><tr><td>Heart Rate</td><td>58 bpm</td><td>08:00</td></tr><tr><td>Respiratory Rate</td><td>24 breaths/min</td><td>08:00</td></tr><tr><td>Oxygen Saturation</td><td>92% on 2L NC</td><td>08:00</td></tr><tr><td>Temperature</td><td>37.0°C</td><td>08:00</td></tr></tbody></table>"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>Temp</th><th>HR</th><th>BP (MAP)</th><th>RR</th><th>SpO₂</th></tr></thead><tbody><tr><td>Yesterday, 16:00</td><td>98.6°F (37.0°C)</td><td>92 bpm</td><td>148/88 mmHg (108)</td><td>22</td><td>94% on RA</td></tr><tr><td>Today, 04:00</td><td>98.8°F (37.1°C)</td><td>74 bpm</td><td>110/70 mmHg (83)</td><td>22</td><td>93% on 2L NC</td></tr><tr><td>Today, 08:00</td><td>98.6°F (37.0°C)</td><td>58 bpm</td><td>100/60 mmHg (73)</td><td>24</td><td>92% on 2L NC</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Status</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV Push</td><td>STAT</td><td>Pending</td></tr><tr><td>Digoxin</td><td>0.125 mg</td><td>IV Push</td><td>STAT</td><td>Pending</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>PO</td><td>BID</td><td>Pending</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>Scheduled: 09:00</td></tr><tr><td>Metformin</td><td>500 mg</td><td>PO</td><td>BID</td><td>Scheduled: 09:00, 21:00</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Potassium</td><td>3.2</td><td>mEq/L</td><td>3.5-5.0</td><td>Low</td></tr><tr><td>Sodium</td><td>138</td><td>mEq/L</td><td>135-145</td><td>Normal</td></tr><tr><td>Creatinine</td><td>1.8</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>BUN</td><td>35</td><td>mg/dL</td><td>10-20</td><td>High</td></tr><tr><td>BNP</td><td>1250</td><td>pg/mL</td><td>&lt;100</td><td>High</td></tr><tr><td>Digoxin Level</td><td>0.7</td><td>ng/mL</td><td>0.5-2.0</td><td>Therapeutic</td></tr><tr><td>Glucose</td><td>180</td><td>mg/dL</td><td>70-110</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<strong>Admission Assessment (Yesterday, 16:00)</strong><br><strong>General:</strong> Alert and oriented, appears fatigued.<br><strong>Cardiovascular:</strong> S1/S2 audible, regular rhythm, no murmurs. JVD present at 30 degrees. Capillary refill <3 seconds.<br><strong>Respiratory:</strong> Labored breathing on exertion. Bilateral crackles in lower lung bases.<br><strong>Neurological:</strong> Alert and oriented x4. Moves all extremities with equal strength.<br><strong>Gastrointestinal:</strong> Abdomen soft, non-tender, bowel sounds active in all quadrants.<br><strong>Extremities:</strong> 2+ pitting edema bilateral lower extremities.<br><br><strong>Focused Assessment (Today, 08:00)</strong><br><strong>Cardiovascular:</strong> S1/S2 audible, bradycardic. Pulses 2+ peripherally.<br><strong>Respiratory:</strong> Increased work of breathing. Crackles auscultated halfway up posterior lung fields bilaterally.<br><strong>Extremities:</strong> 3+ pitting edema bilateral lower extremities, extending to mid-shin."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<strong>Chest X-ray (PA and Lateral) - Yesterday, 17:30</strong><br><strong>Findings:</strong> The cardiomediastinal silhouette is enlarged. There are prominent interstitial markings and Kerley B lines, consistent with interstitial edema. Small bilateral pleural effusions are noted. The pulmonary vasculature is congested.<br><strong>Impression:</strong> Findings consistent with moderate cardiomegaly and acute pulmonary edema, indicative of congestive heart failure exacerbation."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Today, 08:15</td><td>Furosemide 40 mg IV Push</td><td>STAT</td></tr><tr><td>Today, 08:15</td><td>Digoxin 0.125 mg IV Push</td><td>STAT</td></tr><tr><td>Today, 08:15</td><td>Potassium Chloride 20 mEq PO</td><td>STAT, then BID</td></tr><tr><td>Yesterday, 16:30</td><td>Cardiac Diet, 2-gram Sodium Restriction</td><td>Ongoing</td></tr><tr><td>Yesterday, 16:30</td><td>1.5 Liter Fluid Restriction</td><td>Per 24 hours</td></tr><tr><td>Yesterday, 16:30</td><td>Daily Weights</td><td>Every morning</td></tr><tr><td>Yesterday, 16:30</td><td>Vital Signs</td><td>Every 4 hours</td></tr><tr><td>Yesterday, 16:30</td><td>Oxygen to maintain SpO2 >92%</td><td>PRN</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Furosemide</td><td>40 mg</td><td>IV Push</td><td>STAT</td><td>Not yet administered</td></tr><tr><td>Digoxin</td><td>0.125 mg</td><td>IV Push</td><td>STAT</td><td>Not yet administered</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>PO</td><td>STAT</td><td>Not yet administered</td></tr><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>Yesterday, 09:00</td></tr><tr><td>Metformin</td><td>500 mg</td><td>PO</td><td>BID</td><td>Yesterday, 21:00</td></tr><tr><td>Digoxin</td><td>0.125 mg</td><td>PO</td><td>Daily</td><td>Yesterday, 09:00</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Pharmacological and Parenteral Therapies",
-        "difficulty": 5,
-        "topicTags": [
-            "Safety: Medication Calculation & High-Alert Drugs",
-            "Fluids and Electrolytes"
+    "rationale": {
+        "correct": "The nurse must synthesize multiple data points to ensure patient safety before administering medications. The client's bradycardia (HR 58), hypokalemia (K+ 3.2 mEq/L), and elevated creatinine (1.8 mg/dL) are critical findings. The correct actions are to place the client on a cardiac monitor due to the risk of arrhythmia, notify the provider of these critical changes, and withhold the digoxin due to the heart rate being below the standard safety threshold of 60 bpm. These actions prioritize immediate safety and collaborative communication.",
+        "incorrect": "Administering the furosemide is unsafe as it will further deplete potassium, increasing the risk of digoxin toxicity and arrhythmias, and could worsen renal function given the elevated creatinine. Withholding the scheduled lisinopril is a reasonable consideration due to the low-normal blood pressure, but it is not the most immediate priority compared to the risks associated with the STAT medications and the client's unstable condition.",
+        "answerBreakdown": [
+            {
+                "optionId": "option-0",
+                "content": "Incorrect. While the client's blood pressure is 100/60 mmHg, which is a consideration for an ACE inhibitor, the immediate life-threatening risks are related to the STAT medications, bradycardia, and electrolyte imbalance. This action is a lower priority."
+            },
+            {
+                "optionId": "option-1",
+                "content": "Correct. The combination of hypokalemia, bradycardia, and the impending administration of IV furosemide (which wastes potassium) and digoxin places the client at high risk for life-threatening cardiac arrhythmias. Continuous cardiac monitoring is an essential safety intervention."
+            },
+            {
+                "optionId": "option-2",
+                "content": "Incorrect. Administering a loop diuretic to a client who is already hypokalemic (K+ 3.2 mEq/L) is contraindicated without potassium replacement. It would exacerbate the hypokalemia and increase the risk of digoxin-induced arrhythmias. The elevated creatinine also warrants caution."
+            },
+            {
+                "optionId": "option-3",
+                "content": "Correct. This is a critical action. The provider must be made aware of the constellation of findings (bradycardia, hypokalemia, elevated creatinine) that contraindicate or require modification of the STAT orders. This is a core responsibility of the nurse to ensure patient safety."
+            },
+            {
+                "optionId": "option-4",
+                "content": "Correct. A heart rate less than 60 bpm is a standard contraindication for administering digoxin. Digoxin has negative chronotropic effects (slows the heart rate) by acting on the AV node. Administering it to a bradycardic client could cause severe bradycardia or heart block."
+            }
+        ],
+        "clinicalPearls": [
+            "Always check apical pulse for a full minute before administering digoxin. Withhold the dose and notify the provider if the heart rate is <60 bpm in an adult.",
+            "Hypokalemia potentiates the effect of digoxin, increasing the risk of toxicity even with a therapeutic serum level. Furosemide is a potassium-wasting diuretic that can worsen this risk.",
+            "Acute kidney injury (indicated by rising creatinine) is a common complication in decompensated heart failure (cardiorenal syndrome). Doses of nephrotoxic or renally-cleared drugs must be adjusted or questioned."
+        ],
+        "questionTrap": "This question traps test-takers who focus on a single piece of data instead of synthesizing the entire clinical picture. For example, seeing an order for furosemide for a fluid-overloaded client and acting on it without first checking the potassium and creatinine levels is a common error.",
+        "mnemonic": "For high-risk medication administration, remember the 'ABC' safety check: A - Apical pulse & Allergies. B - Blood pressure & Bradycardia. C - Critical labs & Contraindications.",
+        "reviewUnits": [
+            "Heart Failure",
+            "Fluid and Electrolyte Imbalances",
+            "Pharmacology: Cardiac Glycosides",
+            "Pharmacology: Diuretics",
+            "Medication Administration: High-Alert"
         ]
     },
-    "responseOptions": [
-        {
-            "id": "option-0",
-            "content": "Administer furosemide as prescribed.",
-            "correct": false,
-            "feedback": "While furosemide is indicated for the CHF exacerbation, the nurse needs to assess renal function (creatinine level) before administration due to the risk of nephrotoxicity. The elevated creatinine of 1.8 mg/dL indicates possible renal impairment."
-        },
-        {
-            "id": "option-1",
-            "content": "Administer potassium chloride as prescribed.",
-            "correct": false,
-            "feedback": "While the patient is prescribed potassium, the nurse MUST verify the latest potassium lab value to confirm hypokalemia before administration. Administering potassium to a patient with a normal or high potassium level can lead to life-threatening hyperkalemia and cardiac arrhythmias. The current potassium level is 3.2 mEq/L, which requires intervention, but the provider should be notified first."
-        },
-        {
-            "id": "option-2",
-            "content": "Withhold the digoxin dose.",
-            "correct": true,
-            "feedback": "The patient's heart rate is 58 bpm, which is below the typical threshold for digoxin administration (usually 60 bpm). Additionally, the blood pressure is borderline low (100/60 mmHg), and digoxin can further lower blood pressure. The nurse must assess the patient and collaborate with the provider before administering digoxin."
-        },
-        {
-            "id": "option-3",
-            "content": "Verify the potassium level.",
-            "correct": true,
-            "feedback": "The patient's potassium level is 3.2 mEq/L, which is below the normal range (3.5-5.0 mEq/L). Since potassium chloride is ordered, confirming the lab value is crucial to avoid administering potassium unnecessarily if the level is normal or high due to lab error or recent administration. Also, rapid IV infusion of potassium can cause cardiac arrhythmias, so verifying hypokalemia is present is essential for safety."
-        },
-        {
-            "id": "option-4",
-            "content": "Assess creatinine level.",
-            "correct": true,
-            "feedback": "The patient's creatinine is elevated at 1.8 mg/dL (normal is 0.6-1.2 mg/dL). This indicates possible renal impairment. Furosemide is nephrotoxic and requires renal function monitoring. This information is crucial prior to administering furosemide."
-        }
-    ],
-    "rationale": {
-        "correct": "Withhold the digoxin dose. The patient's heart rate is 58 bpm, which is below the typical threshold for digoxin administration (usually 60 bpm). Digoxin slows AV node conduction, further decreasing heart rate and blood pressure. Additionally, the blood pressure is borderline low (100/60 mmHg), and digoxin can further lower blood pressure. The nurse must assess the patient and collaborate with the provider before administering digoxin.\n\nVerify the potassium level. The patient's potassium level is 3.2 mEq/L, which is below the normal range (3.5-5.0 mEq/L). Since potassium chloride is ordered, confirming the lab value is crucial to avoid administering potassium unnecessarily if the level is normal or high due to lab error or recent administration. Also, rapid IV infusion of potassium can cause cardiac arrhythmias, so verifying hypokalemia is present is essential for safety.\n\nAssess creatinine level. The patient's creatinine is elevated at 1.8 mg/dL (normal is 0.6-1.2 mg/dL). This indicates possible renal impairment. Furosemide is a loop diuretic that can worsen renal function. Monitoring creatinine is crucial prior to administering furosemide to prevent further kidney damage.",
-        "incorrect": "Administer furosemide as prescribed. While furosemide is indicated for the CHF exacerbation to reduce fluid overload, the nurse needs to assess renal function (creatinine level) before administration due to the risk of nephrotoxicity. Furosemide can cause acute kidney injury, especially in patients with pre-existing renal impairment.\n\nAdminister potassium chloride as prescribed. While the patient is prescribed potassium, the nurse MUST verify the latest potassium lab value to confirm hypokalemia before administration. Administering potassium to a patient with a normal or high potassium level can lead to life-threatening hyperkalemia and cardiac arrhythmias. The nurse should also assess for signs and symptoms of hyperkalemia, such as muscle weakness and ECG changes.",
-        "clinicalPearls": [
-            "Always check the patient's heart rate and blood pressure before administering digoxin. Hold the medication and notify the provider if the heart rate is below 60 bpm or if the patient is hypotensive.",
-            "Potassium levels must be verified before administering potassium supplements, as administering potassium to a patient with normal or high potassium levels can be dangerous. Monitor for signs of hyperkalemia, such as peaked T waves on the ECG.",
-            "Monitor renal function (e.g., creatinine levels) before administering nephrotoxic drugs like furosemide. Ensure adequate hydration to minimize the risk of kidney injury."
-        ],
-        "questionTrap": {
-            "trap": "The question traps the test taker into focusing solely on the prescriptions without considering the patient's current vital signs and lab values. Many students might assume all medications ordered should be given since they are prescribed.",
-            "howToOvercome": "Prioritize patient safety by always assessing the patient's current condition, including vital signs and lab results, before administering any medication. Consider contraindications and potential interactions based on the patient's data. Use critical thinking to identify potential risks."
-        },
-        "mnemonic": {
-            "title": "KNOW Before You GO (Med Administration)",
-            "expansion": "K: Key labs (e.g., Potassium, Creatinine); N: New symptoms or changes; O: Other meds (interactions); W: Withhold if unsafe; Before: Baseline vitals; You: Your patient assessment; GO: Give or hold medication."
-        }
-    }
+    "scoring": {
+        "method": "polytomous",
+        "scoreModel": "+/-",
+        "maxPoints": 3
+    },
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Reduction of Risk Potential"
+    },
+    "correctOptionId": "option-1",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:42:41.500Z"
 }

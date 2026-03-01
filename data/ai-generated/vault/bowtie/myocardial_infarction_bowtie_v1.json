@@ -1,66 +1,163 @@
 {
-    "id": "myocardial_infarction_bowtie_v1",
+    "id": "myocardial_infarction_bowtie_v3_remediated",
     "type": "bowtie",
-    "stem": "A client reports crushing substernal chest pain radiating to the left jaw, accompanied by nausea and diaphoresis. The EKG shows ST-segment elevation in leads II, III, and aVF. Complete the clinical bowtie.",
-    "causes": [
+    "ehr": {
+        "tabs": [
+            {
+                "id": "nurses_notes",
+                "title": "Nurses' Notes",
+                "content": {
+                    "note": "SBAR Report to Cardiologist at 08:00:\n\nSituation: This is Nurse Sarah in the ED with John Doe, a 62-year-old male who presented at 07:30 with severe chest pain.\n\nBackground: He has a history of hypertension and hyperlipidemia, managed with lisinopril and atorvastatin. No known allergies.\n\nAssessment: He describes 10/10 crushing substernal pain radiating to his jaw, with nausea and diaphoresis. Vitals: BP 105/60 mmHg, HR 58/min. EKG at 07:45 shows ST-elevation in leads II, III, and aVF, consistent with an inferior STEMI.\n\nRecommendation: Requesting immediate cardiology consultation for emergent reperfusion therapy."
+                }
+            },
+            {
+                "id": "vital_signs",
+                "title": "Vital Signs",
+                "content": {
+                    "vitals": [
+                        {
+                            "time": "07:30",
+                            "bp": "105/60 mmHg",
+                            "hr": "58/min",
+                            "rr": "18/min",
+                            "temp": "37.0°C (98.6°F)",
+                            "spo2": "95% on room air"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "diagnostics",
+                "title": "Diagnostics",
+                "content": {
+                    "results": [
+                        {
+                            "test": "12-Lead Electrocardiogram (EKG)",
+                            "time": "07:45",
+                            "findings": "Rhythm: Sinus bradycardia at 58 bpm. ST-segment elevation (>1mm) in leads II, III, and aVF. Reciprocal ST-segment depression in leads I and aVL. Interpretation: Acute inferior wall ST-elevation myocardial infarction (STEMI)."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "labs",
+                "title": "Labs",
+                "content": {
+                    "results": [
+                        {
+                            "test": "Cardiac Panel",
+                            "time": "07:35",
+                            "results": [
+                                {
+                                    "name": "Troponin I",
+                                    "value": "0.50 ng/mL",
+                                    "reference": "< 0.04 ng/mL"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "medications",
+                "title": "Medications",
+                "content": {
+                    "home_meds": [
+                        {
+                            "name": "Lisinopril",
+                            "dose": "10 mg",
+                            "route": "PO",
+                            "frequency": "Daily"
+                        },
+                        {
+                            "name": "Atorvastatin",
+                            "dose": "40 mg",
+                            "route": "PO",
+                            "frequency": "Daily"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "stem": "The nurse is caring for a 62-year-old male who presented to the emergency department with acute chest pain. Based on the client's electronic health record, complete the bowtie to identify the most likely condition, two priority actions, and two parameters to monitor.",
+    "potentialConditions": [
         {
-            "id": "c1",
-            "text": "Coronary artery occlusion"
+            "id": "cond1",
+            "text": "Acute Inferior Myocardial Infarction",
+            "hoverRationale": "The client's crushing substernal pain, diaphoresis, and EKG findings of ST-elevation in leads II, III, and aVF are the classic presentation for an acute inferior wall STEMI, which is caused by occlusion of the right coronary artery."
         },
         {
-            "id": "c2",
-            "text": "Atherosclerotic plaque rupture"
+            "id": "cond2",
+            "text": "Pericarditis",
+            "hoverRationale": "This is incorrect. Pericarditis typically causes diffuse, concave ST-elevation across most leads and PR segment depression, not the localized ST-elevation seen in the inferior leads of this client's EKG."
         },
         {
-            "id": "c3",
-            "text": "Aortic dissection"
+            "id": "cond3",
+            "text": "Unstable Angina",
+            "hoverRationale": "This is incorrect. Unstable angina is characterized by ischemic chest pain but does not involve ST-segment elevation on the EKG, as it represents ischemia without the complete coronary occlusion and transmural infarction seen in STEMI."
         },
         {
-            "id": "c4",
-            "text": "Pulmonary embolism"
+            "id": "cond4",
+            "text": "Aortic Dissection",
+            "hoverRationale": "This is incorrect. While a medical emergency with chest pain, aortic dissection typically presents with tearing pain and would not cause the specific inferior lead ST-elevation seen on this client's EKG."
         }
     ],
-    "condition": "Acute Inferior Myocardial Infarction",
     "actions": [
         {
             "id": "a1",
-            "text": "Administer sublingual nitroglycerin"
+            "text": "Administer sublingual nitroglycerin",
+            "hoverRationale": "This action is contraindicated. Nitroglycerin reduces preload, which can cause severe hypotension in an inferior MI, especially with right ventricular involvement, leading to hemodynamic collapse."
         },
         {
             "id": "a2",
-            "text": "Prepare for emergent percutaneous coronary intervention (PCI)"
+            "text": "Prepare for emergent percutaneous coronary intervention (PCI)",
+            "hoverRationale": "This is a priority. PCI is the definitive reperfusion therapy for STEMI, aiming to mechanically open the occluded coronary artery to restore blood flow and salvage myocardial tissue."
         },
         {
             "id": "a3",
-            "text": "Administer chewed aspirin (325 mg)"
+            "text": "Administer chewed aspirin (325 mg)",
+            "hoverRationale": "This is a priority. Aspirin provides rapid antiplatelet effects by inhibiting thromboxane A2, which helps prevent further thrombus formation at the site of plaque rupture."
         },
         {
             "id": "a4",
-            "text": "Perform a stat chest X-ray"
+            "text": "Perform a stat chest X-ray",
+            "hoverRationale": "This action is not a priority. While a chest X-ray can rule out other pathologies, it delays the critical, time-sensitive reperfusion therapy required for a confirmed STEMI."
+        },
+        {
+            "id": "a5",
+            "text": "Administer morphine sulfate IV",
+            "hoverRationale": "This is not a priority action. While morphine can alleviate pain, the primary goals are reperfusion and antiplatelet therapy. Morphine can also cause hypotension, a significant risk in inferior MI."
         }
     ],
     "parameters": [
         {
             "id": "p1",
-            "text": "Cardiac troponin levels"
+            "text": "Cardiac troponin levels",
+            "hoverRationale": "This is a correct parameter. Serial troponin levels are a specific biomarker for myocardial necrosis. Monitoring their rise and fall helps confirm the diagnosis and assess the extent of heart muscle damage."
         },
         {
             "id": "p2",
-            "text": "Breath sounds"
+            "text": "Breath sounds",
+            "hoverRationale": "This is not a priority parameter. While assessing for crackles is important for detecting heart failure, it does not directly monitor the primary issues of ongoing ischemia or life-threatening arrhythmias in acute MI."
         },
         {
             "id": "p3",
-            "text": "Blood pressure"
+            "text": "Blood pressure",
+            "hoverRationale": "This is not a priority parameter for monitoring the MI itself. While blood pressure reflects hemodynamic stability, it is a consequence of the MI, not a direct measure of myocardial injury or electrical instability."
         },
         {
             "id": "p4",
-            "text": "Continuous EKG monitoring"
+            "text": "Continuous EKG monitoring",
+            "hoverRationale": "This is a correct parameter. Continuous EKG monitoring is crucial for detecting dynamic ST-segment changes, which indicate ongoing ischemia or reperfusion, and for identifying potentially lethal arrhythmias."
+        },
+        {
+            "id": "p5",
+            "text": "Urine output",
+            "hoverRationale": "This is not a priority parameter. Urine output reflects renal perfusion and overall circulatory status, but it is a less direct and delayed indicator of cardiac function compared to EKG and troponin levels."
         }
     ],
-    "correctCauseIds": [
-        "c1",
-        "c2"
-    ],
+    "condition": "Acute Inferior Myocardial Infarction",
     "correctActionIds": [
         "a2",
         "a3"
@@ -71,93 +168,12 @@
     ],
     "pedagogy": {
         "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 4,
-        "topicTags": [
-            "MI",
-            "STEMI",
-            "Cardiac"
-        ]
-    },
-    "rationale": {
-        "correct": "MI is caused by coronary occlusion (c1) often due to plaque rupture (c2). Immediate actions are aspirin (a3) and PCI (a2). Monitoring troponins (p1) and EKG (p4) is essential.",
-        "incorrect": "Nitro (a1) should be used with caution in inferior MI as it can cause profound hypotension. Chest X-ray is supportive but not primary life-saving action.",
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Acute Inferior Myocardial Infarction\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer sublingual nitroglycerin\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Prepare for emergent percutaneous coronary intervention (PCI)\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer chewed aspirin (325 mg)\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Perform a stat chest X-ray\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Cardiac troponin levels\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Breath sounds\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Blood pressure\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Continuous EKG monitoring\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            }
-        ],
-        "clinicalPearls": [
-            "Time is Muscle: Door-to-balloon time should be < 90 minutes."
-        ],
-        "questionTrap": {
-            "trap": "The 'Inferior MI Nitro' Trap",
-            "howToOvercome": "Remember that Inferior MIs (II, III, aVF) often involve the right ventricle; reducing preload with Nitro can be dangerous."
-        },
-        "mnemonic": {
-            "title": "AIMI",
-            "expansion": "A = Acute\nI = Inferior\nM = Myocardial\nI = Infarction\n\nKey Actions: Administer chewed aspirin (325 mg); Prepare for emergent percutaneous coronary intervention (PCI)\nKey Monitoring: Cardiac troponin levels; Continuous EKG monitoring"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Acute MI",
-                "body": "STEMI requires immediate reperfusion therapy.",
-                "source": "Cardiac Nursing 2026"
-            }
-        ]
+        "cjmmStep": "recognizeCues",
+        "nclexCategory": "Physiological Adaptation"
     },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "potentialConditions": [
-        "Acute Inferior Myocardial Infarction",
-        "Pericarditis",
-        "Unstable Angina",
-        "Aortic Dissection"
-    ],
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "remediated_v2026_high_fidelity"
 }

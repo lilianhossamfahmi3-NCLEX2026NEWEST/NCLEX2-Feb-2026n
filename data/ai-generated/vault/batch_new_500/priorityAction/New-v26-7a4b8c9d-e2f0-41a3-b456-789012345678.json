@@ -1,7 +1,36 @@
 {
     "id": "New-v26-7a4b8c9d-e2f0-41a3-b456-789012345678",
-    "type": "priorityAction",
-    "stem": "The patient is exhibiting signs of hypovolemic shock. Based on the available information, select the FIVE most important actions the nurse should take IN ORDER. Drag the interventions from the left column to the right column. Use all options.",
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client showing signs of hypovolemic shock. Drag the five most appropriate nursing actions from the left to the right, arranging them in order of priority. Use all available options.",
+    "options": [
+        {
+            "id": "opt1",
+            "label": "Increase the rate of the intravenous fluid infusion."
+        },
+        {
+            "id": "opt2",
+            "label": "Apply a non-rebreather mask at 15 L/min."
+        },
+        {
+            "id": "opt3",
+            "label": "Elevate the client's legs."
+        },
+        {
+            "id": "opt4",
+            "label": "Notify the healthcare provider of the client's status."
+        },
+        {
+            "id": "opt5",
+            "label": "Prepare for administration of blood products."
+        }
+    ],
+    "correctResponse": [
+        "opt1",
+        "opt2",
+        "opt3",
+        "opt4",
+        "opt5"
+    ],
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
@@ -10,61 +39,242 @@
         "patient": {
             "name": "Ricardo Alvarez",
             "age": 68,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Ricardo Alvarez, 68-year-old male, post-op day 1 following a total hip arthroplasty, reporting increased pain and dizziness. B: History of hypertension, managed with lisinopril. Uncomplicated procedure. A: At 07:00, BP 90/50 mmHg, HR 120 bpm, RR 24, SpO2 92% on 2L NC, Temp 37.0°C. Pale, diaphoretic. Dressing: moderate serosanguinous drainage. Foley: 30 mL urine output last hour. Weak, lightheaded. Significant blood in surgical drain. Morphine 2mg IVP PRN prescribed at 06:30, not given. R: Concerned about hypovolemic shock secondary to blood loss. Recommend immediate intervention to stabilize.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Hemoglobin</td><td>8.2 g/dL</td><td>13.5-17.5 g/dL</td></tr><tr><td>Hematocrit</td><td>25%</td><td>40-52%</td></tr><tr><td>Platelets</td><td>250,000/uL</td><td>150,000-450,000/uL</td></tr><tr><td>WBC</td><td>10,000/uL</td><td>4,500-11,000/uL</td></tr><tr><td>Lactate</td><td>3.0 mmol/L</td><td>0.5-2.2 mmol/L</td></tr></tbody></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "timestamp": "Day 0, 14:00",
+                        "type": "Admission Note",
+                        "content": "S: Client admitted for elective right total hip arthroplasty. B: 68-year-old male with a history of hypertension controlled with lisinopril. No known history of bleeding disorders. Client lives alone and expresses some anxiety about managing recovery without assistance at home, a potential barrier to care. A: Alert and oriented x4. Pre-op vitals stable. All pre-operative labs within normal limits. Surgical consent signed and on file. R: Proceed with scheduled surgery. Ensure post-operative physical therapy consult is in place and discuss discharge planning resources due to limited social support. Will reinforce teaching on signs of complications to report from home."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:15",
+                        "type": "Progress Note",
+                        "content": "S: Client reports feeling 'very dizzy and weak' and rates incisional pain at 8/10. B: Post-op day 1 from right total hip arthroplasty. Lisinopril was administered at 06:00 per schedule. Surgical drain has collected 400 mL of sanguineous fluid over the past 2 hours. A: Vitals: BP 85/45 (MAP 58), HR 125, RR 26, SpO2 90% on 2L NC, Temp 98.8°F (37.1°C). Client is pale, diaphoretic, with cool extremities and delayed capillary refill of 4 seconds. Foley catheter has drained 30 mL of urine in the last hour, indicating oliguria. Client is anxious and restless. R: Suspect acute hypovolemic shock from post-operative hemorrhage. Immediate intervention is required to restore intravascular volume and tissue perfusion. Will initiate rapid response protocol."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>120/80</td><td>80</td><td>18</td><td>98%</td><td>37.0</td></tr><tr><td>07:00</td><td>90/50</td><td>120</td><td>24</td><td>92%</td><td>37.0</td></tr><tr><td>07:15</td><td>85/45</td><td>125</td><td>26</td><td>90%</td><td>37.1</td></tr></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "time": "06:00",
+                        "bp": "120/80",
+                        "map": "93",
+                        "hr": "80",
+                        "rr": "18",
+                        "spo2": "98% on 2L NC",
+                        "temp": "98.6°F (37.0°C)"
+                    },
+                    {
+                        "time": "07:00",
+                        "bp": "90/50",
+                        "map": "63",
+                        "hr": "120",
+                        "rr": "24",
+                        "spo2": "92% on 2L NC",
+                        "temp": "98.6°F (37.0°C)"
+                    },
+                    {
+                        "time": "07:15",
+                        "bp": "85/45",
+                        "map": "58",
+                        "hr": "125",
+                        "rr": "26",
+                        "spo2": "90% on 2L NC",
+                        "temp": "98.8°F (37.1°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Lisinopril</td><td>20 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Morphine</td><td>2 mg</td><td>IVP</td><td>PRN Pain</td><td>N/A</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IVP</td><td>PRN Nausea</td><td>N/A</td></tr><tr><td>Normal Saline</td><td>1000 mL</td><td>IV</td><td>Continuous</td><td>Infusing @ 75mL/hr</td></tr></tbody></table>"
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "lab": "Hemoglobin",
+                        "result": "8.2",
+                        "unit": "g/dL",
+                        "reference": "13.5-17.5",
+                        "status": "Low"
+                    },
+                    {
+                        "lab": "Hematocrit",
+                        "result": "25",
+                        "unit": "%",
+                        "reference": "40-52",
+                        "status": "Low"
+                    },
+                    {
+                        "lab": "Platelets",
+                        "result": "250,000",
+                        "unit": "/mcL",
+                        "reference": "150,000-450,000",
+                        "status": "Normal"
+                    },
+                    {
+                        "lab": "WBC",
+                        "result": "10,000",
+                        "unit": "/mcL",
+                        "reference": "4,500-11,000",
+                        "status": "Normal"
+                    },
+                    {
+                        "lab": "Lactate",
+                        "result": "3.0",
+                        "unit": "mmol/L",
+                        "reference": "0.5-2.2",
+                        "status": "High"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 0, 14:00 (Admission)",
+                        "findings": "General: Alert and oriented x4, appears stated age.\nCardiovascular: S1, S2 audible, regular rate and rhythm. No murmurs. Capillary refill <3 seconds.\nRespiratory: Lungs clear to auscultation bilaterally. Respirations unlabored.\nNeurological: Moves all extremities with equal strength. No sensory deficits."
+                    },
+                    {
+                        "timestamp": "Day 1, 07:15 (Focused)",
+                        "findings": "General: Anxious, restless, pale, and diaphoretic.\nCardiovascular: Tachycardic with thready peripheral pulses. Capillary refill 4 seconds. Extremities cool to touch.\nRespiratory: Tachypneic with clear but shallow respirations.\nNeurological: Reports dizziness and lightheadedness. Remains alert and oriented."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No radiology reports available.</p>"
+                "content": "<p>No new radiology reports available.</p>"
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "ordered": "Day 0, 16:00",
+                        "action": "0.9% Normal Saline at 75 mL/hr",
+                        "status": "Continuous"
+                    },
+                    {
+                        "ordered": "Day 0, 16:00",
+                        "action": "Vital signs every 4 hours",
+                        "status": "Standing"
+                    },
+                    {
+                        "ordered": "Day 0, 16:00",
+                        "action": "Monitor surgical drain output every shift",
+                        "status": "Standing"
+                    },
+                    {
+                        "ordered": "Day 0, 16:00",
+                        "action": "Morphine 2 mg IV",
+                        "status": "PRN every 2 hours for severe pain"
+                    },
+                    {
+                        "ordered": "Day 0, 16:00",
+                        "action": "Ondansetron 4 mg IV",
+                        "status": "PRN every 6 hours for nausea"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "20 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 1, 06:00"
+                    },
+                    {
+                        "medication": "Morphine",
+                        "dose": "2 mg",
+                        "route": "IVP",
+                        "frequency": "PRN Pain q2h",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "Ondansetron",
+                        "dose": "4 mg",
+                        "route": "IVP",
+                        "frequency": "PRN Nausea q6h",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "0.9% Normal Saline",
+                        "dose": "1000 mL",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "lastAdministered": "Infusing @ 75mL/hr"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "apply",
+        "cjmmStep": "takeAction",
         "nclexCategory": "Physiological Integrity",
+        "nclexSubCategory": "Reduction of Risk Potential",
         "difficulty": 5,
         "topicTags": [
-            "Cardiovascular: Shock & Hemodynamics"
+            "Cardiovascular: Shock & Hemodynamics",
+            "Perioperative Care"
         ]
     },
     "rationale": {
-        "correct": "The correct order of interventions is: 1. Increase the IV fluid infusion rate. This addresses the hypovolemia, increasing preload and cardiac output. Rapid fluid resuscitation is crucial to counteract the decreased circulating volume caused by blood loss. 2. Apply oxygen via non-rebreather mask. The patient's SpO2 is declining, indicating inadequate oxygenation. A non-rebreather mask delivers a high concentration of oxygen, maximizing oxygen delivery to tissues. 3. Notify the healthcare provider immediately. Report the patient's deteriorating condition and obtain further orders. Prompt communication ensures timely medical intervention and adjustments to the treatment plan. 4. Elevate the patient's legs. Elevating the legs promotes venous return, increasing preload and improving blood pressure. This maneuver aids in redistributing blood volume to the central circulation. 5. Monitor urine output hourly. This assesses the effectiveness of fluid resuscitation and provides information about kidney perfusion. Adequate urine output indicates sufficient renal perfusion and overall hemodynamic stability.",
-        "incorrect": "Administer morphine 2 mg IVP: While the patient reports pain, addressing hypovolemic shock is the priority. Pain management should be addressed after stabilizing hemodynamic status. Opioids can further decrease blood pressure. Obtain a 12-lead ECG: While a 12-lead ECG may be indicated to rule out cardiac causes of hypotension, it is not the immediate priority. The patient's history and presentation strongly suggest hypovolemic shock. Document the findings in the patient's chart: Documentation is important, but it is not a priority action when the patient is unstable and requires immediate intervention. Focus on stabilizing the patient first.",
+        "correct": "The correct sequence of actions addresses the client's hypovolemic shock by prioritizing interventions based on the ABCs (Airway, Breathing, Circulation). The primary problem is circulatory collapse due to volume loss. Therefore, restoring intravascular volume with fluids is the first priority. Concurrently, impaired oxygenation from poor perfusion must be addressed. After initiating immediate life-saving measures, the nurse must communicate the situation to the provider to obtain orders for definitive treatment, such as blood products.",
+        "answerBreakdown": [
+            {
+                "option": "Increase the rate of the intravenous fluid infusion.",
+                "order": 1,
+                "explanation": "This is the highest priority. The client's hypotension (MAP <65 mmHg) and tachycardia are direct results of decreased preload from hemorrhage. Rapidly infusing isotonic crystalloids like 0.9% Normal Saline temporarily expands intravascular volume, increasing preload and cardiac output to improve tissue perfusion."
+            },
+            {
+                "option": "Apply a non-rebreather mask at 15 L/min.",
+                "order": 2,
+                "explanation": "This is the second priority. The client's SpO2 is 90% and falling, indicating tissue hypoxia. Decreased circulating hemoglobin and poor perfusion lead to inadequate oxygen delivery. A non-rebreather mask provides the highest concentration of supplemental oxygen to maximize arterial oxygen saturation and mitigate anaerobic metabolism, evidenced by the elevated lactate."
+            },
+            {
+                "option": "Elevate the client's legs.",
+                "order": 3,
+                "explanation": "This is a rapid, non-invasive maneuver to improve circulation. Elevating the legs (modified Trendelenburg position) uses gravity to promote venous return from the lower extremities to the central circulation, increasing preload and transiently improving blood pressure and perfusion to vital organs."
+            },
+            {
+                "option": "Notify the healthcare provider of the client's status.",
+                "order": 4,
+                "explanation": "After initiating immediate life-saving interventions, the nurse must communicate the client's critical status to the provider using SBAR. This is essential for collaborative management and to receive orders for definitive treatment, such as blood transfusions and potential surgical intervention to stop the bleeding."
+            },
+            {
+                "option": "Prepare for administration of blood products.",
+                "order": 5,
+                "explanation": "This action anticipates the provider's orders. The client's low hemoglobin (8.2 g/dL) indicates significant blood loss. While crystalloids restore volume, they do not restore oxygen-carrying capacity. Preparing for a transfusion of packed red blood cells is the definitive treatment to correct anemia and resolve the underlying cause of poor tissue oxygenation."
+            }
+        ],
         "clinicalPearls": [
-            "In hypovolemic shock, restoring intravascular volume and improving tissue perfusion are paramount.",
-            "Always prioritize airway, breathing, and circulation (ABCs) when managing a patient in shock. Rapid intervention can prevent irreversible organ damage.",
-            "Monitor trends in vital signs and lab values to assess the patient's response to treatment. Early recognition of deterioration is key."
+            "In any shock state, a Mean Arterial Pressure (MAP) below 65 mmHg is generally insufficient to perfuse vital organs like the kidneys and brain.",
+            "Oliguria (<0.5 mL/kg/hr) is an early and sensitive indicator of decreased renal perfusion and systemic hypoperfusion.",
+            "While pain management is important, administering opioids like morphine to a hypotensive client is contraindicated as it can cause vasodilation and worsen hypotension."
         ],
         "questionTrap": {
-            "trap": "The 'administer morphine' option is tempting because the SBAR mentions a PRN order. However, pain management is secondary to addressing the shock.",
-            "howToOvercome": "Prioritize interventions based on the immediate threat to the patient's life. Focus on stabilizing vital signs and addressing the underlying cause of the shock before addressing pain. Consider non-pharmacological pain management techniques initially."
+            "trap": "Focusing on the client's reported pain (8/10) and the available PRN morphine order. Treating pain before stabilizing hemodynamics is a common error.",
+            "howToOvercome": "Always use the ABCs (Airway, Breathing, Circulation) to prioritize. The client's profound hypotension and tachycardia represent a life-threatening circulatory collapse that takes absolute priority over pain, which is a psychosocial need."
         },
         "mnemonic": {
-            "title": "I-O-N-E-M",
-            "expansion": "I: Increase IV fluids, O: Oxygenate (NRB), N: Notify provider, E: Elevate legs, M: Monitor urine output"
+            "title": "RESCUE (Hypovolemic Shock Priorities)",
+            "expansion": "R: Restore volume (IV fluids)\nE: Ensure oxygenation (Non-rebreather mask)\nS: Shift volume (Elevate legs)\nC: Call for help (Notify HCP)\nU: Unit preparation (Blood products)"
         }
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "sentinelStatus": "upgraded_standard_2026"
 }

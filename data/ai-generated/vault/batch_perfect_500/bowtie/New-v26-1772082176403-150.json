@@ -1,6 +1,6 @@
 {
     "id": "New-v26-1772082176403-150",
-    "stem": "The nurse is caring for a patient admitted with acute heart failure. Based on the provided information, identify the findings that require immediate intervention and those that are expected with this condition. Drag and drop each finding into the appropriate category.",
+    "stem": "The nurse is reviewing the electronic health record for a 78-year-old male client admitted for an acute exacerbation of heart failure. The client is exhibiting signs of worsening respiratory distress and fluid overload despite initial treatment. Complete the bowtie by selecting the appropriate actions, parameters to monitor, and the potential condition the client is developing.",
     "type": "bowtie",
     "actions": [
         {
@@ -24,38 +24,6 @@
             "text": "Administer Analgesia"
         }
     ],
-    "scoring": {
-        "method": "partial",
-        "maxPoints": 6
-    },
-    "pedagogy": {
-        "cjmmStep": "analyzeCues",
-        "topicTags": [
-            "General"
-        ],
-        "bloomLevel": "apply",
-        "difficulty": 3,
-        "nclexCategory": "Physiological Adaptation"
-    },
-    "condition": "General",
-    "rationale": {
-        "correct": "Findings requiring immediate intervention indicate a critical threat to the patient's well-being. Elevated blood pressure, low potassium, low sodium, and respiratory rate of 28 are all indicators that require immediate intervention.",
-        "mnemonic": {
-            "name": "BAD Vitals",
-            "description": "Remember key vital signs that indicate a worsening condition: Blood Pressure (High), Arrhythmia (Tachycardia), Dyspnea (High Respiratory Rate)."
-        },
-        "incorrect": "Expected findings are typical signs and symptoms associated with acute heart failure. While they require monitoring and management, they do not necessarily indicate an immediate life-threatening situation.",
-        "questionTrap": {
-            "strategy": "Carefully assess each finding in relation to the patient's overall clinical presentation and prioritize interventions based on the ABCs (Airway, Breathing, Circulation) and the severity of the abnormality.",
-            "commonMistake": "Students may confuse expected findings of heart failure with those requiring immediate intervention, leading to prioritization errors. For example, edema is expected but severely elevated blood pressure is more urgent."
-        },
-        "clinicalPearls": [
-            "Acute heart failure can present with varying degrees of severity. Recognizing subtle changes in patient condition is crucial for timely intervention.",
-            "Electrolyte imbalances, particularly hypokalemia and hyponatremia, can significantly impact cardiac function and should be promptly addressed.",
-            "Elevated blood pressure in the setting of acute heart failure can worsen the condition and increase cardiac workload. Rapid reduction in blood pressure should be done cautiously to avoid hypotension.",
-            "Crackles in the lungs, JVD, and lower extremity edema are common findings but can be clues to the overall fluid overload status of the patient."
-        ]
-    },
     "parameters": [
         {
             "id": "p1",
@@ -78,43 +46,93 @@
             "text": "Respiratory Rate"
         }
     ],
+    "potentialConditions": [
+        {
+            "id": "c1",
+            "text": "Pulmonary Edema"
+        },
+        {
+            "id": "c2",
+            "text": "Pneumonia"
+        },
+        {
+            "id": "c3",
+            "text": "Acute Myocardial Infarction"
+        },
+        {
+            "id": "c4",
+            "text": "Pulmonary Embolism"
+        }
+    ],
+    "rationales": {
+        "a1": "Correct. The client's hypoxemia (SpO2 90%) is due to fluid-filled alveoli impairing gas exchange. Increasing oxygen delivery will improve arterial oxygen saturation and relieve tissue hypoxia caused by the ventilation-perfusion mismatch.",
+        "a2": "Incorrect. The client is experiencing severe fluid volume excess, which is the cause of the heart failure exacerbation. Administering additional IV fluids would increase hydrostatic pressure, worsen pulmonary edema, and precipitate respiratory failure.",
+        "a3": "Correct. The client is clinically deteriorating despite initial treatment, indicating the need for more aggressive medical interventions. The provider must be notified immediately to obtain orders for potent diuretics, vasodilators, or non-invasive ventilation.",
+        "a4": "Incorrect. While the client is in distress, intubation is an invasive procedure reserved for impending respiratory arrest. Less invasive interventions, such as increasing oxygen or starting non-invasive positive pressure ventilation (NIPPV), should be prioritized first.",
+        "a5": "Incorrect. The client's primary symptom is dyspnea from fluid overload, not pain. While morphine can be used for its anxiolytic and vasodilatory effects in pulmonary edema, it is not a first-line nursing action and requires a provider's order.",
+        "p1": "Incorrect. While monitoring all vital signs is important, this option is too general. The most specific parameters to evaluate the client's response to the priority interventions (oxygen and diuretics) are oxygen saturation and urine output.",
+        "p2": "Correct. This is a direct, non-invasive measurement of the effectiveness of oxygen therapy and reflects the status of gas exchange at the alveolar level. Continuous monitoring is essential to guide oxygen titration and detect further decompensation.",
+        "p3": "Correct. The goal of treatment is to remove excess fluid via diuresis. Monitoring urine output is the most direct way to assess the effectiveness of diuretic therapy and the client's renal response, which is crucial for resolving pulmonary edema.",
+        "p4": "Incorrect. The client's primary problem is respiratory distress from fluid overload, not pain. Prioritizing pain assessment over direct measures of cardiopulmonary function is not appropriate in this acute situation.",
+        "p5": "Incorrect. Respiratory rate is a component of vital signs and an important indicator of distress. However, oxygen saturation provides a more direct measure of the effectiveness of gas exchange, which is the primary physiological problem.",
+        "c1": "Correct. The client's presentation of severe dyspnea, tachypnea, hypoxemia, bilateral crackles, and anxiety following an acute heart failure exacerbation are classic signs of fluid shifting into the pulmonary interstitium and alveoli.",
+        "c2": "Incorrect. Pneumonia is an infection of the lung parenchyma. While it can cause dyspnea and crackles, it is typically accompanied by fever, chills, and productive cough with purulent sputum, which are not present in this client.",
+        "c3": "Incorrect. An MI can precipitate acute heart failure, but the primary clinical picture here is one of severe fluid overload, not ischemic chest pain. An MI would be a potential cause, not the developing condition itself.",
+        "c4": "Incorrect. A PE can cause acute dyspnea and hypoxemia. However, it is less likely to present with signs of profound fluid overload such as JVD, extensive bilateral crackles, and significant pitting edema."
+    },
+    "correctResponse": {
+        "actions": [
+            "a1",
+            "a3"
+        ],
+        "parameters": [
+            "p2",
+            "p3"
+        ],
+        "condition": "c1"
+    },
+    "scoring": {
+        "method": "partial",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "cjmmStep": "takeActions",
+        "topicTags": [
+            "Cardiovascular",
+            "Fluid and Electrolytes",
+            "Respiratory"
+        ],
+        "bloomLevel": "apply",
+        "difficulty": 3,
+        "nclexCategory": "Physiological Adaptation"
+    },
     "itemContext": {
-        "sbar": "Patient is a 78-year-old male admitted with acute heart failure exacerbation. Reports increasing shortness of breath, orthopnea, and lower extremity edema. He has a history of hypertension, type 2 diabetes, and chronic kidney disease. Currently on oxygen at 2L via nasal cannula. Lasix 40mg IV push was administered 1 hour ago.",
+        "sbar": "This is the 09:00 report for the 78-year-old male in room 402, admitted for acute decompensated heart failure. He has a history of hypertension, type 2 diabetes, and stage 3 CKD. He presented with worsening dyspnea and edema. At 08:00, he received furosemide 40 mg IV. His current vitals show significant hypertension and tachypnea, with an SpO2 of 90% on 2L nasal cannula. He appears anxious and in respiratory distress. I am concerned about impending respiratory failure and recommend immediate provider evaluation.",
         "tabs": [
             {
                 "id": "sbar",
-                "title": "Sbar",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "SBAR",
+                "content": "<b>Situation:</b> This is the 09:00 report for the 78-year-old male in room 402, admitted for acute decompensated heart failure.<br><b>Background:</b> He has a history of hypertension, type 2 diabetes, and stage 3 CKD. He presented with worsening dyspnea and edema.<br><b>Assessment:</b> At 08:00, he received furosemide 40 mg IV. His current vitals show significant hypertension and tachypnea, with an SpO2 of 90% on 2L nasal cannula. He appears anxious and in respiratory distress.<br><b>Recommendation:</b> I am concerned about impending respiratory failure and recommend immediate provider evaluation."
             },
             {
                 "id": "vitals",
                 "title": "Vitals",
-                "content": "<p>No significant findings at this time.</p>"
+                "content": "<b>Time: 09:00</b><br><b>Blood Pressure:</b> 170/100 mmHg<br><b>Heart Rate:</b> 110/min<br><b>Respiratory Rate:</b> 28/min<br><b>Temperature:</b> 37.0°C (98.6°F)<br><b>SpO2:</b> 90% on 2L/min via nasal cannula"
             },
             {
                 "id": "labs",
                 "title": "Labs",
-                "content": "<p>No significant findings at this time.</p>"
+                "content": "<b>Metabolic Panel</b><br>Sodium: 130 mEq/L (Low)<br>Potassium: 3.2 mEq/L (Low)<br>BUN: 45 mg/dL (High)<br>Creatinine: 2.1 mg/dL (High)<br><br><b>Cardiac Markers</b><br>BNP: 1200 pg/mL (High)"
             },
             {
                 "id": "physicalExam",
-                "title": "PhysicalExam",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "radiology",
-                "title": "Radiology",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "carePlan",
-                "title": "CarePlan",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Physical Exam",
+                "content": "<b>General:</b> Anxious, sitting upright in bed, moderate respiratory distress with use of accessory muscles.<br><b>Respiratory:</b> Bilateral crackles auscultated in lower and mid-lung fields.<br><b>Cardiovascular:</b> S3 gallop, jugular vein distention (JVD) present at 45 degrees.<br><b>Extremities:</b> 2+ pitting edema in bilateral lower extremities."
             },
             {
                 "id": "mar",
-                "title": "Mar",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "MAR",
+                "content": "<b>Scheduled Medications:</b><br>Oxygen 2L/min via Nasal Cannula, Continuous<br><br><b>PRN Medications:</b><br>None<br><br><b>Administered Medications (Last 24 hours):</b><br>Furosemide 40 mg IV Push, Administered at 08:00"
             }
         ],
         "patient": {
@@ -131,47 +149,5 @@
             ]
         }
     },
-    "sentinelStatus": "healed_v2026_v23_bowtie_fix",
-    "correctResponse": {
-        "expectedFindings": [
-            "Heart Rate 110",
-            "Oxygen Saturation 90% on 2L NC",
-            "BNP 1200",
-            "2+ pitting edema in bilateral lower extremities",
-            "Bilateral crackles auscultated in lower lobes",
-            "JVD Present"
-        ],
-        "requiresImmediateIntervention": [
-            "Blood Pressure 170/100",
-            "Potassium 3.2",
-            "Sodium 130",
-            "Respiratory Rate 28"
-        ]
-    },
-    "responseOptions": [
-        "Blood Pressure 170/100",
-        "Heart Rate 110",
-        "Respiratory Rate 28",
-        "Oxygen Saturation 90% on 2L NC",
-        "BNP 1200",
-        "Potassium 3.2",
-        "Sodium 130",
-        "2+ pitting edema in bilateral lower extremities",
-        "Bilateral crackles auscultated in lower lobes",
-        "JVD Present"
-    ],
-    "correctActionIds": [
-        "a1",
-        "a2"
-    ],
-    "correctParameterIds": [
-        "p1",
-        "p2"
-    ],
-    "potentialConditions": [
-        "General",
-        "Pneumonia",
-        "Acute Myocardial Infarction",
-        "Pulmonary Embolism"
-    ]
+    "sentinelStatus": "healed_v2026_v24_bowtie_remediated"
 }

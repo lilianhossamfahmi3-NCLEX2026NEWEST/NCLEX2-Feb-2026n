@@ -1,64 +1,135 @@
 {
     "id": "New-v26-9c3a2b4d-6e7f-4a8b-9d1c-5e6a87901234",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a 68-year-old female patient, Ms. Eleanor Vance, admitted for Hyperosmolar Hyperglycemic State (HHS). Based on the patient's current condition and available data, identify the FIVE most important actions the nurse should take *IN ORDER*.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client with Hyperosmolar Hyperglycemic State (HHS). Based on the provided clinical data, drag and drop the five priority nursing actions into the correct sequence, from first to last.",
+    "options": [
+        {
+            "id": "opt1",
+            "text": "Initiate aggressive IV fluid resuscitation with 0.9% normal saline."
+        },
+        {
+            "id": "opt2",
+            "text": "Place the client on a continuous cardiac monitor."
+        },
+        {
+            "id": "opt3",
+            "text": "Administer potassium chloride 20 mEq IV over 1 hour."
+        },
+        {
+            "id": "opt4",
+            "text": "Begin the continuous low-dose regular insulin infusion."
+        },
+        {
+            "id": "opt5",
+            "text": "Perform hourly neurological assessments using the Glasgow Coma Scale."
+        }
+    ],
+    "correctOrder": [
+        "opt1",
+        "opt2",
+        "opt3",
+        "opt4",
+        "opt5"
+    ],
     "itemContext": {
         "patient": {
             "name": "Eleanor Vance",
-            "age": 68,
-            "gender": "Female",
-            "iso": "Medical Surgical Unit",
+            "age": "68",
+            "sex": "Female",
+            "pronouns": "she/her",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: Ms. Vance is a 68-year-old female admitted at 03:00 with altered mental status. Her daughter found her confused and dehydrated at home. B: She has a history of type 2 diabetes, hypertension, and hyperlipidemia. She takes oral hypoglycemics, but has not been compliant recently due to feeling unwell. A: On admission at 03:00, her blood glucose was 875 mg/dL, serum osmolality 340 mOsm/kg, and she was severely dehydrated. Vitals: BP 90/60 mmHg, HR 120 bpm, RR 28 and deep, Temp 97.8°F (36.6°C), SpO2 94% on room air. She is lethargic but arousable to painful stimuli. Urine output minimal in the ED. R: I have initiated IV fluids (0.9% NS) at 500 mL/hr per protocol. I am concerned about her dehydration and potential for cerebral edema. Labs are pending. The physician was notified at 03:15 and ordered an insulin drip to start at 04:00 at 2 units/hr.",
+        "sbar": "S (03:00): 68-year-old female, Eleanor Vance, admitted from home with altered mental status. Her adult child reports the client has been increasingly lethargic, thirsty, and confused for the past three days following a mild upper respiratory infection.\n\nB (03:00): Client has a history of type 2 diabetes, hypertension, and hyperlipidemia. Prescribed metformin and glipizide but has been non-adherent for the past week due to the viral illness and poor oral intake. The client lives alone in a subsidized senior housing unit and has limited mobility, which makes consistent access to groceries and pharmacy services challenging.\n\nA (03:15): Client is lethargic, responds only to painful stimuli. Mucous membranes are dry, and skin turgor is poor with tenting >4 seconds. Tachycardic and hypotensive. Initial fingerstick glucose was >600 mg/dL. Laboratory results confirm HHS with severe dehydration and critical hypokalemia. Urine ketones are negative.\n\nR (03:30): Initiated two large-bore peripheral IVs. Started 0.9% Normal Saline at 1 L/hr per protocol. Awaiting order for insulin drip pending potassium correction. Plan to transfer to step-down unit for continuous monitoring.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>Glucose</td><td>875 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>Na+</td><td>150 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>K+</td><td>3.0 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>BUN</td><td>45 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>2.5 mg/dL</td><td>0.6-1.2 mg/dL</td></tr><tr><td>Serum Osmolality</td><td>340 mOsm/kg</td><td>275-295 mOsm/kg</td></tr><tr><td>pH</td><td>7.36</td><td>7.35-7.45</td></tr><tr><td>HCO3-</td><td>22 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>Anion Gap</td><td>14</td><td>8-16</td></tr><tr><td>Urine Ketones</td><td>Negative</td><td>Negative</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Nurses' Notes",
+                "content": "Admission Note (03:00): See SBAR for details. Client admitted for altered mental status and severe hyperglycemia. Focus on aggressive fluid resuscitation and electrolyte correction.\n\nProgress Note (04:00): 1 Liter of 0.9% NS infused. BP improved to 98/66 mmHg. Client remains lethargic. Potassium replacement initiated via peripheral IV. Continuous cardiac monitoring shows sinus tachycardia with occasional PVCs. Insulin drip remains on hold pending potassium repletion. Neuro checks stable at GCS 10."
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>0.9% Normal Saline</td><td>500 mL/hr</td><td>IV</td><td>Continuous</td></tr><tr><td>Insulin Regular</td><td>2 units/hr</td><td>IV Drip</td><td>Continuous (Ordered, not yet started)</td></tr><tr><td>Potassium Chloride</td><td>40 mEq</td><td>PO</td><td>Once Daily (Scheduled 09:00)</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO₂</th><th>Telemetry</th></tr></thead><tbody><tr><td>03:00</td><td>90/60 mmHg (70)</td><td>120</td><td>28</td><td>97.8°F (36.6°C)</td><td>94% on RA</td><td>Sinus Tachycardia</td></tr><tr><td>03:30</td><td>92/62 mmHg (72)</td><td>118</td><td>26</td><td>97.9°F (36.6°C)</td><td>95% on RA</td><td>Sinus Tachycardia</td></tr><tr><td>04:00</td><td>98/66 mmHg (77)</td><td>112</td><td>24</td><td>98.0°F (36.7°C)</td><td>96% on RA</td><td>Sinus Tachycardia with PVCs</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO2</th></tr></thead><tbody><tr><td>03:00</td><td>90/60 mmHg</td><td>120 bpm</td><td>28</td><td>97.8°F (36.6°C)</td><td>94%</td></tr><tr><td>03:30</td><td>92/62 mmHg</td><td>118 bpm</td><td>26</td><td>97.9°F (36.6°C)</td><td>95%</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Glucose</td><td>875</td><td>mg/dL</td><td>70-110</td><td>High</td></tr><tr><td>Sodium (Na+)</td><td>150</td><td>mEq/L</td><td>135-145</td><td>High</td></tr><tr><td>Potassium (K+)</td><td>3.0</td><td>mEq/L</td><td>3.5-5.0</td><td>Low (Critical)</td></tr><tr><td>BUN</td><td>45</td><td>mg/dL</td><td>10-20</td><td>High</td></tr><tr><td>Creatinine</td><td>2.5</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr><tr><td>Serum Osmolality</td><td>340</td><td>mOsm/kg</td><td>275-295</td><td>High</td></tr><tr><td>pH (Venous)</td><td>7.36</td><td></td><td>7.31-7.41</td><td>Normal</td></tr><tr><td>HCO3-</td><td>22</td><td>mEq/L</td><td>22-26</td><td>Normal</td></tr><tr><td>Anion Gap</td><td>14</td><td>mEq/L</td><td>8-16</td><td>Normal</td></tr><tr><td>Urine Ketones</td><td>Negative</td><td></td><td>Negative</td><td>Normal</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<strong>Time:</strong> 03:15<br><strong>General:</strong> Lethargic, appears older than stated age.<br><strong>Neurological:</strong> Arouses to sternal rub, not oriented to person, place, or time. GCS 10 (E3, V2, M5).<br><strong>Cardiovascular:</strong> Tachycardia, S1/S2 regular. Pulses +1 peripherally. Capillary refill > 4 seconds.<br><strong>Respiratory:</strong> Respirations deep and rapid. Lungs clear to auscultation bilaterally.<br><strong>GI/GU:</strong> Abdomen soft, non-tender. No urine output since arrival.<br><strong>Integumentary:</strong> Skin warm, dry. Tenting present over sternum. Mucous membranes parched."
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": "<strong>Exam:</strong> Chest X-ray (Portable, AP view)<br><strong>Time:</strong> 03:45<br><strong>Indication:</strong> Altered mental status, rule out infectious etiology.<br><strong>Findings:</strong> Lungs are clear. No evidence of consolidation, effusion, or pneumothorax. Cardiomediastinal silhouette is within normal limits. Bony structures are unremarkable.<br><strong>Impression:</strong> No acute cardiopulmonary process."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan (Orders)",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>03:20</td><td>Admit to medical step-down unit.</td><td>Stat</td></tr><tr><td>03:20</td><td>Diagnosis: Hyperosmolar Hyperglycemic State, Acute Kidney Injury.</td><td>Active</td></tr><tr><td>03:20</td><td>Continuous cardiac and pulse oximetry monitoring.</td><td>Continuous</td></tr><tr><td>03:20</td><td>Neurological checks every 1 hour.</td><td>q1h</td></tr><tr><td>03:20</td><td>0.9% Normal Saline, infuse 1 Liter over 1 hour, then decrease to 500 mL/hr.</td><td>Stat</td></tr><tr><td>03:20</td><td>Potassium Chloride 20 mEq in 100 mL NS IV.</td><td>Stat, infuse over 1 hour</td></tr><tr><td>03:20</td><td>Regular Insulin IV infusion: Hold until serum K+ is > 3.3 mEq/L.</td><td>On Hold</td></tr><tr><td>03:20</td><td>NPO.</td><td>Active</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>0.9% Normal Saline</td><td>1000 mL</td><td>IV</td><td>STAT, then 500 mL/hr</td><td>03:30</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>IV</td><td>STAT</td><td>Not yet given</td></tr><tr><td>Regular Insulin</td><td>0.1 units/kg/hr</td><td>IV Infusion</td><td>Continuous</td><td>Not yet given (On Hold)</td></tr><tr><td>Metformin</td><td>1000 mg</td><td>PO</td><td>BID</td><td>On Hold</td></tr><tr><td>Glipizide</td><td>10 mg</td><td>PO</td><td>Daily</td><td>On Hold</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 5,
-        "topicTags": [
-            "Endocrine: DKA/HHS & Thyroid Storm"
+    "rationale": {
+        "correct": "The correct sequence for managing HHS prioritizes the most immediate life threats. The first priority is correcting profound hypovolemia with aggressive IV fluids to prevent circulatory collapse. The second is initiating cardiac monitoring due to critical hypokalemia, which will be exacerbated by treatment. Third, potassium must be replaced *before* starting insulin to prevent life-threatening dysrhythmias. Fourth, once volume and potassium are addressed, a slow insulin infusion is started to gradually lower blood glucose. Finally, continuous neurological monitoring is essential to detect cerebral edema, a potential complication of rapid fluid and osmolarity shifts.",
+        "incorrect": "Any sequence that does not prioritize fluid resuscitation fails to address the primary cause of mortality in HHS: hypovolemic shock. Administering insulin before correcting the serum potassium of 3.0 mEq/L is a critical error. Insulin drives potassium into the cells, which would cause life-threatening hypokalemia, leading to cardiac dysrhythmias and arrest. Delaying cardiac or neurological monitoring misses opportunities to detect and intervene on predictable, life-threatening complications of the disease and its treatment.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1",
+                "content": "Priority #1 is restoring circulating volume. Severe hyperglycemia causes osmotic diuresis, leading to profound dehydration and hypovolemic shock. Aggressive fluid replacement with isotonic saline is critical to stabilize blood pressure, improve tissue perfusion, and begin lowering serum glucose."
+            },
+            {
+                "optionId": "opt2",
+                "content": "Priority #2 is cardiac monitoring. The client's potassium is low (3.0 mEq/L), and both fluid shifts and subsequent insulin therapy will further decrease serum potassium levels. Continuous ECG monitoring is essential to detect dysrhythmias caused by hypokalemia, such as flattened T-waves or U-waves."
+            },
+            {
+                "optionId": "opt3",
+                "content": "Priority #3 is correcting hypokalemia. Insulin therapy must not be initiated until the serum potassium is at least 3.3 mEq/L. Administering insulin to a hypokalemic client will shift potassium intracellularly, worsening the deficit and potentially triggering fatal cardiac arrhythmias. Therefore, potassium replacement is required before insulin."
+            },
+            {
+                "optionId": "opt4",
+                "content": "Priority #4 is starting the insulin infusion. Once intravascular volume is being restored and potassium is corrected, a continuous low-dose insulin infusion is initiated to gradually decrease serum glucose and reverse the hyperosmolar state. This allows cells to utilize glucose and stops hepatic glucose production."
+            },
+            {
+                "optionId": "opt5",
+                "content": "Priority #5 is ongoing neurological assessment. Rapid shifts in fluid and osmolality during treatment can cause cerebral edema, a life-threatening complication. Hourly neurological checks are vital to detect early signs like headache, worsening confusion, or changes in level of consciousness."
+            }
+        ],
+        "clinicalPearls": [
+            "In HHS, the 'three R's' are key: Rehydrate (aggressively), Restore electrolytes (carefully), and Reduce glucose (slowly).",
+            "The calculated sodium level in HHS is often falsely elevated due to hemoconcentration. It will typically decrease as the client is rehydrated. A corrected sodium should be calculated.",
+            "Unlike DKA, HHS is characterized by profound hyperglycemia (>600 mg/dL) and hyperosmolality (>320 mOsm/kg) *without* significant ketoacidosis because the presence of some insulin prevents massive lipolysis."
+        ],
+        "questionTrap": "The primary trap is prioritizing glucose reduction (giving insulin) over fluid and electrolyte resuscitation. While the glucose level is alarming, the most immediate life threat in HHS is circulatory collapse from dehydration. Always follow the resuscitation sequence: Fluids first, then electrolytes, then insulin.",
+        "mnemonic": {
+            "title": "HHS RESCUE",
+            "expansion": "Hydration (aggressive IV fluids), Heart monitoring (ECG), Sodium & Potassium check, Replace potassium (before insulin!), Endocrine (start insulin drip slowly), Search for cause (infection?), Consciousness checks (neuro status), Urine output monitoring, Evaluate for complications (cerebral edema, thrombosis)."
+        },
+        "reviewUnits": [
+            "Endocrine Emergencies: HHS vs. DKA",
+            "Fluid and Electrolyte Imbalances: Hypokalemia",
+            "Pharmacology: IV Insulin and Potassium Administration"
         ]
     },
-    "rationale": {
-        "correct": "The correct sequence prioritizes addressing the most immediate threats to the patient's well-being in HHS. 1. Initiate continuous cardiac monitoring due to the risk of dysrhythmias from electrolyte imbalances, particularly hypokalemia. 2. Administer potassium chloride (KCl) as prescribed, given the patient's low potassium level (3.0 mEq/L). Hypokalemia is common in HHS and can be life-threatening. 3. Start the insulin infusion at the prescribed rate (2 units/hr). Insulin is crucial to reduce the elevated blood glucose levels and correct the hyperosmolar state. 4. Continue IV fluid resuscitation with 0.9% normal saline at the prescribed rate (500 mL/hr). Rehydration is vital to correct the fluid deficit and improve perfusion. 5. Monitor the patient's neurological status frequently. HHS can lead to cerebral edema, especially during rapid correction of hyperglycemia and hyperosmolality.",
-        "incorrect": "Incorrect sequences fail to address the immediate threats to the patient. Delaying potassium replacement can lead to cardiac arrest. Delaying insulin administration prolongs the hyperosmolar state. Altering the IV fluid rate without assessing response can worsen dehydration or lead to fluid overload. Waiting to monitor neuro status after other interventions delays detection of cerebral edema.",
-        "clinicalPearls": [
-            "In HHS, fluid resuscitation is paramount, but be vigilant for signs of fluid overload, especially in elderly patients.",
-            "Potassium replacement is often needed during insulin therapy as insulin drives potassium into cells, potentially worsening hypokalemia.",
-            "Rapid correction of hyperglycemia can lead to cerebral edema; therefore, blood glucose should be reduced gradually."
-        ],
-        "questionTrap": {
-            "trap": "Students may prioritize insulin administration before potassium replacement, not recognizing the dangers of hypokalemia during insulin therapy.",
-            "howToOvercome": "Emphasize the importance of assessing and correcting electrolyte imbalances *before* initiating insulin therapy in HHS. Remember the ABCs and that potassium imbalances can directly impact cardiac function."
-        },
-        "mnemonic": {
-            "title": "HI K!",
-            "expansion": "Hydrate (IV Fluids), Insulin (IV Infusion), Potassium (Replace!)"
-        }
-    }
+    "scoring": {
+        "method": "orderedResponse",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "apply",
+        "cjmmStep": "takeAction",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:15:54.321Z"
 }

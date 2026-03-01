@@ -1,69 +1,252 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-7890-1234-567890abcdef",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the patient's current status and available data, determine the three most important actions the nurse should take *immediately*. Drag and drop those three actions into the “Priority Actions” column in order of importance. All options must be used. Actions can only be used once.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "multipleChoice",
+    "stem": "A client on mechanical ventilation has worsening respiratory acidosis and hypoxemia. Based on the clinical data in the electronic health record, which action is the nurse's highest priority?",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Suction the endotracheal tube."
+        },
+        {
+            "id": "opt_02",
+            "text": "Increase the FiO2 setting on the ventilator."
+        },
+        {
+            "id": "opt_03",
+            "text": "Notify the respiratory therapist to adjust ventilator settings."
+        },
+        {
+            "id": "opt_04",
+            "text": "Increase the propofol infusion rate to manage agitation."
+        }
+    ],
+    "correctOptionId": "opt_01",
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Contact & Droplet",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "SBAR: At 0700, report on John Smith, a 68-year-old male admitted yesterday with pneumonia. He is intubated and mechanically ventilated, settings: FiO2 60%, Tidal Volume 450mL, PEEP 5 cm H2O, Respiratory Rate 16. ABG at 0630: pH 7.28, PaCO2 55 mmHg, PaO2 88 mmHg, HCO3 24 mEq/L, SaO2 92%. Vitals at 0645: HR 110, BP 100/60, RR 16 (vent), SpO2 91%, Temp 38.2°C. Coarse crackles bilaterally. Patient is restless, intermittently agitated, with end-tidal CO2 trending upward. Last suctioned at 0500, yielding moderate thick, tan secretions. Urine output 30 mL/hr. Continuous propofol infusion per protocol. Awaiting physician orders for ventilator management. Respiratory status requires close monitoring and immediate intervention for evolving respiratory acidosis and hypoxemia.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "SBAR: At 0700, report on John Smith, a 68-year-old male admitted yesterday with pneumonia. He is intubated and mechanically ventilated, settings: FiO2 60%, Tidal Volume 450mL, PEEP 5 cm H2O, Respiratory Rate 16. ABG at 0630: pH 7.28, PaCO2 55 mmHg, PaO2 88 mmHg, HCO3 24 mEq/L, SaO2 92%. Vitals at 0645: HR 110, BP 100/60, RR 16 (vent), SpO2 91%, Temp 38.2°C. Coarse crackles bilaterally. Patient is restless, intermittently agitated, with end-tidal CO2 trending upward. Last suctioned at 0500, yielding moderate thick, tan secretions. Urine output 30 mL/hr. Continuous propofol infusion per protocol. Awaiting physician orders for ventilator management. Respiratory status requires close monitoring and immediate intervention for evolving respiratory acidosis and hypoxemia."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": {
+                    "admissionNote": {
+                        "timestamp": "Yesterday 09:00",
+                        "text": "S: 68-year-old male presents to the ED with a 3-day history of productive cough, fever, and increasing shortness of breath. B: History of COPD. Lives alone in a rural area with limited access to follow-up care. Allergic to penicillin. A: Alert and oriented x3, in moderate respiratory distress. SpO2 88% on room air. Bilateral crackles on auscultation. Chest X-ray confirms right lower lobe pneumonia. R: Admit to medical-surgical unit for IV antibiotics and respiratory support."
+                    },
+                    "progressNote": {
+                        "timestamp": "Today 07:00",
+                        "text": "S: Nurse at bedside for a 68-year-old male, intubated for pneumonia, now showing signs of acute respiratory distress. The client is agitated, and the ventilator high-pressure alarm is sounding intermittently. B: Intubated 12 hours ago for worsening respiratory failure. Currently on AC ventilation. A: Vitals are trending towards instability with tachycardia and borderline hypotension. ABG from 06:30 shows uncompensated respiratory acidosis (pH 7.28, PaCO2 55). Lung auscultation reveals coarse crackles bilaterally. Endotracheal tube was last suctioned at 05:00 for a large amount of thick, tan secretions. ETCO2 is trending up from 48 to 55 mmHg over the last hour. R: Immediate intervention is required to improve airway clearance and gas exchange. Recommend immediate suctioning, followed by reassessment and collaboration with the respiratory therapist and provider for potential ventilator adjustments."
+                    }
+                }
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "ABG (0630): pH 7.28, PaCO2 55 mmHg, PaO2 88 mmHg, HCO3 24 mEq/L, SaO2 92%\nCBC (0600): WBC 15,000/mm3"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "05:00",
+                        "HR": "98",
+                        "BP": "110/70",
+                        "MAP": "83",
+                        "RR": "16 (Vent)",
+                        "SpO2": "94% on 60% FiO2",
+                        "Temp": "100.8°F (38.2°C)"
+                    },
+                    {
+                        "Time": "06:00",
+                        "HR": "105",
+                        "BP": "105/65",
+                        "MAP": "78",
+                        "RR": "16 (Vent)",
+                        "SpO2": "92% on 60% FiO2",
+                        "Temp": "100.9°F (38.3°C)"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR": "112",
+                        "BP": "100/60",
+                        "MAP": "73",
+                        "RR": "16 (Vent)",
+                        "SpO2": "91% on 60% FiO2",
+                        "Temp": "101.1°F (38.4°C)"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "0645: HR 110, BP 100/60, RR 16 (vent), SpO2 91%, Temp 38.2 C"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Category": "Arterial Blood Gas (06:30)",
+                        "Result": "7.28",
+                        "Unit": "",
+                        "Reference": "7.35-7.45",
+                        "Status": "Low",
+                        "Test": "pH"
+                    },
+                    {
+                        "Category": "Arterial Blood Gas (06:30)",
+                        "Result": "55",
+                        "Unit": "mmHg",
+                        "Reference": "35-45",
+                        "Status": "High",
+                        "Test": "PaCO2"
+                    },
+                    {
+                        "Category": "Arterial Blood Gas (06:30)",
+                        "Result": "88",
+                        "Unit": "mmHg",
+                        "Reference": "80-100",
+                        "Status": "Normal",
+                        "Test": "PaO2"
+                    },
+                    {
+                        "Category": "Arterial Blood Gas (06:30)",
+                        "Result": "24",
+                        "Unit": "mEq/L",
+                        "Reference": "22-26",
+                        "Status": "Normal",
+                        "Test": "HCO3"
+                    },
+                    {
+                        "Category": "Complete Blood Count (06:00)",
+                        "Result": "15.5",
+                        "Unit": "x10³/μL",
+                        "Reference": "4.5-11.0",
+                        "Status": "High",
+                        "Test": "WBC"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Propofol 20 mcg/kg/min, continuous IV infusion\nCeftriaxone 1g IV q24h (scheduled - next dose 1000)"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": {
+                    "timestamp": "07:00",
+                    "findings": {
+                        "General": "Agitated, restless, appears uncomfortable. Non-verbally grimacing.",
+                        "Respiratory": "Endotracheal tube in place, secured at 23 cm at the lip. Coarse crackles auscultated bilaterally. Symmetrical chest rise with ventilated breaths. No spontaneous respirations noted.",
+                        "Cardiovascular": "Tachycardic sinus rhythm on monitor. S1/S2 audible. Pulses +2 peripherally. Capillary refill <3 seconds."
+                    }
+                }
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": {
+                    "reportType": "Chest X-ray (Portable)",
+                    "timestamp": "Yesterday 22:00",
+                    "findings": "Endotracheal tube tip is appropriately positioned, 4 cm superior to the carina. Diffuse bilateral airspace opacities are present, more pronounced in the right lower lobe, consistent with multifocal pneumonia. No evidence of pneumothorax or significant pleural effusion.",
+                    "impression": "Worsening bilateral pneumonia."
+                }
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "orderDate": "Yesterday 21:00",
+                        "action": "Mechanical Ventilation: Assist-Control, RR 16, TV 450 mL, FiO2 60%, PEEP 5 cm H2O.",
+                        "status": "Active"
+                    },
+                    {
+                        "orderDate": "Yesterday 21:00",
+                        "action": "Suction ETT q4h and PRN for secretions or high-pressure alarms.",
+                        "status": "Active"
+                    },
+                    {
+                        "orderDate": "Yesterday 21:00",
+                        "action": "Continuous pulse oximetry and end-tidal CO2 monitoring.",
+                        "status": "Active"
+                    },
+                    {
+                        "orderDate": "Yesterday 21:00",
+                        "action": "Titrate propofol infusion to maintain Richmond Agitation-Sedation Scale (RASS) -2 to -3.",
+                        "status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Propofol",
+                        "dose": "20 mcg/kg/min",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "lastAdministered": "N/A (Ongoing)"
+                    },
+                    {
+                        "medication": "Ceftriaxone",
+                        "dose": "1 g",
+                        "route": "IV",
+                        "frequency": "q24h",
+                        "lastAdministered": "Yesterday @ 10:00"
+                    },
+                    {
+                        "medication": "Albuterol",
+                        "dose": "2.5 mg",
+                        "route": "Nebulizer",
+                        "frequency": "q4h PRN",
+                        "lastAdministered": "Today @ 04:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
+    "rationale": {
+        "correct": "The highest priority action is to suction the endotracheal tube. The client's clinical presentation—coarse crackles, history of thick secretions, rising ETCO2, and high-pressure alarms—strongly indicates an airway obstruction. This obstruction impairs both oxygenation and ventilation, causing the observed hypoxemia and respiratory acidosis. Suctioning directly addresses this life-threatening problem by clearing the airway, which is the 'A' and 'B' of the ABCs (Airway, Breathing, Circulation).",
+        "incorrect": "The other options are either less immediate or potentially harmful. Increasing FiO2 only addresses oxygenation without fixing the ventilation problem (CO2 removal). Notifying the respiratory therapist delays a critical, independent nursing action. Increasing sedation is dangerous as it masks the signs of respiratory distress and ignores the root cause, which is likely 'air hunger' from hypoxia and hypercapnia.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The combination of coarse crackles, high PaCO2, and a history of thick secretions points to an airway obstruction. Clearing the airway via suctioning is the most direct and immediate intervention to improve gas exchange and resolve the underlying cause of the client's distress."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Incorrect. While the client is hypoxemic, the primary problem is poor ventilation (indicated by the high PaCO2). Increasing the FiO2 is a temporary fix for oxygenation but does not address the critical issue of CO2 retention caused by the airway obstruction."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Incorrect. While the respiratory therapist is a key partner in ventilator management, suctioning an obstructed airway is an immediate and independent nursing intervention. Delaying this action to wait for another team member could lead to further clinical deterioration."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Incorrect. The client's agitation is a symptom of respiratory distress (hypoxemia and hypercapnia). Increasing sedation would mask these critical signs, fail to address the root cause, and could worsen the respiratory acidosis by suppressing any residual respiratory drive."
+            }
+        ],
+        "clinicalPearls": [
+            "Agitation in a ventilated client should always be investigated as a sign of a physiological problem (e.g., hypoxia, hypercapnia, pain, airway obstruction) before sedation is increased.",
+            "The DOPE mnemonic is an essential tool for rapidly troubleshooting acute deterioration in a mechanically ventilated client.",
+            "In cases of respiratory acidosis on a ventilator, the primary goal is to improve ventilation (the removal of CO2), not just oxygenation (the delivery of O2)."
+        ],
+        "questionTrap": "The primary trap is focusing on a symptom (agitation) rather than the underlying pathophysiology (airway obstruction). A common error is to immediately sedate an agitated client, which in this case would be harmful. Always assess for and treat the physiological cause of distress first.",
+        "mnemonic": {
+            "title": "DOPE Mnemonic for Ventilator Alarms",
+            "expansion": "D - Displacement (ET tube has moved), O - Obstruction (secretions, kinked tube), P - Pneumothorax (collapsed lung), E - Equipment (ventilator malfunction)."
+        },
+        "reviewUnits": [
+            "Respiratory: Mechanical Ventilation",
+            "Acid-Base Balance: Respiratory Acidosis",
+            "Pharmacology: Sedatives"
         ]
     },
-    "rationale": {
-        "correct": "1. Increase the FiO2: The patient's PaO2 is slightly below the target range, and the SpO2 is suboptimal, indicating a need for increased oxygen delivery to improve oxygenation. This directly addresses hypoxemia.\n2. Suction the patient's airway: Coarse crackles and a history of thick secretions indicate retained secretions, impairing gas exchange and contributing to hypoxemia and elevated PaCO2. Suctioning clears the airway, improving ventilation.\n3. Notify the physician of the ABG results: The patient is experiencing respiratory acidosis (low pH, high PaCO2). While immediate actions are needed, the physician needs to be informed to evaluate the patient and implement further changes, such as adjusting ventilator settings or addressing underlying causes.",
-        "incorrect": "Administer ceftriaxone: While the patient has pneumonia and ceftriaxone is ordered, addressing the acute respiratory distress and hypoxemia is the immediate priority. Antibiotic administration is important but not the most urgent action in this moment.\nIncrease the propofol infusion rate: While agitation is present, increasing sedation without addressing the underlying respiratory issues can worsen the patient's condition by further suppressing respiratory drive and potentially leading to increased PaCO2, exacerbating the acidosis.\nReposition the patient: While repositioning can help with lung expansion and secretion mobilization, it is less critical than ensuring adequate oxygenation and clearing the airway. It should be considered after the more critical interventions are addressed.",
-        "clinicalPearls": [
-            "Always prioritize airway, breathing, and circulation (ABC). In this case, breathing is compromised, requiring immediate intervention.",
-            "Assess the patient, not just the monitor. Listen to lung sounds and evaluate secretion characteristics to guide interventions.",
-            "ABG interpretation is crucial in managing mechanically ventilated patients. Understand the relationship between pH, PaCO2, and HCO3 to guide ventilator adjustments."
-        ],
-        "questionTrap": {
-            "trap": "The agitation might lead the nurse to focus on increasing sedation, but addressing the underlying respiratory distress is crucial for the patient's well-being.",
-            "howToOvercome": "Carefully analyze the ABG results and consider the potential causes of the agitation, such as hypoxemia or hypercapnia. Address the physiological needs before increasing sedation to avoid worsening the respiratory status."
-        },
-        "mnemonic": {
-            "title": "DOPE (Ventilator Troubleshooting)",
-            "expansion": "Displacement (of the ET tube), Obstruction (secretions), Pneumothorax, Equipment malfunction"
-        }
-    }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:29:03.722Z"
 }

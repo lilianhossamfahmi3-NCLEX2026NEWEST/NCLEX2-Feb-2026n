@@ -1,72 +1,140 @@
 {
     "id": "New-v26-8a9b7c2d-4e3f-4a5b-8c1d-2e3f4a5b8c1d",
-    "type": "trend",
-    "stem": "The patient is at risk for autonomic dysreflexia. Review the patient's record and monitor the trends. Identify the findings that indicate autonomic dysreflexia and the appropriate nursing interventions in the correct order.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse confirms the client is experiencing autonomic dysreflexia. Based on the clinical data, drag and drop the nursing interventions into the correct order of priority, from first to last.",
+    "options": [
+        {
+            "id": "opt1",
+            "text": "Elevate the head of the bed to 90 degrees."
+        },
+        {
+            "id": "opt2",
+            "text": "Loosen any tight or restrictive clothing."
+        },
+        {
+            "id": "opt3",
+            "text": "Assess for bladder distention and check for bowel impaction."
+        },
+        {
+            "id": "opt4",
+            "text": "Administer nifedipine 10 mg as prescribed for severe hypertension."
+        },
+        {
+            "id": "opt5",
+            "text": "Notify the primary healthcare provider of the event."
+        }
+    ],
+    "correctOrder": [
+        "opt1",
+        "opt2",
+        "opt3",
+        "opt4",
+        "opt5"
+    ],
     "itemContext": {
         "patient": {
             "name": "Jameson Hayes",
-            "age": 35,
-            "gender": "Male",
-            "iso": "SCI C6",
+            "age": "35",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ],
+            "iso": "SCI C6",
             "airborne": false,
             "isolation": "standard"
         },
-        "sbar": "S: Mr. Hayes, 35-year-old male with C6 spinal cord injury, reports severe headache and anxiety. Diaphoretic above injury level. B: SCI from MVA 3 years ago. History of autonomic dysreflexia, last episode 6 months prior. A: 07:00 BP 110/70 mmHg, HR 72 bpm. 07:15 BP 135/85 mmHg, HR 65 bpm. 07:30 BP 160/100 mmHg, HR 55 bpm, flushed, blurred vision. Bladder scan: 600 mL urine. Reports constipation x 3 days. R: Suspect autonomic dysreflexia. Recommend immediate interventions: check bladder distention/bowel impaction, elevate head of bed, notify physician for possible medication orders. Monitor BP q5min.",
         "tabs": [
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>07:00</td><td>110/70</td><td>72</td><td>98%</td><td>37.0°C</td></tr><tr><td>07:15</td><td>135/85</td><td>65</td><td>98%</td><td>37.0°C</td></tr><tr><td>07:30</td><td>160/100</td><td>55</td><td>97%</td><td>37.0°C</td></tr><tr><td>07:45</td><td>180/110</td><td>50</td><td>97%</td><td>37.0°C</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "07:45",
+                        "note": "S: Reporting on Jameson Hayes in room 302. At 07:45, he reported a sudden, severe pounding headache and is visibly anxious. He is diaphoretic and flushed above his C6 injury level.\nB: Mr. Hayes is a 35-year-old male with a C6 spinal cord injury from an MVA three years ago. He has a known history of autonomic dysreflexia, with his last episode occurring six months ago, triggered by a kinked urinary catheter. He lives alone in a second-floor apartment, which presents mobility challenges. He has an allergy to Penicillin. His last bowel movement was three days ago.\nA: His blood pressure has trended upwards sharply from a baseline of 110/70 mmHg at 07:00 to 180/110 mmHg at 07:45. His heart rate has dropped from 72 to 50 bpm. He complains of blurred vision. A bladder scan shows 600 mL of urine.\nR: I have initiated autonomic dysreflexia protocol. I suspect the trigger is either bladder distention or bowel impaction. I will continue to monitor BP every 2-5 minutes and prepare to administer PRN nifedipine if systolic remains >150 mmHg after initial interventions. Requesting provider to the bedside for evaluation."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>WBC</td><td>8.0</td><td>4.5-11.0</td></tr><tr><td>RBC</td><td>4.8</td><td>4.5-5.5</td></tr><tr><td>BUN</td><td>15</td><td>10-20</td></tr><tr><td>Creatinine</td><td>1.0</td><td>0.6-1.2</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>07:00</td><td>110/70 mmHg (83)</td><td>72</td><td>98% on RA</td><td>98.6°F (37.0°C)</td></tr><tr><td>07:15</td><td>135/85 mmHg (102)</td><td>65</td><td>98% on RA</td><td>98.6°F (37.0°C)</td></tr><tr><td>07:30</td><td>160/100 mmHg (120)</td><td>55</td><td>97% on RA</td><td>98.6°F (37.0°C)</td></tr><tr><td>07:45</td><td>180/110 mmHg (133)</td><td>50</td><td>97% on RA</td><td>98.7°F (37.1°C)</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>Daily</td><td>06:00</td></tr><tr><td>Oxycodone</td><td>5 mg</td><td>PO</td><td>q4h PRN Pain</td><td>-</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>WBC</td><td>8.0 x10³/μL</td><td>4.5-11.0 x10³/μL</td><td></td></tr><tr><td>Hgb</td><td>14.5 g/dL</td><td>13.5-17.5 g/dL</td><td></td></tr><tr><td>Platelets</td><td>250 x10³/μL</td><td>150-450 x10³/μL</td><td></td></tr><tr><td>Sodium</td><td>138 mEq/L</td><td>135-145 mEq/L</td><td></td></tr><tr><td>Potassium</td><td>4.1 mEq/L</td><td>3.5-5.0 mEq/L</td><td></td></tr><tr><td>BUN</td><td>15 mg/dL</td><td>10-20 mg/dL</td><td></td></tr><tr><td>Creatinine</td><td>1.0 mg/dL</td><td>0.6-1.2 mg/dL</td><td></td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<strong>Neurological:</strong> Alert and oriented x4. Complains of severe, pounding headache and blurred vision. Anxious affect. No sensation below C6 level.\n<strong>Cardiovascular:</strong> Bradycardia noted on telemetry. Skin is flushed and diaphoretic above the level of injury (chest, neck, face). Skin is cool and pale below the level of injury.\n<strong>Genitourinary:</strong> Indwelling urinary catheter in place, patent, draining clear yellow urine. Bladder scan reveals 600 mL retained urine.\n<strong>Gastrointestinal:</strong> Abdomen soft, non-tender, with hypoactive bowel sounds. Last bowel movement 3 days ago."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "No recent imaging reports available."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Admission</td><td>Turn and reposition</td><td>Every 2 hours</td></tr><tr><td>Admission</td><td>Bowel program protocol</td><td>Daily</td></tr><tr><td>Admission</td><td>Maintain indwelling urinary catheter patency</td><td>Ongoing</td></tr><tr><td>Admission</td><td>Nifedipine 10 mg SL for SBP > 150 mmHg during autonomic dysreflexia episode</td><td>PRN</td></tr><tr><td>Admission</td><td>Notify provider for any signs of autonomic dysreflexia</td><td>STAT</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Docusate Sodium</td><td>100 mg</td><td>PO</td><td>Daily</td><td>06:00 Today</td></tr><tr><td>Nifedipine</td><td>10 mg</td><td>SL</td><td>PRN, SBP > 150 mmHg</td><td>N/A</td></tr><tr><td>Oxycodone</td><td>5 mg</td><td>PO</td><td>q4h PRN Pain</td><td>22:00 Yesterday</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Neurological: Spinal Cord Injury & Autonomic Dysreflexia"
+    "rationale": {
+        "correct": "The correct sequence of interventions for autonomic dysreflexia (AD) prioritizes immediate reduction of blood pressure and removal of the noxious stimulus. First, elevate the head of the bed to induce orthostatic hypotension. Second, remove simple stimuli like tight clothing. Third, systematically assess for and resolve the most common causes: bladder distention and bowel impaction. Fourth, if hypertension persists, administer prescribed rapid-acting antihypertensives. Finally, notify the provider once initial life-saving measures are implemented.",
+        "incorrect": "Incorrectly sequencing these actions can be life-threatening. Administering medication before attempting to remove the stimulus fails to address the root cause. Notifying the provider before taking any action wastes critical time when the nurse can and must intervene independently to lower blood pressure. Failing to check for bladder or bowel issues allows the noxious stimulus to continue, perpetuating the hypertensive crisis and potentially leading to stroke, seizure, or death.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt1",
+                "content": "This is the first priority. Immediately sitting the client upright to 90 degrees utilizes orthostatic hypotension to help lower cerebral blood pressure, reducing the immediate risk of stroke or seizure."
+            },
+            {
+                "optionId": "opt2",
+                "content": "This is the second priority, performed concurrently with elevating the HOB. It removes a potential simple noxious stimulus and prevents any further constriction that could contribute to hypertension."
+            },
+            {
+                "optionId": "opt3",
+                "content": "This is the third priority. The most common causes of AD are bladder distention and bowel impaction. Identifying and removing the underlying noxious stimulus is the definitive treatment to resolve the hypertensive crisis."
+            },
+            {
+                "optionId": "opt4",
+                "content": "This is the fourth priority. If initial non-pharmacological interventions do not resolve the severe hypertension, a rapid-acting antihypertensive is required to prevent end-organ damage. This is done after attempting to find the cause."
+            },
+            {
+                "optionId": "opt5",
+                "content": "This is the final step in this initial sequence. While AD is a medical emergency, the nurse must initiate immediate, life-saving interventions first. The provider is notified once initial actions are underway to report the event and receive further orders."
+            }
+        ],
+        "clinicalPearls": [
+            "Autonomic dysreflexia is a medical emergency typically occurring in clients with spinal cord injuries at or above the T6 level.",
+            "The classic triad of symptoms is severe hypertension, pounding headache, and bradycardia. Also look for flushing/diaphoresis above the injury and pallor/coolness below.",
+            "Always assess for and remove the noxious stimulus before administering antihypertensive medications, as removing the cause may resolve the hypertension on its own."
+        ],
+        "questionTrap": "A common trap is to prioritize administering medication or calling the provider immediately. Nursing protocols for autonomic dysreflexia empower the nurse to take immediate, independent actions to lower blood pressure and remove the stimulus, which are the highest priorities.",
+        "mnemonic": "SIT UP: S - Sit the patient UP (elevate HOB). I - Identify and remove the trigger (impaction, bladder, tight clothes). T - Treat the blood pressure (antihypertensives if needed). U - Usually caused by bladder or bowel. P - Prevent by managing bowel and bladder regularly.",
+        "reviewUnits": [
+            "Spinal Cord Injury",
+            "Autonomic Dysreflexia",
+            "Neurological Emergencies",
+            "Prioritization of Care"
         ]
     },
-    "rationale": {
-        "correct": "Autonomic dysreflexia, a medical emergency, presents with sudden, severe hypertension due to a noxious stimulus below the spinal cord injury level. The body's compensatory mechanisms are impaired, leading to uncontrolled sympathetic nervous system activity. Key interventions include elevating the head of the bed to promote orthostatic hypotension and reduce blood pressure, identifying and removing the triggering stimulus (e.g., bladder distention, bowel impaction), closely monitoring blood pressure, and administering antihypertensive medications as prescribed. Untreated autonomic dysreflexia can lead to stroke, seizure, or even death. The nurse's rapid and systematic approach is crucial for managing the patient's condition and preventing complications. \n\nclinicalPearl: Always consider autonomic dysreflexia in SCI patients above T6 presenting with hypertension, headache, and diaphoresis. \nquestionTrap: Do not focus solely on pain or anxiety; recognize the life-threatening autonomic dysreflexia symptoms. \nmnemonic: SIT UP (Sit UP patient, Identify/remove trigger, Treat BP, Usually bladder/bowel, Prevent with regular management).",
-        "incorrect": "Ignoring the symptoms or focusing on non-critical interventions delays treatment and worsens the patient's condition. Administering pain medication alone does not address the underlying cause. Waiting for further orders without immediate interventions is inappropriate. Failure to address bladder distention or bowel impaction perpetuates the problem. Laying the patient flat exacerbates hypertension.",
-        "clinicalPearls": [
-            "Always suspect autonomic dysreflexia in patients with spinal cord injuries above T6 who present with sudden hypertension, headache, and diaphoresis.",
-            "A distended bladder or bowel impaction are the most common triggers.",
-            "Rapid assessment and intervention are crucial to prevent life-threatening complications."
-        ],
-        "questionTrap": {
-            "trap": "The question may trick you into focusing on pain management or anxiety, rather than recognizing the life-threatening symptoms of autonomic dysreflexia.",
-            "howToOvercome": "Prioritize interventions based on ABCs (Airway, Breathing, Circulation) and recognize the constellation of symptoms indicative of autonomic dysreflexia."
-        },
-        "mnemonic": {
-            "title": "SIT UP for Autonomic Dysreflexia",
-            "expansion": "S - Sit the patient UP (elevate HOB).\nI - Identify and remove the trigger (e.g., impaction, bladder).\nT - Treat the blood pressure (antihypertensives).\nU - Usually caused by bladder or bowel.\nP - Prevent by managing bowel and bladder regularly."
-        }
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity: Reduction of Risk Potential"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T18:46:21.759Z"
 }

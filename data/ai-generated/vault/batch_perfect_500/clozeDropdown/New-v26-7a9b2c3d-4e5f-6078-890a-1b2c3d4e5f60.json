@@ -3,82 +3,270 @@
     "stem": "Based on the patient's presentation and available data, the most likely underlying cause of the respiratory distress is [dropdown1]. The priority intervention should be to [dropdown2]. This intervention aims to improve [dropdown3] and prevent further deterioration.",
     "type": "clozeDropdown",
     "scoring": {
-        "method": "dichotomous",
+        "method": "0/1",
         "maxPoints": 3
     },
     "pedagogy": {
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "prioritizeHypotheses",
         "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
+            "Respiratory: Respiratory Failure & ARDS",
+            "Critical Care",
+            "Gas Exchange"
         ],
         "bloomLevel": "analyze",
         "difficulty": 5,
         "nclexCategory": "Physiological Adaptation"
     },
     "rationale": {
-        "correct": "The patient's ABG results (low pH, high PaCO2, low PaO2) indicate acute respiratory acidosis and hypoxemia, strongly suggesting acute respiratory failure. The elevated WBC and CRP, along with the history of pneumonia, point towards ARDS as a likely underlying cause. The priority intervention is to intubate and mechanically ventilate the patient to support oxygenation and ventilation. This aims to improve oxygen delivery to tissues and prevent further respiratory compromise and potential organ damage.",
-        "mnemonic": {
-            "title": "ARDS",
-            "expansion": "A: Alveolar damage; R: Refractory hypoxemia; D: Decreased lung compliance; S: Severe respiratory distress"
+        "correct": "The patient's clinical picture demonstrates a rapid decline with refractory hypoxemia (SpO2 88% on 6L NC) and uncompensated respiratory acidosis (pH 7.28, PaCO2 60 mmHg). This, combined with the chest x-ray showing new bilateral infiltrates and a known infectious trigger (pneumonia), is the classic presentation of Acute Respiratory Distress Syndrome (ARDS). The pathophysiology involves inflammatory damage to the alveolar-capillary membrane, leading to non-cardiogenic pulmonary edema and severe V/Q mismatch. The priority is emergent intubation and mechanical ventilation to provide positive end-expiratory pressure (PEEP), recruit collapsed alveoli, and ensure adequate systemic oxygen delivery to prevent multi-organ dysfunction.",
+        "answerBreakdown": {
+            "dropdown1": {
+                "Acute respiratory failure secondary to ARDS": "Correct. This diagnosis synthesizes the patient's history (pneumonia), physical exam (labored breathing, crackles), lab data (severe hypoxemia, respiratory acidosis), and radiology findings (bilateral infiltrates), which are hallmark signs of ARDS.",
+                "Anxiety-related hyperventilation": "Incorrect. While the patient is agitated, the profound hypoxemia and severe respiratory acidosis are objective physiological findings that cannot be explained by anxiety alone.",
+                "Pulmonary embolism": "Incorrect. While a PE can cause acute hypoxemia, it typically presents with clear lung fields on x-ray initially and would not explain the diffuse bilateral infiltrates seen in this patient.",
+                "Fluid overload": "Incorrect. This is non-cardiogenic pulmonary edema, characteristic of ARDS. The chest x-ray lacks signs of cardiomegaly, and the underlying cause is inflammatory capillary leak, not hydrostatic pressure from heart failure."
+            },
+            "dropdown2": {
+                "Intubate and mechanically ventilate the patient": "Correct. The patient's refractory hypoxemia and impending respiratory collapse require immediate advanced airway management. Mechanical ventilation with PEEP is the only intervention that can adequately support oxygenation and ventilation in severe ARDS.",
+                "Administer a diuretic": "Incorrect. Diuretics are used for cardiogenic pulmonary edema (fluid overload). In ARDS, the patient is often hypotensive and intravascularly depleted; diuretics would likely worsen hemodynamic instability.",
+                "Increase the FiO2 via nasal cannula": "Incorrect. The patient is already failing high-flow nasal cannula. This is refractory hypoxemia, meaning the issue is alveolar shunting, not just a lack of inspired oxygen. A more advanced oxygen delivery system is required.",
+                "Administer more antibiotics": "Incorrect. While treating the underlying infection is crucial, it is not the immediate life-saving priority. The patient will die from hypoxemia long before new antibiotics take effect. Airway and breathing are the first priorities."
+            },
+            "dropdown3": {
+                "Oxygen delivery to tissues": "Correct. The primary goal of mechanical ventilation in ARDS is to correct severe hypoxemia, thereby restoring the arterial oxygen content (CaO2) and ensuring adequate oxygen delivery to vital organs to prevent shock and multi-organ failure.",
+                "Fluid balance": "Incorrect. While fluid management is a key component of ARDS care, it is not the primary therapeutic goal of intubation itself. The immediate goal is oxygenation.",
+                "Anxiety levels": "Incorrect. Sedation administered for mechanical ventilation will reduce anxiety, but this is a secondary benefit, not the primary clinical objective of the intervention.",
+                "Antibiotic effectiveness": "Incorrect. Mechanical ventilation has no direct impact on the mechanism of action or effectiveness of antibiotics."
+            }
         },
-        "incorrect": "Delaying intubation could lead to worsening hypoxemia and acidosis, potentially resulting in cardiac arrest. While antibiotics are important for treating the underlying infection, they won't immediately address the respiratory failure. Increasing the FiO2 via nasal cannula alone is unlikely to be sufficient to correct the severe hypoxemia and may delay necessary interventions. Diuretics are not indicated at this stage, as the primary problem is impaired gas exchange, not fluid overload.",
+        "mnemonic": {
+            "title": "ARDS Pathophysiology",
+            "expansion": "A: Assault to the pulmonary system; R: Respiratory distress; D: Decreased lung compliance; S: Severe refractory hypoxemia"
+        },
         "questionTrap": {
-            "trap": "Many students may focus solely on the pneumonia aspect and miss the signs of developing ARDS and respiratory failure, opting for less aggressive interventions like increasing oxygen or administering more antibiotics.",
-            "howToOvercome": "Carefully analyze the ABG results in conjunction with the patient's clinical presentation. Recognize that the patient's condition is deteriorating despite antibiotic therapy, indicating a need for more aggressive respiratory support."
+            "trap": "Focusing on the initial diagnosis of pneumonia and selecting a less aggressive intervention like increasing oxygen. The key is recognizing the rapid deterioration and refractory nature of the hypoxemia, which signals a transition to a more severe condition like ARDS.",
+            "howToOvercome": "Always trend the data. The worsening vital signs, increasing oxygen requirement, and deteriorating ABGs over a short period indicate that the current plan is failing and a life-threatening complication has developed, requiring immediate escalation of care."
         },
         "clinicalPearls": [
-            "Early recognition of respiratory distress and prompt intervention are crucial in preventing ARDS progression and improving patient outcomes.",
-            "Serial ABGs are essential for monitoring respiratory status and guiding treatment decisions.",
-            "ARDS is characterized by refractory hypoxemia, decreased lung compliance, and bilateral pulmonary infiltrates."
+            "Refractory hypoxemia, defined as hypoxemia that does not respond to increases in FiO2, is a hallmark of ARDS and indicates significant intrapulmonary shunting.",
+            "The PaO2/FiO2 (P/F) ratio is a key metric for diagnosing and staging ARDS. A P/F ratio <300 indicates ARDS.",
+            "In ARDS, the primary problem is damage to the alveolar-capillary membrane, leading to increased permeability and non-cardiogenic pulmonary edema.",
+            "Mechanical ventilation with low tidal volumes and appropriate PEEP (lung-protective ventilation) is the cornerstone of ARDS management."
         ]
     },
     "itemContext": {
-        "sbar": "S: Jameson Weber, 68-year-old male with a history of COPD, admitted 3 days ago for community-acquired pneumonia. He initially responded well to antibiotics but is now exhibiting increased work of breathing and altered mental status. O: 0700: Patient is restless and confused, RR 34 and labored with accessory muscle use. SpO2 88% on 6L nasal cannula. HR 122, BP 102/60. Coarse crackles and diminished breath sounds auscultated bilaterally. A: Suspect worsening respiratory failure, likely secondary to ARDS and possible secondary bacterial infection. ABG reveals acute respiratory acidosis with hypoxemia. New onset confusion is concerning for hypoxemia or sepsis. R: I recommend immediate evaluation by the intensivist, arterial blood gas (ABG) to assess respiratory status, STAT chest X-ray to rule out pneumothorax or worsening infiltrates, and consideration for intubation and mechanical ventilation. Obtain sputum and blood cultures to assess for secondary infection. Consider transfer to ICU if not already there. Monitor urine output. I'm concerned about his declining oxygen saturation, mental status changes, and overall respiratory decompensation. I will continue to monitor vital signs and respiratory effort closely. I have placed him on continuous cardiac monitoring and pulse oximetry. I have also alerted the respiratory therapist to assess his respiratory status and provide further support.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "Sbar",
-                "content": "<p>No significant findings at this time.</p>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "3 Days Ago, 14:00",
+                        "note": "S: Patient reports a 4-day history of productive cough, fever, and increasing shortness of breath.\nB: 68-year-old male with a history of COPD, non-smoker. Lives independently. Presented to the emergency department and was diagnosed with community-acquired pneumonia. Penicillin allergy noted.\nA: Alert and oriented x3. Vital signs stable on 2L nasal cannula. SpO2 94%. Coarse crackles auscultated in the right lower lobe. Sputum is thick and yellow. Appears fatigued but in no acute distress.\nR: Admitted to the medical-surgical unit for IV antibiotics and monitoring. Orders for IV Ceftriaxone and Azithromycin initiated. Plan to monitor respiratory status, titrate oxygen to maintain SpO2 >92%, and encourage incentive spirometry."
+                    },
+                    {
+                        "timestamp": "Today, 07:00",
+                        "note": "S: Patient states, \"I can't catch my breath. I feel confused.\" \nB: 68-year-old male admitted 3 days ago for community-acquired pneumonia with a history of COPD. He was clinically improving until approximately 04:00 this morning, when he developed increased work of breathing and agitation.\nA: Patient is in significant respiratory distress. Respiratory rate is 34/min and labored, with prominent use of accessory muscles. SpO2 is 88% on a 6L nasal cannula. Heart rate is 122/min, BP 102/60 mmHg. Auscultation reveals new bilateral coarse crackles. Neurologically, there is new-onset confusion (GCS 14). The most recent ABG results show severe hypoxemic respiratory failure with acidosis. This presentation is highly concerning for developing Acute Respiratory Distress Syndrome (ARDS).\nR: Recommend immediate transfer to the ICU. Prepare for emergent intubation and mechanical ventilation. STAT portable chest x-ray ordered and completed. Continue continuous cardiac and SpO2 monitoring."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>HR</th><th>BP</th><th>RR</th><th>SpO2 (RA)</th><th>Temp</th></tr></thead><tbody><tr><td>0300</td><td>110</td><td>110/70</td><td>24</td><td>92%</td><td>38.2°C</td></tr><tr><td>0500</td><td>115</td><td>105/65</td><td>28</td><td>90%</td><td>38.5°C</td></tr><tr><td>0700</td><td>122</td><td>102/60</td><td>34</td><td>88% (6L NC)</td><td>38.7°C</td></tbody></table>"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "03:00",
+                        "HR": "110",
+                        "BP": "110/70 (MAP 83)",
+                        "RR": "24",
+                        "SpO2": "92% on 4L NC",
+                        "Temp": "100.8°F (38.2°C)"
+                    },
+                    {
+                        "Time": "05:00",
+                        "HR": "115",
+                        "BP": "105/65 (MAP 78)",
+                        "RR": "28",
+                        "SpO2": "90% on 6L NC",
+                        "Temp": "101.3°F (38.5°C)"
+                    },
+                    {
+                        "Time": "07:00",
+                        "HR": "122",
+                        "BP": "102/60 (MAP 74)",
+                        "RR": "34",
+                        "SpO2": "88% on 6L NC",
+                        "Temp": "101.7°F (38.7°C)"
+                    }
+                ]
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>pH</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>60 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>55 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>14,000/uL</td><td>4,500-11,000/uL</td></tr><tr><td>CRP</td><td>150 mg/L</td><td><10 mg/L</td></tr></tbody></table>"
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Result": "Arterial Blood Gas (ABG) - Today 07:05"
+                    },
+                    {
+                        "Result": "pH",
+                        "Unit": "",
+                        "Reference Range": "7.35-7.45",
+                        "Value": "7.28",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "PaCO2",
+                        "Unit": "mmHg",
+                        "Reference Range": "35-45",
+                        "Value": "60",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "PaO2",
+                        "Unit": "mmHg",
+                        "Reference Range": "80-100",
+                        "Value": "55",
+                        "Status": "Low"
+                    },
+                    {
+                        "Result": "HCO3",
+                        "Unit": "mEq/L",
+                        "Reference Range": "22-26",
+                        "Value": "24",
+                        "Status": "WNL"
+                    },
+                    {
+                        "Result": "Complete Blood Count (CBC) - Today 06:00"
+                    },
+                    {
+                        "Result": "WBC",
+                        "Unit": "x10³/μL",
+                        "Reference Range": "4.5-11.0",
+                        "Value": "14.5",
+                        "Status": "High"
+                    },
+                    {
+                        "Result": "Inflammatory Markers - Today 06:00"
+                    },
+                    {
+                        "Result": "C-Reactive Protein (CRP)",
+                        "Unit": "mg/L",
+                        "Reference Range": "<10",
+                        "Value": "150",
+                        "Status": "High"
+                    }
+                ]
             },
             {
                 "id": "physicalExam",
-                "title": "PhysicalExam",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Admission",
+                        "note": "GENERAL: Alert, oriented, appears fatigued.\nRESPIRATORY: Mild dyspnea on exertion. Breath sounds diminished with coarse crackles in the right lower lobe. Symmetrical chest expansion.\nCARDIOVASCULAR: Tachycardic, regular rhythm. No murmurs. Capillary refill <3 seconds.\nNEUROLOGICAL: GCS 15. Moves all extremities purposefully."
+                    },
+                    {
+                        "timestamp": "Today, 07:00 (Focused Assessment)",
+                        "note": "GENERAL: Agitated, confused, appears anxious and in acute distress.\nRESPIRATORY: Labored breathing with intercostal retractions and accessory muscle use. Tachypneic. Bilateral coarse crackles and diminished breath sounds throughout all lung fields.\nCARDIOVASCULAR: Sinus tachycardia. Pulses +2 peripherally.\nSKIN: Cool and diaphoretic.\nNEUROLOGICAL: GCS 14 (E4, V4, M6), new onset confusion."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "<p>No significant findings at this time.</p>"
+                "content": [
+                    {
+                        "type": "Chest X-ray (Portable)",
+                        "timestamp": "Today, 07:15",
+                        "report": "FINDINGS: There has been a significant interval development of diffuse, bilateral airspace opacities since the admission study 3 days ago. The opacities have a fluffy, confluent appearance. The cardiac silhouette is not enlarged. There are no significant pleural effusions.\n\nIMPRESSION: Progressive, bilateral infiltrates in the setting of sepsis and acute hypoxemic respiratory failure are highly suggestive of Acute Respiratory Distress Syndrome (ARDS)."
+                    }
+                ]
             },
             {
                 "id": "carePlan",
-                "title": "CarePlan",
-                "content": "<p>No significant findings at this time.</p>"
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "3 Days Ago, 14:30",
+                        "Action": "Ceftriaxone 1g in 50mL 0.9% NaCl",
+                        "Frequency/Status": "IV, Daily"
+                    },
+                    {
+                        "Order Date/Time": "3 Days Ago, 14:30",
+                        "Action": "Azithromycin 500mg in 250mL 0.9% NaCl",
+                        "Frequency/Status": "IV, Daily"
+                    },
+                    {
+                        "Order Date/Time": "3 Days Ago, 14:30",
+                        "Action": "0.9% NaCl continuous infusion",
+                        "Frequency/Status": "IV, 50 mL/hr"
+                    },
+                    {
+                        "Order Date/Time": "3 Days Ago, 14:30",
+                        "Action": "Albuterol 2.5mg in 3mL NS",
+                        "Frequency/Status": "Nebulizer, q4h PRN for wheezing"
+                    },
+                    {
+                        "Order Date/Time": "3 Days Ago, 14:30",
+                        "Action": "Continuous pulse oximetry",
+                        "Frequency/Status": "Standing"
+                    },
+                    {
+                        "Order Date/Time": "Today, 07:05",
+                        "Action": "Arterial Blood Gas",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "Today, 07:10",
+                        "Action": "Portable Chest X-ray",
+                        "Frequency/Status": "STAT"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24h</td></tr><tr><td>Azithromycin</td><td>500mg</td><td>IV</td><td>q24h</td></tr><tr><td>Albuterol</td><td>2.5mg</td><td>Neb</td><td>q4h PRN</td></tr><tr><td>Normal Saline</td><td>1000 mL</td><td>IV</td><td>Continuous at 50 mL/hr</td></tr></tbody></table>"
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1g",
+                        "Route": "IV",
+                        "Frequency": "Daily",
+                        "Last Administered": "Yesterday, 09:00"
+                    },
+                    {
+                        "Medication": "Azithromycin",
+                        "Dose": "500mg",
+                        "Route": "IV",
+                        "Frequency": "Daily",
+                        "Last Administered": "Yesterday, 09:00"
+                    },
+                    {
+                        "Medication": "Albuterol",
+                        "Dose": "2.5mg",
+                        "Route": "Nebulizer",
+                        "Frequency": "q4h PRN",
+                        "Last Administered": "Today, 04:30"
+                    },
+                    {
+                        "Medication": "0.9% Sodium Chloride",
+                        "Dose": "50 mL/hr",
+                        "Route": "IV",
+                        "Frequency": "Continuous",
+                        "Last Administered": "N/A"
+                    }
+                ]
             }
         ],
         "patient": {
-            "age": 68,
-            "iso": "Airborne Infection Isolation",
             "name": "Jameson Weber",
-            "gender": "Male",
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
-            ]
+            ],
+            "isolation": "Standard Precautions"
         }
     },
     "sentinelStatus": "healed_v2026_v20_qi_final",

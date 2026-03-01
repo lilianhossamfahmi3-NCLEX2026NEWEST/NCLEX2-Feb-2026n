@@ -1,69 +1,324 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-4789-9012-34567890abcd",
-    "type": "priorityAction",
-    "stem": "The registered nurse (RN) is caring for a patient receiving mechanical ventilation. Based on the information provided in the patient's chart, identify the four (4) most important actions the RN should take *immediately* to ensure patient safety and prevent complications.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "selectAll",
+    "stem": "The nurse is caring for a client on a mechanical ventilator. Based on the clinical data, select the **4** priority actions the nurse should implement immediately.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Perform deep endotracheal suctioning."
+        },
+        {
+            "id": "opt_02",
+            "text": "Administer PRN lorazepam as prescribed."
+        },
+        {
+            "id": "opt_03",
+            "text": "Increase the ventilator's set respiratory rate per protocol."
+        },
+        {
+            "id": "opt_04",
+            "text": "Confirm endotracheal tube placement and security."
+        },
+        {
+            "id": "opt_05",
+            "text": "Increase the FiO2 setting to 100%."
+        },
+        {
+            "id": "opt_06",
+            "text": "Administer a 500 mL bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "opt_07",
+            "text": "Request a STAT portable chest x-ray."
+        },
+        {
+            "id": "opt_08",
+            "text": "Place the client in a prone position."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Sulfa drugs"
             ]
         },
-        "sbar": "Situation: John Smith, a 68-year-old male with a history of COPD, was admitted for an acute exacerbation. He is intubated and mechanically ventilated in the ICU.\n\nBackground: Admitted for COPD exacerbation. Current ventilator settings: FiO2 60%, PEEP 8 cm H2O, tidal volume 450 mL, respiratory rate 16 breaths/min. ABG at 1430: pH 7.28, PaCO2 65 mmHg, PaO2 90 mmHg, HCO3 26 mEq/L, SaO2 94%.\n\nAssessment: At 1445, increasingly agitated, asynchronous breathing. HR 110 bpm, BP 150/90 mmHg. Lorazepam 1 mg IV at 1300 for agitation. Coarse crackles bilaterally, thick, tenacious tracheal secretions. End-tidal CO2 trending upward. High-pressure alarm sounded twice in the past hour. Diaphoretic.\n\nRecommendation: Immediate interventions needed to address respiratory acidosis and ventilator asynchrony. Consider suctioning, sedation adjustment, and ventilator setting changes.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "Situation: John Smith, a 68-year-old male with a history of COPD, was admitted for an acute exacerbation. He is intubated and mechanically ventilated in the ICU.\n\nBackground: Admitted for COPD exacerbation. Current ventilator settings: FiO2 60%, PEEP 8 cm H2O, tidal volume 450 mL, respiratory rate 16 breaths/min. ABG at 1430: pH 7.28, PaCO2 65 mmHg, PaO2 90 mmHg, HCO3 26 mEq/L, SaO2 94%.\n\nAssessment: At 1445, increasingly agitated, asynchronous breathing. HR 110 bpm, BP 150/90 mmHg. Lorazepam 1 mg IV at 1300 for agitation. Coarse crackles bilaterally, thick, tenacious tracheal secretions. End-tidal CO2 trending upward. High-pressure alarm sounded twice in the past hour. Diaphoretic.\n\nRecommendation: Immediate interventions needed to address respiratory acidosis and ventilator asynchrony. Consider suctioning, sedation adjustment, and ventilator setting changes."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "timestamp": "Yesterday, 22:00",
+                        "type": "Admission Note",
+                        "note": "68-year-old male with a history of severe COPD and a 50-pack-year smoking history admitted from ED with an acute exacerbation. Presented with severe dyspnea, wheezing, and a productive cough with purulent sputum. He was non-responsive to initial nebulizer treatments and BiPAP. Intubated in the ED for acute hypercapnic respiratory failure. Transferred to ICU for continued mechanical ventilation and management. Past medical history includes hypertension and type 2 diabetes. The client lives alone in a second-floor apartment with no elevator, which poses a significant mobility and social support challenge. Allergies: Sulfa drugs."
+                    },
+                    {
+                        "timestamp": "Today, 14:45",
+                        "type": "Progress Note",
+                        "note": "Client has become increasingly agitated over the last hour, demonstrating asynchrony with the ventilator. The high-pressure alarm has sounded intermittently. Vitals show HR 110, BP 150/90 mmHg, SpO2 94% on FiO2 60%. End-tidal CO2 has risen from 48 to 55 mmHg. Auscultation reveals coarse crackles bilaterally. Thick, yellow secretions are visible in the endotracheal tube. The most recent ABG shows worsening respiratory acidosis (pH 7.28, PaCO2 65 mmHg). Recommendation: Immediate intervention to clear the airway and improve ventilator synchrony is required to prevent further decompensation."
+                    }
+                ]
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr><tr><td>pH</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>65 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>90 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>26 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>SaO2</td><td>94%</td><td>95-100%</td></tr><tr><td>WBC</td><td>14,000/mm3</td><td>4,500-11,000/mm3</td></tr></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "14:00",
+                        "HR (bpm)": "95",
+                        "BP (mmHg)": "138/85 (MAP 103)",
+                        "RR (breaths/min)": "16 (Ventilator)",
+                        "SpO2 (%)": "95% on 60% FiO2",
+                        "Temp °F (°C)": "100.8 (38.2)",
+                        "EtCO2 (mmHg)": "48"
+                    },
+                    {
+                        "Time": "14:30",
+                        "HR (bpm)": "102",
+                        "BP (mmHg)": "144/88 (MAP 107)",
+                        "RR (breaths/min)": "16 (Ventilator)",
+                        "SpO2 (%)": "94% on 60% FiO2",
+                        "Temp °F (°C)": "100.8 (38.2)",
+                        "EtCO2 (mmHg)": "52"
+                    },
+                    {
+                        "Time": "14:45",
+                        "HR (bpm)": "110",
+                        "BP (mmHg)": "150/90 (MAP 110)",
+                        "RR (breaths/min)": "16 (Asynchronous)",
+                        "SpO2 (%)": "94% on 60% FiO2",
+                        "Temp °F (°C)": "100.8 (38.2)",
+                        "EtCO2 (mmHg)": "55"
+                    }
+                ]
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><tr><th>Vital Sign</th><th>Value</th></tr><tr><td>HR</td><td>110 bpm</td></tr><tr><td>BP</td><td>150/90 mmHg</td></tr><tr><td>RR</td><td>16 breaths/min (Ventilator)</td></tr><tr><td>SpO2</td><td>94%</td></tr><tr><td>Temperature</td><td>38.2°C (100.8°F)</td></tr><tr><td>End-tidal CO2</td><td>55 mmHg</td></tr></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Panel": "Arterial Blood Gas (14:30)",
+                        "Results": [
+                            {
+                                "Result": "pH",
+                                "Value": "7.28",
+                                "Unit": "",
+                                "Reference": "7.35-7.45",
+                                "Status": "Low"
+                            },
+                            {
+                                "Result": "PaCO2",
+                                "Value": "65",
+                                "Unit": "mmHg",
+                                "Reference": "35-45",
+                                "Status": "High"
+                            },
+                            {
+                                "Result": "PaO2",
+                                "Value": "90",
+                                "Unit": "mmHg",
+                                "Reference": "80-100",
+                                "Status": "Normal"
+                            },
+                            {
+                                "Result": "HCO3",
+                                "Value": "26",
+                                "Unit": "mEq/L",
+                                "Reference": "22-26",
+                                "Status": "Normal"
+                            }
+                        ]
+                    },
+                    {
+                        "Panel": "Complete Blood Count (Admission)",
+                        "Results": [
+                            {
+                                "Result": "WBC",
+                                "Value": "14.5",
+                                "Unit": "x10³/μL",
+                                "Reference": "4.5-11.0",
+                                "Status": "High"
+                            },
+                            {
+                                "Result": "Hgb",
+                                "Value": "15.0",
+                                "Unit": "g/dL",
+                                "Reference": "13.5-17.5",
+                                "Status": "Normal"
+                            },
+                            {
+                                "Result": "Platelets",
+                                "Value": "220",
+                                "Unit": "x10³/μL",
+                                "Reference": "150-450",
+                                "Status": "Normal"
+                            }
+                        ]
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr><tr><td>Lorazepam</td><td>1 mg</td><td>IV</td><td>PRN for agitation</td><td>1300</td></tr><tr><td>Albuterol/Ipratropium</td><td>2.5 mg/0.5 mg</td><td>Nebulizer</td><td>Q4 hours</td><td>1400</td></tr><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>Q24 hours</td><td>0800</td></tr></table>"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "General",
+                        "Findings": "Client appears anxious, diaphoretic, and agitated."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Ventilator-assisted respirations at 16/min; client is attempting to breathe over the ventilator (asynchrony). Coarse crackles auscultated bilaterally. Visible thick, yellow secretions in the endotracheal tube. Symmetrical chest expansion."
+                    },
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Tachycardic rate with regular rhythm. S1 and S2 audible. No murmurs, rubs, or gallops. Peripheral pulses are 2+ and equal."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Type": "Chest X-ray (Admission)",
+                        "Report": "FINDINGS: Lungs are hyperinflated with flattened hemidiaphragms, consistent with severe COPD. There are diffuse interstitial markings and bronchial wall thickening. A patchy opacity in the right lower lobe may represent an infiltrate or atelectasis.\n\nIMPRESSION: Findings consistent with COPD exacerbation. Developing right lower lobe pneumonia cannot be excluded."
+                    }
+                ]
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "Yesterday, 22:30",
+                        "Action": "Admit to ICU. Diagnosis: COPD Exacerbation, Acute Hypercapnic Respiratory Failure.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday, 22:30",
+                        "Action": "Ventilator Settings: AC mode, RR 16, TV 450 mL, FiO2 60%, PEEP 8 cm H2O.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday, 22:30",
+                        "Action": "Protocol: Titrate FiO2 to maintain SpO2 >92%. May increase RR up to 20 to manage hypercapnia.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday, 22:30",
+                        "Action": "Suction ETT PRN for secretions, high-pressure alarms, or signs of respiratory distress.",
+                        "Status": "Active"
+                    },
+                    {
+                        "Order Date/Time": "Yesterday, 22:30",
+                        "Action": "Lorazepam 1-2 mg IV PRN q2h for agitation or ventilator asynchrony.",
+                        "Status": "Active"
+                    }
+                ]
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lorazepam",
+                        "Dose": "1 mg",
+                        "Route": "IV",
+                        "Frequency": "PRN q2h for agitation",
+                        "Last Administered": "Today, 13:00"
+                    },
+                    {
+                        "Medication": "Albuterol/Ipratropium",
+                        "Dose": "2.5 mg/0.5 mg",
+                        "Route": "Nebulizer",
+                        "Frequency": "Q4H",
+                        "Last Administered": "Today, 14:00"
+                    },
+                    {
+                        "Medication": "Ceftriaxone",
+                        "Dose": "1 g",
+                        "Route": "IV",
+                        "Frequency": "Q24H",
+                        "Last Administered": "Today, 08:00"
+                    }
+                ]
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Management of Care",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
+    "rationale": {
+        "correct": "The client is experiencing acute respiratory acidosis (pH 7.28, PaCO2 65) due to inadequate ventilation, evidenced by ventilator asynchrony, agitation, and thick secretions causing airway obstruction (high-pressure alarms). The four priority actions directly address these life-threatening problems. Suctioning clears the airway, sedation reduces asynchrony, increasing the respiratory rate improves CO2 removal, and confirming tube placement ensures the airway is patent and secure.",
+        "incorrect": "The distractors are either not a priority or inappropriate. The client's oxygenation is adequate (PaO2 90), so increasing FiO2 is unnecessary and does not address the primary problem of hypercapnia. There is no indication for a fluid bolus. A chest x-ray and prone positioning are secondary interventions to be considered after immediate life-saving measures to secure the airway and improve ventilation have been performed.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The physical exam and nurse's note describe thick, yellow secretions and coarse crackles. These are obstructing the airway, increasing airway pressure, and causing poor gas exchange. Suctioning is the most direct and immediate intervention to clear the airway."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. The client is agitated and fighting the ventilator, which increases oxygen demand and worsens asynchrony. The MAR shows lorazepam was last given almost two hours ago and is available PRN. Sedation will help the client tolerate the ventilator, improving synchrony and gas exchange."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. The client's primary problem is respiratory acidosis (high PaCO2). Increasing the respiratory rate is a direct intervention to increase minute ventilation and blow off more CO2. The care plan includes a protocol allowing the nurse to make this adjustment."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. In any acute ventilator decompensation, especially with agitation, the nurse must rapidly confirm the airway is secure. An ETT displacement could be the cause of the entire event. This is a fundamental safety check."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Incorrect. The lab results show a PaO2 of 90 mmHg, which is within the normal range. The problem is ventilation (CO2 removal), not oxygenation. Increasing the FiO2 does not address the root cause of respiratory acidosis."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. The client's vital signs (BP 150/90) do not suggest hypovolemia. A fluid bolus is not indicated and would not address the respiratory crisis."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. While a chest x-ray may be useful later to rule out causes like pneumothorax or worsening pneumonia, it is not an immediate, hands-on nursing action. Interventions to stabilize breathing and airway take precedence over diagnostics."
+            },
+            {
+                "optionId": "opt_08",
+                "content": "Incorrect. Prone positioning is a complex intervention used for severe ARDS to improve oxygenation. It is not a first-line response for ventilator asynchrony due to secretions and agitation, and it requires a coordinated team effort."
+            }
+        ],
+        "clinicalPearls": [
+            "Ventilator high-pressure alarms are most commonly caused by obstruction. Think mucus plugs, kinked tubing, bronchospasm, or the client biting the tube.",
+            "Ventilator asynchrony is a form of respiratory distress. It increases the work of breathing and oxygen consumption and must be treated promptly with sedation, analgesia, or ventilator adjustments.",
+            "In a ventilated client, an acute rise in End-Tidal CO2 (EtCO2) is a critical warning sign of hypoventilation, which directly leads to respiratory acidosis.",
+            "Always assess the patient before the machine. When an alarm sounds, perform a rapid assessment of the client's airway, breathing, and circulation before troubleshooting the equipment."
+        ],
+        "questionTrap": "The primary trap is focusing on oxygenation (SpO2, PaO2) when the critical issue is ventilation (PaCO2, pH, EtCO2). The client's oxygen levels are acceptable, but they are failing to remove carbon dioxide. Avoid choosing oxygen-focused interventions when the data points to a ventilation problem.",
+        "mnemonic": {
+            "title": "D.O.P.E. for Ventilator Alarms",
+            "expansion": "D - Displacement (Is the tube in the right place?)\nO - Obstruction (Are there secretions, kinks, or is the client biting the tube?)\nP - Pneumothorax (Is there a collapsed lung? Check for unilateral chest rise.)\nE - Equipment (Is the ventilator working correctly? Is it disconnected?)"
+        },
+        "reviewUnits": [
+            "Mechanical Ventilation",
+            "Acid-Base Balance",
+            "Critical Care Nursing",
+            "Pharmacology: Sedatives"
         ]
     },
-    "rationale": {
-        "correct": "The patient exhibits respiratory acidosis (pH 7.28, PaCO2 65 mmHg) and ventilator asynchrony, likely due to COPD exacerbation and thick secretions. Agitation, elevated BP, and rising end-tidal CO2 indicate inadequate ventilation and discomfort. Immediate suctioning clears thick, tenacious secretions, addressing the high-pressure alarm and impaired gas exchange. Increasing sedation with lorazepam promotes ventilator synchrony, reducing oxygen consumption and work of breathing. Adjusting ventilator settings (increasing tidal volume or respiratory rate, per provider order/protocol) improves ventilation and lowers PaCO2. Verifying ET tube placement ensures proper tube position, preventing unilateral breath sounds and inadequate ventilation. These actions directly address respiratory distress, improving oxygenation and ventilation.\n\nclinicalPearl: Ventilator asynchrony increases the work of breathing, causes patient discomfort, and can lead to lung injury. Thick secretions can obstruct the airway, increasing airway pressure and impairing gas exchange, thus worsening respiratory status. Respiratory acidosis requires prompt intervention focused on improving ventilation to correct the underlying cause of the acidosis.",
-        "incorrect": "Administering a bolus of normal saline is not the immediate priority; addressing respiratory acidosis and ventilator asynchrony takes precedence. Increasing FiO2 isn't the primary intervention, as PaO2 is acceptable at 90%; correcting hypercapnia is key. Notifying the respiratory therapist is appropriate but not the immediate priority; the RN must initiate interventions without delay. Encouraging deep breathing is impossible due to intubation and mechanical ventilation.\n\nquestionTrap: The question trap involves focusing on isolated symptoms, such as agitation, without considering the broader clinical picture of respiratory acidosis and ventilator asynchrony. Some options might seem reasonable in isolation but fail to address the underlying cause of the problem. Prioritize interventions that address the underlying respiratory acidosis and ventilator asynchrony, carefully considering the ABG results, ventilator settings, and the patient's overall clinical presentation. Focus on interventions that directly improve ventilation and oxygenation, rather than simply masking symptoms.",
-        "clinicalPearls": [
-            "Ventilator asynchrony increases the work of breathing, causes patient discomfort, and can lead to lung injury.",
-            "Thick secretions can obstruct the airway, increasing airway pressure and impairing gas exchange, thus worsening respiratory status.",
-            "Respiratory acidosis requires prompt intervention focused on improving ventilation to correct the underlying cause of the acidosis."
-        ],
-        "questionTrap": {
-            "trap": "The question trap involves focusing on isolated symptoms, such as agitation, without considering the broader clinical picture of respiratory acidosis and ventilator asynchrony. Some options might seem reasonable in isolation but fail to address the underlying cause of the problem.",
-            "howToOvercome": "Prioritize interventions that address the underlying respiratory acidosis and ventilator asynchrony, carefully considering the ABG results, ventilator settings, and the patient's overall clinical presentation. Focus on interventions that directly improve ventilation and oxygenation, rather than simply masking symptoms."
-        },
-        "mnemonic": {
-            "title": "STAAR Ventilation",
-            "expansion": "Suction, Titrate Sedation, Adjust Ventilation, Assess Tube, Report (if needed)"
-        }
-    }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
+    },
+    "pedagogy": {
+        "bloomLevel": "Apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Reduction of Risk Potential"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:26:11.723Z"
 }

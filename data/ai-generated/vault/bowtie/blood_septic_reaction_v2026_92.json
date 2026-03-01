@@ -1,13 +1,13 @@
 {
-    "id": "bowtie_blood_septic_reaction_v2026_92",
+    "id": "bowtie_blood_septic_reaction_v2026_93",
     "type": "bowtie",
-    "stem": "A client is receiving a unit of packed red blood cells (PRBCs) that has been infusing for 3.5 hours. The client suddenly develops a temperature of 105.4°F (40.8°C) and shaking chills (rigors). Based on the documentation in the provided tabs, complete the bowtie by selecting the most likely condition, the two actions the nurse should take, and the two parameters the nurse should monitor.",
+    "stem": "A client receiving a PRBC transfusion develops a sudden high fever, rigors, and hypotension. Based on the EHR, complete the bowtie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
                 "title": "SBAR",
-                "content": "<b>Situation:</b> Client experiencing extreme hyperpyrexia and shock during blood transfusion. Onset of symptoms was sudden.<br><b>Background:</b> Rule-out sepsis due to possible bacterial contamination. Blood unit was hung late in the shift. No prior transfusion reactions.<br><b>Assessment:</b> At 16:30, client is shivering violently with a core temperature of 105.4°F (40.8°C). Blood pressure has dropped from a baseline of 120/80 mmHg to 86/42 mmHg. Heart rate is 142 bpm and respiratory rate is 32 breaths/min. Oxygen saturation is 90% on room air.<br><b>Recommendation:</b> Immediately stop the transfusion. Send the remaining blood and administration set to the laboratory for stat Gram stain and culture. Anticipate orders for IV fluids and vasopressors."
+                "content": "<b>S:</b> Nurse calling for the client in room 204. At 16:30, during a PRBC transfusion, he developed a sudden high fever, violent rigors, and hypotension. <br><b>B:</b> He is a 55-year-old male receiving his first unit of PRBCs for anemia, which was started at 13:00. He has no history of transfusion reactions. <br><b>A:</b> Vitals are BP 86/42 mmHg, HR 142/min, RR 32/min, Temp 40.8°C, SpO2 90% on room air. I suspect a septic transfusion reaction. <br><b>R:</b> I have stopped the transfusion and need immediate assessment."
             },
             {
                 "id": "labs",
@@ -17,7 +17,7 @@
             {
                 "id": "vitals",
                 "title": "Vital Signs",
-                "content": "BP 86/42 mmHg, HR 142 bpm, RR 32 breaths/min, T 105.4°F (40.8°C), SpO2 90%."
+                "content": "<b>16:30:</b><br>BP: 86/42 mmHg<br>HR: 142/min<br>RR: 32/min<br>T: 105.4°F (40.8°C)<br>SpO2: 90% on room air"
             },
             {
                 "id": "radiology",
@@ -27,7 +27,7 @@
             {
                 "id": "mar",
                 "title": "MAR",
-                "content": "Current medications: 0.9% Sodium Chloride IV at 100 mL/hr. PRBCs 1 unit infusing (started at 13:00)."
+                "content": "<b>Scheduled Medications:</b><br>0.9% Sodium Chloride IV at 100 mL/hr<br><br><b>PRN Medications:</b><br>None<br><br><b>Blood Products:</b><br>Packed Red Blood Cells (PRBCs), 1 unit, infusing. Started at 13:00."
             }
         ]
     },
@@ -35,51 +35,72 @@
         "conditionOptions": [
             {
                 "id": "c1",
-                "text": "Acute Hemolytic Transfusion Reaction"
+                "text": "Acute Hemolytic Transfusion Reaction",
+                "hoverRationale": "Acute hemolytic reactions are caused by ABO incompatibility, leading to intravascular hemolysis. This typically presents with fever, flank pain, and hemoglobinuria, which are absent here."
             },
             {
                 "id": "c2",
-                "text": "Septic Transfusion Reaction (Bacterial Contamination)"
+                "text": "Septic Transfusion Reaction",
+                "hoverRationale": "Bacterial contamination of blood products causes a release of endotoxins, leading to a systemic inflammatory response. This manifests as sudden high fever, rigors, and profound hypotension, matching the client's presentation."
             },
             {
                 "id": "c3",
-                "text": "Febrile Non-Hemolytic Transfusion Reaction (FNHTR)"
+                "text": "Febrile Non-Hemolytic Transfusion Reaction",
+                "hoverRationale": "FNHTR is a diagnosis of exclusion caused by recipient antibodies reacting to donor leukocytes. It presents with a mild fever and chills, not the severe hyperpyrexia and septic shock seen in this client."
             }
         ],
         "actionOptions": [
             {
                 "id": "a1",
-                "text": "Stop the transfusion immediately and disconnect the tubing from the IV hub."
+                "text": "Stop transfusion and disconnect tubing.",
+                "hoverRationale": "Stopping the transfusion is the immediate priority to prevent further administration of the contaminated blood product. This action limits the bacterial and endotoxin load entering the client's circulation."
             },
             {
                 "id": "a2",
-                "text": "Send the remaining blood bag and administration set to the laboratory/blood bank for culture."
+                "text": "Send blood bag and tubing for culture.",
+                "hoverRationale": "Sending the blood bag and tubing for culture is essential to confirm the diagnosis and identify the specific pathogen. This information guides targeted antibiotic therapy for treating the sepsis."
             },
             {
                 "id": "a3",
-                "text": "Flush the IV line with 0.9% sodium chloride solution."
+                "text": "Flush IV line with normal saline.",
+                "hoverRationale": "Flushing the line could push remaining contaminated blood from the tubing into the client. The entire administration set should be disconnected and saved for the blood bank."
             },
             {
                 "id": "a4",
-                "text": "Apply warming blankets to alleviate the shivering/rigors."
+                "text": "Apply warming blankets for rigors.",
+                "hoverRationale": "While the client is shivering, the core temperature is dangerously high (40.8°C). Warming blankets are contraindicated as they would worsen the hyperthermia and increase metabolic demand."
+            },
+            {
+                "id": "a5",
+                "text": "Administer diphenhydramine IV.",
+                "hoverRationale": "Diphenhydramine is an antihistamine used for allergic transfusion reactions. It does not address the underlying bacterial infection and septic shock, which is the life-threatening priority."
             }
         ],
         "parameterOptions": [
             {
                 "id": "p1",
-                "text": "Blood pressure, mean arterial pressure (MAP), and core temperature."
+                "text": "Blood pressure, MAP, and temperature.",
+                "hoverRationale": "Septic shock causes massive vasodilation and decreased systemic vascular resistance, leading to severe hypotension. Monitoring BP, MAP, and temperature is critical for titrating vasopressors and antipyretics."
             },
             {
                 "id": "p2",
-                "text": "Urine output and clarity (monitor for acute kidney injury)."
+                "text": "Urine output and clarity.",
+                "hoverRationale": "Sepsis-induced hypotension can cause acute kidney injury (AKI) due to renal hypoperfusion. Monitoring urine output is a key indicator of kidney function and fluid resuscitation adequacy."
             },
             {
                 "id": "p3",
-                "text": "Serum glucose levels."
+                "text": "Serum glucose levels.",
+                "hoverRationale": "While sepsis can cause glucose dysregulation, it is not the most critical parameter to monitor initially. Hemodynamic stability and organ perfusion are the immediate priorities."
             },
             {
                 "id": "p4",
-                "text": "Neurological status, including assessment for Babinski reflex."
+                "text": "Neurological status.",
+                "hoverRationale": "While sepsis can lead to encephalopathy, a basic neurological check is sufficient. Hemodynamic and renal parameters are the most critical to monitor for immediate life-threatening complications of septic shock."
+            },
+            {
+                "id": "p5",
+                "text": "Pain level assessment.",
+                "hoverRationale": "While pain can occur, it is not a hallmark of a septic reaction. The priority is monitoring for hemodynamic collapse and end-organ damage, such as hypotension and acute kidney injury."
             }
         ]
     },
@@ -106,61 +127,8 @@
             "Adverse Reactions"
         ]
     },
-    "rationale": {
-        "correct": "The client is exhibiting signs and symptoms consistent with a Septic Transfusion Reaction (c2). Bacterial contamination in the blood bag, often by Gram-negative bacteria, can lead to rapid-onset septic shock and a high fever (105°F/40.8°C or higher). The key indicators are the extreme fever spike, rigors, and the absence of hemoglobinuria (which would suggest a hemolytic reaction). The priority nursing actions are to immediately stop the transfusion (a1) to prevent further exposure to the contaminated blood and send the blood bag and administration set to the laboratory/blood bank for culture (a2) to identify the causative pathogen. Monitoring should focus on the resulting septic shock (p1), including blood pressure, MAP, and core temperature, as well as renal function (p2) by monitoring urine output and clarity to detect potential acute kidney injury.",
-        "clinicalPearls": [
-            "Blood products should be infused within 4 hours of removal from controlled refrigeration. Prolonged hang time increases the risk of bacterial proliferation.",
-            "Symptoms of a septic transfusion reaction can manifest immediately or up to several hours after the transfusion is completed.",
-            "A fever in a septic transfusion reaction is typically a significant increase (2°F/1.1°C or more) above the client's baseline temperature and may be accompanied by vomiting and/or diarrhea."
-        ],
-        "questionTrap": {
-            "trap": "Assuming that all fever during a blood transfusion indicates a hemolytic reaction.",
-            "howToOvercome": "Carefully assess the client's signs and symptoms. Hemolytic reactions often present with flank pain and dark urine (hemoglobinuria). Septic reactions are characterized by a very high fever (105°F/40.8°C or higher), rigors (shaking chills), and a rapid drop in blood pressure."
-        },
-        "mnemonic": {
-            "title": "Septic Shakes",
-            "expansion": "S-Spiking Temperature (105°F/40.8°C or higher). H-Hypotension. A-Always culture the blood bag and administration set. K-Keep away from the patient (Stop the transfusion). E-Extreme chills (Rigors). S-Send the blood back to the lab."
-        }
-    },
     "scoring": {
         "method": "linked",
         "maxPoints": 5
-    },
-    "sentinelStatus": "deep_healed_v2026",
-    "actions": [
-        {
-            "id": "a1",
-            "text": "Stop the transfusion immediately and disconnect the tubing from the IV hub."
-        },
-        {
-            "id": "a2",
-            "text": "Send the remaining blood bag and administration set to the laboratory/blood bank for culture."
-        },
-        {
-            "id": "a3",
-            "text": "Flush the IV line with 0.9% sodium chloride solution."
-        },
-        {
-            "id": "a4",
-            "text": "Apply warming blankets to alleviate the shivering/rigors."
-        }
-    ],
-    "parameters": [
-        {
-            "id": "p1",
-            "text": "Blood pressure, mean arterial pressure (MAP), and core temperature."
-        },
-        {
-            "id": "p2",
-            "text": "Urine output and clarity (monitor for acute kidney injury)."
-        },
-        {
-            "id": "p3",
-            "text": "Serum glucose levels."
-        },
-        {
-            "id": "p4",
-            "text": "Neurological status, including assessment for Babinski reflex."
-        }
-    ]
+    }
 }

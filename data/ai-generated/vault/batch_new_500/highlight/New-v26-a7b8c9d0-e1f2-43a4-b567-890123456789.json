@@ -1,76 +1,366 @@
 {
     "id": "New-v26-a7b8c9d0-e1f2-43a4-b567-890123456789",
     "type": "highlight",
-    "stem": "The patient is exhibiting signs of sepsis. Review the patient's EHR and highlight all findings that support a diagnosis of septic shock.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 1
-    },
+    "stem": "The nurse is reviewing the 08:00 progress note in the Clinical Feed. Highlight the findings that indicate the patient is progressing from sepsis to septic shock.",
+    "highlightableTextId": "clinical_feed",
+    "options": [
+        {
+            "id": "opt-1",
+            "text": "altered mental status"
+        },
+        {
+            "id": "opt-2",
+            "text": "BP is 88/50 mmHg"
+        },
+        {
+            "id": "opt-3",
+            "text": "HR 135/min"
+        },
+        {
+            "id": "opt-4",
+            "text": "Temp 102.8°F (39.3°C)"
+        },
+        {
+            "id": "opt-5",
+            "text": "coarse crackles bilaterally"
+        },
+        {
+            "id": "opt-6",
+            "text": "productive cough with purulent sputum"
+        },
+        {
+            "id": "opt-7",
+            "text": "WBC 18,000/mm³"
+        },
+        {
+            "id": "opt-8",
+            "text": "Lactate 4.5 mmol/L"
+        },
+        {
+            "id": "opt-9",
+            "text": "urine output of <0.5 mL/kg/hr"
+        }
+    ],
+    "correctOptionIds": [
+        "opt-1",
+        "opt-2",
+        "opt-3",
+        "opt-8",
+        "opt-9"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 78,
-            "gender": "Male",
-            "iso": "Contact and Droplet",
+            "age": "78 years",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin",
                 "Sulfa Drugs"
             ]
         },
-        "sbar": "S: John Smith is a 78-year-old male admitted three days ago with pneumonia. R: Since 04:00, the patient developed a productive cough with purulent sputum, increased dyspnea, and altered mental status. Blood pressure is trending down. A: At 08:00, BP is 88/50 mmHg, HR 135 bpm, Temp 102.8°F (39.3°C), SpO2 89% on 2L NC. New onset confusion and decreased urine output noted over the last 4 hours. Auscultation reveals coarse crackles bilaterally. Labs show elevated WBC and Lactate. B: History of hypertension, COPD, and type 2 diabetes. Currently on vancomycin and cefepime for pneumonia. DNR/DNI order in place. Condition is concerning, with rapid deterioration and signs of potential septic shock. Requires close monitoring and further investigation.",
         "tabs": [
             {
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note - Day 1, 14:30\nS: Patient is a 78-year-old male brought to the ED by his adult child with a 3-day history of worsening cough, fever, and shortness of breath.\nB: History of COPD, hypertension, and type 2 diabetes mellitus. Lives alone in a rural area with limited access to transportation, delaying his visit to the hospital. \nA: Diagnosed with community-acquired pneumonia. Alert and oriented x3. SpO2 94% on 2L NC. Lungs with scattered crackles. Sputum is yellow-tinged. Vital signs stable upon admission. \nR: Admitted to the medical-surgical unit for IV antibiotics, hydration, and monitoring. Started on vancomycin and cefepime per protocol. Care plan discussed with patient and adult child.\n\nProgress Note - Day 3, 08:00\nS: Patient's adult child reports he is \"more confused and sleepy\" this morning. Complaining of feeling very weak.\nB: Admitted 3 days ago for pneumonia. Has been on vancomycin and cefepime. History of COPD, HTN, T2DM. DNR/DNI status confirmed.\nA: Acute change in condition. Patient is lethargic, slow to respond to questions, demonstrating [altered mental status]. Skin is warm and flushed. [BP is 88/50 mmHg] (MAP 63), with [HR 135/min] in sinus tachycardia. RR 32/min, [Temp 102.8°F (39.3°C)]. SpO2 89% on 2L NC. Auscultation reveals [coarse crackles bilaterally]. Has a [productive cough with purulent sputum]. Labs from 07:30 show [WBC 18,000/mm³] and [Lactate 4.5 mmol/L]. Foley catheter shows [urine output of <0.5 mL/kg/hr] over the last 4 hours.\nR: Paged physician for evaluation. Recommend rapid fluid bolus and consideration for vasopressor support. Continue to monitor hemodynamics closely."
+            },
+            {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "08:00: BP 88/50 mmHg, HR 135 bpm, RR 32, Temp 102.8°F (39.3°C), SpO2 89% on 2L NC\n07:00: BP 92/54 mmHg, HR 128 bpm, RR 28, Temp 102.2°F (39.0°C), SpO2 91% on 2L NC\n06:00: BP 98/60 mmHg, HR 120 bpm, RR 24, Temp 101.8°F (38.8°C), SpO2 93% on 2L NC\n05:00: BP 102/64 mmHg, HR 115 bpm, RR 22, Temp 101.5°F (38.6°C), SpO2 94% on 2L NC"
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "headers": [
+                        "Time",
+                        "Temp",
+                        "HR",
+                        "RR",
+                        "BP (MAP)",
+                        "SpO₂"
+                    ],
+                    "rows": [
+                        [
+                            "08:00",
+                            "102.8°F (39.3°C)",
+                            "135",
+                            "32",
+                            "88/50 (63)",
+                            "89% on 2L NC"
+                        ],
+                        [
+                            "07:00",
+                            "102.2°F (39.0°C)",
+                            "128",
+                            "28",
+                            "92/54 (67)",
+                            "91% on 2L NC"
+                        ],
+                        [
+                            "06:00",
+                            "101.8°F (38.8°C)",
+                            "120",
+                            "24",
+                            "98/60 (73)",
+                            "93% on 2L NC"
+                        ],
+                        [
+                            "05:00",
+                            "101.5°F (38.6°C)",
+                            "115",
+                            "22",
+                            "102/64 (77)",
+                            "94% on 2L NC"
+                        ]
+                    ]
+                }
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "WBC: 18,000/mm3 (High)\nLactate: 4.5 mmol/L (High)\nCreatinine: 2.1 mg/dL (High)\nBUN: 35 mg/dL (High)\nPlatelets: 90,000/mm3 (Low)\nProcalcitonin: 15 ng/mL (High)\nBlood cultures pending\nSputum Culture: Gram-negative rods identified"
+                "title": "Lab Diagnostics",
+                "content": {
+                    "headers": [
+                        "Test",
+                        "Result",
+                        "Unit",
+                        "Reference Range",
+                        "Status"
+                    ],
+                    "rows": [
+                        [
+                            "WBC",
+                            "18.0",
+                            "x10³/mm³",
+                            "4.5 - 11.0",
+                            "High"
+                        ],
+                        [
+                            "Lactate, Venous",
+                            "4.5",
+                            "mmol/L",
+                            "0.5 - 2.2",
+                            "High"
+                        ],
+                        [
+                            "Creatinine",
+                            "2.1",
+                            "mg/dL",
+                            "0.6 - 1.2",
+                            "High"
+                        ],
+                        [
+                            "BUN",
+                            "35",
+                            "mg/dL",
+                            "10 - 20",
+                            "High"
+                        ],
+                        [
+                            "Platelets",
+                            "90",
+                            "x10³/mm³",
+                            "150 - 450",
+                            "Low"
+                        ],
+                        [
+                            "Procalcitonin",
+                            "15.2",
+                            "ng/mL",
+                            "< 0.15",
+                            "High"
+                        ],
+                        [
+                            "Blood Cultures",
+                            "Pending",
+                            "",
+                            "",
+                            ""
+                        ],
+                        [
+                            "Sputum Culture",
+                            "Gram-negative rods",
+                            "",
+                            "",
+                            ""
+                        ]
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Time: 08:00\nGeneral: Lethargic, appears acutely ill.\nNeurological: GCS 13 (E4, V4, M5). Slow to respond to verbal stimuli. Not oriented to time or place.\nCardiovascular: Tachycardic with S1/S2 regular. Pulses +1 peripherally. Capillary refill >3 seconds. Skin warm and flushed.\nRespiratory: Labored breathing with use of accessory muscles. Coarse crackles auscultated bilaterally.\nGI/GU: Abdomen soft, non-tender. Foley catheter in place, draining scant amber urine."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "Chest X-ray: Bilateral infiltrates consistent with pneumonia. No pneumothorax noted."
+                "content": "Exam: Chest X-ray, Portable AP\nDate: Day 3, 07:45\nFindings: Worsening bilateral airspace opacities, more prominent in the lower lobes, consistent with progressive pneumonia. No evidence of large pleural effusion or pneumothorax. Cardiomediastinal silhouette is within normal limits.\nImpression: Progressive bilateral pneumonia."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "headers": [
+                        "Order Date/Time",
+                        "Action",
+                        "Frequency/Status"
+                    ],
+                    "rows": [
+                        [
+                            "Day 1, 14:30",
+                            "Vancomycin 1g IV",
+                            "q12h"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Cefepime 2g IV",
+                            "q8h"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "0.9% Sodium Chloride",
+                            "75 mL/hr"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Oxygen via Nasal Cannula",
+                            "Titrate to keep SpO₂ >92%"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Acetaminophen 650mg PO",
+                            "q4h PRN for Temp >101°F"
+                        ],
+                        [
+                            "Day 1, 14:30",
+                            "Vital signs",
+                            "q4h"
+                        ],
+                        [
+                            "Day 3, 08:15",
+                            "STAT 0.9% Sodium Chloride",
+                            "30 mL/kg IV bolus over 1 hour"
+                        ],
+                        [
+                            "Day 3, 08:15",
+                            "Vital signs",
+                            "q15 min"
+                        ],
+                        [
+                            "Day 3, 08:15",
+                            "STAT Blood Cultures x2",
+                            ""
+                        ]
+                    ]
+                }
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "Vancomycin 1g IV q12h (Last dose: 06:00)\nCefepime 2g IV q8h (Last dose: 02:00)\nAcetaminophen 650mg PO q4h PRN for fever\nOxygen 2L via nasal cannula"
-            },
-            {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "See separate SBAR tab."
+                "title": "MAR Console",
+                "content": {
+                    "headers": [
+                        "Medication",
+                        "Dose",
+                        "Route",
+                        "Frequency",
+                        "Last Administered"
+                    ],
+                    "rows": [
+                        [
+                            "Vancomycin",
+                            "1g",
+                            "IV",
+                            "q12h",
+                            "Day 3, 06:00"
+                        ],
+                        [
+                            "Cefepime",
+                            "2g",
+                            "IV",
+                            "q8h",
+                            "Day 3, 02:00"
+                        ],
+                        [
+                            "Acetaminophen",
+                            "650mg",
+                            "PO",
+                            "q4h PRN",
+                            "Day 3, 04:15"
+                        ],
+                        [
+                            "0.9% Sodium Chloride",
+                            "75 mL/hr",
+                            "IV",
+                            "Continuous",
+                            "Ongoing"
+                        ]
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Infection Control and Prevention",
-        "difficulty": 5,
-        "topicTags": [
-            "Infection Control: Sepsis & Multi-Drug Resistance"
+    "rationale": {
+        "correct": "Septic shock is a life-threatening condition characterized by persistent hypotension and cellular metabolic abnormalities despite adequate fluid resuscitation. The key findings are those that demonstrate circulatory collapse and end-organ dysfunction. These include hypotension (BP 88/50 mmHg), compensatory tachycardia (HR 135/min), elevated lactate (4.5 mmol/L) indicating tissue hypoperfusion, and signs of organ failure such as altered mental status (brain) and oliguria (kidneys).",
+        "incorrect": "Findings such as fever, cough, crackles, and leukocytosis are indicative of the underlying infection and the systemic inflammatory response (sepsis). However, they do not specifically define the progression to septic shock. Septic shock is a state of acute circulatory failure, so the most critical findings are those related to perfusion (BP, lactate) and organ damage resulting from that poor perfusion (AMS, low urine output).",
+        "answerBreakdown": [
+            {
+                "optionId": "opt-1",
+                "content": "Correct. Altered mental status is a critical sign of end-organ dysfunction, specifically cerebral hypoperfusion, which is a hallmark of septic shock."
+            },
+            {
+                "optionId": "opt-2",
+                "content": "Correct. A blood pressure of 88/50 mmHg (MAP < 65 mmHg) indicates persistent hypotension that is unresponsive to initial fluid challenges, a defining characteristic of septic shock."
+            },
+            {
+                "optionId": "opt-3",
+                "content": "Correct. Tachycardia is a compensatory mechanism where the heart beats faster to maintain cardiac output in the face of systemic vasodilation and decreased vascular resistance caused by sepsis."
+            },
+            {
+                "optionId": "opt-4",
+                "content": "Incorrect. Fever is a sign of the systemic inflammatory response (SIRS) and sepsis, but it is not specific to septic shock. Patients in shock can also be normothermic or hypothermic."
+            },
+            {
+                "optionId": "opt-5",
+                "content": "Incorrect. Coarse crackles are a finding related to the underlying pneumonia (the source of infection), not a direct indicator of the systemic circulatory collapse seen in septic shock."
+            },
+            {
+                "optionId": "opt-6",
+                "content": "Incorrect. A productive cough with purulent sputum points to the source of the infection (pneumonia) but does not differentiate sepsis from the more severe state of septic shock."
+            },
+            {
+                "optionId": "opt-7",
+                "content": "Incorrect. An elevated WBC count (leukocytosis) confirms the presence of an infection and systemic inflammation but is present in sepsis and does not, by itself, indicate progression to shock."
+            },
+            {
+                "optionId": "opt-8",
+                "content": "Correct. An elevated lactate level (>2 mmol/L) is a key indicator of tissue hypoperfusion and anaerobic metabolism, reflecting cellular dysfunction due to shock."
+            },
+            {
+                "optionId": "opt-9",
+                "content": "Correct. Decreased urine output (oliguria) is a sign of acute kidney injury due to renal hypoperfusion, another critical indicator of end-organ damage in septic shock."
+            }
+        ],
+        "clinicalPearls": [
+            "The qSOFA (quick Sepsis-related Organ Failure Assessment) score is a bedside tool using three criteria: altered mental status (GCS <15), fast respiratory rate (≥22/min), and low blood pressure (SBP ≤100 mmHg). A score of ≥2 suggests a high risk for poor outcomes.",
+            "Septic shock is defined by sepsis criteria plus the need for vasopressors to maintain a MAP ≥ 65 mmHg AND a serum lactate > 2 mmol/L, despite adequate fluid resuscitation.",
+            "In the early 'warm shock' phase of sepsis, patients may have warm, flushed skin due to peripheral vasodilation. As shock progresses to the 'cold shock' phase, peripheral vasoconstriction occurs, leading to cool, clammy skin."
+        ],
+        "questionTrap": "Do not confuse the signs of infection (sepsis) with the signs of circulatory collapse and organ failure (septic shock). While fever and high WBC indicate sepsis, the question asks for indicators of progression to SHOCK, which are primarily perfusion-related (hypotension, high lactate, organ dysfunction).",
+        "mnemonic": "For septic shock criteria, remember 'L-A-M-P':\nL - Lactate > 2 mmol/L\nA - Altered Mental Status\nM - MAP < 65 mmHg (requiring vasopressors)\nP - Persistent Hypotension despite fluid resuscitation",
+        "reviewUnits": [
+            "Sepsis and Septic Shock",
+            "Hemodynamic Monitoring",
+            "Acid-Base Balance",
+            "Infection Control"
         ]
     },
-    "rationale": {
-        "correct": "Findings supporting septic shock include: Hypotension (BP 88/50 mmHg), Tachycardia (HR 135 bpm), Elevated temperature (102.8°F/39.3°C), Elevated Lactate (4.5 mmol/L), Elevated WBC (18,000/mm3), Thrombocytopenia (Platelets 90,000/mm3), Elevated Procalcitonin (15 ng/mL), and Elevated Creatinine (2.1 mg/dL). These indicate systemic inflammation, poor perfusion, and organ dysfunction characteristic of septic shock. The patient's history of pneumonia and the identification of gram-negative rods in the sputum culture further support the diagnosis. Septic shock is defined as sepsis with circulatory and cellular/metabolic dysfunction.",
-        "incorrect": "While elevated BUN (35 mg/dL) and decreased SpO2 (89% on 2L NC) are abnormal, they are less specific indicators of septic shock than the other findings. Elevated BUN can be related to dehydration or kidney injury, but does not definitively point to septic shock. Hypoxia can be present in pneumonia without the patient necessarily being in septic shock. Acetaminophen is used for fever management and does not directly contribute to the diagnosis of septic shock itself. The current antibiotic orders, though relevant to the patient's overall care, are not direct indicators of the presence of septic shock.",
-        "clinicalPearls": [
-            "Early recognition and intervention are crucial in managing sepsis and septic shock to improve patient outcomes. The Surviving Sepsis Campaign provides guidelines for management.",
-            "Lactate levels are a key indicator of tissue hypoperfusion and anaerobic metabolism in sepsis. A rising lactate level despite resuscitation efforts is a poor prognostic sign.",
-            "Procalcitonin is a more specific marker of bacterial infection than other inflammatory markers. However, it should be interpreted in conjunction with other clinical findings."
-        ],
-        "questionTrap": {
-            "trap": "Selecting findings that are abnormal but not directly indicative of septic shock. For example, focusing solely on the pneumonia diagnosis without considering the systemic signs of shock.",
-            "howToOvercome": "Focus on the specific criteria for diagnosing septic shock, which includes hypotension despite fluid resuscitation, elevated lactate, and signs of end-organ damage. Remember that sepsis is a systemic response to infection, and septic shock is a life-threatening complication of sepsis."
-        },
-        "mnemonic": {
-            "title": "S.E.P.S.I.S.",
-            "expansion": "Shivering, Extreme pain or general discomfort, Pale or discolored skin, Sleepy, difficult to rouse, I feel like I might die, Short of breath"
-        }
+    "scoring": {
+        "method": "+/-",
+        "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Analyze",
+        "cjmmStep": "Analyze Cues",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "correctOptionId": "opt-1",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:00:30.556Z"
 }

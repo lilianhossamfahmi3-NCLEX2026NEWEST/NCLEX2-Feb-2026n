@@ -1,96 +1,286 @@
 {
     "id": "New-v26-1772080636918-2465",
-    "stem": "Based on the patient's presentation, the nurse should anticipate administering broad-spectrum antibiotics within [dropdown] to improve patient outcomes in sepsis.",
+    "stem": "The nurse is implementing the sepsis bundle for this client. Based on the Surviving Sepsis Campaign guidelines, the nurse must administer the prescribed broad-spectrum antibiotics within [dropdown] of initial recognition.",
     "type": "clozeDropdown",
     "options": [
         {
-            "id": "a",
+            "id": "opt_1",
             "text": "one hour"
         },
         {
-            "id": "b",
+            "id": "opt_2",
             "text": "three hours"
         },
         {
-            "id": "c",
+            "id": "opt_3",
             "text": "six hours"
         },
         {
-            "id": "d",
+            "id": "opt_4",
             "text": "twelve hours"
         }
     ],
     "scoring": {
-        "method": "allOrNothing",
-        "maxPoints": 1
+        "method": "0/1",
+        "maxPoints": 1,
+        "correctAnswer": {
+            "dropdown_1": "opt_1"
+        }
     },
     "pedagogy": {
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "Generate Solutions",
         "topicTags": [
             "Sepsis",
-            "Infection",
-            "Pharmacology"
+            "Septic Shock",
+            "Infection Control",
+            "Pharmacology",
+            "Time-Sensitive Interventions"
         ],
-        "bloomLevel": "apply",
+        "bloomLevel": "Applying",
         "difficulty": 3,
         "nclexCategory": "Physiological Adaptation"
     },
     "rationale": {
-        "correct": "Early administration of broad-spectrum antibiotics is crucial in the management of sepsis to reduce mortality and improve patient outcomes. Guidelines recommend administration within one hour of sepsis recognition. This rapid intervention targets the potential pathogens causing the infection, preventing further systemic damage and organ dysfunction. The 'Surviving Sepsis Campaign' emphasizes this time-sensitive approach to improve patient survival rates.",
-        "mnemonic": {
-            "SEPSIS": "Seek source, Evaluate vitals, Prevent infection spread, Support organ function, Investigate cause, Stabilize patient"
-        },
-        "incorrect": "Delaying antibiotic administration can significantly worsen patient outcomes in sepsis, leading to increased morbidity and mortality. The progression of sepsis can be rapid, and each hour of delay in antibiotic administration is associated with a measurable decrease in survival rates.",
-        "questionTrap": {
-            "delay": "Delaying antibiotic administration can worsen patient outcomes. This is a time-sensitive intervention. While waiting for culture results, initiate empiric antibiotic therapy.",
-            "cultures": "While obtaining blood cultures is important, antibiotics should not be delayed while waiting for results if sepsis is suspected. Obtain cultures promptly, but administer antibiotics within the first hour."
-        },
+        "correct": "The Surviving Sepsis Campaign mandates antibiotic administration within one hour of sepsis recognition. This is a critical, time-sensitive intervention because uncontrolled bacterial proliferation triggers a massive inflammatory response (cytokine storm), leading to widespread endothelial damage, vasodilation, and capillary leakage. Delaying antibiotics allows this cascade to progress, causing tissue hypoperfusion (indicated by the elevated lactate), organ dysfunction (indicated by the high creatinine), and ultimately, irreversible septic shock. Each hour of delay is associated with a 7-8% increase in mortality.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_1",
+                "correct": true,
+                "rationale": "Correct. This aligns with the evidence-based 'Hour-1 Bundle' for sepsis, which is proven to significantly reduce mortality by rapidly controlling the source of infection and halting the systemic inflammatory cascade."
+            },
+            {
+                "optionId": "opt_2",
+                "correct": false,
+                "rationale": "Incorrect. This was a component of older sepsis guidelines. Current evidence demonstrates that a three-hour delay is associated with a substantial increase in mortality. The client's rapid decline (worsening hypotension) necessitates immediate intervention, not a three-hour wait."
+            },
+            {
+                "optionId": "opt_3",
+                "correct": false,
+                "rationale": "Incorrect. A six-hour delay is a critical safety error and would likely allow the client to progress to severe septic shock with multi-organ dysfunction syndrome (MODS). At this point, the inflammatory damage may become irreversible, making resuscitation much more difficult."
+            },
+            {
+                "optionId": "opt_4",
+                "correct": false,
+                "rationale": "Incorrect. This represents a gross deviation from the standard of care. A twelve-hour delay in a client with clear signs of septic shock carries an extremely high risk of mortality and is considered medical negligence."
+            }
+        ],
+        "mnemonic": "HOUR-1: Hypotension & High Lactate check, Obtain cultures, Unleash fluids (30mL/kg), Rapid antibiotics (within 1 hour).",
+        "questionTrap": "The 'Culture Before Antibiotics' Trap: While it is critical to obtain blood cultures before administering antibiotics to identify the specific pathogen, this step must not delay the antibiotic administration. The priority is to draw the cultures quickly and immediately proceed with the antibiotic infusion within the one-hour window.",
         "clinicalPearls": [
-            "The Surviving Sepsis Campaign recommends administering broad-spectrum antibiotics within one hour of sepsis recognition to improve patient outcomes.",
-            "Blood cultures should be obtained prior to antibiotic administration, but antibiotics should not be delayed while waiting for culture results. Obtain cultures and administer antibiotics promptly.",
-            "Fluid resuscitation is also a critical component of sepsis management, often administered concurrently with antibiotics.",
-            "Monitor the patient closely for signs of improvement or deterioration after antibiotic administration, including vital signs, mental status, and urine output."
+            "The 'Hour-1 Bundle' is not a sequence; many actions (IV access, fluid bolus, culture draws, antibiotic prep) should occur in parallel to meet the time goal.",
+            "Lactate level is a crucial indicator of tissue hypoperfusion. A level >2 mmol/L is a key criterion for sepsis, and a level >4 mmol/L is associated with septic shock and higher mortality.",
+            "Reassessment is key. After the initial fluid bolus and antibiotic administration, the nurse must continuously monitor vital signs, urine output, and mental status to evaluate the client's response."
         ]
     },
     "itemContext": {
-        "sbar": "S: The patient is a 72-year-old male who arrived at 08:00, presenting with a fever of 102.5°F (39.2°C), chills, and altered mental status. He reports a recent urinary tract infection treated as an outpatient. B: The patient has a history of hypertension and type 2 diabetes, managed with oral medications. He lives independently and is generally active. A: At 08:15, the patient's blood pressure is 90/60 mmHg, heart rate is 120 bpm, and respiratory rate is 28 breaths/min. Oxygen saturation is 92% on room air. Lactate is elevated at 3.5 mmol/L. The patient is confused and disoriented. Assessment indicates possible sepsis secondary to UTI. R: I recommend contacting the provider immediately for orders for broad-spectrum antibiotics, a bolus of IV fluids, and further evaluation for sepsis management.",
+        "patient": {
+            "age": "72 years",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "chiefComplaint": "Fever, chills, and altered mental status"
+        },
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: The patient is a 72-year-old male who arrived at 08:00, presenting with a fever of 102.5°F (39.2°C), chills, and altered mental status. He reports a recent urinary tract infection treated as an outpatient. B: The patient has a history of hypertension and type 2 diabetes, managed with oral medications. He lives independently and is generally active. A: At 08:15, the patient's blood pressure is 90/60 mmHg, heart rate is 120 bpm, and respiratory rate is 28 breaths/min. Oxygen saturation is 92% on room air. Lactate is elevated at 3.5 mmol/L. The patient is confused and disoriented. Assessment indicates possible sepsis secondary to UTI. R: I recommend contacting the provider immediately for orders for broad-spectrum antibiotics, a bolus of IV fluids, and further evaluation for sepsis management."
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "type": "nursesNote",
+                "notes": [
+                    {
+                        "time": "08:00",
+                        "type": "Admission Note",
+                        "content": "S: 72-year-old male brought to the ED by his adult child for acute onset of fever, chills, and confusion. Reports recent outpatient treatment for a urinary tract infection that did not resolve. B: History of hypertension and type 2 diabetes. Adult child reports client has been non-adherent with metformin recently due to cost, leading to poor glycemic control. Client lives alone in a rural area with limited access to follow-up care, a potential barrier to consistent healthcare. A: Client appears lethargic, skin is flushed and warm to the touch. Disoriented to time and place. R: Initiate sepsis protocol. Prepare for immediate IV access, fluid resuscitation, and comprehensive lab draws. Provider is at the bedside evaluating the client."
+                    },
+                    {
+                        "time": "08:30",
+                        "type": "Progress Note",
+                        "content": "S: Client remains confused but is rousable to voice. B: Initial vitals show hypotension (BP 90/60 mmHg) and significant tachycardia (HR 120/min). A: Two large-bore peripheral IVs have been established. Blood cultures from two separate sites, lactate, CBC, and CMP drawn and sent STAT. Urine sample obtained for analysis and culture. Provider has entered initial orders for the sepsis bundle. R: Beginning 30 mL/kg crystalloid bolus immediately per protocol. Preparing to administer piperacillin-tazobactam as ordered once delivered from pharmacy. Continuing hourly vital sign monitoring and neurological checks."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<b>Time: 08:15</b><br>Temperature: 102.5°F (39.2°C)<br>Blood Pressure: 90/60 mmHg<br>Heart Rate: 120 bpm<br>Respiratory Rate: 28 breaths/min<br>Oxygen Saturation: 92% on room air"
+                "title": "Vitals & Telemetry",
+                "type": "flowsheet",
+                "data": [
+                    {
+                        "time": "08:15",
+                        "temp": "102.5°F (39.2°C)",
+                        "hr": "120",
+                        "rr": "28",
+                        "bp": "90/60 (MAP 70)",
+                        "spo2": "92% on Room Air"
+                    },
+                    {
+                        "time": "08:30",
+                        "temp": "102.8°F (39.3°C)",
+                        "hr": "124",
+                        "rr": "26",
+                        "bp": "88/58 (MAP 68)",
+                        "spo2": "93% on 2L NC"
+                    },
+                    {
+                        "time": "08:45",
+                        "temp": "102.6°F (39.2°C)",
+                        "hr": "128",
+                        "rr": "28",
+                        "bp": "86/54 (MAP 65)",
+                        "spo2": "92% on 2L NC"
+                    }
+                ]
             },
             {
                 "id": "labs",
-                "title": "Labs",
-                "content": "<b>Time: 08:15</b><br>Lactate: 3.5 mmol/L<br><br><i>Pending Labs:</i><br>CBC, Blood Cultures, Urinalysis, Urine Culture"
+                "title": "Lab Diagnostics",
+                "type": "labReport",
+                "collectedAt": "08:20",
+                "panels": [
+                    {
+                        "name": "STAT Panel",
+                        "results": [
+                            {
+                                "test": "Lactate",
+                                "result": "4.2",
+                                "unit": "mmol/L",
+                                "reference": "0.5-2.2",
+                                "status": "High"
+                            },
+                            {
+                                "test": "WBC",
+                                "result": "18.5",
+                                "unit": "x10^9/L",
+                                "reference": "4.5-11.0",
+                                "status": "High"
+                            },
+                            {
+                                "test": "Creatinine",
+                                "result": "1.6",
+                                "unit": "mg/dL",
+                                "reference": "0.6-1.2",
+                                "status": "High"
+                            },
+                            {
+                                "test": "Glucose",
+                                "result": "250",
+                                "unit": "mg/dL",
+                                "reference": "70-110",
+                                "status": "High"
+                            },
+                            {
+                                "test": "Procalcitonin",
+                                "result": "3.2",
+                                "unit": "ng/mL",
+                                "reference": "<0.1",
+                                "status": "High"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "type": "assessmentNote",
+                "time": "08:15",
+                "findings": [
+                    {
+                        "system": "Neurological",
+                        "finding": "Disoriented to time and place. GCS 14 (E4, V4, M6). Lethargic but rousable to verbal stimuli."
+                    },
+                    {
+                        "system": "Cardiovascular",
+                        "finding": "Tachycardic with S1/S2 regular. Peripheral pulses +1 bilaterally. Capillary refill 3 seconds. No edema noted."
+                    },
+                    {
+                        "system": "Respiratory",
+                        "finding": "Tachypneic with clear breath sounds bilaterally. No accessory muscle use noted. Chest wall expansion is symmetrical."
+                    },
+                    {
+                        "system": "Integumentary",
+                        "finding": "Skin is warm, dry, and flushed. No rashes, lesions, or signs of breakdown."
+                    }
+                ]
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available at this time."
+                "type": "radiologyReport",
+                "reports": [
+                    {
+                        "procedure": "Portable Chest X-ray (Single View)",
+                        "time": "08:45",
+                        "indication": "Sepsis, rule out pneumonia.",
+                        "impression": "No acute cardiopulmonary process. Lungs are clear without evidence of consolidation, effusion, or edema. Cardiomediastinal silhouette is within normal limits for age."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "type": "orders",
+                "orders": [
+                    {
+                        "time": "08:20",
+                        "action": "Obtain Blood Cultures x2 (from two separate sites)",
+                        "status": "STAT"
+                    },
+                    {
+                        "time": "08:20",
+                        "action": "Obtain Lactate, CBC, CMP, Urinalysis with Culture",
+                        "status": "STAT"
+                    },
+                    {
+                        "time": "08:20",
+                        "action": "Initiate 0.9% Sodium Chloride IV bolus at 30 mL/kg over 1 hour",
+                        "status": "STAT"
+                    },
+                    {
+                        "time": "08:20",
+                        "action": "Piperacillin-tazobactam 3.375 g IV",
+                        "status": "STAT, administer after cultures are drawn"
+                    },
+                    {
+                        "time": "08:20",
+                        "action": "Acetaminophen 1000 mg PO for Temp >101.5°F",
+                        "status": "PRN Q6H"
+                    }
+                ]
             },
             {
                 "id": "mar",
-                "title": "MAR",
-                "content": "No medications administered since admission at 08:00."
+                "title": "MAR Console",
+                "type": "mar",
+                "medications": [
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "10 mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "On Hold"
+                    },
+                    {
+                        "medication": "Metformin",
+                        "dose": "1000 mg",
+                        "route": "PO",
+                        "frequency": "BID",
+                        "lastAdministered": "On Hold"
+                    },
+                    {
+                        "medication": "Piperacillin-tazobactam",
+                        "dose": "3.375 g",
+                        "route": "IV",
+                        "frequency": "Q6H",
+                        "lastAdministered": "Due Now"
+                    },
+                    {
+                        "medication": "Acetaminophen",
+                        "dose": "1000 mg",
+                        "route": "PO",
+                        "frequency": "Q6H PRN Fever",
+                        "lastAdministered": "Not Given"
+                    }
+                ]
             }
-        ],
-        "patient": {
-            "age": 72,
-            "gender": "Male",
-            "chiefComplaint": "Fever, chills, and altered mental status",
-            "medicalHistory": [
-                "Hypertension",
-                "Type 2 Diabetes"
-            ]
-        }
+        ]
     },
-    "correctAnswer": "one hour",
-    "sentinelStatus": "deep_healed_v2026"
+    "sentinelStatus": "upgraded_standard_2026_hf"
 }

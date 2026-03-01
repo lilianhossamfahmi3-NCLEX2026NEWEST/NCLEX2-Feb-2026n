@@ -1,23 +1,23 @@
 {
     "id": "bowtie_blood_delayed_v2026_32",
     "type": "bowtie",
-    "stem": "A 58-year-old client received a transfusion of 2 units of packed red blood cells 7 days ago. The client returns to the clinic reporting fatigue and yellowing of the eyes. Based on the documentation, complete the bowtie by selecting the most likely condition, two actions the nurse should take, and two parameters the nurse should monitor.",
+    "stem": "A 58-year-old client presents to the clinic 7 days after receiving a blood transfusion, reporting new-onset fatigue and yellowing of the eyes. Based on the provided EHR documentation, identify the client's condition, two necessary actions, and two parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
                 "title": "SBAR",
-                "content": "<b>Situation:</b> This is regarding a possible late transfusion complication. The patient is a 58-year-old who received a blood transfusion 7 days ago and is now presenting with fatigue and jaundice.<br><b>Background:</b> The patient has a history of anemia and has received multiple transfusions in the past. The most recent transfusion was during knee surgery a week ago. <br><b>Assessment:</b> At 09:00, the client exhibited mild scleral icterus and reported dark-colored urine. Laboratory results indicate a decrease in hematocrit since discharge, and the DAT (Coombs) test is now positive.<br><b>Recommendation:</b> I recommend ordering a Direct Antiglobulin Test (DAT) and a Bilirubin screen to assess for a delayed hemolytic transfusion reaction. Consider IV fluids to support renal perfusion."
+                "content": "<b>Situation:</b> Nurse at the outpatient clinic calling about a 58-year-old male, seen at 09:00. He is 7 days post-PRBC transfusion for post-operative anemia and now reports new-onset fatigue and jaundice. <b>Background:</b> He received two units of PRBCs one week ago after knee surgery. His discharge hemoglobin was stable at 10.2 g/dL. <b>Assessment:</b> He has scleral icterus, dark urine, and a temp of 37.9°C. Labs show Hgb dropped to 7.4 g/dL, indirect bilirubin is 2.8 mg/dL, and DAT is positive. <b>Recommendation:</b> Suspect delayed hemolytic transfusion reaction. Request orders to start IV fluids for renal protection and to notify the blood bank for antibody screening."
             },
             {
                 "id": "labs",
                 "title": "Laboratory Trends",
-                "content": "<table><thead><tr><th>Test</th><th>Result (Post-op)</th><th>Result (Today)</th><th>Reference</th></tr></thead><tbody><tr><td>Hemoglobin (Hgb)</td><td>10.2 g/dL</td><td>7.4 g/dL</td><td>12.0–16.0</td></tr><tr><td>Indirect Bilirubin</td><td>0.4 mg/dL</td><td>2.8 mg/dL (High)</td><td>0.1–1.0</td></tr><tr><td>Urine Color</td><td>Amber</td><td>Dark/Tea-Colored</td><td>Clear/Yellow</td></tr><tr><td>DAT (Coombs)</td><td>N/A</td><td>Positive</td><td>Negative</td></tr></tbody></table>"
+                "content": "<table><thead><tr><th>Test</th><th>Result (Post-op)</th><th>Result (Today)</th><th>Reference</th></tr></thead><tbody><tr><td>Hemoglobin (Hgb)</td><td>10.2 g/dL</td><td>7.4 g/dL</td><td>12.0–16.0 g/dL</td></tr><tr><td>Indirect Bilirubin</td><td>0.4 mg/dL</td><td>2.8 mg/dL</td><td>0.1–1.0 mg/dL</td></tr><tr><td>Urine Color</td><td>Amber</td><td>Dark/Tea-Colored</td><td>Clear/Yellow</td></tr><tr><td>DAT (Coombs)</td><td>N/A</td><td>Positive</td><td>Negative</td></tr></tbody></table>"
             },
             {
                 "id": "vitals",
                 "title": "Vital Signs",
-                "content": "BP 118/74, HR 88, RR 18, T 100.2°F. SpO2 95%."
+                "content": "<b>Time:</b> 09:00<br><b>Blood Pressure:</b> 118/74 mmHg<br><b>Heart Rate:</b> 88/min<br><b>Respiratory Rate:</b> 18/min<br><b>Temperature:</b> 100.2°F (37.9°C)<br><b>SpO2:</b> 95% on room air"
             },
             {
                 "id": "radiology",
@@ -35,51 +35,62 @@
         "conditionOptions": [
             {
                 "id": "c1",
-                "text": "Acute Hemolytic Transfusion Reaction"
+                "text": "Acute Hemolytic Transfusion Reaction",
+                "hoverRationale": "This is clinically flawed. Acute reactions occur within minutes to hours of transfusion, not days later. They are typically caused by ABO incompatibility and present with more severe symptoms like fever, chills, and hypotension."
             },
             {
                 "id": "c2",
-                "text": "Delayed Hemolytic Transfusion Reaction (DHTR)"
+                "text": "Delayed Hemolytic Transfusion Reaction (DHTR)",
+                "hoverRationale": "This is the correct condition. DHTR occurs 3-14 days post-transfusion due to an anamnestic antibody response against minor antigens, causing extravascular hemolysis. This leads to jaundice, anemia, and a positive DAT."
             },
             {
                 "id": "c3",
-                "text": "Post-Operative Infection (Sepsis)"
+                "text": "Post-Operative Infection (Sepsis)",
+                "hoverRationale": "This is clinically flawed. While sepsis can cause a low-grade fever, it does not directly explain the combination of jaundice, a significant Hgb drop, and a positive DAT, which are hallmark signs of hemolysis."
             }
         ],
         "actionOptions": [
             {
                 "id": "a1",
-                "text": "Notify the Blood Bank to screen for newly developed antibodies."
+                "text": "Notify the Blood Bank to screen for newly developed antibodies.",
+                "hoverRationale": "This is a correct action. Notifying the blood bank is critical to identify the specific antibody causing the reaction. This ensures that any future transfusions are negative for the corresponding antigen, preventing recurrence."
             },
             {
                 "id": "a2",
-                "text": "Administer IV fluids to maintain renal perfusion as prescribed."
+                "text": "Administer IV fluids to maintain renal perfusion as prescribed.",
+                "hoverRationale": "This is a correct action. Hemolysis releases free hemoglobin into the plasma, which can cause acute tubular necrosis. IV fluids help flush the kidneys and maintain adequate perfusion, preventing this complication."
             },
             {
                 "id": "a3",
-                "text": "Perform a STAT needle decompression of the chest."
+                "text": "Perform a STAT needle decompression of the chest.",
+                "hoverRationale": "This is clinically flawed. Needle decompression is an emergency treatment for a tension pneumothorax. The client's assessment findings, such as stable respiratory rate and SpO2, do not indicate this condition."
             },
             {
                 "id": "a4",
-                "text": "Apply cooling blankets and withhold all lab work."
+                "text": "Apply cooling blankets and withhold all lab work.",
+                "hoverRationale": "This is clinically flawed. While a cooling blanket may address the low-grade fever, withholding lab work is dangerous. Serial labs are essential to monitor the severity of hemolysis and guide further treatment."
             }
         ],
         "parameterOptions": [
             {
                 "id": "p1",
-                "text": "Serial Hemoglobin and Hematocrit levels"
+                "text": "Serial Hemoglobin and Hematocrit levels",
+                "hoverRationale": "This is a correct parameter. Monitoring Hgb and Hct is essential to trend the degree of ongoing hemolysis and anemia. A continued drop indicates the reaction is still active and may require further intervention."
             },
             {
                 "id": "p2",
-                "text": "Serum Indirect Bilirubin and Haptoglobin levels"
+                "text": "Serum Indirect Bilirubin and Haptoglobin levels",
+                "hoverRationale": "This is a correct parameter. Indirect bilirubin is a product of red blood cell breakdown, and haptoglobin binds free hemoglobin. Rising bilirubin and falling haptoglobin levels are direct markers of hemolysis severity."
             },
             {
                 "id": "p3",
-                "text": "Daily weight and abdominal girth"
+                "text": "Daily weight and abdominal girth",
+                "hoverRationale": "This is clinically flawed. While important for fluid status, these parameters are not the primary indicators for monitoring a hemolytic reaction. They are more relevant for conditions like heart failure or liver cirrhosis."
             },
             {
                 "id": "p4",
-                "text": "Presence of a positive Babinski sign"
+                "text": "Presence of a positive Babinski sign",
+                "hoverRationale": "This is clinically flawed. The Babinski sign is a neurological assessment finding used to check for upper motor neuron lesions. It is completely unrelated to the pathophysiology of a hemolytic transfusion reaction."
             }
         ]
     },
@@ -105,61 +116,9 @@
             "Hematology"
         ]
     },
-    "rationale": {
-        "correct": "The client is experiencing a Delayed Hemolytic Transfusion Reaction (DHTR) (c2), which typically occurs 3–14 days after transfusion due to an amnestic (memory) response to a previously encountered minor blood group antigen. This leads to the destruction of transfused red blood cells. Signs include a falling Hgb, rising indirect bilirubin (jaundice), dark urine, and a positive Coombs test (DAT). The nurse must notify the Blood Bank (a1) so future units can be cross-matched for the new antibody. Supporting the kidneys with IV fluids (a2) helps clear the hemoglobin breakdown products, preventing acute tubular necrosis. Tracking Hgb (p1) monitors the ongoing hemolysis, and Bilirubin/Haptoglobin (p2) assesses the severity of red cell breakdown.",
-        "clinicalPearls": [
-            "Acute Hemolytic Transfusion Reactions are usually due to ABO incompatibility, while Delayed Hemolytic Transfusion Reactions are due to minor blood group antigen incompatibility (Rh, Kidd, Kell).",
-            "Jaundice and dark urine occur because the body is breaking down red cells faster than the liver can process the bilirubin.",
-            "DHTR is often missed because the symptoms appear after the patient has been discharged from the hospital."
-        ],
-        "questionTrap": {
-            "trap": "Thinking this is a new bleed because the Hgb dropped.",
-            "howToOvercome": "Look at the Bilirubin and Urine! If the Hgb drops AND the Bilirubin rises/Urine is dark, it's hemolysis, not just an active bleed. A positive DAT confirms the presence of antibodies attacking the transfused red cells."
-        },
-        "mnemonic": {
-            "title": "Delayed = Days",
-            "expansion": "D-Days later. E-Eyes yellow (Jaundice). L-Lower Hgb. A-Antibody developed. Y-You must notify the blood bank!"
-        }
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "deep_healed_v2026",
-    "actions": [
-        {
-            "id": "a1",
-            "text": "Notify the Blood Bank to screen for newly developed antibodies."
-        },
-        {
-            "id": "a2",
-            "text": "Administer IV fluids to maintain renal perfusion as prescribed."
-        },
-        {
-            "id": "a3",
-            "text": "Perform a STAT needle decompression of the chest."
-        },
-        {
-            "id": "a4",
-            "text": "Apply cooling blankets and withhold all lab work."
-        }
-    ],
-    "parameters": [
-        {
-            "id": "p1",
-            "text": "Serial Hemoglobin and Hematocrit levels"
-        },
-        {
-            "id": "p2",
-            "text": "Serum Indirect Bilirubin and Haptoglobin levels"
-        },
-        {
-            "id": "p3",
-            "text": "Daily weight and abdominal girth"
-        },
-        {
-            "id": "p4",
-            "text": "Presence of a positive Babinski sign"
-        }
-    ]
+    "sentinelStatus": "deep_healed_v2026"
 }

@@ -1,60 +1,114 @@
 {
-    "id": "pleural_effusion_bowtie_v1",
+    "id": "pleural_effusion_bowtie_v3",
     "type": "bowtie",
-    "stem": "A client with heart failure reports sharp chest pain on inspiration and a dry cough. Physical exam reveals dullness on percussion and absent breath sounds at the right lung base. Complete the clinical bowtie.",
+    "sentinelStatus": "healed_v2026_v12",
+    "clinicalFeed": {
+        "format": "SBAR",
+        "time": "1030",
+        "content": "Good morning Dr. Smith, this is the nurse for John Doe. (S) I'm calling about his worsening respiratory status. He's reporting increased dyspnea and sharp, pleuritic pain on his right side. (B) He's a 68-year-old male admitted for a heart failure exacerbation. (A) His respiratory rate is 24 with an SpO2 of 92% on room air. I'm noting absent breath sounds at the right lung base. The 1000 chest x-ray confirms a moderate right-sided pleural effusion. (R) I recommend a thoracentesis to alleviate his symptoms."
+    },
+    "ehr": {
+        "tabs": [
+            {
+                "id": "patientProfile",
+                "label": "Patient Profile",
+                "content": "Name: John Doe\nAge: 68\nGender: Male\nDOB: 05/14/XXXX\nAllergies: Penicillin"
+            },
+            {
+                "id": "historyAndPhysical",
+                "label": "History & Physical",
+                "content": "Admitted: Today at 0700\nChief Complaint: Shortness of breath, leg swelling\n\nHistory of Present Illness: Client is a 68-year-old male with a history of chronic heart failure (ejection fraction 35%) and hypertension. Reports worsening dyspnea over the past 3 days.\n\nPhysical Exam (0900):\nGeneral: Alert and oriented, in mild respiratory distress.\nCardiovascular: Tachycardic, S3 gallop present. 2+ pitting edema bilateral lower extremities.\nRespiratory: Reports sharp pain in right chest on inspiration. Dry, non-productive cough. Absent breath sounds and dullness to percussion over the right lower lobe."
+            },
+            {
+                "id": "vitalSigns",
+                "label": "Vital Signs",
+                "content": "Time: 0900\nTemperature: 37.1°C (98.8°F)\nHeart Rate: 105 bpm\nRespiratory Rate: 24/min\nBlood Pressure: 148/88 mmHg\nSpO2: 92% on room air"
+            },
+            {
+                "id": "labs",
+                "label": "Labs",
+                "content": "Collection Time: 0800\n\nChemistry Panel:\nSodium: 137 mEq/L\nPotassium: 4.1 mEq/L\nBUN: 25 mg/dL\nCreatinine: 1.3 mg/dL\nAlbumin: 3.2 g/dL (Low)\n\nCardiac Markers:\nBNP: 850 pg/mL (High)"
+            },
+            {
+                "id": "diagnostics",
+                "label": "Diagnostics",
+                "content": "Test: Chest X-ray (PA and Lateral)\nTime: 1000\n\nFindings: Moderate right-sided pleural effusion with blunting of the right costophrenic angle. Cardiomegaly noted. No evidence of consolidation or pneumothorax."
+            }
+        ]
+    },
+    "stem": "The nurse is caring for a 68-year-old client with heart failure who has developed a pleural effusion. Based on the client's electronic health record, complete the bowtie to identify potential causes, appropriate actions, and parameters to monitor.",
+    "condition": "Pleural Effusion",
+    "potentialConditions": [
+        "Pleural Effusion",
+        "Heart Failure Exacerbation",
+        "Pneumonia",
+        "Pneumothorax",
+        "Pulmonary Embolism"
+    ],
     "causes": [
         {
-            "id": "c4",
-            "text": "Chest trauma"
-        },
-        {
-            "id": "c3",
-            "text": "Bacterial pneumonia"
+            "id": "c1",
+            "text": "Increased hydrostatic pressure",
+            "hoverRationale": "In heart failure, increased hydrostatic pressure within the pulmonary capillaries forces fluid out of the vasculature and into the pleural space, creating a transudative effusion."
         },
         {
             "id": "c2",
-            "text": "Decreased oncotic pressure"
+            "text": "Decreased oncotic pressure",
+            "hoverRationale": "Decreased oncotic pressure, evidenced by the client's low albumin, reduces the blood's ability to retain fluid within the vessels, contributing to the transudative effusion."
         },
         {
-            "id": "c1",
-            "text": "Increased hydrostatic pressure"
+            "id": "c3",
+            "text": "Bacterial pneumonia",
+            "hoverRationale": "The client is afebrile and the x-ray shows no consolidation, making pneumonia unlikely. This presentation is consistent with a transudative effusion from heart failure, not an infectious exudative one."
+        },
+        {
+            "id": "c4",
+            "text": "Chest trauma",
+            "hoverRationale": "There is no history of trauma in the client's record. Chest trauma typically causes a hemothorax, which is an accumulation of blood, not the serous fluid seen in this type of effusion."
         }
     ],
-    "condition": "Pleural Effusion",
     "actions": [
         {
             "id": "a1",
-            "text": "Prepare the client for thoracentesis"
-        },
-        {
-            "id": "a4",
-            "text": "Apply a high-flow non-rebreather mask"
-        },
-        {
-            "id": "a3",
-            "text": "Perform postural drainage"
+            "text": "Prepare the client for thoracentesis",
+            "hoverRationale": "Thoracentesis mechanically removes fluid from the pleural space. This allows the compressed lung to re-expand, which will improve gas exchange and alleviate the client's dyspnea."
         },
         {
             "id": "a2",
-            "text": "Position the client leaning forward over a bedside table"
+            "text": "Position client leaning forward over a bedside table",
+            "hoverRationale": "Positioning the client leaning forward over a bedside table widens the intercostal spaces. This anatomical adjustment allows for easier and safer needle insertion to access the pleural space."
+        },
+        {
+            "id": "a3",
+            "text": "Perform postural drainage",
+            "hoverRationale": "This is a clinical flaw. Postural drainage is a technique used to clear secretions from within the airways, not to remove fluid from the pleural space."
+        },
+        {
+            "id": "a4",
+            "text": "Apply a high-flow non-rebreather mask",
+            "hoverRationale": "This is a clinical flaw. While the client is hypoxic, supplemental oxygen is a supportive measure that does not correct the underlying mechanical problem of lung compression."
         }
     ],
     "parameters": [
         {
-            "id": "p4",
-            "text": "Hemoglobin level"
-        },
-        {
-            "id": "p3",
-            "text": "Daily weight"
+            "id": "p1",
+            "text": "Respiratory rate and symmetry",
+            "hoverRationale": "Monitoring respiratory rate and chest wall symmetry is critical for assessing work of breathing and detecting a potential pneumothorax, a known complication of thoracentesis."
         },
         {
             "id": "p2",
-            "text": "Breath sounds post-procedure"
+            "text": "Breath sounds post-procedure",
+            "hoverRationale": "Auscultating breath sounds after the procedure is essential to confirm lung re-expansion. Persistently absent sounds may signal a post-procedure pneumothorax."
         },
         {
-            "id": "p1",
-            "text": "Respiratory rate and symmetry"
+            "id": "p3",
+            "text": "Daily weight",
+            "hoverRationale": "This is a clinical flaw. Daily weight is a key long-term indicator for fluid balance in heart failure, not a sensitive parameter for monitoring the immediate outcome of a thoracentesis."
+        },
+        {
+            "id": "p4",
+            "text": "Hemoglobin level",
+            "hoverRationale": "This is a clinical flaw. Hemoglobin is monitored for blood loss but is not a priority unless a hemothorax is suspected, which is not indicated by the client's presentation."
         }
     ],
     "correctCauseIds": [
@@ -71,95 +125,18 @@
     ],
     "pedagogy": {
         "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "recognizeCues",
         "nclexCategory": "Physiological Adaptation",
         "difficulty": 3,
         "topicTags": [
             "Pleural Effusion",
             "Respiratory",
-            "Heart Failure"
-        ]
-    },
-    "rationale": {
-        "correct": "Effusions in heart failure are often transudative, caused by increased hydrostatic pressure and decreased oncotic pressure (c1, c2). Actions include preparing for thoracentesis (a1) and positioning (a2) to facilitate the procedure. Monitoring respiratory rate, symmetry, and post-procedure breath sounds (p1, p2) is crucial to assess for complications and effectiveness of treatment.",
-        "incorrect": "Postural drainage is used for mobilizing secretions, not pleural fluid. While oxygen may be supportive, it does not address the underlying cause or remove the fluid.",
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Pleural Effusion\" is the most likely diagnosis given the client's symptoms (chest pain, cough, dullness to percussion, absent breath sounds) and underlying heart failure.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Preparing the client for thoracentesis (a1) is a key intervention to remove the fluid and relieve pressure on the lungs.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Applying a high-flow non-rebreather mask (a4) may provide supplemental oxygen but does not address the underlying fluid accumulation.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Performing postural drainage (a3) is not indicated for pleural effusion as it is designed to mobilize secretions, not remove fluid from the pleural space.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Positioning the client leaning forward over a bedside table (a2) facilitates thoracentesis by maximizing access to the pleural space and promoting comfort.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "While hemoglobin level (p4) is important, it is not the most relevant parameter for assessing the immediate impact of pleural effusion or the effectiveness of treatment.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Daily weight (p3) can be helpful in managing heart failure, but it is not the most sensitive indicator of the immediate effects of pleural effusion or the success of thoracentesis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring breath sounds post-procedure (p2) is essential to assess for lung re-expansion and potential complications such as pneumothorax.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring respiratory rate and symmetry (p1) provides crucial information about the client's respiratory status and the effectiveness of interventions.",
-                "isCorrect": true
-            }
-        ],
-        "clinicalPearls": [
-            "Dullness on percussion indicates the presence of fluid or a solid mass, while hyperresonance suggests the presence of air.",
-            "Transudative pleural effusions are often caused by increased hydrostatic pressure or decreased oncotic pressure, as seen in heart failure and liver cirrhosis."
-        ],
-        "questionTrap": {
-            "trap": "The 'Pneumonia' Trap",
-            "howToOvercome": "While pneumonia can cause pleural effusion, the context of heart failure suggests a transudative effusion due to pressure imbalances. Consider the underlying condition when interpreting clinical findings."
-        },
-        "mnemonic": {
-            "title": "PLEURA",
-            "expansion": "P - Position client leaning forward\nL - Lung sounds (monitor)\nE - Effusion (suspect)\nU - Underlying cause (identify)\nR - Respiratory rate (monitor)\nA - Aspirate fluid (thoracentesis)"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Pleural Effusion",
-                "body": "Pleural effusion is an abnormal accumulation of fluid in the pleural space, the area between the lungs and the chest wall. It can be caused by a variety of conditions, including heart failure, pneumonia, and cancer.",
-                "source": "Resp Nursing 2026"
-            }
+            "Heart Failure",
+            "Thoracentesis"
         ]
     },
     "scoring": {
         "method": "polytomous",
-        "maxPoints": 5
-    },
-    "potentialConditions": [
-        "Pleural Effusion",
-        "Heart Failure",
-        "Pneumonia",
-        "Pneumothorax",
-        "Liver Cirrhosis"
-    ],
-    "sentinelStatus": "healed_v2026_v11"
+        "maxPoints": 6
+    }
 }

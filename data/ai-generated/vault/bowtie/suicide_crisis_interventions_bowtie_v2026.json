@@ -1,13 +1,13 @@
 {
-    "id": "bowtie_suicide_crisis_interventions_v2026",
+    "id": "bowtie_suicide_crisis_interventions_v2026_remediated",
     "type": "bowtie",
-    "stem": "The nurse is reviewing the EHR of a client admitted to the emergency department following a suicide attempt. Based on the information provided, determine the appropriate nursing actions, the most likely immediate condition requiring intervention, and the parameters the nurse should prioritize monitoring.",
+    "stem": "The nurse in the emergency department is caring for a client admitted after an intentional overdose. The client is drowsy but responsive. Based on the client's electronic health record, select the appropriate nursing actions, the condition to address first, and the parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
                 "title": "Nurses' Notes",
-                "content": "1400: SBAR for Mr. James Miller. 34-year-old male. \nSituation: Pt arrived via EMS after a reported suicide attempt at home. Wife found him unresponsive after ingesting an unknown quantity of acetaminophen and alcohol. \nBackground: Pt has a history of depression, diagnosed 3 years ago, currently managed with sertraline 100mg daily. Pt reports increased stress due to job loss 2 weeks ago and marital discord. No prior suicide attempts. \nAssessment: Pt is currently conscious but drowsy, oriented to person only. Speech is slurred. Vital signs: HR 110, BP 90/60, RR 24, SpO2 94% on room air, Temp 37.2°C. GCS 14. Pupils are equal and reactive. Abdomen is soft, non-tender. \nRecommendation: Requesting immediate psychiatric evaluation and medical clearance. Consider gastric lavage or activated charcoal administration. Continuous cardiac monitoring and frequent vital sign checks are warranted. Secure belongings and initiate suicide precautions per hospital protocol. Consult social work for family support and crisis intervention."
+                "content": "Situation: At 14:00, this is James Miller, a 34-year-old male admitted to the ED after a suicide attempt. His wife found him unresponsive after he ingested an unknown amount of acetaminophen and alcohol. Background: He has a history of depression, treated with sertraline. He recently lost his job and is experiencing marital stress. Assessment: The client is drowsy and oriented to person only, with slurred speech. Vitals: HR 110, BP 90/60, RR 24, SpO2 94%. GCS is 14. Recommendation: Initiate suicide precautions and continuous monitoring. Prepare for N-acetylcysteine administration. Requires immediate medical stabilization and psychiatric consultation."
             },
             {
                 "id": "vitals",
@@ -27,64 +27,90 @@
             {
                 "id": "orders",
                 "title": "Care Plan",
-                "content": "Priority Problems:\n1. Risk for Suicide\n2. Risk for Aspiration\n3. Potential for Liver Damage\n\nInterventions:\n1. Continuous monitoring of vital signs and mental status.\n2. Initiate suicide precautions: remove potentially harmful objects, constant observation.\n3. Administer activated charcoal per physician order.\n4. Monitor liver function tests.\n5. Psychiatric consult for evaluation and treatment plan."
+                "content": "Priority Problems:\n1. Risk for Suicide\n2. Risk for Aspiration\n3. Potential for Liver Damage\n\nInterventions:\n1. Continuous monitoring of vital signs and mental status.\n2. Initiate suicide precautions: remove potentially harmful objects, constant observation.\n3. Administer N-acetylcysteine per protocol.\n4. Monitor liver function tests.\n5. Psychiatric consult for evaluation and treatment plan."
             },
             {
                 "id": "mar",
                 "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Sertraline</td><td>100mg</td><td>PO</td><td>Daily</td><td>Yesterday 09:00</td></tr><tr><td>Activated Charcoal</td><td>50g</td><td>PO</td><td>STAT</td><td>Not yet administered</td></tr></tbody></table>"
+                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Sertraline</td><td>100mg</td><td>PO</td><td>Daily</td><td>Yesterday 09:00</td></tr><tr><td>N-acetylcysteine</td><td>Loading Dose</td><td>IV</td><td>STAT</td><td>Not yet administered</td></tr></tbody></table>"
             }
         ]
     },
     "actions": [
         {
             "id": "a1",
-            "text": "Initiate continuous cardiac monitoring."
+            "text": "Initiate continuous cardiac monitoring.",
+            "rationale": "Acetaminophen overdose can cause myocardial injury, while the client's current tachycardia and hypotension warrant close monitoring. Continuous cardiac monitoring is essential to detect and manage potentially life-threatening dysrhythmias caused by the toxic ingestion."
         },
         {
             "id": "a2",
-            "text": "Administer naloxone intravenously."
+            "text": "Administer naloxone intravenously.",
+            "rationale": "This is a clinical flaw. Naloxone is an opioid antagonist and is not indicated for acetaminophen or alcohol overdose. Administering it would provide no therapeutic benefit and delays appropriate treatment."
         },
         {
             "id": "a3",
-            "text": "Implement suicide precautions."
+            "text": "Implement suicide precautions.",
+            "rationale": "The client's admission is due to a suicide attempt, establishing an immediate and high risk for further self-harm. Implementing suicide precautions is a critical safety intervention to protect the client while they are medically and psychologically vulnerable."
         },
         {
             "id": "a4",
-            "text": "Encourage client to verbalize feelings."
+            "text": "Encourage client to verbalize feelings.",
+            "rationale": "This is a clinical flaw in prioritization. While therapeutic communication is important, the client's altered level of consciousness and acute medical instability require physiological stabilization and safety to be the immediate focus."
         },
         {
             "id": "a5",
-            "text": "Prepare for gastric lavage."
+            "text": "Prepare for gastric lavage.",
+            "rationale": "This is a clinical flaw. Gastric lavage is rarely indicated and is only beneficial within one hour of ingestion. Given the unknown time of ingestion, this procedure poses a significant aspiration risk without clear benefit."
         }
     ],
     "potentialConditions": [
-        "Acetaminophen Toxicity",
-        "Alcohol Intoxication",
-        "Acute Suicidal Ideation",
-        "Major Depressive Disorder"
+        {
+            "id": "pc1",
+            "text": "Acetaminophen Toxicity",
+            "rationale": "The client's toxic acetaminophen level and elevated liver enzymes signify acute hepatotoxicity. This condition can progress to irreversible liver failure, making it the most immediate life-threatening physiological process to address."
+        },
+        {
+            "id": "pc2",
+            "text": "Alcohol Intoxication",
+            "rationale": "This is a clinical flaw in prioritization. While the client is intoxicated, the life-threatening potential of the acetaminophen overdose, which can cause irreversible liver failure, is a more urgent priority for intervention."
+        },
+        {
+            "id": "pc3",
+            "text": "Acute Suicidal Ideation",
+            "rationale": "This is a clinical flaw in prioritization. While this is the underlying cause and requires safety interventions, the physiological consequence of the overdose—acetaminophen toxicity—is the most immediate threat to life that requires medical treatment."
+        },
+        {
+            "id": "pc4",
+            "text": "Major Depressive Disorder",
+            "rationale": "This is a clinical flaw. This is the client's chronic psychiatric diagnosis and a significant background factor, but it is not the acute condition requiring immediate intervention in the emergency department."
+        }
     ],
-    "condition": "Acute Suicidal Ideation",
+    "condition": "pc1",
     "parameters": [
         {
             "id": "p1",
-            "text": "Glasgow Coma Scale (GCS) score."
+            "text": "Glasgow Coma Scale (GCS) score.",
+            "rationale": "Both alcohol and developing hepatic encephalopathy from acetaminophen toxicity are central nervous system depressants. Monitoring the GCS is critical to detect a deteriorating level of consciousness and prevent complications like aspiration."
         },
         {
             "id": "p2",
-            "text": "Serum electrolyte levels."
+            "text": "Serum electrolyte levels.",
+            "rationale": "This is a clinical flaw in prioritization. While important for overall management, monitoring for acute changes in neurological and respiratory function poses a more immediate threat to the client's survival."
         },
         {
             "id": "p3",
-            "text": "Respiratory rate and oxygen saturation."
+            "text": "Respiratory rate and oxygen saturation.",
+            "rationale": "Alcohol is a known respiratory depressant, and the client's metabolic state from the overdose can further compromise breathing. Monitoring respiratory status is crucial to prevent hypoxia and impending respiratory failure."
         },
         {
             "id": "p4",
-            "text": "Liver function tests (LFTs)."
+            "text": "Liver function tests (LFTs).",
+            "rationale": "This is a clinical flaw. While LFTs are essential for tracking liver injury, they are lagging indicators. Monitoring real-time physiological parameters like neurological and respiratory status is more critical for immediate intervention."
         },
         {
             "id": "p5",
-            "text": "Acetaminophen level."
+            "text": "Acetaminophen level.",
+            "rationale": "This is a clinical flaw. The initial acetaminophen level is critical for diagnosis, but for continuous monitoring, vital signs and neurological status provide more immediate data on the client's stability and response to treatment."
         }
     ],
     "correctActionIds": [
@@ -106,88 +132,8 @@
             "Alcohol Intoxication"
         ]
     },
-    "rationale": {
-        "correct": "Cardiac monitoring is crucial due to the potential for cardiac arrhythmias secondary to acetaminophen toxicity and/or the effects of alcohol. Implementing suicide precautions is paramount to ensure the client's safety given the expressed suicidal ideation and recent attempt.",
-        "incorrect": "Naloxone is an opioid antagonist and not indicated in this case. Encouraging verbalization is not an immediate priority in this acute situation where the client's safety is at risk. Gastric lavage may be considered, but is not the immediate action. Electrolyte levels, LFTs, and acetaminophen levels are relevant to the overall clinical picture but not the MOST critical parameters to monitor in the immediate aftermath of a suicide attempt. While LFTs and acetaminophen levels are important to monitor later, GCS and respiratory status are more immediate concerns.",
-        "answerBreakdown": [
-            {
-                "id": "a1",
-                "text": "Initiate continuous cardiac monitoring.",
-                "correct": true,
-                "rationale": "Cardiac monitoring is essential due to the potential for cardiac arrhythmias induced by acetaminophen toxicity or alcohol effects. The client's vital signs indicate tachycardia and hypotension, warranting close monitoring of cardiac function."
-            },
-            {
-                "id": "a2",
-                "text": "Administer naloxone intravenously.",
-                "correct": false,
-                "rationale": "Naloxone is an opioid antagonist used to reverse opioid overdose. There is no indication of opioid use or overdose in this scenario, making naloxone inappropriate."
-            },
-            {
-                "id": "a3",
-                "text": "Implement suicide precautions.",
-                "correct": true,
-                "rationale": "Given the client's suicide attempt and current mental state, implementing suicide precautions is crucial to ensure the client's safety. This includes removing potentially harmful objects and providing constant observation."
-            },
-            {
-                "id": "a4",
-                "text": "Encourage client to verbalize feelings.",
-                "correct": false,
-                "rationale": "While therapeutic communication is important, the immediate priority is ensuring the client's safety and addressing the physiological effects of the overdose. Encouraging verbalization can be addressed after the client is medically stable."
-            },
-            {
-                "id": "a5",
-                "text": "Prepare for gastric lavage.",
-                "correct": false,
-                "rationale": "Gastric lavage may be considered, but is not the immediate action. Stabilizing the patient and implementing safety measures are the priority."
-            },
-            {
-                "id": "p1",
-                "text": "Glasgow Coma Scale (GCS) score.",
-                "correct": true,
-                "rationale": "Monitoring the GCS score is essential to assess the client's level of consciousness and neurological status, which may be affected by acetaminophen toxicity, alcohol intoxication, or underlying depression."
-            },
-            {
-                "id": "p2",
-                "text": "Serum electrolyte levels.",
-                "correct": false,
-                "rationale": "While electrolyte imbalances can occur in various conditions, they are not the most immediate concern in this scenario. Monitoring GCS and respiratory status takes priority."
-            },
-            {
-                "id": "p3",
-                "text": "Respiratory rate and oxygen saturation.",
-                "correct": true,
-                "rationale": "Monitoring respiratory rate and oxygen saturation is crucial due to the risk of respiratory depression secondary to acetaminophen toxicity or alcohol intoxication. The client's initial vital signs indicate tachypnea and slightly decreased oxygen saturation."
-            },
-            {
-                "id": "p4",
-                "text": "Liver function tests (LFTs).",
-                "correct": false,
-                "rationale": "LFTs are important to monitor due to the potential for liver damage from acetaminophen toxicity, but they are not the most immediate concern. GCS and respiratory status take priority in the acute phase."
-            },
-            {
-                "id": "p5",
-                "text": "Acetaminophen level.",
-                "correct": false,
-                "rationale": "While the acetaminophen level is important for determining the severity of the overdose and guiding treatment, monitoring GCS and respiratory status are more immediate concerns for assessing the client's current condition."
-            }
-        ],
-        "clinicalPearls": [
-            "Always prioritize safety in clients with suicidal ideation. Implement suicide precautions immediately.",
-            "Monitor for signs of toxicity or withdrawal in clients who have ingested substances. Be aware that acetaminophen toxicity can cause liver damage, and alcohol withdrawal can lead to seizures.",
-            "Use a multidisciplinary approach to care for clients with suicidal ideation, involving medical, psychiatric, and social work professionals."
-        ],
-        "questionTrap": {
-            "trap": "Focusing solely on the acetaminophen toxicity without considering the immediate risk of suicide.",
-            "howToOvercome": "Prioritize the client's safety by implementing suicide precautions first, then address the medical complications of the overdose."
-        },
-        "mnemonic": {
-            "title": "S-A-F-E",
-            "expansion": "Safety First, Assess Risk, Facilitate Support, Encourage Help-Seeking"
-        }
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
-    },
-    "sentinelStatus": "healed_v2026_v11"
+    }
 }

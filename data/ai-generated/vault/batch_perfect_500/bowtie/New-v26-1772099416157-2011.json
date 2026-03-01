@@ -1,148 +1,85 @@
 {
     "id": "New-v26-1772099416157-2011",
-    "stem": "A client in the intensive care unit (ICU) is being treated for sepsis. Which of the following findings requires immediate intervention by the nurse?",
+    "stem": "The nurse is caring for a 68-year-old client in the ICU. After reviewing the client's electronic health record (EHR), the nurse identifies a change in condition. Complete the bowtie by selecting the most likely condition, two actions the nurse should take, and two parameters the nurse should monitor.",
     "type": "bowtie",
     "actions": [
         {
             "id": "a1",
-            "text": "Administer Oxygen"
+            "text": "Increase oxygen via non-rebreather mask"
         },
         {
             "id": "a2",
-            "text": "Start IV Fluids"
+            "text": "Administer 500 mL IV fluid bolus"
         },
         {
             "id": "a3",
-            "text": "Notify Provider"
+            "text": "Notify the provider"
         },
         {
             "id": "a4",
-            "text": "Prepare for Intubation"
+            "text": "Prepare for intubation"
         },
         {
             "id": "a5",
-            "text": "Administer Analgesia"
+            "text": "Administer PRN morphine"
         }
     ],
-    "options": [
+    "parameters": [
         {
-            "id": "a",
-            "key": "A",
-            "label": "Heart rate of 110 bpm.",
-            "correct": false
+            "id": "p1",
+            "text": "Mean arterial pressure (MAP)"
         },
         {
-            "id": "b",
-            "key": "B",
-            "label": "Urine output of 10 mL/hr.",
-            "correct": true
+            "id": "p2",
+            "text": "Oxygen saturation"
         },
         {
-            "id": "c",
-            "key": "C",
-            "label": "Temperature of 101.5°F (38.6°C).",
-            "correct": false
+            "id": "p3",
+            "text": "Urine output"
         },
         {
-            "id": "d",
-            "key": "D",
-            "label": "White blood cell count of 15,000/mm³.",
-            "correct": false
+            "id": "p4",
+            "text": "Pain level"
+        },
+        {
+            "id": "p5",
+            "text": "Capillary refill time"
+        }
+    ],
+    "potentialConditions": [
+        {
+            "id": "c1",
+            "text": "Septic Shock"
+        },
+        {
+            "id": "c2",
+            "text": "Cardiogenic Shock"
+        },
+        {
+            "id": "c3",
+            "text": "Acute Respiratory Distress Syndrome (ARDS)"
+        },
+        {
+            "id": "c4",
+            "text": "Diabetic Ketoacidosis (DKA)"
         }
     ],
     "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
+        "method": "polytomous",
+        "maxPoints": 5
     },
     "pedagogy": {
         "cjmmStep": "takeAction",
         "topicTags": [
-            "Sepsis"
+            "Sepsis",
+            "Septic Shock",
+            "Critical Care"
         ],
         "bloomLevel": "apply",
         "difficulty": 4,
         "nclexCategory": "Physiological Adaptation"
     },
-    "condition": "Sepsis",
-    "rationale": {
-        "correct": "A urine output of 10 mL/hr indicates inadequate kidney perfusion and potential organ damage due to sepsis. This requires immediate intervention to improve blood pressure and renal perfusion.",
-        "mnemonic": "UO < 30 = Uh Oh!",
-        "incorrect": "A heart rate of 110 bpm is elevated but expected in sepsis as the body attempts to compensate for decreased perfusion. While it should be monitored, it is not the priority.",
-        "questionTrap": "The other options are expected findings in sepsis, but the critically low urine output indicates a severe problem requiring immediate action.",
-        "clinicalPearls": [
-            "In sepsis, decreased urine output is a critical sign of kidney hypoperfusion and impending renal failure.",
-            "Early recognition and intervention for oliguria can prevent further organ damage."
-        ]
-    },
-    "parameters": [
-        {
-            "id": "p1",
-            "text": "Vital Signs"
-        },
-        {
-            "id": "p2",
-            "text": "Oxygen Saturation"
-        },
-        {
-            "id": "p3",
-            "text": "Urine Output"
-        },
-        {
-            "id": "p4",
-            "text": "Pain Level"
-        },
-        {
-            "id": "p5",
-            "text": "Respiratory Rate"
-        }
-    ],
-    "itemContext": {
-        "sbar": "John Smith, 68-year-old male admitted to the ICU with sepsis. He is currently on intravenous antibiotics and vasopressors. His blood pressure has been trending downward over the last hour.",
-        "tabs": [
-            {
-                "id": "sbar",
-                "title": "Sbar",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "physicalExam",
-                "title": "PhysicalExam",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "radiology",
-                "title": "Radiology",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "carePlan",
-                "title": "CarePlan",
-                "content": "<p>No significant findings at this time.</p>"
-            },
-            {
-                "id": "mar",
-                "title": "Mar",
-                "content": "<p>No significant findings at this time.</p>"
-            }
-        ],
-        "patient": {
-            "age": 68,
-            "sex": "Male",
-            "name": "John Smith",
-            "diagnosis": "Sepsis"
-        }
-    },
-    "sentinelStatus": "healed_v2026_v23_bowtie_fix",
+    "condition": "c1",
     "correctActionIds": [
         "a1",
         "a2"
@@ -151,10 +88,48 @@
         "p1",
         "p2"
     ],
-    "potentialConditions": [
-        "Sepsis",
-        "Pneumonia",
-        "Acute Myocardial Infarction",
-        "Pulmonary Embolism"
-    ]
+    "rationales": {
+        "a1": "Correct. Septic shock causes widespread tissue hypoxia. Increasing the fraction of inspired oxygen is a critical first step to improve oxygen delivery to vital organs and prevent further cellular damage.",
+        "a2": "Correct. Septic shock involves profound vasodilation and capillary leak, leading to relative hypovolemia. Rapid fluid administration is essential to increase intravascular volume, improve cardiac output, and restore tissue perfusion.",
+        "a3": "Incorrect. While notifying the provider is essential, it should not delay immediate life-saving interventions like administering oxygen and fluids, which are often covered by protocols for sepsis.",
+        "a4": "Incorrect. The client is not yet showing signs of complete respiratory failure or inability to protect their airway. Intubation is a later intervention if oxygenation does not improve with less invasive measures.",
+        "a5": "Incorrect. Morphine can cause vasodilation and hypotension, which would worsen the client's hemodynamic instability. Pain management is not the priority over resuscitation in septic shock.",
+        "p1": "Correct. Mean arterial pressure (MAP) is the most critical parameter for assessing the adequacy of organ perfusion. Monitoring the MAP response is essential to guide fluid and vasopressor therapy effectively.",
+        "p2": "Correct. Oxygen saturation is a direct measure of the effectiveness of supplemental oxygen therapy. It is crucial for ensuring adequate arterial oxygen content and preventing tissue hypoxia.",
+        "p3": "Incorrect. While urine output is a key indicator of kidney perfusion, it is a delayed response marker. MAP and oxygen saturation provide more immediate feedback on the effectiveness of resuscitation efforts.",
+        "p4": "Incorrect. Pain level is not a relevant parameter for assessing the immediate physiological response to resuscitation interventions for septic shock.",
+        "p5": "Incorrect. Capillary refill is a useful clinical sign of perfusion, but it is less precise and objective than continuous monitoring of MAP and oxygen saturation for titrating therapies in a critical care setting."
+    },
+    "itemContext": {
+        "sbar": "S: Good morning, this is the ICU nurse calling about John Smith in room 4. I'm concerned he is progressing into septic shock. At 07:30, his blood pressure dropped to 84/50 mmHg, and he has become increasingly lethargic. B: Mr. Smith is a 68-year-old male admitted 2 days ago with pneumonia, which has progressed to sepsis. He has a history of type 2 diabetes. He is on IV vancomycin and piperacillin-tazobactam, with a norepinephrine infusion. A: His heart rate is 122, respiratory rate 28, SpO2 91% on 2L nasal cannula. Urine output is only 20 mL over the past two hours. Labs show a lactate of 4.2 mmol/L. R: I believe he requires immediate fluid resuscitation and increased oxygen support. Please come evaluate him immediately.",
+        "tabs": [
+            {
+                "id": "nursesNotes",
+                "title": "Nurses' Notes",
+                "content": "<strong>07:30:</strong> Client noted to be more lethargic, slow to respond to questions. Skin is cool and clammy. Blood pressure 84/50 mmHg, MAP 61 mmHg. Heart rate 122 bpm, sinus tachycardia on monitor. Respiratory rate 28/min, shallow. SpO2 91% on 2L NC. Urine output from Foley catheter is 20 mL over the last 2 hours. Provider paged to bedside."
+            },
+            {
+                "id": "vitals",
+                "title": "Vital Signs",
+                "content": "<table class=\"table\"><thead><tr><th>Time</th><th>BP (mmHg)</th><th>HR (bpm)</th><th>RR (/min)</th><th>Temp °C (°F)</th><th>SpO2 (%)</th></tr></thead><tbody><tr><td>04:00</td><td>110/72</td><td>98</td><td>20</td><td>38.6 (101.5)</td><td>95% on 2L NC</td></tr><tr><td>06:00</td><td>98/60</td><td>110</td><td>24</td><td>38.5 (101.3)</td><td>93% on 2L NC</td></tr><tr><td>07:30</td><td>84/50</td><td>122</td><td>28</td><td>38.4 (101.1)</td><td>91% on 2L NC</td></tr></tbody></table>"
+            },
+            {
+                "id": "labs",
+                "title": "Laboratory Results",
+                "content": "<table class=\"table\"><thead><tr><th>Test</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>WBC</td><td>15.0 x 10³/mm³</td><td>4.5-11.0</td></tr><tr><td>Lactate</td><td>4.2 mmol/L</td><td><2.0</td></tr><tr><td>Creatinine</td><td>1.9 mg/dL</td><td>0.6-1.2</td></tr><tr><td>Procalcitonin</td><td>12 ng/mL</td><td><0.5</td></tr><tr><td>Glucose</td><td>188 mg/dL</td><td>70-110</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar",
+                "title": "Medication Administration Record",
+                "content": "<ul><li>Vancomycin 1.5g IV every 12 hours</li><li>Piperacillin-tazobactam 3.375g IV every 6 hours</li><li>Norepinephrine infusion at 5 mcg/min</li><li>Insulin Sliding Scale PRN</li></ul>"
+            }
+        ],
+        "patient": {
+            "age": 68,
+            "sex": "Male",
+            "name": "John Smith",
+            "diagnosis": "Sepsis secondary to pneumonia"
+        }
+    },
+    "sentinelStatus": "BARA_remediated_v2026_high_fidelity"
 }

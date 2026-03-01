@@ -1,50 +1,176 @@
 {
-    "id": "ards_respiratory_bowtie_v1",
+    "id": "ards_respiratory_bowtie_v2",
     "type": "bowtie",
-    "stem": "A 55-year-old client with severe sepsis develops progressive hypoxemia unresponsive to increased oxygen. Chest X-ray shows diffuse bilateral infiltrates. Complete the bowtie to guide care.",
+    "stem": "The nurse is caring for a client with severe sepsis whose respiratory status is rapidly declining. The client's hypoxemia is not responding to high-flow oxygen. Based on the provided electronic health record, complete the bowtie by selecting the potential condition, two actions, and two parameters to monitor.",
+    "clinicalFeed": {
+        "type": "SBAR",
+        "content": "Situation: This is the nurse for the 55-year-old male in ICU Bed 4. At 14:00, his respiratory status acutely worsened. He is now tachypneic with an SpO2 of 85% on a 15L non-rebreather mask. Background: He was admitted yesterday for severe sepsis from pneumonia. A chest x-ray at 11:00 revealed new diffuse bilateral infiltrates. Assessment: The client is in severe respiratory distress with refractory hypoxemia. Recommendation: I need you at the bedside immediately to assess for emergent intubation and mechanical ventilation.",
+        "author": "Charge Nurse, ICU"
+    },
+    "ehr": {
+        "patientInfo": {
+            "name": "John Doe",
+            "age": "55 years",
+            "gender": "Male",
+            "allergies": "Penicillin",
+            "dob": "1969-05-15",
+            "weight": "85 kg"
+        },
+        "tabs": [
+            {
+                "id": "historyAndPhysical",
+                "title": "History & Physical",
+                "content": "Admitted yesterday with fever, hypotension, and leukocytosis. Diagnosed with severe sepsis secondary to community-acquired pneumonia. No significant past medical history. Currently agitated and tachypneic."
+            },
+            {
+                "id": "vitals",
+                "title": "Vitals",
+                "content": [
+                    {
+                        "time": "12:00",
+                        "temp": "38.8°C",
+                        "hr": "115/min",
+                        "rr": "28/min",
+                        "bp": "98/60 mmHg",
+                        "spo2": "92% on 6L NC"
+                    },
+                    {
+                        "time": "13:00",
+                        "temp": "38.9°C",
+                        "hr": "122/min",
+                        "rr": "34/min",
+                        "bp": "94/58 mmHg",
+                        "spo2": "89% on 15L NRB"
+                    },
+                    {
+                        "time": "14:00",
+                        "temp": "39.0°C",
+                        "hr": "128/min",
+                        "rr": "38/min",
+                        "bp": "90/55 mmHg",
+                        "spo2": "85% on 15L NRB"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Labs",
+                "content": [
+                    {
+                        "name": "Arterial Blood Gas (13:30, on 15L NRB)",
+                        "results": {
+                            "pH": "7.48",
+                            "PaCO2": "30 mmHg",
+                            "PaO2": "55 mmHg",
+                            "HCO3": "23 mEq/L",
+                            "SaO2": "88%"
+                        },
+                        "reference": "pH: 7.35-7.45; PaCO2: 35-45 mmHg; PaO2: 80-100 mmHg; HCO3: 22-26 mEq/L"
+                    },
+                    {
+                        "name": "Complete Blood Count",
+                        "results": {
+                            "WBC": "18.5 x 10^9/L",
+                            "Hgb": "12.8 g/dL",
+                            "Plt": "145 x 10^9/L"
+                        },
+                        "reference": "WBC: 4.5-11.0 x 10^9/L; Hgb: 13.5-17.5 g/dL; Plt: 150-450 x 10^9/L"
+                    }
+                ]
+            },
+            {
+                "id": "diagnostics",
+                "title": "Diagnostics",
+                "content": [
+                    {
+                        "test": "Chest X-Ray (Portable, 11:00)",
+                        "report": "Findings: Diffuse, bilateral interstitial and alveolar opacities. No evidence of cardiomegaly or significant pleural effusions. \nImpression: Findings are highly suggestive of Acute Respiratory Distress Syndrome (ARDS)."
+                    }
+                ]
+            },
+            {
+                "id": "orders",
+                "title": "Orders",
+                "content": [
+                    {
+                        "order": "Ceftriaxone 2g IV every 24 hours",
+                        "status": "Active"
+                    },
+                    {
+                        "order": "Lactated Ringer's at 75 mL/hr",
+                        "status": "Active"
+                    },
+                    {
+                        "order": "Oxygen via non-rebreather mask, titrate to keep SpO2 >92%",
+                        "status": "Active"
+                    }
+                ]
+            }
+        ]
+    },
+    "potentialConditions": [
+        {
+            "id": "cond1",
+            "text": "Acute Respiratory Distress Syndrome (ARDS)"
+        },
+        {
+            "id": "cond2",
+            "text": "Cardiogenic Pulmonary Edema"
+        },
+        {
+            "id": "cond3",
+            "text": "Pulmonary Embolism"
+        },
+        {
+            "id": "cond4",
+            "text": "Severe Pneumonia"
+        }
+    ],
     "actions": [
         {
+            "id": "action1",
+            "text": "Prepare for intubation and mechanical ventilation."
+        },
+        {
             "id": "action2",
-            "text": "Position the client in prone position."
+            "text": "Place client in prone position."
+        },
+        {
+            "id": "action3",
+            "text": "Administer a 2L IV fluid bolus."
         },
         {
             "id": "action4",
             "text": "Prepare for bedside thoracentesis."
         },
         {
-            "id": "action3",
-            "text": "Maintain high-volume fluid resuscitation."
-        },
-        {
-            "id": "action1",
-            "text": "Prepare for sedation and mechanical ventilation with PEEP."
+            "id": "action5",
+            "text": "Administer furosemide 40 mg IV push."
         }
     ],
-    "potentialConditions": [
-        "Acute Respiratory Distress Syndrome (ARDS)",
-        "Acute Pulmonary Edema",
-        "Pulmonary Hemorrhage",
-        "Severe Pneumonia"
-    ],
-    "condition": "Acute Respiratory Distress Syndrome (ARDS)",
     "parameters": [
-        {
-            "id": "param2",
-            "text": "Peak airway pressures and lung compliance."
-        },
-        {
-            "id": "param4",
-            "text": "Serum albumin level."
-        },
         {
             "id": "param1",
             "text": "PaO2/FiO2 ratio."
         },
         {
+            "id": "param2",
+            "text": "Peak airway pressures."
+        },
+        {
             "id": "param3",
+            "text": "Serum albumin level."
+        },
+        {
+            "id": "param4",
             "text": "Bowel sounds."
+        },
+        {
+            "id": "param5",
+            "text": "Urine output."
         }
     ],
+    "condition": "cond1",
     "correctActionIds": [
         "action1",
         "action2"
@@ -53,6 +179,22 @@
         "param1",
         "param2"
     ],
+    "hoverRationales": {
+        "cond1": "Correct. ARDS is a diffuse inflammatory lung injury causing non-cardiogenic pulmonary edema and refractory hypoxemia. The client's sepsis, bilateral infiltrates, and poor response to oxygen are classic signs of this condition.",
+        "cond2": "Incorrect. This is typically cardiogenic, associated with heart failure signs like JVD or cardiomegaly on x-ray, which are not present. The client's primary issue is sepsis-induced lung injury.",
+        "cond3": "Incorrect. While a pulmonary embolism can cause acute hypoxemia, it does not typically cause diffuse bilateral infiltrates on a chest x-ray. The client's presentation is more consistent with parenchymal lung disease.",
+        "cond4": "Incorrect. While severe pneumonia is the likely trigger, the diffuse bilateral nature of the infiltrates and the severe refractory hypoxemia indicate a progression to the systemic inflammatory response of ARDS.",
+        "action1": "Correct. Mechanical ventilation with PEEP is essential in ARDS to recruit collapsed alveoli, improve oxygenation, and reduce the work of breathing. This intervention directly addresses the severe gas exchange impairment.",
+        "action2": "Correct. Prone positioning improves ventilation-perfusion matching by recruiting dependent lung regions and relieving compression on the lungs. This is a key non-pharmacological intervention for moderate to severe ARDS.",
+        "action3": "Incorrect. ARDS involves leaky capillaries, and aggressive fluid resuscitation can worsen pulmonary edema and hypoxemia. A conservative fluid strategy is indicated to maintain perfusion without overloading the lungs.",
+        "action4": "Incorrect. Thoracentesis is used to drain a pleural effusion. The client's x-ray shows infiltrates within the lung parenchyma (pulmonary edema), not the pleural space, making this procedure inappropriate.",
+        "action5": "Incorrect. Furosemide is used for fluid overload, typically in cardiogenic pulmonary edema. In ARDS caused by sepsis, the client is often hypotensive, and diuresis could worsen shock without improving lung function.",
+        "param1": "Correct. The PaO2/FiO2 ratio is a critical measure for diagnosing and staging the severity of ARDS. A falling ratio indicates worsening gas exchange and is a key parameter to trend.",
+        "param2": "Correct. Monitoring peak and plateau pressures is vital during mechanical ventilation for ARDS to prevent barotrauma. High pressures indicate poor lung compliance and the need for ventilator adjustments.",
+        "param3": "Incorrect. While low albumin can contribute to edema, it is not a primary or acute indicator for monitoring respiratory status or treatment response in ARDS. Fluid balance and oxygenation are the priority parameters.",
+        "param4": "Incorrect. Bowel sounds are irrelevant to the client's acute respiratory failure. While monitoring for ileus in a critically ill client is important, it is not a priority parameter for managing ARDS.",
+        "param5": "Incorrect. While urine output is a key indicator of perfusion and kidney function in sepsis, it does not directly measure the client's response to respiratory interventions for ARDS. Oxygenation and ventilation parameters are the priority."
+    },
     "pedagogy": {
         "bloomLevel": "analyze",
         "cjmmStep": "takeAction",
@@ -64,89 +206,9 @@
             "ARDS"
         ]
     },
-    "rationale": {
-        "correct": "ARDS is characterized by acute lung inflammation, increasing alveolar-capillary membrane permeability. This leads to protein-rich fluid leaking into alveoli, causing pulmonary edema and impaired gas exchange, resulting in refractory hypoxemia. PEEP helps keep alveoli open, preventing collapse and improving oxygenation. Prone positioning improves ventilation-perfusion matching. The PaO2/FiO2 ratio assesses ARDS severity. Sedation facilitates mechanical ventilation and reduces oxygen consumption.",
-        "incorrect": "High-volume fluid resuscitation can worsen pulmonary edema in ARDS. A conservative fluid strategy is preferred. Thoracentesis is for pleural effusions, not ARDS. Serum albumin is not a primary indicator of ARDS severity. Bowel sounds are not directly relevant to respiratory distress in ARDS.",
-        "clinicalPearls": [
-            "Early ARDS recognition improves outcomes. Monitor for respiratory distress signs. Implement lung-protective ventilation strategies.",
-            "SBAR: Situation: 55-year-old with sepsis, hypoxemia. Background: Chest X-ray shows bilateral infiltrates. Assessment: Likely ARDS. Recommendation: Prepare for sedation/ventilation with PEEP, prone positioning. 1400: Assess respiratory status. 1415: Initiate prone positioning. 1430: Prepare for intubation."
-        ],
-        "questionTrap": {
-            "trap": "Refractory Hypoxemia",
-            "howToOvercome": "If SpO2 doesn't improve despite increased oxygen, consider ARDS. Assess for bilateral infiltrates and low PaO2/FiO2 ratio."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "ARDS accounts for the clinical findings.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Prone positioning directly targets the pathophysiology of ARDS.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Thoracentesis is inappropriate for this client.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "High-volume fluid resuscitation is inappropriate for this client.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Sedation and mechanical ventilation with PEEP directly targets the pathophysiology of ARDS.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring peak airway pressures and lung compliance provides data on the client's progress.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Serum albumin is not the most sensitive parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring PaO2/FiO2 ratio provides data on the client's progress.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Bowel sounds are not the most sensitive parameter for evaluating this patient's status.",
-                "isCorrect": false
-            }
-        ],
-        "mnemonic": {
-            "title": "ARDS",
-            "expansion": "A = Acute\nR = Respiratory\nD = Distress\nS = Syndrome\n\nKey Actions: Prepare for sedation and mechanical ventilation with PEEP; Position the client in prone position\nKey Monitoring: PaO2/FiO2 ratio; Peak airway pressures and lung compliance"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Acute Respiratory Distress Syndrome — Pathophysiology & Recognition",
-                "body": "ARDS is characterized by acute lung inflammation, increasing alveolar-capillary membrane permeability. This leads to protein-rich fluid leaking into alveoli, causing pulmonary edema and impaired gas exchange, resulting in refractory hypoxemia. PEEP helps keep alveoli open, preventing collapse and improving oxygenation. Prone positioning improves ventilation-perfusion matching. The PaO2/FiO2 ratio assesses ARDS severity. Sedation facilitates mechanical ventilation and reduces oxygen consumption.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Refractory Hypoxemia",
-                "body": "If SpO2 doesn't improve despite increased oxygen, consider ARDS. Assess for bilateral infiltrates and low PaO2/FiO2 ratio.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Acute Respiratory Distress Syndrome",
-                "body": "Priority nursing interventions are: Prepare for sedation and mechanical ventilation with PEEP; Position the client in prone position. Monitor: PaO2/FiO2 ratio; Peak airway pressures and lung compliance. ARDS management usually benefits from a conservative fluid strategy. Thoracentesis is for effusion, not the parenchymal edema of ARDS.",
-                "source": "Evidence-Based Nursing Practice"
-            }
-        ]
-    },
     "scoring": {
         "method": "polytomous",
-        "maxPoints": 4
+        "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "healed_v2026_v14"
 }

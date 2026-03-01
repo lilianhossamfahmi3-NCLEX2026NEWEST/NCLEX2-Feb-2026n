@@ -1,7 +1,7 @@
 {
     "id": "New-v26-a9b2c3d4-e5f6-4789-a012-34567890abcd",
     "type": "multipleChoice",
-    "stem": "The patient's condition is deteriorating. Based on the available information, which intervention is the PRIORITY?",
+    "stem": "The nurse assesses the client and notes the findings in the chart. Which action is the immediate priority for the nurse to take?",
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
@@ -10,38 +10,264 @@
         "patient": {
             "name": "John Smith",
             "age": 68,
-            "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "location": "Medical-Surgical Unit",
             "allergies": [
-                "NKDA"
+                "No Known Drug Allergies"
             ]
         },
-        "sbar": "S: This is a report for John Smith, a 68-year-old male admitted three days ago for an acute ischemic stroke resulting in right-sided weakness. B: His medical history includes hypertension and hyperlipidemia. His initial NIHSS score upon admission was 8. At 0600 this morning, the patient was stable and resting comfortably. A: At 0730, the nurse contacted me with concerns. The patient is increasingly lethargic, now only responsive to painful stimuli. The right-sided weakness is more pronounced compared to earlier assessments. Upon examination, the left pupil is dilated to 6mm and has a sluggish response to light. The right pupil is 3mm and reactive. Current vitals are: BP 180/100 mmHg, HR 52 bpm, RR 10 breaths per minute, and SpO2 is 92% on 2L NC. The last dose of aspirin 81mg PO was administered at 0600. P: I am requesting an immediate evaluation for possible increased intracranial pressure (ICP) and further management. A stat CT scan of the head has been ordered. I am particularly concerned about impending brain herniation given the rapid decline in neurological status and vital sign changes. Please expedite the CT and neurological consult.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "Na: 140 mEq/L, K: 4.1 mEq/L, Cl: 100 mEq/L, HCO3: 24 mEq/L, BUN: 18 mg/dL, Creatinine: 1.0 mg/dL, Glucose: 110 mg/dL, PT: 12 sec, INR: 1.0, aPTT: 30 sec, Platelets: 250,000/mcL"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "Aspirin 81mg PO daily (0600), Lisinopril 20mg PO daily (0800), Atorvastatin 40mg PO daily (2000)"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 14:00",
+                        "content": "Patient is a 68-year-old male admitted from the ED with an acute left-sided ischemic stroke. History of hypertension and hyperlipidemia. Patient lives alone; his adult child lives out of state and is his primary support. On admission, patient presented with right-sided hemiparesis and mild aphasia. NIHSS score was 8. CT head without contrast showed no evidence of hemorrhage. Initiated on aspirin and atorvastatin. Blood pressure managed with lisinopril. Patient is alert and oriented to person, place, and time, though speech is slightly slurred. Right-sided weakness noted in arm and leg. Plan is to monitor neurological status closely, continue medical management, and begin physical and occupational therapy evaluation tomorrow. Patient is on a dysphagia diet and requires assistance with mobility."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 3, 07:30",
+                        "content": {
+                            "S": "Called to assess the patient due to a rapid decline in neurological status. Patient is now only responsive to painful stimuli.",
+                            "B": "Admitted 3 days ago for an ischemic stroke with right-sided weakness. He was stable at the 06:00 assessment. His adult child, who lives out of state, has been updated daily.",
+                            "A": "GCS has dropped significantly. Left pupil is now 6mm and sluggishly reactive; right pupil is 3mm and briskly reactive (anisocoria). Right-sided weakness is now flaccid paralysis. Vital signs show Cushing's triad: BP 180/100 mmHg, HR 52/min, and RR 10/min with irregular pattern. SpO₂ is 92% on 2L NC. These findings are highly indicative of increasing intracranial pressure (ICP) with uncal herniation.",
+                            "R": "Requesting immediate provider evaluation at the bedside. A stat non-contrast head CT has been ordered. Prepare for potential emergency neurosurgical intervention and airway management."
+                        }
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "0600: BP 140/80 mmHg, HR 70 bpm, RR 16, SpO2 98% on RA. 0730: BP 180/100 mmHg, HR 52 bpm, RR 10, SpO2 92% on 2L NC."
+                "title": "Vitals & Telemetry",
+                "flowsheet": [
+                    {
+                        "timestamp": "Day 2, 22:00",
+                        "hr": "72",
+                        "bp": "138/84",
+                        "map": "102",
+                        "rr": "16",
+                        "spo2": "97% on Room Air",
+                        "temp": "98.6°F (37.0°C)"
+                    },
+                    {
+                        "timestamp": "Day 3, 06:00",
+                        "hr": "70",
+                        "bp": "140/80",
+                        "map": "100",
+                        "rr": "16",
+                        "spo2": "98% on Room Air",
+                        "temp": "98.8°F (37.1°C)"
+                    },
+                    {
+                        "timestamp": "Day 3, 07:30",
+                        "hr": "52",
+                        "bp": "180/100",
+                        "map": "127",
+                        "rr": "10 (Irregular)",
+                        "spo2": "92% on 2L NC",
+                        "temp": "99.1°F (37.3°C)"
+                    }
+                ]
+            },
+            {
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "results": [
+                    {
+                        "test": "Sodium (Na)",
+                        "result": "140",
+                        "unit": "mEq/L",
+                        "range": "136-145",
+                        "status": "WNL"
+                    },
+                    {
+                        "test": "Potassium (K)",
+                        "result": "4.1",
+                        "unit": "mEq/L",
+                        "range": "3.5-5.0",
+                        "status": "WNL"
+                    },
+                    {
+                        "test": "Chloride (Cl)",
+                        "result": "100",
+                        "unit": "mEq/L",
+                        "range": "98-106",
+                        "status": "WNL"
+                    },
+                    {
+                        "test": "Bicarbonate (HCO3)",
+                        "result": "24",
+                        "unit": "mEq/L",
+                        "range": "22-28",
+                        "status": "WNL"
+                    },
+                    {
+                        "test": "BUN",
+                        "result": "18",
+                        "unit": "mg/dL",
+                        "range": "10-20",
+                        "status": "WNL"
+                    },
+                    {
+                        "test": "Creatinine",
+                        "result": "1.0",
+                        "unit": "mg/dL",
+                        "range": "0.6-1.2",
+                        "status": "WNL"
+                    },
+                    {
+                        "test": "Glucose",
+                        "result": "110",
+                        "unit": "mg/dL",
+                        "range": "70-110",
+                        "status": "WNL"
+                    },
+                    {
+                        "test": "Prothrombin Time (PT)",
+                        "result": "12",
+                        "unit": "sec",
+                        "range": "11-13.5",
+                        "status": "WNL"
+                    },
+                    {
+                        "test": "INR",
+                        "result": "1.0",
+                        "unit": "",
+                        "range": "0.8-1.1",
+                        "status": "WNL"
+                    },
+                    {
+                        "test": "aPTT",
+                        "result": "30",
+                        "unit": "sec",
+                        "range": "25-35",
+                        "status": "WNL"
+                    },
+                    {
+                        "test": "Platelets",
+                        "result": "250",
+                        "unit": "x10³/mcL",
+                        "range": "150-450",
+                        "status": "WNL"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "assessments": [
+                    {
+                        "timestamp": "Day 1, 14:30 (Admission)",
+                        "findings": {
+                            "Neurological": "Alert and oriented x3. Mild expressive aphasia. Left pupil 3mm, right pupil 3mm, both briskly reactive. Right-sided facial droop. Motor strength: RUE 3/5, RLE 3/5, LUE 5/5, LLE 5/5. Sensation intact.",
+                            "Cardiovascular": "S1, S2 audible. Rate and rhythm regular. No murmurs.",
+                            "Respiratory": "Lungs clear to auscultation bilaterally. Respirations unlabored."
+                        }
+                    },
+                    {
+                        "timestamp": "Day 3, 07:30 (Focused)",
+                        "findings": {
+                            "Neurological": "Responsive only to painful stimuli (sternal rub). Does not follow commands. Anisocoria noted: Left pupil 6mm and sluggishly reactive to light; Right pupil 3mm and briskly reactive. Right-sided flaccid paralysis. No verbal response."
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "reports": [
+                    {
+                        "type": "Chest X-ray",
+                        "timestamp": "Day 1, 15:00",
+                        "indication": "Admission for stroke.",
+                        "findings": "Lungs are clear. No evidence of consolidation, effusion, or pneumothorax. Cardiomediastinal silhouette is within normal limits.",
+                        "impression": "No acute cardiopulmonary process."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "orders": [
+                    {
+                        "timestamp": "Day 3, 07:35",
+                        "action": "CT Head without contrast",
+                        "frequency": "STAT"
+                    },
+                    {
+                        "timestamp": "Day 3, 07:35",
+                        "action": "Neurological consult",
+                        "frequency": "STAT"
+                    },
+                    {
+                        "timestamp": "Day 1, 14:15",
+                        "action": "Elevate head of bed to 30 degrees",
+                        "frequency": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 14:15",
+                        "action": "Seizure precautions",
+                        "frequency": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 14:15",
+                        "action": "Dysphagia diet, nectar-thick liquids",
+                        "frequency": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 14:15",
+                        "action": "Vital signs every 4 hours",
+                        "frequency": "Standing"
+                    },
+                    {
+                        "timestamp": "Day 1, 14:15",
+                        "action": "Acetaminophen 650 mg PO for Temp > 100.4°F or mild pain",
+                        "frequency": "PRN, every 6 hours"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "medications": [
+                    {
+                        "medication": "Aspirin",
+                        "dose": "81mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 3, 06:00"
+                    },
+                    {
+                        "medication": "Lisinopril",
+                        "dose": "20mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 2, 08:00"
+                    },
+                    {
+                        "medication": "Atorvastatin",
+                        "dose": "40mg",
+                        "route": "PO",
+                        "frequency": "Daily",
+                        "lastAdministered": "Day 2, 20:00"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "apply",
+        "cjmmStep": "takeAction",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
-            "Neurological: Stroke & Increased ICP"
+            "Neurological",
+            "Stroke",
+            "Increased ICP",
+            "Airway Management"
         ]
     },
     "stemFormat": "singleBestAnswer",
@@ -68,21 +294,39 @@
         }
     ],
     "rationale": {
-        "correct": "The patient's GCS is rapidly declining, respiratory rate is low (10 breaths/min), and SpO2 is suboptimal despite supplemental oxygen. This suggests impending respiratory failure secondary to increased ICP and potential brainstem compression. Immediate intubation and mechanical ventilation are necessary to secure the airway, maintain adequate oxygenation and ventilation, and prevent further neurological deterioration and potential herniation. This is the priority intervention to support life.",
-        "incorrect": "Administering acetaminophen is not the priority as the patient's respiratory and neurological status are acutely deteriorating. Increasing oxygen to 4L may not be sufficient to maintain adequate oxygenation with a RR of 10 and declining GCS. Lisinopril should be held due to the acute neurological changes and the already elevated blood pressure which may be compensatory. Furthermore, administering oral medications to a patient with a rapidly declining level of consciousness is contraindicated due to the risk of aspiration.",
+        "correct": "The patient's clinical presentation, including Cushing's triad (hypertension, bradycardia, irregular respirations), anisocoria, and a rapid decline in consciousness, indicates severe intracranial pressure (ICP) and impending brainstem herniation. The brainstem controls vital functions, including respiration. The patient's bradypnea (RR 10/min) and hypoxia (SpO₂ 92%) signal imminent respiratory arrest. The immediate priority is to secure the airway via intubation (Airway/Breathing) to prevent catastrophic hypoxia and hypercapnia, which would further increase ICP and lead to death.",
+        "answerBreakdown": [
+            {
+                "optionId": "optionA",
+                "content": "This is incorrect. While controlling fever is important in neurological patients to reduce metabolic demand, the patient is not febrile. More critically, this action does not address the life-threatening airway and breathing compromise caused by brainstem compression."
+            },
+            {
+                "optionId": "optionB",
+                "content": "This is incorrect and insufficient. The patient's hypoxia is due to a failing respiratory drive (bradypnea) from brainstem compression, not a primary gas exchange problem. Simply increasing FiO₂ via nasal cannula will not correct the inadequate ventilation and does not protect the airway in a patient with a rapidly declining level of consciousness."
+            },
+            {
+                "optionId": "optionC",
+                "content": "This is correct. The constellation of findings points to brainstem compression, which is a neurological emergency. The patient is unable to protect their airway or maintain adequate ventilation. Intubation and mechanical ventilation are required immediately to secure the airway, ensure oxygenation, control CO₂ levels (a potent vasodilator that affects ICP), and prevent respiratory arrest."
+            },
+            {
+                "optionId": "optionD",
+                "content": "This is incorrect and potentially harmful. The patient's hypertension is a compensatory response (part of Cushing's triad) to maintain cerebral perfusion pressure (CPP) in the face of high ICP. Administering an antihypertensive could dangerously lower CPP and worsen brain ischemia. Furthermore, administering oral medication to a patient with a low level of consciousness is contraindicated due to the high risk of aspiration."
+            }
+        ],
         "clinicalPearls": [
-            "Cushing's Triad (hypertension, bradycardia, and irregular respirations) is a late sign of increased ICP.",
-            "Rapidly declining level of consciousness is an ominous sign that requires immediate intervention."
+            "Cushing's triad (hypertension with a widening pulse pressure, bradycardia, and irregular respirations) is a late and ominous sign of critically high ICP, signaling impending brain herniation.",
+            "Unilateral pupillary dilation (anisocoria) often points to uncal herniation, where part of the temporal lobe compresses cranial nerve III (oculomotor nerve), a neurological emergency.",
+            "In acute brain injury, permissive hypertension is often allowed to maintain adequate Cerebral Perfusion Pressure (CPP), which is calculated as MAP - ICP. Aggressively lowering BP can be detrimental."
         ],
         "questionTrap": {
-            "trap": "The options may seem reasonable in isolation, but the key is to identify the intervention that addresses the most immediate threat to the patient's life, which in this case is respiratory failure secondary to increased ICP.",
-            "howToOvercome": "Prioritize interventions based on the ABCs (Airway, Breathing, Circulation) and consider the overall clinical picture. Ask yourself: Which action will have the MOST immediate positive impact on the patient's survival?"
+            "trap": "Focusing on treating a single abnormal vital sign (like high BP or low SpO₂) in isolation, rather than synthesizing the entire clinical picture to identify the underlying catastrophic cause (increased ICP).",
+            "howToOvercome": "When you see a rapid neurological decline, look for patterns. Recognize that Cushing's triad is a specific syndrome where the vital signs are interconnected. Prioritize interventions using the ABCs (Airway, Breathing, Circulation) framework; the failing respiratory drive is the most immediate threat to life."
         },
         "mnemonic": {
-            "title": "I-C-U-P",
-            "expansion": "Increased ICP: Identify, Control, Unload (pressure), Prevent (secondary injury)"
+            "title": "ICP CRUSH",
+            "expansion": "Signs of Increased ICP: **I**ncreased BP, **C**ushing's Triad, **P**upil changes, **C**onsciousness decreased, **R**espirations irregular, **U**nconsciousness, **S**eizures, **H**eadache."
         }
     },
-    "correctOptionId": "optionA",
-    "sentinelStatus": "healed_v2026_v12"
+    "correctOptionId": "optionC",
+    "sentinelStatus": "healed_v2026_v13"
 }

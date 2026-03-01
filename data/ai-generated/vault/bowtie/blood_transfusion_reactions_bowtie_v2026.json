@@ -1,18 +1,18 @@
 {
-    "id": "bowtie_blood_transfusion_reactions_v2026",
+    "id": "bowtie_blood_transfusion_reactions_v2026_rev2",
     "type": "bowtie",
-    "stem": "The nurse in the oncology unit is monitoring a client who is receiving a transfusion of packed red blood cells (PRBCs). Based on the client's current presentation in the EHR, the nurse identifies the priority nursing interventions, the most likely transfusion complication, and the clinical parameters that require monitoring.",
+    "stem": "The nurse is caring for a client receiving packed red blood cells (PRBCs) who suddenly develops urticaria and respiratory distress. Based on the data in the electronic health record (EHR), the nurse must act immediately. Select the actions to take, the condition to suspect, and the parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
-                "title": "Nurses' Notes",
-                "content": "10:00: PRBC transfusion (1 unit) initiated via an 18-gauge IV in the left forearm. Baseline vitals are stable. \n10:15: Client (45-year-old female) reports feeling 'extremely itchy' and states her throat feels 'tight'. \n10:20: Nurse notes generalized urticaria (hives) on the chest, back, and arms. Client is beginning to wheeze and appears anxious. \n10:25: Transfusion was immediately paused by the nurse."
+                "title": "SBAR",
+                "content": "S: Dr. Smith, this is the nurse on the oncology unit. I am calling about your 45-year-old client with breast cancer who is having a severe transfusion reaction. B: She was receiving her first unit of PRBCs for a hemoglobin of 6.8 g/dL, started at 10:00. A: At 10:25, she developed acute respiratory distress with wheezing, urticaria, and hypotension to 102/60. I have stopped the transfusion and am maintaining the IV line. R: I suspect anaphylaxis and need you at the bedside immediately for emergency orders."
             },
             {
                 "id": "vitals",
                 "title": "Vital Signs",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO2</th></tr></thead><tbody><tr><td>10:00 (Baseline)</td><td>122/78</td><td>76</td><td>16</td><td>37.0°C</td><td>98%</td></tr><tr><td>10:15</td><td>110/68</td><td>98</td><td>22</td><td>37.2°C</td><td>94%</td></tr><tr><td>10:25</td><td>102/60</td><td>112</td><td>26</td><td>37.4°C</td><td>91%</td></tr></tbody></table>"
+                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO2</th></tr></thead><tbody><tr><td>10:00 (Baseline)</td><td>122/78 mmHg</td><td>76/min</td><td>16/min</td><td>37.0°C</td><td>98%</td></tr><tr><td>10:15</td><td>110/68 mmHg</td><td>98/min</td><td>22/min</td><td>37.2°C</td><td>94%</td></tr><tr><td>10:25</td><td>102/60 mmHg</td><td>112/min</td><td>26/min</td><td>37.4°C</td><td>91%</td></tr></tbody></table>"
             },
             {
                 "id": "exam",
@@ -22,39 +22,56 @@
             {
                 "id": "labs",
                 "title": "Lab Results",
-                "content": "Pre-transfusion Labs: \n- Hemoglobin: 6.8 g/dL (Low, indicates need for transfusion). \n- Platelets: 152,000/mcL (Normal)."
+                "content": "Pre-transfusion Labs: \n- Hemoglobin: 6.8 g/dL \n- Platelets: 152,000/mcL"
+            },
+            {
+                "id": "mar",
+                "title": "Medication Administration Record",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Time Administered</th><th>Notes</th></tr></thead><tbody><tr><td>Packed Red Blood Cells (PRBCs), Unit #W458291</td><td>1 Unit (350 mL)</td><td>IV</td><td>STAT</td><td>10:00</td><td>Transfusion stopped at 10:25 due to suspected severe allergic reaction.</td></tr></tbody></table>"
             }
         ]
     },
     "actions": [
         {
             "id": "a1",
-            "text": "Continue the transfusion at a slower rate."
+            "text": "Continue transfusion at a slower rate."
         },
         {
             "id": "a2",
-            "text": "Stop the transfusion immediately and disconnect the blood tubing from the IV hub."
+            "text": "Stop transfusion and disconnect tubing."
         },
         {
             "id": "a3",
-            "text": "Administer intramuscular epinephrine if signs of anaphylaxis worsen."
+            "text": "Administer intramuscular epinephrine."
         },
         {
             "id": "a4",
-            "text": "Maintain IV patency with a new IV line and normal saline."
+            "text": "Maintain IV patency with normal saline."
         },
         {
             "id": "a5",
-            "text": "Document the findings and continue monitoring the client."
+            "text": "Document findings and continue monitoring."
         }
     ],
     "potentialConditions": [
-        "Febrile Non-Hemolytic Transfusion Reaction",
-        "Transfusion-Associated Circulatory Overload (TACO)",
-        "Allergic Transfusion Reaction",
-        "Acute Hemolytic Transfusion Reaction"
+        {
+            "id": "pc1",
+            "text": "Febrile Non-Hemolytic Transfusion Reaction"
+        },
+        {
+            "id": "pc2",
+            "text": "Transfusion-Associated Circulatory Overload (TACO)"
+        },
+        {
+            "id": "pc3",
+            "text": "Allergic Transfusion Reaction"
+        },
+        {
+            "id": "pc4",
+            "text": "Acute Hemolytic Transfusion Reaction"
+        }
     ],
-    "condition": "Allergic Transfusion Reaction",
+    "condition": "pc3",
     "parameters": [
         {
             "id": "p1",
@@ -77,6 +94,22 @@
             "text": "Respiratory status"
         }
     ],
+    "hoverRationales": {
+        "a1": "Clinical Flaw: Continuing the transfusion, even at a slower rate, would introduce more of the triggering antigen, worsening the anaphylactic reaction and potentially leading to cardiovascular collapse and death.",
+        "a2": "Pathophysiology: Stopping the infusion immediately halts the introduction of the causative antigen. This is the critical first step in mitigating the type I hypersensitivity reaction and preventing progression to anaphylactic shock.",
+        "a3": "Clinical Flaw: While epinephrine is the correct medication for anaphylaxis, it requires a provider's order. The nurse's independent priority actions are to stop the cause and maintain IV access while calling for help.",
+        "a4": "Pathophysiology: Maintaining IV access with a new saline line is essential for administering emergency medications and fluids. This is needed to counteract the vasodilation and hypotension caused by massive histamine release.",
+        "a5": "Clinical Flaw: This is a 'document but do not act' error. Immediate life-saving interventions to stabilize the client must always precede documentation in an emergency situation.",
+        "pc1": "Clinical Flaw: This reaction is caused by cytokines from donor leukocytes and presents primarily with fever and chills. It does not involve the allergic signs of urticaria, wheezing, or hypotension seen in this client.",
+        "pc2": "Clinical Flaw: Transfusion-Associated Circulatory Overload would present with signs of fluid overload like hypertension, crackles in the lungs, and jugular vein distention, which are absent in this hypotensive client.",
+        "pc3": "Pathophysiology: The client's symptoms—urticaria, angioedema (throat tightness), bronchospasm (wheezing), and hypotension—are classic signs of a severe IgE-mediated type I hypersensitivity reaction to plasma proteins in the donor blood.",
+        "pc4": "Clinical Flaw: This is a type II hypersensitivity reaction from ABO incompatibility, causing intravascular hemolysis. It typically presents with fever, flank pain, and hemoglobinuria, none of which are reported.",
+        "p1": "Pathophysiology: Monitoring SpO2 is critical as laryngeal edema and bronchoconstriction from histamine release can rapidly lead to severe hypoxemia and respiratory failure. This directly assesses the adequacy of oxygenation.",
+        "p2": "Clinical Flaw: While important for monitoring perfusion and renal function during shock, urine output is not an immediate priority parameter compared to airway, breathing, and circulation (respiratory status, SpO2, BP).",
+        "p3": "Pathophysiology: Widespread vasodilation caused by mast cell degranulation leads to a precipitous drop in blood pressure. Monitoring BP is vital to detect progression to distributive shock.",
+        "p4": "Clinical Flaw: The skin findings (urticaria) are diagnostic signs, but monitoring the 'integrity' of the skin is not a priority over assessing life-threatening cardiorespiratory changes.",
+        "p5": "Pathophysiology: Assessing for increased work of breathing, stridor, and wheezing is vital. Airway compromise from bronchospasm and edema is the most life-threatening manifestation of an anaphylactic reaction."
+    },
     "correctActionIds": [
         "a2",
         "a4"
@@ -95,36 +128,8 @@
             "Blood Transfusion Reactions"
         ]
     },
-    "rationale": {
-        "correct": "The client is experiencing an allergic transfusion reaction, which can range from mild urticaria to severe anaphylaxis. Clinical cues include itching, hives, throat tightness, wheezing, and hypotension. The priority nursing action for ANY suspected reaction is to stop the transfusion immediately (a2). To keep the vein open for emergency medications without infusing more blood, the nurse must start a new normal saline line (a4). Monitoring oxygen saturation, blood pressure, and respiratory status (p1, p3, p5) is critical to detect progression toward anaphylactic shock.",
-        "incorrect": "Febrile reactions present with fever/chills without hives. TACO presents with crackles, edema, and hypertension. Acute hemolytic reactions present with back pain and hematuria. Continuing the transfusion is dangerously contraindicated.",
-        "answerBreakdown": [
-            {
-                "optionId": "a2",
-                "rationale": "Correct. Stopping the blood stops the flow of the triggering allergen."
-            },
-            {
-                "optionId": "a4",
-                "rationale": "Correct. Standard procedure involves keeping the IV patent with a new infusion set and normal saline."
-            }
-        ],
-        "clinicalPearls": [
-            "For blood reactions: Stop → Stay with Patient → Vitals → Notify Provider → Notify Blood Bank.",
-            "Send the blood bag and the tubing back to the lab for analysis.",
-            "If the reaction is ONLY mild hives, the physician may order antihistamines and attempt to restart at a slower rate, but any respiratory involvement requires permanent cessation."
-        ],
-        "questionTrap": {
-            "trap": "Thinking that 'itching' is just a minor side effect that allows the transfusion to continue.",
-            "howToOvercome": "Any skin or respiratory change during a transfusion is a reaction until proven otherwise."
-        },
-        "mnemonic": {
-            "title": "ABO Reaction",
-            "expansion": "A-Allergic (Hives), B-Back pain (Hemolytic), O-Overload (TACO/Crackles)."
-        }
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
-    },
-    "sentinelStatus": "healed_v2026_v11"
+    }
 }

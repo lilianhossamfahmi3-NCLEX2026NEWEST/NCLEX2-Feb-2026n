@@ -1,64 +1,105 @@
 {
-    "id": "sickle_cell_crisis_vaso_occlusive_bowtie_v1",
+    "id": "sickle_cell_crisis_vaso_occlusive_bowtie_v3",
     "type": "bowtie",
-    "stem": "A 10-year-old with Sickle Cell Disease is admitted at 1400 with severe joint pain and a fever of 101.4°F (38.6°C). He is crying and reports pain as 10/10. Using SBAR, complete the bowtie to manage this vaso-occlusive crisis.",
+    "clinicalFeed": "Situation: This is the pediatric unit at 14:00. I'm calling about a 10-year-old male with sickle cell disease admitted for a pain crisis. He has severe, diffuse joint pain rated 10/10 and a temperature of 38.6°C. Background: He has a history of frequent vaso-occlusive crises, often triggered by dehydration. His last admission was three months ago. Assessment: The client is crying and guarding his joints. He appears dehydrated with dry mucous membranes. Vitals show tachycardia and tachypnea. Recommendation: Initiate the sickle cell crisis protocol, including aggressive IV hydration and opioid analgesia.",
+    "stem": "A 10-year-old male with sickle cell disease is admitted with severe joint pain and fever, diagnosed as a vaso-occlusive crisis. Based on the client's presentation and diagnosis, complete the bowtie by selecting the appropriate actions to take and parameters to monitor.",
+    "tabs": [
+        {
+            "id": "history-and-physical",
+            "label": "History & Physical",
+            "content": "Patient: 10-year-old male\n\nHistory of Present Illness: Admitted from home with sudden onset of severe pain in arms, legs, and back, which started this morning. Rates pain 10/10. Mother reports he has felt warm since yesterday.\n\nPast Medical History: Sickle Cell Disease (HbSS), diagnosed at birth. Multiple prior admissions for vaso-occlusive crises.\n\nPhysical Exam: \nGeneral: Crying, appears in severe distress.\nSkin: Warm, dry mucous membranes.\nCardiovascular: Tachycardic, regular rhythm.\nRespiratory: Lungs clear to auscultation bilaterally.\nMusculoskeletal: Guards all extremities, tender to palpation over long bones."
+        },
+        {
+            "id": "vitals",
+            "label": "Vitals",
+            "content": "Time: 14:00\nTemperature: 38.6°C (101.4°F)\nHeart Rate: 128/min\nRespiratory Rate: 24/min\nBlood Pressure: 105/65 mmHg\nSpO2: 95% on room air\nPain: 10/10, diffuse joint pain"
+        },
+        {
+            "id": "labs",
+            "label": "Labs",
+            "content": "Collection Time: 14:15\n\nComplete Blood Count:\n- WBC: 15.0 x 10^9/L (High)\n- Hgb: 7.8 g/dL (Low)\n- Hct: 23% (Low)\n- Platelets: 250 x 10^9/L (Normal)\n- Reticulocyte Count: 12% (High)\n\nComprehensive Metabolic Panel:\n- Sodium: 140 mEq/L (Normal)\n- Potassium: 4.1 mEq/L (Normal)\n- BUN: 22 mg/dL (High)\n- Creatinine: 0.8 mg/dL (Normal)\n- Bilirubin, Total: 2.5 mg/dL (High)"
+        }
+    ],
     "actions": [
         {
-            "id": "action2",
-            "text": "Administer around-the-clock opioid analgesics (e.g., Morphine).",
-            "correct": true,
-            "rationale": "Opioid analgesics are crucial for managing the severe pain associated with vaso-occlusive crisis. They bind to opioid receptors in the CNS, reducing pain perception. Around-the-clock administration ensures consistent pain relief and prevents breakthrough pain. Morphine is a common choice due to its effectiveness and availability."
-        },
-        {
             "id": "action1",
-            "text": "Initiate aggressive IV hydration (1.5x maintenance).",
-            "correct": true,
-            "rationale": "Aggressive IV hydration is essential to reduce blood viscosity and promote the reversal of sickling. Dehydration exacerbates sickling, leading to increased vaso-occlusion and pain. Hydration helps dilute the concentration of sickled cells, improving blood flow and oxygen delivery to tissues. 1.5x maintenance is a common starting point, but adjustments may be needed based on the patient's response and fluid balance."
+            "text": "Initiate aggressive IV hydration.",
+            "hoverRationale": "Dehydration increases blood viscosity and promotes red blood cell sickling. Aggressive IV hydration hemodilutes the blood, reducing the concentration of sickled cells, which improves microvascular perfusion and alleviates ischemia."
         },
         {
-            "id": "action4",
-            "text": "Administer STAT IV Salicylates (Aspirin).",
-            "correct": false,
-            "rationale": "Aspirin is contraindicated in children due to the risk of Reye's syndrome, a rare but serious condition that can cause liver and brain damage. Alternative analgesics, such as opioids, are preferred for pain management in children with sickle cell crisis."
+            "id": "action2",
+            "text": "Administer around-the-clock opioid analgesics.",
+            "hoverRationale": "Severe pain in vaso-occlusive crisis is caused by tissue ischemia from blocked blood vessels. Opioids are the first-line treatment to manage this severe, acute pain by altering its perception in the central nervous system."
         },
         {
             "id": "action3",
-            "text": "Apply cold compresses to the painful joints.",
-            "correct": false,
-            "rationale": "Cold compresses cause vasoconstriction, which can worsen sickling and exacerbate pain. Warm compresses are preferred as they promote vasodilation, improving blood flow and reducing pain. Vasodilation helps deliver oxygen and nutrients to the affected tissues, promoting healing and reducing inflammation."
+            "text": "Apply cold compresses to painful joints.",
+            "hoverRationale": "Cold application induces vasoconstriction, which will worsen blood flow, increase sickling, and intensify ischemic pain. Warm compresses should be used instead to promote vasodilation and improve circulation."
+        },
+        {
+            "id": "action4",
+            "text": "Administer STAT IV salicylates.",
+            "hoverRationale": "Salicylates are contraindicated in children with fever due to the significant risk of developing Reye's syndrome, a life-threatening condition causing encephalopathy and liver damage. Acetaminophen or ibuprofen are safer alternatives."
+        },
+        {
+            "id": "action5",
+            "text": "Encourage active range-of-motion exercises.",
+            "hoverRationale": "Active exercise during an acute crisis increases metabolic demand and oxygen consumption, which can worsen the sickling process and pain. Bed rest is indicated to conserve oxygen."
         }
     ],
     "potentialConditions": [
-        "Vaso-occlusive Crisis (Sickle Cell)",
-        "Aplastic Crisis",
-        "Splenic Sequestration",
-        "Acute Chest Syndrome"
+        {
+            "id": "condition1",
+            "text": "Vaso-occlusive Crisis",
+            "hoverRationale": "The client's history of sickle cell disease combined with the acute onset of severe, diffuse pain, fever, and signs of dehydration are classic manifestations of vaso-occlusion and resulting tissue ischemia."
+        },
+        {
+            "id": "condition2",
+            "text": "Aplastic Crisis",
+            "hoverRationale": "Aplastic crisis is characterized by a sudden, severe drop in hemoglobin and a very low reticulocyte count due to parvovirus B19 infection. This client's reticulocyte count is high, indicating bone marrow compensation."
+        },
+        {
+            "id": "condition3",
+            "text": "Splenic Sequestration",
+            "hoverRationale": "Splenic sequestration involves acute pooling of blood in the spleen, causing a rapidly enlarging spleen, profound anemia, and hypovolemic shock. This client's presentation is primarily pain-focused without signs of shock."
+        },
+        {
+            "id": "condition4",
+            "text": "Acute Chest Syndrome",
+            "hoverRationale": "Acute chest syndrome would present with new respiratory symptoms like cough, chest pain, or shortness of breath, along with a new infiltrate on chest x-ray. This client's primary complaints are not respiratory."
+        },
+        {
+            "id": "condition5",
+            "text": "Septic Arthritis",
+            "hoverRationale": "Septic arthritis typically affects a single joint and would likely show a positive joint fluid culture. This client's diffuse, multi-joint pain is more characteristic of a systemic vaso-occlusive process."
+        }
     ],
-    "condition": "Vaso-occlusive Crisis (Sickle Cell)",
+    "condition": "condition1",
     "parameters": [
         {
-            "id": "param4",
-            "text": "Monitor urine output.",
-            "correct": false,
-            "rationale": "While urine output is important for assessing overall hydration status, it is not the most sensitive or specific parameter for monitoring the acute management of vaso-occlusive crisis. Pain level, oxygen saturation, and respiratory status provide more immediate and relevant information about the patient's condition."
-        },
-        {
             "id": "param1",
-            "text": "Assess pain level and effectiveness of analgesics.",
-            "correct": true,
-            "rationale": "Monitoring pain level and the effectiveness of analgesics is crucial for evaluating the patient's response to treatment. Pain should be assessed regularly using a standardized pain scale, and the effectiveness of analgesics should be documented. Adjustments to the analgesic regimen may be necessary to achieve adequate pain control. Inadequate pain control can lead to increased stress, anxiety, and further complications."
-        },
-        {
-            "id": "param3",
-            "text": "Monitor serum electrolytes.",
-            "correct": false,
-            "rationale": "While electrolyte imbalances can occur in patients with sickle cell disease, monitoring serum electrolytes is not the highest priority in the acute management of vaso-occlusive crisis. Pain control, hydration, and respiratory status are more immediate concerns. Electrolyte imbalances should be addressed as needed, but they are not the primary focus of initial management."
+            "text": "Assess pain level and analgesic effectiveness.",
+            "hoverRationale": "Pain is the hallmark symptom of vaso-occlusive crisis and indicates ongoing tissue ischemia. Frequent pain assessment is the primary indicator of treatment effectiveness and guides titration of analgesia to prevent complications."
         },
         {
             "id": "param2",
             "text": "Assess oxygen saturation and respiratory status.",
-            "correct": true,
-            "rationale": "Monitoring oxygen saturation and respiratory status is essential to detect early signs of acute chest syndrome (ACS), a life-threatening complication of sickle cell crisis. ACS is characterized by pulmonary infiltrates and respiratory distress. Early detection and treatment of ACS are crucial to prevent respiratory failure and death. Oxygen saturation should be maintained above 92%, and respiratory rate, effort, and breath sounds should be monitored closely."
+            "hoverRationale": "Acute chest syndrome is a leading cause of death in sickle cell disease and can develop rapidly during a vaso-occlusive crisis. Monitoring respiratory status and oxygenation is critical for early detection and intervention."
+        },
+        {
+            "id": "param3",
+            "text": "Monitor serum electrolytes.",
+            "hoverRationale": "While electrolytes are monitored, they are not a priority parameter for tracking the resolution of a vaso-occlusive crisis. Pain levels and respiratory status are the most critical indicators of the client's condition."
+        },
+        {
+            "id": "param4",
+            "text": "Monitor urine output.",
+            "hoverRationale": "While important for hydration status, urine output is a less specific and immediate indicator of resolving vaso-occlusion compared to pain levels and respiratory status, which are the priority assessments."
+        },
+        {
+            "id": "param5",
+            "text": "Check capillary refill.",
+            "hoverRationale": "Capillary refill assesses peripheral perfusion but is not as sensitive as pain assessment for determining the status of microvascular occlusion and tissue ischemia throughout the body during a crisis."
         }
     ],
     "correctActionIds": [
@@ -69,104 +110,9 @@
         "param1",
         "param2"
     ],
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "takeAction",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 4,
-        "topicTags": [
-            "Pediatrics",
-            "Hematology",
-            "Pain Management"
-        ]
-    },
-    "rationale": {
-        "correct": "Vaso-occlusive crisis occurs when sickled red blood cells block small blood vessels, leading to pain and tissue ischemia. Priorities are aggressive hydration to reduce blood viscosity and opioid analgesics for pain control. Monitoring focuses on pain and respiratory status to detect acute chest syndrome.",
-        "incorrect": "Cold compresses cause vasoconstriction and worsen sickling. Aspirin is avoided in children due to Reye's syndrome risk. While electrolytes are important, pain and oxygenation/ACS detection are the crisis priorities. Urine output is less specific than other parameters.",
-        "clinicalPearls": [
-            "Hydration and oxygenation are key to reversing the sickling process.",
-            "Warm compresses are preferred over cold compresses for pain relief.",
-            "Monitor for signs of acute chest syndrome (cough, chest pain, shortness of breath)."
-        ],
-        "questionTrap": {
-            "trap": "Oxygen vs Hydration",
-            "howToOvercome": "Oxygen only helps if there is a deficit. Hydration is ALWAYS needed to reduce blood viscosity."
-        },
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Vaso-occlusive Crisis (Sickle Cell)\" is the only diagnosis that accounts for the constellation of clinical findings present.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer around-the-clock opioid analgesics (e.g., Morphine).\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Initiate aggressive IV hydration (1.5x maintenance).\" directly targets the acute pathophysiology of the suspected condition.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Administer STAT IV Salicylates (Aspirin).\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Apply cold compresses to the painful joints.\" is inappropriate or secondary for a client experiencing this specific clinical crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Monitor urine output.\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Assess pain level and effectiveness of analgesics.\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Monitor serum electrolytes.\" is not the most sensitive or specific parameter for evaluating this patient's status.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Assess oxygen saturation and respiratory status.\" provides high-fidelity data on the client's progress or clinical deterioration.",
-                "isCorrect": true
-            }
-        ],
-        "mnemonic": {
-            "title": "VOC",
-            "expansion": "V = Vaso\nO = occlusive\nC = Crisis\n\nKey Actions: Aggressive IV hydration (1.5x maintenance); Around-the-clock opioid analgesics (e.g., Morphine)\nKey Monitoring: Pain level and effectiveness of analgesics; Oxygen saturation and respiratory status"
-        },
-        "reviewUnits": [
-            {
-                "heading": "Vaso-occlusive Crisis — Pathophysiology & Recognition",
-                "body": "Vaso-occlusive crisis occurs when sickled red blood cells block small blood vessels, leading to pain and tissue ischemia. The priorities are aggressive hydration to reduce blood viscosity and opioid analgesics for pain control. Monitoring focuses on pain and respiratory status to detect acute chest syndrome. Hydration and oxygenation are key to reversing the sickling process.",
-                "source": "NCLEX-RN Clinical Review 2026"
-            },
-            {
-                "heading": "Testing Trap — Oxygen vs Hydration",
-                "body": "Oxygen only helps if there is a deficit. Hydration is ALWAYS needed to reduce blood viscosity.",
-                "source": "NCLEX Test Strategy Guide"
-            },
-            {
-                "heading": "Priority Interventions for Vaso-occlusive Crisis",
-                "body": "The priority nursing interventions are: Aggressive IV hydration (1.5x maintenance); Around-the-clock opioid analgesics (e.g., Morphine). Monitor: Pain level and effectiveness of analgesics; Oxygen saturation and respiratory status. Cold compresses cause vasoconstriction and worsen sickling (use warm compresses). Aspirin is avoided in children due to Reye's syndrome risk. While electrolytes are important, pain and oxygenation/ACS detection are the crisis priorities.",
-                "source": "Evidence-Based Nursing Practice"
-            }
-        ]
-    },
+    "rationale": "The client is experiencing a vaso-occlusive crisis, characterized by severe pain from tissue ischemia. The priority interventions are to manage pain with opioid analgesics and improve perfusion by administering aggressive IV hydration to decrease blood viscosity. Monitoring must focus on pain relief as an indicator of treatment effectiveness and respiratory status for early detection of acute chest syndrome, a life-threatening complication. Applying cold, administering salicylates, and encouraging exercise are contraindicated. Monitoring electrolytes, urine output, and capillary refill are secondary assessments.",
     "scoring": {
         "method": "polytomous",
-        "maxPoints": 4
-    },
-    "sentinelStatus": "healed_v2026_v11",
-    "itemContext": {
-        "sbar": "Situation: 10-year-old with Sickle Cell Disease admitted at 1400 with vaso-occlusive crisis, severe joint pain (10/10), and fever of 101.4°F (38.6°C).\nBackground: History of Sickle Cell Disease. Presents with classic symptoms of vaso-occlusive crisis. Recent labs pending.\nAssessment: Patient is in severe pain, febrile, and likely dehydrated due to the vaso-occlusive process. Requires immediate intervention to prevent further complications.\nRecommendation: Initiate aggressive IV hydration (1.5x maintenance), administer around-the-clock opioid analgesics (e.g., Morphine), and closely monitor pain level, oxygen saturation, and respiratory status for signs of acute chest syndrome."
+        "maxPoints": 5
     }
 }

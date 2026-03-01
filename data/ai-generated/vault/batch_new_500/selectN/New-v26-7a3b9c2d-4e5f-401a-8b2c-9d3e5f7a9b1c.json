@@ -1,9 +1,9 @@
 {
     "id": "New-v26-7a3b9c2d-4e5f-401a-8b2c-9d3e5f7a9b1c",
     "type": "selectN",
-    "stem": "The patient is exhibiting manifestations of hyperkalemia. Based on the EHR, which interventions are MOST appropriate to implement *immediately*?",
+    "stem": "The nurse reviews the new STAT orders in the client's electronic health record. Select the **5** interventions the nurse should implement immediately for the client's severe hyperkalemia.",
     "scoring": {
-        "method": "polytomous",
+        "method": "zeroOne",
         "maxPoints": 5
     },
     "itemContext": {
@@ -11,60 +11,295 @@
             "name": "Jameson Tyrell",
             "age": 72,
             "gender": "Male",
-            "iso": "Medical Surgical Unit",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ],
-            "isolation": "standard"
+            "isolation": "Standard Precautions"
         },
-        "sbar": "15:00 Report:\nMr. Tyrell is a 72-year-old male admitted at 08:00 today for acute kidney injury (AKI) secondary to dehydration. His history includes hypertension and benign prostatic hyperplasia (BPH). Urine output has been minimal since admission, less than 30 mL/hr. He's on 2L O2 via nasal cannula. At 14:30, he reported muscle weakness and nausea; peaked T waves were noted on telemetry. At 14:45, the physician was notified, and new orders are pending implementation. Current meds: Lisinopril 20mg daily, Tamsulosin 0.4mg daily. Vitals at 14:50: BP 160/90, HR 98, RR 24, SpO2 94%, Temp 37.2°C. He is alert and oriented, reporting pain 2/10. The physician is en route for evaluation.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Laboratory Results",
-                "content": "|\tLab Name\t|\tValue\t|\tReference Range\t|\n|-----------------------|----------------------|---------------------------|\n|\tSodium\t|\t140 mEq/L\t|\t135-145 mEq/L\t|\n|\tPotassium\t|\t6.8 mEq/L\t|\t3.5-5.0 mEq/L\t|\n|\tChloride\t|\t102 mEq/L\t|\t98-106 mEq/L\t|\n|\tBUN\t|\t55 mg/dL\t|\t10-20 mg/dL\t|\n|\tCreatinine\t|\t3.2 mg/dL\t|\t0.6-1.2 mg/dL\t|\n|\tGlucose\t|\t110 mg/dL\t|\t70-110 mg/dL\t|\n|\tCalcium\t|\t8.5 mg/dL\t|\t8.5-10.5 mg/dL\t|\n|\tMagnesium\t|\t2.0 mg/dL\t|\t1.5-2.5 mg/dL\t|\n|\tpH\t|\t7.30\t|\t7.35-7.45\t|\n|\tHCO3\t|\t22 mEq/L\t|\t22-26 mEq/L\t|"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "noteType": "Admission Note",
+                        "timestamp": "08:00",
+                        "body": "S: Client is a 72-year-old male brought to the ED by his adult child for evaluation of increasing lethargy, nausea, and decreased urination over the past 48 hours. Reports feeling 'extremely weak.'\nB: History of hypertension managed with lisinopril and benign prostatic hyperplasia (BPH) managed with tamsulosin. No recent illnesses or medication changes reported. Client lives alone and has limited mobility, which sometimes makes it difficult to stay hydrated.\nA: Appears fatigued and dehydrated with dry mucous membranes. Vitals stable on admission. Urine output is minimal. Labs drawn and IV fluids initiated. Admitted to the medical-surgical unit for acute kidney injury (AKI) secondary to dehydration.\nR: Continue IV hydration, monitor intake and output strictly, monitor electrolytes, and maintain continuous cardiac monitoring due to risk of electrolyte imbalance. Consult nephrology."
+                    },
+                    {
+                        "noteType": "Progress Note",
+                        "timestamp": "14:45",
+                        "body": "S: Client reports worsening muscle weakness and new-onset nausea. States, 'My heart feels like it's fluttering.'\nB: Since admission, urine output remains low (<30 mL/hr). The client's lisinopril and tamsulosin were administered at 08:00. He is on 2L O2 via nasal cannula.\nA: Cardiac monitor shows tall, peaked T-waves and a widened QRS complex, consistent with hyperkalemia. STAT labs confirm serum potassium of 6.8 mEq/L. Client is alert and oriented but anxious. Vitals are trending towards instability.\nR: Notified the on-call physician immediately of the critical lab value and ECG changes. Received new STAT orders to address life-threatening hyperkalemia. Will implement orders immediately and continue to monitor the client's cardiac and neurological status closely. Physician is en route to the bedside."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vital Signs",
-                "content": "|\tTime\t|\tBP\t|\tHR\t|\tRR\t|\tSpO2\t|\tTemp\t|\n|-----------------------|----------------------|----------------------|----------------------|---------------------------|----------------------|\n|\t14:50\t|\t160/90\t|\t98\t|\t24\t|\t94%\t|\t37.2°C\t|\n|\t14:00\t|\t150/85\t|\t92\t|\t22\t|\t95%\t|\t37.0°C\t|\n|\t13:00\t|\t145/80\t|\t88\t|\t20\t|\t96%\t|\t36.8°C\t|"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "Time": "14:50",
+                        "BP": "160/90 mmHg (MAP 113)",
+                        "HR": "98 bpm",
+                        "RR": "24/min",
+                        "SpO2": "94% on 2L NC",
+                        "Temp": "99.0°F (37.2°C)"
+                    },
+                    {
+                        "Time": "14:00",
+                        "BP": "150/85 mmHg (MAP 107)",
+                        "HR": "92 bpm",
+                        "RR": "22/min",
+                        "SpO2": "95% on 2L NC",
+                        "Temp": "98.6°F (37.0°C)"
+                    },
+                    {
+                        "Time": "13:00",
+                        "BP": "145/80 mmHg (MAP 102)",
+                        "HR": "88 bpm",
+                        "RR": "20/min",
+                        "SpO2": "96% on 2L NC",
+                        "Temp": "98.2°F (36.8°C)"
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "Medication Administration Record",
-                "content": "|\tMedication\t|\tDose\t|\tRoute\t|\tFrequency\t|\tLast Administered\t|\n|-----------------------|----------------------|----------------------|----------------------|---------------------------|\n|\tLisinopril\t|\t20 mg\t|\tPO\t|\tDaily\t|\t08:00\t|\n|\tTamsulosin\t|\t0.4 mg\t|\tPO\t|\tDaily\t|\t08:00\t|\n|\tSodium Polystyrene Sulfonate\t|\t15 g\t|\tPO\t|\tSTAT\t|\tScheduled\t|\n|\tCalcium Gluconate\t|\t1 g\t|\tIV\t|\tSTAT\t|\tScheduled\t|\n|\tRegular Insulin\t|\t10 units\t|\tIV\t|\tSTAT\t|\tScheduled\t|\n|\tD50W\t|\t50 mL\t|\tIV\t|\tSTAT\t|\tScheduled\t|"
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "Lab Name": "Potassium",
+                        "Value": "6.8",
+                        "Unit": "mEq/L",
+                        "Reference Range": "3.5-5.0",
+                        "Status": "High"
+                    },
+                    {
+                        "Lab Name": "Creatinine",
+                        "Value": "3.2",
+                        "Unit": "mg/dL",
+                        "Reference Range": "0.6-1.2",
+                        "Status": "High"
+                    },
+                    {
+                        "Lab Name": "BUN",
+                        "Value": "55",
+                        "Unit": "mg/dL",
+                        "Reference Range": "10-20",
+                        "Status": "High"
+                    },
+                    {
+                        "Lab Name": "Arterial pH",
+                        "Value": "7.30",
+                        "Unit": "",
+                        "Reference Range": "7.35-7.45",
+                        "Status": "Low"
+                    },
+                    {
+                        "Lab Name": "Sodium",
+                        "Value": "140",
+                        "Unit": "mEq/L",
+                        "Reference Range": "135-145",
+                        "Status": ""
+                    },
+                    {
+                        "Lab Name": "Chloride",
+                        "Value": "102",
+                        "Unit": "mEq/L",
+                        "Reference Range": "98-106",
+                        "Status": ""
+                    },
+                    {
+                        "Lab Name": "Glucose",
+                        "Value": "110",
+                        "Unit": "mg/dL",
+                        "Reference Range": "70-110",
+                        "Status": ""
+                    },
+                    {
+                        "Lab Name": "Calcium",
+                        "Value": "8.5",
+                        "Unit": "mg/dL",
+                        "Reference Range": "8.5-10.5",
+                        "Status": ""
+                    },
+                    {
+                        "Lab Name": "HCO3",
+                        "Value": "22",
+                        "Unit": "mEq/L",
+                        "Reference Range": "22-26",
+                        "Status": ""
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "System": "Cardiovascular",
+                        "Findings": "Tachycardic with irregular rhythm noted. S1, S2 audible. No murmurs, rubs, or gallops. Capillary refill 3 seconds in upper and lower extremities. Pulses 2+ bilaterally."
+                    },
+                    {
+                        "System": "Respiratory",
+                        "Findings": "Lungs clear to auscultation bilaterally. Respirations are slightly deep and rapid. No accessory muscle use."
+                    },
+                    {
+                        "System": "Neurological",
+                        "Findings": "Alert and oriented x3. Complains of generalized muscle weakness, particularly in lower extremities. Deep tendon reflexes are 1+ bilaterally. No paresthesia reported."
+                    },
+                    {
+                        "System": "Renal",
+                        "Findings": "Oliguria noted with urine output <30 mL/hr since admission. Bladder is non-distended. No costovertebral angle tenderness."
+                    }
+                ]
             },
             {
                 "id": "radiology",
-                "title": "Radiology Reports",
-                "content": "No radiology reports available."
+                "title": "Radiology",
+                "content": [
+                    {
+                        "Type": "12-Lead ECG",
+                        "Timestamp": "14:40",
+                        "Report": "Sinus tachycardia at a rate of 98 bpm. PR interval and QRS duration are prolonged. Tall, peaked T-waves are prominent in precordial leads V2-V5. No acute ST-segment elevation or depression is noted.\n\nImpression: Findings are highly suggestive of hyperkalemia-induced cardiotoxicity. Urgent clinical correlation and management are recommended."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "Order Date/Time": "14:45",
+                        "Action": "Administer calcium gluconate 1 g IV.",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "14:45",
+                        "Action": "Administer regular insulin 10 units IV with D50W 50 mL IV.",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "14:45",
+                        "Action": "Administer sodium polystyrene sulfonate 15 g PO.",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "14:45",
+                        "Action": "Initiate continuous telemetry monitoring.",
+                        "Frequency/Status": "STAT"
+                    },
+                    {
+                        "Order Date/Time": "14:45",
+                        "Action": "Assess muscle strength and deep tendon reflexes.",
+                        "Frequency/Status": "q1h x 4 hours"
+                    },
+                    {
+                        "Order Date/Time": "14:45",
+                        "Action": "Hold all scheduled doses of lisinopril.",
+                        "Frequency/Status": "Until further notice"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "Medication": "Lisinopril",
+                        "Dose": "20 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "08:00"
+                    },
+                    {
+                        "Medication": "Tamsulosin",
+                        "Dose": "0.4 mg",
+                        "Route": "PO",
+                        "Frequency": "Daily",
+                        "Last Administered": "08:00"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
         "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Pharmacological and Parenteral Therapies",
+        "cjmmStep": "takeAction",
+        "nclexCategory": "Physiological Adaptation",
         "difficulty": 5,
         "topicTags": [
-            "Renal: AKI vs CKD & Electrolyte Emergencies"
+            "Renal: AKI vs CKD & Electrolyte Emergencies",
+            "Hyperkalemia",
+            "Pharmacology"
         ]
     },
     "rationale": {
-        "correct": "Administering calcium gluconate stabilizes the myocardial cell membrane, reducing dysrhythmia risk from hyperkalemia. Insulin with D50W shifts potassium from extracellular fluid into cells, temporarily lowering serum potassium. Sodium polystyrene sulfonate (Kayexalate) binds potassium in the GI tract for fecal excretion, reducing serum potassium. Telemetry monitoring allows early detection of life-threatening dysrhythmias. Assessing muscle strength monitors treatment effectiveness and identifies hyperkalemia complications.",
-        "incorrect": "Furosemide may be ineffective in AKI with minimal urine output. While it can excrete potassium, its effectiveness is limited by impaired renal function. Lisinopril can worsen hyperkalemia by inhibiting aldosterone, which promotes potassium excretion; holding it is more appropriate. Increasing oxygen flow is unnecessary with SpO2 at 94%. While hypertensive, the priority is the electrolyte imbalance.",
+        "correct": "The immediate priority in severe, symptomatic hyperkalemia (K+ 6.8 mEq/L with ECG changes) is to prevent life-threatening cardiac dysrhythmias and rapidly lower serum potassium. The five correct interventions directly address this crisis by stabilizing the myocardium (calcium gluconate), shifting potassium intracellularly (insulin/D50W), promoting potassium excretion (sodium polystyrene sulfonate), monitoring for complications (telemetry), and assessing the neuromuscular effects of hyperkalemia (muscle strength assessment).",
+        "incorrect": "Furosemide is ineffective in a client with AKI and oliguria, as it requires adequate renal function to excrete potassium. Holding lisinopril is a correct action but is not an immediate, life-saving intervention compared to the STAT medications. Increasing oxygen is not indicated as the client's SpO2 of 94% on 2L NC is acceptable and not the primary problem.",
+        "answerBreakdown": [
+            {
+                "key": "A",
+                "label": "Administer calcium gluconate 1 g IV.",
+                "isCorrect": true,
+                "content": "This is the first-line, most critical intervention for hyperkalemia with ECG changes. Calcium gluconate does not lower serum potassium but antagonizes its cardiotoxic effects by stabilizing the myocardial cell membrane, immediately reducing the risk of fatal dysrhythmias."
+            },
+            {
+                "key": "B",
+                "label": "Administer furosemide 40 mg IV.",
+                "isCorrect": false,
+                "content": "This is incorrect. Furosemide is a loop diuretic that promotes potassium excretion via the kidneys. In a client with AKI and minimal urine output (<30 mL/hr), the kidneys cannot respond to the diuretic, rendering it ineffective for lowering potassium."
+            },
+            {
+                "key": "C",
+                "label": "Administer regular insulin 10 units IV with D50W 50 mL IV.",
+                "isCorrect": true,
+                "content": "This is a priority intervention. IV insulin activates the Na-K-ATPase pump, rapidly shifting potassium from the extracellular fluid into the intracellular space. D50W is administered concurrently to prevent iatrogenic hypoglycemia."
+            },
+            {
+                "key": "D",
+                "label": "Administer sodium polystyrene sulfonate 15 g PO.",
+                "isCorrect": true,
+                "content": "This is a correct intervention that removes potassium from the body. This cation-exchange resin binds with potassium in the gastrointestinal tract, which is then excreted in the feces. While its onset is slower than insulin, it is crucial for definitive potassium removal."
+            },
+            {
+                "key": "E",
+                "label": "Hold the next dose of lisinopril.",
+                "isCorrect": false,
+                "content": "This is an appropriate action but not one of the immediate *implementations* to resolve the crisis. Lisinopril, an ACE inhibitor, can contribute to hyperkalemia. While holding it is correct, it does not actively treat the current life-threatening electrolyte level. The priority is administering the STAT medications."
+            },
+            {
+                "key": "F",
+                "label": "Increase oxygen flow rate to 4L via nasal cannula.",
+                "isCorrect": false,
+                "content": "This is incorrect. The client's SpO2 is 94% on 2L NC, which is clinically acceptable. The tachypnea is likely a compensatory mechanism for metabolic acidosis (pH 7.30), not hypoxia. The root cause is the hyperkalemia and AKI, not a respiratory issue."
+            },
+            {
+                "key": "G",
+                "label": "Initiate continuous telemetry monitoring.",
+                "isCorrect": true,
+                "content": "This is a critical safety intervention. Hyperkalemia can rapidly progress to lethal arrhythmias such as ventricular fibrillation or asystole. Continuous cardiac monitoring is essential to track the client's response to treatment and detect any deterioration immediately."
+            },
+            {
+                "key": "H",
+                "label": "Assess the patient's muscle strength.",
+                "isCorrect": true,
+                "content": "This is a correct intervention. Hyperkalemia impairs neuromuscular transmission, causing muscle weakness that can progress to flaccid paralysis and affect respiratory muscles. Serial assessment of muscle strength is a key indicator of the severity of hyperkalemia and the effectiveness of treatment."
+            }
+        ],
         "clinicalPearls": [
-            "Hyperkalemia can cause life-threatening cardiac dysrhythmias; early recognition is crucial.",
-            "Calcium gluconate doesn't lower potassium; it protects the heart from hyperkalemia's effects.",
-            "Insulin/D50W temporarily shifts potassium into cells. Kayexalate offers a more permanent solution but takes longer."
+            "In hyperkalemia with ECG changes, always remember the priority: 'Stabilize the heart, shift the K, remove the K.' Calcium gluconate stabilizes, Insulin/D50W shifts, and Kayexalate/dialysis removes.",
+            "An ACE inhibitor (like lisinopril) is a common cause of hyperkalemia, especially in clients with renal impairment, because it blocks aldosterone production, which normally promotes potassium excretion.",
+            "Peaked T-waves are the earliest ECG sign of hyperkalemia. As potassium levels rise further, the PR interval prolongs, the QRS complex widens, and the P-wave flattens, eventually leading to a sine wave pattern and cardiac arrest."
         ],
         "questionTrap": {
-            "trap": "The trap is focusing on hypertension and overlooking the immediate hyperkalemia threat. Students might address hypertension first, missing the priority intervention.",
-            "howToOvercome": "Focus on the stem's primary problem (hyperkalemia) and prioritize interventions addressing that imbalance. Remember ABCs but consider electrolyte emergencies."
+            "trap": "The trap is choosing all correct 'actions' without prioritizing. Holding lisinopril is a correct nursing action, but it is not an immediate, active intervention to treat the acute crisis like administering STAT medications. The stem asks what to *implement* immediately.",
+            "howToOvercome": "Carefully read the stem for keywords like 'implement' and 'immediately.' Differentiate between active, life-saving interventions (giving meds) and passive or preventative actions (holding a med). Focus on the orders listed in the Care Plan tab that directly address the life-threatening problem."
         },
         "mnemonic": {
-            "title": "K-IND",
-            "expansion": "K - Kayexalate (Sodium Polystyrene Sulfonate), I - Insulin & Dextrose, N - NaHCO3 (Sodium Bicarbonate - less common), D - Diuretics (Furosemide, if kidneys function)"
+            "title": "C BIG K DI",
+            "expansion": "C - Calcium Gluconate (stabilizes cardiac membrane)\nB - Bicarbonate (shifts K+ into cells, used in acidosis)\nI - Insulin (shifts K+ into cells)\nG - Glucose (prevents hypoglycemia from insulin)\nK - Kayexalate (removes K+ via GI tract)\nDI - Dialysis (definitive K+ removal)"
         }
     },
     "options": [
@@ -109,5 +344,5 @@
             "correct": true
         }
     ],
-    "sentinelStatus": "deep_healed_v2026"
+    "sentinelStatus": "upgraded_to_2026_spec_v1.0"
 }

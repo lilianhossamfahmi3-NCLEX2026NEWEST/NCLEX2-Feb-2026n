@@ -1,60 +1,121 @@
 {
-    "id": "preeclampsia_management_bowtie_v1",
+    "id": "bowtie_preeclampsia_severe_v2",
     "type": "bowtie",
-    "stem": "A client at 34 weeks gestation presents with a severe headache and visual disturbances ('spots' in her vision). Her blood pressure is 162/110 mmHg, and she has 3+ proteinuria. Complete the clinical bowtie.",
+    "sentinelStatus": "healed_v2026_v13",
+    "ehr": {
+        "tabs": [
+            {
+                "id": "patientInfo",
+                "label": "Patient Info",
+                "content": "Name: Jane Doe\nAge: 32 years\nGestational Age: 34 weeks\nGravida/Para: G1P0\nAllergies: No Known Allergies"
+            },
+            {
+                "id": "history",
+                "label": "History",
+                "content": "Past Medical History: Gestational hypertension (diagnosed at 28 weeks gestation)"
+            },
+            {
+                "id": "vitals",
+                "label": "Vitals",
+                "content": "Time: 08:00\nBlood Pressure: 162/110 mmHg\nHeart Rate: 98/min\nRespiratory Rate: 20/min\nTemperature: 37.1°C (98.8°F)\nSpO2: 98% on room air"
+            },
+            {
+                "id": "labs",
+                "label": "Labs",
+                "content": "URINALYSIS (dipstick):\n- Protein: 3+\n- Glucose: Negative\n- Ketones: Negative"
+            },
+            {
+                "id": "notes",
+                "label": "Notes",
+                "content": "08:00: Client admitted from clinic for observation. Reports a severe, persistent headache and 'seeing spots' for the past hour. 3+ pitting edema noted in lower extremities. Complaining of new-onset epigastric pain. Appears anxious. Provider notified of change in condition."
+            }
+        ]
+    },
+    "clinicalFeed": "Situation: This is the nurse on the antepartum unit calling about Jane Doe, a 32-year-old G1P0 at 34 weeks gestation. Background: She has a history of gestational hypertension and was admitted at 08:00 for observation. Assessment: Her condition has worsened. She now reports a severe headache, visual disturbances, and epigastric pain. Her BP is 162/110 mmHg with 3+ proteinuria and 3+ pitting edema. Recommendation: I suspect preeclampsia with severe features. I have initiated seizure precautions and request orders for IV magnesium sulfate and labetalol.",
+    "stem": "The nurse has reported a significant change in the client's condition to the provider. The client's assessment findings are indicative of preeclampsia with severe features. Complete the bowtie by selecting the two most likely causes, two priority actions, and two parameters to monitor.",
+    "potentialConditions": [
+        {
+            "id": "pc1",
+            "text": "Preeclampsia with Severe Features"
+        },
+        {
+            "id": "pc2",
+            "text": "Gestational Hypertension"
+        },
+        {
+            "id": "pc3",
+            "text": "HELLP Syndrome"
+        },
+        {
+            "id": "pc4",
+            "text": "Chronic Hypertension with Superimposed Preeclampsia"
+        }
+    ],
+    "condition": "pc1",
     "causes": [
         {
-            "id": "c3",
-            "text": "Excessive sodium intake during pregnancy"
-        },
-        {
             "id": "c1",
-            "text": "Placental ischemia due to impaired blood flow"
-        },
-        {
-            "id": "c4",
-            "text": "Multiple gestation pregnancy"
+            "text": "Placental ischemia"
         },
         {
             "id": "c2",
-            "text": "Abnormal remodeling of maternal spiral arteries"
+            "text": "Abnormal spiral artery remodeling"
+        },
+        {
+            "id": "c3",
+            "text": "Excessive dietary sodium intake"
+        },
+        {
+            "id": "c4",
+            "text": "Maternal age over 40 years"
+        },
+        {
+            "id": "c5",
+            "text": "Pre-existing renal disease"
         }
     ],
-    "condition": "Preeclampsia with Severe Features",
     "actions": [
-        {
-            "id": "a4",
-            "text": "Encourage ambulation for exercise"
-        },
         {
             "id": "a1",
             "text": "Administer intravenous magnesium sulfate"
         },
         {
-            "id": "a3",
-            "text": "Perform a sterile vaginal examination every hour"
+            "id": "a2",
+            "text": "Administer intravenous labetalol"
         },
         {
-            "id": "a2",
-            "text": "Administer intravenous hydralazine or labetalol"
+            "id": "a3",
+            "text": "Prepare for immediate amniocentesis"
+        },
+        {
+            "id": "a4",
+            "text": "Encourage ambulation to lower blood pressure"
+        },
+        {
+            "id": "a5",
+            "text": "Administer a diuretic to reduce edema"
         }
     ],
     "parameters": [
         {
-            "id": "p4",
-            "text": "Daily weight gain"
-        },
-        {
             "id": "p1",
-            "text": "Deep tendon reflexes (DTRs) assessment"
+            "text": "Deep tendon reflexes"
         },
         {
             "id": "p2",
-            "text": "Hourly urine output monitoring"
+            "text": "Hourly urine output"
         },
         {
             "id": "p3",
-            "text": "Fetal heart rate (FHR) patterns"
+            "text": "Fundal height measurement"
+        },
+        {
+            "id": "p4",
+            "text": "Fetal kick counts"
+        },
+        {
+            "id": "p5",
+            "text": "Daily weight"
         }
     ],
     "correctCauseIds": [
@@ -69,96 +130,34 @@
         "p1",
         "p2"
     ],
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Adaptation",
-        "difficulty": 4,
-        "topicTags": [
-            "Preeclampsia",
-            "Maternal Health",
-            "Obstetric Emergency"
-        ]
-    },
-    "rationale": {
-        "correct": "Preeclampsia with severe features is primarily caused by placental ischemia and abnormal remodeling of spiral arteries (c1, c2). The priority actions are to prevent seizures with magnesium sulfate (a1) and control blood pressure with hydralazine or labetalol (a2). Monitoring deep tendon reflexes (DTRs) (p1) and urine output (p2) is crucial for detecting magnesium toxicity.",
-        "incorrect": "Excessive sodium intake (c3) is not the primary cause of preeclampsia. Sterile vaginal exams (a3) are not indicated unless the client is in active labor. Ambulation (a4) is not the priority in this situation. Daily weight gain (p4) and fetal heart rate patterns (p3) are less sensitive indicators of the client's immediate condition compared to DTRs and urine output.",
-        "answerBreakdown": [
-            {
-                "label": "🎯 Condition",
-                "content": "The condition \"Preeclampsia with Severe Features\" is the most accurate diagnosis based on the client's reported symptoms and clinical findings.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Encourage ambulation for exercise\" is not the priority intervention for a client experiencing a hypertensive crisis.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer intravenous magnesium sulfate\" directly addresses the risk of seizures associated with preeclampsia.",
-                "isCorrect": true
-            },
-            {
-                "label": "⚡ Action",
-                "content": "\"Perform a sterile vaginal examination every hour\" is not indicated unless the client is in active labor.",
-                "isCorrect": false
-            },
-            {
-                "label": "⚡ Action",
-                "content": "Implementing \"Administer intravenous hydralazine or labetalol\" directly targets the elevated blood pressure associated with preeclampsia.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Daily weight gain\" is not the most critical parameter to monitor in this acute situation.",
-                "isCorrect": false
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Deep tendon reflexes (DTRs) assessment\" provides essential information about magnesium toxicity.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "Monitoring \"Hourly urine output monitoring\" is crucial for assessing renal function and detecting magnesium toxicity.",
-                "isCorrect": true
-            },
-            {
-                "label": "📊 Parameter",
-                "content": "\"Fetal heart rate (FHR) patterns\" are important but less immediately indicative of the client's condition than DTRs and urine output.",
-                "isCorrect": false
-            }
-        ],
-        "clinicalPearls": [
-            "Calcium gluconate is the antidote for magnesium sulfate toxicity.",
-            "Preeclampsia can progress rapidly; close monitoring is essential."
-        ],
-        "questionTrap": {
-            "trap": "The 'Sodium' Trap",
-            "howToOvercome": "While sodium intake is important for overall health, it is not the primary cause of preeclampsia. Focus on the placental factors and blood pressure control."
-        },
-        "mnemonic": {
-            "title": "HELLP",
-            "expansion": "H = Hemolysis\nEL = Elevated Liver enzymes\nLP = Low Platelet count\n\nConsider HELLP syndrome as a differential diagnosis in patients with preeclampsia."
-        },
-        "reviewUnits": [
-            {
-                "heading": "Preeclampsia with Severe Features",
-                "body": "Preeclampsia with severe features is characterized by hypertension and proteinuria, along with signs of end-organ damage such as headache, visual disturbances, and elevated liver enzymes.",
-                "source": "Maternal-Newborn Nursing: The Developing Family, 9th Edition"
-            }
-        ]
+    "hoverRationales": {
+        "pc1": "Correct. The client's severe hypertension (162/110 mmHg), proteinuria (3+), and signs of end-organ damage (headache, visual disturbances, epigastric pain) are classic indicators of preeclampsia with severe features.",
+        "pc2": "Incorrect. Gestational hypertension is defined as new-onset hypertension after 20 weeks of gestation without proteinuria or signs of end-organ damage. This client has both.",
+        "pc3": "Incorrect. While HELLP syndrome is a severe variant of preeclampsia, this diagnosis requires laboratory confirmation of Hemolysis, Elevated Liver enzymes, and Low Platelets, which are not yet available.",
+        "pc4": "Incorrect. This diagnosis applies to clients with pre-existing chronic hypertension who then develop new-onset proteinuria or other severe features. The client's history is of gestational hypertension.",
+        "c1": "Correct. Placental ischemia, or inadequate blood flow to the placenta, is a primary cause. It triggers the release of factors that cause widespread maternal endothelial dysfunction, leading to hypertension and proteinuria.",
+        "c2": "Correct. In a normal pregnancy, maternal spiral arteries remodel to become high-flow, low-resistance vessels. Failure of this process leads to placental hypoperfusion, which is the root cause of preeclampsia.",
+        "c3": "Incorrect. The clinical flaw is assuming preeclampsia is caused by fluid overload from high sodium intake. The disease is primarily one of vasospasm and endothelial damage, and sodium restriction is not a primary treatment.",
+        "c4": "Incorrect. The clinical flaw is confusing a risk factor with a direct cause. While advanced maternal age increases the risk for preeclampsia, it is not the underlying pathophysiological mechanism.",
+        "c5": "Incorrect. The clinical flaw is mistaking a predisposing condition for the primary cause. Pre-existing renal disease is a significant risk factor but does not represent the primary placental pathology that initiates the preeclamptic cascade.",
+        "a1": "Correct. Magnesium sulfate is a central nervous system depressant administered to prevent eclamptic seizures, which are a life-threatening complication of severe preeclampsia.",
+        "a2": "Correct. Intravenous labetalol is a first-line antihypertensive agent used to safely lower severely elevated blood pressure and reduce the risk of maternal stroke or other end-organ damage.",
+        "a3": "Incorrect. The clinical flaw is selecting an irrelevant procedure. Amniocentesis is used for genetic testing or assessing fetal lung maturity and has no role in the acute management of a hypertensive crisis.",
+        "a4": "Incorrect. The clinical flaw is recommending a contraindicated activity. Ambulation can increase central nervous system stimulation and blood pressure, raising the risk of seizures; strict bed rest is indicated.",
+        "a5": "Incorrect. The clinical flaw is that diuretics can worsen intravascular volume depletion and decrease placental perfusion, which is harmful in preeclampsia. They are only used if pulmonary edema is present.",
+        "p1": "Correct. Monitoring deep tendon reflexes is essential to detect magnesium sulfate toxicity. The absence of reflexes (areflexia) is an early sign of overdose, which can progress to respiratory depression.",
+        "p2": "Correct. Monitoring hourly urine output is critical as oliguria (<30 mL/hr) indicates worsening renal function (a severe feature) and is also a sign of magnesium toxicity, as the drug is cleared by the kidneys.",
+        "p3": "Incorrect. The clinical flaw is choosing a non-acute assessment. Fundal height measures fetal growth over time and is not a useful parameter for monitoring the client's immediate response to acute interventions.",
+        "p4": "Incorrect. The clinical flaw is focusing on a fetal parameter instead of a maternal one. While important for fetal well-being, kick counts do not monitor the client's response to magnesium sulfate or antihypertensive therapy.",
+        "p5": "Incorrect. The clinical flaw is selecting a parameter that is not sensitive enough for acute monitoring. Daily weight reflects fluid shifts over 24 hours, not the immediate physiological response to critical medications."
     },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "potentialConditions": [
-        "Chronic Hypertension with Superimposed Preeclampsia",
-        "Gestational Hypertension",
-        "HELLP Syndrome",
-        "Preeclampsia with Severe Features"
-    ],
-    "sentinelStatus": "healed_v2026_v11"
+    "pedagogy": {
+        "bloomLevel": "analyze",
+        "cjmmStep": "recognizeCues",
+        "nclexCategory": "Physiological Adaptation"
+    }
 }

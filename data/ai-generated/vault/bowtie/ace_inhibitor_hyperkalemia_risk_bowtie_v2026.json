@@ -1,13 +1,13 @@
 {
-    "id": "bowtie_ace_inhibitor_hyperkalemia_risk_v2026",
+    "id": "bowtie_ace_inhibitor_hyperkalemia_risk_v2026_remediated",
     "type": "bowtie",
-    "stem": "The nurse in the cardiology clinic is reviewing the electronic health record (EHR) of a client who was recently started on high-dose lisinopril for heart failure. Based on the clinical data, the nurse identifies the priority nursing actions, the most likely complication, and the parameters that require serial monitoring.",
+    "stem": "A nurse is reviewing the electronic health record (EHR) for a 72-year-old client with heart failure and chronic kidney disease who reports new weakness. Based on the provided clinical data, determine the appropriate actions to take, the condition the client is experiencing, and the parameters to monitor.",
     "itemContext": {
         "tabs": [
             {
                 "id": "sbar",
-                "title": "Clinical Summary",
-                "content": "09:00: 72-year-old female with a history of Stage 3 Chronic Kidney Disease (CKD) and Heart Failure with reduced ejection fraction (HFrEF).\n09:15: Client was started on Lisinopril 40 mg daily and Spironolactone 25 mg daily one week ago.\n09:30: Client reports feeling 'skipped heartbeats' today and describes generalized muscle weakness as if she 'can't lift her arms'.\n10:00: Client is also taking a potassium supplement (K-Dur) 20 mEq daily which was not discontinued when the ACE inhibitor was started."
+                "title": "SBAR Note",
+                "content": "<strong>Situation:</strong> This is the nurse calling at 10:15 about the 72-year-old female client reporting new-onset palpitations and profound muscle weakness. <br><strong>Background:</strong> She has a history of HFrEF and Stage 3 CKD. Her medications include high-dose lisinopril, spironolactone, and a daily potassium supplement. <br><strong>Assessment:</strong> Her 09:45 potassium is critical at 6.4 mEq/L. She is bradycardic to 54, hypotensive, and telemetry shows peaked T-waves. <br><strong>Recommendation:</strong> I request immediate orders for a 12-lead ECG and interventions for life-threatening hyperkalemia."
             },
             {
                 "id": "vitals",
@@ -17,69 +17,100 @@
             {
                 "id": "labs",
                 "title": "Lab Results",
-                "content": "Today's Labs (09:45):\n- Sodium: 138 mEq/L (135-145)\n- Potassium: 6.4 mEq/L (3.5-5.0)\n- BUN: 38 mg/dL (10-20)\n- Creatinine: 1.9 mg/dL (0.6-1.2)\n- GFR: 32 mL/min (>60)"
+                "content": "Today's Labs (09:45):<br>- Sodium: 138 mEq/L (135-145)<br>- Potassium: 6.4 mEq/L (3.5-5.0)<br>- BUN: 38 mg/dL (10-20)<br>- Creatinine: 1.9 mg/dL (0.6-1.2)<br>- GFR: 32 mL/min (>60)"
+            },
+            {
+                "id": "meds",
+                "title": "Medications",
+                "content": "- Lisinopril 40 mg PO daily<br>- Spironolactone 25 mg PO daily<br>- Potassium Chloride (K-Dur) 20 mEq PO daily"
             },
             {
                 "id": "exam",
                 "title": "Physical Exam",
-                "content": "General: Alert but appears fatigued.\nCardiovascular: Bradycardia noted. Heart rhythm irregular with frequent ectopy. No S3 or S4.\nMusculoskeletal: 3/5 muscle strength in bilateral upper and lower extremities. Reports numbness and tingling around the mouth.\nRepiratory: Clear to auscultation."
+                "content": "<strong>General:</strong> Alert but appears fatigued.<br><strong>Cardiovascular:</strong> Bradycardia noted. Heart rhythm irregular with frequent ectopy. No S3 or S4.<br><strong>Musculoskeletal:</strong> 3/5 muscle strength in bilateral upper and lower extremities. Reports numbness and tingling around the mouth.<br><strong>Respiratory:</strong> Clear to auscultation."
             },
             {
                 "id": "tele",
                 "title": "Telemetry Strip",
-                "content": "10:15 Findings: Sinus bradycardia at 54 bpm. Noted narrow, peaked T-waves across the precordial leads. PR interval is borderline at 0.20 seconds."
+                "content": "<strong>10:15 Findings:</strong> Sinus bradycardia at 54 bpm. Noted narrow, peaked T-waves across the precordial leads. PR interval is borderline at 0.20 seconds."
             }
         ]
     },
     "actions": [
         {
             "id": "a1",
-            "text": "Administer the next scheduled dose of spironolactone."
+            "text": "Administer scheduled spironolactone.",
+            "rationale": "Incorrect. Spironolactone is a potassium-sparing diuretic. Administering it would worsen the life-threatening hyperkalemia by further inhibiting potassium excretion, which is a significant clinical flaw."
         },
         {
             "id": "a2",
-            "text": "Obtain an immediate 12-lead ECG."
+            "text": "Obtain an immediate 12-lead ECG.",
+            "rationale": "Correct. Hyperkalemia alters cardiac myocyte resting membrane potential, causing progressive electrocardiogram changes like peaked T-waves. An immediate ECG is essential for risk stratification and to guide emergency treatment."
         },
         {
             "id": "a3",
-            "text": "Notify the healthcare provider to request an order for sodium polystyrene sulfonate or patiromer."
+            "text": "Request order for potassium-binding resin.",
+            "rationale": "Incorrect. While a potassium-binding resin may be ordered, the nurse's immediate priorities are assessing for cardiac instability with an ECG and stopping the source of excess potassium. This action is not the most immediate priority."
         },
         {
             "id": "a4",
-            "text": "Encourage the client to increase dietary intake of bananas and leafy greens."
+            "text": "Encourage increased dietary potassium.",
+            "rationale": "Incorrect. The client has severe hyperkalemia. Increasing potassium intake through diet is a dangerous clinical flaw that could precipitate a cardiac arrest."
         },
         {
             "id": "a5",
-            "text": "Instruct the client to stop the potassium supplement (K-Dur) immediately."
+            "text": "Instruct client to hold potassium supplement.",
+            "rationale": "Correct. The client's hyperkalemia is caused by excessive potassium intake and reduced excretion. Holding the exogenous potassium supplement is a crucial action to decrease the total body potassium load, which is the first step in restoring normal transmembrane potential."
         }
     ],
     "potentialConditions": [
-        "Hyponatremia",
-        "Hypokalemia",
-        "Hyperkalemia",
-        "Acute Tubular Necrosis"
+        {
+            "id": "pc1",
+            "text": "Hyponatremia",
+            "rationale": "Incorrect. The client's sodium level is 138 mEq/L, which is within the normal range. The clinical signs are not consistent with hyponatremia, making this diagnosis a clinical flaw."
+        },
+        {
+            "id": "pc2",
+            "text": "Hypokalemia",
+            "rationale": "Incorrect. The client's serum potassium is critically elevated at 6.4 mEq/L. The symptoms and ECG changes are classic for hyperkalemia, making this diagnosis the opposite of the available data."
+        },
+        {
+            "id": "pc3",
+            "text": "Hyperkalemia",
+            "rationale": "Correct. Hyperkalemia raises the resting membrane potential of cardiac and neuromuscular cells. This pathophysiology explains the peaked T-waves, bradycardia, and profound muscle weakness seen in the client, which are direct consequences of altered cellular excitability."
+        },
+        {
+            "id": "pc4",
+            "text": "Acute Tubular Necrosis",
+            "rationale": "Incorrect. While the client has underlying CKD, the acute presentation with specific ECG changes and muscle weakness points directly to an electrolyte emergency. This is not a primary structural kidney injury like ATN."
+        }
     ],
-    "condition": "Hyperkalemia",
+    "condition": "pc3",
     "parameters": [
         {
             "id": "p1",
-            "text": "Cardiac rhythm and T-wave changes"
+            "text": "Cardiac rhythm and T-wave changes",
+            "rationale": "Correct. Hyperkalemia directly alters cardiac myocyte repolarization, leading to peaked T-waves, PR prolongation, and QRS widening. Monitoring the ECG is critical to assess for impending ventricular fibrillation or asystole."
         },
         {
             "id": "p2",
-            "text": "Serum creatinine and GFR"
+            "text": "Serum creatinine and GFR",
+            "rationale": "Incorrect. While renal function is the underlying cause, monitoring these labs is not the priority during an acute, life-threatening hyperkalemic event. The clinical flaw is focusing on chronic markers instead of acute cardiac stability."
         },
         {
             "id": "p3",
-            "text": "Deep tendon reflexes"
+            "text": "Deep tendon reflexes",
+            "rationale": "Incorrect. Hyperkalemia can cause muscle weakness, but deep tendon reflexes are not a sensitive or priority indicator compared to cardiac monitoring. This represents a clinical flaw in prioritization."
         },
         {
             "id": "p4",
-            "text": "Serum potassium levels"
+            "text": "Serum potassium levels",
+            "rationale": "Correct. The goal of treatment is to restore the normal potassium gradient across cell membranes. Serial potassium levels provide a direct measure of therapeutic effectiveness in shifting potassium intracellularly or removing it from the body, guiding further interventions."
         },
         {
             "id": "p5",
-            "text": "Blood pressure"
+            "text": "Blood pressure",
+            "rationale": "Incorrect. While the client is hypotensive, this is likely secondary to bradycardia and the ACE inhibitor. The primary life-threatening parameter to monitor is the direct effect of potassium on the heart via the ECG."
         }
     ],
     "correctActionIds": [
@@ -104,48 +135,9 @@
             "Heart Failure"
         ]
     },
-    "rationale": {
-        "correct": "The client is experiencing severe hyperkalemia (6.4 mEq/L), likely caused by the triple-threat of an ACE inhibitor (lisinopril), a potassium-sparing diuretic (spironolactone), and an exogenous potassium supplement in the setting of chronic kidney disease. Priority actions include obtaining an ECG to assess for life-threatening arrhythmias (like peaked T-waves already noted) and immediately stopping all potassium-elevating agents. Monitoring the cardiac rhythm and repeat serum potassium levels are the most critical parameters to evaluate the effectiveness of treatment and the risk of cardiac arrest.",
-        "incorrect": "Increasing dietary potassium or continuing spironolactone would be dangerous and could lead to fatal arrhythmias. While BP and kidney function are important, they are not the primary parameters to monitor during an acute hyperkalemic crisis. Sodium polystyrene sulfonate or patiromer are possible treatments but stopping the source of potassium and ECG monitoring come first in clinical priority.",
-        "answerBreakdown": [
-            {
-                "optionId": "a1",
-                "rationale": "Incorrect. Spironolactone is a potassium-sparing diuretic and must be held in the presence of hyperkalemia."
-            },
-            {
-                "optionId": "a2",
-                "rationale": "Correct. ECG changes (peaked T-waves, widened QRS) are the most immediate indicator of physiological danger from hyperkalemia."
-            },
-            {
-                "optionId": "a3",
-                "rationale": "Incorrect. While potentially part of the care plan later, immediate safety involves the ECG and stopping current meds."
-            },
-            {
-                "optionId": "a4",
-                "rationale": "Incorrect. These are high-potassium foods and would worsen the condition."
-            },
-            {
-                "optionId": "a5",
-                "rationale": "Correct. The client is taking an unnecessary supplement (K-Dur) alongside two potassium-retaining medications."
-            }
-        ],
-        "clinicalPearls": [
-            "The combination of ACE inhibitors, Spironolactone, and CKD is a high-risk scenario for hyperkalemia.",
-            "Peaked T-waves are the earliest ECG sign of hyperkalemia.",
-            "Lisinopril-induced hyperkalemia is often dose-dependent and compounded by low GFR."
-        ],
-        "questionTrap": {
-            "trap": "Thinking that heart failure medications like Lisinopril should never be stopped despite high potassium.",
-            "howToOvercome": "Remember that life-threatening electrolyte imbalances override chronic condition management in the acute phase."
-        },
-        "mnemonic": {
-            "title": "Hyper-K ECG",
-            "expansion": "Tall T-waves (Peaked T), Prolonged PR, Pretty Wide QRS (Death is imminent if QRS widens)."
-        }
-    },
     "scoring": {
         "method": "polytomous",
         "maxPoints": 5
     },
-    "sentinelStatus": "healed_v2026_v11"
+    "sentinelStatus": "remediated_v2026_v2"
 }

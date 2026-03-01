@@ -1,7 +1,7 @@
 {
     "id": "New-v26-9e4b2a15-8f3e-4c7a-9d2b-3a1c5e7f8d0g",
     "type": "multipleChoice",
-    "stem": "The nurse is caring for a patient with acute pancreatitis. Based on the patient's clinical presentation and laboratory results, which intervention is the MOST appropriate to implement?",
+    "stem": "The nurse reviews the client's record. Which provider order should the nurse anticipate as the priority for nutritional support at this time?",
     "scoring": {
         "method": "dichotomous",
         "maxPoints": 1
@@ -10,8 +10,9 @@
         "patient": {
             "name": "John Smith",
             "age": 58,
-            "gender": "Male",
-            "iso": "Medical ICU",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "iso": "None",
             "allergies": [
                 "Penicillin"
             ],
@@ -19,80 +20,260 @@
                 "Acute Pancreatitis"
             ]
         },
-        "sbar": "S: John Smith, 58-year-old male, admitted to the Medical ICU two days prior with acute pancreatitis secondary to gallstones. He reports severe abdominal pain, rated 8/10, despite opioid analgesics, and complains of nausea. B: History of cholelithiasis. Vital signs show an elevated heart rate. Patient is NPO. O: At 07:00, patient reports pain 8/10. Abdomen is distended with hypoactive bowel sounds. Urine output has been low in the past 8 hours. Labs are significant for elevated amylase and lipase. Vitals: HR 110, BP 130/80, RR 20, Temp 38.0°C, SpO2 96%. Labs: Amylase 1500 U/L, Lipase 2000 U/L, WBC 14,000/mm3, Glucose 180 mg/dL, Potassium 3.2 mEq/L. MAR: Morphine 4mg IV q4h PRN, Ondansetron 4mg IV q6h PRN, LR 125 mL/hr, KCl 20 mEq IV daily. A: Acute pancreatitis with uncontrolled pain, decreased urine output indicating dehydration, and electrolyte imbalance. Elevated amylase/lipase confirm pancreatic inflammation. Risk for fluid imbalance and infection. P: 07:15: Administer pain medication per order. Await further lab results. 07:30: Contact provider if pain unrelieved or condition worsens. Monitor urine output closely. 08:00: Reassess pain, abdominal assessment, vitals, and lab results.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr><tr><td>Amylase</td><td>1500 U/L</td><td>30-110 U/L</td></tr><tr><td>Lipase</td><td>2000 U/L</td><td>0-160 U/L</td></tr><tr><td>WBC</td><td>14,000/mm3</td><td>4,500-11,000/mm3</td></tr><tr><td>Glucose</td><td>180 mg/dL</td><td>70-110 mg/dL</td></tr><tr><td>Potassium</td><td>3.2 mEq/L</td><td>3.5-5.0 mEq/L</td></tr></table>"
-            },
-            {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th></tr><tr><td>Morphine Sulfate</td><td>4 mg</td><td>IV</td><td>q4h PRN Pain</td></tr><tr><td>Ondansetron</td><td>4 mg</td><td>IV</td><td>q6h PRN Nausea</td></tr><tr><td>Lactated Ringers</td><td>125 mL/hr</td><td>IV</td><td>Continuous</td></tr><tr><td>Potassium Chloride</td><td>20 mEq</td><td>IV</td><td>Once Daily</td></tr></table>"
+                "id": "clinicalFeed",
+                "title": "Clinical Feed",
+                "notes": [
+                    {
+                        "type": "Admission Note",
+                        "timestamp": "Day 1, 16:00",
+                        "content": "S: Client is a 58-year-old male brought to the ED with a sudden onset of severe, boring epigastric pain radiating to his back, rated 10/10. Reports nausea and multiple episodes of vomiting. B: History of cholelithiasis and occasional heavy alcohol use. Client lives alone in a rural area with limited access to fresh foods, reports a diet high in fried foods. No prior surgeries. Penicillin allergy noted. A: Client is tachycardic, tachypneic, and febrile. Abdomen is tender with guarding. Initial labs show significantly elevated lipase and amylase. Appears dehydrated with poor skin turgor. Suspected acute pancreatitis secondary to gallstones. R: Admitted to the medical ICU for aggressive IV hydration, pain management, electrolyte monitoring, and complete bowel rest. Placed on NPO status. Will obtain an abdominal CT for further evaluation of pancreatic inflammation and potential necrosis."
+                    },
+                    {
+                        "type": "Progress Note",
+                        "timestamp": "Day 3, 08:00",
+                        "content": "S: Client reports persistent severe abdominal pain, rated 8/10, despite PRN morphine administration. States he feels 'bloated and sick' and continues to have episodes of nausea. B: Now 48 hours post-admission for severe acute pancreatitis. He has remained NPO with IV fluid resuscitation. Urine output has been borderline low at 35 mL/hr for the past 4 hours. A: Vitals show persistent tachycardia. Physical exam reveals a distended, firm abdomen with absent bowel sounds in all four quadrants. Recent labs show persistent leukocytosis, hyperglycemia, and hypocalcemia. The client is catabolic and requires nutritional support, but the current paralytic ileus contraindicates enteral feeding. R: Continue aggressive fluid and electrolyte replacement. Anticipate provider order for initiating total parenteral nutrition (TPN) via a central venous catheter to provide calories and nutrients while allowing for complete pancreatic rest."
+                    }
+                ]
             },
             {
                 "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><tr><th>Vital Sign</th><th>Value</th></tr><tr><td>Heart Rate</td><td>110 bpm</td></tr><tr><td>Blood Pressure</td><td>130/80 mmHg</td></tr><tr><td>Respiratory Rate</td><td>20 bpm</td></tr><tr><td>Temperature</td><td>38.0°C (100.4°F)</td></tr><tr><td>SpO2</td><td>96% on room air</td></tr></table>"
+                "title": "Vitals & Telemetry",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 16:00",
+                        "temp": "101.5 °F (38.6 °C)",
+                        "hr": "124 bpm",
+                        "rr": "24/min",
+                        "bp": "105/68 mmHg (MAP 80)",
+                        "spo2": "95% on room air"
+                    },
+                    {
+                        "timestamp": "Day 3, 04:00",
+                        "temp": "100.8 °F (38.2 °C)",
+                        "hr": "118 bpm",
+                        "rr": "22/min",
+                        "bp": "110/72 mmHg (MAP 85)",
+                        "spo2": "96% on 2L NC"
+                    },
+                    {
+                        "timestamp": "Day 3, 08:00",
+                        "temp": "100.4 °F (38.0 °C)",
+                        "hr": "112 bpm",
+                        "rr": "20/min",
+                        "bp": "112/74 mmHg (MAP 87)",
+                        "spo2": "96% on 2L NC"
+                    }
+                ]
             },
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: John Smith, 58-year-old male, admitted to the Medical ICU two days prior with acute pancreatitis secondary to gallstones. He reports severe abdominal pain, rated 8/10, despite opioid analgesics, and complains of nausea. B: History of cholelithiasis. Vital signs show an elevated heart rate. Patient is NPO. O: At 07:00, patient reports pain 8/10. Abdomen is distended with hypoactive bowel sounds. Urine output has been low in the past 8 hours. Labs are significant for elevated amylase and lipase. Vitals: HR 110, BP 130/80, RR 20, Temp 38.0°C, SpO2 96%. Labs: Amylase 1500 U/L, Lipase 2000 U/L, WBC 14,000/mm3, Glucose 180 mg/dL, Potassium 3.2 mEq/L. MAR: Morphine 4mg IV q4h PRN, Ondansetron 4mg IV q6h PRN, LR 125 mL/hr, KCl 20 mEq IV daily. A: Acute pancreatitis with uncontrolled pain, decreased urine output indicating dehydration, and electrolyte imbalance. Elevated amylase/lipase confirm pancreatic inflammation. Risk for fluid imbalance and infection. P: 07:15: Administer pain medication per order. Await further lab results. 07:30: Contact provider if pain unrelieved or condition worsens. Monitor urine output closely. 08:00: Reassess pain, abdominal assessment, vitals, and lab results."
+                "id": "labs",
+                "title": "Lab Diagnostics",
+                "content": [
+                    {
+                        "lab": "Amylase",
+                        "result": "1550",
+                        "unit": "U/L",
+                        "reference": "30-110",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Lipase",
+                        "result": "2100",
+                        "unit": "U/L",
+                        "reference": "0-160",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "WBC",
+                        "result": "18.5",
+                        "unit": "x 10³/mm³",
+                        "reference": "4.5-11.0",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Glucose",
+                        "result": "195",
+                        "unit": "mg/dL",
+                        "reference": "70-110",
+                        "status": "High"
+                    },
+                    {
+                        "lab": "Potassium",
+                        "result": "3.3",
+                        "unit": "mEq/L",
+                        "reference": "3.5-5.0",
+                        "status": "Low"
+                    },
+                    {
+                        "lab": "Calcium, Total",
+                        "result": "7.9",
+                        "unit": "mg/dL",
+                        "reference": "8.5-10.2",
+                        "status": "Low"
+                    },
+                    {
+                        "lab": "Magnesium",
+                        "result": "1.4",
+                        "unit": "mEq/L",
+                        "reference": "1.7-2.2",
+                        "status": "Low"
+                    }
+                ]
+            },
+            {
+                "id": "physicalExam",
+                "title": "Physical Exam",
+                "content": [
+                    {
+                        "timestamp": "Day 1, 16:00 (Admission)",
+                        "findings": "GENERAL: Anxious, in acute distress. SKIN: Warm, diaphoretic, poor turgor. HEENT: Dry mucous membranes. CARDIOVASCULAR: Tachycardia, regular rhythm, no murmurs. RESPIRATORY: Tachypneic, clear to auscultation bilaterally. GASTROINTESTINAL: Epigastric tenderness to palpation with significant guarding. Bowel sounds hypoactive. NEUROLOGICAL: Alert and oriented x4."
+                    },
+                    {
+                        "timestamp": "Day 3, 08:00 (Focused)",
+                        "findings": "GASTROINTESTINAL: Abdomen is firm, distended, and tympanic on percussion. No bowel sounds auscultated in all four quadrants. Client reports persistent nausea. Guarding present on light palpation."
+                    }
+                ]
+            },
+            {
+                "id": "radiology",
+                "title": "Radiology",
+                "content": [
+                    {
+                        "type": "Abdominal CT with contrast",
+                        "timestamp": "Day 2, 10:30",
+                        "report": "FINDINGS: Diffuse enlargement and heterogeneous enhancement of the pancreas consistent with severe pancreatitis. Significant peripancreatic fluid collections and fat stranding are noted. Approximately 40% of the pancreatic parenchyma appears non-enhancing, suspicious for necrosis. No evidence of pseudocyst or abscess at this time. Gallbladder contains multiple calculi. IMPRESSION: Findings are consistent with severe acute necrotizing pancreatitis, likely secondary to gallstone disease."
+                    }
+                ]
+            },
+            {
+                "id": "carePlan",
+                "title": "Care Plan",
+                "content": [
+                    {
+                        "ordered": "Day 1, 16:30",
+                        "action": "NPO",
+                        "status": "Active"
+                    },
+                    {
+                        "ordered": "Day 1, 16:30",
+                        "action": "Lactated Ringer's at 125 mL/hr continuous IV infusion",
+                        "status": "Active"
+                    },
+                    {
+                        "ordered": "Day 1, 16:30",
+                        "action": "Morphine Sulfate 2-4 mg IV every 2 hours PRN severe pain",
+                        "status": "Active"
+                    },
+                    {
+                        "ordered": "Day 1, 16:30",
+                        "action": "Ondansetron 4 mg IV every 6 hours PRN nausea",
+                        "status": "Active"
+                    },
+                    {
+                        "ordered": "Day 1, 17:00",
+                        "action": "Potassium Chloride 20 mEq in 100 mL NS IV over 1 hour, one dose",
+                        "status": "Completed"
+                    },
+                    {
+                        "ordered": "Day 3, 08:30",
+                        "action": "Calcium Gluconate 2g in 50 mL D5W IV over 1 hour, one dose",
+                        "status": "Pending"
+                    }
+                ]
+            },
+            {
+                "id": "mar",
+                "title": "MAR Console",
+                "content": [
+                    {
+                        "medication": "Lactated Ringer's",
+                        "dose": "125 mL/hr",
+                        "route": "IV",
+                        "frequency": "Continuous",
+                        "lastAdministered": "N/A"
+                    },
+                    {
+                        "medication": "Morphine Sulfate",
+                        "dose": "4 mg",
+                        "route": "IV",
+                        "frequency": "q2h PRN",
+                        "lastAdministered": "Day 3, 06:45"
+                    },
+                    {
+                        "medication": "Ondansetron",
+                        "dose": "4 mg",
+                        "route": "IV",
+                        "frequency": "q6h PRN",
+                        "lastAdministered": "Day 3, 05:30"
+                    }
+                ]
             }
         ]
     },
     "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
+        "bloomLevel": "analyze",
+        "cjmmStep": "Generate Solutions",
         "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
+        "difficulty": 6,
         "topicTags": [
-            "GI/Hepatic: Liver Failure & Pancreatitis"
+            "GI/Hepatic: Pancreatitis",
+            "Nutrition",
+            "Fluid & Electrolytes"
         ]
     },
     "rationale": {
-        "correct": "Initiating total parenteral nutrition (TPN) is the most appropriate intervention. Patients with severe acute pancreatitis are often unable to tolerate enteral nutrition due to pancreatic inflammation and pain, which leads to increased pancreatic stimulation. TPN provides nutritional support while minimizing pancreatic stimulation, allowing the pancreas to rest and recover. The elevated amylase and lipase, coupled with persistent pain and NPO status, indicate the need for advanced nutritional support beyond IV fluids alone. The patient's NPO status and elevated amylase/lipase levels confirm the need to minimize pancreatic stimulation.",
-        "incorrect": "Discontinuing opioid analgesics is inappropriate. The patient reports significant pain, and withholding pain medication would be unethical and detrimental to their comfort and recovery. While addressing the underlying cause of pain is important, pain management should be prioritized. The question asks for the MOST appropriate intervention, and TPN addresses both nutrition and indirectly assists with decreasing pain by resting the pancreas. The nurse can anticipate that opioid analgesics would be required until the pancreas has recovered. Question Trap: Focusing solely on pain can lead to this choice.\n\nAdministering a bolus of IV fluids might seem reasonable given the potential for dehydration, but it does not address the underlying need for nutritional support and pancreatic rest. While hydration is important, TPN addresses a more critical need in this scenario. Question Trap: Dehydration is a concern, but nutrition is paramount.\n\nStarting enteral feedings via nasogastric tube is contraindicated in severe acute pancreatitis because it can stimulate pancreatic enzyme secretion, exacerbating the inflammation and pain. Question Trap: This option seems logical for feeding but worsens the condition.",
+        "correct": "Initiating total parenteral nutrition (TPN) is the priority for nutritional support. The client has been NPO for over 48 hours due to severe necrotizing pancreatitis. The goal is to provide calories and nutrients while ensuring complete pancreatic rest to prevent further autodigestion. The physical exam finding of absent bowel sounds indicates a paralytic ileus, which is a contraindication for any form of enteral feeding. TPN bypasses the gastrointestinal tract entirely, making it the only safe and effective option for this client.",
+        "answerBreakdown": [
+            {
+                "key": "a",
+                "content": "This is incorrect. While aggressive fluid resuscitation is a cornerstone of pancreatitis management to prevent hypovolemic shock and organ failure, the client has been NPO for over two days. The primary problem evolving is a significant nutritional deficit. Simply increasing fluids does not address the catabolic state and lack of protein, glucose, and lipids."
+            },
+            {
+                "key": "b",
+                "content": "This is correct. In severe pancreatitis with complications like a paralytic ileus (evidenced by absent bowel sounds), enteral nutrition is contraindicated. TPN provides essential nutrients intravenously, bypassing the gut to allow the pancreas to rest and heal, which is the highest priority for nutritional support in this specific clinical scenario."
+            },
+            {
+                "key": "c",
+                "content": "This is incorrect and potentially harmful. Although early enteral nutrition is often preferred in pancreatitis to maintain gut integrity, it is contraindicated in the presence of a paralytic ileus. Introducing food into a non-motile gut would worsen abdominal distention, increase pain, and could lead to vomiting and aspiration."
+            },
+            {
+                "key": "d",
+                "content": "This is incorrect. A proton pump inhibitor (PPI) may be ordered for stress ulcer prophylaxis in a critically ill client, but it does not provide any nutritional support. The client's most urgent need, after initial fluid and electrolyte stabilization, is addressing the profound caloric and protein deficit from being NPO."
+            }
+        ],
         "clinicalPearls": [
-            "Severe acute pancreatitis often requires TPN to provide nutritional support while minimizing pancreatic stimulation.",
-            "Early initiation of nutritional support is crucial in managing acute pancreatitis and preventing complications.",
-            "Avoid enteral feeding in severe acute pancreatitis due to the risk of stimulating pancreatic enzymes.",
-            "Uncontrolled pain can exacerbate the inflammatory response in acute pancreatitis; adequate pain management is essential."
+            "In severe acute pancreatitis, if enteral nutrition is not tolerated or contraindicated due to ileus or vomiting, TPN should be initiated after 5-7 days of NPO status, or earlier in a malnourished client.",
+            "Hypocalcemia (calcium < 8.5 mg/dL) is a common finding in severe pancreatitis due to fat necrosis and saponification, where calcium binds to free fatty acids in the abdomen. It is a sign of severe disease (Ranson's criteria).",
+            "A paralytic ileus, characterized by absent bowel sounds and abdominal distention, is a serious complication of pancreatitis that contraindicates the use of enteral feeding."
         ],
         "questionTrap": {
-            "trap": "The question focuses on pain management and hydration, leading to the selection of answers related to those aspects. However, the key is recognizing the need for nutritional support due to the severity of pancreatitis.",
-            "howToOvercome": "Carefully analyze all data provided, including lab values and the patient's NPO status. Focus on the overall clinical picture and prioritize interventions that address the underlying pathophysiology."
+            "trap": "The primary trap is choosing early enteral nutrition, which is the current evidence-based standard for most cases of pancreatitis. Test-takers may automatically select this option without carefully analyzing the client's chart for specific contraindications.",
+            "howToOvercome": "Always synthesize all available data. The physical exam tab explicitly states 'No bowel sounds auscultated.' This single finding makes enteral nutrition unsafe and pivots the correct answer to TPN, even though TPN is generally a second-line choice."
         },
         "mnemonic": {
-            "title": "I STOPPED",
-            "expansion": "I - IV Fluids, S - Suction, T - Temperature, O - Oxygen, P - Pain Control, P - Pancreatic Rest, E - Electrolytes, D - Drugs"
+            "title": "PANCREAS (Management)",
+            "expansion": "P - Pain control (IV opioids); A - Arrest shock (IV fluids); N - NPO (pancreatic rest); C - Calcium monitoring (hypocalcemia); R - Ranson's criteria (assess severity); E - Endoscopic Retrograde Cholangiopancreatography (ERCP for gallstones); A - Antibiotics (for necrotizing pancreatitis); S - Suction (NG tube for ileus/vomiting)."
         }
     },
     "options": [
         {
             "key": "a",
-            "content": "Administer a bolus of intravenous (IV) fluids."
+            "content": "Increase Lactated Ringer's infusion to 200 mL/hr."
         },
         {
             "key": "b",
-            "content": "Initiate total parenteral nutrition (TPN)."
+            "content": "Initiate total parenteral nutrition (TPN) via a central line."
         },
         {
             "key": "c",
-            "content": "Start enteral feedings via nasogastric tube."
+            "content": "Request an order for early enteral nutrition via nasojejunal tube."
         },
         {
             "key": "d",
-            "content": "Discontinue opioid analgesics."
+            "content": "Administer a scheduled dose of a proton pump inhibitor (PPI)."
         }
     ],
-    "answer": "b",
-    "droplet": true,
-    "isolation": "droplet",
-    "sentinelStatus": "quarantined:logic_error",
-    "logicErrors": [
-        "missing_correct_id"
-    ]
+    "answer": "b"
 }

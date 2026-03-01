@@ -1,76 +1,131 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-9012-34567890abcd",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a 68-year-old male patient admitted with acute myocardial infarction (MI). Based on the patient's condition and available data, prioritize the following nursing actions from FIRST to LAST.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
-    "itemContext": {
-        "patient": {
-            "name": "Robert Johnson",
-            "age": 68,
-            "gender": "Male",
-            "iso": "Telemetry Unit",
-            "allergies": [
-                "NKDA"
-            ],
-            "isolation": "standard"
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client experiencing an acute inferior wall myocardial infarction. Prioritize the nursing actions from first to last based on the provided clinical data.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Administer atropine 0.5 mg IV push."
         },
-        "sbar": "S: Robert Johnson, 68-year-old male, admitted at 08:00 today with chest pain radiating to his left arm. A 12-lead ECG showed ST-segment elevation in leads II, III, and aVF. Troponin I level is elevated. B: Patient has a history of hypertension and hyperlipidemia. He reports a family history of heart disease. Onset of chest pain was around 06:30 this morning. A: Currently, at 09:30, the patient reports ongoing chest pain, rated 6/10. Vitals: BP 90/50 mmHg, HR 52 bpm, RR 20 breaths/min, SpO2 94% on 2L NC. He appears pale and diaphoretic. Morphine 2mg IV given at 09:00 with minimal relief. R: I am concerned about cardiogenic shock given hypotension, bradycardia, and ongoing chest pain post-morphine. I recommend immediate intervention to improve cardiac output and relieve pain. Cardiologist notified at 09:35.",
+        {
+            "id": "opt_02",
+            "text": "Prepare for transcutaneous pacing."
+        },
+        {
+            "id": "opt_03",
+            "text": "Elevate the client's lower extremities."
+        },
+        {
+            "id": "opt_04",
+            "text": "Notify the Rapid Response Team (RRT) and cardiologist."
+        },
+        {
+            "id": "opt_05",
+            "text": "Prepare for a cautious 250 mL normal saline bolus."
+        }
+    ],
+    "correctOptionId": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04",
+        "opt_05"
+    ],
+    "itemContext": {
+        "sbar": "S: This is Robert Johnson, a 68-year-old male admitted at 08:00 with an acute inferior wall ST-elevation myocardial infarction. He has ongoing chest pain and is hemodynamically unstable.\nB: He has a history of hypertension and hyperlipidemia. He lives alone in a rural area, which delayed his arrival to the ED. Initial interventions included aspirin, oxygen, and one dose of IV morphine with minimal effect. \nA: At 09:30, the client is pale, cool, and diaphoretic. He remains anxious with chest pain at 6/10. His vital signs are trending downward: BP is 90/50 mmHg (MAP 63), heart rate is 52 bpm, SpO₂ is 94% on 2L nasal cannula. Telemetry shows sinus bradycardia. He is showing signs of poor perfusion.\nR: I am concerned about cardiogenic shock secondary to symptomatic bradycardia. Immediate intervention is required to increase his heart rate and blood pressure. I am initiating emergency protocols and need the cardiologist at the bedside immediately.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "S: Robert Johnson, 68-year-old male, admitted at 08:00 today with chest pain radiating to his left arm. A 12-lead ECG showed ST-segment elevation in leads II, III, and aVF. Troponin I level is elevated.\nB: Patient has a history of hypertension and hyperlipidemia. He reports a family history of heart disease. Onset of chest pain was around 06:30 this morning.\nA: Currently, at 09:30, the patient reports ongoing chest pain, rated 6/10. Vitals: BP 90/50 mmHg, HR 52 bpm, RR 20 breaths/min, SpO2 94% on 2L NC. He appears pale and diaphoretic. Morphine 2mg IV given at 09:00 with minimal relief.\nR: I am concerned about cardiogenic shock given hypotension, bradycardia, and ongoing chest pain post-morphine. I recommend immediate intervention to improve cardiac output and relieve pain. Cardiologist notified at 09:35."
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": "Admission Note (08:00): 68-year-old male presents to ED with 90 minutes of substernal chest pain, 8/10, radiating to left arm. Client is anxious and diaphoretic. History of HTN and hyperlipidemia. Aspirin 325 mg PO given. Oxygen initiated at 2L via NC. IV access established.\n\nProgress Note (09:00): Client moved to telemetry unit. Continuous cardiac monitoring shows sinus bradycardia. Chest pain persists, now 6/10. Morphine 2 mg IV administered for pain. Client reports minimal relief. Vital signs show developing hypotension and worsening bradycardia.\n\nProgress Note (09:30): Client is pale, cool to touch, and increasingly anxious. BP 90/50 mmHg, HR 52 bpm. Ongoing chest pain 6/10. Cardiologist has been paged with STAT update. Preparing for immediate intervention at bedside due to hemodynamic instability."
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Reference Range</th></tr></thead><tbody><tr><td>Troponin I</td><td>2.5 ng/mL</td><td>&lt;0.04 ng/mL</td></tr><tr><td>Creatine Kinase (CK)</td><td>300 U/L</td><td>30-170 U/L</td></tr><tr><td>CK-MB</td><td>25 ng/mL</td><td>0-5 ng/mL</td></tr><tr><td>Potassium</td><td>3.8 mEq/L</td><td>3.5-5.0 mEq/L</td></tr><tr><td>Sodium</td><td>140 mEq/L</td><td>135-145 mEq/L</td></tr><tr><td>BUN</td><td>25 mg/dL</td><td>10-20 mg/dL</td></tr><tr><td>Creatinine</td><td>1.3 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (mmHg)</th><th>MAP (mmHg)</th><th>HR (bpm)</th><th>RR (breaths/min)</th><th>SpO₂</th><th>Temp °F (°C)</th><th>Pain (0-10)</th></tr></thead><tbody><tr><td>08:00</td><td>140/90</td><td>107</td><td>88</td><td>18</td><td>98% on RA</td><td>98.6 (37.0)</td><td>8</td></tr><tr><td>08:30</td><td>120/80</td><td>93</td><td>76</td><td>18</td><td>96% on 2L NC</td><td>98.7 (37.1)</td><td>7</td></tr><tr><td>09:00</td><td>100/60</td><td>73</td><td>60</td><td>20</td><td>95% on 2L NC</td><td>98.6 (37.0)</td><td>6</td></tr><tr><td>09:30</td><td>90/50</td><td>63</td><td>52</td><td>20</td><td>94% on 2L NC</td><td>98.5 (36.9)</td><td>6</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Pain (0-10)</th></tr></thead><tbody><tr><td>08:00</td><td>140/90</td><td>88</td><td>18</td><td>98% RA</td><td>8</td></tr><tr><td>08:30</td><td>120/80</td><td>76</td><td>18</td><td>96% 2L NC</td><td>7</td></tr><tr><td>09:00</td><td>100/60</td><td>60</td><td>20</td><td>95% 2L NC</td><td>6</td></tr><tr><td>09:30</td><td>90/50</td><td>52</td><td>20</td><td>94% 2L NC</td><td>6</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td>Troponin I</td><td>2.50</td><td>ng/mL</td><td><0.04</td><td>High</td></tr><tr><td>CK-MB</td><td>25</td><td>ng/mL</td><td>0-5</td><td>High</td></tr><tr><td>Potassium</td><td>3.8</td><td>mEq/L</td><td>3.5-5.0</td><td></td></tr><tr><td>Sodium</td><td>140</td><td>mEq/L</td><td>135-145</td><td></td></tr><tr><td>BUN</td><td>25</td><td>mg/dL</td><td>10-20</td><td>High</td></tr><tr><td>Creatinine</td><td>1.3</td><td>mg/dL</td><td>0.6-1.2</td><td>High</td></tr></tbody></table>"
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Morphine Sulfate</td><td>2 mg</td><td>IV</td><td>q2h PRN pain</td><td>09:00</td></tr><tr><td>Oxygen</td><td>2 L</td><td>Nasal Cannula</td><td>Continuous</td><td>-</td></tr><tr><td>Aspirin</td><td>325 mg</td><td>PO</td><td>Once</td><td>08:15</td></tr><tr><td>Metoprolol</td><td>25 mg</td><td>PO</td><td>BID</td><td>Hold - HR &lt; 60</td></tr><tr><td>Nitroglycerin</td><td>0.4 mg</td><td>SL</td><td>q5 min PRN chest pain (max 3 doses)</td><td>Hold - BP &lt; 100 systolic</td></tr></tbody></table>"
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "Focused Assessment (09:30):\nCardiovascular: Distant S1, S2 sounds. No murmurs, rubs, or gallops noted. Capillary refill is 3 seconds. Dorsalis pedis and radial pulses are 1+ bilaterally. Skin is cool, pale, and diaphoretic.\nRespiratory: Lungs are clear to auscultation bilaterally. Respirations are unlabored.\nNeurological: Client is alert and oriented to person, place, and time. Expresses significant anxiety."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "Type: 12-Lead Electrocardiogram\nDate/Time: 08:10\nFindings: Rate: 58 bpm. Rhythm: Sinus Bradycardia. Axis: Normal. Intervals: PR 180ms, QRS 90ms, QTc 440ms.\nImpression: ST-segment elevation of 3mm in leads II, III, and aVF. Reciprocal ST-segment depression in leads I and aVL. Findings are consistent with an acute inferior wall ST-elevation myocardial infarction (STEMI)."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Today @ 08:05</td><td>Admit to Telemetry Unit</td><td>Standing</td></tr><tr><td>Today @ 08:05</td><td>Continuous cardiac and SpO₂ monitoring</td><td>Standing</td></tr><tr><td>Today @ 08:05</td><td>Oxygen via Nasal Cannula, titrate to keep SpO₂ > 94%</td><td>Standing</td></tr><tr><td>Today @ 08:05</td><td>Establish 2 large-bore peripheral IVs</td><td>STAT</td></tr><tr><td>Today @ 08:10</td><td>12-Lead ECG</td><td>STAT</td></tr><tr><td>Today @ 08:10</td><td>Cardiac Enzyme Panel (Troponin, CK-MB)</td><td>STAT, then q6h x3</td></tr><tr><td>Today @ 08:15</td><td>Notify provider for SBP < 100 mmHg or HR < 60 bpm</td><td>Standing</td></tr><tr><td>Today @ 08:20</td><td>Prepare for emergent cardiac catheterization</td><td>Standing</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Aspirin</td><td>325 mg</td><td>PO</td><td>Once</td><td>Today @ 08:15</td></tr><tr><td>Morphine Sulfate</td><td>2 mg</td><td>IV</td><td>q2h PRN pain</td><td>Today @ 09:00</td></tr><tr><td>Metoprolol</td><td>25 mg</td><td>PO</td><td>BID</td><td>HOLD - HR < 60 bpm</td></tr><tr><td>Nitroglycerin</td><td>0.4 mg</td><td>SL</td><td>q5 min PRN x3</td><td>HOLD - SBP < 100 mmHg</td></tr></tbody></table>"
             }
-        ]
-    },
-    "pedagogy": {
-        "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Cardiovascular: Acute MI & Heart Failure"
-        ]
+        ],
+        "patient": {
+            "age": "68 years",
+            "sex": "Male",
+            "pronouns": "he/him",
+            "allergies": [
+                "No Known Drug Allergies"
+            ]
+        }
     },
     "rationale": {
-        "correct": "1. Administer atropine 0.5 mg IV: The patient's bradycardia (HR 52 bpm) is significantly contributing to the hypotension and reduced cardiac output. Atropine, an anticholinergic, increases heart rate by blocking vagal nerve effects on the SA node, improving cardiac output. 2. Prepare for transcutaneous pacing: If atropine is ineffective, external pacing is needed for immediate electrical stimulation to increase heart rate and cardiac output. 3. Elevate the patient's legs: Elevating legs promotes venous return, increasing preload and temporarily improving hemodynamics. 4. Notify the provider of the patient's condition and interventions: Keeping the provider informed ensures timely adjustments to the treatment plan and allows for further interventions if needed. 5. Prepare for fluid bolus administration: Hypotension in acute MI can result from cardiogenic shock or right ventricular infarct. After addressing bradycardia, judicious fluid administration may be considered to improve preload and blood pressure, but only after assessing for pulmonary congestion, as over-hydration can worsen heart failure. This is the last action due to the risk of exacerbating heart failure.",
-        "incorrect": "Reordering actions leads to suboptimal outcomes. Failing to promptly address bradycardia prevents cardiac output improvement. Delaying provider notification may result in delayed interventions. Administering fluids without addressing bradycardia may worsen the patient's condition if the patient has underlying heart failure or right ventricular infarct.",
-        "clinicalPearls": [
-            "In acute MI, bradycardia significantly compromises cardiac output, leading to hypotension and decreased tissue perfusion.",
-            "Atropine is the first-line treatment for symptomatic bradycardia.",
-            "Transcutaneous pacing is a temporizing measure until a more definitive treatment, such as a transvenous pacemaker, can be implemented.",
-            "Fluid boluses should be administered cautiously in patients with acute MI and hypotension, especially with heart failure, to avoid pulmonary edema."
+        "correct": "The correct sequence of actions addresses the client's life-threatening symptomatic bradycardia, which is the primary cause of his hypotension and poor perfusion. The priority is to correct the heart rate to improve cardiac output. First, administer atropine as the primary pharmacological intervention. Second, prepare for transcutaneous pacing as a backup if atropine is ineffective. Third, use a non-pharmacological maneuver like elevating the legs to support circulation. Fourth, ensure the emergency team is activated. Finally, consider fluids cautiously, as this is the highest-risk intervention in this context.",
+        "incorrect": "An incorrect sequence would fail to address the root cause of the hemodynamic instability. For example, administering a fluid bolus before correcting the bradycardia is dangerous. In an inferior MI with potential right ventricular involvement, excessive fluid can precipitate acute right-sided heart failure and pulmonary edema. Delaying atropine or pacing preparation to notify the provider first wastes critical time when the client is actively decompensating. Each step must build upon the last, starting with the most direct and effective intervention for the primary problem.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct Position 1. The client's hypotension (90/50 mmHg) is a direct result of symptomatic bradycardia (HR 52 bpm). According to ACLS guidelines, atropine is the first-line drug for unstable bradycardia. This intervention directly targets the cause of poor cardiac output."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct Position 2. Atropine may be ineffective, especially in MIs causing high-degree AV blocks. The nurse must anticipate this and prepare the next intervention, transcutaneous pacing, to ensure there is no delay in restoring an adequate heart rate if the medication fails."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct Position 3. While preparing for pacing, this simple, non-invasive maneuver can be performed to increase venous return and augment preload, providing temporary support to the blood pressure without the risks of a fluid bolus."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct Position 4. After initiating immediate life-saving interventions, the nurse must ensure the appropriate teams (RRT, cardiology) are activated and informed. This ensures a coordinated response and brings advanced skills and orders to the bedside."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Correct Position 5. This is the last and most cautious step. While hypotension is present, a fluid bolus is risky in an inferior MI due to the potential for right ventricular infarction. Fluids should only be considered after addressing the heart rate and with careful assessment for signs of heart failure."
+            }
         ],
-        "questionTrap": {
-            "trap": "Many might choose fluids first due to hypotension. However, addressing bradycardia is crucial as the low heart rate significantly contributes to low blood pressure. Also, administering fluids before ruling out right ventricular infarct or assessing for pulmonary congestion can be dangerous.",
-            "howToOvercome": "Assess the patient's overall clinical picture, including heart rate, blood pressure, and potential underlying causes of hypotension. Prioritize interventions based on the most immediate threat to hemodynamic stability. Consider the potential risks of fluid administration in patients with heart failure or right ventricular infarct."
-        },
-        "mnemonic": {
-            "title": "ABCDE for MI",
-            "expansion": "A: Airway & Atropine for Bradycardia, B: Breathing & Blood Pressure Support (Fluids cautiously), C: Circulation & Cardiac Monitoring (Pacing if needed), D: Defibrillation if needed, E: Evaluate & Elevate legs."
-        }
-    }
+        "clinicalPearls": [
+            "Inferior wall MIs often involve the right coronary artery, which supplies the sinoatrial (SA) and atrioventricular (AV) nodes, making bradycardia and heart blocks a common and dangerous complication.",
+            "Hypotension in the setting of an inferior wall MI should prompt the nurse to consider two main causes: severe bradycardia or right ventricular infarction. The treatment for each is different, and fluids must be given with extreme caution.",
+            "The triad of hypotension, clear lungs, and jugular venous distention (JVD) is classic for right ventricular infarction, though JVD may not be present initially."
+        ],
+        "questionTrap": "The primary trap is focusing on the low blood pressure (hypotension) and choosing to administer fluids first. In this scenario, the hypotension is rate-dependent. The most critical intervention is to correct the bradycardia, which is the underlying cause of the poor cardiac output. Giving fluids without fixing the rate problem can lead to fluid overload and worsen the patient's condition.",
+        "mnemonic": "For unstable bradycardia, remember 'All Pacing Takes Diligence.' A: Atropine first. P: Pacing (prepare for it). T: Trendelenburg (or leg elevation) to support BP. D: Dopamine/Epinephrine drip if other measures fail.",
+        "reviewUnits": [
+            "Cardiovascular Disorders",
+            "Pharmacology",
+            "Emergency Nursing"
+        ]
+    },
+    "scoring": {
+        "method": "dichotomous",
+        "maxPoints": 1
+    },
+    "pedagogy": {
+        "bloomLevel": "apply",
+        "cjmmStep": "takeAction",
+        "nclexCategory": "Physiological Integrity"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:24:34.503Z"
 }

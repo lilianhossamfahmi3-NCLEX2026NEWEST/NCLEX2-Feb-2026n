@@ -1,69 +1,141 @@
 {
     "id": "New-v26-a7b2c3d4-e5f6-4789-8abc-9def01234567",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a patient with acute respiratory distress syndrome (ARDS). Based on the patient's current condition and available data, prioritize the following nursing actions from FIRST to LAST.",
-    "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
-    },
+    "type": "orderedResponse",
+    "stem": "The nurse is caring for a client with worsening acute respiratory distress syndrome (ARDS). Based on the provided clinical data, drag and drop the nursing actions into the correct priority order, from first to last.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Collaborate with Respiratory Therapy to optimize ventilator settings."
+        },
+        {
+            "id": "opt_02",
+            "text": "Increase the infusion rate of the prescribed sedative."
+        },
+        {
+            "id": "opt_03",
+            "text": "Obtain a stat portable chest x-ray."
+        },
+        {
+            "id": "opt_04",
+            "text": "Place the client in the prone position."
+        },
+        {
+            "id": "opt_05",
+            "text": "Draw blood cultures from two separate sites."
+        }
+    ],
+    "correctOptionId": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04",
+        "opt_05"
+    ],
     "itemContext": {
         "patient": {
-            "name": "John Smith",
-            "age": 62,
-            "gender": "Male",
-            "iso": "Contact & Droplet",
+            "age": "62",
+            "sex": "Male",
+            "pronouns": "he/him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "S: John Smith, 62-year-old male, admitted 2 days ago with ARDS secondary to pneumonia. B: History of COPD, hypertension, and type 2 diabetes. Admitted from ED after experiencing increasing shortness of breath and hypoxemia. O: Current ventilator settings: FiO2 60%, PEEP 10 cm H2O, Tidal Volume 450 mL, Rate 16. At 07:00 Vitals: BP 100/60 mmHg, HR 120 bpm, RR 16 (ventilated), SpO2 89%, Temp 38.5°C. ABG: pH 7.28, PaCO2 55 mmHg, PaO2 58 mmHg, HCO3 24 mEq/L. Patient is restless and diaphoretic. A: Respiratory failure worsening. Possible need for changes in ventilator settings and further investigation into potential complications such as pneumothorax or infection. Consider proning. Discuss with respiratory therapy and attending physician. Monitor closely. Obtain chest x-ray. Increase sedation as needed per order. Draw blood cultures.",
         "tabs": [
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Value</th><th>Normal Range</th></tr></thead><tbody><tr><td>pH</td><td>7.28</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>55 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>58 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>15,000/µL</td><td>4,500-11,000/µL</td></tr><tr><td>Lactate</td><td>3.5 mmol/L</td><td>0.5-2.2 mmol/L</td></tr></tbody></table>"
+                "id": "clinical_feed",
+                "title": "Clinical Feed",
+                "content": [
+                    {
+                        "note_type": "Admission Note",
+                        "timestamp": "Day 1, 08:00",
+                        "text": "S: Client is a 62-year-old male brought to the ED by his adult child with a 3-day history of fever, productive cough, and progressive shortness of breath. \nB: History of COPD, hypertension, and type 2 diabetes mellitus. Client lives alone in a rural community with limited access to pulmonary specialists. He is a former smoker (quit 10 years ago). \nA: On arrival, client was in severe respiratory distress. SpO2 84% on non-rebreather mask. Chest x-ray showed extensive right lower lobe consolidation. Diagnosed with community-acquired pneumonia. Due to worsening hypoxemia and respiratory fatigue, the decision was made to intubate for mechanical ventilation. Post-intubation, client remains hypoxemic despite high FiO2, consistent with developing ARDS. \nR: Admitted to ICU for management of ARDS secondary to pneumonia. Initiated on lung-protective ventilation strategy, broad-spectrum antibiotics, and continuous sedation."
+                    },
+                    {
+                        "note_type": "Progress Note",
+                        "timestamp": "Day 3, 07:15",
+                        "text": "S: Reporting on the 62-year-old male client with ARDS. Over the last hour, his SpO2 has declined from 92% to 89%, and he has become increasingly restless and diaphoretic.\nB: Admitted two days ago for pneumonia, subsequently developed ARDS. He has a history of COPD and lives in a rural area, which delayed his initial seeking of care. He is currently intubated and mechanically ventilated.\nA: Vitals at 07:00: BP 100/60 mmHg (MAP 73), HR 120 bpm, Temp 101.3°F (38.5°C), SpO2 89% on ventilator (AC mode, FiO2 60%, PEEP 10 cm H2O). Recent ABG at 06:45 shows acute respiratory acidosis (pH 7.28, PaCO2 55, PaO2 58). Client is agitated (RASS +2), with asynchronous breathing patterns against the ventilator. Bilateral coarse crackles are audible throughout all lung fields.\nR: Recommend immediate collaboration with respiratory therapy to optimize ventilator settings. Suggest increasing sedation per protocol to improve ventilator synchrony. Request an order for a stat portable chest x-ray to rule out pneumothorax. Plan to discuss readiness for prone positioning with the interprofessional team."
+                    }
+                ]
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dosage</th><th>Route</th><th>Frequency</th><th>Last Dose</th></tr></thead><tbody><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1hr PRN</td><td>06:30</td></tr><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td><td>-</td></tr><tr><td>Ceftriaxone</td><td>1g</td><td>IV</td><td>q24hr</td><td>06:00</td></tr><tr><td>Pantoprazole</td><td>40mg</td><td>IV</td><td>q24hr</td><td>06:00</td></tr></tbody></table>"
+                "id": "vitals_telemetry",
+                "title": "Vitals & Telemetry",
+                "content": "<table><thead><tr><th>Time</th><th>BP (MAP)</th><th>HR</th><th>RR</th><th>SpO₂</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>110/70 mmHg (83)</td><td>110</td><td>16 (Vent)</td><td>92% on mechanical ventilator</td><td>100.8°F (38.2°C)</td></tr><tr><td>06:30</td><td>105/65 mmHg (78)</td><td>115</td><td>16 (Vent)</td><td>90% on mechanical ventilator</td><td>101.1°F (38.4°C)</td></tr><tr><td>07:00</td><td>100/60 mmHg (73)</td><td>120</td><td>16 (Vent)</td><td>89% on mechanical ventilator</td><td>101.3°F (38.5°C)</td></tr></tbody></table>"
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>SpO2</th><th>Temp</th></tr></thead><tbody><tr><td>06:00</td><td>110/70</td><td>110</td><td>16</td><td>92%</td><td>38.2</td></tr><tr><td>06:30</td><td>105/65</td><td>115</td><td>16</td><td>90%</td><td>38.4</td></tr><tr><td>07:00</td><td>100/60</td><td>120</td><td>16</td><td>89%</td><td>38.5</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": "<table><thead><tr><th>Result</th><th>Unit</th><th>Reference Range</th><th>Status</th></tr></thead><tbody><tr><td colspan=4><b>Arterial Blood Gas (06:45)</b></td></tr><tr><td>pH</td><td>7.28</td><td>7.35-7.45</td><td>Low</td></tr><tr><td>PaCO₂</td><td>55</td><td>mmHg</td><td>35-45</td><td>High</td></tr><tr><td>PaO₂</td><td>58</td><td>mmHg</td><td>80-100</td><td>Low</td></tr><tr><td>HCO₃⁻</td><td>24</td><td>mEq/L</td><td>22-26</td><td>Normal</td></tr><tr><td colspan=4><b>Complete Blood Count (06:00)</b></td></tr><tr><td>WBC</td><td>15.5</td><td>x10³/µL</td><td>4.5-11.0</td><td>High</td></tr><tr><td>Hgb</td><td>12.8</td><td>g/dL</td><td>13.5-17.5</td><td>Low</td></tr><tr><td>Platelets</td><td>180</td><td>x10³/µL</td><td>150-400</td><td>Normal</td></tr><tr><td colspan=4><b>Metabolic Panel (06:00)</b></td></tr><tr><td>Lactate</td><td>3.5</td><td>mmol/L</td><td>0.5-2.2</td><td>High</td></tr><tr><td>Procalcitonin</td><td>4.2</td><td>ng/mL</td><td>< 0.15</td><td>High</td></tr></tbody></table>"
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": "<b>Focused Assessment (07:00)</b><br><b>Respiratory:</b> Endotracheal tube secure. Symmetrical chest rise. Diminished breath sounds bilaterally with coarse crackles throughout all lung fields. Client demonstrating asynchronous breathing with the ventilator.<br><b>Cardiovascular:</b> Tachycardia with regular rhythm. S1/S2 audible, no murmurs. Pulses +2 peripherally. Skin is warm, flushed, and diaphoretic.<br><b>Neurological:</b> Sedated but restless and agitated to stimuli. Richmond Agitation-Sedation Scale (RASS) score of +2."
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": "<b>Chest X-ray, Portable AP (Day 2, 14:00)</b><br><b>Indication:</b> Worsening hypoxemia, concern for ARDS.<br><b>Findings:</b> Endotracheal tube tip is appropriately positioned 4 cm above the carina. There are extensive, bilateral, diffuse ground-glass opacities and airspace consolidation. No evidence of large pleural effusion or pneumothorax. Cardiomediastinal silhouette is within normal limits.<br><b>Impression:</b> Radiographic findings are highly consistent with moderate to severe Acute Respiratory Distress Syndrome (ARDS)."
+            },
+            {
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": "<table><thead><tr><th>Order Date/Time</th><th>Action</th><th>Frequency/Status</th></tr></thead><tbody><tr><td>Day 1, 08:30</td><td>Mechanical Ventilation: Assist-Control (AC) mode, TV 6 mL/kg IBW, PEEP 10 cm H₂O, FiO₂ 60%</td><td>Standing</td></tr><tr><td>Day 1, 08:30</td><td>Propofol IV infusion, titrate for RASS -2 to -3</td><td>Standing</td></tr><tr><td>Day 1, 08:30</td><td>Fentanyl 25-50 mcg IV push</td><td>q1hr PRN for pain/agitation</td></tr><tr><td>Day 1, 08:30</td><td>Ceftriaxone 1g IV</td><td>q24hr</td></tr><tr><td>Day 1, 08:30</td><td>Pantoprazole 40mg IV</td><td>q24hr</td></tr><tr><td>Day 1, 08:30</td><td>Enoxaparin 40mg SubQ</td><td>q24hr</td></tr><tr><td>Day 3, 07:20</td><td>Obtain Stat Portable Chest X-ray</td><td>Stat</td></tr><tr><td>Day 3, 07:20</td><td>Draw Blood Cultures x2 sites</td><td>Stat</td></tr></tbody></table>"
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Last Administered</th></tr></thead><tbody><tr><td>Propofol</td><td>20 mcg/kg/min</td><td>IV</td><td>Continuous</td><td>Ongoing</td></tr><tr><td>Fentanyl</td><td>50 mcg</td><td>IV</td><td>q1hr PRN</td><td>Day 3, 06:30</td></tr><tr><td>Ceftriaxone</td><td>1 g</td><td>IV</td><td>q24hr</td><td>Day 3, 06:00</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>q24hr</td><td>Day 3, 06:00</td></tr><tr><td>Enoxaparin</td><td>40 mg</td><td>SubQ</td><td>q24hr</td><td>Day 2, 21:00</td></tr></tbody></table>"
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Physiological Integrity",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Respiratory Failure & ARDS"
+    "rationale": {
+        "correct": "The correct prioritization follows the Airway, Breathing, Circulation (ABC) framework, addressing the most immediate life-threatening problem first. The client's worsening hypoxemia (SpO2 89%) and respiratory acidosis (pH 7.28, PaCO2 55) indicate a critical ventilation and oxygenation failure. Therefore, the first priority is to adjust ventilator settings. Next, addressing the client's agitation is crucial as it increases oxygen consumption and causes ventilator dyssynchrony, exacerbating the respiratory failure. After stabilizing breathing and sedation, the nurse must investigate the cause of the acute decline by ruling out complications like a pneumothorax with a chest x-ray. Once stabilized, implementing advanced therapies like proning can improve oxygenation. Finally, addressing the underlying sepsis by drawing blood cultures is essential for long-term management but is a lower priority than immediate respiratory stabilization.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "This is the first priority. The client is experiencing refractory hypoxemia and acute respiratory acidosis, a life-threatening condition. Collaborating with RT to adjust FiO2 and/or PEEP directly addresses the impaired gas exchange, which is the primary pathophysiological problem in ARDS."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "This is the second priority. The client's restlessness (RASS +2) and ventilator dyssynchrony significantly increase metabolic demand and oxygen consumption, worsening the hypoxemia. Increasing sedation will improve client comfort, reduce the work of breathing, and allow the ventilator to function effectively."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "This is the third priority. A sudden deterioration in a mechanically ventilated client warrants an immediate investigation for complications. A pneumothorax is a common and life-threatening complication of positive pressure ventilation (barotrauma) that must be ruled out quickly after initial stabilization attempts."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "This is the fourth priority. Prone positioning is a key evidence-based intervention for moderate-to-severe ARDS that improves ventilation-perfusion matching by recruiting dependent alveoli. However, it is a complex, team-based procedure that is performed once the client is hemodynamically stable and acute complications have been ruled out."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "This is the last priority in this sequence. While identifying the infectious organism is critical for guiding antibiotic therapy to treat the underlying cause (sepsis), it does not resolve the immediate, life-threatening oxygenation failure. This diagnostic action is performed after immediate life-saving interventions are complete."
+            }
+        ],
+        "clinicalPearls": [
+            "The hallmark of ARDS is refractory hypoxemia, defined as a PaO2/FiO2 ratio of <300 mmHg with bilateral infiltrates on imaging not fully explained by cardiac failure.",
+            "Lung-protective ventilation (low tidal volumes of 4-6 mL/kg of ideal body weight and maintaining plateau pressures <30 cm H2O) is crucial to prevent ventilator-induced lung injury (VILI).",
+            "In ARDS, sedation and sometimes neuromuscular blockade are used to achieve ventilator synchrony, reduce oxygen consumption, and facilitate therapies like prone positioning."
+        ],
+        "questionTrap": "A common trap is to prioritize diagnostic actions (like drawing cultures or getting an x-ray) over immediate life-saving interventions. While diagnostics are vital, you must always stabilize the client's breathing and circulation first. Address the critical lab values and vital signs before investigating the 'why'.",
+        "mnemonic": "For ARDS action priority, think 'V-S-C-P-C':\n- **V**entilate: Fix oxygenation first.\n- **S**edate: Calm the client to support the vent.\n- **C**heck: Look for complications (Chest X-ray).\n- **P**osition: Prone for better V/Q matching.\n- **C**ultures: Find the bug.",
+        "reviewUnits": [
+            "Respiratory: Acute Respiratory Distress Syndrome (ARDS)",
+            "Pharmacology: Sedatives & Analgesics (ICU)",
+            "Critical Care: Mechanical Ventilation",
+            "Fundamentals: Prioritization & ABCs"
         ]
     },
-    "rationale": {
-        "correct": "The patient's deteriorating condition necessitates immediate intervention. The low PaO2, high PaCO2, and low pH indicate worsening respiratory acidosis and hypoxemia, requiring immediate oxygenation and ventilation adjustments. Obtaining a chest x-ray is crucial to rule out complications like pneumothorax. Consulting with the respiratory therapist and physician allows for collaborative decision-making regarding ventilator settings and potential proning. Increasing sedation can improve patient synchrony with the ventilator and reduce oxygen consumption. Drawing blood cultures is important to identify any underlying infection contributing to the ARDS; however, oxygenation and ventilation are the priority. Monitoring vital signs continuously allows for real-time assessment of the patient's response to interventions.",
-        "incorrect": "Delaying immediate interventions to improve oxygenation and ventilation can lead to further deterioration and potentially life-threatening complications. While all actions are important, some require immediate attention to stabilize the patient. For example, waiting to obtain a chest x-ray or consult with the physician before addressing the hypoxemia could result in irreversible damage.",
-        "clinicalPearls": [
-            "In ARDS, prioritizing interventions based on the ABCs (Airway, Breathing, Circulation) is crucial.",
-            "Monitor the patient's response to interventions through continuous vital sign assessment and ABG analysis.",
-            "Early collaboration with respiratory therapy and the physician is essential for optimal management of ARDS."
-        ],
-        "questionTrap": {
-            "trap": "The question includes multiple actions that are all appropriate for a patient with ARDS, potentially leading the test-taker to believe that all actions are equally important and can be performed in any order.",
-            "howToOvercome": "Prioritize actions based on the immediate threat to the patient's life. Address the most critical issues, such as hypoxemia and respiratory acidosis, before moving on to other necessary interventions. Consider the potential consequences of delaying each action."
-        },
-        "mnemonic": {
-            "title": "APGAR (for ARDS Priorities)",
-            "expansion": "Assess (ABGs & Vitals), Position (Proning Consideration), Gas Exchange (Ventilator Management), Act (Consult & Medicate), Review (Chest X-ray & Cultures)"
-        }
-    }
+    "scoring": {
+        "method": "orderedResponse",
+        "maxPoints": 5
+    },
+    "pedagogy": {
+        "bloomLevel": "apply",
+        "cjmmStep": "Take Action",
+        "nclexCategory": "Physiological Integrity: Physiological Adaptation"
+    },
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:23:41.253Z"
 }

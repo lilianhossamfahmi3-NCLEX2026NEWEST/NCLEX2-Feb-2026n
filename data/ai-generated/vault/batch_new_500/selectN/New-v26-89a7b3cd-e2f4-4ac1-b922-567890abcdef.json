@@ -1,109 +1,316 @@
 {
     "id": "New-v26-89a7b3cd-e2f4-4ac1-b922-567890abcdef",
     "type": "selectN",
-    "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the patient's current status and ventilator settings, which of the following interventions are MOST appropriate? Select all that apply.",
-    "scoring": {
-        "method": "polytomous",
-        "maxPoints": 5
-    },
+    "stem": "The nurse is reviewing the client's clinical record. Based on the assessment findings, which 4 interventions are indicated at this time? Select 4.",
+    "options": [
+        {
+            "id": "opt_01",
+            "text": "Increase respiratory rate to 18 breaths/min."
+        },
+        {
+            "id": "opt_02",
+            "text": "Increase PEEP to 10 cm H2O."
+        },
+        {
+            "id": "opt_03",
+            "text": "Perform deep endotracheal suctioning."
+        },
+        {
+            "id": "opt_04",
+            "text": "Recommend obtaining a sputum culture for sensitivity."
+        },
+        {
+            "id": "opt_05",
+            "text": "Increase tidal volume to 600 mL."
+        },
+        {
+            "id": "opt_06",
+            "text": "Administer a 500 mL bolus of 0.9% sodium chloride."
+        },
+        {
+            "id": "opt_07",
+            "text": "Decrease the FiO2 to 50%."
+        }
+    ],
+    "correctOptionIds": [
+        "opt_01",
+        "opt_02",
+        "opt_03",
+        "opt_04"
+    ],
     "itemContext": {
         "patient": {
-            "name": "Jameson, Robert",
-            "age": 68,
-            "gender": "Male",
-            "iso": "ICU",
-            "room": "312",
-            "airborne": true,
+            "age": "68",
+            "sex": "Male",
+            "pronouns": "He/Him",
             "allergies": [
                 "Penicillin"
             ]
         },
-        "sbar": "1500 Report: Mr. Jameson is a 68-year-old male admitted to the ICU for acute respiratory failure secondary to pneumonia. He was intubated and placed on mechanical ventilation at 0800. Current vent settings: FiO2 60%, PEEP 8 cm H2O, Tidal Volume 450 mL, Rate 14 breaths/min. 1430 ABG results: pH 7.30, PaCO2 55 mmHg, PaO2 65 mmHg, HCO3 24 mEq/L, SpO2 91%. Auscultation reveals coarse crackles bilaterally. Peak inspiratory pressure (PIP) is 35 cm H2O. The patient is on continuous IV sedation with propofol at 10 mcg/kg/min per protocol. Urine output is 30 mL/hr. Current BP 100/60 mmHg, HR 110 bpm. The patient appears comfortable but is requiring frequent suctioning of thick secretions. Given the pneumonia, positive sputum culture pending, and thick secretions, airborne precautions have been initiated. I am concerned about his worsening respiratory status, hypercapnia, hypoxemia, and potential for ventilator-associated pneumonia.",
         "tabs": [
             {
-                "id": "sbar",
-                "title": "SBAR",
-                "content": "1500 Report: Mr. Jameson is a 68-year-old male admitted to the ICU for acute respiratory failure secondary to pneumonia. He was intubated and placed on mechanical ventilation at 0800. Current vent settings: FiO2 60%, PEEP 8 cm H2O, Tidal Volume 450 mL, Rate 14 breaths/min. 1430 ABG results: pH 7.30, PaCO2 55 mmHg, PaO2 65 mmHg, HCO3 24 mEq/L, SpO2 91%. Auscultation reveals coarse crackles bilaterally. Peak inspiratory pressure (PIP) is 35 cm H2O. The patient is on continuous IV sedation with propofol at 10 mcg/kg/min per protocol. Urine output is 30 mL/hr. Current BP 100/60 mmHg, HR 110 bpm. The patient appears comfortable but is requiring frequent suctioning of thick secretions. Given the pneumonia, positive sputum culture pending, and thick secretions, airborne precautions have been initiated. I am concerned about his worsening respiratory status, hypercapnia, hypoxemia, and potential for ventilator-associated pneumonia."
+                "id": "nurses_notes",
+                "title": "Clinical Feed",
+                "content": {
+                    "notes": [
+                        {
+                            "timestamp": "Yesterday 22:00",
+                            "type": "Admission Note",
+                            "content": "S: Client admitted from ED for acute respiratory failure.\nB: 68-year-old male with a history of COPD, diagnosed with community-acquired pneumonia. Client lives alone in a rural area with limited access to primary care, which delayed initial treatment. Intubated in ED due to progressive hypoxemia and increased work of breathing.\nA: Alert and oriented x1 (to person) prior to sedation. Bilateral coarse crackles on auscultation. SpO2 was 85% on a non-rebreather mask. Initial ABG showed severe respiratory acidosis.\nR: Transfer to ICU for mechanical ventilation and hemodynamic monitoring. Initiate ventilator protocol and broad-spectrum antibiotics after blood and sputum cultures are obtained. Place on airborne precautions."
+                        },
+                        {
+                            "timestamp": "Today 15:00",
+                            "type": "Progress Note",
+                            "content": "S: Requesting review of ventilator settings for worsening gas exchange.\nB: Client remains intubated and sedated on a continuous propofol infusion.\nA: Current vitals: BP 100/60 mmHg (MAP 73), HR 110 bpm, SpO2 91% on FiO2 60%, PEEP 8 cm H2O. Peak inspiratory pressure (PIP) is elevated at 35 cm H2O. ABG at 14:30 shows persistent respiratory acidosis (pH 7.30, PaCO2 55 mmHg) and hypoxemia (PaO2 65 mmHg). Producing copious thick, purulent secretions requiring frequent suctioning.\nR: Recommend adjusting ventilator settings to improve both ventilation and oxygenation. Consider increasing PEEP and respiratory rate. Continue frequent suctioning as needed."
+                        }
+                    ]
+                }
             },
             {
-                "id": "labs",
-                "title": "Labs",
-                "content": "<table><thead><tr><th>Lab</th><th>Result</th><th>Reference Range</th></tr></thead><tbody><tr><td>pH</td><td>7.30</td><td>7.35-7.45</td></tr><tr><td>PaCO2</td><td>55 mmHg</td><td>35-45 mmHg</td></tr><tr><td>PaO2</td><td>65 mmHg</td><td>80-100 mmHg</td></tr><tr><td>HCO3</td><td>24 mEq/L</td><td>22-26 mEq/L</td></tr><tr><td>WBC</td><td>14,000/mm3</td><td>4,500-11,000/mm3</td></tr><tr><td>Creatinine</td><td>1.5 mg/dL</td><td>0.6-1.2 mg/dL</td></tr></tbody></table>"
+                "id": "vital_signs",
+                "title": "Vitals & Telemetry",
+                "content": {
+                    "type": "flowsheet",
+                    "data": [
+                        {
+                            "Time": "12:00",
+                            "HR": "102 bpm",
+                            "BP": "108/68 mmHg (MAP 81)",
+                            "RR": "14 (Ventilator)",
+                            "SpO2": "93% on 60% FiO2",
+                            "Temp": "101.1°F (38.4°C)",
+                            "PIP": "32 cm H2O"
+                        },
+                        {
+                            "Time": "14:00",
+                            "HR": "108 bpm",
+                            "BP": "104/64 mmHg (MAP 77)",
+                            "RR": "14 (Ventilator)",
+                            "SpO2": "92% on 60% FiO2",
+                            "Temp": "101.3°F (38.5°C)",
+                            "PIP": "34 cm H2O"
+                        },
+                        {
+                            "Time": "15:00",
+                            "HR": "110 bpm",
+                            "BP": "100/60 mmHg (MAP 73)",
+                            "RR": "14 (Ventilator)",
+                            "SpO2": "91% on 60% FiO2",
+                            "Temp": "101.3°F (38.5°C)",
+                            "PIP": "35 cm H2O"
+                        }
+                    ]
+                }
             },
             {
-                "id": "vitals",
-                "title": "Vitals",
-                "content": "<table><thead><tr><th>Vital Sign</th><th>Result</th></tr></thead><tbody><tr><td>BP</td><td>100/60 mmHg</td></tr><tr><td>HR</td><td>110 bpm</td></tr><tr><td>RR</td><td>14 breaths/min (Ventilator)</td></tr><tr><td>SpO2</td><td>91%</td></tr><tr><td>Temperature</td><td>38.5°C (101.3°F)</td></tr><tr><td>PIP</td><td>35 cm H2O</td></tr></tbody></table>"
+                "id": "lab_diagnostics",
+                "title": "Lab Diagnostics",
+                "content": {
+                    "type": "table",
+                    "data": [
+                        {
+                            "Test": "pH",
+                            "Result": "7.30",
+                            "Unit": "",
+                            "Reference Range": "7.35 - 7.45",
+                            "Status": "Low"
+                        },
+                        {
+                            "Test": "PaCO2",
+                            "Result": "55",
+                            "Unit": "mmHg",
+                            "Reference Range": "35 - 45",
+                            "Status": "High"
+                        },
+                        {
+                            "Test": "PaO2",
+                            "Result": "65",
+                            "Unit": "mmHg",
+                            "Reference Range": "80 - 100",
+                            "Status": "Low"
+                        },
+                        {
+                            "Test": "HCO3",
+                            "Result": "24",
+                            "Unit": "mEq/L",
+                            "Reference Range": "22 - 26",
+                            "Status": "Normal"
+                        },
+                        {
+                            "Test": "WBC",
+                            "Result": "14.5",
+                            "Unit": "x 10³/μL",
+                            "Reference Range": "4.5 - 11.0",
+                            "Status": "High"
+                        },
+                        {
+                            "Test": "Creatinine",
+                            "Result": "1.5",
+                            "Unit": "mg/dL",
+                            "Reference Range": "0.6 - 1.2",
+                            "Status": "High"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "physical_exam",
+                "title": "Physical Exam",
+                "content": {
+                    "type": "narrative",
+                    "findings": "GENERAL: Sedated, unresponsive to voice but withdraws to painful stimuli.\nRESPIRATORY: Endotracheal tube secured at 23 cm at the lip. Symmetrical chest rise. Coarse crackles auscultated bilaterally throughout all lung fields. Copious thick, yellow secretions noted in ETT.\nCARDIOVASCULAR: Tachycardia noted. S1, S2 audible. No murmurs. Capillary refill 3 seconds. Peripheral pulses 2+ bilaterally.\nNEUROLOGICAL: RASS -4 (Deep Sedation). Pupils equal, round, reactive to light."
+                }
             },
             {
                 "id": "radiology",
                 "title": "Radiology",
-                "content": "No radiology reports available."
+                "content": {
+                    "reports": [
+                        {
+                            "type": "Chest X-ray (Portable AP)",
+                            "timestamp": "Today 09:00",
+                            "report": "FINDINGS: Endotracheal tube tip is appropriately positioned 4 cm above the carina. Diffuse bilateral airspace opacities are present, consistent with pulmonary edema or multifocal pneumonia. No evidence of pneumothorax or significant pleural effusion.\n\nIMPRESSION: Radiographic findings are consistent with Acute Respiratory Distress Syndrome (ARDS), likely secondary to severe pneumonia. Comparison with prior imaging would be beneficial if available."
+                        }
+                    ]
+                }
             },
             {
-                "id": "mar",
-                "title": "MAR",
-                "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th></tr></thead><tbody><tr><td>Propofol</td><td>10 mcg/kg/min</td><td>IV</td><td>Continuous</td></tr><tr><td>Ceftriaxone</td><td>1 gram</td><td>IV</td><td>q24h</td></tr><tr><td>Pantoprazole</td><td>40 mg</td><td>IV</td><td>q24h</td></tr></tbody></table>"
+                "id": "care_plan",
+                "title": "Care Plan",
+                "content": {
+                    "type": "orders",
+                    "data": [
+                        {
+                            "Date": "Today",
+                            "Time": "08:00",
+                            "Action": "Mechanical Ventilation: AC Mode, Rate 14, TV 450 mL, FiO2 60%, PEEP 8 cm H2O",
+                            "Status": "Active"
+                        },
+                        {
+                            "Date": "Today",
+                            "Time": "08:00",
+                            "Action": "Propofol infusion, titrate to maintain RASS -4",
+                            "Status": "Active"
+                        },
+                        {
+                            "Date": "Today",
+                            "Time": "08:15",
+                            "Action": "Arterial Blood Gas (ABG) 30 minutes after any ventilator change",
+                            "Status": "Standing"
+                        },
+                        {
+                            "Date": "Today",
+                            "Time": "08:00",
+                            "Action": "Suction ETT as needed for secretions",
+                            "Status": "PRN"
+                        },
+                        {
+                            "Date": "Today",
+                            "Time": "08:00",
+                            "Action": "Strict I&O monitoring",
+                            "Status": "Standing"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "mar_console",
+                "title": "MAR Console",
+                "content": {
+                    "type": "medication_list",
+                    "data": [
+                        {
+                            "Medication": "Propofol",
+                            "Dose": "10 mcg/kg/min",
+                            "Route": "IV",
+                            "Frequency": "Continuous Infusion",
+                            "Last Administered": "N/A (Continuous)"
+                        },
+                        {
+                            "Medication": "Ceftriaxone",
+                            "Dose": "1 g",
+                            "Route": "IV",
+                            "Frequency": "q24h",
+                            "Last Administered": "Today 09:00"
+                        },
+                        {
+                            "Medication": "Pantoprazole",
+                            "Dose": "40 mg",
+                            "Route": "IV",
+                            "Frequency": "q24h",
+                            "Last Administered": "Today 09:00"
+                        },
+                        {
+                            "Medication": "Enoxaparin",
+                            "Dose": "40 mg",
+                            "Route": "Subcutaneous",
+                            "Frequency": "q24h",
+                            "Last Administered": "Today 09:00"
+                        }
+                    ]
+                }
             }
         ]
     },
-    "pedagogy": {
-        "bloomLevel": "apply",
-        "cjmmStep": "analyzeCues",
-        "nclexCategory": "Respiratory",
-        "difficulty": 5,
-        "topicTags": [
-            "Respiratory: Mechanical Ventilation Safety"
+    "rationale": {
+        "correct": "The client's ABG results indicate uncompensated respiratory acidosis (low pH, high PaCO2) and significant hypoxemia (low PaO2). The high PIP suggests poor lung compliance. The four correct interventions address these critical issues: increasing the respiratory rate helps eliminate CO2; increasing PEEP improves oxygenation by recruiting alveoli; suctioning clears secretions that obstruct airways and impair gas exchange; and obtaining a sputum culture is essential for targeting antibiotic therapy to treat the underlying pneumonia.",
+        "incorrect": "Increasing the tidal volume is contraindicated due to the already high PIP of 35 cm H2O, which would significantly increase the risk of barotrauma. Administering a fluid bolus is inappropriate as there are no signs of hypovolemia, and it could worsen pulmonary edema in a client with ARDS. Decreasing the FiO2 would exacerbate the client's severe hypoxemia.",
+        "answerBreakdown": [
+            {
+                "optionId": "opt_01",
+                "content": "Correct. The PaCO2 of 55 mmHg indicates hypercapnia and inadequate ventilation. Increasing the respiratory rate is a primary strategy to increase minute ventilation and facilitate the removal of carbon dioxide, thereby helping to correct the respiratory acidosis."
+            },
+            {
+                "optionId": "opt_02",
+                "content": "Correct. The PaO2 of 65 mmHg on 60% FiO2 indicates severe hypoxemia, characteristic of ARDS. Increasing PEEP helps prevent alveolar collapse at the end of expiration, increases functional residual capacity, and recruits more alveoli for gas exchange, improving oxygenation."
+            },
+            {
+                "optionId": "opt_03",
+                "content": "Correct. The physical exam and nurse's note describe copious, thick secretions. These secretions can create mucus plugs, increase airway resistance (contributing to high PIP), and impair gas exchange. Suctioning is a necessary intervention to maintain a patent airway."
+            },
+            {
+                "optionId": "opt_04",
+                "content": "Correct. The client has pneumonia, and the leukocytosis (WBC 14.5) supports an active infection. While broad-spectrum antibiotics have been started, obtaining a sputum culture for sensitivity analysis is crucial to de-escalate or change antibiotics to the most effective agent, ensuring proper treatment of the infection source."
+            },
+            {
+                "optionId": "opt_05",
+                "content": "Incorrect. The peak inspiratory pressure (PIP) is already high at 35 cm H2O (target <30). Increasing the tidal volume would further raise airway pressures, placing the client at high risk for ventilator-induced lung injury, such as barotrauma (e.g., pneumothorax)."
+            },
+            {
+                "optionId": "opt_06",
+                "content": "Incorrect. The client's MAP is 73 mmHg, which is adequate, and there are no other signs of fluid volume deficit. In ARDS, a conservative fluid strategy is often preferred to prevent worsening pulmonary edema. A fluid bolus is not indicated and could be harmful."
+            },
+            {
+                "optionId": "opt_07",
+                "content": "Incorrect. The client is already hypoxemic with a PaO2 of 65 mmHg on 60% FiO2. Decreasing the oxygen support would critically worsen oxygenation and lead to further tissue hypoxia. The priority is to improve, not decrease, oxygen delivery."
+            }
+        ],
+        "clinicalPearls": [
+            "In ARDS management, the primary goals are to treat the underlying cause, maintain adequate oxygenation (PaO2 > 60 mmHg, SpO2 > 90%) using the lowest possible FiO2 (<60% to avoid toxicity), and employ a lung-protective ventilation strategy (low tidal volumes, adequate PEEP, plateau pressures < 30 cm H2O).",
+            "A high Peak Inspiratory Pressure (PIP) can be caused by increased airway resistance (e.g., secretions, bronchospasm) or decreased lung compliance (e.g., ARDS, pulmonary edema, pneumothorax). Differentiating the cause is key to selecting the right intervention.",
+            "Uncompensated respiratory acidosis (low pH, high PaCO2, normal HCO3) on a ventilator is typically managed by increasing the minute ventilation, which is achieved by increasing either the respiratory rate or the tidal volume. Given the high PIP, increasing the rate is the safer option."
+        ],
+        "questionTrap": "The primary trap is focusing on only one abnormal value instead of synthesizing all the data. For example, seeing a high PaCO2 and only thinking to increase tidal volume, while ignoring the dangerously high PIP which makes that action unsafe. Always integrate ventilator data, ABGs, and physical assessment findings.",
+        "mnemonic": {
+            "title": "ARDS Ventilator Strategy",
+            "expansion": "A: Allow permissive hypercapnia (if needed)\nR: Rate increase to blow off CO2\nD: Driving pressure low (<15)\nS: Small tidal volumes (4-6 mL/kg ideal body weight)"
+        },
+        "reviewUnits": [
+            "Mechanical Ventilation",
+            "Arterial Blood Gas (ABG) Interpretation",
+            "Acute Respiratory Distress Syndrome (ARDS)"
         ]
     },
-    "rationale": {
-        "correct": "Increasing the PEEP to 10 cm H2O will improve oxygenation by preventing alveolar collapse and increasing gas exchange. The current PaO2 of 65 mmHg is below the target range. The goal is to improve oxygenation without causing further lung injury. Higher PEEP can help recruit more alveoli for gas exchange.",
-        "incorrect": "Decreasing the FiO2 to 50% is inappropriate because the patient's PaO2 is already low at 65 mmHg. Decreasing FiO2 would further compromise oxygenation. The goal is to improve oxygenation, not reduce it. Increasing the tidal volume to 600 mL may cause barotrauma, especially with an already elevated PIP of 35 cm H2O. The focus should be on improving oxygenation and CO2 removal without causing lung injury. Monitor PIP closely if considering changes to tidal volume. Administering a bolus of normal saline is not directly indicated based on the provided data. While the patient's blood pressure is slightly low, it is likely related to the propofol. Addressing oxygenation and ventilation is the priority. Fluid boluses should be based on signs of hypovolemia, which are not present here. Initiating chest physiotherapy is appropriate for clearing secretions but should be done in conjunction with other interventions to address the underlying oxygenation and ventilation issues. Chest physiotherapy alone will not correct the ABG abnormalities.",
-        "clinicalPearls": [
-            "Monitor for signs of barotrauma (e.g., pneumothorax) when increasing PEEP or tidal volume. High PIP indicates increased airway resistance or decreased lung compliance.",
-            "Assess the patient's response to ventilator changes with repeat ABGs. ABGs are essential for evaluating the effectiveness of ventilator adjustments.",
-            "Ensure adequate sedation and pain management to optimize patient comfort and synchrony with the ventilator. Patient-ventilator asynchrony can lead to increased work of breathing and discomfort."
-        ],
-        "questionTrap": {
-            "trap": "The question trap lies in the complexity of balancing oxygenation and ventilation while minimizing lung injury. Students may be tempted to immediately increase FiO2 without considering the potential for oxygen toxicity or to increase tidal volume without considering the PIP.",
-            "howToOvercome": "Carefully analyze the ABG results, vital signs, and ventilator settings. Prioritize interventions that address the most critical issues (in this case, hypoxemia and hypercapnia) while minimizing the risk of complications. Consider the potential adverse effects of each intervention."
-        },
-        "mnemonic": {
-            "title": "PEEP",
-            "expansion": "Positive End-Expiratory Pressure - Prevents alveolar collapse, Enhances oxygenation, Promotes gas exchange."
-        }
+    "scoring": {
+        "method": "0/1",
+        "maxPoints": 4
     },
-    "options": [
-        {
-            "id": "optionA",
-            "text": "Increase the PEEP to 10 cm H2O.",
-            "isCorrect": true,
-            "feedback": "Increasing PEEP can improve oxygenation by preventing alveolar collapse and improving gas exchange."
-        },
-        {
-            "id": "optionB",
-            "text": "Decrease the FiO2 to 50%.",
-            "isCorrect": false,
-            "feedback": "Decreasing FiO2 will worsen hypoxemia, as the patient's PaO2 is already low."
-        },
-        {
-            "id": "optionC",
-            "text": "Increase the tidal volume to 600 mL.",
-            "isCorrect": false,
-            "feedback": "Increasing tidal volume may cause barotrauma, especially with an elevated PIP."
-        },
-        {
-            "id": "optionD",
-            "text": "Administer a bolus of 500 mL normal saline.",
-            "isCorrect": false,
-            "feedback": "Fluid bolus is not directly indicated by the provided data; focus on respiratory support."
-        },
-        {
-            "id": "optionE",
-            "text": "Initiate chest physiotherapy.",
-            "isCorrect": false,
-            "feedback": "Chest physiotherapy is helpful for clearing secretions but is not the priority intervention for hypoxemia and hypercapnia."
-        }
-    ],
-    "sentinelStatus": "deep_healed_v2026"
+    "pedagogy": {
+        "bloomLevel": "Applying",
+        "cjmmStep": "Generate Solutions",
+        "nclexCategory": "Physiological Adaptation"
+    },
+    "correctOptionId": "opt_01",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-02-28T17:49:04.342Z"
 }
