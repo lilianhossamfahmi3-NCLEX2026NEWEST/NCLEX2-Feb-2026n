@@ -1,10 +1,10 @@
 {
     "id": "New-v26-7a8b9c2d-3e4f-5061-7283-9a0bcdef1234",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a 78-year-old patient, Mr. Henderson, admitted for acute kidney injury (AKI) superimposed on chronic kidney disease (CKD). Based on the assessment data, laboratory results, and medication orders, determine the FIVE most important actions the nurse should take *immediately* and place them in order of priority. Use the 'bow-tie' format below.",
+    "type": "ordering",
+    "stem": "A 78-year-old male with acute on chronic kidney disease is exhibiting signs of severe hyperkalemia and respiratory distress. His condition is rapidly deteriorating with fluid overload and cardiac instability. Prioritize the five most important nursing actions to implement immediately.",
     "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
+        "method": "plus_minus",
+        "maxPoints": 5
     },
     "itemContext": {
         "patient": {
@@ -46,9 +46,58 @@
             }
         ]
     },
+    "options": [
+        {
+            "id": "opt1",
+            "text": "Administer calcium gluconate 1 gram IV.",
+            "hoverRationale": "This medication stabilizes the cardiac membrane, protecting the heart from life-threatening arrhythmias caused by severe hyperkalemia. It is the first priority to prevent cardiac arrest."
+        },
+        {
+            "id": "opt2",
+            "text": "Increase oxygen to 4L via nasal cannula.",
+            "hoverRationale": "The patient's hypoxemia and labored breathing indicate respiratory distress from pulmonary edema. Increasing oxygen delivery is critical to improve tissue oxygenation and reduce the work of breathing."
+        },
+        {
+            "id": "opt3",
+            "text": "Administer sodium bicarbonate 50 mEq IV.",
+            "hoverRationale": "The patient is in metabolic acidosis (pH 7.28), which worsens hyperkalemia. Sodium bicarbonate helps correct the acidosis and causes a temporary shift of potassium into the intracellular space."
+        },
+        {
+            "id": "opt4",
+            "text": "Administer regular insulin 5 units subcutaneously.",
+            "hoverRationale": "Insulin facilitates the uptake of glucose and potassium into the cells, effectively lowering the serum potassium level. This is a key intervention to treat the underlying hyperkalemia."
+        },
+        {
+            "id": "opt5",
+            "text": "Initiate continuous cardiac monitoring.",
+            "hoverRationale": "Continuous cardiac monitoring is essential to detect arrhythmias caused by hyperkalemia and to evaluate the effectiveness of interventions. It provides real-time data on the patient's cardiac status."
+        },
+        {
+            "id": "opt6",
+            "text": "Administer Kayexalate 15 grams PO.",
+            "hoverRationale": "This medication removes potassium from the body via the gastrointestinal tract, but its onset of action is slow. It is not appropriate for treating acute, life-threatening hyperkalemia."
+        },
+        {
+            "id": "opt7",
+            "text": "Obtain a 12-lead electrocardiogram (ECG).",
+            "hoverRationale": "While an ECG is a valuable diagnostic tool, immediate life-saving treatment to stabilize the myocardium with calcium gluconate should not be delayed. Treatment takes precedence over diagnostics in this emergency."
+        },
+        {
+            "id": "opt8",
+            "text": "Notify the primary healthcare provider.",
+            "hoverRationale": "The provider has already been notified, as evidenced by the new stat medication orders. The nurse's priority is to implement the existing life-saving orders, not to delay care."
+        }
+    ],
+    "correctResponse": [
+        "opt1",
+        "opt2",
+        "opt3",
+        "opt4",
+        "opt5"
+    ],
     "pedagogy": {
         "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "takeActions",
         "nclexCategory": "Physiological Integrity",
         "difficulty": 5,
         "topicTags": [
@@ -56,8 +105,7 @@
         ]
     },
     "rationale": {
-        "correct": "The patient is experiencing a life-threatening combination of hyperkalemia, acidosis, and potential pulmonary edema. Administering calcium gluconate is the immediate priority to stabilize the cardiac membrane against the effects of hyperkalemia, preventing arrhythmias. Increasing oxygen delivery is crucial to address the hypoxemia and increased work of breathing, improving oxygen saturation. Administering sodium bicarbonate addresses the metabolic acidosis, improving pH, and shifting potassium intracellularly, thus reducing serum potassium levels. Administering regular insulin shifts potassium into the cells, further helping to lower serum potassium levels. Continuous cardiac monitoring is essential to detect and manage arrhythmias resulting from hyperkalemia, allowing for prompt intervention.",
-        "incorrect": "While Kayexalate helps remove potassium from the body, it is not a rapid-acting treatment and is not suitable for an acute hyperkalemic crisis where immediate stabilization is needed. Monitoring urine output is important for assessing renal function but is not the immediate priority in this unstable situation requiring rapid intervention. Elevating the head of the bed and encouraging deep breathing can help with dyspnea but do not address the underlying electrolyte imbalances or acidosis causing the respiratory distress. Notifying the provider has already occurred as evidenced by the medication orders; the nurse must now implement those orders. Reassuring the patient and family is important for psychosocial support, but physiological stabilization is the immediate priority to ensure patient survival. Obtaining a 12-lead ECG is useful for further evaluation, but the immediate action is to protect the myocardium with calcium gluconate to prevent cardiac arrest.",
+        "correct": "The priority order addresses the most immediate life threats first. 1) Calcium gluconate is paramount to stabilize the cardiac membrane and prevent fatal arrhythmia from hyperkalemia. 2) Increasing oxygen addresses the critical hypoxemia and respiratory distress. 3) Sodium bicarbonate begins to correct the severe acidosis and helps shift potassium intracellularly. 4) Insulin provides a more definitive, though still temporary, reduction in serum potassium. 5) Continuous cardiac monitoring is initiated to vigilantly assess for arrhythmias and the response to treatment.",
         "clinicalPearls": [
             "Hyperkalemia can cause life-threatening arrhythmias; always prioritize cardiac stabilization with calcium gluconate.",
             "Pulmonary edema in renal failure can develop rapidly; monitor respiratory status closely and be prepared to escalate respiratory support.",
@@ -69,9 +117,11 @@
             "howToOvercome": "Focus on the ABCs (Airway, Breathing, Circulation) but recognize that in electrolyte emergencies, circulation includes cardiac stabilization. Prioritize interventions that address the most immediate threat to the patient's life, which in this case is cardiac arrest due to hyperkalemia."
         },
         "mnemonic": {
-            "title": "KIDNEY",
-            "expansion": "Keep electrolytes and fluids in balance, Identify and treat underlying causes, Decrease potassium, Navigate medication adjustments, Evaluate cardiac function, Yield to expert consultation (nephrology)."
+            "title": "Hyperkalemia Treatment: C BIG K DI",
+            "expansion": "Calcium gluconate (stabilizes membrane), Bicarbonate/Beta-agonists (shift K+), Insulin & Glucose (shift K+), Kayexalate (removes K+), Diuretics/Dialysis (removes K+)."
         }
     },
-    "sentinelStatus": "deep_healed_v2026"
+    "sentinelStatus": "deep_healed_v2026",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-03-01T17:00:12.968Z"
 }

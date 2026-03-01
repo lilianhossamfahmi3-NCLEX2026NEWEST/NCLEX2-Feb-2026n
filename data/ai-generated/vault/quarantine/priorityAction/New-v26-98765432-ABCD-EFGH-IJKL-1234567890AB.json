@@ -1,10 +1,42 @@
 {
     "id": "New-v26-98765432-ABCD-EFGH-IJKL-1234567890AB",
-    "type": "priorityAction",
-    "stem": "The nurse is caring for a patient receiving mechanical ventilation. Based on the patient data, prioritize the following nursing actions from FIRST to LAST.",
+    "type": "ordering",
+    "qualityMark": "NGN-2026-HI-FI",
+    "healedAt": "2026-03-01T17:02:03.408Z",
+    "stem": "A nurse is caring for a 68-year-old male on mechanical ventilation for pneumonia. The patient suddenly becomes restless and asynchronous with the ventilator, with decreased breath sounds on the left side. Based on the patient data, prioritize the following nursing actions from first to last.",
+    "options": [
+        {
+            "id": "opt1",
+            "text": "Assess endotracheal tube placement."
+        },
+        {
+            "id": "opt2",
+            "text": "Increase propofol infusion rate."
+        },
+        {
+            "id": "opt3",
+            "text": "Notify the healthcare provider."
+        },
+        {
+            "id": "opt4",
+            "text": "Prepare the patient for a chest X-ray."
+        }
+    ],
     "scoring": {
-        "method": "dichotomous",
-        "maxPoints": 1
+        "method": "ordered",
+        "maxPoints": 4,
+        "correctOrder": [
+            "opt1",
+            "opt2",
+            "opt3",
+            "opt4"
+        ]
+    },
+    "hoverRationales": {
+        "opt1": "Decreased unilateral breath sounds strongly suggest endotracheal tube displacement into a mainstem bronchus. This is a life-threatening airway emergency that requires immediate assessment and correction to restore bilateral ventilation.",
+        "opt2": "The patient's restlessness and asynchrony indicate inadequate sedation. Increasing sedation, per protocol or order, improves comfort and ventilator synchrony, reducing oxygen demand and preventing complications once the airway is secured.",
+        "opt3": "The provider must be notified of the patient's change in status, assessment findings, and respiratory acidosis. This facilitates collaborative decision-making for further interventions like ventilator adjustments or diagnostic tests.",
+        "opt4": "A chest X-ray is essential to definitively confirm endotracheal tube placement and rule out other serious complications like a pneumothorax. This diagnostic step follows immediate life-saving assessments and interventions."
     },
     "itemContext": {
         "patient": {
@@ -47,7 +79,7 @@
     },
     "pedagogy": {
         "bloomLevel": "analyze",
-        "cjmmStep": "analyzeCues",
+        "cjmmStep": "prioritizeHypotheses",
         "nclexCategory": "Management of Care",
         "difficulty": 5,
         "topicTags": [
@@ -55,8 +87,7 @@
         ]
     },
     "rationale": {
-        "correct": "1. Assess endotracheal tube placement: Decreased breath sounds on one side could indicate displacement, a life-threatening emergency requiring immediate intervention. Auscultate bilaterally and check for symmetrical chest rise. Rapid assessment is crucial. 2. Increase propofol infusion rate (per protocol or order): The patient is restless and asynchronous with the ventilator, suggesting inadequate sedation. Increasing sedation can improve patient comfort and ventilator synchrony, preventing further complications. Always follow established protocols or physician orders. 3. Notify the physician of ABG results and respiratory assessment: The ABG indicates respiratory acidosis, and the presence of decreased breath sounds, coupled with patient agitation, necessitates immediate communication with the physician for further evaluation and potential intervention. The physician needs to be informed to make decisions regarding ventilator settings and further diagnostic tests. 4. Prepare for a chest X-ray: Decreased breath sounds and the potential for ET tube displacement warrant immediate imaging to confirm proper tube placement and rule out other complications like pneumothorax, atelectasis, or consolidation.",
-        "incorrect": "Assessing ABGs is important, but the nurse already has recent ABG results that indicate a problem. Ordering a chest x-ray before assessing ET tube placement is not appropriate as it delays immediate interventions that could resolve the patient's distress. Increasing FiO2 might be considered later, but addressing the underlying cause of the desaturation (e.g., ET tube displacement, inadequate ventilation) is more important initially. Simply increasing FiO2 without addressing the root cause may mask the underlying problem and delay necessary treatment.",
+        "correct": "The correct order follows the Airway, Breathing, Circulation (ABC) framework and addresses the most life-threatening possibilities first. Assessing for endotracheal tube displacement is the top priority as it's an immediate airway emergency. Subsequent actions involve stabilizing the patient's sedation, communicating with the provider, and preparing for definitive diagnostic imaging.",
         "clinicalPearls": [
             "Asynchrony with the ventilator can lead to increased work of breathing, patient discomfort, increased oxygen consumption, and potential lung injury.",
             "Endotracheal tube displacement is a life-threatening complication that requires immediate intervention. Always assess tube placement first in a patient experiencing acute respiratory distress while mechanically ventilated."
