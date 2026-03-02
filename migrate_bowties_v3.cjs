@@ -52,6 +52,27 @@ No markdown code blocks. No explanations. Just the JSON.
 `;
 
 /**
+ * Robust JSON Cleaner
+ */
+function cleanJSON(text) {
+    if (!text) return null;
+    let cleaned = text.trim();
+    if (cleaned.startsWith('```json')) cleaned = cleaned.replace(/^```json/, '');
+    if (cleaned.startsWith('```')) cleaned = cleaned.replace(/^```/, '');
+    if (cleaned.endsWith('```')) cleaned = cleaned.replace(/```$/, '');
+    cleaned = cleaned.trim();
+
+    // Remove control characters (\n, \r, \t are usually fine in JSON but literal control chars aren't)
+    // This regex targets actual control characters (U+0000-U+001F) except the common ones
+    // and also cleans up common AI hallucinatory prefixes
+    cleaned = cleaned.replace(/[\u0000-\u0008\u000B-\u000C\u000E-\u001F]/g, "");
+
+    // Most "Bad control character" errors come from literal newlines inside strings.
+    // However, Gemini usually outputs proper JSON. If it fails, we try a more aggressive approach.
+    return cleaned;
+}
+
+/**
  * AI Fixation Call
  */
 async function aiFixate(item, key) {
@@ -69,7 +90,17 @@ async function aiFixate(item, key) {
 
     if (!resp.ok) throw new Error(`API ${resp.status}: ${await resp.text()}`);
     const resData = await resp.json();
-    return JSON.parse(resData.candidates[0].content.parts[0].text);
+    const rawOutput = resData.candidates[0].content.parts[0].text;
+    const cleanedJson = cleanJSON(rawOutput);
+    try {
+        return JSON.parse(cleanedJson);
+    } catch (e) {
+        // Try one more aggressive cleanup if simple JSON.parse fails
+        console.warn(`      ⚠️  Heuristic parsing needed for item...`);
+        // Remove literal double quotes or weird formatting that might break JSON
+        const hyperCleaned = cleanedJson.replace(/[\u0000-\u001F\u007F-\u009F]/g, "");
+        return JSON.parse(hyperCleaned);
+    }
 }
 
 /**
@@ -145,7 +176,7 @@ async function run() {
                         fixed.qualityMark = 'GOLD-SERIES-V3-MAPPED';
                         fixed.lastFixed = new Date().toISOString();
 
-                        if (!fixed.stem.startsWith('[V3-MAPPED-2026]')) {
+                        if (fixed.stem && !fixed.stem.startsWith('[V3-MAPPED-2026]')) {
                             fixed.stem = '[V3-MAPPED-2026] ' + fixed.stem;
                         }
 
@@ -162,7 +193,7 @@ async function run() {
                     }
 
                     // Throttle
-                    await new Promise(r => setTimeout(r, 1500));
+                    await new Promise(r => setTimeout(r, 2000));
                 }
             } catch (err) {
                 console.error(`Error reading ${file}: ${err.message}`);

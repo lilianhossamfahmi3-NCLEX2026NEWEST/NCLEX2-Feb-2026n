@@ -1,0 +1,289 @@
+{
+  "id": "thrombotic_stroke_bowtie_v2",
+  "type": "bowtie",
+  "sentinelStatus": "remediated_v2026_v1",
+  "scenarioMapCode": "SCN-STROKE-001",
+  "ehr": {
+    "ehr_map_code": "SCN-STROKE-001",
+    "patient": {
+      "name": "Jane Doe",
+      "age": "70 years",
+      "gender": "Female",
+      "codeStatus": "Full code",
+      "iso": "Standard",
+      "allergies": "No Known Allergies",
+      "medicalHistory": "Hypertension, Hyperlipidemia",
+      "medications": "Lisinopril 10 mg daily, Atorvastatin 20 mg daily"
+    },
+    "tabs": [
+      {
+        "id": "vitals",
+        "label": "Vitals",
+        "data": [
+          {
+            "time": "14:00",
+            "BP": "190/100 mmHg",
+            "HR": "88/min",
+            "RR": "18/min",
+            "SpO2": "98% on room air",
+            "Temp": "37.0 C (98.6 F)"
+          }
+        ]
+      },
+      {
+        "id": "labs",
+        "label": "Laboratory Results",
+        "data": [
+          {
+            "test": "Glucose, point-of-care",
+            "time": "14:10",
+            "result": "115 mg/dL",
+            "reference": "70-110 mg/dL"
+          },
+          {
+            "test": "INR",
+            "time": "14:20",
+            "result": "1.0",
+            "reference": "0.8-1.2"
+          },
+          {
+            "test": "PTT",
+            "time": "14:20",
+            "result": "32 seconds",
+            "reference": "25-35 seconds"
+          },
+          {
+            "test": "Platelet Count",
+            "time": "14:20",
+            "result": "245,000/mm³",
+            "reference": "150,000-450,000/mm³"
+          }
+        ]
+      },
+      {
+        "id": "imaging",
+        "label": "Radiology",
+        "data": [
+          {
+            "test": "CT Head without contrast",
+            "time": "14:25",
+            "result": "No evidence of acute intracranial hemorrhage. Age-related cerebral atrophy noted. A small area of hypodensity is seen in the left MCA territory, suggestive of early ischemic changes."
+          }
+        ]
+      },
+      {
+        "id": "physicalExam",
+        "label": "Physical Exam",
+        "data": [
+          {
+            "system": "Neurological",
+            "findings": "Right-sided weakness (4/5), expressive aphasia, facial droop on the right side. NIHSS score: 12."
+          },
+          {
+            "system": "Cardiovascular",
+            "findings": "Regular heart rate and rhythm, no murmurs auscultated."
+          },
+          {
+            "system": "Respiratory",
+            "findings": "Clear and equal breath sounds bilaterally."
+          }
+        ]
+      },
+      {
+        "id": "carePlan",
+        "label": "Care Plan",
+        "data": [
+          {
+            "priority": "Neurological Monitoring",
+            "interventions": "Assess neurological status q15 minutes during alteplase infusion, then q30 minutes for 6 hours, then q1 hour for 18 hours. Monitor for changes in level of consciousness, motor strength, and speech."
+          },
+          {
+            "priority": "Blood Pressure Management",
+            "interventions": "Maintain BP <185/110 mmHg. Administer antihypertensive medications as prescribed. Monitor BP q15 minutes during and after alteplase administration."
+          },
+          {
+            "priority": "Bleeding Precautions",
+            "interventions": "Monitor for signs of bleeding (e.g., gums, nose, urine, stool). Avoid invasive procedures if possible. Apply pressure to puncture sites for at least 10 minutes."
+          }
+        ]
+      },
+      {
+        "id": "MAR",
+        "label": "MAR",
+        "data": [
+          {
+            "medication": "Alteplase",
+            "dose": "0.9 mg/kg (max 90 mg)",
+            "route": "IV",
+            "frequency": "Over 60 minutes",
+            "time": "14:45"
+          },
+          {
+            "medication": "Labetalol",
+            "dose": "10-20 mg",
+            "route": "IV",
+            "frequency": "PRN for BP >185/110 mmHg",
+            "time": "PRN"
+          },
+          {
+            "medication": "Normal Saline",
+            "dose": "50 mL/hr",
+            "route": "IV",
+            "frequency": "Continuous",
+            "time": "Continuous"
+          }
+        ]
+      }
+    ]
+  },
+  "clinicalFeed": "S: This is the nurse for Jane Doe, a 70-year-old female who presented at 14:00 with acute right-sided weakness and aphasia. \nB: Last known well was at 13:00. She has a history of hypertension and hyperlipidemia. \nA: Current BP is 190/100 mmHg. A non-contrast head CT shows no hemorrhage but a small area of hypodensity in the left MCA territory. The assessment is an acute ischemic stroke within the thrombolytic window. \nR: Recommend initiating measures to lower BP to <185/110 mmHg to proceed with IV alteplase administration per protocol.",
+  "stem": "[V3-MAPPED-2026] The nurse is managing care for the client who presented with acute neurological deficits. The client has been diagnosed with an acute ischemic stroke and is a candidate for thrombolytic therapy. Complete the bowtie by selecting the appropriate actions to take and parameters to monitor.",
+  "potentialConditions": [
+    {
+      "id": "cond1",
+      "text": "Ischemic Stroke",
+      "conditionMapCode": "CONDITION-ISCHEMIC"
+    },
+    {
+      "id": "cond2",
+      "text": "Brain Tumor",
+      "conditionMapCode": "CONDITION-TUMOR"
+    },
+    {
+      "id": "cond3",
+      "text": "Transient Ischemic Attack",
+      "conditionMapCode": "CONDITION-TIA"
+    },
+    {
+      "id": "cond4",
+      "text": "Hemorrhagic Stroke",
+      "conditionMapCode": "CONDITION-HEMORRHAGIC"
+    }
+  ],
+  "condition": "cond1",
+  "actions": [
+    {
+      "id": "action1",
+      "text": "Perform a Lumbar Puncture",
+      "itemMapCode": "ACTION-LUMBAR"
+    },
+    {
+      "id": "action2",
+      "text": "Maintain BP <185/110 mmHg",
+      "itemMapCode": "ACTION-BP"
+    },
+    {
+      "id": "action3",
+      "text": "Administer IV Heparin bolus",
+      "itemMapCode": "ACTION-HEPARIN"
+    },
+    {
+      "id": "action4",
+      "text": "Initiate IV Alteplase (tPA) protocol",
+      "itemMapCode": "ACTION-ALTEPLASE"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "param1",
+      "text": "Blood Pressure monitoring",
+      "itemMapCode": "PARAM-BP"
+    },
+    {
+      "id": "param2",
+      "text": "Monitoring for signs of bleeding",
+      "itemMapCode": "PARAM-BLEEDING"
+    },
+    {
+      "id": "param3",
+      "text": "Muscle strength grading",
+      "itemMapCode": "PARAM-MUSCLE"
+    },
+    {
+      "id": "param4",
+      "text": "Neurological status and NIHSS",
+      "itemMapCode": "PARAM-NEURO"
+    }
+  ],
+  "correctActionIds": [
+    "action2",
+    "action4"
+  ],
+  "correctParameterIds": [
+    "param1",
+    "param4"
+  ],
+  "hoverRationales": {
+    "cond1": "Pathophysiology: Sudden focal neurological deficits combined with a CT scan negative for hemorrhage strongly indicate an ischemic stroke, where a clot obstructs cerebral blood flow, leading to neuronal injury.",
+    "cond2": "Clinical Flaw: A brain tumor typically presents with a gradual onset of symptoms, headaches, or seizures, not the sudden, focal deficits seen in this client.",
+    "cond3": "Clinical Flaw: A Transient Ischemic Attack (TIA) involves temporary symptoms that resolve completely, usually within an hour. This client's symptoms are persistent, indicating a completed stroke.",
+    "cond4": "Clinical Flaw: A hemorrhagic stroke would show evidence of bleeding on the non-contrast CT scan. This client's CT scan was negative for hemorrhage, ruling out this condition.",
+    "action1": "Clinical Flaw: A lumbar puncture is not indicated for diagnosing an acute ischemic stroke and is contraindicated if intracranial pressure is elevated, as it increases the risk of cerebral herniation.",
+    "action2": "Pathophysiology: Blood pressure must be lowered to and maintained below 185/110 mmHg before and during alteplase administration to decrease the risk of hemorrhagic conversion, a major complication of thrombolytic therapy.",
+    "action3": "Clinical Flaw: Anticoagulants like heparin are contraindicated in the acute phase of ischemic stroke, especially when thrombolytics are used, as they significantly increase the risk of intracranial hemorrhage.",
+    "action4": "Pathophysiology: Alteplase is a thrombolytic that dissolves the fibrin clot causing the ischemia. Administering it within the therapeutic window restores blood flow to the penumbra, minimizing neuronal death.",
+    "param1": "Pathophysiology: Continuous BP monitoring is essential to ensure the pressure remains within the target range, which is critical for balancing the need for cerebral perfusion against the risk of hemorrhagic transformation.",
+    "param2": "Clinical Flaw: While monitoring for systemic bleeding is important, the most critical parameters to detect the life-threatening complication of hemorrhagic conversion are frequent neurological assessments and blood pressure monitoring.",
+    "param3": "Clinical Flaw: This is only one component of the comprehensive neurological assessment. Monitoring the full NIHSS and overall neurological status provides a more complete picture of the client's condition.",
+    "param4": "Pathophysiology: Frequent neurological assessments using the NIHSS are critical to monitor for improvement or deterioration, which reflects changes in cerebral perfusion and helps detect complications like hemorrhage early."
+  },
+  "scoring": {
+    "method": "plusMinus",
+    "maxPoints": 4
+  },
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 4,
+    "topicTags": [
+      "Neurological",
+      "Stroke",
+      "Pharmacology",
+      "Emergency"
+    ]
+  },
+  "bowtie_map_code": "SCN-STROKE-001",
+  "companion_map_code": "SCN-STROKE-001",
+  "hud_map_code": "SCN-STROKE-001",
+  "studyCompanion": {
+    "pearls": [
+      {
+        "title": "Time is Brain",
+        "description": "In acute ischemic stroke, every minute counts. Rapid assessment and intervention are crucial to minimize brain damage and improve patient outcomes.",
+        "strategy": "Prioritize rapid neurological assessment, CT imaging, and initiation of thrombolytic therapy (if indicated) within the appropriate time window."
+      },
+      {
+        "title": "Blood Pressure Control",
+        "description": "Maintaining blood pressure within the target range (<185/110 mmHg) is essential before, during, and after alteplase administration to reduce the risk of hemorrhagic conversion.",
+        "strategy": "Administer antihypertensive medications as prescribed and monitor blood pressure closely, adjusting medications as needed to maintain the target range."
+      }
+    ],
+    "traps": [
+      {
+        "title": "Ignoring Subtle Neurological Changes",
+        "description": "Subtle changes in neurological status can indicate improvement, deterioration, or complications such as hemorrhagic conversion. Overlooking these changes can delay critical interventions.",
+        "strategy": "Perform frequent and thorough neurological assessments using the NIHSS and document all findings. Report any changes to the healthcare provider immediately."
+      },
+      {
+        "title": "Administering Anticoagulants",
+        "description": "Administering anticoagulants like heparin in the acute phase of ischemic stroke, especially when thrombolytics are used, significantly increases the risk of intracranial hemorrhage.",
+        "strategy": "Ensure that anticoagulants are not administered unless specifically indicated and prescribed by the healthcare provider. Double-check medication orders and patient history to avoid errors."
+      }
+    ],
+    "mnemonics": [
+      {
+        "mnemonic": "FAST",
+        "description": "Used to recognize stroke symptoms: Face drooping, Arm weakness, Speech difficulty, Time to call 911.",
+        "strategy": "Educate patients and families about the FAST mnemonic to promote early recognition of stroke symptoms and prompt medical attention."
+      },
+      {
+        "mnemonic": "BP-TARGET",
+        "description": "Blood Pressure Target: <185/110 mmHg before, during, and after alteplase administration.",
+        "strategy": "Use the BP-TARGET mnemonic to remember the target blood pressure range and ensure that blood pressure is effectively managed during stroke care."
+      }
+    ]
+  },
+  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "lastFixed": "2026-03-02T19:11:25.718Z"
+}

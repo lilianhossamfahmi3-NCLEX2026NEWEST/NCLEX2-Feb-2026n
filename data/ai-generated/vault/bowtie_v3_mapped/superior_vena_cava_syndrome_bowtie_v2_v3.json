@@ -1,0 +1,216 @@
+{
+  "id": "superior_vena_cava_syndrome_bowtie_v2",
+  "type": "bowtie",
+  "scenarioMapCode": "SCN-SVCS-001",
+  "ehr": {
+    "patient": {
+      "id": "patient-001",
+      "name": "John Davis",
+      "age": "68 years",
+      "gender": "Male",
+      "dob": "1956-02-15",
+      "codeStatus": "Full code",
+      "iso": "Standard",
+      "allergies": "NKDA",
+      "medicalHistory": "Non-small cell lung cancer (Stage III), Hypertension, COPD"
+    },
+    "tabs": [
+      {
+        "id": "history",
+        "label": "History & Physical",
+        "content": "Patient is a 68-year-old male with a 3-month history of Stage III non-small cell lung cancer. Currently receiving chemotherapy regimen Cisplatin/Pemetrexed. Reports increasing shortness of breath over the past week. Today, presents with acute swelling of the face and neck, and reports a 'full' feeling in his head."
+      },
+      {
+        "id": "vitals",
+        "label": "Vitals",
+        "content": "Time: 08:00\nTemperature: 37.1°C (98.8°F)\nHeart Rate: 98 bpm\nRespiratory Rate: 22 breaths/min\nBlood Pressure: 148/88 mmHg\nSpO2: 94% on room air"
+      },
+      {
+        "id": "labs",
+        "label": "Labs",
+        "content": "Sodium: 138 mEq/L\nPotassium: 4.1 mEq/L\nChloride: 102 mEq/L\nBUN: 18 mg/dL\nCreatinine: 1.0 mg/dL\nGlucose: 110 mg/dL\nCalcium: 9.5 mg/dL\nCBC: WBC 4.2 x 10^3/uL, Hemoglobin 11.8 g/dL, Platelets 150 x 10^3/uL"
+      },
+      {
+        "id": "physical_exam",
+        "label": "Physical Exam",
+        "content": "General: Appears anxious and uncomfortable.\nHEENT: Significant periorbital and facial edema. Jugular vein distention noted bilaterally. No stridor at rest, but voice is slightly hoarse.\nRespiratory: Increased work of breathing, with mild intercostal retractions. Auscultation reveals slightly diminished breath sounds bilaterally.\nCardiovascular: Tachycardia present. No murmurs auscultated. Peripheral pulses are 2+ bilaterally.\nNeurological: Alert and oriented to person, place, and time. Complains of headache and 'full' feeling in head. No focal deficits noted."
+      },
+      {
+        "id": "radiology",
+        "label": "Radiology",
+        "content": "Chest X-Ray: A large mediastinal mass is noted, causing compression of the superior vena cava. Significant edema is present in the upper chest and neck soft tissues. No evidence of pneumothorax or pleural effusion.\nCT Scan of Chest with Contrast: Confirms the presence of a large mass in the anterior mediastinum, encasing and compressing the superior vena cava. Collateral venous pathways are evident. No evidence of pulmonary embolism."
+      },
+      {
+        "id": "care_plan",
+        "label": "Care Plan",
+        "content": "Nursing Priorities:\n1. Maintain airway patency and adequate oxygenation.\n2. Reduce venous congestion and edema.\n3. Monitor neurological status for signs of increased intracranial pressure.\n4. Provide emotional support and education to the client and family.\n\nNursing Interventions:\n1. Elevate head of bed to high-Fowler's position.\n2. Administer oxygen as needed to maintain SpO2 > 92%.\n3. Prepare for and assist with emergent radiation therapy or stent placement.\n4. Monitor vital signs, neurological status, and respiratory effort closely.\n5. Administer prescribed medications, such as diuretics and corticosteroids.\n6. Provide a calm and reassuring environment."
+      },
+      {
+        "id": "mar",
+        "label": "MAR",
+        "content": "Furosemide 20 mg IV push STAT\nDexamethasone 10 mg IV push STAT\nOxygen 2L via nasal cannula, titrate to maintain SpO2 > 92%"
+      }
+    ]
+  },
+  "clinicalFeed": "S: This is the nurse for John Davis in room 402. At 08:00, he developed acute facial and neck swelling, complaining of a 'full' feeling in his head and worsening shortness of breath. B: Mr. Davis is a 68-year-old male with stage III non-small cell lung cancer. A: He has significant periorbital edema, jugular vein distention, and tachypnea with an SpO2 of 94%. I suspect Superior Vena Cava syndrome. R: I need you to assess him immediately for this oncologic emergency.",
+  "stem": "[V3-MAPPED-2026] The nurse is caring for a 68-year-old client with lung cancer who develops acute facial edema and jugular vein distention. Based on the client's presentation, the nurse suspects an oncologic emergency. Complete the bowtie to indicate appropriate actions and parameters to monitor.",
+  "potentialConditions": [
+    {
+      "id": "condition1",
+      "text": "Superior Vena Cava (SVC) Syndrome"
+    },
+    {
+      "id": "condition2",
+      "text": "Cardiac Tamponade"
+    },
+    {
+      "id": "condition3",
+      "text": "Tension Pneumothorax"
+    },
+    {
+      "id": "condition4",
+      "text": "Anaphylaxis"
+    },
+    {
+      "id": "condition5",
+      "text": "Aortic Dissection"
+    }
+  ],
+  "condition": "condition1",
+  "actions": [
+    {
+      "id": "action1",
+      "text": "Position the client in high-Fowler's",
+      "isCorrect": true,
+      "hoverRationale": "This position uses gravity to promote venous drainage from the head and upper body. This reduces pressure on the superior vena cava, which can alleviate edema and intracranial pressure.",
+      "itemMapCode": "ACTION-HIGH-FOWLERS"
+    },
+    {
+      "id": "action2",
+      "text": "Prepare for emergent radiation therapy",
+      "isCorrect": true,
+      "hoverRationale": "Radiation is a definitive treatment that shrinks the tumor compressing the SVC. This restores normal venous return from the upper body, resolving the underlying cause of the oncologic emergency.",
+      "itemMapCode": "ACTION-RADIATION"
+    },
+    {
+      "id": "action3",
+      "text": "Place the client in a Trendelenburg position",
+      "isCorrect": false,
+      "hoverRationale": "This position lowers the head below the heart, which dramatically increases venous pressure in the head and neck. This would worsen cerebral edema and could precipitate a neurological crisis.",
+      "itemMapCode": "ACTION-TRENDELENBURG"
+    },
+    {
+      "id": "action4",
+      "text": "Administer a 500 mL normal saline bolus",
+      "isCorrect": false,
+      "hoverRationale": "Administering a fluid bolus increases intravascular volume, which will worsen venous congestion and edema in a client with an obstructed superior vena cava. Diuretics are more likely to be indicated.",
+      "itemMapCode": "ACTION-FLUID-BOLUS"
+    },
+    {
+      "id": "action5",
+      "text": "Apply restrictive clothing to manage edema",
+      "isCorrect": false,
+      "hoverRationale": "Applying restrictive clothing or devices would further impede venous return from the upper extremities and neck. This action would worsen the client's edema and venous congestion.",
+      "itemMapCode": "ACTION-RESTRICTIVE-CLOTHING"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "param1",
+      "text": "Neurological status",
+      "isCorrect": true,
+      "hoverRationale": "Impaired venous drainage from the brain increases intracranial pressure, risking cerebral edema and seizures. Monitoring neurological status is critical to detect early signs of this life-threatening complication.",
+      "itemMapCode": "PARAM-NEURO-STATUS"
+    },
+    {
+      "id": "param2",
+      "text": "Airway patency and breathing effort",
+      "isCorrect": true,
+      "hoverRationale": "Progressive edema of the neck, larynx, and pharynx can lead to airway compression and obstruction. Assessing for stridor, dyspnea, and work of breathing is vital to prevent respiratory arrest.",
+      "itemMapCode": "PARAM-AIRWAY-PATENCY"
+    },
+    {
+      "id": "param3",
+      "text": "Urine output",
+      "isCorrect": false,
+      "hoverRationale": "While important for overall fluid status, urine output is not a direct or sensitive indicator of SVC compression or its complications. The primary threats are airway and neurological compromise.",
+      "itemMapCode": "PARAM-URINE-OUTPUT"
+    },
+    {
+      "id": "param4",
+      "text": "Blood pressure in both arms",
+      "isCorrect": false,
+      "hoverRationale": "Comparing blood pressure between arms is a key assessment for aortic dissection, not SVC syndrome. This assessment does not provide relevant data for the client's current condition.",
+      "itemMapCode": "PARAM-BP-ARMS"
+    },
+    {
+      "id": "param5",
+      "text": "Serum calcium level",
+      "isCorrect": false,
+      "hoverRationale": "Serum calcium is not directly affected by SVC obstruction. While hypercalcemia of malignancy is a separate oncologic emergency, it is not the priority assessment for this client's presentation.",
+      "itemMapCode": "PARAM-SERUM-CALCIUM"
+    }
+  ],
+  "correctActionIds": [
+    "action1",
+    "action2"
+  ],
+  "correctParameterIds": [
+    "param1",
+    "param2"
+  ],
+  "rationale": "Superior Vena Cava (SVC) syndrome is an oncologic emergency caused by tumor compression of the SVC, obstructing venous return from the head, neck, and upper extremities. This leads to facial/neck edema and distended veins. The priority actions are to reduce venous pressure by placing the client in high-Fowler's position and preparing for definitive treatment like radiation or stenting to relieve the obstruction. Critical monitoring includes assessing for airway compromise due to laryngeal edema and neurological changes from increased intracranial pressure.",
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 5,
+    "topicTags": [
+      "Oncology",
+      "Emergency",
+      "SVC Syndrome"
+    ]
+  },
+  "ehr_map_code": "SCN-SVCS-001",
+  "bowtie_map_code": "SCN-SVCS-001",
+  "companion_map_code": "SCN-SVCS-001",
+  "hud_map_code": "SCN-SVCS-001",
+  "studyCompanion": {
+    "pearls": [
+      {
+        "description": "SVC syndrome is often caused by malignancy compressing the superior vena cava, leading to impaired venous return from the head, neck, and upper extremities.",
+        "strategy": "Prompt recognition and intervention are crucial to prevent life-threatening complications such as airway obstruction and increased intracranial pressure."
+      },
+      {
+        "description": "High-Fowler's position promotes venous drainage and reduces edema in the upper body.",
+        "strategy": "Elevate the head of the bed to at least 45 degrees to improve venous return and alleviate pressure on the SVC."
+      }
+    ],
+    "traps": [
+      {
+        "description": "Administering a fluid bolus can worsen venous congestion and edema in SVC syndrome.",
+        "strategy": "Avoid aggressive fluid resuscitation unless the client is hypotensive due to another cause. Diuretics may be indicated to reduce fluid overload."
+      },
+      {
+        "description": "Placing the client in Trendelenburg position increases venous pressure in the head and neck, exacerbating cerebral edema.",
+        "strategy": "Never place a client with suspected SVC syndrome in Trendelenburg position. Keep the head of the bed elevated at all times."
+      }
+    ],
+    "mnemonics": [
+      {
+        "mnemonic": "SVC",
+        "description": "Swelling, Veins distended, Cyanosis - Remember the key signs of SVC syndrome."
+      },
+      {
+        "mnemonic": "AIR",
+        "description": "Airway, Increased ICP, Radiation - Priorities in managing SVC syndrome."
+      }
+    ]
+  },
+  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "lastFixed": "2026-03-02T19:09:19.976Z"
+}

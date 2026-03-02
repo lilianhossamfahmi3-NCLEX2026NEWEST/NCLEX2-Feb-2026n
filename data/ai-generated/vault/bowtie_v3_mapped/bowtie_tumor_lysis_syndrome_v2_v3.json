@@ -1,0 +1,377 @@
+{
+  "id": "bowtie_tumor_lysis_syndrome_v2",
+  "type": "bowtie",
+  "scenarioMapCode": "SCN-TLS-001",
+  "ehr": {
+    "mapCode": "SCN-TLS-001",
+    "patientHeader": {
+      "name": "John Doe",
+      "age": "58",
+      "gender": "Male",
+      "codeStatus": "Full Code",
+      "iso": "Standard Precautions",
+      "allergies": "NKDA"
+    },
+    "tabs": [
+      {
+        "id": "historyAndPhysical",
+        "title": "History & Physical",
+        "content": {
+          "patient": "John Doe",
+          "age": "58",
+          "gender": "Male",
+          "admissionDate": "2024-07-26 09:00",
+          "chiefComplaint": "Newly diagnosed leukemia for induction chemotherapy",
+          "historyOfPresentIllness": "Patient is a 58-year-old male with a new diagnosis of Acute Myeloid Leukemia (AML). Admitted yesterday for initiation of induction chemotherapy with '7+3' regimen (Cytarabine and Daunorubicin). First doses administered 24 hours ago. Patient reports increasing lethargy and nausea.",
+          "pastMedicalHistory": "Hypertension, well-controlled on lisinopril.",
+          "physicalExam": "General: Lethargic, appears uncomfortable. Skin: Warm, dry, and intact, no visible rashes or lesions. Cardiovascular: S1, S2 regular rhythm, no murmurs auscultated. Peripheral pulses +2 bilaterally. Respiratory: Lungs clear to auscultation bilaterally. No cough or shortness of breath. Abdomen: Soft, non-tender, normoactive bowel sounds in all four quadrants. Neuro: Alert and oriented x3, follows commands. Cranial nerves II-XII intact. Musculoskeletal: Moves all extremities with equal strength. No edema noted."
+        }
+      },
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": {
+          "collectionTime": "2024-07-26 14:00",
+          "results": [
+            {
+              "name": "Potassium",
+              "value": "5.8",
+              "unit": "mEq/L",
+              "referenceRange": "3.5-5.0",
+              "flag": "High"
+            },
+            {
+              "name": "Phosphorus",
+              "value": "6.5",
+              "unit": "mg/dL",
+              "referenceRange": "2.5-4.5",
+              "flag": "High"
+            },
+            {
+              "name": "Calcium, Total",
+              "value": "7.0",
+              "unit": "mg/dL",
+              "referenceRange": "8.5-10.5",
+              "flag": "Low"
+            },
+            {
+              "name": "Uric Acid",
+              "value": "12.0",
+              "unit": "mg/dL",
+              "referenceRange": "3.5-7.2",
+              "flag": "High"
+            },
+            {
+              "name": "Creatinine",
+              "value": "1.8",
+              "unit": "mg/dL",
+              "referenceRange": "0.6-1.2",
+              "flag": "High"
+            },
+            {
+              "name": "BUN",
+              "value": "35",
+              "unit": "mg/dL",
+              "referenceRange": "7-20",
+              "flag": "High"
+            }
+          ]
+        }
+      },
+      {
+        "id": "radiology",
+        "title": "Radiology",
+        "content": {
+          "reports": [
+            {
+              "exam": "Chest X-Ray",
+              "date": "2024-07-26",
+              "report": "No acute cardiopulmonary abnormalities identified. Heart size within normal limits. Lungs are clear bilaterally. No pleural effusions or pneumothorax. Mediastinal contours are unremarkable."
+            },
+            {
+              "exam": "Abdominal Ultrasound",
+              "date": "2024-07-26",
+              "report": "The kidneys appear normal in size and echogenicity. No hydronephrosis is seen. The liver, spleen, and pancreas are unremarkable. No free fluid is detected in the abdomen."
+            }
+          ]
+        }
+      },
+      {
+        "id": "medications",
+        "title": "Medications",
+        "content": [
+          {
+            "name": "Cytarabine",
+            "dose": "100 mg/m2/day",
+            "route": "Continuous IV infusion",
+            "frequency": "Days 1-7"
+          },
+          {
+            "name": "Daunorubicin",
+            "dose": "60 mg/m2/day",
+            "route": "IV Push",
+            "frequency": "Days 1-3"
+          },
+          {
+            "name": "Lisinopril",
+            "dose": "10 mg",
+            "route": "PO",
+            "frequency": "Daily"
+          },
+          {
+            "name": "Normal Saline",
+            "dose": "200 mL/hr",
+            "route": "IV",
+            "frequency": "Continuous"
+          },
+          {
+            "name": "Allopurinol",
+            "dose": "300 mg",
+            "route": "PO",
+            "frequency": "Daily"
+          }
+        ]
+      },
+      {
+        "id": "carePlan",
+        "title": "Care Plan",
+        "content": {
+          "nursingPriorities": [
+            "Manage electrolyte imbalances (hyperkalemia, hyperphosphatemia, hypocalcemia, hyperuricemia).",
+            "Prevent acute kidney injury.",
+            "Monitor for signs and symptoms of complications related to TLS.",
+            "Provide supportive care to manage nausea and lethargy."
+          ],
+          "interventions": [
+            "Administer IV fluids as prescribed to promote renal excretion of electrolytes and uric acid.",
+            "Administer rasburicase or allopurinol as prescribed to reduce uric acid levels.",
+            "Monitor serum electrolytes, uric acid, creatinine, BUN, and urine output frequently.",
+            "Assess for signs and symptoms of hyperkalemia (e.g., muscle weakness, arrhythmias).",
+            "Assess for signs and symptoms of hypocalcemia (e.g., tetany, seizures).",
+            "Provide antiemetics as needed for nausea.",
+            "Encourage rest and provide a quiet environment to minimize fatigue."
+          ]
+        }
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": {
+          "medications": [
+            {
+              "name": "Cytarabine",
+              "dose": "100 mg/m2",
+              "route": "IV",
+              "time": "0900",
+              "status": "Given"
+            },
+            {
+              "name": "Daunorubicin",
+              "dose": "60 mg/m2",
+              "route": "IV",
+              "time": "0900",
+              "status": "Given"
+            },
+            {
+              "name": "Lisinopril",
+              "dose": "10 mg",
+              "route": "PO",
+              "time": "0800",
+              "status": "Given"
+            },
+            {
+              "name": "Normal Saline",
+              "dose": "200 mL/hr",
+              "route": "IV",
+              "time": "Continuous",
+              "status": "Running"
+            },
+            {
+              "name": "Allopurinol",
+              "dose": "300 mg",
+              "route": "PO",
+              "time": "0900",
+              "status": "Given"
+            },
+            {
+              "name": "Ondansetron",
+              "dose": "8 mg",
+              "route": "IV",
+              "time": "PRN",
+              "status": "Pending"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "clinicalFeed": {
+    "type": "SBAR",
+    "content": "Situation: This is the nurse for John Doe in the oncology unit. At 14:30, he is increasingly lethargic and nauseous. Background: Mr. Doe is a 58-year-old male with AML who started his '7+3' induction chemotherapy 24 hours ago. Assessment: His 14:00 labs are critical: Potassium 5.8, Phosphorus 6.5, Calcium 7.0, Uric Acid 12.0, and Creatinine 1.8. These findings strongly suggest Tumor Lysis Syndrome. Recommendation: I need you to assess the patient immediately and request orders to initiate the TLS protocol."
+  },
+  "stem": "[V3-MAPPED-2026] The nurse reviews the client's electronic health record and the SBAR report. The client is developing an oncologic emergency following the initiation of chemotherapy. Complete the bowtie by identifying the two actions the nurse should take and the two parameters the nurse should monitor.",
+  "potentialConditions": [
+    {
+      "id": "cond1",
+      "text": "Tumor Lysis Syndrome (TLS)"
+    },
+    {
+      "id": "cond2",
+      "text": "Acute Kidney Injury"
+    },
+    {
+      "id": "cond3",
+      "text": "Sepsis"
+    },
+    {
+      "id": "cond4",
+      "text": "Hyperkalemia"
+    },
+    {
+      "id": "cond5",
+      "text": "Hypocalcemia"
+    }
+  ],
+  "condition": "cond1",
+  "actions": [
+    {
+      "id": "action1",
+      "text": "Initiate aggressive IV hydration",
+      "isCorrect": true,
+      "hoverRationale": "Aggressive hydration increases renal blood flow and glomerular filtration rate. This promotes the excretion of potassium, phosphate, and uric acid, preventing crystal deposition and acute kidney injury.",
+      "itemMapCode": "ACTION-HYDRATION"
+    },
+    {
+      "id": "action2",
+      "text": "Administer rasburicase or allopurinol",
+      "isCorrect": true,
+      "hoverRationale": "Rasburicase rapidly converts existing uric acid into a more soluble compound, while allopurinol prevents new uric acid formation. This is critical to prevent urate nephropathy and renal failure.",
+      "itemMapCode": "ACTION-RASBURICASE"
+    },
+    {
+      "id": "action3",
+      "text": "Administer IV calcium gluconate",
+      "isCorrect": false,
+      "hoverRationale": "Administering calcium is reserved for symptomatic hypocalcemia (e.g., tetany, arrhythmias). Prophylactic administration increases the risk of calcium-phosphate crystal deposition in the kidneys, worsening renal injury.",
+      "itemMapCode": "ACTION-CALCIUM"
+    },
+    {
+      "id": "action4",
+      "text": "Restrict fluid intake",
+      "isCorrect": false,
+      "hoverRationale": "Fluid restriction is contraindicated as it would concentrate uric acid and phosphate in the renal tubules. This action would accelerate the development of acute kidney injury rather than prevent it.",
+      "itemMapCode": "ACTION-RESTRICT"
+    },
+    {
+      "id": "action5",
+      "text": "Administer oral phosphate supplements",
+      "isCorrect": false,
+      "hoverRationale": "The client is already hyperphosphatemic from cell lysis. Administering more phosphate would worsen this imbalance, further decrease calcium, and increase the risk of calcium-phosphate precipitation in the kidneys.",
+      "itemMapCode": "ACTION-PHOSPHATE"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "param1",
+      "text": "Serum electrolytes (K, Phos, Ca, Uric Acid)",
+      "isCorrect": true,
+      "hoverRationale": "Frequent monitoring of these key electrolytes is essential. Rapid changes indicate the severity of cell lysis and guide interventions to prevent life-threatening cardiac arrhythmias and seizures.",
+      "itemMapCode": "PARAM-ELECTROLYTES"
+    },
+    {
+      "id": "param2",
+      "text": "Urine output and pH",
+      "isCorrect": true,
+      "hoverRationale": "Monitoring urine output assesses renal perfusion and response to hydration. Maintaining an alkaline urine pH (>7.0) is crucial to keep uric acid soluble and prevent crystallization in the renal tubules.",
+      "itemMapCode": "PARAM-URINE"
+    },
+    {
+      "id": "param3",
+      "text": "White blood cell (WBC) count",
+      "isCorrect": false,
+      "hoverRationale": "The WBC count reflects the tumor burden but is not a dynamic indicator of the metabolic crisis. The immediate priority is managing the consequences of cell lysis, not the underlying white cell count.",
+      "itemMapCode": "PARAM-WBC"
+    },
+    {
+      "id": "param4",
+      "text": "Hemoglobin and hematocrit",
+      "isCorrect": false,
+      "hoverRationale": "While important for the underlying leukemia, H&H levels do not reflect the acute, life-threatening metabolic derangements of TLS. Monitoring these values is not a priority for this specific emergency.",
+      "itemMapCode": "PARAM-H&H"
+    },
+    {
+      "id": "param5",
+      "text": "Blood glucose level",
+      "isCorrect": false,
+      "hoverRationale": "While chemotherapy can affect glucose, it is not a primary parameter for monitoring TLS. The focus must remain on the electrolyte and renal complications that define this specific oncologic emergency.",
+      "itemMapCode": "PARAM-GLUCOSE"
+    }
+  ],
+  "correctActionIds": [
+    "action1",
+    "action2"
+  ],
+  "correctParameterIds": [
+    "param1",
+    "param2"
+  ],
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 5,
+    "topicTags": [
+      "Oncology",
+      "Emergency",
+      "Tumor Lysis Syndrome",
+      "Electrolyte Imbalance"
+    ]
+  },
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "bowtieMapCode": "SCN-TLS-001",
+  "companionMapCode": "SCN-TLS-001",
+  "hudMapCode": "SCN-TLS-001",
+  "studyCompanion": {
+    "pearls": [
+      {
+        "title": "Early Recognition of TLS",
+        "description": "Prompt identification of Tumor Lysis Syndrome (TLS) is crucial to prevent severe complications such as acute kidney injury, cardiac arrhythmias, and seizures. Monitor at-risk patients closely after initiating cytotoxic chemotherapy.",
+        "strategy": "Regularly assess laboratory values (potassium, phosphorus, calcium, uric acid, creatinine, BUN) and urine output in patients undergoing chemotherapy. Be vigilant for early signs of electrolyte imbalances and renal dysfunction."
+      },
+      {
+        "title": "Importance of Hydration",
+        "description": "Aggressive intravenous hydration is a cornerstone of TLS management. It helps to increase renal blood flow and glomerular filtration rate, promoting the excretion of potassium, phosphate, and uric acid.",
+        "strategy": "Administer IV fluids (e.g., normal saline) at a rate sufficient to maintain a high urine output (e.g., >100 mL/hr). Monitor fluid balance closely to avoid fluid overload, especially in patients with cardiac or renal dysfunction."
+      }
+    ],
+    "traps": [
+      {
+        "title": "Prophylactic Calcium Administration",
+        "description": "Avoid prophylactic administration of calcium in TLS. It can exacerbate the risk of calcium-phosphate crystal deposition in the kidneys, worsening renal injury.",
+        "strategy": "Administer calcium only if the patient is symptomatic with hypocalcemia (e.g., tetany, arrhythmias). Monitor calcium levels closely and correct only when necessary."
+      },
+      {
+        "title": "Inadequate Monitoring",
+        "description": "Failure to frequently monitor electrolytes and renal function can lead to delayed intervention and increased risk of complications.",
+        "strategy": "Implement a protocol for frequent monitoring of serum electrolytes, uric acid, creatinine, BUN, and urine output. Adjust interventions based on the trends and severity of the abnormalities."
+      }
+    ],
+    "mnemonics": [
+      {
+        "title": "TLS Management",
+        "mnemonic": "HYDRATE",
+        "description": "Hydrate aggressively, Yield to Rasburicase/Allopurinol, Dialysis if severe, Regulate electrolytes, Assess urine output, Treat symptoms, Evaluate labs frequently"
+      },
+      {
+        "title": "Electrolyte Imbalances in TLS",
+        "mnemonic": "K-PLUS",
+        "description": "K - HyperKalemia, P - HyperPhosphatemia, L - HypoCalcemia, U - HyperUricemia, S - Support kidneys"
+      }
+    ]
+  },
+  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "lastFixed": "2026-03-02T19:12:43.993Z"
+}
