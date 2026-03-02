@@ -133,6 +133,13 @@ export default function StudentPortal({ library, history, onStartMode, onViewAna
                             <p>Scan item bank for integrity, scoring accuracy & quality assurance.</p>
                             <button className="mode-btn secondary">Run QA Scan</button>
                         </div>
+
+                        <div className="mode-card" onClick={() => onStartMode('quarantine-bank')}>
+                            <div className="mode-icon">☣️</div>
+                            <h3>Quarantine Library</h3>
+                            <p>Review and remediate high-volume unverified content batches.</p>
+                            <button className="mode-btn secondary">Audit Quarantine</button>
+                        </div>
                     </div>
                 </section>
 

@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { MasterItem } from '../../types/master';
 import { getStandaloneNGNItemsAsync } from '../../services/caseStudyLibrary';
+import { getQuarantineItems } from '../../services/vaultLoader';
 import { runBankQA, runItemQA, repairBank, runDeepAIRepair, QABankReport, QAItemReport, QADimension, QASeverity } from '../../validation/itemBankQA';
 import { upsertItemToCloud, deleteItemFromCloud } from '../../services/supabaseService';
 
@@ -9,6 +10,9 @@ interface AIBankPageProps {
     onExit: () => void;
     theme: 'light' | 'dark';
     onToggleTheme: () => void;
+    title?: string;
+    itemsProvider?: () => Promise<MasterItem[]>;
+    onSendToBank?: (itemId: string) => void;
 }
 
 const DIMENSION_LABELS: Record<QADimension, { label: string; icon: string }> = {
@@ -38,7 +42,7 @@ function scoreColor(score: number) {
     return '#EF4444';
 }
 
-export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme }: AIBankPageProps) {
+export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme, title = "Item Bank", itemsProvider, onSendToBank }: AIBankPageProps) {
     const [items, setItems] = useState<MasterItem[]>([]);
 
     // API Key Rotation for UI-side AI tasks
@@ -95,7 +99,8 @@ export default function AIBankPage({ onSelectItem, onExit, theme, onToggleTheme 
     useEffect(() => {
         async function load() {
             try {
-                const raw = await getStandaloneNGNItemsAsync();
+                const loader = itemsProvider || getStandaloneNGNItemsAsync;
+                const raw = await loader();
                 const unique = new Map();
                 raw.forEach(item => unique.set(item.id, item));
                 setItems(Array.from(unique.values()));
@@ -603,7 +608,7 @@ Failed: ${report.failed}`);
                 <header className="bank-header">
                     <div className="bank-title">
                         <button className="back-btn" onClick={onExit}>←</button>
-                        <h1>Item Bank <span style={{ fontSize: '0.8rem', opacity: 0.5, marginLeft: '10px', fontWeight: 'normal' }}>Filter: {filterType}</span></h1>
+                        <h1>{title} <span style={{ fontSize: '0.8rem', opacity: 0.5, marginLeft: '10px', fontWeight: 'normal' }}>Filter: {filterType}</span></h1>
                     </div>
                     <div className="command-center-box">
                         <div className="command-header">
@@ -700,6 +705,11 @@ Failed: ${report.failed}`);
                     <div className="bulk-actions-bar">
                         <div className="selection-info">{selectedItems.length} items selected</div>
                         <div className="bulk-btns">
+                            {onSendToBank && (
+                                <button className="bulk-btn primary" onClick={() => selectedItems.forEach(id => onSendToBank(id))} style={{ background: '#2563EB', color: 'white' }}>
+                                    🚀 PROMOTE TO MAIN BANK
+                                </button>
+                            )}
                             <button className="bulk-btn qa" onClick={handleBulkQA}>
                                 <span className="icon">🛡️</span> Run QA
                             </button>

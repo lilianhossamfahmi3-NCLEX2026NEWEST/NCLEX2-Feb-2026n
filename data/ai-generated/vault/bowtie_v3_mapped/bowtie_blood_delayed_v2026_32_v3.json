@@ -1,0 +1,190 @@
+{
+  "id": "bowtie_blood_delayed_v2026_32",
+  "type": "bowtie",
+  "stem": "[V3-MAPPED-2026] A 58-year-old client presents to the clinic 7 days after receiving a blood transfusion, reporting new-onset fatigue and yellowing of the eyes. Based on the provided EHR documentation, identify the client's condition, two necessary actions, and two parameters to monitor.",
+  "itemContext": {
+    "patientHeader": {
+      "name": "John Smith",
+      "age": "58",
+      "gender": "Male",
+      "codeStatus": "Full Code",
+      "iso": "Standard Precautions",
+      "allergies": "NKDA"
+    },
+    "tabs": [
+      {
+        "id": "sbar",
+        "title": "SBAR",
+        "content": "<b>Situation:</b> Nurse at the outpatient clinic calling about a 58-year-old male, seen at 09:00. He is 7 days post-PRBC transfusion for post-operative anemia and now reports new-onset fatigue and jaundice. <b>Background:</b> He received two units of PRBCs one week ago after knee surgery. His discharge hemoglobin was stable at 10.2 g/dL. <b>Assessment:</b> He has scleral icterus, dark urine, and a temp of 37.9°C. Labs show Hgb dropped to 7.4 g/dL, indirect bilirubin is 2.8 mg/dL, and DAT is positive. <b>Recommendation:</b> Suspect delayed hemolytic transfusion reaction. Request orders to start IV fluids for renal protection and to notify the blood bank for antibody screening."
+      },
+      {
+        "id": "labs",
+        "title": "Laboratory Trends",
+        "content": "<table><thead><tr><th>Test</th><th>Result (Post-op)</th><th>Result (Today)</th><th>Reference</th></tr></thead><tbody><tr><td>Hemoglobin (Hgb)</td><td>10.2 g/dL</td><td>7.4 g/dL</td><td>12.0–16.0 g/dL</td></tr><tr><td>Indirect Bilirubin</td><td>0.4 mg/dL</td><td>2.8 mg/dL</td><td>0.1–1.0 mg/dL</td></tr><tr><td>Urine Color</td><td>Amber</td><td>Dark/Tea-Colored</td><td>Clear/Yellow</td></tr><tr><td>DAT (Coombs)</td><td>N/A</td><td>Positive</td><td>Negative</td></tr></tbody></table>"
+      },
+      {
+        "id": "vitals",
+        "title": "Vital Signs",
+        "content": "<b>Time:</b> 09:00<br><b>Blood Pressure:</b> 118/74 mmHg<br><b>Heart Rate:</b> 88/min<br><b>Respiratory Rate:</b> 18/min<br><b>Temperature:</b> 100.2°F (37.9°C)<br><b>SpO2:</b> 95% on room air"
+      },
+      {
+        "id": "physicalExam",
+        "title": "Physical Exam",
+        "content": "<b>General:</b> Appears fatigued, skin with yellowish tint.<br><b>HEENT:</b> Scleral icterus noted, mucous membranes pale.<br><b>Cardiovascular:</b> Regular rate and rhythm, no murmurs auscultated.<br><b>Respiratory:</b> Clear to auscultation bilaterally.<br><b>Abdomen:</b> Soft, non-tender, no hepatosplenomegaly noted.<br><b>Neurological:</b> Alert and oriented to person, place, and time."
+      },
+      {
+        "id": "radiology",
+        "title": "Radiology",
+        "content": "<b>Chest X-Ray:</b> No acute cardiopulmonary abnormalities identified. Heart size within normal limits. Lungs are clear bilaterally. No pleural effusions or pneumothorax noted."
+      },
+      {
+        "id": "carePlan",
+        "title": "Care Plan",
+        "content": "<b>Nursing Priorities:</b><br>1. Monitor for worsening anemia and signs of hemolysis.<br>2. Maintain adequate renal perfusion.<br>3. Prevent complications related to anemia (e.g., fatigue, dizziness).<br><br><b>Nursing Interventions:</b><br>1. Administer IV fluids as prescribed.<br>2. Monitor urine output and color.<br>3. Monitor vital signs, including temperature.<br>4. Provide rest periods to manage fatigue.<br>5. Educate the client about signs and symptoms to report."
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": "<b>09:15:</b> IV Fluids: 0.9% Normal Saline at 100 mL/hr (per order)"
+      }
+    ]
+  },
+  "bowtieData": {
+    "conditionOptions": [
+      {
+        "id": "c1",
+        "text": "Acute Hemolytic Transfusion Reaction",
+        "hoverRationale": "This is clinically flawed. Acute reactions occur within minutes to hours of transfusion, not days later. They are typically caused by ABO incompatibility and present with more severe symptoms like fever, chills, and hypotension.",
+        "itemMapCode": "CONDITION-DHTR-001"
+      },
+      {
+        "id": "c2",
+        "text": "Delayed Hemolytic Transfusion Reaction (DHTR)",
+        "hoverRationale": "This is the correct condition. DHTR occurs 3-14 days post-transfusion due to an anamnestic antibody response against minor antigens, causing extravascular hemolysis. This leads to jaundice, anemia, and a positive DAT.",
+        "itemMapCode": "CONDITION-DHTR-002"
+      },
+      {
+        "id": "c3",
+        "text": "Post-Operative Infection (Sepsis)",
+        "hoverRationale": "This is clinically flawed. While sepsis can cause a low-grade fever, it does not directly explain the combination of jaundice, a significant Hgb drop, and a positive DAT, which are hallmark signs of hemolysis.",
+        "itemMapCode": "CONDITION-DHTR-003"
+      }
+    ],
+    "actionOptions": [
+      {
+        "id": "a1",
+        "text": "Notify the Blood Bank to screen for newly developed antibodies.",
+        "hoverRationale": "This is a correct action. Notifying the blood bank is critical to identify the specific antibody causing the reaction. This ensures that any future transfusions are negative for the corresponding antigen, preventing recurrence.",
+        "itemMapCode": "ACTION-DHTR-001"
+      },
+      {
+        "id": "a2",
+        "text": "Administer IV fluids to maintain renal perfusion as prescribed.",
+        "hoverRationale": "This is a correct action. Hemolysis releases free hemoglobin into the plasma, which can cause acute tubular necrosis. IV fluids help flush the kidneys and maintain adequate perfusion, preventing this complication.",
+        "itemMapCode": "ACTION-DHTR-002"
+      },
+      {
+        "id": "a3",
+        "text": "Perform a STAT needle decompression of the chest.",
+        "hoverRationale": "This is clinically flawed. Needle decompression is an emergency treatment for a tension pneumothorax. The client's assessment findings, such as stable respiratory rate and SpO2, do not indicate this condition.",
+        "itemMapCode": "ACTION-DHTR-003"
+      },
+      {
+        "id": "a4",
+        "text": "Apply cooling blankets and withhold all lab work.",
+        "hoverRationale": "This is clinically flawed. While a cooling blanket may address the low-grade fever, withholding lab work is dangerous. Serial labs are essential to monitor the severity of hemolysis and guide further treatment.",
+        "itemMapCode": "ACTION-DHTR-004"
+      }
+    ],
+    "parameterOptions": [
+      {
+        "id": "p1",
+        "text": "Serial Hemoglobin and Hematocrit levels",
+        "hoverRationale": "This is a correct parameter. Monitoring Hgb and Hct is essential to trend the degree of ongoing hemolysis and anemia. A continued drop indicates the reaction is still active and may require further intervention.",
+        "itemMapCode": "PARAM-DHTR-001"
+      },
+      {
+        "id": "p2",
+        "text": "Serum Indirect Bilirubin and Haptoglobin levels",
+        "hoverRationale": "This is a correct parameter. Indirect bilirubin is a product of red blood cell breakdown, and haptoglobin binds free hemoglobin. Rising bilirubin and falling haptoglobin levels are direct markers of hemolysis severity.",
+        "itemMapCode": "PARAM-DHTR-002"
+      },
+      {
+        "id": "p3",
+        "text": "Daily weight and abdominal girth",
+        "hoverRationale": "This is clinically flawed. While important for fluid status, these parameters are not the primary indicators for monitoring a hemolytic reaction. They are more relevant for conditions like heart failure or liver cirrhosis.",
+        "itemMapCode": "PARAM-DHTR-003"
+      },
+      {
+        "id": "p4",
+        "text": "Presence of a positive Babinski sign",
+        "hoverRationale": "This is clinically flawed. The Babinski sign is a neurological assessment finding used to check for upper motor neuron lesions. It is completely unrelated to the pathophysiology of a hemolytic transfusion reaction.",
+        "itemMapCode": "PARAM-DHTR-004"
+      }
+    ]
+  },
+  "correctAnswers": {
+    "condition": "c2",
+    "actions": [
+      "a1",
+      "a2"
+    ],
+    "parameters": [
+      "p1",
+      "p2"
+    ]
+  },
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 4,
+    "topicTags": [
+      "Delayed Hemolytic Reaction",
+      "Blood Transfusion",
+      "Hematology"
+    ]
+  },
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "sentinelStatus": "deep_healed_v2026",
+  "mapCodes": {
+    "scenarioMapCode": "SCN-DHTR-001",
+    "ehr_map_code": "SCN-DHTR-001",
+    "bowtie_map_code": "SCN-DHTR-001",
+    "companion_map_code": "SCN-DHTR-001",
+    "hud_map_code": "SCN-DHTR-001"
+  },
+  "studyCompanion": {
+    "pearls": [
+      {
+        "description": "Delayed hemolytic transfusion reactions (DHTR) occur 3-14 days post-transfusion due to an anamnestic antibody response.",
+        "strategy": "Always consider DHTR in patients presenting with jaundice and anemia after a recent transfusion."
+      },
+      {
+        "description": "A positive DAT (Direct Antiglobulin Test) is a key indicator of hemolytic reactions.",
+        "strategy": "Include DAT in the initial workup for suspected hemolytic transfusion reactions."
+      }
+    ],
+    "traps": [
+      {
+        "description": "Assuming fever post-transfusion is always due to infection.",
+        "strategy": "Evaluate for hemolytic reaction by checking bilirubin, haptoglobin, and DAT levels."
+      },
+      {
+        "description": "Overlooking mild jaundice as insignificant.",
+        "strategy": "Investigate any new-onset jaundice, especially post-transfusion, with appropriate lab tests."
+      }
+    ],
+    "mnemonics": [
+      {
+        "mnemonic": "JAFT: Jaundice, Anemia, Fever, Transfusion (recent)",
+        "description": "Key signs and history suggestive of DHTR."
+      }
+    ]
+  },
+  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "lastFixed": "2026-03-02T18:05:10.625Z"
+}

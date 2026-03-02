@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+    --bg: #030712;
+    --bg-card: rgba(17, 24, 39, 0.7);
+    --text: #F8FAFC;
+    --muted-text: #94A3B8;
+    --primary: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.4);
+    --secondary: #0d9488;
+    --secondary-glow: rgba(13, 148, 136, 0.4);
+    --success: #10B981;
+    --success-glow: rgba(16, 185, 129, 0.3);
+    --error: #EF4444;
+    --error-glow: rgba(239, 68, 68, 0.3);
+    --warning: #F59E0B;
+    --border: rgba(255, 255, 255, 0.1);
+    --header-bg: rgba(15, 23, 42, 0.8);
+    --panel-bg: rgba(15, 23, 42, 0.6);
+    --glass-blur: blur(16px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(0.9rem, 1vw + 0.5rem, 1.1rem);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.NGN-app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Header Section */
+header.exam-header {
+    height: 72px;
+    background: var(--header-bg);
+    backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    z-index: 100;
+}
+
+.brand { display: flex; align-items: center; gap: 16px; }
+.logo {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; color: white;
+    box-shadow: 0 0 25px var(--primary-glow);
+    font-size: 1.1rem;
+}
+
+.status-bar { display: flex; align-items: center; gap: 32px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted-text); }
+
+/* Main Matrix Layout */
+.exam-matrix {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 450px 1fr 340px;
+    gap: 0;
+    overflow: hidden;
+}
+
+/* Scrollable Panels */
+.panel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--panel-bg);
+}
+
+.scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.scroll-area::-webkit-scrollbar { width: 6px; }
+.scroll-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+
+/* EHR Styling */
+.ehr-panel {
+    border-right: 1px solid var(--border);
+    backdrop-filter: var(--glass-blur);
+}
+
+.ehr-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+}
+
+.ehr-tab {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--muted-text);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.ehr-tab.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.ehr-content {
+    background: var(--bg-card);
+    margin: 16px;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+/* Question Styling */
+.question-panel {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+}
+
+.question-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+.stem {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 32px;
+    color: var(--text);
+}
+
+/* Bowtie Specialized Styles */
+.bowtie-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.drop-zone {
+    background: rgba(0,0,0,0.3);
+    border: 2px dashed var(--border);
+    border-radius: 16px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    transition: all 0.2s;
+}
+
+.drop-zone.active { border-color: var(--primary); background: var(--primary-glow); }
+
+.draggable-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: grab;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.draggable-item:hover { border-color: var(--primary); transform: translateY(-2px); }
+
+/* MCQ / SATA Styling */
+.options-list { display: flex; flex-direction: column; gap: 12px; }
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option-item:hover { border-color: var(--primary); background: rgba(99, 102, 241, 0.1); }
+.option-item.selected { border-color: var(--primary); background: var(--primary-glow); }
+
+/* Common Footer Actions */
+.exam-footer {
+    height: 96px;
+    background: var(--header-bg);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    backdrop-filter: var(--glass-blur);
+}
+
+.btn-submit {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 10px 20px var(--primary-glow);
+    transition: all 0.3s;
+}
+
+.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 30px var(--primary-glow); }
+
+/* Rationale & Feedback */
+.rationale-panel {
+    display: none;
+    margin-top: 32px;
+    padding: 24px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 16px;
+    border: 1px solid var(--success);
+}
+
+.rationale-panel.visible { display: block; animation: slideUp 0.4s ease-out; }
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Print Styles */
+@media print {
+    body { background: white; color: black; font-size: 10pt; }
+    .exam-header, .exam-footer, .ehr-tabs { display: none; }
+    .exam-matrix { display: block; }
+    .ehr-content, .question-card { border: 1px solid #ccc; box-shadow: none; break-inside: avoid; }
+    .rationale-panel { display: block !important; border: 1px solid #ddd; }
+}
+
+/* Accessibility */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }

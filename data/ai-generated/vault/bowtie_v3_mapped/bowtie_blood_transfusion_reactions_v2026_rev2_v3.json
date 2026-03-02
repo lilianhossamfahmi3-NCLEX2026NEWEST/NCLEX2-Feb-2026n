@@ -1,0 +1,213 @@
+{
+  "id": "bowtie_blood_transfusion_reactions_v2026_rev2",
+  "type": "bowtie",
+  "stem": "[V3-MAPPED-2026] The nurse is caring for a client receiving packed red blood cells (PRBCs) who suddenly develops urticaria and respiratory distress. Based on the data in the electronic health record (EHR), the nurse must act immediately. Select the actions to take, the condition to suspect, and the parameters to monitor.",
+  "itemContext": {
+    "patientHeader": {
+      "name": "Jane Doe",
+      "age": "45",
+      "gender": "Female",
+      "codeStatus": "Full Code",
+      "iso": "Standard Precautions",
+      "allergies": "Penicillin"
+    },
+    "tabs": [
+      {
+        "id": "sbar",
+        "title": "SBAR",
+        "content": "S: Dr. Smith, this is the nurse on the oncology unit. I am calling about your 45-year-old client with breast cancer who is having a severe transfusion reaction. B: She was receiving her first unit of PRBCs for a hemoglobin of 6.8 g/dL, started at 10:00. A: At 10:25, she developed acute respiratory distress with wheezing, urticaria, and hypotension to 102/60. I have stopped the transfusion and am maintaining the IV line. R: I suspect anaphylaxis and need you at the bedside immediately for emergency orders.",
+        "mapCode": "SCN-BTR-001"
+      },
+      {
+        "id": "vitals",
+        "title": "Vital Signs",
+        "content": "<table><thead><tr><th>Time</th><th>BP</th><th>HR</th><th>RR</th><th>Temp</th><th>SpO2</th></tr></thead><tbody><tr><td>10:00 (Baseline)</td><td>122/78 mmHg</td><td>76/min</td><td>16/min</td><td>37.0°C</td><td>98%</td></tr><tr><td>10:15</td><td>110/68 mmHg</td><td>98/min</td><td>22/min</td><td>37.2°C</td><td>94%</td></tr><tr><td>10:25</td><td>102/60 mmHg</td><td>112/min</td><td>26/min</td><td>37.4°C</td><td>91%</td></tr></tbody></table>",
+        "mapCode": "SCN-BTR-001"
+      },
+      {
+        "id": "exam",
+        "title": "Physical Exam",
+        "content": "General: Appears anxious and restless, diaphoretic.\nIntegumentary: Generalized urticaria and angioedema noted on face, neck, and chest. \nRespiratory: Audible wheezing, stridor present. Intercostal retractions and use of accessory muscles observed.\nCardiovascular: Tachycardia with regular rhythm. Capillary refill brisk in extremities.",
+        "mapCode": "SCN-BTR-001"
+      },
+      {
+        "id": "labs",
+        "title": "Lab Results",
+        "content": "Pre-transfusion Labs: \n- Hemoglobin: 6.8 g/dL \n- Platelets: 152,000/mcL\n\nPost-reaction Labs (ordered STAT):\n- Serum Tryptase: Elevated\n- IgE: Elevated",
+        "mapCode": "SCN-BTR-001"
+      },
+      {
+        "id": "radiology",
+        "title": "Radiology",
+        "content": "Chest X-Ray (STAT):\n- No acute infiltrates or consolidation.\n- No pneumothorax.\n- Mild hyperinflation of lungs bilaterally, suggestive of bronchospasm.",
+        "mapCode": "SCN-BTR-001"
+      },
+      {
+        "id": "mar",
+        "title": "Medication Administration Record",
+        "content": "<table><thead><tr><th>Medication</th><th>Dose</th><th>Route</th><th>Frequency</th><th>Time Administered</th><th>Notes</th></tr></thead><tbody><tr><td>Packed Red Blood Cells (PRBCs), Unit #W458291</td><td>1 Unit (350 mL)</td><td>IV</td><td>STAT</td><td>10:00</td><td>Transfusion stopped at 10:25 due to suspected severe allergic reaction.</td></tr><tr><td>Normal Saline</td><td>250 mL</td><td>IV</td><td>STAT</td><td>10:26</td><td>Infusing to maintain IV patency.</td></tr></tbody></table>",
+        "mapCode": "SCN-BTR-001"
+      },
+      {
+        "id": "careplan",
+        "title": "Care Plan",
+        "content": "Nursing Priorities:\n1. Maintain airway and breathing.\n2. Support blood pressure and circulation.\n3. Monitor for signs of worsening anaphylaxis.\n\nNursing Interventions:\n- Administer oxygen via non-rebreather mask.\n- Elevate head of bed to high-Fowler's position.\n- Prepare for potential intubation.\n- Monitor vital signs every 5 minutes.\n- Administer medications as prescribed (e.g., epinephrine, antihistamines, corticosteroids).",
+        "mapCode": "SCN-BTR-001"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "id": "a1",
+      "text": "Continue transfusion at a slower rate.",
+      "itemMapCode": "ACTION-CONTINUE-TRANSFUSION"
+    },
+    {
+      "id": "a2",
+      "text": "Stop transfusion and disconnect tubing.",
+      "itemMapCode": "ACTION-STOP-TRANSFUSION"
+    },
+    {
+      "id": "a3",
+      "text": "Administer intramuscular epinephrine.",
+      "itemMapCode": "ACTION-EPI"
+    },
+    {
+      "id": "a4",
+      "text": "Maintain IV patency with normal saline.",
+      "itemMapCode": "ACTION-SALINE"
+    },
+    {
+      "id": "a5",
+      "text": "Document findings and continue monitoring.",
+      "itemMapCode": "ACTION-DOCUMENT"
+    }
+  ],
+  "potentialConditions": [
+    {
+      "id": "pc1",
+      "text": "Febrile Non-Hemolytic Transfusion Reaction",
+      "itemMapCode": "COND-FEBRILE"
+    },
+    {
+      "id": "pc2",
+      "text": "Transfusion-Associated Circulatory Overload (TACO)",
+      "itemMapCode": "COND-TACO"
+    },
+    {
+      "id": "pc3",
+      "text": "Allergic Transfusion Reaction",
+      "itemMapCode": "COND-ALLERGIC"
+    },
+    {
+      "id": "pc4",
+      "text": "Acute Hemolytic Transfusion Reaction",
+      "itemMapCode": "COND-HEMOLYTIC"
+    }
+  ],
+  "condition": "pc3",
+  "parameters": [
+    {
+      "id": "p1",
+      "text": "Oxygen saturation",
+      "itemMapCode": "PARAM-SPO2"
+    },
+    {
+      "id": "p2",
+      "text": "Urine output",
+      "itemMapCode": "PARAM-UO"
+    },
+    {
+      "id": "p3",
+      "text": "Blood pressure",
+      "itemMapCode": "PARAM-BP"
+    },
+    {
+      "id": "p4",
+      "text": "Skin integrity",
+      "itemMapCode": "PARAM-SKIN"
+    },
+    {
+      "id": "p5",
+      "text": "Respiratory status",
+      "itemMapCode": "PARAM-RESP"
+    }
+  ],
+  "hoverRationales": {
+    "a1": "Clinical Flaw: Continuing the transfusion, even at a slower rate, would introduce more of the triggering antigen, worsening the anaphylactic reaction and potentially leading to cardiovascular collapse and death.",
+    "a2": "Pathophysiology: Stopping the infusion immediately halts the introduction of the causative antigen. This is the critical first step in mitigating the type I hypersensitivity reaction and preventing progression to anaphylactic shock.",
+    "a3": "Clinical Flaw: While epinephrine is the correct medication for anaphylaxis, it requires a provider's order. The nurse's independent priority actions are to stop the cause and maintain IV access while calling for help.",
+    "a4": "Pathophysiology: Maintaining IV access with a new saline line is essential for administering emergency medications and fluids. This is needed to counteract the vasodilation and hypotension caused by massive histamine release.",
+    "a5": "Clinical Flaw: This is a 'document but do not act' error. Immediate life-saving interventions to stabilize the client must always precede documentation in an emergency situation.",
+    "pc1": "Clinical Flaw: This reaction is caused by cytokines from donor leukocytes and presents primarily with fever and chills. It does not involve the allergic signs of urticaria, wheezing, or hypotension seen in this client.",
+    "pc2": "Clinical Flaw: Transfusion-Associated Circulatory Overload would present with signs of fluid overload like hypertension, crackles in the lungs, and jugular vein distention, which are absent in this hypotensive client.",
+    "pc3": "Pathophysiology: The client's symptoms—urticaria, angioedema (throat tightness), bronchospasm (wheezing), and hypotension—are classic signs of a severe IgE-mediated type I hypersensitivity reaction to plasma proteins in the donor blood.",
+    "pc4": "Clinical Flaw: This is a type II hypersensitivity reaction from ABO incompatibility, causing intravascular hemolysis. It typically presents with fever, flank pain, and hemoglobinuria, none of which are reported.",
+    "p1": "Pathophysiology: Monitoring SpO2 is critical as laryngeal edema and bronchoconstriction from histamine release can rapidly lead to severe hypoxemia and respiratory failure. This directly assesses the adequacy of oxygenation.",
+    "p2": "Clinical Flaw: While important for monitoring perfusion and renal function during shock, urine output is not an immediate priority parameter compared to airway, breathing, and circulation (respiratory status, SpO2, BP).",
+    "p3": "Pathophysiology: Widespread vasodilation caused by mast cell degranulation leads to a precipitous drop in blood pressure. Monitoring BP is vital to detect progression to distributive shock.",
+    "p4": "Clinical Flaw: The skin findings (urticaria) are diagnostic signs, but monitoring the 'integrity' of the skin is not a priority over assessing life-threatening cardiorespiratory changes.",
+    "p5": "Pathophysiology: Assessing for increased work of breathing, stridor, and wheezing is vital. Airway compromise from bronchospasm and edema is the most life-threatening manifestation of an anaphylactic reaction."
+  },
+  "correctActionIds": [
+    "a2",
+    "a4"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p3",
+    "p5"
+  ],
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 4,
+    "topicTags": [
+      "Blood Transfusion Reactions"
+    ]
+  },
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "scenarioMapCode": "SCN-BTR-001",
+  "ehr_map_code": "SCN-BTR-001",
+  "bowtie_map_code": "SCN-BTR-001",
+  "companion_map_code": "SCN-BTR-001",
+  "hud_map_code": "SCN-BTR-001",
+  "studyCompanion": {
+    "pearls": [
+      {
+        "description": "Anaphylactic transfusion reactions are caused by IgE antibodies reacting to plasma proteins in the donor blood. Rapid recognition and intervention are crucial.",
+        "strategy": "Always have emergency medications (epinephrine, antihistamines, corticosteroids) readily available during blood transfusions."
+      },
+      {
+        "description": "Stopping the transfusion immediately is the priority action to prevent further exposure to the allergen.",
+        "strategy": "Use a dedicated IV line for blood transfusions to allow for rapid discontinuation and administration of emergency medications."
+      }
+    ],
+    "traps": [
+      {
+        "description": "Assuming that all transfusion reactions present with fever. Anaphylactic reactions have distinct signs like urticaria, wheezing, and hypotension.",
+        "strategy": "Carefully assess for signs of allergic reaction (skin changes, respiratory distress, hypotension) and differentiate from other types of transfusion reactions."
+      },
+      {
+        "description": "Delaying epinephrine administration while waiting for physician orders. In severe anaphylaxis, nurses may need to administer epinephrine per protocol.",
+        "strategy": "Know your institution's protocols for anaphylaxis management and be prepared to administer epinephrine if indicated."
+      }
+    ],
+    "mnemonics": [
+      {
+        "mnemonic": "STOP the transfusion",
+        "description": "Stop transfusion, Take vitals, Oxygenate, Position patient"
+      },
+      {
+        "mnemonic": "ABC",
+        "description": "Airway, Breathing, Circulation - priorities in anaphylaxis"
+      }
+    ]
+  },
+  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "lastFixed": "2026-03-02T18:08:01.582Z"
+}

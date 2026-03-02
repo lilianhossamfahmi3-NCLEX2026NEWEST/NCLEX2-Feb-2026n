@@ -14,6 +14,7 @@ import ModeSelector from './components/navigation/ModeSelector';
 import HomeScreen from './components/navigation/HomeScreen';
 import AIBankPage from './components/navigation/AIBankPage';
 import { getCaseStudyLibrary, getStandaloneNGNItemsAsync, wrapStandalone } from './services/caseStudyLibrary';
+import { getQuarantineItems } from './services/vaultLoader';
 import { MasterItem } from './types/master';
 import AnalyticsDashboard from './components/dashboard/AnalyticsDashboard';
 import SentinelQAPage from './components/navigation/SentinelQAPage';
@@ -176,7 +177,7 @@ export default function App() {
     }
   }, []);
 
-  const [view, setView] = useState<'portal' | 'simulator' | 'analytics' | 'library' | 'mode-selection' | 'ai-bank' | 'sentinel-qa'>('portal');
+  const [view, setView] = useState<'portal' | 'simulator' | 'analytics' | 'library' | 'mode-selection' | 'ai-bank' | 'sentinel-qa' | 'quarantine-bank'>('portal');
   const [viewStack, setViewStack] = useState<string[]>(['portal']);
   const [selectedCaseId, setSelectedCaseId] = useState<string | null>(null);
   const [history, setHistory] = useState<any[]>(() => {
@@ -192,6 +193,7 @@ export default function App() {
   });
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [vault, setVault] = useState<MasterItem[]>([]);
+  const [quarantine, setQuarantine] = useState<MasterItem[]>([]);
   // Pending standalone item ID — holds the item we WANT to navigate to,
   // but haven't yet because the vault may not be loaded.
   const [pendingStandaloneId, setPendingStandaloneId] = useState<string | null>(null);
@@ -208,6 +210,7 @@ export default function App() {
   // Start loading vault the moment App mounts — before user can click anything
   useEffect(() => {
     preloadVault();
+    getQuarantineItems().then(setQuarantine);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -218,15 +221,15 @@ export default function App() {
   // This eliminates the race condition entirely — the Simulator never
   // renders until the correct standalone CaseStudy is ready.
   useEffect(() => {
-    if (!pendingStandaloneId || vault.length === 0) return;
-    const item = vault.find(i => i.id === pendingStandaloneId);
+    if (!pendingStandaloneId || (vault.length === 0 && quarantine.length === 0)) return;
+    const item = vault.find(i => i.id === pendingStandaloneId) || quarantine.find(i => i.id === pendingStandaloneId);
     if (item) {
       setSelectedCaseId(`standalone:${pendingStandaloneId}`);
       setPendingStandaloneId(null);
       setViewStack(prev => [...prev, 'simulator']);
       setView('simulator');
     }
-  }, [pendingStandaloneId, vault]);
+  }, [pendingStandaloneId, vault, quarantine]);
 
   // ── Deep linking via Hash ─────────────────────────────────────
   // Deep links now use the deferred navigation pattern too — they set
@@ -239,6 +242,8 @@ export default function App() {
         setPendingStandaloneId(itemId);
       } else if (hash === '#/bank') {
         setView('ai-bank');
+      } else if (hash === '#/quarantine') {
+        setView('quarantine-bank');
       }
     };
     handleHash();
@@ -275,7 +280,7 @@ export default function App() {
   const selectedCase = useMemo(() => {
     if (selectedCaseId?.startsWith('standalone:')) {
       const itemId = selectedCaseId.replace('standalone:', '');
-      const item = vault.find(i => i.id === itemId);
+      const item = vault.find(i => i.id === itemId) || quarantine.find(i => i.id === itemId);
       return item ? wrapStandalone(item) : (LIBRARY[0] || {} as CaseStudy);
     }
     return LIBRARY.find(c => c.id === selectedCaseId) || (LIBRARY[0] || {} as CaseStudy);
@@ -400,8 +405,20 @@ export default function App() {
         <AIBankPage
           onExit={goBack}
           onSelectItem={(id) => {
-            // Deferred navigation: vault is loaded (AIBankPage rendered items from it),
-            // so the pending effect will resolve immediately on next tick.
+            setPendingStandaloneId(id);
+          }}
+          theme={theme}
+          onToggleTheme={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
+        />
+      ) : view === 'quarantine-bank' ? (
+        <AIBankPage
+          title="Quarantine Bank (Restricted)"
+          itemsProvider={getQuarantineItems}
+          onExit={goBack}
+          onSelectItem={(id) => {
+            // Need a special way to view quarantine items? 
+            // Simulator expects vault items.
+            alert("Viewing Quarantine items in simulator is strictly for audit. Formatting may be unstable.");
             setPendingStandaloneId(id);
           }}
           theme={theme}

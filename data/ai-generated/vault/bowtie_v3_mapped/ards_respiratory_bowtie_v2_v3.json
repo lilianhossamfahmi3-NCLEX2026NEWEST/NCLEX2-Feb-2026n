@@ -1,0 +1,326 @@
+{
+  "id": "ards_respiratory_bowtie_v2",
+  "type": "bowtie",
+  "stem": "[V3-MAPPED-2026] The nurse is caring for a client with severe sepsis whose respiratory status is rapidly declining. The client's hypoxemia is not responding to high-flow oxygen. Based on the provided electronic health record, complete the bowtie by selecting the potential condition, two actions, and two parameters to monitor.",
+  "clinicalFeed": {
+    "type": "SBAR",
+    "content": "Situation: This is the nurse for the 55-year-old male in ICU Bed 4. At 14:00, his respiratory status acutely worsened. He is now tachypneic with an SpO2 of 85% on a 15L non-rebreather mask.\nBackground: He was admitted yesterday for severe sepsis from pneumonia. A chest x-ray at 11:00 revealed new diffuse bilateral infiltrates.\nAssessment: The client is in severe respiratory distress with refractory hypoxemia.\nRecommendation: I need you at the bedside immediately to assess for emergent intubation and mechanical ventilation.",
+    "author": "Charge Nurse, ICU"
+  },
+  "ehr": {
+    "patientInfo": {
+      "name": "John Doe",
+      "age": "55 years",
+      "gender": "Male",
+      "codeStatus": "Full code",
+      "isoStatus": "Negative",
+      "allergies": "Penicillin",
+      "dob": "1969-05-15",
+      "weight": "85 kg"
+    },
+    "tabs": [
+      {
+        "id": "historyAndPhysical",
+        "title": "History & Physical",
+        "content": "Admitted yesterday with fever, hypotension, and leukocytosis. Diagnosed with severe sepsis secondary to community-acquired pneumonia. No significant past medical history. Currently agitated and tachypneic."
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "content": [
+          {
+            "time": "12:00",
+            "temp": "38.8°C",
+            "hr": "115/min",
+            "rr": "28/min",
+            "bp": "98/60 mmHg",
+            "spo2": "92% on 6L NC"
+          },
+          {
+            "time": "13:00",
+            "temp": "38.9°C",
+            "hr": "122/min",
+            "rr": "34/min",
+            "bp": "94/58 mmHg",
+            "spo2": "89% on 15L NRB"
+          },
+          {
+            "time": "14:00",
+            "temp": "39.0°C",
+            "hr": "128/min",
+            "rr": "38/min",
+            "bp": "90/55 mmHg",
+            "spo2": "85% on 15L NRB"
+          }
+        ]
+      },
+      {
+        "id": "labs",
+        "title": "Labs",
+        "content": [
+          {
+            "name": "Arterial Blood Gas (13:30, on 15L NRB)",
+            "results": {
+              "pH": "7.48",
+              "PaCO2": "30 mmHg",
+              "PaO2": "55 mmHg",
+              "HCO3": "23 mEq/L",
+              "SaO2": "88%"
+            },
+            "reference": "pH: 7.35-7.45; PaCO2: 35-45 mmHg; PaO2: 80-100 mmHg; HCO3: 22-26 mEq/L"
+          },
+          {
+            "name": "Complete Blood Count",
+            "results": {
+              "WBC": "18.5 x 10^9/L",
+              "Hgb": "12.8 g/dL",
+              "Plt": "145 x 10^9/L"
+            },
+            "reference": "WBC: 4.5-11.0 x 10^9/L; Hgb: 13.5-17.5 g/dL; Plt: 150-450 x 10^9/L"
+          }
+        ]
+      },
+      {
+        "id": "diagnostics",
+        "title": "Diagnostics",
+        "content": [
+          {
+            "test": "Chest X-Ray (Portable, 11:00)",
+            "report": "Findings: Diffuse, bilateral interstitial and alveolar opacities. No evidence of cardiomegaly or significant pleural effusions.\nImpression: Findings are highly suggestive of Acute Respiratory Distress Syndrome (ARDS)."
+          }
+        ]
+      },
+      {
+        "id": "orders",
+        "title": "Orders",
+        "content": [
+          {
+            "order": "Ceftriaxone 2g IV every 24 hours",
+            "status": "Active"
+          },
+          {
+            "order": "Lactated Ringer's at 75 mL/hr",
+            "status": "Active"
+          },
+          {
+            "order": "Oxygen via non-rebreather mask, titrate to keep SpO2 >92%",
+            "status": "Active"
+          }
+        ]
+      },
+      {
+        "id": "physicalExam",
+        "title": "Physical Exam",
+        "content": "- **General:** Appears anxious and in acute respiratory distress.\n- **Respiratory:** Tachypneic with shallow respirations, coarse crackles auscultated bilaterally, SpO2 85% on 15L NRB.\n- **Cardiovascular:** Tachycardic, normal S1 and S2, no murmurs auscultated.\n- **Neurological:** Alert but agitated, responds to verbal stimuli.\n- **Integumentary:** Skin warm and diaphoretic."
+      },
+      {
+        "id": "radiology",
+        "title": "Radiology",
+        "content": "**Chest X-Ray Report (11:00):**\n- **Technique:** Portable AP view.\n- **Findings:** Diffuse bilateral alveolar and interstitial infiltrates are present. No pneumothorax or large pleural effusion is identified. The heart size is normal. The mediastinal contours are unremarkable.\n- **Impression:** The radiographic findings are consistent with acute respiratory distress syndrome (ARDS)."
+      },
+      {
+        "id": "carePlan",
+        "title": "Care Plan",
+        "content": "**Nursing Priorities:**\n1. Optimize oxygenation and ventilation.\n2. Prevent complications of mechanical ventilation.\n3. Manage fluid balance.\n4. Prevent infection.\n\n**Nursing Interventions:**\n1. Prepare for and assist with endotracheal intubation and mechanical ventilation per physician orders.\n2. Initiate prone positioning as prescribed, monitoring for skin breakdown and pressure areas.\n3. Administer prescribed medications, including antibiotics and sedatives.\n4. Monitor arterial blood gases, vital signs, and respiratory status frequently.\n5. Maintain strict aseptic technique during all procedures to prevent ventilator-associated pneumonia (VAP).\n6. Monitor fluid balance, including intake and output, and administer fluids as prescribed.\n7. Provide emotional support to the client and family."
+      },
+      {
+        "id": "mar",
+        "title": "MAR",
+        "content": [
+          {
+            "medication": "Ceftriaxone",
+            "dose": "2g",
+            "route": "IV",
+            "frequency": "Every 24 hours",
+            "status": "Active"
+          },
+          {
+            "medication": "Lactated Ringers",
+            "dose": "75 mL/hr",
+            "route": "IV",
+            "frequency": "Continuous",
+            "status": "Active"
+          },
+          {
+            "medication": "Propofol",
+            "dose": "5 mcg/kg/min",
+            "route": "IV",
+            "frequency": "Continuous infusion, titrate per RASS score",
+            "status": "Pending"
+          },
+          {
+            "medication": "Fentanyl",
+            "dose": "25 mcg",
+            "route": "IV",
+            "frequency": "Every 1 hour PRN pain",
+            "status": "Pending"
+          }
+        ]
+      }
+    ],
+    "mapCodes": {
+      "ehr_map_code": "SCN-ARDS-001",
+      "bowtie_map_code": "SCN-ARDS-001",
+      "companion_map_code": "SCN-ARDS-001",
+      "hud_map_code": "SCN-ARDS-001",
+      "scenarioMapCode": "SCN-ARDS-001"
+    }
+  },
+  "potentialConditions": [
+    {
+      "id": "cond1",
+      "text": "Acute Respiratory Distress Syndrome (ARDS)"
+    },
+    {
+      "id": "cond2",
+      "text": "Cardiogenic Pulmonary Edema"
+    },
+    {
+      "id": "cond3",
+      "text": "Pulmonary Embolism"
+    },
+    {
+      "id": "cond4",
+      "text": "Severe Pneumonia"
+    }
+  ],
+  "actions": [
+    {
+      "id": "action1",
+      "text": "Prepare for intubation and mechanical ventilation."
+    },
+    {
+      "id": "action2",
+      "text": "Place client in prone position."
+    },
+    {
+      "id": "action3",
+      "text": "Administer a 2L IV fluid bolus."
+    },
+    {
+      "id": "action4",
+      "text": "Prepare for bedside thoracentesis."
+    },
+    {
+      "id": "action5",
+      "text": "Administer furosemide 40 mg IV push."
+    }
+  ],
+  "parameters": [
+    {
+      "id": "param1",
+      "text": "PaO2/FiO2 ratio."
+    },
+    {
+      "id": "param2",
+      "text": "Peak airway pressures."
+    },
+    {
+      "id": "param3",
+      "text": "Serum albumin level."
+    },
+    {
+      "id": "param4",
+      "text": "Bowel sounds."
+    },
+    {
+      "id": "param5",
+      "text": "Urine output."
+    }
+  ],
+  "condition": "cond1",
+  "correctActionIds": [
+    "action1",
+    "action2"
+  ],
+  "correctParameterIds": [
+    "param1",
+    "param2"
+  ],
+  "hoverRationales": {
+    "cond1": "Correct. ARDS is a diffuse inflammatory lung injury causing non-cardiogenic pulmonary edema and refractory hypoxemia. The client's sepsis, bilateral infiltrates, and poor response to oxygen are classic signs of this condition.",
+    "cond2": "Incorrect. This is typically cardiogenic, associated with heart failure signs like JVD or cardiomegaly on x-ray, which are not present. The client's primary issue is sepsis-induced lung injury.",
+    "cond3": "Incorrect. While a pulmonary embolism can cause acute hypoxemia, it does not typically cause diffuse bilateral infiltrates on a chest x-ray. The client's presentation is more consistent with parenchymal lung disease.",
+    "cond4": "Incorrect. While severe pneumonia is the likely trigger, the diffuse bilateral nature of the infiltrates and the severe refractory hypoxemia indicate a progression to the systemic inflammatory response of ARDS.",
+    "action1": "Correct. Mechanical ventilation with PEEP is essential in ARDS to recruit collapsed alveoli, improve oxygenation, and reduce the work of breathing. This intervention directly addresses the severe gas exchange impairment.",
+    "action2": "Correct. Prone positioning improves ventilation-perfusion matching by recruiting dependent lung regions and relieving compression on the lungs. This is a key non-pharmacological intervention for moderate to severe ARDS.",
+    "action3": "Incorrect. ARDS involves leaky capillaries, and aggressive fluid resuscitation can worsen pulmonary edema and hypoxemia. A conservative fluid strategy is indicated to maintain perfusion without overloading the lungs.",
+    "action4": "Incorrect. Thoracentesis is used to drain a pleural effusion. The client's x-ray shows infiltrates within the lung parenchyma (pulmonary edema), not the pleural space, making this procedure inappropriate.",
+    "action5": "Incorrect. Furosemide is used for fluid overload, typically in cardiogenic pulmonary edema. In ARDS caused by sepsis, the client is often hypotensive, and diuresis could worsen shock without improving lung function.",
+    "param1": "Correct. The PaO2/FiO2 ratio is a critical measure for diagnosing and staging the severity of ARDS. A falling ratio indicates worsening gas exchange and is a key parameter to trend.",
+    "param2": "Correct. Monitoring peak and plateau pressures is vital during mechanical ventilation for ARDS to prevent barotrauma. High pressures indicate poor lung compliance and the need for ventilator adjustments.",
+    "param3": "Incorrect. While low albumin can contribute to edema, it is not a primary or acute indicator for monitoring respiratory status or treatment response in ARDS. Fluid balance and oxygenation are the priority parameters.",
+    "param4": "Incorrect. Bowel sounds are irrelevant to the client's acute respiratory failure. While monitoring for ileus in a critically ill client is important, it is not a priority parameter for managing ARDS.",
+    "param5": "Incorrect. While urine output is a key indicator of perfusion and kidney function in sepsis, it does not directly measure the client's response to respiratory interventions for ARDS. Oxygenation and ventilation parameters are the priority."
+  },
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 5,
+    "topicTags": [
+      "Respiratory",
+      "Critical Care",
+      "ARDS"
+    ]
+  },
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "sentinelStatus": "healed_v2026_v14",
+  "studyCompanion": {
+    "pearls": [
+      {
+        "title": "Early Recognition of ARDS",
+        "description": "ARDS can develop rapidly. Watch for signs like increasing respiratory distress, refractory hypoxemia, and diffuse bilateral infiltrates on chest X-ray, especially in patients with risk factors like sepsis or pneumonia.",
+        "strategy": "Implement continuous SpO2 monitoring and frequent respiratory assessments in at-risk patients. Report any signs of worsening respiratory status promptly."
+      },
+      {
+        "title": "Ventilator Management in ARDS",
+        "description": "Protective lung ventilation strategies are crucial in ARDS to minimize ventilator-induced lung injury. This includes low tidal volumes, permissive hypercapnia, and adequate PEEP.",
+        "strategy": "Collaborate with the respiratory therapist to optimize ventilator settings. Monitor peak and plateau pressures closely to prevent barotrauma."
+      }
+    ],
+    "traps": [
+      {
+        "title": "Over-Resuscitation with Fluids",
+        "description": "In ARDS, the pulmonary capillaries are leaky, and excessive fluid administration can worsen pulmonary edema and hypoxemia.",
+        "strategy": "Monitor fluid balance closely. Use a conservative fluid strategy, aiming for euvolemia rather than aggressive fluid resuscitation, unless signs of hypoperfusion are present."
+      },
+      {
+        "title": "Delaying Prone Positioning",
+        "description": "Prone positioning can significantly improve oxygenation in ARDS by recruiting dependent lung regions. Delaying this intervention can prolong hypoxemia and increase the risk of complications.",
+        "strategy": "Consider prone positioning early in the course of ARDS, especially in patients with severe hypoxemia despite optimized ventilator settings. Ensure adequate staffing and resources are available for safe prone positioning."
+      }
+    ],
+    "mnemonics": [
+      {
+        "title": "ARDS Management",
+        "mnemonic": "PEEP",
+        "description": "Protective ventilation, Early prone positioning, Prevent fluid overload"
+      },
+      {
+        "title": "Assessing Respiratory Status",
+        "mnemonic": "RRAB",
+        "description": "Rate, Rhythm, Auscultation, Blood gases"
+      }
+    ]
+  },
+  "actionMapCodes": {
+    "action1": "ACTION-INTUBATE",
+    "action2": "ACTION-PRONE",
+    "action3": "ACTION-FLUID",
+    "action4": "ACTION-THORAC",
+    "action5": "ACTION-FUROSEMIDE"
+  },
+  "parameterMapCodes": {
+    "param1": "PARAM-PAO2FIO2",
+    "param2": "PARAM-PEAKPRESS",
+    "param3": "PARAM-ALBUMIN",
+    "param4": "PARAM-BOWELSOUNDS",
+    "param5": "PARAM-URINEOUTPUT"
+  },
+  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "lastFixed": "2026-03-02T18:02:56.069Z"
+}

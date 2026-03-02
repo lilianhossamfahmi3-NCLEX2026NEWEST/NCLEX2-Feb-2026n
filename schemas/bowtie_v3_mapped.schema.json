@@ -1,0 +1,127 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Bowtie v3 Mapped High-Fidelity Standard (2026)",
+    "type": "object",
+    "required": [
+        "scenarioMapCode",
+        "ehr_map_code",
+        "bowtie_map_code",
+        "companion_map_code",
+        "hud_map_code",
+        "id",
+        "type",
+        "patientHeader",
+        "ehrTabs",
+        "stem",
+        "actions",
+        "potentialConditions",
+        "parameters",
+        "correctActionIds",
+        "correctConditionId",
+        "correctParameterIds",
+        "studyCompanion",
+        "pedagogy",
+        "scoring",
+        "qualityMark"
+    ],
+    "properties": {
+        "scenarioMapCode": {
+            "type": "string"
+        },
+        "ehr_map_code": {
+            "type": "string"
+        },
+        "bowtie_map_code": {
+            "type": "string"
+        },
+        "companion_map_code": {
+            "type": "string"
+        },
+        "hud_map_code": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "type": {
+            "const": "bowtie"
+        },
+        "patientHeader": {
+            "type": "object",
+            "required": [
+                "name",
+                "age",
+                "gender",
+                "codeStatus",
+                "isolationStatus",
+                "allergies"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "age": {
+                    "type": [
+                        "number",
+                        "string"
+                    ]
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "codeStatus": {
+                    "type": "string"
+                },
+                "isolationStatus": {
+                    "type": "string"
+                },
+                "allergies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "ehrTabs": {
+            "type": "object",
+            "required": [
+                "clinicalFeed",
+                "vitalsTelemetry",
+                "labDiagnostics",
+                "physicalExam",
+                "radiology",
+                "carePlan",
+                "marConsole"
+            ]
+        },
+        "stem": {
+            "type": "string",
+            "minLength": 25,
+            "maxLength": 500
+        },
+        "actions": {
+            "type": "array",
+            "minItems": 4
+        },
+        "potentialConditions": {
+            "type": "array",
+            "minItems": 3
+        },
+        "parameters": {
+            "type": "array",
+            "minItems": 4
+        },
+        "studyCompanion": {
+            "type": "object",
+            "required": [
+                "pearls",
+                "traps",
+                "mnemonics"
+            ]
+        },
+        "qualityMark": {
+            "const": "NGN-2026-HI-FI-V3-MAPPED"
+        }
+    }
+}

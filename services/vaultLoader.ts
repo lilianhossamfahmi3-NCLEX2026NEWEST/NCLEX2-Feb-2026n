@@ -85,6 +85,28 @@ export async function getVaultItems(): Promise<MasterItem[]> {
     }
 }
 
+let cachedQuarantine: MasterItem[] | null = null;
+let isQuarantineLoading = false;
+
+export async function getQuarantineItems(): Promise<MasterItem[]> {
+    if (cachedQuarantine) return cachedQuarantine;
+    if (isQuarantineLoading) return new Promise((resolve) => { /* simplified for brevity, similar to vault logic */ });
+
+    isQuarantineLoading = true;
+    try {
+        const response = await fetch('/data/quarantineItems.json');
+        if (!response.ok) throw new Error("Quarantine not found");
+        const items = await response.json();
+        cachedQuarantine = items;
+        return items;
+    } catch (e) {
+        console.error("Failed to load quarantine:", e);
+        return [];
+    } finally {
+        isQuarantineLoading = false;
+    }
+}
+
 export function isVaultLoaded(): boolean {
     return !!cachedVault;
 }

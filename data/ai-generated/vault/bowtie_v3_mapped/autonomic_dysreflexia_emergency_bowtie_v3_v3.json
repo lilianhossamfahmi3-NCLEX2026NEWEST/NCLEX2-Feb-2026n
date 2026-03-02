@@ -1,0 +1,235 @@
+{
+  "id": "autonomic_dysreflexia_emergency_bowtie_v3",
+  "type": "bowtie",
+  "sentinelStatus": "healed_v2026_v12",
+  "scenarioMapCode": "SCN-AD-001",
+  "ehr": {
+    "ehr_map_code": "SCN-AD-001",
+    "tabs": [
+      {
+        "id": "patientInfo",
+        "label": "Patient Info",
+        "content": {
+          "name": "John Doe",
+          "age": "35 years",
+          "gender": "Male",
+          "codeStatus": "Full code",
+          "iso": "Standard precautions",
+          "allergies": "NKA",
+          "medicalHistory": "Spinal cord injury (T4 level) from motor vehicle accident 2 years ago, neurogenic bladder with indwelling urinary catheter."
+        }
+      },
+      {
+        "id": "vitals",
+        "label": "Vitals",
+        "content": {
+          "timestamp": "14:00",
+          "BP": "198/104 mmHg",
+          "HR": "52 bpm",
+          "RR": "18/min",
+          "Temp": "37.0°C (98.6°F)",
+          "SpO2": "98% on room air"
+        }
+      },
+      {
+        "id": "physicalExam",
+        "label": "Physical Exam",
+        "content": {
+          "neuro": "Severe, pounding headache reported. Alert and oriented to person, place, and time. No motor or sensory function below T4 dermatome. Bradycardia noted.",
+          "cardio": "Significant hypertension. No murmurs, rubs, or gallops auscultated. Peripheral pulses palpable in upper extremities, not assessed in lower extremities.",
+          "resp": "Clear and equal breath sounds bilaterally. No signs of respiratory distress.",
+          "gi": "Abdomen soft, non-tender. Last bowel movement unknown.",
+          "gu": "Indwelling urinary catheter in place. Urine output adequate. Assess for kinks or obstruction."
+        }
+      },
+      {
+        "id": "radiology",
+        "label": "Radiology",
+        "content": {
+          "xray": "Chest X-ray: No acute cardiopulmonary abnormalities. Heart size normal. Lungs clear.",
+          "ct": "CT Head: No evidence of intracranial hemorrhage or acute ischemic changes."
+        }
+      },
+      {
+        "id": "carePlan",
+        "label": "Care Plan",
+        "content": {
+          "priority": [
+            "1. Manage acute hypertensive episode.",
+            "2. Identify and remove noxious stimulus.",
+            "3. Prevent complications (stroke, seizure)."
+          ],
+          "interventions": [
+            "Elevate head of bed to 90 degrees.",
+            "Monitor blood pressure every 2-5 minutes.",
+            "Assess indwelling urinary catheter for kinks or obstruction.",
+            "Check for bladder distension.",
+            "Assess for bowel impaction.",
+            "Administer antihypertensive medication as prescribed.",
+            "Educate patient and family on autonomic dysreflexia triggers and prevention."
+          ]
+        }
+      },
+      {
+        "id": "mar",
+        "label": "MAR",
+        "content": {
+          "medications": [
+            {
+              "name": "Nifedipine",
+              "dose": "10 mg",
+              "route": "PO",
+              "frequency": "PRN for SBP > 160 mmHg"
+            },
+            {
+              "name": "Hydralazine",
+              "dose": "10 mg",
+              "route": "IV",
+              "frequency": "PRN for SBP > 180 mmHg"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "clinicalFeed": {
+    "type": "sbar",
+    "content": "S: Nurse calling about John Doe. At 14:00, he reported a sudden, severe pounding headache. His vitals are BP 198/104 mmHg, heart rate 52/min. B: Mr. Doe is a 35-year-old male with a T4 spinal cord injury and an indwelling urinary catheter. His baseline blood pressure is typically 110/70 mmHg. A: The clinical presentation is consistent with autonomic dysreflexia. I have already elevated the head of the bed to 90 degrees. R: I am assessing for a noxious stimulus, beginning with the catheter. I request a stat order for an antihypertensive agent and will monitor his BP every 2-5 minutes."
+  },
+  "stem": "[V3-MAPPED-2026] The nurse is caring for a client with a T4 spinal cord injury who suddenly reports a severe, pounding headache. The client's blood pressure is 198/104 mmHg. Complete the bowtie by identifying the condition, two priority actions, and two parameters to monitor.",
+  "potentialConditions": [
+    {
+      "id": "pc1",
+      "text": "Stroke",
+      "hoverRationale": "While severe hypertension increases stroke risk, the specific constellation of symptoms (bradycardia, known SCI) points directly to autonomic dysreflexia as the primary cause, which requires immediate, specific interventions to prevent a stroke."
+    },
+    {
+      "id": "pc2",
+      "text": "Hypertensive Emergency",
+      "hoverRationale": "This is a component of autonomic dysreflexia, but not the root cause. The underlying condition is the dysreflexia itself, which must be identified to guide the specific interventions of finding and removing the trigger."
+    },
+    {
+      "id": "pc3",
+      "text": "Autonomic Dysreflexia",
+      "hoverRationale": "This is a life-threatening syndrome in clients with spinal cord injuries at T6 or above. A noxious stimulus below the injury triggers an unopposed sympathetic surge, causing severe hypertension, bradycardia, and a pounding headache."
+    },
+    {
+      "id": "pc4",
+      "text": "Pheochromocytoma",
+      "hoverRationale": "This adrenal tumor causes paroxysmal hypertension, but it is not specifically associated with spinal cord injuries. The client's history and specific pattern of symptoms make autonomic dysreflexia the most likely diagnosis."
+    }
+  ],
+  "condition": "pc3",
+  "actions": [
+    {
+      "id": "action1",
+      "text": "Place the client in a high-Fowler's position.",
+      "hoverRationale": "This is the immediate priority. Elevating the head of the bed uses gravity to cause orthostatic hypotension, helping to lower the dangerously high blood pressure while the underlying trigger is identified and removed.",
+      "itemMapCode": "ACTION-FOWLERS"
+    },
+    {
+      "id": "action2",
+      "text": "Administer IV beta-blockers as first-line treatment.",
+      "hoverRationale": "This is incorrect. Beta-blockers can cause unopposed alpha-adrenergic stimulation, potentially worsening hypertension. Rapid-acting vasodilators (e.g., nifedipine, hydralazine) are the preferred pharmacological agents if non-pharmacologic measures fail.",
+      "itemMapCode": "ACTION-BETABLOCKER"
+    },
+    {
+      "id": "action3",
+      "text": "Check for bladder distension or catheter kinking.",
+      "hoverRationale": "A distended bladder is the most common noxious stimulus triggering autonomic dysreflexia. Promptly identifying and correcting this issue (e.g., unkinking a catheter, irrigating a blockage) can resolve the crisis.",
+      "itemMapCode": "ACTION-CATHETER"
+    },
+    {
+      "id": "action4",
+      "text": "Lay the client flat (supine) immediately.",
+      "hoverRationale": "This action is dangerous and contraindicated. Placing the client in a supine position will further increase cerebral blood pressure and exacerbate the hypertensive crisis, increasing the risk of seizure or stroke.",
+      "itemMapCode": "ACTION-SUPINE"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "param1",
+      "text": "Blood pressure (re-measure every 2-5 min).",
+      "hoverRationale": "Frequent BP monitoring is critical to assess the client's response to interventions (positioning, trigger removal, medication). It guides the escalation of care and helps prevent complications from sustained severe hypertension.",
+      "itemMapCode": "PARAM-BP"
+    },
+    {
+      "id": "param2",
+      "text": "Oxygen saturation.",
+      "hoverRationale": "While important for overall assessment, respiratory status is not the primary system affected in autonomic dysreflexia. The immediate life threat is cardiovascular, stemming from the severe, uncontrolled hypertension.",
+      "itemMapCode": "PARAM-SPO2"
+    },
+    {
+      "id": "param3",
+      "text": "Bladder and bowel status.",
+      "hoverRationale": "Continuous assessment for the source of the noxious stimulus is essential. After checking the bladder, the nurse must assess for bowel impaction, as this is the second most common trigger for autonomic dysreflexia.",
+      "itemMapCode": "PARAM-BOWEL"
+    },
+    {
+      "id": "param4",
+      "text": "Deep tendon reflexes.",
+      "hoverRationale": "Assessing reflexes is part of a general neurological exam but is not a priority during this acute crisis. It provides no useful information for managing the immediate life-threatening hypertension.",
+      "itemMapCode": "PARAM-DTR"
+    }
+  ],
+  "correctActionIds": [
+    "action1",
+    "action3"
+  ],
+  "correctParameterIds": [
+    "param1",
+    "param3"
+  ],
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 4,
+    "topicTags": [
+      "Neurological",
+      "Emergency",
+      "Autonomic Dysreflexia"
+    ]
+  },
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "bowtie_map_code": "SCN-AD-001",
+  "companion_map_code": "SCN-AD-001",
+  "hud_map_code": "SCN-AD-001",
+  "studyCompanion": {
+    "pearls": [
+      {
+        "description": "Autonomic dysreflexia is a medical emergency requiring immediate intervention to prevent severe complications such as stroke or seizure.",
+        "strategy": "Prioritize rapid assessment, trigger identification, and blood pressure management."
+      },
+      {
+        "description": "Elevating the head of the bed is a crucial initial step to lower blood pressure via orthostatic hypotension.",
+        "strategy": "Ensure the client is in a high-Fowler's position (90 degrees) as quickly as possible."
+      }
+    ],
+    "traps": [
+      {
+        "description": "Administering beta-blockers can worsen hypertension in autonomic dysreflexia due to unopposed alpha-adrenergic stimulation.",
+        "strategy": "Avoid beta-blockers. Use rapid-acting vasodilators like nifedipine or hydralazine as prescribed."
+      },
+      {
+        "description": "Ignoring bowel impaction as a potential trigger can lead to persistent autonomic dysreflexia.",
+        "strategy": "After addressing bladder issues, always assess for and relieve bowel impaction."
+      }
+    ],
+    "mnemonics": [
+      {
+        "mnemonic": "HEAD",
+        "description": "Headache, Elevated BP, Autonomic Dysreflexia - Remember to elevate the Head of the bed."
+      },
+      {
+        "mnemonic": "BP-CHECK",
+        "description": "Blood Pressure Check - Monitor BP every 2-5 minutes during an episode."
+      }
+    ]
+  },
+  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "lastFixed": "2026-03-02T18:03:41.311Z"
+}
