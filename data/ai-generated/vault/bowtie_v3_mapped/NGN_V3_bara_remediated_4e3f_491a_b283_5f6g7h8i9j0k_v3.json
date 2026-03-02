@@ -1,0 +1,395 @@
+{
+  "id": "NGN-V3-bara-remediated-4e3f-491a-b283-5f6g7h8i9j0k",
+  "type": "bowtie",
+  "stem": "[V3-MAPPED-2026] The nurse is caring for a 72-year-old client with urosepsis whose condition is deteriorating. After administering an initial fluid bolus, the client remains hypotensive and lethargic. Based on the client's record, select the appropriate actions, the potential condition, and the parameters to monitor.",
+  "scoring": {
+    "method": "rationale-linked",
+    "maxPoints": 5
+  },
+  "itemContext": {
+    "patient": {
+      "name": "John Smith",
+      "age": "72 years",
+      "sex": "Male",
+      "pronouns": "He/Him",
+      "allergies": [
+        "Penicillin"
+      ],
+      "isolation": "Contact Precautions",
+      "codeStatus": "Full Code"
+    },
+    "tabs": [
+      {
+        "id": "nurses_notes",
+        "title": "Clinical Feed",
+        "content": [
+          {
+            "timestamp": "05:15",
+            "noteType": "SBAR Communication",
+            "content": "S: Dr. Evans, this is the ICU nurse for John Smith. I'm calling about his persistent hypotension. His MAP is 67 mmHg despite the 1L fluid bolus for urosepsis.\nB: He is a 72-year-old male, allergic to Penicillin. Blood cultures are drawn and the initial fluid resuscitation is complete.\nA: He remains lethargic with a lactate of 4.2 mmol/L. My assessment is fluid-refractory septic shock.\nR: I recommend we immediately start the standing norepinephrine infusion to target a MAP over 65 mmHg and administer the STAT antibiotics now."
+          }
+        ]
+      },
+      {
+        "id": "vital_signs",
+        "title": "Vitals & Telemetry",
+        "content": [
+          {
+            "Time": "03:30 (ED)",
+            "HR": "110 bpm",
+            "BP": "95/60 mmHg (MAP 72)",
+            "RR": "24/min",
+            "SpO2": "92% on RA",
+            "Temp": "101.8°F (38.8°C)"
+          },
+          {
+            "Time": "04:15 (ICU)",
+            "HR": "122 bpm",
+            "BP": "88/52 mmHg (MAP 64)",
+            "RR": "28/min",
+            "SpO2": "90% on 2L NC",
+            "Temp": "102.5°F (39.2°C)"
+          },
+          {
+            "Time": "05:15 (ICU)",
+            "HR": "118 bpm",
+            "BP": "90/55 mmHg (MAP 67)",
+            "RR": "26/min",
+            "SpO2": "92% on 2L NC",
+            "Temp": "102.1°F (38.9°C)"
+          }
+        ]
+      },
+      {
+        "id": "lab_diagnostics",
+        "title": "Lab Diagnostics",
+        "content": [
+          {
+            "Test": "WBC",
+            "Result": "18.5",
+            "Unit": "x10³/μL",
+            "Reference": "4.5-11.0",
+            "Status": "High"
+          },
+          {
+            "Test": "Lactate",
+            "Result": "4.2",
+            "Unit": "mmol/L",
+            "Reference": "0.5-2.2",
+            "Status": "High"
+          },
+          {
+            "Test": "Creatinine",
+            "Result": "2.1",
+            "Unit": "mg/dL",
+            "Reference": "0.6-1.2",
+            "Status": "High"
+          },
+          {
+            "Test": "BUN",
+            "Result": "35",
+            "Unit": "mg/dL",
+            "Reference": "7-20",
+            "Status": "High"
+          },
+          {
+            "Test": "Platelets",
+            "Result": "140",
+            "Unit": "x10³/μL",
+            "Reference": "150-450",
+            "Status": "Low"
+          },
+          {
+            "Test": "Procalcitonin",
+            "Result": "3.5",
+            "Unit": "ng/mL",
+            "Reference": "<0.15",
+            "Status": "High"
+          },
+          {
+            "Test": "Urinalysis",
+            "Result": "Appearance: Cloudy, Leukocyte Esterase: Positive, Nitrites: Positive",
+            "Unit": "",
+            "Reference": "",
+            "Status": ""
+          },
+          {
+            "Test": "Blood Cultures",
+            "Result": "Pending",
+            "Unit": "",
+            "Reference": "",
+            "Status": ""
+          }
+        ]
+      },
+      {
+        "id": "physical_exam",
+        "title": "Physical Exam",
+        "content": [
+          {
+            "System": "Neurological",
+            "Findings": "Lethargic, responds to name only. Disoriented to place and time. Glasgow Coma Scale (GCS) score of 13 (E4, V4, M5)."
+          },
+          {
+            "System": "Cardiovascular",
+            "Findings": "Tachycardic, weak peripheral pulses (+1/4). Capillary refill >3 seconds. Skin is warm and flushed."
+          },
+          {
+            "System": "Respiratory",
+            "Findings": "Tachypneic, shallow respirations. Coarse crackles auscultated in bilateral lower lobes. SpO2 92% on 2L NC."
+          },
+          {
+            "System": "Genitourinary",
+            "Findings": "Indwelling urinary catheter in place. 20 mL of cloudy, foul-smelling urine collected in the last hour."
+          },
+          {
+            "System": "Integumentary",
+            "Findings": "Skin warm and flushed. No signs of pressure ulcers."
+          }
+        ]
+      },
+      {
+        "id": "radiology",
+        "title": "Radiology",
+        "content": [
+          {
+            "Type": "Chest X-ray (Portable AP)",
+            "Timestamp": "04:30",
+            "Findings": "Diffuse bilateral infiltrates are noted, predominantly in the lower lobes. The cardiac silhouette is normal in size. No pneumothorax or pleural effusion is identified.",
+            "Impression": "Findings are consistent with multifocal pneumonia or acute respiratory distress syndrome (ARDS). Correlation with clinical findings is recommended."
+          },
+          {
+            "Type": "Abdominal CT Scan (Without Contrast)",
+            "Timestamp": "05:00",
+            "Findings": "Enlarged prostate gland. No evidence of free air or bowel obstruction. The bladder wall is thickened, suggestive of cystitis. Mild hydronephrosis is present bilaterally.",
+            "Impression": "Findings are consistent with cystitis and possible urosepsis. Further evaluation with urine culture is recommended."
+          }
+        ]
+      },
+      {
+        "id": "care_plan",
+        "title": "Care Plan",
+        "content": [
+          {
+            "OrderTime": "04:10",
+            "Action": "Initiate Sepsis Protocol",
+            "Status": "STAT"
+          },
+          {
+            "OrderTime": "04:10",
+            "Action": "Obtain Blood Cultures x2 (peripheral sites)",
+            "Status": "STAT, prior to antibiotics"
+          },
+          {
+            "OrderTime": "04:10",
+            "Action": "Administer Normal Saline 30 mL/kg IV bolus",
+            "Status": "STAT"
+          },
+          {
+            "OrderTime": "04:10",
+            "Action": "Administer Ceftriaxone 2g IVPB",
+            "Status": "STAT, after cultures"
+          },
+          {
+            "OrderTime": "04:10",
+            "Action": "Administer Vancomycin 1g IVPB",
+            "Status": "STAT, after cultures"
+          },
+          {
+            "OrderTime": "04:15",
+            "Action": "Initiate Norepinephrine infusion, titrate to maintain MAP > 65 mmHg",
+            "Status": "Standing"
+          },
+          {
+            "OrderTime": "04:15",
+            "Action": "Administer Acetaminophen 650 mg PR q6h PRN for Temp > 101.5°F",
+            "Status": "PRN"
+          },
+          {
+            "OrderTime": "05:20",
+            "Action": "Monitor urine output hourly",
+            "Status": "Continuous"
+          },
+          {
+            "OrderTime": "05:20",
+            "Action": "Assess level of consciousness q1h",
+            "Status": "Continuous"
+          }
+        ]
+      },
+      {
+        "id": "mar_console",
+        "title": "MAR Console",
+        "content": [
+          {
+            "Medication": "Normal Saline",
+            "Dose": "1000 mL",
+            "Route": "IV",
+            "Frequency": "STAT",
+            "LastAdministered": "04:20 (Infusing)"
+          },
+          {
+            "Medication": "Ceftriaxone",
+            "Dose": "2g",
+            "Route": "IVPB",
+            "Frequency": "STAT",
+            "LastAdministered": "05:30"
+          },
+          {
+            "Medication": "Vancomycin",
+            "Dose": "1g",
+            "Route": "IVPB",
+            "Frequency": "STAT",
+            "LastAdministered": "05:30"
+          },
+          {
+            "Medication": "Acetaminophen",
+            "Dose": "650 mg",
+            "Route": "PR",
+            "Frequency": "q6h PRN",
+            "LastAdministered": "03:30 (in ED)"
+          },
+          {
+            "Medication": "Norepinephrine",
+            "Dose": "5 mcg/min",
+            "Route": "IV",
+            "Frequency": "Continuous",
+            "LastAdministered": "05:45 (Titrating)"
+          }
+        ]
+      }
+    ]
+  },
+  "responseOptions": {
+    "actionsToTake": [
+      {
+        "id": "action1",
+        "content": "Administer STAT broad-spectrum antibiotics.",
+        "isCorrect": true,
+        "itemMapCode": "ACTION-ANTIBIOTICS-001"
+      },
+      {
+        "id": "action2",
+        "content": "Initiate norepinephrine infusion.",
+        "isCorrect": true,
+        "itemMapCode": "ACTION-NOREPI-002"
+      },
+      {
+        "id": "action3",
+        "content": "Administer PRN acetaminophen for fever.",
+        "isCorrect": false,
+        "itemMapCode": "ACTION-ACETAMINOPHEN-003"
+      },
+      {
+        "id": "action4",
+        "content": "Request a palliative care consult.",
+        "isCorrect": false,
+        "itemMapCode": "ACTION-PALLIATIVE-004"
+      },
+      {
+        "id": "action5",
+        "content": "Increase oxygen to 4L via nasal cannula.",
+        "isCorrect": false,
+        "itemMapCode": "ACTION-OXYGEN-005"
+      }
+    ],
+    "potentialCondition": [
+      {
+        "id": "condition1",
+        "content": "Septic Shock",
+        "isCorrect": true,
+        "itemMapCode": "CONDITION-SEPTIC-001"
+      },
+      {
+        "id": "condition2",
+        "content": "Cardiogenic Shock",
+        "isCorrect": false,
+        "itemMapCode": "CONDITION-CARDIOGENIC-002"
+      },
+      {
+        "id": "condition3",
+        "content": "Acute Respiratory Distress Syndrome (ARDS)",
+        "isCorrect": false,
+        "itemMapCode": "CONDITION-ARDS-003"
+      }
+    ],
+    "parametersToMonitor": [
+      {
+        "id": "param1",
+        "content": "Mean Arterial Pressure (MAP).",
+        "isCorrect": true,
+        "itemMapCode": "PARAM-MAP-001"
+      },
+      {
+        "id": "param2",
+        "content": "Serum Lactate.",
+        "isCorrect": true,
+        "itemMapCode": "PARAM-LACTATE-002"
+      },
+      {
+        "id": "param3",
+        "content": "Temperature.",
+        "isCorrect": false,
+        "itemMapCode": "PARAM-TEMP-003"
+      },
+      {
+        "id": "param4",
+        "content": "White Blood Cell count.",
+        "isCorrect": false,
+        "itemMapCode": "PARAM-WBC-004"
+      },
+      {
+        "id": "param5",
+        "content": "Urine specific gravity.",
+        "isCorrect": false,
+        "itemMapCode": "PARAM-USG-005"
+      }
+    ]
+  },
+  "hoverRationales": {
+    "action1": "Early antibiotic administration is crucial in sepsis to eradicate the pathogen, which is the underlying cause of the systemic inflammatory response and subsequent organ dysfunction. This intervention directly targets the source of the shock state.",
+    "action2": "The client's persistent hypotension despite fluid resuscitation indicates septic shock. Initiating a vasopressor like norepinephrine is essential to restore vascular tone, increase mean arterial pressure, and ensure adequate perfusion to vital organs.",
+    "action3": "While fever management is part of supportive care, it is not the priority. The client's immediate life threat is circulatory collapse from septic shock, which must be addressed before treating symptoms like fever.",
+    "action4": "A palliative care consult is premature and inappropriate at this time. The clinical focus must be on aggressive, life-saving interventions to reverse the shock state and treat the underlying infection.",
+    "action5": "The client's mild hypoxemia is a concern, but the primary life-threatening problem is circulatory failure. Restoring perfusion with vasopressors is the priority over a minor adjustment in oxygen therapy.",
+    "condition1": "The client meets the Sepsis-3 criteria for septic shock: a suspected infection, persistent hypotension requiring vasopressors to maintain MAP ≥65 mmHg, and a serum lactate level >2 mmol/L despite adequate fluid resuscitation.",
+    "condition2": "This client's warm, flushed skin and hypotension are characteristic of distributive shock (vasodilation), not cardiogenic shock, which typically presents with signs of pump failure like cool, clammy skin and pulmonary edema.",
+    "condition3": "While the client has risk factors and some respiratory compromise, they do not currently meet the full Berlin criteria for ARDS. The primary diagnosis is septic shock, which is causing the hemodynamic instability.",
+    "param1": "Mean arterial pressure is the most direct indicator of systemic perfusion and is the primary target for vasopressor therapy. Monitoring MAP is critical to guide titration and assess the effectiveness of hemodynamic resuscitation.",
+    "param2": "Serum lactate is a key biomarker of tissue hypoperfusion and anaerobic metabolism. Serial monitoring is essential to evaluate the response to resuscitation, with lactate clearance being a major therapeutic goal.",
+    "param3": "Temperature is a lagging indicator of the infectious process and response to treatment. It does not provide real-time data on the client's immediate hemodynamic status or organ perfusion.",
+    "param4": "The white blood cell count reflects the systemic inflammatory response but changes slowly. It is not a useful parameter for monitoring the immediate effectiveness of resuscitation efforts in septic shock.",
+    "param5": "While urine output is a key indicator of renal perfusion, urine specific gravity is less sensitive and not a primary parameter for monitoring acute hemodynamic changes during septic shock resuscitation."
+  },
+  "rationale": {
+    "clinicalPearls": [
+      "In septic shock, persistent hypotension after a 30 mL/kg fluid bolus necessitates vasopressor therapy, with norepinephrine being the first-line agent.",
+      "Serum lactate levels >2 mmol/L indicate tissue hypoperfusion; lactate clearance is a key goal of sepsis resuscitation.",
+      "Broad-spectrum antibiotics should be administered within one hour of sepsis recognition, ideally after blood cultures are obtained.",
+      "The primary goal of hemodynamic support in septic shock is to maintain a Mean Arterial Pressure (MAP) of at least 65 mmHg."
+    ],
+    "questionTrap": {
+      "trapDescription": "The trap is focusing on supportive but non-emergent interventions, like fever management or minor oxygen adjustments, over the life-saving priorities of hemodynamic stabilization and source control in septic shock.",
+      "strategy": "Prioritize interventions using the ABCs (Airway, Breathing, Circulation). In septic shock, 'C' (Circulation) is the most critical immediate problem. Address the hypotension with vasopressors and the infection with antibiotics before managing secondary symptoms."
+    },
+    "mnemonic": {
+      "frontsideText": "SEPSIS Hour-1 Bundle Priorities",
+      "backsideText": "Measure Lactate. Obtain Blood cultures. Administer Broad-spectrum antibiotics. Begin rapid Fluids (30 mL/kg). Apply Vasopressors if hypotensive during/after fluids to maintain MAP ≥65 mmHg."
+    }
+  },
+  "pedagogy": {
+    "bloomLevel": "Applying",
+    "cjmmStep": "Take Actions",
+    "nclexCategory": "Physiological Adaptation"
+  },
+  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "healedAt": "2026-03-01T16:27:30.316Z",
+  "scenarioMapCode": "SCN-SEP-SHOCK-001",
+  "ehr_map_code": "SCN-SEP-SHOCK-001",
+  "bowtie_map_code": "SCN-SEP-SHOCK-001",
+  "companion_map_code": "SCN-SEP-SHOCK-001",
+  "hud_map_code": "SCN-SEP-SHOCK-001",
+  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "createdAt": "2026-03-02T19:34:36.259Z",
+  "updatedAt": "2026-03-02T19:34:36.259Z"
+}

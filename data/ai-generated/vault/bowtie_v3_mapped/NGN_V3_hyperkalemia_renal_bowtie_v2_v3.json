@@ -1,0 +1,333 @@
+{
+  "id": "NGN-V3-hyperkalemia_renal_bowtie_v2",
+  "type": "bowtie",
+  "sentinelStatus": "audited_BARA_v2026_f1",
+  "clinicalFeed": {
+    "type": "SBAR",
+    "content": "Good morning, this is the nurse on the medical unit at 08:30. **Situation:** I'm calling about the client in room 204, who has End-Stage Renal Disease and missed two dialysis sessions. **Background:** The client is dialysis-dependent and presented this morning with lethargy and muscle weakness. **Assessment:** The cardiac monitor shows peaked T-waves and a widened QRS complex. A STAT lab confirmed a critical serum potassium of 7.2 mEq/L, placing the client at high risk for cardiac arrest. **Recommendation:** I request immediate orders for STAT IV Calcium Gluconate, IV Regular Insulin with D50, and continuous cardiac monitoring."
+  },
+  "tabs": [
+    {
+      "id": "labs",
+      "label": "Labs",
+      "content": [
+        {
+          "group": "Basic Metabolic Panel (BMP)",
+          "time": "08:25",
+          "items": [
+            {
+              "name": "Sodium",
+              "value": "134 mEq/L",
+              "range": "136-145 mEq/L",
+              "status": "low"
+            },
+            {
+              "name": "Potassium",
+              "value": "7.2 mEq/L",
+              "range": "3.5-5.0 mEq/L",
+              "status": "critical"
+            },
+            {
+              "name": "Chloride",
+              "value": "100 mEq/L",
+              "range": "98-106 mEq/L",
+              "status": "normal"
+            },
+            {
+              "name": "Bicarbonate (CO2)",
+              "value": "18 mEq/L",
+              "range": "22-29 mEq/L",
+              "status": "low"
+            },
+            {
+              "name": "BUN",
+              "value": "85 mg/dL",
+              "range": "10-20 mg/dL",
+              "status": "high"
+            },
+            {
+              "name": "Creatinine",
+              "value": "9.8 mg/dL",
+              "range": "0.6-1.2 mg/dL",
+              "status": "high"
+            },
+            {
+              "name": "Glucose",
+              "value": "110 mg/dL",
+              "range": "74-106 mg/dL",
+              "status": "high"
+            },
+            {
+              "name": "Calcium",
+              "value": "8.2 mg/dL",
+              "range": "9.0-10.5 mg/dL",
+              "status": "low"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physical_exam",
+      "label": "Physical Exam",
+      "content": [
+        {
+          "group": "General",
+          "items": [
+            {
+              "name": "Appearance",
+              "value": "Lethargic, appears weak",
+              "status": "abnormal"
+            }
+          ]
+        },
+        {
+          "group": "Cardiovascular",
+          "items": [
+            {
+              "name": "Heart Rate",
+              "value": "110 bpm",
+              "status": "high"
+            },
+            {
+              "name": "Rhythm",
+              "value": "Irregular",
+              "status": "abnormal"
+            }
+          ]
+        },
+        {
+          "group": "Neurological",
+          "items": [
+            {
+              "name": "Muscle Strength",
+              "value": "Decreased in all extremities",
+              "status": "abnormal"
+            },
+            {
+              "name": "Reflexes",
+              "value": "Hypoactive",
+              "status": "abnormal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "radiology",
+      "label": "Radiology",
+      "content": [
+        {
+          "reportType": "EKG",
+          "time": "08:25",
+          "report": "EKG shows peaked T-waves and widened QRS complex, consistent with hyperkalemia. No ST elevation or depression noted."
+        }
+      ]
+    },
+    {
+      "id": "care_plan",
+      "label": "Care Plan",
+      "content": [
+        {
+          "priority": "High",
+          "interventions": [
+            "Administer medications as ordered (Calcium Gluconate, Insulin/D50).",
+            "Continuous cardiac monitoring.",
+            "Monitor serum potassium levels hourly.",
+            "Assess for signs of improving EKG changes.",
+            "Prepare for possible dialysis."
+          ]
+        },
+        {
+          "priority": "Medium",
+          "interventions": [
+            "Monitor blood glucose levels every 30 minutes after insulin administration.",
+            "Assess neurological status and muscle strength.",
+            "Monitor intake and output."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mar",
+      "label": "MAR",
+      "content": [
+        {
+          "medication": "Calcium Gluconate 1 gram IV STAT",
+          "route": "IV",
+          "dosage": "1 gram",
+          "frequency": "STAT",
+          "time": "08:30"
+        },
+        {
+          "medication": "Regular Insulin 10 units IV STAT",
+          "route": "IV",
+          "dosage": "10 units",
+          "frequency": "STAT",
+          "time": "08:30"
+        },
+        {
+          "medication": "Dextrose 50% (D50) 25 grams IV STAT",
+          "route": "IV",
+          "dosage": "25 grams",
+          "frequency": "STAT",
+          "time": "08:30"
+        }
+      ]
+    }
+  ],
+  "stem": "[V3-MAPPED-2026] The nurse is caring for a client with end-stage renal disease who missed two dialysis sessions and now has critical hyperkalemia with EKG changes. Based on the client's data, what actions should the nurse take and what parameters should be monitored?",
+  "actions": [
+    {
+      "id": "action1",
+      "text": "Administer STAT Calcium Gluconate IV.",
+      "hoverRationale": "Severe hyperkalemia increases myocardial excitability, risking fatal arrhythmias. Calcium gluconate stabilizes the cardiac membrane by antagonizing potassium's effect on membrane potential, preventing dysrhythmias while other treatments lower serum potassium.",
+      "itemMapCode": "ACTION-CALCIUM-GLUCONATE"
+    },
+    {
+      "id": "action2",
+      "text": "Administer IV Regular Insulin and D50 STAT.",
+      "hoverRationale": "Insulin activates the Na+/K+-ATPase pump, which shifts potassium from the extracellular fluid into the intracellular space. This rapidly lowers serum potassium levels, directly treating the hyperkalemia. D50 is given concurrently to prevent hypoglycemia.",
+      "itemMapCode": "ACTION-INSULIN-D50"
+    },
+    {
+      "id": "action3",
+      "text": "Administer PO Spironolactone.",
+      "hoverRationale": "This is clinically flawed. Spironolactone is a potassium-sparing diuretic that blocks aldosterone, leading to potassium retention. Administering it would dangerously worsen the client's already life-threatening hyperkalemia.",
+      "itemMapCode": "ACTION-SPIRONOLACTONE"
+    },
+    {
+      "id": "action4",
+      "text": "Initiate IV 5% Dextrose/Water (D5W) at 150 mL/hr.",
+      "hoverRationale": "This is clinically flawed. D5W alone does not contain insulin and will not shift potassium into the cells. This action fails to address the urgent need to lower serum potassium and stabilize the cardiac membrane.",
+      "itemMapCode": "ACTION-D5W"
+    }
+  ],
+  "potentialConditions": [
+    {
+      "id": "condition1",
+      "text": "Hyperkalemia (Severe)",
+      "hoverRationale": "The client's history of ESRD with missed dialysis, serum potassium of 7.2 mEq/L, and EKG changes (peaked T-waves, wide QRS) are classic signs of severe, life-threatening hyperkalemia.",
+      "itemMapCode": "COND-HYPERKALEMIA"
+    },
+    {
+      "id": "condition2",
+      "text": "Digitalis Toxicity",
+      "hoverRationale": "This diagnosis is less likely. While digitalis toxicity can cause hyperkalemia and EKG changes, the primary cause is clearly missed dialysis in an ESRD client. There is no information suggesting digitalis use.",
+      "itemMapCode": "COND-DIGITALIS"
+    },
+    {
+      "id": "condition3",
+      "text": "Hypokalemia (ECG confusion)",
+      "hoverRationale": "This diagnosis is incorrect. The EKG findings of peaked T-waves and widened QRS are pathognomonic for hyperkalemia, not hypokalemia. Hypokalemia typically presents with flattened T-waves, U-waves, and ST depression.",
+      "itemMapCode": "COND-HYPOKALEMIA"
+    },
+    {
+      "id": "condition4",
+      "text": "Hypercalcemia",
+      "hoverRationale": "This diagnosis is incorrect. Hypercalcemia EKG changes include a shortened QT interval, not the peaked T-waves and widened QRS seen here. Furthermore, ESRD is more commonly associated with hypocalcemia.",
+      "itemMapCode": "COND-HYPERCALCEMIA"
+    }
+  ],
+  "condition": "Hyperkalemia (Severe)",
+  "parameters": [
+    {
+      "id": "param1",
+      "text": "Continuous EKG monitoring.",
+      "hoverRationale": "Hyperkalemia directly impacts cardiac electrical conduction, posing an immediate risk of lethal arrhythmias. Continuous EKG monitoring is essential to track the heart's response to treatment and detect any deterioration.",
+      "itemMapCode": "PARAM-EKG"
+    },
+    {
+      "id": "param2",
+      "text": "Serum Potassium levels.",
+      "hoverRationale": "The primary goal of treatment is to lower the serum potassium. Frequent monitoring of potassium levels is crucial to evaluate the effectiveness of interventions like insulin and D50 and to guide further treatment decisions.",
+      "itemMapCode": "PARAM-POTASSIUM"
+    },
+    {
+      "id": "param3",
+      "text": "Blood Glucose.",
+      "hoverRationale": "This is a secondary parameter. While important to monitor after administering insulin and D50 to prevent hypoglycemia, the primary, life-threatening issue is the cardiac effect of hyperkalemia, making EKG and potassium levels the priority.",
+      "itemMapCode": "PARAM-GLUCOSE"
+    },
+    {
+      "id": "param4",
+      "text": "Deep Tendon Reflexes.",
+      "hoverRationale": "This is a low-priority assessment. While severe hyperkalemia can cause muscle weakness or paralysis, deep tendon reflexes are not a sensitive or primary indicator for monitoring the acute, life-threatening cardiac complications.",
+      "itemMapCode": "PARAM-DTR"
+    }
+  ],
+  "correctActionIds": [
+    "action1",
+    "action2"
+  ],
+  "correctParameterIds": [
+    "param1",
+    "param2"
+  ],
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 4,
+    "topicTags": [
+      "Fluid/Electrolytes",
+      "Renal",
+      "Emergency"
+    ]
+  },
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "patientHeader": {
+    "name": "John Smith",
+    "age": "72",
+    "gender": "Male",
+    "codeStatus": "Full Code",
+    "iso": "Standard",
+    "allergies": "NKDA"
+  },
+  "studyCompanion": {
+    "pearls": [
+      {
+        "description": "Hyperkalemia can cause life-threatening arrhythmias. Prompt recognition and treatment are crucial.",
+        "strategy": "Always review the patient's medication list and recent lab values, especially in patients with renal disease or those taking potassium-sparing diuretics."
+      },
+      {
+        "description": "Calcium gluconate does not lower potassium levels but stabilizes the cardiac membrane.",
+        "strategy": "Administer calcium gluconate to protect the heart while implementing other measures to reduce serum potassium."
+      }
+    ],
+    "traps": [
+      {
+        "description": "Forgetting to monitor blood glucose after insulin administration can lead to hypoglycemia.",
+        "strategy": "Always check blood glucose levels every 30 minutes to 1 hour after administering insulin and D50."
+      },
+      {
+        "description": "Administering potassium-sparing diuretics in hyperkalemia can worsen the condition.",
+        "strategy": "Avoid potassium-sparing diuretics in hyperkalemic patients. Double-check medication orders and patient history."
+      }
+    ],
+    "mnemonics": [
+      {
+        "mnemonic": "K-BIG",
+        "description": "For Hyperkalemia Treatment: K - Kayexalate, B - Bicarbonate, I - Insulin, G - Glucose (D50)"
+      },
+      {
+        "mnemonic": "MURDER",
+        "description": "Hyperkalemia signs and symptoms: M - Muscle weakness, U - Urine (oliguria/anuria), R - Respiratory distress, D - Decreased cardiac contractility, E - EKG changes, R - Reflexes (hyperreflexia or areflexia)"
+      }
+    ]
+  },
+  "mapCodes": {
+    "scenarioMapCode": "SCN-RENAL-HYPERKALEMIA-001",
+    "ehr_map_code": "SCN-RENAL-HYPERKALEMIA-001",
+    "bowtie_map_code": "SCN-RENAL-HYPERKALEMIA-001",
+    "companion_map_code": "SCN-RENAL-HYPERKALEMIA-001",
+    "hud_map_code": "SCN-RENAL-HYPERKALEMIA-001"
+  },
+  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "createdAt": "2026-03-02T19:34:36.259Z",
+  "updatedAt": "2026-03-02T19:34:36.259Z"
+}

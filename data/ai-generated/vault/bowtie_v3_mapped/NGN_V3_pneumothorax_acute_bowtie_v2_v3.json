@@ -1,0 +1,256 @@
+{
+  "id": "NGN-V3-pneumothorax_acute_bowtie_v2",
+  "type": "bowtie",
+  "ehr": {
+    "patientProfile": {
+      "name": "John Doe",
+      "age": "19 years",
+      "gender": "Male",
+      "codeStatus": "Full Code",
+      "isoStatus": "Standard Precautions",
+      "allergies": "No Known Allergies"
+    },
+    "tabs": [
+      {
+        "id": "vitals",
+        "label": "Vital Signs",
+        "content": [
+          {
+            "time": "14:00",
+            "temp": "37.0 C (98.6 F)",
+            "hr": "110/min",
+            "rr": "28/min",
+            "bp": "128/84 mmHg",
+            "spo2": "91% on Room Air"
+          }
+        ]
+      },
+      {
+        "id": "physical_exam",
+        "label": "Physical Exam",
+        "content": [
+          {
+            "system": "Respiratory",
+            "findings": "Absent breath sounds on the left side, hyperresonance to percussion on the left, increased respiratory effort with use of accessory muscles."
+          },
+          {
+            "system": "Cardiovascular",
+            "findings": "Tachycardia, normal S1 and S2, no murmurs auscultated."
+          },
+          {
+            "system": "General",
+            "findings": "Thin, young male appearing anxious and in moderate respiratory distress."
+          }
+        ]
+      },
+      {
+        "id": "radiology",
+        "label": "Radiology",
+        "content": [
+          {
+            "reportType": "Chest X-Ray",
+            "report": "Large left-sided pneumothorax with complete collapse of the left lung. No mediastinal shift observed. No other acute abnormalities noted."
+          }
+        ]
+      },
+      {
+        "id": "care_plan",
+        "label": "Care Plan",
+        "content": [
+          {
+            "priority": "Maintain Adequate Oxygenation",
+            "interventions": [
+              "Administer high-flow oxygen via non-rebreather mask.",
+              "Monitor SpO2 continuously.",
+              "Assess respiratory rate, effort, and breath sounds frequently."
+            ]
+          },
+          {
+            "priority": "Prepare for and Assist with Chest Tube Insertion",
+            "interventions": [
+              "Gather necessary equipment for chest tube insertion.",
+              "Assist the physician during the procedure.",
+              "Monitor chest tube drainage and function."
+            ]
+          },
+          {
+            "priority": "Pain Management",
+            "interventions": [
+              "Assess pain level using a pain scale.",
+              "Administer pain medication as prescribed, carefully monitoring respiratory status."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mar",
+        "label": "MAR",
+        "content": [
+          {
+            "medication": "Oxygen",
+            "dose": "100%",
+            "route": "Non-rebreather mask",
+            "frequency": "Continuous",
+            "indication": "Hypoxemia"
+          },
+          {
+            "medication": "Morphine",
+            "dose": "2 mg",
+            "route": "IV",
+            "frequency": "Every 2 hours PRN",
+            "indication": "Pain",
+            "notes": "Monitor respiratory rate and oxygen saturation closely."
+          }
+        ]
+      }
+    ]
+  },
+  "itemContext": {
+    "sbar": "S: (14:00) This is the nurse calling about a 19-year-old male with acute left-sided chest pain. He has absent breath sounds on the left, a respiratory rate of 28, and an SpO2 of 91% on room air. B: The pain started suddenly while he was playing basketball. He is tall, thin, and has no significant past medical history. A: I suspect a primary spontaneous pneumothorax. He is in respiratory distress. R: I recommend applying high-flow oxygen and need an order to prepare for chest tube insertion."
+  },
+  "stem": "[V3-MAPPED-2026] A 19-year-old male presents with sudden left-sided chest pain and absent breath sounds on the left. His respiratory rate is 28/min and SpO2 is 91% on room air. Based on the client's presentation, complete the bowtie to guide immediate management.",
+  "potentialConditions": [
+    {
+      "id": "cond1",
+      "text": "Hemothorax"
+    },
+    {
+      "id": "cond2",
+      "text": "Spontaneous Pneumothorax"
+    },
+    {
+      "id": "cond3",
+      "text": "Tension Pneumothorax"
+    },
+    {
+      "id": "cond4",
+      "text": "Pulmonary Embolism"
+    }
+  ],
+  "condition": "cond2",
+  "actions": [
+    {
+      "id": "action1",
+      "text": "Apply 100% Oxygen via Non-rebreather mask",
+      "isCorrect": true,
+      "rationale": "High-flow oxygen corrects hypoxemia caused by the collapsed lung's inability to participate in gas exchange. It also helps accelerate the resorption of pleural air, aiding in lung re-expansion.",
+      "itemMapCode": "ACTION-OXYGEN-001"
+    },
+    {
+      "id": "action2",
+      "text": "Prepare for Chest Tube insertion (Thoracostomy)",
+      "isCorrect": true,
+      "rationale": "Chest tube insertion is the definitive treatment to evacuate air from the pleural space. This allows the collapsed lung to re-expand, which restores normal negative intrapleural pressure and improves ventilation.",
+      "itemMapCode": "ACTION-CHESTTUBE-002"
+    },
+    {
+      "id": "action3",
+      "text": "Administer IV Morphine",
+      "isCorrect": false,
+      "rationale": "This is a clinical flaw as administering opioids can depress the respiratory drive, worsening hypoxia. The priority is to correct the underlying gas exchange impairment, not to manage pain first in this acute scenario.",
+      "itemMapCode": "ACTION-MORPHINE-003"
+    },
+    {
+      "id": "action4",
+      "text": "Encourage incentive spirometry",
+      "isCorrect": false,
+      "rationale": "This is a clinical flaw as incentive spirometry is used to prevent atelectasis, not treat a pneumothorax. Attempting a deep inspiration against a collapsed lung is ineffective and may increase pain.",
+      "itemMapCode": "ACTION-SPIROMETRY-004"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "param1",
+      "text": "Respiratory rate and effort",
+      "isCorrect": true,
+      "rationale": "Monitoring respiratory rate and effort directly assesses the work of breathing and severity of respiratory distress. Worsening tachypnea or use of accessory muscles indicates the client is decompensating.",
+      "itemMapCode": "PARAM-RR-001"
+    },
+    {
+      "id": "param2",
+      "text": "Position of the trachea",
+      "isCorrect": true,
+      "rationale": "Tracheal deviation is a critical sign of a tension pneumothorax, a life-threatening complication. This indicates a mediastinal shift, which compromises cardiac output and ventilation, requiring immediate intervention.",
+      "itemMapCode": "PARAM-TRACHEA-002"
+    },
+    {
+      "id": "param3",
+      "text": "Heart rate",
+      "isCorrect": false,
+      "rationale": "This is a clinical flaw because while tachycardia may be present due to hypoxia, it is not the most specific indicator for a pneumothorax's severity. Respiratory parameters provide more direct data on the client's status.",
+      "itemMapCode": "PARAM-HR-003"
+    },
+    {
+      "id": "param4",
+      "text": "Serum electrolytes",
+      "isCorrect": false,
+      "rationale": "This is a clinical flaw as serum electrolytes are not relevant to the immediate management of a pneumothorax. This intervention delays care for an acute respiratory emergency.",
+      "itemMapCode": "PARAM-ELECTROLYTES-004"
+    }
+  ],
+  "correctActionIds": [
+    "action1",
+    "action2"
+  ],
+  "correctParameterIds": [
+    "param1",
+    "param2"
+  ],
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 4,
+    "topicTags": [
+      "Respiratory",
+      "Emergency",
+      "Pneumothorax"
+    ]
+  },
+  "sentinelStatus": "healed_v2026_v12",
+  "mapCodes": {
+    "scenarioMapCode": "SCN-PNEUMOTHORAX-001",
+    "ehr_map_code": "SCN-PNEUMOTHORAX-001",
+    "bowtie_map_code": "SCN-PNEUMOTHORAX-001",
+    "companion_map_code": "SCN-PNEUMOTHORAX-001",
+    "hud_map_code": "SCN-PNEUMOTHORAX-001"
+  },
+  "studyCompanion": {
+    "pearls": [
+      {
+        "title": "Early Recognition is Key",
+        "description": "Prompt identification of pneumothorax based on clinical signs (sudden chest pain, dyspnea, absent breath sounds) and confirmation with chest X-ray is crucial for timely intervention."
+      },
+      {
+        "title": "Oxygen First",
+        "description": "Always administer high-flow oxygen immediately to address hypoxemia while preparing for definitive treatment."
+      }
+    ],
+    "traps": [
+      {
+        "title": "Delaying Treatment",
+        "description": "Failing to promptly address a pneumothorax can lead to tension pneumothorax, a life-threatening condition. Rapid assessment and intervention are essential.",
+        "strategy": "Continuously monitor the patient's respiratory status and be prepared to escalate care if signs of deterioration occur."
+      },
+      {
+        "title": "Over-reliance on Pain Medication",
+        "description": "Administering excessive pain medication, especially opioids, can depress respiratory drive and worsen hypoxemia. Prioritize oxygenation and definitive treatment.",
+        "strategy": "Use pain medication judiciously and closely monitor respiratory parameters. Consider non-pharmacological pain management techniques."
+      }
+    ],
+    "mnemonics": [
+      {
+        "mnemonic": "P-L-E-U-R-A",
+        "description": "P: Pain (sudden chest pain), L: Lung (collapsed), E: Effort (increased respiratory effort), U: Unequal (unequal chest rise), R: Rate (tachypnea), A: Absent (absent breath sounds)"
+      }
+    ]
+  },
+  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "createdAt": "2026-03-02T19:34:36.259Z",
+  "updatedAt": "2026-03-02T19:34:36.259Z"
+}

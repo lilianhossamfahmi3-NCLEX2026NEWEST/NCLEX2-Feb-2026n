@@ -1,0 +1,304 @@
+{
+  "id": "NGN-V3-pulmonary_embolism_bowtie_v2",
+  "type": "bowtie",
+  "ehr": {
+    "patientProfile": {
+      "name": "Jane Doe",
+      "age": "65 years",
+      "gender": "Female",
+      "codeStatus": "Full Code",
+      "isoStatus": "Contact Precautions",
+      "allergies": "NKDA"
+    },
+    "tabs": [
+      {
+        "id": "sbar",
+        "title": "SBAR",
+        "type": "sbar",
+        "data": {
+          "timestamp": "09:30",
+          "handOffFrom": "Floor Nurse",
+          "content": "Situation: This is the nurse for Jane Doe, 65-year-old female, post-op day 2 total hip arthroplasty. At 09:30, she had a sudden onset of sharp, pleuritic chest pain and severe dyspnea.\nBackground: Her post-op course was stable until now. She has a history of hypertension and has been immobile.\nAssessment: She is anxious and tachypneic. Vitals are HR 115, BP 102/68, RR 26, SpO2 88% on room air.\nRecommendation: I suspect a pulmonary embolism. I need you to evaluate her immediately for high-flow oxygen and anticoagulation."
+        }
+      },
+      {
+        "id": "historyAndPhysical",
+        "title": "History & Physical",
+        "type": "text",
+        "data": {
+          "history": "Patient is a 65-year-old female with a history of hypertension, well-controlled with lisinopril. Admitted for elective right total hip arthroplasty. Surgical procedure and immediate post-operative recovery were uneventful.",
+          "physicalExam": "Alert and oriented to person, place, and time. Auscultation reveals scattered wheezes in the right lower lobe. Increased work of breathing noted with accessory muscle use. Right calf is warm and slightly tender to palpation. Post-operative incision site on right hip is clean, dry, and intact without signs of infection. Distal pulses are present bilaterally."
+        }
+      },
+      {
+        "id": "vitals",
+        "title": "Vitals",
+        "type": "table",
+        "data": {
+          "headers": [
+            "Time",
+            "HR",
+            "BP",
+            "RR",
+            "SpO2",
+            "Temp"
+          ],
+          "rows": [
+            [
+              "09:30",
+              "115",
+              "102/68",
+              "26",
+              "88% (Room Air)",
+              "37.1°C"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "medications",
+        "title": "MAR",
+        "type": "table",
+        "data": {
+          "headers": [
+            "Medication",
+            "Dose",
+            "Route",
+            "Frequency",
+            "Last Administered"
+          ],
+          "rows": [
+            [
+              "Lisinopril",
+              "10 mg",
+              "PO",
+              "Daily",
+              "08:00"
+            ],
+            [
+              "Oxycodone",
+              "5 mg",
+              "PO",
+              "q4h PRN pain",
+              "06:00"
+            ],
+            [
+              "Enoxaparin",
+              "30 mg",
+              "Subcut",
+              "q12h",
+              "08:00"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "labs",
+        "title": "Labs",
+        "type": "table",
+        "data": {
+          "headers": [
+            "Test",
+            "Result",
+            "Reference Range"
+          ],
+          "rows": [
+            [
+              "WBC",
+              "8.5",
+              "4.5-11.0 x 10^9/L"
+            ],
+            [
+              "Hgb",
+              "11.2",
+              "12.0-16.0 g/dL"
+            ],
+            [
+              "Hct",
+              "34%",
+              "36-48%"
+            ],
+            [
+              "Platelets",
+              "250",
+              "150-450 x 10^9/L"
+            ],
+            [
+              "PT/INR",
+              "1.1",
+              "0.8-1.2"
+            ],
+            [
+              "D-dimer",
+              "5.2",
+              "<0.5 mcg/mL"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "radiology",
+        "title": "Radiology",
+        "type": "text",
+        "data": {
+          "report": "CT Pulmonary Angiogram: A large filling defect is noted in the right main pulmonary artery, consistent with a pulmonary embolism. Smaller emboli are also seen in the right lower lobe pulmonary artery branches. No evidence of pulmonary infarction. The right ventricle is mildly dilated."
+        }
+      },
+      {
+        "id": "carePlan",
+        "title": "Care Plan",
+        "type": "text",
+        "data": {
+          "nursingPriorities": "1. Optimize oxygenation and ventilation.\n2. Prevent further thrombus formation and propagation.\n3. Monitor for complications of PE and anticoagulation.\n4. Provide emotional support and reduce anxiety.",
+          "interventions": "- Administer oxygen via non-rebreather mask to maintain SpO2 >92%.\n- Initiate and maintain IV heparin infusion per protocol; monitor aPTT.\n- Elevate the head of the bed to promote lung expansion.\n- Assess respiratory status, including breath sounds, respiratory rate, and effort, every 15 minutes initially, then every hour.\n- Monitor for signs and symptoms of bleeding (e.g., hematuria, melena, bruising).\n- Provide reassurance and explain procedures to the patient and family."
+        }
+      }
+    ]
+  },
+  "stem": "[V3-MAPPED-2026] A 65-year-old client, two days post-total hip arthroplasty, develops acute dyspnea and pleuritic chest pain. The nurse suspects a pulmonary embolism based on the client's EHR data. Which actions should the nurse take, and what parameters require immediate monitoring?",
+  "actions": [
+    {
+      "id": "action1",
+      "text": "Apply oxygen via non-rebreather mask",
+      "correct": true,
+      "hoverRationale": "The client's hypoxia (SpO2 88%) results from a ventilation-perfusion mismatch caused by the embolism. A non-rebreather mask delivers high-flow oxygen to correct hypoxemia and reduce cardiopulmonary workload.",
+      "itemMapCode": "ACTION-OXYGEN-001"
+    },
+    {
+      "id": "action2",
+      "text": "Initiate IV Heparin protocol",
+      "correct": true,
+      "hoverRationale": "A pulmonary embolism obstructs pulmonary blood flow. Heparin prevents further thrombus formation and propagation, allowing the body's fibrinolytic system to begin dissolving the existing clot.",
+      "itemMapCode": "ACTION-HEPARIN-002"
+    },
+    {
+      "id": "action3",
+      "text": "Administer IV Furosemide",
+      "correct": false,
+      "hoverRationale": "Furosemide is a diuretic for fluid overload, which is not indicated. This intervention could cause hypovolemia and hypotension, worsening hemodynamic instability in a client with a potential PE.",
+      "itemMapCode": "ACTION-FUROSEMIDE-003"
+    },
+    {
+      "id": "action4",
+      "text": "Prepare for chest tube insertion",
+      "correct": false,
+      "hoverRationale": "A chest tube drains the pleural space and is not indicated for a vascular obstruction like a PE. This action is inappropriate for the client's condition and would delay essential treatment.",
+      "itemMapCode": "ACTION-CHESTTUBE-004"
+    }
+  ],
+  "potentialConditions": [
+    "Aortic Dissection",
+    "Acute Coronary Syndrome",
+    "Pneumothorax",
+    "Pulmonary Embolism"
+  ],
+  "condition": "Pulmonary Embolism",
+  "parameters": [
+    {
+      "id": "param1",
+      "text": "Oxygen saturation (SpO2)",
+      "correct": true,
+      "hoverRationale": "SpO2 directly reflects gas exchange effectiveness, which is compromised by the embolism. Continuous monitoring is essential to titrate oxygen therapy and detect any deterioration in respiratory status.",
+      "itemMapCode": "PARAM-SPO2-005"
+    },
+    {
+      "id": "param2",
+      "text": "Respiratory effort and breath sounds",
+      "correct": true,
+      "hoverRationale": "Increased work of breathing and adventitious sounds can signal worsening respiratory distress or complications. This assessment is critical for evaluating the client's response to interventions and overall stability.",
+      "itemMapCode": "PARAM-RESP-006"
+    },
+    {
+      "id": "param3",
+      "text": "Serum Troponin levels",
+      "correct": false,
+      "hoverRationale": "While troponin may rise due to right ventricular strain, it is a diagnostic marker, not a parameter for immediate stability monitoring. Respiratory and hemodynamic assessments are the priority.",
+      "itemMapCode": "PARAM-TROPONIN-007"
+    },
+    {
+      "id": "param4",
+      "text": "Urine output",
+      "correct": false,
+      "hoverRationale": "Urine output reflects renal perfusion over time and is not a sensitive, real-time indicator of the acute respiratory and hemodynamic compromise caused by a pulmonary embolism.",
+      "itemMapCode": "PARAM-URINE-008"
+    }
+  ],
+  "correctActionIds": [
+    "action1",
+    "action2"
+  ],
+  "correctParameterIds": [
+    "param1",
+    "param2"
+  ],
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 4,
+    "topicTags": [
+      "Respiratory",
+      "Cardiovascular",
+      "Pulmonary Embolism",
+      "Post-Operative Care"
+    ],
+    "rationale": {
+      "correct": "The client's recent hip surgery and immobility are major risk factors for VTE. The sudden onset of pleuritic chest pain, dyspnea, and hypoxia strongly suggests a PE. Priorities are to correct hypoxia (oxygen) and prevent clot extension (heparin), while closely monitoring respiratory status (SpO2, work of breathing).",
+      "incorrect": "Furosemide is inappropriate as there is no evidence of fluid overload and it risks hypotension. A chest tube is for pneumothorax, not PE. Troponin and urine output are not primary parameters for monitoring acute stability in this scenario; focus must be on oxygenation and hemodynamics."
+    },
+    "clinicalPearls": [
+      "A sense of 'impending doom' is a classic, though not universal, subjective finding in massive PE. Always take reports of extreme anxiety with acute cardiorespiratory symptoms seriously.",
+      "Virchow's triad (stasis, hypercoagulability, endothelial injury) explains the high risk of VTE in post-operative orthopedic patients. Prophylaxis is key, but breakthrough events can occur."
+    ],
+    "questionTrap": {
+      "trap": "Distractor Diagnosis: Myocardial Infarction",
+      "howToOvercome": "Focus on the specific risk factors and presentation. Recent major surgery points strongly toward VTE/PE. The pain is described as 'sharp' and pleuritic, which is more typical of PE than the crushing, substernal pain of an MI."
+    },
+    "reviewUnits": [
+      {
+        "heading": "Pathophysiology of Pulmonary Embolism",
+        "body": "PE is an obstruction of the pulmonary artery or its branches, most often by a thrombus from a DVT. This creates a ventilation-perfusion (V/Q) mismatch, leading to hypoxemia. Large emboli increase pulmonary vascular resistance, causing right ventricular strain and potential obstructive shock.",
+        "source": "NCLEX-RN Clinical Review 2026"
+      },
+      {
+        "heading": "Priority Nursing Interventions for PE",
+        "body": "Immediate goals are to stabilize the patient. Administer high-flow oxygen to correct hypoxemia. Initiate anticoagulation (e.g., heparin drip) to prevent new clot formation. Maintain hemodynamic stability and prepare for definitive diagnostic imaging like a CT angiogram.",
+        "source": "Evidence-Based Nursing Practice"
+      }
+    ],
+    "studyCompanion": {
+      "pearls": [
+        {
+          "description": "Pleuritic chest pain, dyspnea, and hypoxia are classic signs of PE, but can be subtle. Always consider PE in patients with risk factors like recent surgery or immobility.",
+          "strategy": "Maintain a high index of suspicion for PE in at-risk patients, even with atypical symptoms. Early recognition is crucial for timely intervention."
+        }
+      ],
+      "traps": [
+        {
+          "description": "Assuming chest pain is always cardiac. Focusing solely on cardiac causes can delay diagnosis and treatment of PE.",
+          "strategy": "Consider pulmonary etiologies for chest pain, especially in patients with risk factors for VTE. Obtain a thorough history and physical exam to differentiate between cardiac and pulmonary causes."
+        }
+      ],
+      "mnemonics": [
+        {
+          "mnemonic": "FAST (for PE): Focus Assessment Signs Treatment",
+          "description": "Rapidly assess for signs of PE (dyspnea, chest pain, hypoxia), and initiate treatment (oxygen, anticoagulation) without delay."
+        }
+      ]
+    }
+  },
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "sentinelStatus": "healed_v2026_v13",
+  "scenarioMapCode": "SCN-PE-001",
+  "ehr_map_code": "SCN-PE-001",
+  "bowtie_map_code": "SCN-PE-001",
+  "companion_map_code": "SCN-PE-001",
+  "hud_map_code": "SCN-PE-001",
+  "qualityMark": "NGN-2026-HI-FI-V3-MAPPED",
+  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "createdAt": "2026-03-02T19:34:36.259Z",
+  "updatedAt": "2026-03-02T19:34:36.259Z"
+}
