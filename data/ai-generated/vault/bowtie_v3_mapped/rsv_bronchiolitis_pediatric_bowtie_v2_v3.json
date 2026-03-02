@@ -1,0 +1,202 @@
+{
+  "id": "rsv_bronchiolitis_pediatric_bowtie_v2",
+  "type": "bowtie",
+  "scenarioMapCode": "SCN-RSV-BRONCH-001",
+  "ehr": {
+    "patient": {
+      "id": "infant_chen_l",
+      "name": "Liam Chen",
+      "dob": "2025-06-15T08:00:00Z",
+      "age": "8 months",
+      "gender": "Male",
+      "codeStatus": "Full code",
+      "iso": "Contact and Droplet",
+      "weight": "8.2 kg",
+      "allergies": "No Known Allergies"
+    },
+    "tabs": [
+      {
+        "id": "nurses_note",
+        "label": "Nurse's Note",
+        "content": "Date: 2026-02-15\nTime: 14:15\n\nS: Dr. Smith, this is Nurse Jones. I'm calling about Liam Chen, an 8-month-old admitted at 14:00 for worsening respiratory distress and lethargy.\n\nB: He has a 3-day history of cough, rhinorrhea, and poor feeding. His breathing has become significantly more labored today.\n\nA: Vitals: RR 64/min with intercostal retractions, SpO2 93% on room air, HR 160/min, Temp 38.1°C. He has copious clear nasal secretions.\n\nR: I suspect bronchiolitis. I recommend starting humidified oxygen to keep SpO2 >92% and performing nasal suctioning. I will continue close monitoring."
+      },
+      {
+        "id": "vitals",
+        "label": "Vital Signs",
+        "content": "Time: 14:00\nHeart Rate: 160/min\nRespiratory Rate: 64/min\nSpO2: 93% on room air\nTemperature: 38.1°C (Axillary)\nBlood Pressure: 88/50 mmHg"
+      },
+      {
+        "id": "physical_exam",
+        "label": "Physical Exam",
+        "content": "General: Lethargic but arousable infant.\nRespiratory: Marked intercostal retractions, nasal flaring, and audible wheezing. Auscultation reveals diffuse rhonchi and crackles bilaterally. Respiratory rate 64/min. SpO2 93% on room air.\nCardiovascular: Heart rate 160/min, regular rhythm. Capillary refill < 3 seconds.\nNeurological: Alert but irritable. Responds to stimuli. Fontanelles soft and flat.\nSkin: Warm and dry, no rash noted. Mild central cyanosis observed."
+      },
+      {
+        "id": "radiology",
+        "label": "Radiology",
+        "content": "Chest X-Ray: Diffuse hyperinflation with flattened diaphragms. Increased interstitial markings and peribronchial cuffing are present bilaterally. No evidence of consolidation or pneumothorax."
+      },
+      {
+        "id": "care_plan",
+        "label": "Care Plan",
+        "content": "Nursing Priorities:\n1. Optimize respiratory function and oxygenation.\n2. Maintain adequate hydration and nutrition.\n3. Prevent spread of infection.\n\nNursing Interventions:\n- Administer humidified oxygen via nasal cannula to maintain SpO2 > 92%.\n- Perform frequent nasal suctioning to clear nasal passages.\n- Monitor respiratory rate, effort, and oxygen saturation continuously.\n- Assess hydration status, including mucous membranes, skin turgor, and urine output.\n- Provide small, frequent feedings as tolerated.\n- Implement contact and droplet precautions.\n- Administer antipyretics as needed for fever (temperature > 38.0°C)."
+      },
+      {
+        "id": "mar",
+        "label": "MAR",
+        "content": "Scheduled Medications:\n- Oxygen, 2 L/min via nasal cannula, continuous, PRN to maintain SpO2 > 92%\n- Acetaminophen 120mg PO/PR q4-6h PRN for fever > 38.0°C\n\nPRN Medications:\n- Normal Saline nasal drops, 2 drops per nostril PRN before suctioning"
+      }
+    ]
+  },
+  "stem": "The nurse is caring for an 8-month-old infant admitted for respiratory distress. After reviewing the electronic health record (EHR), the nurse must determine the appropriate actions to take and parameters to monitor. Complete the bowtie based on the available data.",
+  "potentialConditions": [
+    {
+      "id": "cond1",
+      "text": "Croup"
+    },
+    {
+      "id": "cond2",
+      "text": "RSV / Bronchiolitis"
+    },
+    {
+      "id": "cond3",
+      "text": "Pertussis"
+    },
+    {
+      "id": "cond4",
+      "text": "Reactive Airway Disease"
+    }
+  ],
+  "condition": "cond2",
+  "actions": [
+    {
+      "id": "action1",
+      "text": "Provide humidified oxygen and monitor SpO2.",
+      "itemMapCode": "ACTION-OXYGEN-001"
+    },
+    {
+      "id": "action2",
+      "text": "Perform frequent nasal suctioning.",
+      "itemMapCode": "ACTION-SUCTION-002"
+    },
+    {
+      "id": "action3",
+      "text": "Administer oral antibiotics.",
+      "itemMapCode": "ACTION-ANTIBIOTIC-003"
+    },
+    {
+      "id": "action4",
+      "text": "Initiate chest physiotherapy (CPT).",
+      "itemMapCode": "ACTION-CPT-004"
+    },
+    {
+      "id": "action5",
+      "text": "Administer a nebulized bronchodilator.",
+      "itemMapCode": "ACTION-BRONCHODILATOR-005"
+    }
+  ],
+  "parameters": [
+    {
+      "id": "param1",
+      "text": "Assess skin color.",
+      "itemMapCode": "PARAM-SKIN-COLOR-001"
+    },
+    {
+      "id": "param2",
+      "text": "Monitor respiratory rate and effort.",
+      "itemMapCode": "PARAM-RESP-RATE-002"
+    },
+    {
+      "id": "param3",
+      "text": "Monitor hydration status and I&O.",
+      "itemMapCode": "PARAM-HYDRATION-003"
+    },
+    {
+      "id": "param4",
+      "text": "Auscultate bowel sounds.",
+      "itemMapCode": "PARAM-BOWEL-SOUNDS-004"
+    },
+    {
+      "id": "param5",
+      "text": "Check capillary blood glucose.",
+      "itemMapCode": "PARAM-GLUCOSE-005"
+    }
+  ],
+  "correctActionIds": [
+    "action1",
+    "action2"
+  ],
+  "correctParameterIds": [
+    "param2",
+    "param3"
+  ],
+  "hoverRationales": {
+    "cond1": "Croup typically presents with a sudden onset of a 'barking' cough, inspiratory stridor, and hoarseness due to laryngeal inflammation, which are not features of this infant's presentation.",
+    "cond2": "This diagnosis aligns with the infant's age, gradual onset of upper respiratory symptoms, and progression to lower respiratory tract involvement (tachypnea, retractions, wheezing), which is characteristic of viral bronchiolitis.",
+    "cond3": "Pertussis (whooping cough) is characterized by paroxysmal coughing fits followed by a high-pitched 'whoop' and possible post-tussive emesis. This infant's primary signs are tachypnea and retractions, not paroxysmal coughing.",
+    "cond4": "While wheezing can occur, reactive airway disease (asthma) is less common in this age group and typically involves a stronger bronchospastic component. The prominent nasal congestion points more towards bronchiolitis.",
+    "action1": "Bronchiolitis causes airway inflammation and mucus plugging, leading to ventilation-perfusion mismatch and hypoxemia. Supplemental humidified oxygen improves oxygen saturation and soothes inflamed airways.",
+    "action2": "Infants are obligate nose breathers. Clearing copious nasal secretions with suctioning is critical to relieve upper airway obstruction, reduce the work of breathing, and improve feeding.",
+    "action3": "Bronchiolitis is a viral illness, most commonly caused by RSV. Antibiotics are ineffective against viruses and are not indicated unless a secondary bacterial infection is confirmed.",
+    "action4": "Routine chest physiotherapy is not recommended for bronchiolitis. It has not been shown to improve outcomes and can increase infant agitation, respiratory distress, and oxygen consumption.",
+    "action5": "Bronchodilators are generally not recommended for routine use in bronchiolitis as the primary pathology is inflammation and debris, not bronchoconstriction. They have not been shown to provide significant benefit.",
+    "param1": "While cyanosis is a late and ominous sign of respiratory failure, monitoring respiratory effort and oxygen saturation provides earlier and more sensitive data on the infant's status.",
+    "param2": "Tachypnea, retractions, and nasal flaring are key indicators of the severity of respiratory distress in bronchiolitis. Closely monitoring these parameters is essential for detecting clinical deterioration.",
+    "param3": "Tachypnea and poor feeding place infants with bronchiolitis at high risk for dehydration. Monitoring urine output, mucous membranes, and fontanels is crucial for assessing fluid balance.",
+    "param4": "Bowel sounds are not directly affected by the pathophysiology of bronchiolitis. This assessment is a low priority compared to respiratory and hydration status unless abdominal distension is a primary concern.",
+    "param5": "While severe illness can affect glucose levels, this is not a primary or routine parameter to monitor in uncomplicated bronchiolitis unless the infant is lethargic or has poor perfusion."
+  },
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Physiological Adaptation",
+    "difficulty": 4,
+    "topicTags": [
+      "Pediatrics",
+      "Respiratory",
+      "Infection Control"
+    ]
+  },
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "sentinelStatus": "healed_v2026_v11",
+  "ehr_map_code": "SCN-RSV-BRONCH-001",
+  "bowtie_map_code": "SCN-RSV-BRONCH-001",
+  "companion_map_code": "SCN-RSV-BRONCH-001",
+  "hud_map_code": "SCN-RSV-BRONCH-001",
+  "studyCompanion": {
+    "pearls": [
+      {
+        "description": "Bronchiolitis is primarily a clinical diagnosis based on history and physical exam findings. Chest X-rays are generally not required unless complications are suspected.",
+        "strategy": "Focus on recognizing the key signs and symptoms of bronchiolitis, such as tachypnea, wheezing, and retractions, to guide management."
+      },
+      {
+        "description": "Hydration is crucial in infants with bronchiolitis due to increased respiratory rate and decreased oral intake. Monitor for signs of dehydration.",
+        "strategy": "Assess mucous membranes, skin turgor, and urine output frequently. Provide intravenous fluids if oral intake is insufficient."
+      }
+    ],
+    "traps": [
+      {
+        "description": "Using bronchodilators routinely in bronchiolitis can lead to unnecessary side effects and does not improve outcomes in most cases.",
+        "strategy": "Reserve bronchodilators for infants with a history of reactive airway disease or those who demonstrate a clear response to bronchodilator therapy."
+      },
+      {
+        "description": "Administering antibiotics for bronchiolitis is inappropriate as it is a viral infection. Overuse of antibiotics contributes to antibiotic resistance.",
+        "strategy": "Educate parents about the viral etiology of bronchiolitis and the lack of benefit from antibiotics. Focus on supportive care measures."
+      }
+    ],
+    "mnemonics": [
+      {
+        "mnemonic": "RSV-RESP",
+        "description": "Respiratory Support Vital: Remember to prioritize Respiratory support and monitor vital signs closely in RSV bronchiolitis."
+      },
+      {
+        "mnemonic": "Suction-O2",
+        "description": "Suction and Oxygen: Key interventions for managing airway obstruction and hypoxemia in infants with bronchiolitis."
+      }
+    ]
+  },
+  "qualityMark": "NGN-2026-HI-FI-V3-MAPPED",
+  "lastFixed": "2026-03-02T19:02:05.901Z"
+}

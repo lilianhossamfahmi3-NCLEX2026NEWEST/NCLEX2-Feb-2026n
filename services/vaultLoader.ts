@@ -90,7 +90,7 @@ let isQuarantineLoading = false;
 
 export async function getQuarantineItems(): Promise<MasterItem[]> {
     if (cachedQuarantine) return cachedQuarantine;
-    if (isQuarantineLoading) return new Promise((resolve) => { /* simplified for brevity, similar to vault logic */ });
+    if (isQuarantineLoading) return new Promise((_resolve) => { /* simplified for brevity, similar to vault logic */ });
 
     isQuarantineLoading = true;
     try {

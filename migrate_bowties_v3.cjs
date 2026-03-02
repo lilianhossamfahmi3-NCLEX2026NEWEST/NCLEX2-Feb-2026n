@@ -15,6 +15,9 @@ const TARGET_DIR = path.join(__dirname, 'data', 'ai-generated', 'vault', 'bowtie
 
 if (!fs.existsSync(TARGET_DIR)) fs.mkdirSync(TARGET_DIR, { recursive: true });
 
+// 🛑 STOP LIMIT
+const MAX_TOTAL_ITEMS = 210;
+
 // 🔑 API Key Rotator (14 Keys)
 const API_KEYS = [];
 for (let i = 1; i <= 14; i++) {
@@ -84,17 +87,33 @@ function normalizeStructure(item) {
 async function run() {
     console.log(`🚀 Starting Bowtie V3 Fixation Engine...`);
     console.log(`🔑 Rotator active with ${API_KEYS.length} keys.`);
+    console.log(`🛑 Stopping at total ${MAX_TOTAL_ITEMS} items.`);
 
-    const processedIds = new Set();
-    let totalFound = 0;
-    let totalFixed = 0;
+    // Check current count in target dir
+    if (!fs.existsSync(TARGET_DIR)) fs.mkdirSync(TARGET_DIR, { recursive: true });
+    const existingTargetFiles = fs.readdirSync(TARGET_DIR).filter(f => f.endsWith('.json'));
+    const processedIdsInTarget = new Set(existingTargetFiles.map(f => f.replace(/_v3\.json$/, '')));
+
+    let totalTargetCount = existingTargetFiles.length;
+    let totalFixedInThisRun = 0;
     let totalFailed = 0;
+
+    console.log(`📊 Current Target Count: ${totalTargetCount}`);
+
+    if (totalTargetCount >= MAX_TOTAL_ITEMS) {
+        console.log(`✅ Limit already reached (${totalTargetCount}/${MAX_TOTAL_ITEMS}). Exiting.`);
+        return;
+    }
+
+    const processedIdsInSession = new Set();
 
     for (const dir of SOURCE_DIRS) {
         if (!fs.existsSync(dir)) continue;
         const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
 
         for (const file of files) {
+            if (totalTargetCount >= MAX_TOTAL_ITEMS) break;
+
             const filePath = path.join(dir, file);
             try {
                 const content = fs.readFileSync(filePath, 'utf8');
@@ -102,46 +121,59 @@ async function run() {
                 const items = Array.isArray(data) ? data : [data];
 
                 for (let rawItem of items) {
+                    if (totalTargetCount >= MAX_TOTAL_ITEMS) break;
+
                     const item = normalizeStructure(rawItem);
                     if (!item) continue;
 
                     const itemId = item.id || file;
-                    if (processedIds.has(itemId)) continue;
-                    processedIds.add(itemId);
-                    totalFound++;
+                    const targetFileNameBase = itemId.replace(/[^a-zA-Z0-9]/g, '_');
 
-                    console.log(`[${totalFound}] Fixating: ${itemId} (${file})`);
+                    if (processedIdsInTarget.has(targetFileNameBase) || processedIdsInSession.has(itemId)) continue;
+                    processedIdsInSession.add(itemId);
+
+                    // Final check for file existence
+                    const targetFilePath = path.join(TARGET_DIR, `${targetFileNameBase}_v3.json`);
+                    if (fs.existsSync(targetFilePath)) continue;
+
+                    console.log(`[${totalTargetCount + 1}/${MAX_TOTAL_ITEMS}] Fixating: ${itemId} (${file})`);
 
                     try {
                         const fixed = await aiFixate(item, getNextKey());
 
-                        // Add metadata
-                        fixed.qualityMark = 'NGN-2026-HI-FI-V3-MAPPED';
+                        // Add metadata and identification
+                        fixed.qualityMark = 'GOLD-SERIES-V3-MAPPED';
                         fixed.lastFixed = new Date().toISOString();
 
+                        if (!fixed.stem.startsWith('[V3-MAPPED-2026]')) {
+                            fixed.stem = '[V3-MAPPED-2026] ' + fixed.stem;
+                        }
+
                         // Save to target
-                        const targetFileName = `${itemId.replace(/[^a-zA-Z0-9]/g, '_')}_v3.json`;
+                        const targetFileName = `${targetFileNameBase}_v3.json`;
                         fs.writeFileSync(path.join(TARGET_DIR, targetFileName), JSON.stringify(fixed, null, 2));
 
-                        totalFixed++;
-                        console.log(`   ✅ Success saved to ${targetFileName}`);
+                        totalTargetCount++;
+                        totalFixedInThisRun++;
+                        console.log(`   ✅ Success saved to ${targetFileName} (Total: ${totalTargetCount})`);
                     } catch (err) {
                         totalFailed++;
                         console.error(`   ❌ Failed: ${err.message}`);
                     }
 
-                    // Throttle to avoid 429 even with 14 keys
+                    // Throttle
                     await new Promise(r => setTimeout(r, 1500));
                 }
             } catch (err) {
                 console.error(`Error reading ${file}: ${err.message}`);
             }
         }
+        if (totalTargetCount >= MAX_TOTAL_ITEMS) break;
     }
 
-    console.log(`\n🏁 Fixation Complete!`);
-    console.log(`   Total Found: ${totalFound}`);
-    console.log(`   Total Fixed: ${totalFixed}`);
+    console.log(`\n🏁 Fixation Run Complete!`);
+    console.log(`   Total in Target: ${totalTargetCount}`);
+    console.log(`   Fixed in this run: ${totalFixedInThisRun}`);
     console.log(`   Total Failed: ${totalFailed}`);
 }
 

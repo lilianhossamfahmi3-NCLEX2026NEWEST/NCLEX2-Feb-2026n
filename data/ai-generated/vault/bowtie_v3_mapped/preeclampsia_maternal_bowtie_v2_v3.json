@@ -1,0 +1,267 @@
+{
+  "id": "preeclampsia_maternal_bowtie_v2",
+  "type": "bowtie",
+  "sentinelStatus": "healed_v2026_v12",
+  "scenarioMapCode": "SCN-PREECLAMPSIA-001",
+  "ehr": {
+    "ehr_map_code": "SCN-PREECLAMPSIA-001",
+    "patientProfile": {
+      "name": "Jane Doe",
+      "age": 32,
+      "gender": "Female",
+      "dob": "YYYY-MM-DD",
+      "codeStatus": "Full code",
+      "iso": "Standard",
+      "allergies": "None",
+      "height": "168 cm",
+      "weight": "82 kg",
+      "medicalHistory": "Gestational Diabetes (diet-controlled)",
+      "surgicalHistory": "None",
+      "socialHistory": "Married, non-smoker, no alcohol or illicit drug use."
+    },
+    "tabs": [
+      {
+        "id": "vitals",
+        "label": "Vitals",
+        "data": [
+          {
+            "time": "14:00",
+            "BP": "172/112 mmHg",
+            "HR": "98 bpm",
+            "RR": "20/min",
+            "Temp": "37.1°C",
+            "SpO2": "98%"
+          }
+        ]
+      },
+      {
+        "id": "labs",
+        "label": "Labs",
+        "data": [
+          {
+            "test": "Urinalysis, Dipstick",
+            "result": "Protein: +3",
+            "reference": "Negative"
+          },
+          {
+            "test": "Complete Blood Count",
+            "result": "Platelets: 160,000/mm³",
+            "reference": "150,000-450,000/mm³"
+          },
+          {
+            "test": "Liver Function Panel",
+            "result": "AST: 30 U/L, ALT: 35 U/L",
+            "reference": "AST: 10-40 U/L, ALT: 7-56 U/L"
+          }
+        ]
+      },
+      {
+        "id": "physical_exam",
+        "label": "Physical Exam",
+        "data": [
+          {
+            "system": "Neurological",
+            "findings": "Complains of severe headache and blurred vision with 'dark spots'. Alert and oriented to person, place, and time. Hyperreflexia noted with 3+ patellar reflexes bilaterally. Positive ankle clonus bilaterally."
+          },
+          {
+            "system": "Cardiovascular",
+            "findings": "Tachycardia present at 98 bpm. Auscultation reveals normal S1 and S2. No murmurs, rubs, or gallops noted. 3+ pitting edema in lower extremities bilaterally."
+          },
+          {
+            "system": "Respiratory",
+            "findings": "Respirations regular and unlabored at 20 breaths per minute. Breath sounds clear to auscultation bilaterally."
+          }
+        ]
+      },
+      {
+        "id": "radiology",
+        "label": "Radiology",
+        "data": [
+          {
+            "exam": "Chest X-Ray",
+            "report": "Chest X-ray unremarkable. No signs of pulmonary edema or infiltrates noted."
+          }
+        ]
+      },
+      {
+        "id": "care_plan",
+        "label": "Care Plan",
+        "data": [
+          {
+            "priority": "Prevent seizures and manage hypertension.",
+            "interventions": [
+              "Administer magnesium sulfate per protocol.",
+              "Implement seizure precautions: padded side rails, oxygen and suction at bedside.",
+              "Monitor blood pressure and neurological status closely.",
+              "Maintain strict intake and output."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mar",
+        "label": "MAR",
+        "data": [
+          {
+            "medication": "Magnesium Sulfate",
+            "dose": "4 g IV loading dose, then 2 g/hour continuous infusion",
+            "route": "IV",
+            "frequency": "Continuous",
+            "indication": "Preeclampsia with severe features"
+          },
+          {
+            "medication": "Labetalol",
+            "dose": "20 mg IV",
+            "route": "IV",
+            "frequency": "Every 20 minutes as needed",
+            "indication": "Hypertension"
+          }
+        ]
+      }
+    ]
+  },
+  "clinicalFeed": "SITUATION: This is the nurse on L&D. I'm calling about Jane Doe, a 32-year-old G1P0 at 34 weeks. She presented at 14:00 reporting a severe headache and visual disturbances described as 'dark spots.' BACKGROUND: Her history is significant for diet-controlled gestational diabetes; her pregnancy has been otherwise uncomplicated. ASSESSMENT: Vitals show a BP of 172/112 mmHg. She has 3+ pitting edema, and a urine dipstick is positive for +3 protein. RECOMMENDATION: I believe she has preeclampsia with severe features and requires immediate intervention. I am requesting an order to administer magnesium sulfate and implement seizure precautions.",
+  "stem": "The nurse has reviewed the client's electronic health record. Based on the assessment findings, the client is experiencing a hypertensive crisis of pregnancy. Complete the bowtie by identifying the condition, two priority actions, and two parameters to monitor.",
+  "potentialConditions": [
+    {
+      "id": "cond_1",
+      "text": "HELLP Syndrome",
+      "itemMapCode": "CONDITION-HELLP"
+    },
+    {
+      "id": "cond_2",
+      "text": "Gestational Hypertension",
+      "itemMapCode": "CONDITION-GHTN"
+    },
+    {
+      "id": "cond_3",
+      "text": "Preeclampsia with Severe Features",
+      "itemMapCode": "CONDITION-PREECLAMPSIA"
+    },
+    {
+      "id": "cond_4",
+      "text": "Chronic Hypertension with Superimposed Preeclampsia",
+      "itemMapCode": "CONDITION-CHTN"
+    }
+  ],
+  "condition": "cond_3",
+  "actions": [
+    {
+      "id": "act_1",
+      "text": "Administer IV magnesium sulfate.",
+      "itemMapCode": "ACTION-MAGSULFATE"
+    },
+    {
+      "id": "act_2",
+      "text": "Implement seizure precautions.",
+      "itemMapCode": "ACTION-SEIZUREPRECAUTIONS"
+    },
+    {
+      "id": "act_3",
+      "text": "Position in left lateral recumbent.",
+      "itemMapCode": "ACTION-LEFTLATERAL"
+    },
+    {
+      "id": "act_4",
+      "text": "Prepare for labor induction.",
+      "itemMapCode": "ACTION-LABORINDUCTION"
+    }
+  ],
+  "correctActionIds": [
+    "act_1",
+    "act_2"
+  ],
+  "parameters": [
+    {
+      "id": "param_1",
+      "text": "Deep tendon reflexes and clonus.",
+      "itemMapCode": "PARAM-DTR"
+    },
+    {
+      "id": "param_2",
+      "text": "Urine output and blood pressure.",
+      "itemMapCode": "PARAM-BP_UO"
+    },
+    {
+      "id": "param_3",
+      "text": "Blood glucose.",
+      "itemMapCode": "PARAM-GLUCOSE"
+    },
+    {
+      "id": "param_4",
+      "text": "Fetal heart rate.",
+      "itemMapCode": "PARAM-FHR"
+    }
+  ],
+  "correctParameterIds": [
+    "param_1",
+    "param_2"
+  ],
+  "hoverRationales": {
+    "cond_1": "This is incorrect. While a complication of severe preeclampsia, HELLP syndrome requires evidence of hemolysis, elevated liver enzymes, and low platelets, which are not present in the client's current lab data.",
+    "cond_2": "This is incorrect. Gestational hypertension is new-onset hypertension after 20 weeks gestation without proteinuria or signs of end-organ damage. This client has both significant proteinuria and neurological symptoms.",
+    "cond_3": "This diagnosis is correct. The client's hypertension (≥160/110 mmHg), proteinuria (+3), and neurological symptoms (headache, visual changes) are classic signs of preeclampsia with severe features, indicating end-organ damage.",
+    "cond_4": "This is incorrect. This diagnosis requires a history of chronic hypertension before 20 weeks gestation. The client's background indicates no prior history of hypertension.",
+    "act_1": "This is a correct action. Magnesium sulfate is a CNS depressant administered to prevent seizures (eclampsia) by raising the seizure threshold, which is the primary risk in severe preeclampsia.",
+    "act_2": "This is a correct action. The client's neurological irritability places them at high risk for seizures. Seizure precautions are a critical safety measure to prevent injury if a seizure occurs.",
+    "act_3": "This is an incorrect action. While this position improves uteroplacental perfusion, it is not the priority over preventing a life-threatening seizure. This is a supportive, not a primary, intervention.",
+    "act_4": "This is an incorrect action. While delivery is the definitive cure, maternal stabilization is the immediate priority. Induction would be considered only after the risk of seizure is managed.",
+    "param_1": "This is a correct parameter. Monitoring DTRs and clonus assesses CNS irritability and is crucial for detecting magnesium sulfate toxicity, which manifests as hyporeflexia or areflexia.",
+    "param_2": "This is a correct parameter. Oliguria indicates worsening renal perfusion and potential magnesium toxicity, while frequent BP checks are essential to evaluate the response to therapy and disease progression.",
+    "param_3": "This is an incorrect parameter to monitor. The client's history of gestational diabetes does not make blood glucose a priority in this acute hypertensive crisis. The primary pathology is vasospasm and endothelial damage.",
+    "param_4": "This is an incorrect parameter to monitor. While important for fetal well-being, the immediate life-threatening risk is to the mother. Maternal stabilization must be prioritized before focusing on fetal status."
+  },
+  "pedagogy": {
+    "bloomLevel": "analyze",
+    "cjmmStep": "takeAction",
+    "nclexCategory": "Reduction of Risk Potential",
+    "difficulty": 4,
+    "topicTags": [
+      "Maternity",
+      "Preeclampsia",
+      "Safety",
+      "Pharmacology"
+    ]
+  },
+  "scoring": {
+    "method": "polytomous",
+    "maxPoints": 5
+  },
+  "bowtie_map_code": "SCN-PREECLAMPSIA-001",
+  "companion_map_code": "SCN-PREECLAMPSIA-001",
+  "hud_map_code": "SCN-PREECLAMPSIA-001",
+  "studyCompanion": {
+    "pearls": [
+      {
+        "description": "Magnesium sulfate is the drug of choice for preventing seizures in preeclampsia. Monitor for signs of toxicity, including decreased respiratory rate, hyporeflexia, and decreased urine output.",
+        "strategy": "Always have calcium gluconate available as an antidote for magnesium sulfate toxicity."
+      },
+      {
+        "description": "Severe hypertension in preeclampsia can lead to stroke or placental abruption. Rapid control of blood pressure is crucial.",
+        "strategy": "Administer antihypertensive medications as ordered and monitor blood pressure frequently."
+      }
+    ],
+    "traps": [
+      {
+        "description": "Assuming that a headache is just a headache in a preeclamptic patient. It could be a sign of impending seizure or stroke.",
+        "strategy": "Always investigate new or worsening headaches in preeclamptic patients, especially if accompanied by visual changes or altered mental status. Perform a thorough neurological assessment."
+      },
+      {
+        "description": "Forgetting to monitor urine output in a patient receiving magnesium sulfate. Decreased urine output can indicate magnesium toxicity or renal dysfunction.",
+        "strategy": "Maintain strict intake and output monitoring. Report any significant decrease in urine output to the provider immediately."
+      }
+    ],
+    "mnemonics": [
+      {
+        "mnemonic": "HELLP",
+        "description": "Hemolysis, Elevated Liver enzymes, Low Platelets - Remember the key components of HELLP syndrome, a severe complication of preeclampsia."
+      },
+      {
+        "mnemonic": "BP DTR UO",
+        "description": "Blood Pressure, Deep Tendon Reflexes, Urine Output - Key assessments for a patient with preeclampsia receiving magnesium sulfate."
+      }
+    ]
+  },
+  "qualityMark": "NGN-2026-HI-FI-V3-MAPPED",
+  "lastFixed": "2026-03-02T18:58:46.058Z"
+}
