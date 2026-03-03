@@ -87,8 +87,8 @@ export default function EHRPanel({ patient, clinicalData, administeredMeds, onAd
                                     Allergy Alert: {patient.allergies.join(', ')}
                                 </span>
                             )}
-                            {typeof patient.allergies === 'string' && patient.allergies.length > 0 && (
-                                <span className={`pill allergy ${patient.allergies.toLowerCase() !== 'none' ? 'glowing' : ''}`}>
+                            {typeof (patient.allergies as any) === 'string' && (patient.allergies as any).length > 0 && (
+                                <span className={`pill allergy ${(patient.allergies as any).toLowerCase() !== 'none' ? 'glowing' : ''}`}>
                                     Allergy Alert: {patient.allergies}
                                 </span>
                             )}
