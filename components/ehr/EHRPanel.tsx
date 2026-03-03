@@ -77,14 +77,19 @@ export default function EHRPanel({ patient, clinicalData, administeredMeds, onAd
                     <div className="patient-meta">
                         <h2 className="patient-name">{patient.name}</h2>
                         <div className="patient-pills">
-                            <span className="pill age">{patient.age}Y • {patient.sex === 'F' ? 'Female' : 'Male'}</span>
-                            <span className={`pill code ${patient.codeStatus.includes('DNR') ? 'dnr' : 'full'}`}>
+                            <span className="pill age">{patient.age}Y • {String(patient.sex).startsWith('F') ? 'Female' : 'Male'}</span>
+                            <span className={`pill code ${String(patient.codeStatus || '').includes('DNR') ? 'dnr' : 'full'}`}>
                                 {patient.codeStatus}
                             </span>
                             <span className="pill iso">Isolation: {patient.iso}</span>
-                            {patient.allergies.length > 0 && (
-                                <span className={`pill allergy ${patient.allergies.some(a => a.toLowerCase() !== 'none') ? 'glowing' : ''}`}>
+                            {Array.isArray(patient.allergies) && patient.allergies.length > 0 && (
+                                <span className={`pill allergy ${patient.allergies.some(a => String(a).toLowerCase() !== 'none') ? 'glowing' : ''}`}>
                                     Allergy Alert: {patient.allergies.join(', ')}
+                                </span>
+                            )}
+                            {typeof patient.allergies === 'string' && patient.allergies.length > 0 && (
+                                <span className={`pill allergy ${patient.allergies.toLowerCase() !== 'none' ? 'glowing' : ''}`}>
+                                    Allergy Alert: {patient.allergies}
                                 </span>
                             )}
                         </div>

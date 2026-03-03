@@ -2401,10 +2401,26 @@ export function wrapStandalone(rawItem: MasterItem): CaseStudy {
 
     // 🚀 V3-MAPPED: If the item has embedded clinical context (Patient + Complete Data), use it directly
     if ((item as any).itemContext?.patient && (item as any).itemContext?.clinicalData) {
+        // Normalize patient data if needed
+        const patient = { ...(item as any).itemContext.patient };
+        if (typeof patient.allergies === 'string') patient.allergies = [patient.allergies];
+        if (!Array.isArray(patient.allergies)) patient.allergies = ["NKDA"];
+
+        if (typeof patient.sex === 'string') {
+            const s = patient.sex.toLowerCase();
+            if (s.startsWith('f')) patient.sex = 'F';
+            else if (s.startsWith('m')) patient.sex = 'M';
+            else patient.sex = 'Other';
+        }
+
+        if (typeof patient.age === 'string') {
+            patient.age = parseInt(patient.age.replace(/\D/g, ''), 10) || 45;
+        }
+
         return {
             id: `case-${item.id}`,
             title: item.stem?.substring(0, 60) || 'Clinical Scenario',
-            patient: (item as any).itemContext.patient,
+            patient: patient as any,
             clinicalData: (item as any).itemContext.clinicalData,
             items: [item],
             ehrPhases: {}
