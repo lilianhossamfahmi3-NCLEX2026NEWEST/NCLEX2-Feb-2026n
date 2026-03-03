@@ -20,7 +20,11 @@
     --glass-blur: blur(16px);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     background: var(--bg);
@@ -52,18 +56,36 @@ header.exam-header {
     z-index: 100;
 }
 
-.brand { display: flex; align-items: center; gap: 16px; }
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 .logo {
-    width: 44px; height: 44px;
+    width: 44px;
+    height: 44px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 900; color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: white;
     box-shadow: 0 0 25px var(--primary-glow);
     font-size: 1.1rem;
 }
 
-.status-bar { display: flex; align-items: center; gap: 32px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted-text); }
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-text);
+}
 
 /* Main Matrix Layout */
 .exam-matrix {
@@ -88,8 +110,14 @@ header.exam-header {
     padding: 24px;
 }
 
-.scroll-area::-webkit-scrollbar { width: 6px; }
-.scroll-area::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+.scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
 
 /* EHR Styling */
 .ehr-panel {
@@ -101,7 +129,7 @@ header.exam-header {
     display: flex;
     gap: 8px;
     padding: 12px 24px;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid var(--border);
     overflow-x: auto;
 }
@@ -146,7 +174,7 @@ header.exam-header {
     border-radius: 24px;
     border: 1px solid var(--border);
     padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     margin-bottom: 40px;
 }
 
@@ -166,7 +194,7 @@ header.exam-header {
 }
 
 .drop-zone {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     border: 2px dashed var(--border);
     border-radius: 16px;
     min-height: 80px;
@@ -177,7 +205,10 @@ header.exam-header {
     transition: all 0.2s;
 }
 
-.drop-zone.active { border-color: var(--primary); background: var(--primary-glow); }
+.drop-zone.active {
+    border-color: var(--primary);
+    background: var(--primary-glow);
+}
 
 .draggable-item {
     background: var(--bg-card);
@@ -190,10 +221,18 @@ header.exam-header {
     transition: all 0.2s;
 }
 
-.draggable-item:hover { border-color: var(--primary); transform: translateY(-2px); }
+.draggable-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
 
 /* MCQ / SATA Styling */
-.options-list { display: flex; flex-direction: column; gap: 12px; }
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .option-item {
     display: flex;
     align-items: center;
@@ -206,8 +245,15 @@ header.exam-header {
     transition: all 0.2s;
 }
 
-.option-item:hover { border-color: var(--primary); background: rgba(99, 102, 241, 0.1); }
-.option-item.selected { border-color: var(--primary); background: var(--primary-glow); }
+.option-item:hover {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.option-item.selected {
+    border-color: var(--primary);
+    background: var(--primary-glow);
+}
 
 /* Common Footer Actions */
 .exam-footer {
@@ -234,7 +280,10 @@ header.exam-header {
     transition: all 0.3s;
 }
 
-.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 30px var(--primary-glow); }
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px var(--primary-glow);
+}
 
 /* Rationale & Feedback */
 .rationale-panel {
@@ -246,18 +295,179 @@ header.exam-header {
     border: 1px solid var(--success);
 }
 
-.rationale-panel.visible { display: block; animation: slideUp 0.4s ease-out; }
+.rationale-panel.visible {
+    display: block;
+    animation: slideUp 0.4s ease-out;
+}
 
-@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+/* Expanded Interaction Styles */
+.cloze-template {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text);
+}
+
+.cloze-select {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.cloze-select:hover {
+    border-color: var(--primary);
+}
+
+.highlight-item {
+    cursor: pointer;
+    padding: 0 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+}
+
+.highlight-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom-color: var(--muted-text);
+}
+
+.highlight-item.selected {
+    background: var(--primary-glow);
+    border-bottom-color: var(--primary);
+    color: white;
+}
+
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.matrix-table th,
+.matrix-table td {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.matrix-table th {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--muted-text);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.matrix-table .row-label {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    width: 40%;
+}
+
+.matrix-input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.ranking-item {
+    margin-bottom: 8px;
+    cursor: move;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    padding: 16px;
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.ranking-item:hover {
+    border-color: var(--primary);
+    transform: translateX(5px);
+}
+
+.ranking-item.dragging {
+    opacity: 0.5;
+    border: 2px dashed var(--primary);
+}
+
+.inline-drop {
+    display: inline-block;
+    min-width: 120px;
+    height: 32px;
+    vertical-align: middle;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    margin: 0 8px;
+}
+
+.inline-drop .draggable-item {
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* Print Styles */
 @media print {
-    body { background: white; color: black; font-size: 10pt; }
-    .exam-header, .exam-footer, .ehr-tabs { display: none; }
-    .exam-matrix { display: block; }
-    .ehr-content, .question-card { border: 1px solid #ccc; box-shadow: none; break-inside: avoid; }
-    .rationale-panel { display: block !important; border: 1px solid #ddd; }
+    body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+    }
+
+    .exam-header,
+    .exam-footer,
+    .ehr-tabs {
+        display: none;
+    }
+
+    .exam-matrix {
+        display: block;
+    }
+
+    .ehr-content,
+    .question-card {
+        border: 1px solid #ccc;
+        box-shadow: none;
+        break-inside: avoid;
+    }
+
+    .rationale-panel {
+        display: block !important;
+        border: 1px solid #ddd;
+    }
 }
 
 /* Accessibility */
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

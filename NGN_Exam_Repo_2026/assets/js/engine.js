@@ -46,14 +46,14 @@
 
                 const id = opt.getAttribute('data-id');
 
-                if (type === 'multipleChoice') {
+                if (type === 'multipleChoice' || type === 'mcq') {
                     options.forEach(o => {
                         o.classList.remove('selected');
                         delete STATE.userAnswers[o.getAttribute('data-id')];
                     });
                     opt.classList.add('selected');
                     STATE.userAnswers[id] = true;
-                } else if (type === 'selectAll' || type === 'multipleResponse') {
+                } else if (type === 'selectAll' || type === 'multipleResponse' || type === 'sata' || type === 'matrix' || type === 'matrixMatch') {
                     opt.classList.toggle('selected');
                     if (opt.classList.contains('selected')) {
                         STATE.userAnswers[id] = true;
@@ -97,34 +97,161 @@
         });
     }
 
+    // --- Highlight Logic ---
+    function initHighlight() {
+        const highlights = document.querySelectorAll('.highlight-item');
+        highlights.forEach(el => {
+            el.addEventListener('click', () => {
+                if (STATE.isSubmitted) return;
+                el.classList.toggle('selected');
+                const idx = el.getAttribute('data-index');
+                if (el.classList.contains('selected')) {
+                    STATE.userAnswers[idx] = true;
+                } else {
+                    delete STATE.userAnswers[idx];
+                }
+            });
+        });
+    }
+
+    // --- Matrix Logic ---
+    function initMatrix() {
+        const inputs = document.querySelectorAll('.matrix-input');
+        inputs.forEach(input => {
+            input.addEventListener('change', () => {
+                if (STATE.isSubmitted) return;
+                const row = input.getAttribute('data-row');
+                const col = input.getAttribute('data-col');
+                const isCheck = input.getAttribute('type') === 'checkbox';
+
+                if (!STATE.userAnswers.matrix) STATE.userAnswers.matrix = {};
+
+                if (isCheck) {
+                    if (!STATE.userAnswers.matrix[row]) STATE.userAnswers.matrix[row] = [];
+                    if (input.checked) {
+                        STATE.userAnswers.matrix[row].push(parseInt(col));
+                    } else {
+                        STATE.userAnswers.matrix[row] = STATE.userAnswers.matrix[row].filter(c => c !== parseInt(col));
+                    }
+                } else {
+                    STATE.userAnswers.matrix[row] = parseInt(col);
+                }
+            });
+        });
+    }
+
+    // --- Dropdown / Select Logic ---
+    function initDropdowns() {
+        const selects = document.querySelectorAll('.cloze-select');
+        selects.forEach(sel => {
+            sel.addEventListener('change', () => {
+                if (STATE.isSubmitted) return;
+                const id = sel.getAttribute('data-id');
+                STATE.userAnswers[id] = sel.value;
+            });
+        });
+    }
+
+    // --- Ranking Logic ---
+    function initRanking() {
+        const containers = document.querySelectorAll('.ranking-zone');
+        containers.forEach(container => {
+            container.addEventListener('dragover', e => {
+                e.preventDefault();
+                const dragging = document.querySelector('.dragging');
+                if (!dragging) return;
+                const afterElement = getDragAfterElement(container, e.clientY);
+                if (afterElement == null) {
+                    container.appendChild(dragging);
+                } else {
+                    container.insertBefore(dragging, afterElement);
+                }
+            });
+        });
+    }
+
+    function getDragAfterElement(container, y) {
+        const draggableElements = [...container.querySelectorAll('.draggable-item:not(.dragging)')];
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
     // --- Scoring Logic ---
     function calculateScore() {
-        // This is a simplified version; real-world NGN uses complex polytomous scoring (+/-1)
-        // Here we'll implement a basic match check for the demonstration.
         const itemType = document.body.getAttribute('data-item-type');
         let points = 0;
 
-        if (itemType === 'multipleChoice') {
+        if (itemType === 'multipleChoice' || itemType === 'mcq') {
             const correctId = document.body.getAttribute('data-correct-id');
             if (STATE.userAnswers[correctId]) points = 1;
+        } else if (itemType === 'selectAll' || itemType === 'multipleResponse' || itemType === 'sata') {
+            const correctIds = (document.body.getAttribute('data-correct-options') || "").split(',');
+            const selectedIds = Object.keys(STATE.userAnswers);
+            selectedIds.forEach(id => {
+                if (correctIds.includes(id)) points += 1;
+                else points -= 1;
+            });
+            if (points < 0) points = 0;
+        } else if (itemType === 'clozeDropdown' || itemType === 'dragAndDropCloze') {
+            const correctBlanks = JSON.parse(document.body.getAttribute('data-correct-blanks') || "{}");
+            if (itemType === 'dragAndDropCloze') {
+                document.querySelectorAll('.inline-drop').forEach(drop => {
+                    const id = drop.getAttribute('data-id');
+                    const val = drop.querySelector('.draggable-item')?.getAttribute('data-id');
+                    if (val === correctBlanks[id]) points += 1;
+                });
+            } else {
+                Object.keys(correctBlanks).forEach(id => {
+                    if (STATE.userAnswers[id] === correctBlanks[id]) points += 1;
+                });
+            }
+        } else if (itemType === 'highlight') {
+            const correctSpans = (document.body.getAttribute('data-correct-spans') || "").split(',');
+            Object.keys(STATE.userAnswers).forEach(idx => {
+                if (correctSpans.includes(idx)) points += 1;
+                else points -= 1;
+            });
+            if (points < 0) points = 0;
+        } else if (itemType === 'matrixMatch' || itemType === 'matrix') {
+            const correctMatrix = JSON.parse(document.body.getAttribute('data-correct-matrix') || "[]");
+            const userMatrix = STATE.userAnswers.matrix || {};
+            correctMatrix.forEach((correct, rowIdx) => {
+                const userVal = userMatrix[rowIdx];
+                if (Array.isArray(correct)) {
+                    (userVal || []).forEach(v => {
+                        if (correct.includes(v)) points += 1;
+                        else points -= 1;
+                    });
+                } else {
+                    if (userVal === correct) points += 1;
+                }
+            });
+            if (points < 0) points = 0;
+        } else if (itemType === 'orderedResponse') {
+            const correctOrder = (document.body.getAttribute('data-correct-order') || "").split(',');
+            const userOrder = [...document.querySelectorAll('.ranking-item')].map(el => el.getAttribute('data-id'));
+            userOrder.forEach((id, idx) => {
+                if (id === correctOrder[idx]) points += 1;
+            });
         } else if (itemType === 'bowtie') {
             const centerId = document.body.getAttribute('data-correct-condition');
             const actionIds = (document.body.getAttribute('data-correct-actions') || "").split(',');
             const paramIds = (document.body.getAttribute('data-correct-params') || "").split(',');
 
-            // Check center
-            const centerDrop = document.getElementById('drop-condition');
-            const selectedCenter = centerDrop.querySelector('.draggable-item')?.getAttribute('data-id');
-            if (selectedCenter === centerId) points += 2; // Weighting condition higher
+            const selectedCenter = document.getElementById('drop-condition')?.querySelector('.draggable-item')?.getAttribute('data-id');
+            if (selectedCenter === centerId) points += 2;
 
-            // Check actions
-            const actionsDrop = document.getElementById('drop-actions');
-            const selectedActions = Array.from(actionsDrop.querySelectorAll('.draggable-item')).map(el => el.getAttribute('data-id'));
+            const selectedActions = Array.from(document.getElementById('drop-actions')?.querySelectorAll('.draggable-item') || []).map(el => el.getAttribute('data-id'));
             selectedActions.forEach(id => { if (actionIds.includes(id)) points += 1; });
 
-            // Check params
-            const paramsDrop = document.getElementById('drop-params');
-            const selectedParams = Array.from(paramsDrop.querySelectorAll('.draggable-item')).map(el => el.getAttribute('data-id'));
+            const selectedParams = Array.from(document.getElementById('drop-params')?.querySelectorAll('.draggable-item') || []).map(el => el.getAttribute('data-id'));
             selectedParams.forEach(id => { if (paramIds.includes(id)) points += 1; });
         }
 
@@ -152,8 +279,11 @@
         document.querySelector('.rationale-panel').classList.add('visible');
         document.querySelector('.btn-submit').style.display = 'none';
 
-        // Mark correct/incorrect options
-        // ... implementation for highlighting ...
+        // Highlighting logic
+        document.querySelectorAll('.option-item, .highlight-item, .matrix-input, .cloze-select').forEach(el => {
+            el.disabled = true;
+            // Add visual feedback classes here...
+        });
 
         console.log(`Submitted Case ${itemId}. Score: ${STATE.score}`);
     }
@@ -163,6 +293,10 @@
         initTabs();
         initSelection();
         initDragAndDrop();
+        initHighlight();
+        initMatrix();
+        initDropdowns();
+        initRanking();
 
         const submitBtn = document.querySelector('.btn-submit');
         if (submitBtn) {

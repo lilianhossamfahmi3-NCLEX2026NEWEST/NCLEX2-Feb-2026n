@@ -8,6 +8,10 @@ const VAULT_DIRS = [
 
 const OUTPUT_ROOT = path.join(__dirname, 'NGN_Exam_Repo_2026');
 
+// --- Load Assets for Embedding ---
+const engineCSS = fs.readFileSync(path.join(OUTPUT_ROOT, 'assets', 'css', 'engine.css'), 'utf8');
+const engineJS = fs.readFileSync(path.join(OUTPUT_ROOT, 'assets', 'js', 'engine.js'), 'utf8');
+
 // --- HTML Template Builder ---
 function generateHTMLTemplate(item) {
     const type = item.type || "unknown";
@@ -61,14 +65,110 @@ function generateHTMLTemplate(item) {
                 </div>
             </div>
         `;
-    } else if (type === 'multipleChoice' || type === 'selectAll' || type === 'multipleResponse') {
+    } else if (type === 'multipleChoice' || type === 'selectAll' || type === 'multipleResponse' || type === 'sata' || type === 'mcq') {
         const options = (item.options || []).map(o => `
             <div class="option-item" data-id="${o.id}">
-                <div class="bullet">${type === 'multipleChoice' ? '○' : '□'}</div>
+                <div class="bullet">${(type === 'multipleChoice' || type === 'mcq') ? '○' : '□'}</div>
                 <div class="text">${o.text || o.content}</div>
                 <span class="rationale-trigger">?</span>
             </div>`).join('');
         questionBody = `<div class="options-list">${options}</div>`;
+    } else if (type === 'clozeDropdown') {
+        let template = item.template || "";
+        (item.blanks || []).forEach(blank => {
+            const dropdownHTML = `
+                <select class="cloze-select" data-id="${blank.id}">
+                    <option value="">-- select --</option>
+                    ${(blank.options || []).map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                </select>`;
+            template = template.replace(`{{${blank.id}}}`, dropdownHTML);
+        });
+        questionBody = `<div class="cloze-template">${template}</div>`;
+    } else if (type === 'highlight') {
+        let passage = item.passage || "";
+        if (passage.includes('[')) {
+            let index = 0;
+            passage = passage.replace(/\[([^\]]+)\]/g, (match, text) => {
+                return `<span class="highlight-item" data-index="${index++}">${text}</span>`;
+            });
+        } else {
+            // Split by sentence (lookback for sentence-ending punctuation, optional quote, followed by space/newline)
+            const sentences = passage.split(/(?<=[.!?]['"”]?)\s+/);
+            passage = sentences.map((s, idx) => `<span class="highlight-item" data-index="${idx}">${s.trim()}</span>`).join(' ');
+        }
+        questionBody = `<div class="highlight-passage">${passage}</div>`;
+    } else if (type === 'matrixMatch' || type === 'matrix') {
+        const rows = item.rows || [];
+        const cols = item.columns || item.cols || [];
+        const isMultipleResponse = item.scoring?.method === 'polytomous' || item.type === 'matrixMultipleChoice';
+
+        if (rows.length > 0 && cols.length > 0) {
+            questionBody = `
+                <div class="matrix-container">
+                    <table class="matrix-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                ${cols.map(c => `<th>${c.text || c}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rows.map((r, rIdx) => `
+                                <tr>
+                                    <td class="row-label">${r.text || r}</td>
+                                    ${cols.map((c, cIdx) => `
+                                        <td>
+                                            <input 
+                                                type="${isMultipleResponse ? 'checkbox' : 'radio'}" 
+                                                name="row-${rIdx}" 
+                                                data-row="${rIdx}" 
+                                                data-col="${cIdx}"
+                                                class="matrix-input"
+                                            >
+                                        </td>
+                                    `).join('')}
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        } else if (Array.isArray(item.matrix)) {
+            const options = item.matrix.map(o => `
+                <div class="option-item" data-id="${o.id}">
+                    <div class="bullet">□</div>
+                    <div class="text">${o.content || o.text}</div>
+                </div>`).join('');
+            questionBody = `<div class="options-list">${options}</div>`;
+        }
+
+    } else if (type === 'orderedResponse') {
+        const options = (item.options || []).map((o, idx) => `
+            <div class="draggable-item ranking-item" draggable="true" data-id="${o.id || idx}">
+                ${o.text || o.content}
+            </div>`).join('');
+        questionBody = `
+            <div class="ranking-container">
+                <div class="items-source drop-zone ranking-zone" data-type="ranking" data-max="99">${options}</div>
+            </div>
+        `;
+    } else if (type === 'dragAndDropCloze') {
+        let template = item.template || "";
+        (item.blanks || []).forEach(blank => {
+            const dropZoneHTML = `
+                <span class="drop-zone inline-drop" data-id="${blank.id}" data-max="1"></span>`;
+            template = template.replace(`{{${blank.id}}}`, dropZoneHTML);
+        });
+        const options = (item.options || []).map(o => `
+            <div class="draggable-item" draggable="true" data-id="${o.id}">${o.text}</div>`).join('');
+        questionBody = `
+            <div class="drag-cloze-container">
+                <div class="cloze-template" style="margin-bottom: 24px;">${template}</div>
+                <div class="items-source" style="display: flex; flex-wrap: wrap; gap: 12px; padding: 16px; background: rgba(0,0,0,0.2); border-radius: 12px;">
+                    ${options}
+                </div>
+            </div>
+        `;
     } else {
         questionBody = `<p>Item type [${type}] rendering in simplified mode.</p>`;
     }
@@ -80,16 +180,20 @@ function generateHTMLTemplate(item) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NGN Item - ${item.id}</title>
-    <link rel="stylesheet" href="../assets/css/engine.css">
-    <link rel="stylesheet" href="../../assets/css/engine.css"> <!-- Handle varied depths -->
+    <style>${engineCSS}</style>
 </head>
 <body 
     data-item-id="${item.id}" 
     data-item-type="${type}"
-    data-correct-id="${item.correctOptionId || ''}"
+    data-correct-id="${item.correctOptionId || (Array.isArray(item.options) ? item.options.find(o => o.isCorrect)?.id : '') || ''}"
+    data-correct-options="${(Array.isArray(item.options) ? item.options.filter(o => o.isCorrect).map(o => o.id).join(',') : '')}"
     data-correct-condition="${item.correctConditionId || item.condition || ''}"
     data-correct-actions="${(item.correctActionIds || []).join(',')}"
     data-correct-params="${(item.correctParameterIds || []).join(',')}"
+    data-correct-blanks='${JSON.stringify((item.blanks || []).reduce((acc, b) => { acc[b.id] = b.correctOption; return acc; }, {}))}'
+    data-correct-spans="${(item.correctSpanIndices || []).join(',')}"
+    data-correct-matrix='${JSON.stringify(item.rows?.map((r, i) => r.correctColIndex !== undefined ? r.correctColIndex : (r.correctColumns || [])) || (Array.isArray(item.matrix) ? item.matrix.filter(o => o.match).map(o => o.id) : []))}'
+    data-correct-order="${(Array.isArray(item.options) ? (item.correctOrder || item.options.map(o => o.id)).join(',') : '')}"
 >
     <div class="NGN-app">
         <header class="exam-header">
@@ -155,8 +259,7 @@ function generateHTMLTemplate(item) {
             </aside>
         </main>
     </div>
-    <script src="../assets/js/engine.js"></script>
-    <script src="../../assets/js/engine.js"></script> <!-- Final fallback depth -->
+    <script>${engineJS}</script>
 </body>
 </html>`;
 }

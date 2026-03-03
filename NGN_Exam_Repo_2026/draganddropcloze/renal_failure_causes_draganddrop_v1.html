@@ -4,16 +4,492 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NGN Item - renal_failure_causes_dragAndDrop_v1</title>
-    <link rel="stylesheet" href="../assets/css/engine.css">
-    <link rel="stylesheet" href="../../assets/css/engine.css"> <!-- Handle varied depths -->
+    <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+    --bg: #030712;
+    --bg-card: rgba(17, 24, 39, 0.7);
+    --text: #F8FAFC;
+    --muted-text: #94A3B8;
+    --primary: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.4);
+    --secondary: #0d9488;
+    --secondary-glow: rgba(13, 148, 136, 0.4);
+    --success: #10B981;
+    --success-glow: rgba(16, 185, 129, 0.3);
+    --error: #EF4444;
+    --error-glow: rgba(239, 68, 68, 0.3);
+    --warning: #F59E0B;
+    --border: rgba(255, 255, 255, 0.1);
+    --header-bg: rgba(15, 23, 42, 0.8);
+    --panel-bg: rgba(15, 23, 42, 0.6);
+    --glass-blur: blur(16px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(0.9rem, 1vw + 0.5rem, 1.1rem);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.NGN-app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Header Section */
+header.exam-header {
+    height: 72px;
+    background: var(--header-bg);
+    backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: white;
+    box-shadow: 0 0 25px var(--primary-glow);
+    font-size: 1.1rem;
+}
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-text);
+}
+
+/* Main Matrix Layout */
+.exam-matrix {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 450px 1fr 340px;
+    gap: 0;
+    overflow: hidden;
+}
+
+/* Scrollable Panels */
+.panel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--panel-bg);
+}
+
+.scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+/* EHR Styling */
+.ehr-panel {
+    border-right: 1px solid var(--border);
+    backdrop-filter: var(--glass-blur);
+}
+
+.ehr-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+}
+
+.ehr-tab {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--muted-text);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.ehr-tab.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.ehr-content {
+    background: var(--bg-card);
+    margin: 16px;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+/* Question Styling */
+.question-panel {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+}
+
+.question-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+.stem {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 32px;
+    color: var(--text);
+}
+
+/* Bowtie Specialized Styles */
+.bowtie-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.drop-zone {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px dashed var(--border);
+    border-radius: 16px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    transition: all 0.2s;
+}
+
+.drop-zone.active {
+    border-color: var(--primary);
+    background: var(--primary-glow);
+}
+
+.draggable-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: grab;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.draggable-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* MCQ / SATA Styling */
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option-item:hover {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.option-item.selected {
+    border-color: var(--primary);
+    background: var(--primary-glow);
+}
+
+/* Common Footer Actions */
+.exam-footer {
+    height: 96px;
+    background: var(--header-bg);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    backdrop-filter: var(--glass-blur);
+}
+
+.btn-submit {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 10px 20px var(--primary-glow);
+    transition: all 0.3s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px var(--primary-glow);
+}
+
+/* Rationale & Feedback */
+.rationale-panel {
+    display: none;
+    margin-top: 32px;
+    padding: 24px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 16px;
+    border: 1px solid var(--success);
+}
+
+.rationale-panel.visible {
+    display: block;
+    animation: slideUp 0.4s ease-out;
+}
+
+/* Expanded Interaction Styles */
+.cloze-template {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text);
+}
+
+.cloze-select {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--primary);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.cloze-select:hover {
+    border-color: var(--primary);
+}
+
+.highlight-item {
+    cursor: pointer;
+    padding: 0 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+}
+
+.highlight-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom-color: var(--muted-text);
+}
+
+.highlight-item.selected {
+    background: var(--primary-glow);
+    border-bottom-color: var(--primary);
+    color: white;
+}
+
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.matrix-table th,
+.matrix-table td {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.matrix-table th {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--muted-text);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.matrix-table .row-label {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    width: 40%;
+}
+
+.matrix-input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.ranking-item {
+    margin-bottom: 8px;
+    cursor: move;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    padding: 16px;
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.ranking-item:hover {
+    border-color: var(--primary);
+    transform: translateX(5px);
+}
+
+.ranking-item.dragging {
+    opacity: 0.5;
+    border: 2px dashed var(--primary);
+}
+
+.inline-drop {
+    display: inline-block;
+    min-width: 120px;
+    height: 32px;
+    vertical-align: middle;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    margin: 0 8px;
+}
+
+.inline-drop .draggable-item {
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+    }
+
+    .exam-header,
+    .exam-footer,
+    .ehr-tabs {
+        display: none;
+    }
+
+    .exam-matrix {
+        display: block;
+    }
+
+    .ehr-content,
+    .question-card {
+        border: 1px solid #ccc;
+        box-shadow: none;
+        break-inside: avoid;
+    }
+
+    .rationale-panel {
+        display: block !important;
+        border: 1px solid #ddd;
+    }
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}</style>
 </head>
 <body 
     data-item-id="renal_failure_causes_dragAndDrop_v1" 
     data-item-type="dragAndDropCloze"
     data-correct-id=""
+    data-correct-options=""
     data-correct-condition=""
     data-correct-actions=""
     data-correct-params=""
+    data-correct-blanks='{"cause1":"Intrarenal","cause2":"Prerenal"}'
+    data-correct-spans=""
+    data-correct-matrix='[]'
+    data-correct-order=",,"
 >
     <div class="NGN-app">
         <header class="exam-header">
@@ -40,7 +516,19 @@
                 <div class="scroll-area">
                     <div class="question-card">
                         <div class="stem">Classify the following clinical scenarios into prerenal or intrarenal causes of acute kidney injury (AKI).</div>
-                        <div class="interactive-area"><p>Item type [dragAndDropCloze] rendering in simplified mode.</p></div>
+                        <div class="interactive-area">
+            <div class="drag-cloze-container">
+                <div class="cloze-template" style="margin-bottom: 24px;">Acute tubular necrosis from nephrotoxic medications is a(n) 
+                <span class="drop-zone inline-drop" data-id="cause1" data-max="1"></span> cause of AKI, whereas severe dehydration leading to decreased renal perfusion is a(n) 
+                <span class="drop-zone inline-drop" data-id="cause2" data-max="1"></span> cause.</div>
+                <div class="items-source" style="display: flex; flex-wrap: wrap; gap: 12px; padding: 16px; background: rgba(0,0,0,0.2); border-radius: 12px;">
+                    
+            <div class="draggable-item" draggable="true" data-id="undefined">undefined</div>
+            <div class="draggable-item" draggable="true" data-id="undefined">undefined</div>
+            <div class="draggable-item" draggable="true" data-id="undefined">undefined</div>
+                </div>
+            </div>
+        </div>
                         
                         <div class="rationale-panel" id="rationale-main">
                             <h3 style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
@@ -87,7 +575,313 @@
             </aside>
         </main>
     </div>
-    <script src="../assets/js/engine.js"></script>
-    <script src="../../assets/js/engine.js"></script> <!-- Final fallback depth -->
+    <script>/**
+ * NGN Interactivity Engine v2026.1
+ * (c) 2024 Advanced Agentic Coding Team
+ */
+
+(function () {
+    const STATE = {
+        isSubmitted: false,
+        score: 0,
+        startTime: Date.now(),
+        userAnswers: {}
+    };
+
+    // --- Tab Logic ---
+    function initTabs() {
+        const tabs = document.querySelectorAll('.ehr-tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab-id');
+
+                // Toggle tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Toggle content
+                contents.forEach(c => {
+                    c.style.display = c.id === `tab-${tabId}` ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Set initial tab
+        if (tabs[0]) tabs[0].click();
+    }
+
+    // --- MCQ / SATA Selection Logic ---
+    function initSelection() {
+        const options = document.querySelectorAll('.option-item');
+        const type = document.body.getAttribute('data-item-type');
+
+        options.forEach(opt => {
+            opt.addEventListener('click', () => {
+                if (STATE.isSubmitted) return;
+
+                const id = opt.getAttribute('data-id');
+
+                if (type === 'multipleChoice' || type === 'mcq') {
+                    options.forEach(o => {
+                        o.classList.remove('selected');
+                        delete STATE.userAnswers[o.getAttribute('data-id')];
+                    });
+                    opt.classList.add('selected');
+                    STATE.userAnswers[id] = true;
+                } else if (type === 'selectAll' || type === 'multipleResponse' || type === 'sata' || type === 'matrix' || type === 'matrixMatch') {
+                    opt.classList.toggle('selected');
+                    if (opt.classList.contains('selected')) {
+                        STATE.userAnswers[id] = true;
+                    } else {
+                        delete STATE.userAnswers[id];
+                    }
+                }
+            });
+        });
+    }
+
+    // --- Drag and Drop Logic (Simple Implementation) ---
+    function initDragAndDrop() {
+        const draggables = document.querySelectorAll('.draggable-item');
+        const containers = document.querySelectorAll('.drop-zone');
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', () => {
+                draggable.classList.add('dragging');
+            });
+
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('dragging');
+            });
+        });
+
+        containers.forEach(container => {
+            container.addEventListener('dragover', e => {
+                e.preventDefault();
+                const draggable = document.querySelector('.dragging');
+                if (!draggable) return;
+
+                // Apply max capacity logic
+                const max = parseInt(container.getAttribute('data-max') || "99");
+                if (container.querySelectorAll('.draggable-item').length >= max && draggable.parentElement !== container) {
+                    return;
+                }
+
+                container.appendChild(draggable);
+            });
+        });
+    }
+
+    // --- Highlight Logic ---
+    function initHighlight() {
+        const highlights = document.querySelectorAll('.highlight-item');
+        highlights.forEach(el => {
+            el.addEventListener('click', () => {
+                if (STATE.isSubmitted) return;
+                el.classList.toggle('selected');
+                const idx = el.getAttribute('data-index');
+                if (el.classList.contains('selected')) {
+                    STATE.userAnswers[idx] = true;
+                } else {
+                    delete STATE.userAnswers[idx];
+                }
+            });
+        });
+    }
+
+    // --- Matrix Logic ---
+    function initMatrix() {
+        const inputs = document.querySelectorAll('.matrix-input');
+        inputs.forEach(input => {
+            input.addEventListener('change', () => {
+                if (STATE.isSubmitted) return;
+                const row = input.getAttribute('data-row');
+                const col = input.getAttribute('data-col');
+                const isCheck = input.getAttribute('type') === 'checkbox';
+
+                if (!STATE.userAnswers.matrix) STATE.userAnswers.matrix = {};
+
+                if (isCheck) {
+                    if (!STATE.userAnswers.matrix[row]) STATE.userAnswers.matrix[row] = [];
+                    if (input.checked) {
+                        STATE.userAnswers.matrix[row].push(parseInt(col));
+                    } else {
+                        STATE.userAnswers.matrix[row] = STATE.userAnswers.matrix[row].filter(c => c !== parseInt(col));
+                    }
+                } else {
+                    STATE.userAnswers.matrix[row] = parseInt(col);
+                }
+            });
+        });
+    }
+
+    // --- Dropdown / Select Logic ---
+    function initDropdowns() {
+        const selects = document.querySelectorAll('.cloze-select');
+        selects.forEach(sel => {
+            sel.addEventListener('change', () => {
+                if (STATE.isSubmitted) return;
+                const id = sel.getAttribute('data-id');
+                STATE.userAnswers[id] = sel.value;
+            });
+        });
+    }
+
+    // --- Ranking Logic ---
+    function initRanking() {
+        const containers = document.querySelectorAll('.ranking-zone');
+        containers.forEach(container => {
+            container.addEventListener('dragover', e => {
+                e.preventDefault();
+                const dragging = document.querySelector('.dragging');
+                if (!dragging) return;
+                const afterElement = getDragAfterElement(container, e.clientY);
+                if (afterElement == null) {
+                    container.appendChild(dragging);
+                } else {
+                    container.insertBefore(dragging, afterElement);
+                }
+            });
+        });
+    }
+
+    function getDragAfterElement(container, y) {
+        const draggableElements = [...container.querySelectorAll('.draggable-item:not(.dragging)')];
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    // --- Scoring Logic ---
+    function calculateScore() {
+        const itemType = document.body.getAttribute('data-item-type');
+        let points = 0;
+
+        if (itemType === 'multipleChoice' || itemType === 'mcq') {
+            const correctId = document.body.getAttribute('data-correct-id');
+            if (STATE.userAnswers[correctId]) points = 1;
+        } else if (itemType === 'selectAll' || itemType === 'multipleResponse' || itemType === 'sata') {
+            const correctIds = (document.body.getAttribute('data-correct-options') || "").split(',');
+            const selectedIds = Object.keys(STATE.userAnswers);
+            selectedIds.forEach(id => {
+                if (correctIds.includes(id)) points += 1;
+                else points -= 1;
+            });
+            if (points < 0) points = 0;
+        } else if (itemType === 'clozeDropdown' || itemType === 'dragAndDropCloze') {
+            const correctBlanks = JSON.parse(document.body.getAttribute('data-correct-blanks') || "{}");
+            if (itemType === 'dragAndDropCloze') {
+                document.querySelectorAll('.inline-drop').forEach(drop => {
+                    const id = drop.getAttribute('data-id');
+                    const val = drop.querySelector('.draggable-item')?.getAttribute('data-id');
+                    if (val === correctBlanks[id]) points += 1;
+                });
+            } else {
+                Object.keys(correctBlanks).forEach(id => {
+                    if (STATE.userAnswers[id] === correctBlanks[id]) points += 1;
+                });
+            }
+        } else if (itemType === 'highlight') {
+            const correctSpans = (document.body.getAttribute('data-correct-spans') || "").split(',');
+            Object.keys(STATE.userAnswers).forEach(idx => {
+                if (correctSpans.includes(idx)) points += 1;
+                else points -= 1;
+            });
+            if (points < 0) points = 0;
+        } else if (itemType === 'matrixMatch' || itemType === 'matrix') {
+            const correctMatrix = JSON.parse(document.body.getAttribute('data-correct-matrix') || "[]");
+            const userMatrix = STATE.userAnswers.matrix || {};
+            correctMatrix.forEach((correct, rowIdx) => {
+                const userVal = userMatrix[rowIdx];
+                if (Array.isArray(correct)) {
+                    (userVal || []).forEach(v => {
+                        if (correct.includes(v)) points += 1;
+                        else points -= 1;
+                    });
+                } else {
+                    if (userVal === correct) points += 1;
+                }
+            });
+            if (points < 0) points = 0;
+        } else if (itemType === 'orderedResponse') {
+            const correctOrder = (document.body.getAttribute('data-correct-order') || "").split(',');
+            const userOrder = [...document.querySelectorAll('.ranking-item')].map(el => el.getAttribute('data-id'));
+            userOrder.forEach((id, idx) => {
+                if (id === correctOrder[idx]) points += 1;
+            });
+        } else if (itemType === 'bowtie') {
+            const centerId = document.body.getAttribute('data-correct-condition');
+            const actionIds = (document.body.getAttribute('data-correct-actions') || "").split(',');
+            const paramIds = (document.body.getAttribute('data-correct-params') || "").split(',');
+
+            const selectedCenter = document.getElementById('drop-condition')?.querySelector('.draggable-item')?.getAttribute('data-id');
+            if (selectedCenter === centerId) points += 2;
+
+            const selectedActions = Array.from(document.getElementById('drop-actions')?.querySelectorAll('.draggable-item') || []).map(el => el.getAttribute('data-id'));
+            selectedActions.forEach(id => { if (actionIds.includes(id)) points += 1; });
+
+            const selectedParams = Array.from(document.getElementById('drop-params')?.querySelectorAll('.draggable-item') || []).map(el => el.getAttribute('data-id'));
+            selectedParams.forEach(id => { if (paramIds.includes(id)) points += 1; });
+        }
+
+        return points;
+    }
+
+    // --- Submission ---
+    function submit() {
+        if (STATE.isSubmitted) return;
+
+        STATE.isSubmitted = true;
+        STATE.score = calculateScore();
+
+        // Save to localStorage
+        const itemId = document.body.getAttribute('data-item-id');
+        const record = {
+            id: itemId,
+            score: STATE.score,
+            submittedAt: new Date().toISOString(),
+            timeSpent: Math.round((Date.now() - STATE.startTime) / 1000)
+        };
+        localStorage.setItem(`ngn_result_${itemId}`, JSON.stringify(record));
+
+        // UI Feedback
+        document.querySelector('.rationale-panel').classList.add('visible');
+        document.querySelector('.btn-submit').style.display = 'none';
+
+        // Highlighting logic
+        document.querySelectorAll('.option-item, .highlight-item, .matrix-input, .cloze-select').forEach(el => {
+            el.disabled = true;
+            // Add visual feedback classes here...
+        });
+
+        console.log(`Submitted Case ${itemId}. Score: ${STATE.score}`);
+    }
+
+    // --- Init App ---
+    window.addEventListener('DOMContentLoaded', () => {
+        initTabs();
+        initSelection();
+        initDragAndDrop();
+        initHighlight();
+        initMatrix();
+        initDropdowns();
+        initRanking();
+
+        const submitBtn = document.querySelector('.btn-submit');
+        if (submitBtn) {
+            submitBtn.addEventListener('click', submit);
+        }
+    });
+
+})();
+</script>
 </body>
 </html>
