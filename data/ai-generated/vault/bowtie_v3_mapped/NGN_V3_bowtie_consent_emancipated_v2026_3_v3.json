@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_consent_emancipated_v2026_3",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 16-year-old client, Jamie Smith, arrives for a scheduled appendectomy without a legal guardian, stating they are emancipated and can provide self-consent. Based on the EHR, complete the bowtie by selecting the potential condition, two actions to take, and two parameters to monitor.",
+  "stem": "A 16-year-old client, Jamie Smith, arrives for a scheduled appendectomy without a legal guardian, stating they are emancipated and can provide self-consent. Based on the EHR, complete the bowtie by selecting the potential condition, two actions to take, and two parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "Jamie Smith",
@@ -10,6 +10,55 @@
       "codeStatus": "Full code",
       "iso": "Standard",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "09:15": {
+          "temp": "99.1°F (37.3°C)",
+          "bp": "122/74 mmHg",
+          "hr": "88/min",
+          "rr": "18/min",
+          "spo2": "99%"
+        }
+      },
+      "labResults": {},
+      "physicalExam": {
+        "general": "Alert and oriented to person, place, and time. Appears stated age. No acute distress noted.",
+        "cardiovascular": "Regular rate and rhythm, no murmurs, rubs, or gallops auscultated. Peripheral pulses 2+ bilaterally.",
+        "respiratory": "Lungs clear to auscultation bilaterally. No wheezes, crackles, or rhonchi noted.",
+        "gastrointestinal": "Abdomen soft, non-tender, bowel sounds present in all four quadrants."
+      },
+      "radiology": {
+        "ctAbdomenPelvis": "Appendix is enlarged, measuring 1.2 cm in diameter, with surrounding inflammatory changes. No evidence of perforation or abscess. A small amount of free fluid is present in the pelvis. Findings are consistent with acute appendicitis."
+      },
+      "medications": [
+        {
+          "name": "Ondansetron",
+          "dosage": "4 mg",
+          "route": "IV",
+          "frequency": "q6h PRN nausea",
+          "scheduledTime": "PRN"
+        },
+        {
+          "name": "Acetaminophen",
+          "dosage": "650 mg",
+          "route": "PO",
+          "frequency": "q4h PRN pain",
+          "scheduledTime": "PRN"
+        },
+        {
+          "name": "Cefazolin",
+          "dosage": "2 grams",
+          "route": "IV",
+          "frequency": "Pre-op, single dose",
+          "scheduledTime": "09:00"
+        }
+      ],
+      "nursingOrders": [
+        "Verify legal emancipation status and ensure proper consent is obtained.",
+        "Pre-operative teaching regarding appendectomy procedure and post-operative care.",
+        "Pain management post-operatively."
+      ]
     },
     "tabs": [
       {
@@ -185,8 +234,46 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:00:08.292Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:00:08.291Z",
+  "conditionId": "c1",
+  "correctActionIds": [
+    "a1",
+    "a3"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p3"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "The client's legal emancipation status allows them to provide self-consent.",
+      "c2": "The client is seeking care, negating medical neglect.",
+      "c3": "The client understands the procedure; the issue is legal capacity.",
+      "a1": "Verifying the court decree confirms the client's right to self-consent.",
+      "a2": "Delaying surgery violates the client's rights as an emancipated minor.",
+      "a3": "Witnessing the signature validates the client's voluntary consent.",
+      "a4": "Emergency surgery is unnecessary as the client can consent.",
+      "p1": "Assessing understanding ensures informed consent.",
+      "p2": "Parental presence is not required for emancipated minors.",
+      "p3": "Provider awareness ensures respect for the client's legal status.",
+      "p4": "The court decree supersedes general age of majority rules."
+    }
+  },
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "Emancipated Minor Status (Self-Consent Eligible)"
+    },
+    {
+      "id": "c2",
+      "text": "Medical Neglect (Requires Child Protective Services)"
+    },
+    {
+      "id": "c3",
+      "text": "Informed Consent Deficit (Requires Surgeon's Intervention)"
+    }
+  ]
 }

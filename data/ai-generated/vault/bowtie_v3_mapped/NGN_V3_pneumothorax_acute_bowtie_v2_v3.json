@@ -3,12 +3,12 @@
   "type": "bowtie",
   "ehr": {
     "patientProfile": {
-      "name": "John Doe",
+      "name": "Jake Lawson",
       "age": "19 years",
       "gender": "Male",
       "codeStatus": "Full Code",
       "isoStatus": "Standard Precautions",
-      "allergies": "No Known Allergies"
+      "allergies": "NKDA"
     },
     "tabs": [
       {
@@ -22,6 +22,14 @@
             "rr": "28/min",
             "bp": "128/84 mmHg",
             "spo2": "91% on Room Air"
+          },
+          {
+            "time": "14:15",
+            "temp": "37.1 C (98.8 F)",
+            "hr": "115/min",
+            "rr": "30/min",
+            "bp": "130/86 mmHg",
+            "spo2": "89% on Room Air"
           }
         ]
       },
@@ -31,7 +39,7 @@
         "content": [
           {
             "system": "Respiratory",
-            "findings": "Absent breath sounds on the left side, hyperresonance to percussion on the left, increased respiratory effort with use of accessory muscles."
+            "findings": "Absent breath sounds on the left side, hyperresonance to percussion on the left, increased respiratory effort with use of accessory muscles. Trachea midline."
           },
           {
             "system": "Cardiovascular",
@@ -108,7 +116,7 @@
   "itemContext": {
     "sbar": "S: (14:00) This is the nurse calling about a 19-year-old male with acute left-sided chest pain. He has absent breath sounds on the left, a respiratory rate of 28, and an SpO2 of 91% on room air. B: The pain started suddenly while he was playing basketball. He is tall, thin, and has no significant past medical history. A: I suspect a primary spontaneous pneumothorax. He is in respiratory distress. R: I recommend applying high-flow oxygen and need an order to prepare for chest tube insertion."
   },
-  "stem": "[V3-MAPPED-2026] A 19-year-old male presents with sudden left-sided chest pain and absent breath sounds on the left. His respiratory rate is 28/min and SpO2 is 91% on room air. Based on the client's presentation, complete the bowtie to guide immediate management.",
+  "stem": "A 19-year-old male presents with sudden left-sided chest pain and absent breath sounds on the left. His respiratory rate is 28/min and SpO2 is 91% on room air. Based on the client's presentation, complete the bowtie to guide immediate management.",
   "potentialConditions": [
     {
       "id": "cond1",
@@ -127,7 +135,7 @@
       "text": "Pulmonary Embolism"
     }
   ],
-  "condition": "cond2",
+  "conditionId": "cond2",
   "actions": [
     {
       "id": "action1",
@@ -147,14 +155,14 @@
       "id": "action3",
       "text": "Administer IV Morphine",
       "isCorrect": false,
-      "rationale": "This is a clinical flaw as administering opioids can depress the respiratory drive, worsening hypoxia. The priority is to correct the underlying gas exchange impairment, not to manage pain first in this acute scenario.",
+      "rationale": "Administering opioids can depress the respiratory drive, worsening hypoxia. The priority is to correct the underlying gas exchange impairment, not to manage pain first in this acute scenario. Monitor respiratory status closely if pain medication is administered.",
       "itemMapCode": "ACTION-MORPHINE-003"
     },
     {
       "id": "action4",
       "text": "Encourage incentive spirometry",
       "isCorrect": false,
-      "rationale": "This is a clinical flaw as incentive spirometry is used to prevent atelectasis, not treat a pneumothorax. Attempting a deep inspiration against a collapsed lung is ineffective and may increase pain.",
+      "rationale": "Incentive spirometry is used to prevent atelectasis, not treat a pneumothorax. Attempting a deep inspiration against a collapsed lung is ineffective and may increase pain.",
       "itemMapCode": "ACTION-SPIROMETRY-004"
     }
   ],
@@ -177,14 +185,14 @@
       "id": "param3",
       "text": "Heart rate",
       "isCorrect": false,
-      "rationale": "This is a clinical flaw because while tachycardia may be present due to hypoxia, it is not the most specific indicator for a pneumothorax's severity. Respiratory parameters provide more direct data on the client's status.",
+      "rationale": "While tachycardia may be present due to hypoxia, it is not the most specific indicator for a pneumothorax's severity. Respiratory parameters provide more direct data on the client's status.",
       "itemMapCode": "PARAM-HR-003"
     },
     {
       "id": "param4",
       "text": "Serum electrolytes",
       "isCorrect": false,
-      "rationale": "This is a clinical flaw as serum electrolytes are not relevant to the immediate management of a pneumothorax. This intervention delays care for an acute respiratory emergency.",
+      "rationale": "Serum electrolytes are not relevant to the immediate management of a pneumothorax. This intervention delays care for an acute respiratory emergency.",
       "itemMapCode": "PARAM-ELECTROLYTES-004"
     }
   ],
@@ -249,8 +257,20 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:24:02.598Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:24:02.598Z",
+  "rationale": {
+    "answerBreakdown": {
+      "action1": "High-flow oxygen corrects hypoxemia caused by the collapsed lung's inability to participate in gas exchange. It also helps accelerate the resorption of pleural air, aiding in lung re-expansion.",
+      "action2": "Chest tube insertion is the definitive treatment to evacuate air from the pleural space. This allows the collapsed lung to re-expand, which restores normal negative intrapleural pressure and improves ventilation.",
+      "action3": "Administering opioids can depress the respiratory drive, worsening hypoxia. The priority is to correct the underlying gas exchange impairment, not to manage pain first in this acute scenario. Monitor respiratory status closely if pain medication is administered.",
+      "action4": "Incentive spirometry is used to prevent atelectasis, not treat a pneumothorax. Attempting a deep inspiration against a collapsed lung is ineffective and may increase pain.",
+      "param1": "Monitoring respiratory rate and effort directly assesses the work of breathing and severity of respiratory distress. Worsening tachypnea or use of accessory muscles indicates the client is decompensating.",
+      "param2": "Tracheal deviation is a critical sign of a tension pneumothorax, a life-threatening complication. This indicates a mediastinal shift, which compromises cardiac output and ventilation, requiring immediate intervention.",
+      "param3": "While tachycardia may be present due to hypoxia, it is not the most specific indicator for a pneumothorax's severity. Respiratory parameters provide more direct data on the client's status.",
+      "param4": "Serum electrolytes are not relevant to the immediate management of a pneumothorax. This intervention delays care for an acute respiratory emergency."
+    }
+  }
 }

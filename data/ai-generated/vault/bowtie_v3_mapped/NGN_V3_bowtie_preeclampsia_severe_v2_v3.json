@@ -52,7 +52,7 @@
     ]
   },
   "clinicalFeed": "Situation: This is the nurse on the antepartum unit calling about Jane Doe, a 32-year-old G1P0 at 34 weeks gestation. Background: She has a history of gestational hypertension and was admitted at 08:00 for observation. Assessment: Her condition has worsened. She now reports a severe headache, visual disturbances, and epigastric pain. Her BP is 162/110 mmHg with 3+ proteinuria and a platelet count of 90,000/mcL. She also has elevated AST and ALT. Recommendation: I suspect preeclampsia with severe features, possibly progressing to HELLP syndrome. I have initiated seizure precautions and request orders for IV magnesium sulfate and labetalol. I have also drawn labs for HELLP syndrome confirmation.",
-  "stem": "[V3-MAPPED-2026] The nurse has reported a significant change in the client's condition to the provider. The client's assessment findings are indicative of preeclampsia with severe features. Complete the bowtie by selecting the two most likely causes, two priority actions, and two parameters to monitor.",
+  "stem": "The nurse has reported a significant change in the client's condition to the provider. The client's assessment findings are indicative of preeclampsia with severe features. Complete the bowtie by selecting the two most likely causes, two priority actions, and two parameters to monitor.",
   "potentialConditions": [
     {
       "id": "pc1",
@@ -71,7 +71,7 @@
       "text": "Chronic Hypertension with Superimposed Preeclampsia"
     }
   ],
-  "condition": "pc1",
+  "conditionId": "pc1",
   "causes": [
     {
       "id": "c1",
@@ -246,8 +246,83 @@
     "c4": "CAUSE-AGE",
     "c5": "CAUSE-RENAL"
   },
-  "qualityMark": "NGN-2026-HI-FI-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:48:50.822Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:48:50.822Z",
+  "itemContext": {
+    "patient": {
+      "name": "Jane Doe",
+      "age": 32,
+      "sex": "Female",
+      "codeStatus": "Full Code",
+      "iso": "Standard Precautions",
+      "allergies": "No Known Allergies"
+    },
+    "clinicalData": {
+      "vitals": {
+        "time": "08:00",
+        "bloodPressure": "162/110 mmHg",
+        "heartRate": "98/min",
+        "respiratoryRate": "20/min",
+        "temperature": "37.1°C (98.8°F)",
+        "spO2": "98% on room air"
+      },
+      "labResults": {
+        "urinalysis": {
+          "protein": "3+",
+          "glucose": "Negative",
+          "ketones": "Negative"
+        },
+        "cbc": {
+          "platelets": "90,000/mcL"
+        },
+        "cmp": {
+          "ast": "95 U/L",
+          "alt": "110 U/L"
+        }
+      },
+      "physicalExam": {
+        "general": "Appears anxious, diaphoretic",
+        "neuro": "Complaining of severe headache and blurred vision. Hyperreflexia noted (3+). No clonus.",
+        "cardiovascular": "+3 pitting edema in bilateral lower extremities. No murmurs auscultated.",
+        "respiratory": "Lungs clear to auscultation bilaterally.",
+        "gi": "Reports epigastric pain upon palpation."
+      },
+      "radiology": "No radiology reports available. (Note: Imaging is generally avoided unless other conditions are suspected. Ultrasound may be used to assess fetal well-being.)",
+      "medications": {
+        "mar": [
+          "Magnesium Sulfate 4g IV loading dose over 20 minutes, then 2g/hour continuous infusion.",
+          "Labetalol 20mg IV push, may repeat every 10-20 minutes as needed, up to a maximum dose of 300mg.",
+          "Maintenance IV fluids: Lactated Ringers at 125 mL/hour."
+        ]
+      },
+      "nursingOrders": [
+        "Administer medications as prescribed (magnesium sulfate, labetalol).",
+        "Implement seizure precautions (padded side rails, oxygen readily available).",
+        "Strict I&O monitoring.",
+        "Frequent neurological assessments (LOC, reflexes).",
+        "Continuous fetal monitoring."
+      ]
+    }
+  },
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Placental ischemia is a primary cause of preeclampsia due to inadequate blood flow to the placenta, triggering endothelial dysfunction.",
+      "c2": "Abnormal spiral artery remodeling leads to placental hypoperfusion, a root cause of preeclampsia.",
+      "c3": "Excessive dietary sodium intake is not a direct cause of preeclampsia; the disease is primarily one of vasospasm and endothelial damage.",
+      "c4": "Maternal age over 40 years is a risk factor, not the underlying pathophysiological mechanism of preeclampsia.",
+      "c5": "Pre-existing renal disease is a risk factor but not the primary placental pathology initiating preeclampsia.",
+      "a1": "Magnesium sulfate is administered to prevent eclamptic seizures, a life-threatening complication of severe preeclampsia.",
+      "a2": "Labetalol is a first-line antihypertensive agent used to safely lower severely elevated blood pressure.",
+      "a3": "Amniocentesis is not relevant to the acute management of a hypertensive crisis in preeclampsia.",
+      "a4": "Ambulation is contraindicated as it can increase CNS stimulation and blood pressure, raising the risk of seizures.",
+      "a5": "Diuretics can worsen intravascular volume depletion and decrease placental perfusion, which is harmful in preeclampsia.",
+      "p1": "Monitoring deep tendon reflexes is essential to detect magnesium sulfate toxicity.",
+      "p2": "Monitoring hourly urine output is critical as oliguria indicates worsening renal function and magnesium toxicity.",
+      "p3": "Fundal height measures fetal growth over time and is not useful for monitoring the client's immediate response to acute interventions.",
+      "p4": "Fetal kick counts do not monitor the client's response to magnesium sulfate or antihypertensive therapy.",
+      "p5": "Daily weight is not sensitive enough for acute monitoring of the physiological response to critical medications."
+    }
+  }
 }

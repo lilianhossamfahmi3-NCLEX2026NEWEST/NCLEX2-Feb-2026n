@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_ortho_fat_embolism_v2026_80",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 19-year-old client is 24 hours post-injury from a comminuted femur fracture and develops acute respiratory distress. Based on the client's electronic health record, complete the bowtie. Select the potential condition, two actions to take, and two parameters to monitor.",
+  "stem": "A 19-year-old client is 24 hours post-injury from a comminuted femur fracture and develops acute respiratory distress. Based on the client's electronic health record, complete the bowtie. Select the potential condition, two actions to take, and two parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "John Smith",
@@ -47,7 +47,52 @@
         "title": "Care Plan",
         "content": "Nursing Priorities:\n1. Optimize oxygenation and ventilation.\n2. Prevent further embolization.\n3. Monitor neurological status.\n\nNursing Interventions:\n1. Administer high-flow oxygen as prescribed; prepare for possible intubation and mechanical ventilation.\n2. Maintain strict immobilization of the fractured extremity.\n3. Assess neurological status frequently (GCS, LOC, pupillary response).\n4. Monitor vital signs, ABGs, and respiratory status closely.\n5. Provide emotional support and reduce anxiety."
       }
-    ]
+    ],
+    "clinicalData": {
+      "vitals": {
+        "bp": "108/62 mmHg",
+        "hr": "122/min",
+        "rr": "32/min",
+        "temp": "38.6° C (101.4° F)",
+        "spo2": "84% on 4 L/min via nasal cannula"
+      },
+      "labs": {
+        "hemoglobin": "14.5 g/dL",
+        "platelets": "250,000/mm³",
+        "abg": "Pending",
+        "cbc": "Pending"
+      },
+      "physicalExam": {
+        "general": "Appears anxious and restless.",
+        "neurological": "GCS 14 (E4, V4, M6), confused, oriented to person only.",
+        "respiratory": "Increased work of breathing, diffuse crackles bilaterally, SpO2 84% on 4L NC.",
+        "cardiovascular": "Tachycardia, regular rhythm, no murmurs auscultated. Capillary refill < 3 seconds.",
+        "skin": "Petechial rash noted on chest and axillae.",
+        "musculoskeletal": "Femur fracture site stable in traction, no signs of compartment syndrome in lower extremities."
+      },
+      "radiology": {
+        "chestXray": {
+          "findings": "Bilateral diffuse infiltrates, described as a 'snowstorm' pattern, are present throughout both lung fields. No pneumothorax or large pleural effusion is identified. The cardiac silhouette is within normal limits.",
+          "impression": "The radiographic findings are consistent with acute respiratory distress syndrome (ARDS) secondary to Fat Embolism Syndrome."
+        }
+      },
+      "medications": {
+        "scheduled": [
+          "Acetaminophen 650 mg PO every 4 hours PRN for fever > 38.3°C",
+          "Ondansetron 4 mg IV every 6 hours PRN for nausea"
+        ],
+        "continuous": [
+          "Oxygen 4 L/min via nasal cannula, continuous"
+        ]
+      },
+      "nursingOrders": [
+        "Administer high-flow oxygen as prescribed; prepare for possible intubation and mechanical ventilation.",
+        "Maintain strict immobilization of the fractured extremity.",
+        "Assess neurological status frequently (GCS, LOC, pupillary response).",
+        "Monitor vital signs, ABGs, and respiratory status closely.",
+        "Provide emotional support and reduce anxiety."
+      ]
+    }
   },
   "bowtieData": {
     "conditionOptions": [
@@ -133,7 +178,20 @@
   "rationale": {
     "conditionRationale": "Fat Embolism Syndrome (FES) is characterized by the classic triad of respiratory distress, neurological decline, and petechial rash, which aligns with the client's presentation following a femur fracture.",
     "actionRationale": "Administering high-flow oxygen addresses the hypoxemia caused by fat emboli in the pulmonary capillaries. Strict immobilization of the fractured extremity prevents further release of fat globules into the circulation.",
-    "parameterRationale": "Monitoring respiratory rate, SpO2, and lung sounds assesses the severity of pulmonary dysfunction. Monitoring neurological status and the presence of petechiae indicates the extent of systemic embolization."
+    "parameterRationale": "Monitoring respiratory rate, SpO2, and lung sounds assesses the severity of pulmonary dysfunction. Monitoring neurological status and the presence of petechiae indicates the extent of systemic embolization.",
+    "answerBreakdown": {
+      "c1": "The client's acute respiratory failure, neurological changes, and petechial rash are not characteristic of DVT.",
+      "c2": "The client presents with the classic triad of respiratory distress, neurological decline, and a petechial rash, indicative of Fat Embolism Syndrome.",
+      "c3": "Compartment syndrome involves localized limb symptoms, not the systemic symptoms the client is exhibiting.",
+      "a1": "The client's hypoxemia (SpO2 84%) is due to fat emboli obstructing pulmonary capillaries, requiring high-flow oxygen.",
+      "a2": "Minimizing movement of the fractured femur prevents the release of additional fat globules into the bloodstream.",
+      "a3": "Heparin is an anticoagulant used for thromboembolism (blood clots), not fat emboli.",
+      "a4": "Leg exercises would increase movement of the fractured bone, potentially dislodging more fat globules into the circulation.",
+      "p1": "Monitoring respiratory status is critical to assess the severity of pulmonary dysfunction and the client's response to oxygen therapy.",
+      "p2": "Changes in consciousness and the progression of the petechial rash indicate the extent of systemic embolization.",
+      "p3": "Monitoring blood glucose is not a primary parameter for tracking the progression of Fat Embolism Syndrome.",
+      "p4": "Trousseau's sign is an indicator of hypocalcemia, which is not associated with Fat Embolism Syndrome."
+    }
   },
   "studyCompanion": {
     "pearls": [
@@ -203,8 +261,22 @@
       "itemMapCode": "PARAM-TROUSSEAU"
     }
   ],
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:39:30.483Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:39:30.483Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "c1",
+    "c2",
+    "c3"
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_ace_inhibitor_hyperkalemia_risk_v2026_remediated",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A nurse is reviewing the electronic health record (EHR) for a 72-year-old client with heart failure and chronic kidney disease who reports new weakness. Based on the provided clinical data, determine the appropriate actions to take, the condition the client is experiencing, and the parameters to monitor.",
+  "stem": "A nurse is reviewing the electronic health record (EHR) for a 72-year-old client with heart failure and chronic kidney disease who reports new weakness. Based on the provided clinical data, determine the appropriate actions to take, the condition the client is experiencing, and the parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "Elias Schmidt",
@@ -57,7 +57,50 @@
         "title": "MAR",
         "content": "<strong>Current Medications:</strong><br>- Lisinopril 40 mg PO daily (Hold per order)<br>- Spironolactone 25 mg PO daily (Hold per order)<br>- Potassium Chloride (K-Dur) 20 mEq PO daily (Hold per order)<br><br><strong>New Orders:</strong><br>- Calcium Gluconate 1 gram IV push over 2-5 minutes STAT<br>- Regular Insulin 10 units IV push STAT<br>- Dextrose 50% 25 grams IV push STAT<br>- Sodium Bicarbonate 50 mEq IV push STAT<br>- Furosemide 40 mg IV push STAT"
       }
-    ]
+    ],
+    "clinicalData": {
+      "vitals": {
+        "bp": "104/62 mmHg",
+        "hr": "54 bpm (Irregular)",
+        "rr": "18",
+        "temp": "36.9°C",
+        "spo2": "97%"
+      },
+      "labs": {
+        "sodium": "138 mEq/L",
+        "potassium": "6.4 mEq/L",
+        "bun": "38 mg/dL",
+        "creatinine": "1.9 mg/dL",
+        "gfr": "32 mL/min"
+      },
+      "physicalExam": {
+        "general": "Weak and fatigued",
+        "cardiovascular": "Bradycardia, irregular rhythm, weak peripheral pulses",
+        "neurological": "Muscle strength 3/5, circumoral numbness and tingling, diminished DTRs",
+        "respiratory": "Clear lungs",
+        "integumentary": "Warm, dry skin"
+      },
+      "radiology": {
+        "chestXRay": "Mildly enlarged heart, no acute abnormalities"
+      },
+      "medications": [
+        "Lisinopril 40 mg PO daily",
+        "Spironolactone 25 mg PO daily",
+        "Potassium Chloride (K-Dur) 20 mEq PO daily"
+      ],
+      "nursingOrders": [
+        "Continuous cardiac monitoring",
+        "Administer calcium gluconate 1 gram IV push STAT",
+        "Administer regular insulin 10 units IV push STAT",
+        "Administer dextrose 50% 25 grams IV push STAT",
+        "Administer sodium bicarbonate 50 mEq IV push STAT",
+        "Administer furosemide 40 mg IV push STAT",
+        "Strict intake and output monitoring",
+        "Monitor serum potassium levels frequently",
+        "Educate on potassium-restricted diet"
+      ],
+      "telemetry": "Sinus bradycardia at 54 bpm, peaked T-waves"
+    }
   },
   "actions": [
     {
@@ -214,8 +257,26 @@
   "bowtie_map_code": "SCN-HYPERKALEMIA-001",
   "companion_map_code": "SCN-HYPERKALEMIA-001",
   "hud_map_code": "SCN-HYPERKALEMIA-001",
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T20:48:43.935Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T20:48:43.935Z",
+  "rationale": {
+    "answerBreakdown": {
+      "a1": "Incorrect. Spironolactone is a potassium-sparing diuretic and would worsen hyperkalemia.",
+      "a2": "Correct. ECG is essential to assess cardiac effects of hyperkalemia.",
+      "a3": "Incorrect. Potassium-binding resin is not the immediate priority.",
+      "a4": "Incorrect. Increasing potassium intake is dangerous in hyperkalemia.",
+      "a5": "Correct. Holding the potassium supplement reduces potassium load.",
+      "pc1": "Incorrect. Sodium level is normal.",
+      "pc2": "Incorrect. Potassium level is elevated.",
+      "pc3": "Correct. Symptoms and ECG changes indicate hyperkalemia.",
+      "pc4": "Incorrect. Acute presentation points to electrolyte imbalance, not ATN.",
+      "p1": "Correct. ECG monitoring is critical for cardiac complications.",
+      "p2": "Incorrect. Renal function is not the priority during acute hyperkalemia.",
+      "p3": "Incorrect. DTRs are not a priority indicator.",
+      "p4": "Correct. Serial potassium levels guide treatment effectiveness.",
+      "p5": "Incorrect. Hypotension is secondary; ECG is the priority."
+    }
+  }
 }

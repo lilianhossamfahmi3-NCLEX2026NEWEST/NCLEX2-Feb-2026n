@@ -2,7 +2,7 @@
   "id": "NGN-V3-sickle_cell_crisis_vaso_occlusive_bowtie_v3",
   "type": "bowtie",
   "clinicalFeed": "Situation: This is the pediatric unit at 14:00. I'm calling about a 10-year-old male with sickle cell disease admitted for a pain crisis. He has severe, diffuse joint pain rated 10/10 and a temperature of 38.6°C. Background: He has a history of frequent vaso-occlusive crises, often triggered by dehydration. His last admission was three months ago. Assessment: The client is crying and guarding his joints. He appears dehydrated with dry mucous membranes. Vitals show tachycardia and tachypnea. Recommendation: Initiate the sickle cell crisis protocol, including aggressive IV hydration and opioid analgesia.",
-  "stem": "[V3-MAPPED-2026] A 10-year-old male with sickle cell disease is admitted with severe joint pain and fever, diagnosed as a vaso-occlusive crisis. Based on the client's presentation and diagnosis, complete the bowtie by selecting the appropriate actions to take and parameters to monitor.",
+  "stem": "A 10-year-old male with sickle cell disease is admitted with severe joint pain and fever, diagnosed as a vaso-occlusive crisis. Based on the client's presentation and diagnosis, complete the bowtie by selecting the appropriate actions to take and parameters to monitor.",
   "tabs": [
     {
       "id": "history-and-physical",
@@ -135,7 +135,20 @@
     "param1",
     "param2"
   ],
-  "rationale": "The client is experiencing a vaso-occlusive crisis, characterized by severe pain from tissue ischemia. The priority interventions are to manage pain with opioid analgesics and improve perfusion by administering aggressive IV hydration to decrease blood viscosity. Monitoring must focus on pain relief as an indicator of treatment effectiveness and respiratory status for early detection of acute chest syndrome, a life-threatening complication. Applying cold, administering salicylates, and encouraging exercise are contraindicated. Monitoring electrolytes, urine output, and capillary refill are secondary assessments.",
+  "rationale": {
+    "answerBreakdown": {
+      "action1": "Correct: Aggressive IV hydration is essential to reduce blood viscosity and improve microvascular perfusion in vaso-occlusive crisis.",
+      "action2": "Correct: Opioid analgesics are the first-line treatment for severe pain caused by tissue ischemia in vaso-occlusive crisis.",
+      "action3": "Incorrect: Cold compresses induce vasoconstriction, worsening blood flow and increasing sickling, which intensifies ischemic pain. Warm compresses are preferred.",
+      "action4": "Incorrect: Salicylates are contraindicated in children with fever due to the risk of Reye's syndrome. Acetaminophen or ibuprofen are safer alternatives.",
+      "action5": "Incorrect: Active exercise increases metabolic demand and oxygen consumption, worsening the sickling process and pain. Bed rest is indicated.",
+      "param1": "Correct: Frequent pain assessment is crucial to evaluate the effectiveness of analgesia and guide titration to prevent complications from vaso-occlusive crisis.",
+      "param2": "Correct: Monitoring respiratory status and oxygenation is critical for early detection of acute chest syndrome, a life-threatening complication of sickle cell disease.",
+      "param3": "Incorrect: While electrolytes are monitored, they are not the priority for tracking the resolution of a vaso-occlusive crisis. Pain and respiratory status are more critical.",
+      "param4": "Incorrect: Urine output is less specific than pain levels and respiratory status for indicating resolving vaso-occlusion, making it a secondary assessment.",
+      "param5": "Incorrect: Capillary refill is not as sensitive as pain assessment for determining the status of microvascular occlusion and tissue ischemia during a crisis."
+    }
+  },
   "scoring": {
     "method": "polytomous",
     "maxPoints": 5
@@ -187,8 +200,82 @@
     "companion_map_code": "SCN-SCD-VOC-001",
     "hud_map_code": "SCN-SCD-VOC-001"
   },
-  "qualityMark": "NGN-2026-HI-FI-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:27:53.829Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:27:53.829Z",
+  "itemContext": {
+    "patient": {
+      "name": "John Smith",
+      "age": "10 years old",
+      "sex": "Male",
+      "codeStatus": "Full code",
+      "iso": "Standard precautions",
+      "allergies": "No known allergies"
+    },
+    "clinicalData": {
+      "vitals": {
+        "temperature": "38.6°C (101.4°F)",
+        "heartRate": "128/min",
+        "respiratoryRate": "24/min",
+        "bloodPressure": "105/65 mmHg",
+        "spO2": "95% on room air",
+        "pain": "10/10, diffuse joint pain"
+      },
+      "labResults": {
+        "wbc": "15.0 x 10^9/L (High)",
+        "hgb": "7.8 g/dL (Low)",
+        "hct": "23% (Low)",
+        "platelets": "250 x 10^9/L (Normal)",
+        "reticulocyteCount": "12% (High)",
+        "sodium": "140 mEq/L (Normal)",
+        "potassium": "4.1 mEq/L (Normal)",
+        "bun": "22 mg/dL (High)",
+        "creatinine": "0.8 mg/dL (Normal)",
+        "bilirubinTotal": "2.5 mg/dL (High)"
+      },
+      "physicalExam": {
+        "general": "Crying, appears in severe distress.",
+        "skin": "Warm, dry mucous membranes.",
+        "cardiovascular": "Tachycardic, regular rhythm.",
+        "respiratory": "Lungs clear to auscultation bilaterally.",
+        "musculoskeletal": "Guards all extremities, tender to palpation over long bones."
+      },
+      "radiology": {
+        "chestXRayFindings": "No acute cardiopulmonary abnormalities identified. Lungs are clear bilaterally. Heart size is normal. No pleural effusions or pneumothorax.",
+        "chestXRayImpression": "Normal chest x-ray."
+      },
+      "medications": [
+        {
+          "name": "Morphine",
+          "dosage": "2 mg",
+          "route": "IV",
+          "frequency": "q2hr PRN",
+          "lastDose": "14:00"
+        },
+        {
+          "name": "D5W with 0.45% NaCl",
+          "dosage": "150 mL/hr",
+          "route": "Continuous infusion",
+          "frequency": "Continuous",
+          "lastDose": "14:00"
+        },
+        {
+          "name": "Acetaminophen",
+          "dosage": "325 mg",
+          "route": "PO",
+          "frequency": "q4hr PRN for fever >38.5°C"
+        }
+      ],
+      "nursingOrders": [
+        "Administer IV fluids as prescribed (e.g., D5W with 0.45% NaCl at 150 mL/hr).",
+        "Administer pain medication as prescribed (e.g., Morphine 2mg IV q2hr PRN).",
+        "Monitor vital signs, including temperature, heart rate, respiratory rate, blood pressure, and oxygen saturation, every 2 hours.",
+        "Assess pain level using a pain scale (e.g., FACES) every 2 hours and PRN.",
+        "Encourage rest and provide a quiet environment.",
+        "Monitor intake and output.",
+        "Provide emotional support to the client and family."
+      ]
+    }
+  }
 }

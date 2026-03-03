@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_icp_cushings_v2026_21",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 55-year-old client admitted after a hemorrhagic stroke. Based on the provided electronic health record (EHR), complete the bowtie by selecting the potential condition, two indicated actions, and two parameters to monitor.",
+  "stem": "The nurse is caring for a 55-year-old client admitted after a hemorrhagic stroke. Based on the provided electronic health record (EHR), complete the bowtie by selecting the potential condition, two indicated actions, and two parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "John Doe",
@@ -10,6 +10,59 @@
       "codeStatus": "Full Code",
       "iso": "Standard",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "11:00",
+          "bloodPressure": "138/84 mmHg",
+          "heartRate": "78/min",
+          "respiratoryRate": "18/min"
+        },
+        {
+          "time": "12:00",
+          "bloodPressure": "152/78 mmHg",
+          "heartRate": "64/min",
+          "respiratoryRate": "14/min"
+        },
+        {
+          "time": "13:00",
+          "bloodPressure": "192/62 mmHg",
+          "heartRate": "48/min",
+          "respiratoryRate": "8/min (Irregular)"
+        }
+      ],
+      "physicalExam": {
+        "neurological": "GCS 9 (E2, V3, M4). Pupils 4mm, sluggishly reactive to light bilaterally. Motor strength decreased in all extremities. Positive Babinski reflex bilaterally.",
+        "cardiovascular": "Blood pressure 192/62 mmHg. Heart rate 48 bpm, regular.",
+        "respiratory": "Irregular respirations, rate 8/min. Diminished breath sounds at bases bilaterally.",
+        "gastrointestinal": "Abdomen soft, non-tender. Bowel sounds hypoactive."
+      },
+      "radiology": "CT Head (10:00 today): Large intraparenchymal hemorrhage in the right temporal lobe with surrounding edema. Mass effect causing midline shift of 8mm. No evidence of hydrocephalus.",
+      "medications": [
+        {
+          "medication": "Mannitol 20%",
+          "dose": "1 g/kg",
+          "route": "IV",
+          "frequency": "STAT",
+          "notes": "Administer over 30-60 minutes. Use a filter needle."
+        },
+        {
+          "medication": "Labetalol",
+          "dose": "10 mg",
+          "route": "IV",
+          "frequency": "PRN q15min",
+          "notes": "For SBP > 220 mmHg."
+        }
+      ],
+      "nursingOrders": [
+        "Monitor neurological status q1h.",
+        "Elevate head of bed to 30 degrees.",
+        "Administer prescribed medications (Mannitol, Labetalol).",
+        "Suction PRN.",
+        "Implement seizure precautions."
+      ],
+      "labResults": []
     },
     "tabs": [
       {
@@ -190,8 +243,32 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:24:35.719Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:24:35.719Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Incorrect: Hypovolemic shock is characterized by hypotension and tachycardia. This client has severe hypertension and bradycardia, which are opposite findings and point towards a neurological, not circulatory, crisis.",
+      "c2": "Correct: The client's presentation of severe hypertension with a widening pulse pressure, bradycardia, and irregular respirations (Cushing's triad) are classic late signs of dangerously increased intracranial pressure requiring immediate intervention.",
+      "c3": "Incorrect: Autonomic dysreflexia occurs with spinal cord injuries, typically at T6 or above, and is not associated with a hemorrhagic stroke. The client's history does not support this diagnosis.",
+      "a1": "Correct: Elevating the head of the bed to 30 degrees with the head in a neutral position promotes venous drainage from the brain, which helps to lower intracranial pressure.",
+      "a2": "Correct: Mannitol is an osmotic diuretic that draws fluid from the brain tissue into the vascular space, thereby reducing cerebral edema and lowering intracranial pressure.",
+      "a3": "Incorrect: Administering fluid boluses would increase intravascular volume and could worsen cerebral edema and intracranial pressure. The client's hypertension is compensatory, not a sign of hypovolemia.",
+      "a4": "Incorrect: The Valsalva maneuver increases intrathoracic pressure, which impedes venous return from the brain and sharply increases intracranial pressure. This action is contraindicated.",
+      "p1": "Correct: Monitoring pupillary response and GCS provides critical information about brainstem function and overall neurological status. Changes can indicate worsening intracranial pressure or herniation.",
+      "p2": "Correct: Continuous monitoring of heart rate, blood pressure, and respiratory pattern is essential to track the progression of Cushing's triad and the client's response to interventions for increased ICP.",
+      "p3": "Incorrect: While part of a neurological assessment, deep tendon reflexes are not a priority for monitoring acute, life-threatening changes from increased intracranial pressure compared to vital signs and GCS.",
+      "p4": "Incorrect: While mannitol can cause electrolyte imbalances, monitoring electrolytes is not the most immediate priority. The primary focus is on monitoring for acute neurological and hemodynamic decompensation."
+    }
+  }
 }

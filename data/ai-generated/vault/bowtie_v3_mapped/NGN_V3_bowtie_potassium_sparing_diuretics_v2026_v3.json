@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_potassium_sparing_diuretics_v2026",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a client receiving spironolactone for heart failure. Based on the data in the electronic health record, identify the appropriate nursing actions to take, the condition the client is most likely experiencing, and the parameters to monitor.",
+  "stem": "The nurse is caring for a client receiving spironolactone for heart failure. Based on the data in the electronic health record, identify the appropriate nursing actions to take, the condition the client is most likely experiencing, and the parameters to monitor.",
   "itemContext": {
     "tabs": [
       {
@@ -44,7 +44,110 @@
         "title": "Care Plan",
         "content": "<strong>Nursing Priorities:</strong><br>1. Manage hyperkalemia and prevent cardiac complications.<br>2. Monitor fluid balance and prevent fluid overload.<br>3. Educate the client on medication management and dietary restrictions.<br><br><strong>Nursing Interventions:</strong><br>1. Administer prescribed medications (sodium polystyrene sulfonate) as ordered and monitor for effectiveness.<br>2. Monitor serum potassium levels and ECG for changes.<br>3. Assess vital signs, including blood pressure, heart rate, and oxygen saturation, every 4 hours.<br>4. Monitor intake and output and assess for signs of fluid overload (edema, crackles).<br>5. Educate the client on the importance of adhering to a low-sodium diet and fluid restrictions.<br>6. Educate the client about the purpose, side effects, and potential interactions of spironolactone and furosemide."
       }
-    ]
+    ],
+    "patient": {
+      "name": "Mr. Davis",
+      "age": "72",
+      "gender": "Male",
+      "codeStatus": "Full Code",
+      "iso": "Standard Precautions",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "12:00": {
+          "BP": "140/90 mmHg",
+          "HR": "88/min",
+          "RR": "22/min",
+          "SpO2": "92%"
+        },
+        "14:00": {
+          "BP": "138/88 mmHg",
+          "HR": "90/min",
+          "RR": "24/min",
+          "SpO2": "91%"
+        },
+        "16:00": {
+          "BP": "136/86 mmHg",
+          "HR": "86/min",
+          "RR": "22/min",
+          "SpO2": "93%"
+        }
+      },
+      "labResults": {
+        "Potassium": {
+          "result": "5.8",
+          "units": "mEq/L",
+          "referenceRange": "3.5-5.0 mEq/L"
+        },
+        "Sodium": {
+          "result": "138",
+          "units": "mEq/L",
+          "referenceRange": "135-145 mEq/L"
+        },
+        "BUN": {
+          "result": "28",
+          "units": "mg/dL",
+          "referenceRange": "8-20 mg/dL"
+        },
+        "Creatinine": {
+          "result": "1.4",
+          "units": "mg/dL",
+          "referenceRange": "0.6-1.2 mg/dL"
+        },
+        "Glucose": {
+          "result": "95",
+          "units": "mg/dL",
+          "referenceRange": "70-110 mg/dL"
+        }
+      },
+      "physicalExam": {
+        "general": "Alert and oriented, appears slightly fatigued.",
+        "cardiovascular": "Regular rate and rhythm, S1 and S2 auscultated. +2 pitting edema in bilateral lower extremities noted.",
+        "respiratory": "Auscultation reveals bilateral crackles at the lung bases. Increased respiratory effort observed.",
+        "neurological": "Oriented to person, place, and time. Complains of muscle weakness and cramping in lower extremities. Deep tendon reflexes are 2+ and symmetric.",
+        "integumentary": "Skin is warm, dry, and intact. Normal skin turgor. No signs of skin breakdown."
+      },
+      "radiology": {
+        "chestXRay": {
+          "findings": "Cardiomegaly is present. Pulmonary vascular congestion is noted with mild bilateral pleural effusions. No acute infiltrates or pneumothorax identified.",
+          "impression": "Findings are consistent with congestive heart failure."
+        }
+      },
+      "medications": {
+        "MAR": [
+          {
+            "medication": "Spironolactone",
+            "dosage": "25mg",
+            "route": "PO",
+            "frequency": "Daily",
+            "lastAdministered": "14:00"
+          },
+          {
+            "medication": "Furosemide",
+            "dosage": "20mg",
+            "route": "PO",
+            "frequency": "BID",
+            "lastAdministered": "08:00"
+          },
+          {
+            "medication": "Sodium Polystyrene Sulfonate",
+            "dosage": "15 grams",
+            "route": "PO",
+            "frequency": "Once",
+            "lastAdministered": "N/A"
+          }
+        ]
+      },
+      "nursingOrders": [
+        "Administer prescribed medications (sodium polystyrene sulfonate) as ordered and monitor for effectiveness.",
+        "Monitor serum potassium levels and ECG for changes.",
+        "Assess vital signs, including blood pressure, heart rate, and oxygen saturation, every 4 hours.",
+        "Monitor intake and output and assess for signs of fluid overload (edema, crackles).",
+        "Educate the client on the importance of adhering to a low-sodium diet and fluid restrictions.",
+        "Educate the client about the purpose, side effects, and potential interactions of spironolactone and furosemide."
+      ]
+    }
   },
   "actions": [
     {
@@ -223,8 +326,26 @@
     "iso": "Standard Precautions",
     "allergies": "NKDA"
   },
-  "qualityMark": "NGN-2026-HI-FI-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:47:10.938Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:47:10.938Z",
+  "rationale": {
+    "answerBreakdown": {
+      "a1": "Sodium polystyrene sulfonate is indicated to reduce the client's elevated potassium level.",
+      "a2": "The client is hyperkalemic, so increasing potassium intake is contraindicated.",
+      "a3": "Spironolactone is a potassium-sparing diuretic and should be held to prevent further potassium elevation.",
+      "a4": "The client is hyperkalemic, not hypokalemic.",
+      "a5": "The client shows signs of fluid overload, so administering a saline bolus is contraindicated.",
+      "pc1": "The client shows signs of fluid overload, not hypovolemia.",
+      "pc2": "The client's potassium level is elevated at 5.8 mEq/L, indicating hyperkalemia.",
+      "pc3": "The client's sodium level is within normal limits.",
+      "pc4": "There is no indication of hypomagnesemia.",
+      "p1": "An ECG is necessary to monitor for cardiac changes related to hyperkalemia.",
+      "p2": "Blood pressure should be monitored due to the potential for changes related to fluid and electrolyte shifts.",
+      "p3": "Blood glucose levels are not directly affected by hyperkalemia or its treatment in this scenario.",
+      "p4": "Sodium levels are not the priority in this acute situation of hyperkalemia.",
+      "p5": "Urine output should be monitored to assess renal function and fluid balance."
+    }
+  }
 }

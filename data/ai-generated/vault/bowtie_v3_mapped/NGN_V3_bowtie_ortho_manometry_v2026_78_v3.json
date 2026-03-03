@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_ortho_manometry_v2026_78",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 28-year-old client with a tibia fracture reports worsening leg pain. Based on the provided electronic health record, complete the bowtie by selecting the most likely condition, two actions the nurse should take, and two parameters the nurse should monitor.",
+  "stem": "A 28-year-old client with a tibia fracture reports worsening leg pain. Based on the provided electronic health record, complete the bowtie by selecting the most likely condition, two actions the nurse should take, and two parameters the nurse should monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "John Doe",
@@ -52,7 +52,49 @@
         "title": "MAR",
         "content": "<b>07:15:</b> Fentanyl 50 mcg IV push - Given for pain. No relief reported.<br><b>06:00:</b> Normal Saline 1000 mL IV bolus - Infusing at 100 mL/hr.<br><b>To be administered:</b> Cefazolin 1 gram IV q8h - Next dose due at 14:00."
       }
-    ]
+    ],
+    "clinicalData": {
+      "vitals": {
+        "bp": "70/40 mmHg",
+        "hr": "112 bpm",
+        "rr": "22 breaths/min",
+        "spo2": "98% on room air",
+        "temp": "37.1°C (98.8°F)"
+      },
+      "labResults": {},
+      "physicalExam": {
+        "general": "Alert and oriented, appears anxious and in severe pain.",
+        "cardiovascular": "Tachycardic, weak peripheral pulses in right lower extremity.",
+        "musculoskeletal": "Right lower leg tense, swollen, and exquisitely tender to palpation. Limited range of motion due to pain.",
+        "neurological": "Sensation diminished in the right foot. Unable to dorsiflex foot due to pain."
+      },
+      "radiology": {
+        "xray": "Closed, comminuted fracture of the mid-shaft tibia with associated soft tissue swelling.",
+        "ctAngiogram": "Patent arterial and venous vasculature. Significant soft tissue edema within the anterior compartment."
+      },
+      "medications": {
+        "scheduled": [
+          "Cefazolin 1 gram IV q8h"
+        ],
+        "prn": [
+          "Fentanyl 50 mcg IV push (07:15)"
+        ]
+      },
+      "nursingOrders": [
+        "Maintain limb at heart level.",
+        "Monitor compartment pressures and neurovascular status q15min.",
+        "Administer prescribed analgesics and evaluate effectiveness.",
+        "Ensure patient NPO in preparation for surgery.",
+        "Insert indwelling urinary catheter.",
+        "Prepare skin for surgical incision."
+      ],
+      "manometry": {
+        "anteriorCompartmentPressure": "38 mmHg",
+        "deltaPressure": "12 mmHg",
+        "skinTension": "Firm; 'Wood-like'",
+        "dorsalisPedisPulse": "Weak, thready"
+      }
+    }
   },
   "bowtieData": {
     "conditionOptions": [
@@ -209,8 +251,39 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:40:21.684Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:40:21.684Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "c1",
+    "c2",
+    "c3"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "While edema is present, the intracompartmental pressure of 38 mmHg and Delta Pressure of 12 mmHg are critically abnormal. These findings indicate a vascular emergency beyond simple edema, which would not cause such high pressures.",
+      "c2": "The intracompartmental pressure of 38 mmHg (normal 0-10 mmHg) exceeds capillary perfusion pressure, causing ischemia. A Delta Pressure of 12 mmHg (normal >30 mmHg) confirms inadequate tissue perfusion, necessitating immediate surgical decompression.",
+      "c3": "DVT typically presents with unilateral swelling and pain but does not cause intracompartmental pressures this high. The primary pathology in DVT is venous obstruction, not arterial compromise from extreme tissue pressure.",
+      "a1": "A fasciotomy is the definitive surgical treatment to decompress the muscle compartment. This procedure relieves pressure, restores blood flow, and prevents irreversible nerve and muscle damage from prolonged ischemia.",
+      "a2": "Positioning the limb at heart level (a neutral position) optimizes the perfusion gradient. This avoids further compromising arterial inflow, which occurs with elevation, and prevents increasing edema, which occurs with dependent positioning.",
+      "a3": "Applying external compression from an SCD would further increase the already critically high intracompartmental pressure. This action is contraindicated as it would worsen tissue ischemia and could lead to limb loss.",
+      "a4": "Heparin is an anticoagulant used for thromboembolic events like DVT. It does not address the underlying mechanical compression causing compartment syndrome and is therefore an inappropriate intervention.",
+      "a5": "Elevating the limb is contraindicated because it decreases arterial inflow by working against gravity. This action would further reduce the already compromised perfusion pressure, worsening tissue ischemia and accelerating necrosis.",
+      "p1": "Monitoring intracompartmental and delta pressures is crucial for assessing the condition's severity and the effectiveness of interventions. These objective measurements guide the urgency and necessity of surgical decompression.",
+      "p2": "The 6 Ps (Pain, Paresthesia, Paralysis, Pallor, Pulselessness, Poikilothermia) are the clinical hallmarks of neurovascular compromise. Frequent assessment is vital to detect deterioration, as signs like paresthesia indicate progressive nerve ischemia.",
+      "p3": "While glucose control is important for overall health, it is not a priority parameter for monitoring the acute, limb-threatening progression of compartment syndrome. The immediate focus must be on tissue perfusion.",
+      "p4": "The Babinski sign assesses for upper motor neuron lesions within the central nervous system. It is irrelevant for diagnosing or monitoring a peripheral neurovascular issue like compartment syndrome in a limb.",
+      "p5": "Coagulation studies are relevant for bleeding disorders or anticoagulant therapy, not for diagnosing compartment syndrome. While checked pre-operatively, they are not a primary parameter to monitor the condition's progression."
+    }
+  }
 }

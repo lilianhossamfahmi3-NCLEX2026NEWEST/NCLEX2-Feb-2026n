@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_blood_taco_v2026_3",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for an 82-year-old client with chronic heart failure receiving a blood transfusion. Based on the provided electronic health record, complete the bowtie by selecting the most likely condition, two actions to take, and two parameters to monitor.",
+  "stem": "The nurse is caring for an 82-year-old client with chronic heart failure receiving a blood transfusion. Based on the provided electronic health record, complete the bowtie by selecting the most likely condition, two actions to take, and two parameters to monitor.",
   "itemContext": {
     "tabs": [
       {
@@ -44,7 +44,62 @@
         "title": "Care Plan",
         "content": "<b>Nursing Priorities:</b>\n1. Improve respiratory status and oxygenation.\n2. Reduce fluid overload.\n3. Monitor for complications of transfusion.\n\n<b>Nursing Interventions:</b>\n1. Elevate head of bed to high-Fowler's position.\n2. Administer furosemide 40 mg IV STAT as prescribed.\n3. Monitor vital signs, including SpO2, blood pressure, and heart rate, every 15 minutes.\n4. Auscultate lung sounds frequently to assess for changes in pulmonary congestion.\n5. Monitor intake and output closely.\n6. Assess for signs and symptoms of worsening heart failure."
       }
-    ]
+    ],
+    "patient": {
+      "name": "John Smith",
+      "age": "82",
+      "gender": "Male",
+      "codeStatus": "Full Code",
+      "iso": "Standard Precautions",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "preTransfusion": {
+          "SpO2": "96% (RA)",
+          "BP": "132/80",
+          "Pulse": "88",
+          "BreathSounds": "Clear bilaterally"
+        },
+        "duringTransfusion": {
+          "SpO2": "89% (RA)",
+          "BP": "168/94",
+          "Pulse": "110, Bounding",
+          "BreathSounds": "Coarse crackles mid-lung"
+        }
+      },
+      "labResults": {
+        "hemoglobin": "6.8 g/dL",
+        "potassium": "4.2 mEq/L",
+        "creatinine": "2.1 mg/dL"
+      },
+      "physicalExam": {
+        "cardiovascular": "Tachycardia, bounding pulses, elevated blood pressure",
+        "respiratory": "Coarse crackles bilaterally, dyspnea, SpO2 89% on room air",
+        "integumentary": "No edema noted in extremities"
+      },
+      "radiology": "Bilateral pulmonary edema with increased interstitial markings. Cardiomegaly is present.",
+      "medications": {
+        "scheduled": [
+          "Lisinopril 10 mg PO daily",
+          "Metoprolol Succinate 50 mg PO daily"
+        ],
+        "prn": [
+          "Furosemide 40 mg IV once, for respiratory distress or signs of fluid overload."
+        ],
+        "infusions": [
+          "Packed Red Blood Cells (Unit #W2345), 1 unit (350 mL) IV over 3 hours. Infusion started at 13:30. Rate: 116.67 mL/hr"
+        ]
+      },
+      "nursingOrders": [
+        "Elevate head of bed to high-Fowler's position.",
+        "Administer furosemide 40 mg IV STAT as prescribed.",
+        "Monitor vital signs, including SpO2, blood pressure, and heart rate, every 15 minutes.",
+        "Auscultate lung sounds frequently to assess for changes in pulmonary congestion.",
+        "Monitor intake and output closely.",
+        "Assess for signs and symptoms of worsening heart failure."
+      ]
+    }
   },
   "bowtieData": {
     "conditionOptions": [
@@ -191,8 +246,49 @@
     "iso": "Standard Precautions",
     "allergies": "NKDA"
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T20:54:43.887Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T20:54:43.887Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p3"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Incorrect. An acute hemolytic reaction involves RBC destruction, causing fever, flank pain, and hypotension. This client's hypertension and pulmonary crackles are not characteristic of this type of reaction.",
+      "c2": "Correct. TACO results from the circulatory system's inability to handle a rapid fluid volume increase. This leads to cardiogenic pulmonary edema, evidenced by hypertension, dyspnea, and crackles, especially in clients with heart failure.",
+      "c3": "Incorrect. Anaphylaxis is a severe allergic reaction causing hypotension, urticaria, and wheezing from bronchospasm. The client's presentation with hypertension and crackles (fluid) is inconsistent with this diagnosis.",
+      "a1": "Correct. Placing the client in a high-Fowler's position uses gravity to reduce venous return to the heart (preload) and improve lung expansion. This action decreases the work of breathing in pulmonary edema.",
+      "a2": "Correct. Furosemide is a potent loop diuretic that rapidly promotes diuresis, reducing circulating blood volume and alleviating pulmonary congestion. This is a primary treatment for acute fluid volume overload.",
+      "a3": "Incorrect. A supine position increases venous return to the heart, which would worsen pulmonary congestion and respiratory distress in a client experiencing circulatory overload.",
+      "a4": "Incorrect. Epinephrine is indicated for anaphylaxis to cause bronchodilation and vasoconstriction. It is contraindicated for TACO as it would dangerously increase the client's already high blood pressure and cardiac workload.",
+      "p1": "Correct. Monitoring oxygen saturation is critical for assessing the severity of respiratory compromise from pulmonary edema and evaluating the effectiveness of interventions aimed at improving gas exchange.",
+      "p2": "Incorrect. Checking for hemoglobinuria is a specific assessment for an acute hemolytic reaction, where RBCs are destroyed intravascularly. This finding is not associated with TACO.",
+      "p3": "Correct. Auscultating lung sounds directly assesses the degree of pulmonary congestion (crackles). The improvement or worsening of crackles is a key indicator of the client's response to treatment for fluid overload.",
+      "p4": "Incorrect. While daily weight is a crucial long-term indicator of fluid status, it is not a parameter for monitoring an acute, rapidly evolving event like TACO. Immediate physiological data is required."
+    }
+  },
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "Acute Hemolytic Reaction",
+      "itemMapCode": "CONDITION-HEMOLYTIC-001"
+    },
+    {
+      "id": "c2",
+      "text": "Transfusion-Associated Circulatory Overload (TACO)",
+      "itemMapCode": "CONDITION-TACO-002"
+    },
+    {
+      "id": "c3",
+      "text": "Anaphylactic Transfusion Reaction",
+      "itemMapCode": "CONDITION-ANAPHYLACTIC-003"
+    }
+  ]
 }

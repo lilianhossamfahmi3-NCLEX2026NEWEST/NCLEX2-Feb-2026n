@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_septic_shock_fluid_resuscitation_v2026",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 68-year-old male who developed hypotension and fever after a urinary catheter insertion. The patient's vital signs have not significantly improved after an initial fluid bolus. Complete the bowtie by selecting the appropriate actions, the potential condition, and the parameters to monitor.",
+  "stem": "The nurse is caring for a 68-year-old male who developed hypotension and fever after a urinary catheter insertion. The patient's vital signs have not significantly improved after an initial fluid bolus. Complete the bowtie by selecting the appropriate actions, the potential condition, and the parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "John Smith",
@@ -10,6 +10,104 @@
       "codeStatus": "Full Code",
       "iso": "Standard",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "06:00",
+          "bp": "110/70",
+          "hr": "90",
+          "rr": "20",
+          "temp": "37.5",
+          "spo2": "98"
+        },
+        {
+          "time": "07:00",
+          "bp": "90/50",
+          "hr": "120",
+          "rr": "28",
+          "temp": "38.9",
+          "spo2": "92"
+        },
+        {
+          "time": "07:30",
+          "bp": "95/55",
+          "hr": "115",
+          "rr": "26",
+          "temp": "39.1",
+          "spo2": "94"
+        }
+      ],
+      "labResults": [
+        {
+          "lab": "WBC",
+          "value": "18.0",
+          "units": "x10^9/L",
+          "referenceRange": "4.5-11.0"
+        },
+        {
+          "lab": "Lactate",
+          "value": "4.5",
+          "units": "mmol/L",
+          "referenceRange": "0.5-2.2"
+        },
+        {
+          "lab": "Creatinine",
+          "value": "1.8",
+          "units": "mg/dL",
+          "referenceRange": "0.6-1.2"
+        },
+        {
+          "lab": "BUN",
+          "value": "30",
+          "units": "mg/dL",
+          "referenceRange": "8-20"
+        },
+        {
+          "lab": "Procalcitonin",
+          "value": "15",
+          "units": "ng/mL",
+          "referenceRange": "<0.15"
+        }
+      ],
+      "physicalExam": "General: Appears weak and diaphoretic. \nSkin: Warm and flushed, with decreased turgor. \nCardiovascular: Tachycardic, weak and thready peripheral pulses (+1/4). \nRespiratory: Increased work of breathing, using accessory muscles. Auscultation reveals clear lung sounds bilaterally. \nAbdomen: Soft, non-tender, normoactive bowel sounds. \nGU: Foley catheter in place, draining cloudy, concentrated urine.",
+      "radiology": "Chest X-Ray: No acute infiltrates or consolidation. Mild cardiomegaly noted. No pleural effusions.",
+      "medications": [
+        {
+          "medication": "0.9% NaCl",
+          "dose": "500 mL",
+          "route": "IV",
+          "frequency": "Bolus PRN"
+        },
+        {
+          "medication": "Piperacillin/Tazobactam",
+          "dose": "4.5 g",
+          "route": "IV",
+          "frequency": "q6h"
+        },
+        {
+          "medication": "Vasopressin",
+          "dose": "0.03 units/min",
+          "route": "IV",
+          "frequency": "Continuous infusion, titrate per protocol"
+        },
+        {
+          "medication": "Acetaminophen",
+          "dose": "650 mg",
+          "route": "PO",
+          "frequency": "q4h PRN for fever"
+        }
+      ],
+      "nursingOrders": [
+        "Administer 0.9% NaCl 500 mL bolus, repeat as needed, reassessing vital signs after each bolus.",
+        "Obtain blood cultures x2 from separate sites.",
+        "Administer broad-spectrum antibiotics (Piperacillin/Tazobactam) 4.5 g IV q6h.",
+        "Monitor vital signs every 15 minutes, including BP, HR, RR, SpO2, and temperature.",
+        "Insert indwelling urinary catheter and monitor urine output hourly.",
+        "Assess level of consciousness and neurological status.",
+        "Monitor lab values, including WBC, lactate, creatinine, BUN, and procalcitonin.",
+        "Elevate head of bed to 30 degrees to improve respiratory effort."
+      ]
     },
     "tabs": [
       {
@@ -107,7 +205,7 @@
       "itemMapCode": "CONDITION-SEPTIC-004"
     }
   ],
-  "condition": "pc4",
+  "conditionId": "pc4",
   "parameters": [
     {
       "id": "p1",
@@ -201,8 +299,26 @@
       }
     ]
   },
-  "qualityMark": "NGN-2026-HI-FI-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:52:24.018Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:52:24.018Z",
+  "rationale": {
+    "answerBreakdown": {
+      "a1": "Septic shock causes massive vasodilation and capillary leak, leading to relative hypovolemia. Aggressive fluid resuscitation is critical to restore intravascular volume, improve preload, and increase cardiac output and tissue perfusion.",
+      "a2": "Vasopressors are indicated for persistent hypotension after adequate fluid resuscitation. Administering them prematurely without sufficient intravascular volume can worsen tissue ischemia by constricting already underfilled vessels.",
+      "a3": "While this position can ease work of breathing, it is not a priority intervention for hemodynamic instability in septic shock. It may also worsen hypotension by reducing venous return to the heart.",
+      "a4": "Septic shock increases metabolic demand and respiratory muscle fatigue, leading to respiratory failure. Preparing for intubation is a proactive measure to secure the airway and reduce the work of breathing, ensuring adequate oxygenation.",
+      "a5": "This action is contraindicated as it would severely worsen hypovolemia and shock. The patient requires aggressive fluid administration, not restriction, to combat the distributive shock state.",
+      "pc1": "This condition is caused by absolute fluid loss, such as from hemorrhage. While the patient is relatively hypovolemic, the presence of fever, high WBC, and elevated procalcitonin points to an infectious etiology.",
+      "pc2": "This results from primary cardiac pump failure. The patient's warm, flushed skin is inconsistent with the cool, clammy skin typical of cardiogenic shock, and there is no history of acute cardiac events.",
+      "pc3": "This is an acute allergic reaction. The patient's presentation lacks key features like urticaria, angioedema, or a known allergen exposure, making this diagnosis unlikely.",
+      "pc4": "This is a distributive shock resulting from a dysregulated host response to infection. The patient's fever, hypotension, tachycardia, elevated inflammatory markers (WBC, procalcitonin), and organ dysfunction (high lactate, creatinine) confirm this diagnosis.",
+      "p1": "While important, level of consciousness is a general indicator of cerebral perfusion. More specific parameters are needed to directly assess the response to fluid resuscitation and peripheral perfusion.",
+      "p2": "Urine output is a sensitive indicator of renal perfusion and reflects the adequacy of systemic circulation. Monitoring this parameter is crucial to gauge the effectiveness of fluid resuscitation in restoring organ perfusion.",
+      "p3": "Bowel sounds are not a primary or sensitive indicator for assessing the immediate response to interventions in septic shock. Changes in bowel sounds occur much later in the clinical course.",
+      "p4": "Capillary refill time is a direct measure of peripheral tissue perfusion. A prolonged refill time indicates poor circulation, and its improvement is a key goal of fluid resuscitation and other shock therapies.",
+      "p5": "Pupil reaction assesses brainstem function and is not a relevant parameter for monitoring hemodynamic status or the effectiveness of fluid resuscitation in septic shock."
+    }
+  }
 }

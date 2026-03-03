@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-New-v26-4a9b2c3d-5e6f-4789-9012-34567890abcd",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 72-year-old client with pneumonia whose condition is declining despite initial interventions. Based on the clinical data, complete the bowtie to identify the client's priority condition, the two most important actions to take, and two parameters to monitor.",
+  "stem": "The nurse is caring for a 72-year-old client with pneumonia whose condition is declining despite initial interventions. Based on the clinical data, complete the bowtie to identify the client's priority condition, the two most important actions to take, and two parameters to monitor.",
   "options": [
     {
       "id": "opt_01",
@@ -75,6 +75,18 @@
     "mnemonic": {
       "frontsideText": "SEPSIS Hour-1 Bundle (LOAF-V)",
       "backsideText": "L-actate measurement; O-btain blood cultures; A-dminister broad-spectrum antibiotics; F-luid resuscitation (30 mL/kg crystalloid); V-asopressors if hypotensive during/after fluids."
+    },
+    "answerBreakdown": {
+      "opt_01": "Norepinephrine is the first-line vasopressor to increase MAP and improve organ perfusion in septic shock.",
+      "opt_02": "Furosemide is contraindicated as it will worsen hypovolemia and hypotension.",
+      "opt_03": "CVP monitoring helps assess fluid volume status and guide fluid resuscitation.",
+      "opt_04": "The client's hypotension, elevated lactate, and creatinine confirm septic shock.",
+      "opt_05": "While pneumonia can lead to ARDS, the immediate priority is addressing the septic shock.",
+      "opt_06": "Cardiogenic shock presents differently, with signs of pump failure, not vasodilation.",
+      "opt_07": "MAP is the primary indicator of organ perfusion and the target for vasopressor titration.",
+      "opt_08": "Hourly urine output reflects renal perfusion and overall end-organ perfusion.",
+      "opt_09": "Sputum characteristics are not a priority for immediate hemodynamic stabilization.",
+      "opt_10": "Temperature is not a direct measure of perfusion or hemodynamic stability."
     }
   },
   "itemContext": {
@@ -142,7 +154,7 @@
     "cjmmStep": "Generate Solutions",
     "nclexCategory": "Physiological Integrity: Physiological Adaptation"
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
   "healedAt": "2026-03-01T16:23:19.774Z",
   "scenarioMapCode": "SCN-SEP-SHOCK-001",
   "ehr_map_code": "SCN-SEP-SHOCK-001",
@@ -173,7 +185,57 @@
     "opt_09": "PARAM-SPUTUM",
     "opt_10": "PARAM-TEMP"
   },
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "lastFixed": "2026-03-02T22:12:07.693Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:12:07.693Z",
+  "conditionId": "opt_04",
+  "correctActionIds": [
+    "opt_01",
+    "opt_03"
+  ],
+  "correctParameterIds": [
+    "opt_07",
+    "opt_08"
+  ],
+  "potentialConditions": [
+    {
+      "id": "opt_04",
+      "text": "Septic Shock"
+    },
+    {
+      "id": "opt_05",
+      "text": "Acute Respiratory Distress Syndrome (ARDS)"
+    },
+    {
+      "id": "opt_06",
+      "text": "Cardiogenic Shock"
+    }
+  ],
+  "studyCompanion": {
+    "pearls": [
+      "In septic shock, prioritize interventions that support blood pressure and organ perfusion, such as vasopressors and fluid resuscitation.",
+      "Monitor urine output closely as an indicator of renal perfusion and overall hemodynamic stability.",
+      "Central venous pressure (CVP) can help guide fluid management, but it should be interpreted in conjunction with other clinical data."
+    ],
+    "traps": [
+      {
+        "trapDescription": "Focusing solely on respiratory symptoms can lead to overlooking the critical circulatory compromise in septic shock.",
+        "strategy": "Always assess the ABCs (Airway, Breathing, Circulation) and address the most immediate life-threatening issue first."
+      },
+      {
+        "trapDescription": "Assuming that fluid boluses alone will resolve hypotension without addressing vasodilation.",
+        "strategy": "Recognize that vasopressors are often necessary in septic shock to restore vascular tone and maintain adequate blood pressure."
+      }
+    ],
+    "mnemonics": [
+      {
+        "frontsideText": "VasoPressors Save Organs",
+        "backsideText": "Vasopressors are crucial in septic shock to maintain Mean Arterial Pressure (MAP) and ensure adequate organ perfusion."
+      },
+      {
+        "frontsideText": "Urine Output = Organ Perfusion",
+        "backsideText": "Adequate urine output indicates sufficient renal perfusion, a key indicator of overall organ perfusion in shock."
+      }
+    ]
+  }
 }

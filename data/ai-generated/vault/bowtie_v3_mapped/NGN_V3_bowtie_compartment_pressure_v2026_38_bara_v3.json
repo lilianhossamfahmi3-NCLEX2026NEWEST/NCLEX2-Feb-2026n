@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_compartment_pressure_v2026_38_bara",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 19-year-old client is being monitored for potential compartment syndrome after a crush injury to the right forearm. Based on the documentation, complete the bowtie by selecting the most likely condition, two actions to take, and two parameters to monitor.",
+  "stem": "A 19-year-old client is being monitored for potential compartment syndrome after a crush injury to the right forearm. Based on the documentation, complete the bowtie by selecting the most likely condition, two actions to take, and two parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "John Doe",
@@ -10,6 +10,63 @@
       "codeStatus": "Full Code",
       "iso": "Standard",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "bp": "142/88 mmHg",
+        "hr": "112/min",
+        "rr": "20/min",
+        "pain": "10/10"
+      },
+      "labResults": [],
+      "physicalExam": {
+        "general": "Anxious, diaphoretic male in obvious pain.",
+        "cardiovascular": "Tachycardic, peripheral pulses present but diminished in right arm.",
+        "respiratory": "Breathing labored, lung sounds clear bilaterally.",
+        "neurological": "Alert and oriented, severe pain with passive extension of fingers on right hand.",
+        "musculoskeletal": "Right forearm tense and swollen, skin shiny and pale. Pain out of proportion to exam findings."
+      },
+      "radiology": "X-Ray Right Forearm: No acute fractures identified. Soft tissue swelling noted in the right forearm compartment. No foreign bodies detected.",
+      "medications": [
+        {
+          "medication": "Fentanyl",
+          "dose": "50 mcg",
+          "route": "IV",
+          "frequency": "Every 1 hour PRN severe pain",
+          "lastAdministered": "09:45"
+        },
+        {
+          "medication": "Normal Saline",
+          "dose": "125 mL/hr",
+          "route": "IV",
+          "frequency": "Continuous",
+          "lastAdministered": "Ongoing"
+        }
+      ],
+      "nursingOrders": [
+        "Administer prescribed analgesics and monitor effectiveness.",
+        "Elevate the affected extremity at the level of the heart.",
+        "Monitor intracompartmental pressures and neurovascular status frequently.",
+        "Prepare the client for possible surgical intervention (fasciotomy).",
+        "Maintain strict NPO status."
+      ],
+      "intracompartmentalPressureLog": [
+        {
+          "time": "08:00",
+          "pressure": "12",
+          "notes": "Upper limit of normal"
+        },
+        {
+          "time": "09:00",
+          "pressure": "24",
+          "notes": "Trending up"
+        },
+        {
+          "time": "10:00",
+          "pressure": "38",
+          "notes": "CRITICAL (>30 requires action)"
+        }
+      ]
     },
     "tabs": [
       {
@@ -198,8 +255,49 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T20:58:37.415Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T20:58:37.415Z",
+  "conditionId": "c1",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Correct. Increased pressure within a fascial compartment compromises circulation and function. The client's pressure of 38 mmHg, severe pain with passive stretch, and mechanism of injury are classic signs of this surgical emergency.",
+      "c2": "Incorrect. This is a potential complication of untreated compartment syndrome, not the primary condition. It involves permanent muscle and nerve damage due to ischemia, which has not yet been established.",
+      "c3": "Incorrect. The client's condition is unstable, as evidenced by the rapidly rising compartment pressures and severe, uncontrolled pain. This indicates a pathological process beyond normal inflammation.",
+      "a1": "Correct. A fasciotomy surgically opens the fascial compartment to relieve pressure. This is the definitive treatment to restore blood flow and prevent irreversible muscle and nerve damage from ischemia.",
+      "a2": "Correct. An emergent fasciotomy is required, necessitating general anesthesia. Maintaining NPO status is a critical safety measure to reduce the risk of pulmonary aspiration of gastric contents during the procedure.",
+      "a3": "Incorrect. This action is not indicated and does not address the underlying issue of increased intracompartmental pressure. The client's primary problem is mechanical compression, not a metabolic issue requiring dextrose.",
+      "a4": "Incorrect. This action is contraindicated as it would further increase external pressure on the affected compartment, worsening the ischemia and accelerating tissue damage. All constrictive dressings should be removed.",
+      "p1": "Correct. Continuously monitoring the pressure provides objective data on the progression of the syndrome and the urgency for intervention. It is the most direct measurement of the underlying pathology.",
+      "p2": "Correct. These are key components of a neurovascular assessment. Worsening perfusion, indicated by weak pulses or delayed refill, signals advancing ischemia and the need for immediate intervention.",
+      "p3": "Incorrect. Albumin levels are related to oncotic pressure and fluid shifts over time but are not a priority parameter for monitoring an acute, rapidly progressing condition like compartment syndrome.",
+      "p4": "Incorrect. While important for monitoring for rhabdomyolysis, a potential complication, the immediate limb-threatening issue is the localized compartment syndrome. Neurovascular status and pressure are the primary focus."
+    }
+  },
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "Acute Compartment Syndrome",
+      "itemMapCode": "COND-COMPARTMENT-001"
+    },
+    {
+      "id": "c2",
+      "text": "Incipient Volkmann's Ischemia",
+      "itemMapCode": "COND-VOLKMANN-002"
+    },
+    {
+      "id": "c3",
+      "text": "Stable Post-Crush Inflammation",
+      "itemMapCode": "COND-INFLAMMATION-003"
+    }
+  ]
 }

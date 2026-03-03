@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-ARDS-BT-1772034560656",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 62-year-old male is admitted to the ICU with acute respiratory distress syndrome (ARDS) secondary to sepsis. Based on the provided information, select the TWO most likely causes of the patient's ARDS, the MOST likely condition the patient is experiencing as a result of ARDS, and the TWO most appropriate interventions.",
+  "stem": "A 62-year-old male is admitted to the ICU with acute respiratory distress syndrome (ARDS) secondary to sepsis. Based on the provided information, select the TWO most likely causes of the patient's ARDS, the MOST likely condition the patient is experiencing as a result of ARDS, and the TWO most appropriate interventions.",
   "scoring": {
     "method": "linkage",
     "maxPoints": 5
@@ -27,7 +27,17 @@
         "title": "Acute Respiratory Distress Syndrome (ARDS)",
         "content": "ARDS is a severe inflammatory lung condition characterized by increased permeability of the alveolar-capillary membrane, leading to pulmonary edema and hypoxemia. Management focuses on treating the underlying cause and providing supportive care, including mechanical ventilation with lung-protective strategies."
       }
-    ]
+    ],
+    "answerBreakdown": {
+      "c1": "Sepsis is a systemic infection that triggers an overwhelming inflammatory response, leading to ARDS.",
+      "c2": "Hypovolemia is not a primary cause of ARDS; ARDS is characterized by fluid accumulation in the lungs due to increased permeability.",
+      "c3": "Increased alveolar-capillary permeability is a key pathophysiological feature of ARDS, resulting in pulmonary edema and impaired gas exchange.",
+      "c4": "Aspiration pneumonia can cause ARDS, but in this scenario, sepsis is the primary identified cause.",
+      "i1": "Prone positioning improves oxygenation by redistributing lung perfusion and ventilation, reducing atelectasis and improving V/Q matching.",
+      "i2": "Supplemental oxygen alone does not address the underlying pathology of ARDS, which involves inflammation and fluid accumulation in the lungs.",
+      "i3": "Nebulized bronchodilators are not typically indicated in ARDS unless there is a coexisting bronchospastic component.",
+      "i4": "Low tidal volume ventilation is a lung-protective strategy that minimizes alveolar overdistension and reduces the risk of ventilator-induced lung injury (VILI)."
+    }
   },
   "pedagogy": {
     "bloomLevel": "analyze",
@@ -91,7 +101,7 @@
       }
     ]
   },
-  "correctConditionId": "cond2",
+  "correctConditionId": "cond1",
   "sentinelStatus": "healed_v2026_v11",
   "actions": [
     {
@@ -138,8 +148,8 @@
     }
   ],
   "potentialConditions": [
-    "Pulmonary embolism",
     "Pulmonary edema",
+    "Pulmonary embolism",
     "Pneumothorax"
   ],
   "correctActionIds": [
@@ -150,14 +160,37 @@
     "c1",
     "c3"
   ],
-  "condition": "cond2",
+  "condition": "cond1",
   "scenarioMapCode": "SCN-ARDS-001",
   "ehr_map_code": "SCN-ARDS-001",
   "bowtie_map_code": "SCN-ARDS-001",
   "companion_map_code": "SCN-ARDS-001",
   "hud_map_code": "SCN-ARDS-001",
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T20:45:04.583Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T20:45:04.583Z",
+  "studyCompanion": {
+    "pearls": [
+      "ARDS is characterized by non-cardiogenic pulmonary edema and hypoxemia.",
+      "Low tidal volume ventilation is crucial in ARDS to prevent ventilator-induced lung injury.",
+      "Prone positioning can improve oxygenation in ARDS patients by redistributing lung perfusion."
+    ],
+    "traps": [
+      {
+        "trap": "Assuming that increasing FiO2 alone will resolve hypoxemia in ARDS.",
+        "strategy": "Recognize that ARDS involves significant alveolar damage and fluid accumulation, requiring interventions beyond supplemental oxygen."
+      },
+      {
+        "trap": "Overlooking the importance of addressing the underlying cause of ARDS, such as sepsis.",
+        "strategy": "Prioritize identifying and treating the underlying condition contributing to ARDS to improve patient outcomes."
+      }
+    ],
+    "mnemonics": [
+      {
+        "title": "PEEP",
+        "expansion": "Positive End-Expiratory Pressure: Prevents alveolar collapse, Enhances oxygenation, Eases work of breathing, Promotes lung recruitment"
+      }
+    ]
+  }
 }

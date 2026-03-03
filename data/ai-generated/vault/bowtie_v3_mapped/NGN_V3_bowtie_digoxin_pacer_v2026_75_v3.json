@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_digoxin_pacer_v2026_75",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] An 81-year-old client with heart failure is admitted after accidentally doubling their Digoxin dose for a week. Based on the documentation, complete the bowtie by selecting the most likely condition, the two actions the nurse should take, and the two parameters the nurse should monitor.",
+  "stem": "An 81-year-old client with heart failure is admitted after accidentally doubling their Digoxin dose for a week. Based on the documentation, complete the bowtie by selecting the most likely condition, the two actions the nurse should take, and the two parameters the nurse should monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "Elias Schmidt",
@@ -10,6 +10,54 @@
       "codeStatus": "Full Code",
       "iso": "Standard",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "bp": "74/38 mmHg",
+        "hr": "32 bpm",
+        "rr": "12",
+        "temp": "97.2°F",
+        "spo2": "88%"
+      },
+      "labResults": {
+        "digoxinLevel": "4.8 ng/mL",
+        "potassium": "6.1 mEq/L"
+      },
+      "physicalExam": {
+        "cardiovascular": "Bradycardia, distant heart sounds, weak peripheral pulses, delayed capillary refill",
+        "respiratory": "Crackles auscultated bilaterally in the lower lobes, diminished breath sounds",
+        "neurological": "Unresponsive to verbal stimuli, responds to painful stimuli with withdrawal",
+        "integumentary": "Cool, clammy skin, cyanosis around the lips"
+      },
+      "radiology": "Chest X-Ray: Cardiomegaly noted. Pulmonary vascular congestion present, consistent with heart failure. No acute infiltrates or pneumothorax identified.",
+      "medications": [
+        {
+          "name": "Digoxin Immune Fab (Digibind)",
+          "dosage": "200 mg",
+          "route": "IV",
+          "frequency": "STAT"
+        },
+        {
+          "name": "Normal Saline",
+          "dosage": "20 mL/hr",
+          "route": "IV",
+          "frequency": "Continuous"
+        },
+        {
+          "name": "Oxygen",
+          "dosage": "2L",
+          "route": "Nasal Cannula",
+          "frequency": "Continuous"
+        }
+      ],
+      "nursingOrders": [
+        "Continuous cardiac monitoring",
+        "Administer Digoxin Immune Fab as prescribed",
+        "Prepare for and assist with transcutaneous pacing",
+        "Monitor vital signs frequently",
+        "Assess neurological status",
+        "Ensure patient safety with bed alarms and side rails"
+      ]
     },
     "tabs": [
       {
@@ -196,8 +244,37 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:05:10.925Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:05:10.925Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "c1",
+    "c2",
+    "c3"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Incorrect: The EKG shows a 3rd-degree heart block, which is a complete dissociation between atrial and ventricular activity, not just a slow sinus rhythm.",
+      "c2": "Correct: Digoxin toxicity slows AV nodal conduction by increasing vagal tone and inhibiting the Na+/K+ ATPase pump. This can progress to a complete heart block, as seen on the EKG, especially with concurrent hyperkalemia.",
+      "c3": "Incorrect: The client's shock state is caused by pump failure (cardiogenic shock) due to extreme bradycardia, not fluid volume loss. Administering fluids would likely worsen heart failure and pulmonary congestion.",
+      "a1": "Correct: TCP is a critical intervention to provide immediate electrical support and increase the heart rate. This will improve cardiac output and perfusion while waiting for the antidote to take effect.",
+      "a2": "Correct: Digoxin Immune Fab is the specific antidote for digoxin toxicity. It binds to digoxin molecules in the bloodstream, neutralizing their cardiotoxic effects and allowing them to be excreted by the kidneys.",
+      "a3": "Incorrect: Atropine is typically ineffective for high-degree AV blocks like 3rd-degree block, especially when caused by digoxin toxicity. The primary treatment is pacing and the specific antidote.",
+      "a4": "Incorrect: The client's temperature is 97.2°F (36.2°C), which is slightly low, not elevated. Applying cooling blankets is contraindicated and would worsen the client's condition by causing shivering and increasing metabolic demand.",
+      "p1": "Correct: Continuous monitoring of the heart rate and EKG is essential to evaluate the effectiveness of transcutaneous pacing and the reversal of the heart block after administering the antidote.",
+      "p2": "Correct: Blood pressure and mental status are key indicators of systemic perfusion and cardiac output. Improvement in these parameters signifies successful resuscitation from cardiogenic shock.",
+      "p3": "Incorrect: While important for overall patient care, monitoring glucose is not a priority parameter for managing acute digoxin toxicity and cardiogenic shock. The immediate threat is cardiovascular collapse.",
+      "p4": "Incorrect: Assessing for a Babinski sign is part of a neurological exam to check for upper motor neuron lesions. It is not a relevant or priority parameter for monitoring this client's acute cardiac emergency."
+    }
+  }
 }

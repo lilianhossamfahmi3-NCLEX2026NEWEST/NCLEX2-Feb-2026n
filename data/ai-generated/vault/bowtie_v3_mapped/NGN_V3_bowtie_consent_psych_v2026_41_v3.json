@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_consent_psych_v2026_41",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 24-year-old client on an involuntary psychiatric hold who was found unconscious from an apparent overdose. Based on the provided documentation, complete the bowtie by selecting the appropriate condition, two actions to take, and two parameters to monitor.",
+  "stem": "The nurse is caring for a 24-year-old client on an involuntary psychiatric hold who was found unconscious from an apparent overdose. Based on the provided documentation, complete the bowtie by selecting the appropriate condition, two actions to take, and two parameters to monitor.",
   "itemContext": {
     "tabs": [
       {
@@ -44,7 +44,69 @@
         "title": "Physical Exam",
         "content": "<b>General:</b> Unresponsive, cyanotic 24-year-old male.<br><b>Neuro:</b> GCS 5 (E1V1M3), pupils 2mm and reactive to light bilaterally, no response to painful stimuli.<br><b>Cardio:</b> Bradycardic, faint peripheral pulses.<br><b>Resp:</b> Shallow, infrequent respirations, diminished breath sounds bilaterally, audible gurgling.<br><b>GI/GU:</b> Abdomen soft, nondistended. Urinary catheter not in place."
       }
-    ]
+    ],
+    "patient": {
+      "name": "John Doe",
+      "age": 24,
+      "gender": "Male",
+      "codeStatus": "Full Code",
+      "isoStatus": "Standard",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "08:15",
+          "bp": "72/40",
+          "hr": 38,
+          "rr": 4,
+          "spo2": 72
+        }
+      ],
+      "labResults": {
+        "toxicologyScreen": "Positive for benzodiazepines and opioids",
+        "abg": {
+          "pH": 7.18,
+          "PaCO2": 65,
+          "PaO2": 55,
+          "HCO3": 24,
+          "SaO2": 75
+        }
+      },
+      "physicalExam": {
+        "general": "Unresponsive, cyanotic 24-year-old male",
+        "neuro": "GCS 5 (E1V1M3), pupils 2mm and reactive to light bilaterally, no response to painful stimuli",
+        "cardio": "Bradycardic, faint peripheral pulses",
+        "resp": "Shallow, infrequent respirations, diminished breath sounds bilaterally, audible gurgling",
+        "gi_gu": "Abdomen soft, nondistended. Urinary catheter not in place"
+      },
+      "medications": [
+        {
+          "time": "08:20",
+          "medication": "Naloxone",
+          "dose": "0.4 mg",
+          "route": "IV push"
+        },
+        {
+          "time": "08:25",
+          "medication": "Normal Saline",
+          "dose": "500 mL",
+          "route": "IV bolus",
+          "rate": "100 mL/hr"
+        }
+      ],
+      "nursingOrders": [
+        "Initiate and maintain mechanical ventilation to support oxygenation and ventilation.",
+        "Administer intravenous fluids and vasopressors as prescribed to support blood pressure.",
+        "Continuously monitor vital signs, including ECG, blood pressure, heart rate, respiratory rate, and oxygen saturation.",
+        "Assess neurological status frequently using the Glasgow Coma Scale.",
+        "Monitor ABG results and adjust ventilator settings as needed.",
+        "Insert indwelling urinary catheter to closely monitor output."
+      ],
+      "radiology": {
+        "chestXRay": "Diffuse bilateral pulmonary edema, consistent with acute respiratory distress syndrome (ARDS). No signs of aspiration pneumonia noted."
+      }
+    }
   },
   "bowtieData": {
     "conditionOptions": [
@@ -188,8 +250,46 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:01:18.365Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:01:18.365Z",
+  "conditionId": "c1",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "Medical Emergency (Implied Consent)"
+    },
+    {
+      "id": "c2",
+      "text": "Right of Refusal (Involuntary Status)"
+    },
+    {
+      "id": "c3",
+      "text": "Psychiatric Advance Directive Activation"
+    }
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "The client is incapacitated (GCS 5) and in a life-threatening situation. The legal doctrine of implied consent allows for emergency treatment to preserve life when the client cannot consent for themselves.",
+      "c2": "The right to refuse treatment applies to clients with decision-making capacity. This client is unconscious and lacks capacity, making refusal impossible and emergency intervention necessary.",
+      "c3": "While a psychiatric advance directive is important, it does not supersede the need for immediate life-saving medical care in an acute emergency. Furthermore, no directive is documented in the client's chart.",
+      "a1": "The client's critical vital signs (hypotension, bradycardia, apnea) indicate an immediate threat to life. The nurse's priority is to stabilize the client by providing necessary medical interventions like intubation and ventilation.",
+      "a2": "When acting under implied consent, it is a legal and ethical requirement to thoroughly document the clinical justification for bypassing the standard consent process. This includes the client's condition and the emergent need for treatment.",
+      "a3": "Delaying life-saving treatment to obtain a court order would cause irreversible harm or death. The principle of implied consent is specifically designed to prevent such delays in emergencies.",
+      "a4": "The client is unconscious and physically unable to decline treatment. Interpreting their condition as a refusal would be a critical clinical error and constitute negligence.",
+      "p1": "These parameters directly reflect the client's neurological and cardiorespiratory status, which are the most critical systems affected by the overdose. Monitoring these is essential to evaluate the effectiveness of interventions.",
+      "p2": "While treatment should not be delayed, the healthcare team has an ethical and legal duty to make reasonable efforts to locate and inform the next-of-kin about the client's condition and the treatment being provided.",
+      "p3": "While a living will is important, searching for it should not delay immediate life-saving care. The priority is stabilization; legal documents can be located and reviewed concurrently or after the client is stable.",
+      "p4": "While glucose is a standard lab value, it is not a priority parameter for monitoring in this acute cardiorespiratory collapse unless there is a specific indication of a glycemic issue. Neurological and respiratory status are the immediate priorities."
+    }
+  }
 }

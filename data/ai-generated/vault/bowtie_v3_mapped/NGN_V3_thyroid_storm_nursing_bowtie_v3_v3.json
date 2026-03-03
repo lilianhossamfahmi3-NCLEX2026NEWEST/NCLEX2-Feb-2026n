@@ -115,7 +115,7 @@
       }
     ]
   },
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 42-year-old client one day post-thyroidectomy. Based on the provided clinical data, the nurse identifies a life-threatening complication. Complete the bowtie by selecting the potential condition, two actions to take, and two parameters to monitor.",
+  "stem": "The nurse is caring for a 42-year-old client one day post-thyroidectomy. Based on the provided clinical data, the nurse identifies a life-threatening complication. Complete the bowtie by selecting the potential condition, two actions to take, and two parameters to monitor.",
   "potentialConditions": [
     {
       "id": "condition1",
@@ -138,7 +138,7 @@
       "hoverRationale": "This is incorrect. While an overdose can cause similar vital signs, there is no history to support it. The client's recent thyroid surgery is a known precipitating factor for thyroid storm, making it the most likely diagnosis."
     }
   ],
-  "condition": "condition1",
+  "conditionId": "condition1",
   "actions": [
     {
       "id": "action1",
@@ -306,8 +306,118 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:29:57.396Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:29:57.395Z",
+  "itemContext": {
+    "patient": {
+      "name": "Jane Doe",
+      "age": 42,
+      "sex": "Female",
+      "codeStatus": "Full Code",
+      "iso": "Standard",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "12:00",
+          "tempC": "37.5",
+          "tempF": "99.5",
+          "hr": "110",
+          "bp": "142/88",
+          "rr": "20",
+          "spo2": "98%"
+        },
+        {
+          "time": "14:00",
+          "tempC": "40.7",
+          "tempF": "105.2",
+          "hr": "165",
+          "bp": "160/70",
+          "rr": "28",
+          "spo2": "94%"
+        }
+      ],
+      "labResults": [
+        {
+          "lab": "Thyroid Stimulating Hormone (TSH)",
+          "value": "<0.01 mIU/L",
+          "range": "0.4-4.0 mIU/L"
+        },
+        {
+          "lab": "Free Thyroxine (Free T4)",
+          "value": "7.8 ng/dL",
+          "range": "0.8-1.8 ng/dL"
+        },
+        {
+          "lab": "Potassium",
+          "value": "3.2 mEq/L",
+          "range": "3.5-5.0 mEq/L"
+        },
+        {
+          "lab": "Sodium",
+          "value": "148 mEq/L",
+          "range": "135-145 mEq/L"
+        }
+      ],
+      "physicalExam": "General: Acutely agitated, diaphoretic, and tremulous.\nNeuro: Anxious, confused, oriented to person only. Pupils equal and reactive to light. \nCardiovascular: Tachycardic, no murmurs auscultated. Peripheral pulses 2+ bilaterally.\nRespiratory: Tachypneic, clear lung sounds bilaterally. SpO2 94% on room air.\nIntegumentary: Skin warm and moist to touch. Surgical incision clean, dry, and intact without signs of infection.",
+      "radiology": "Chest X-Ray: No acute cardiopulmonary abnormalities. Lungs are clear. Heart size within normal limits. No evidence of pneumothorax or pleural effusion.",
+      "medications": [
+        {
+          "medication": "Propylthiouracil (PTU) 200 mg PO",
+          "route": "PO",
+          "frequency": "Every 6 hours",
+          "time": "1400"
+        },
+        {
+          "medication": "Propranolol 1 mg IV",
+          "route": "IV",
+          "frequency": "Every 4 hours PRN HR > 120",
+          "time": "1400"
+        },
+        {
+          "medication": "Acetaminophen 1000 mg PO",
+          "route": "PO",
+          "frequency": "Every 4 hours PRN Temp > 38.5C",
+          "time": "1400"
+        },
+        {
+          "medication": "Dexamethasone 4 mg IV",
+          "route": "IV",
+          "frequency": "Every 12 hours",
+          "time": "1400"
+        }
+      ],
+      "nursingOrders": [
+        "Administer antithyroid medications as prescribed (PTU).",
+        "Administer beta-blockers as prescribed (Propranolol).",
+        "Apply cooling blankets and ice packs to axillae and groin.",
+        "Provide a calm and quiet environment. Pad side rails if necessary.",
+        "Monitor vital signs continuously, paying close attention to heart rate, temperature, and blood pressure.",
+        "Monitor for signs and symptoms of complications, such as heart failure or arrhythmias.",
+        "Administer IV fluids as prescribed to maintain hydration.",
+        "Provide frequent oral care to maintain comfort."
+      ]
+    }
+  },
+  "rationale": {
+    "answerBreakdown": {
+      "condition1": "Correct. The patient's presentation (fever, tachycardia, agitation, history of Graves' disease post-thyroidectomy) strongly suggests thyroid storm.",
+      "condition2": "Incorrect. While thyrotoxicosis is present, the severity of symptoms points to the more specific and life-threatening thyroid storm.",
+      "condition3": "Incorrect. Pheochromocytoma crisis typically involves severe hypertension and headache, not the primary symptoms here.",
+      "condition4": "Incorrect. There's no indication of sympathomimetic overdose; the clinical picture aligns with thyroid storm post-thyroidectomy.",
+      "action1": "Correct. PTU blocks thyroid hormone synthesis, addressing the underlying cause of thyroid storm.",
+      "action2": "Correct. Hyperthermia is dangerous; cooling measures are essential to prevent organ damage.",
+      "action3": "Incorrect. Levothyroxine would worsen the hyperthyroid state.",
+      "action4": "Correct. IV fluids help correct dehydration, a common issue in thyroid storm.",
+      "action5": "Incorrect. Cardioversion is for unstable arrhythmias unresponsive to medical management, not the initial treatment.",
+      "param1": "Correct. Heart rate and rhythm are critical indicators of cardiovascular stability in thyroid storm.",
+      "param2": "Correct. Body temperature reflects the severity of the hypermetabolic state.",
+      "param3": "Incorrect. Blood pressure is less specific than heart rate and temperature in this context.",
+      "param4": "Incorrect. TSH changes lag behind clinical improvement and aren't useful for acute monitoring.",
+      "param5": "Correct. Level of consciousness indicates the severity of the crisis and the effectiveness of interventions."
+    }
+  }
 }

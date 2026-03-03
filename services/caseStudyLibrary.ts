@@ -2399,6 +2399,18 @@ export function wrapStandalone(rawItem: MasterItem): CaseStudy {
         item.scoring = { method: 'polytomous', maxPoints: 1 };
     }
 
+    // 🚀 V3-MAPPED: If the item has embedded clinical context (Patient + Complete Data), use it directly
+    if ((item as any).itemContext?.patient && (item as any).itemContext?.clinicalData) {
+        return {
+            id: `case-${item.id}`,
+            title: item.stem?.substring(0, 60) || 'Clinical Scenario',
+            patient: (item as any).itemContext.patient,
+            clinicalData: (item as any).itemContext.clinicalData,
+            items: [item],
+            ehrPhases: {}
+        };
+    }
+
     const patient: Patient = {
         id: 'standalone-pt',
         name: 'Standardized Patient',

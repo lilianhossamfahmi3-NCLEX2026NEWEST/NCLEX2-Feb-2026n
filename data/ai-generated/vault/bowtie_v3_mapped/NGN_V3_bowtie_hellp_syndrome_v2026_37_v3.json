@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_hellp_syndrome_v2026_37",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 33-year-old client at 35 weeks gestation with preeclampsia who now reports severe epigastric pain. Based on the client data in the electronic health record, complete the bowtie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+  "stem": "The nurse is caring for a 33-year-old client at 35 weeks gestation with preeclampsia who now reports severe epigastric pain. Based on the client data in the electronic health record, complete the bowtie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "Jane Doe",
@@ -10,6 +10,59 @@
       "codeStatus": "Full Code",
       "iso": "Standard Precautions",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "time": "14:30",
+        "bp": "172/114 mmHg",
+        "hr": "102 bpm",
+        "rr": "22 breaths/min",
+        "spo2": "95% on room air",
+        "notes": "Petechiae noted on arms. Client appears jaundiced."
+      },
+      "labResults": {
+        "platelets": "62,000 /mm³",
+        "ast": "192 U/L",
+        "alt": "210 U/L",
+        "totalBilirubin": "2.4 mg/dL",
+        "hemoglobin": "8.2 g/dL",
+        "hematocrit": "25%"
+      },
+      "physicalExam": {
+        "general": "Appears ill, jaundiced.",
+        "cardiovascular": "Tachycardia present, no murmurs auscultated.",
+        "respiratory": "Breath sounds clear bilaterally, increased respiratory rate.",
+        "gastrointestinal": "Severe epigastric tenderness to palpation, no rebound tenderness.",
+        "neurological": "Alert and oriented to person, place, and time.",
+        "integumentary": "Petechiae noted on arms, no edema present."
+      },
+      "radiology": {
+        "abdominalUltrasound": "Liver appears enlarged with heterogeneous echotexture, suggestive of edema and possible hemorrhage. No evidence of gallstones or biliary obstruction. Spleen appears normal in size and echotexture. Fetal ultrasound shows a single live fetus with appropriate growth for gestational age. Amniotic fluid volume is within normal limits."
+      },
+      "medications": [
+        {
+          "time": "14:00",
+          "medication": "Hydralazine 10 mg IV push",
+          "reason": "BP > 160/110 mmHg"
+        },
+        {
+          "time": "14:15",
+          "medication": "Labetalol 20 mg IV push",
+          "reason": "BP > 160/110 mmHg"
+        },
+        {
+          "scheduled": true,
+          "medication": "Magnesium Sulfate 4g IV loading dose, then 2g/hr continuous infusion",
+          "reason": "Preeclampsia"
+        }
+      ],
+      "nursingOrders": [
+        "Continuous maternal and fetal monitoring.",
+        "Administer prescribed medications, including antihypertensives and platelet transfusion.",
+        "Strict intake and output monitoring.",
+        "Frequent assessment of vital signs, lab values, and signs of bleeding.",
+        "Provide emotional support and education to the client and family."
+      ]
     },
     "tabs": [
       {
@@ -187,8 +240,49 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:23:18.080Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:23:18.080Z",
+  "conditionId": "c1",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "The client's jaundice, elevated liver enzymes, low platelets, and epigastric pain from liver distention confirm this diagnosis of HELLP syndrome.",
+      "c2": "The client's lab values are specific to hepatic and hematologic dysfunction, not infection, making appendicitis unlikely.",
+      "c3": "The client presents with severe epigastric pain and no bleeding, which is inconsistent with placenta previa.",
+      "a1": "The definitive treatment for HELLP syndrome is delivery of the fetus and placenta.",
+      "a2": "The client's platelet count is critically low (62,000/mm³), placing her at high risk for hemorrhage.",
+      "a3": "Applying heat or palpating the abdomen could increase the risk of liver capsule rupture.",
+      "a4": "More frequent monitoring is required to guide immediate interventions in HELLP syndrome.",
+      "p1": "Thrombocytopenia is a core feature of HELLP, increasing the risk for disseminated intravascular coagulation (DIC) and hemorrhage.",
+      "p2": "Elevated liver enzymes (AST, ALT) and right upper quadrant (RUQ) pain indicate liver inflammation and distention.",
+      "p3": "Fundal height is not a critical parameter for monitoring the acute, life-threatening complications of HELLP syndrome.",
+      "p4": "The client's presentation and lab findings are classic for HELLP syndrome, not a primary infectious process."
+    }
+  },
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "HELLP Syndrome",
+      "itemMapCode": "CONDITION-HELLP-001"
+    },
+    {
+      "id": "c2",
+      "text": "Acute Appendicitis",
+      "itemMapCode": "CONDITION-APPEND-002"
+    },
+    {
+      "id": "c3",
+      "text": "Placenta Previa",
+      "itemMapCode": "CONDITION-PREVIA-003"
+    }
+  ]
 }

@@ -42,7 +42,7 @@
       "content": "14:15: Lorazepam 2mg IV administered for agitation.\n14:30: Lorazepam 1mg IV administered for persistent agitation.\n14:45: Acetaminophen 650mg PO administered for fever > 38.5C.\nContinuous: Normal Saline IV at 100 mL/hr."
     }
   ],
-  "stem": "[V3-MAPPED-2026] A 45-year-old client, John Smith, taking Sertraline and recently prescribed Linezolid presents with acute agitation, hyperthermia, and hyperreflexia. The nurse suspects a life-threatening medication interaction. Based on the EHR, complete the bowtie to guide immediate management.",
+  "stem": "A 45-year-old client, John Smith, taking Sertraline and recently prescribed Linezolid presents with acute agitation, hyperthermia, and hyperreflexia. The nurse suspects a life-threatening medication interaction. Based on the EHR, complete the bowtie to guide immediate management.",
   "potentialConditions": [
     {
       "id": "cond1",
@@ -61,7 +61,7 @@
       "text": "Neuroleptic Malignant Syndrome (NMS)"
     }
   ],
-  "condition": "cond1",
+  "conditionId": "cond1",
   "actions": [
     {
       "id": "action1",
@@ -195,8 +195,86 @@
     "param3": "PARAM-WBC-CK-003",
     "param4": "PARAM-LITHIUM-004"
   },
-  "qualityMark": "NGN-2026-HI-FI-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:27:03.412Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:27:03.412Z",
+  "rationale": {
+    "answerBreakdown": {
+      "cond1": "The patient presents with agitation, hyperthermia, hyperreflexia, clonus, diaphoresis, and is taking Sertraline and Linezolid, fitting the criteria for Serotonin Syndrome.",
+      "cond2": "Anticholinergic toxicity typically presents with dry skin, dilated pupils, and urinary retention, which are not the primary findings in this case.",
+      "cond3": "Malignant hyperthermia is usually triggered by anesthesia and presents with muscle rigidity and hypercarbia, not directly related to the patient's medication list or presentation.",
+      "cond4": "Neuroleptic Malignant Syndrome is associated with dopamine antagonists and presents with lead-pipe rigidity and hyporeflexia, which is the opposite of the patient's hyperreflexia and clonus.",
+      "action1": "Discontinuing serotonergic medications is crucial to stop the accumulation of serotonin and prevent further complications.",
+      "action2": "Benzodiazepines help manage agitation, muscle rigidity, and seizures associated with Serotonin Syndrome.",
+      "action3": "Dantrolene is used for Malignant Hyperthermia and Neuroleptic Malignant Syndrome, not Serotonin Syndrome.",
+      "action4": "Increasing the dose of Sertraline would exacerbate the Serotonin Syndrome and is contraindicated.",
+      "param1": "Monitoring vital signs is essential to track autonomic instability, such as hyperthermia, tachycardia, and hypertension, which are key indicators of Serotonin Syndrome.",
+      "param2": "Assessing deep tendon reflexes and clonus helps gauge the severity of neuromuscular hyperactivity caused by excessive serotonin.",
+      "param3": "WBC count and Creatinine Kinase (CK) are not the most immediate parameters to monitor in Serotonin Syndrome. While CK may be elevated due to muscle rigidity, it is not as critical as vital signs and neurological assessment.",
+      "param4": "Serum Lithium levels are irrelevant as the patient is not taking Lithium, and it is not related to the pathophysiology of Serotonin Syndrome in this case."
+    }
+  },
+  "itemContext": {
+    "patient": {
+      "name": "John Smith",
+      "age": 45,
+      "sex": "Male",
+      "codeStatus": "Full Code",
+      "iso": "Standard",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "1400": {
+          "temperature": "38.8°C (101.8°F)",
+          "heartRate": "125/min",
+          "bloodPressure": "160/95 mmHg",
+          "respiratoryRate": "24/min",
+          "spO2": "96% on room air"
+        },
+        "1415": {
+          "temperature": "38.3°C (100.9°F)",
+          "heartRate": "110/min",
+          "bloodPressure": "140/85 mmHg",
+          "respiratoryRate": "20/min",
+          "spO2": "98% on room air"
+        }
+      },
+      "labResults": {},
+      "physicalExam": {
+        "general": "Anxious, diaphoretic, and restless.",
+        "neuro": "Alert but confused, oriented to person only. +4 patellar reflexes bilaterally, sustained ankle clonus. Pupils equal and reactive to light. Muscle rigidity noted.",
+        "cardiovascular": "Tachycardic, regular rhythm, no murmurs auscultated.",
+        "respiratory": "Tachypneic, clear breath sounds bilaterally.",
+        "gi": "Hyperactive bowel sounds in all quadrants."
+      },
+      "radiology": {
+        "chestXRay": {
+          "findings": "No acute cardiopulmonary abnormalities identified. Lungs are clear. Heart size is within normal limits. No evidence of pneumothorax or pleural effusion.",
+          "impression": "Normal chest x-ray."
+        }
+      },
+      "medications": {
+        "home": [
+          "Sertraline 100 mg PO daily"
+        ],
+        "recent": [
+          "Linezolid 600 mg PO BID (last dose this morning)"
+        ],
+        "emergencyDepartment": [
+          "Lorazepam 2mg IV PRN agitation, repeat every 15 minutes as needed (x3 doses given)",
+          "Acetaminophen 650mg PO administered for fever > 38.5C",
+          "Normal Saline IV at 100 mL/hr"
+        ]
+      },
+      "nursingOrders": [
+        "Discontinue all serotonergic medications immediately.",
+        "Administer benzodiazepines to manage agitation and muscle rigidity.",
+        "Monitor vital signs continuously, paying close attention to temperature, heart rate, and blood pressure.",
+        "Assess neurological status frequently, including reflexes and clonus.",
+        "Provide supportive care, including cooling measures for hyperthermia and IV fluids for hydration."
+      ]
+    }
+  }
 }

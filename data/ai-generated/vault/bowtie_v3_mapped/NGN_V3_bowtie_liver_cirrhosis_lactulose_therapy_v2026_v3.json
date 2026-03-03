@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_liver_cirrhosis_lactulose_therapy_v2026",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a client with liver cirrhosis who is receiving lactulose for hepatic encephalopathy and is now having frequent watery stools. Review the client's electronic health record. What actions should the nurse take, what condition is developing, and what parameters require monitoring?",
+  "stem": "The nurse is caring for a client with liver cirrhosis who is receiving lactulose for hepatic encephalopathy and is now having frequent watery stools. Review the client's electronic health record. What actions should the nurse take, what condition is developing, and what parameters require monitoring?",
   "itemContext": {
     "tabs": [
       {
@@ -44,7 +44,88 @@
         "title": "Patient Header",
         "content": "Name: John Smith\nAge: 68\nGender: Male\nCode Status: Full Code\nIsolation: Standard\nAllergies: NKDA"
       }
-    ]
+    ],
+    "patient": {
+      "name": "John Smith",
+      "age": 68,
+      "sex": "Male",
+      "codeStatus": "Full Code",
+      "iso": "Standard",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "00:00": {
+          "BP": "130/80 mmHg",
+          "HR": "88/min",
+          "RR": "18/min",
+          "SpO2": "98%",
+          "Temp": "37.0°C"
+        },
+        "04:00": {
+          "BP": "120/70 mmHg",
+          "HR": "92/min",
+          "RR": "20/min",
+          "SpO2": "97%",
+          "Temp": "37.2°C"
+        },
+        "08:00": {
+          "BP": "110/60 mmHg",
+          "HR": "105/min",
+          "RR": "24/min",
+          "SpO2": "95%",
+          "Temp": "37.5°C"
+        }
+      },
+      "labResults": {
+        "Ammonia": {
+          "value": 180,
+          "units": "µmol/L",
+          "normalRange": "11-35 µmol/L"
+        },
+        "Sodium": {
+          "value": 130,
+          "units": "mEq/L",
+          "normalRange": "135-145 mEq/L"
+        },
+        "Potassium": {
+          "value": 3.2,
+          "units": "mEq/L",
+          "normalRange": "3.5-5.0 mEq/L"
+        },
+        "Creatinine": {
+          "value": 1.5,
+          "units": "mg/dL",
+          "normalRange": "0.6-1.2 mg/dL"
+        },
+        "BUN": {
+          "value": 30,
+          "units": "mg/dL",
+          "normalRange": "10-20 mg/dL"
+        }
+      },
+      "physicalExam": {
+        "general": "Appears somnolent, arousable to verbal stimuli. Frail appearance.",
+        "skin": "Dry mucous membranes, poor skin turgor, tenting present. No edema noted.",
+        "cardiovascular": "Tachycardic, normal S1 and S2, no murmurs.",
+        "respiratory": "Increased respiratory rate, clear breath sounds bilaterally.",
+        "abdomen": "Soft, normoactive bowel sounds in all quadrants. No ascites noted.",
+        "neuro": "Disoriented to time and place. Asterixis present."
+      },
+      "radiology": "Abdominal X-Ray: No acute findings. No evidence of bowel obstruction or perforation. Mild hepatomegaly noted, consistent with known cirrhosis.",
+      "medications": {
+        "Lactulose": "30 mL PO q6h. Last dose given 06:00.",
+        "Potassium Chloride": "20 mEq PO daily (08:00).",
+        "Normal Saline IV": "50 mL/hr (started yesterday)."
+      },
+      "nursingOrders": [
+        "Hold lactulose as ordered and notify provider.",
+        "Administer IV fluids as prescribed (pending orders).",
+        "Monitor vital signs, urine output, and neurological status every 2 hours.",
+        "Implement fall precautions due to altered mental status.",
+        "Monitor serum electrolytes and kidney function tests daily."
+      ]
+    }
   },
   "actions": [
     {
@@ -164,7 +245,23 @@
   },
   "rationale": {
     "correct": "The client shows classic signs of hypovolemia (tachycardia, hypotension, low urine output) from excessive lactulose-induced diarrhea. The priority actions are to stop the cause by holding the next dose of lactulose and to treat the fluid deficit by encouraging oral fluids. Monitoring serum electrolytes and urine output is vital to track response to treatment, kidney function, and guide electrolyte replacement.",
-    "incorrect": "Assessing for dehydration (a1) is redundant as the data is already present. Administering more lactulose (a3) is contraindicated. Hemodialysis (a5) is not indicated. While hepatic encephalopathy is a concern, the immediate threat is hypovolemia. Monitoring mental status (p2), abdominal girth (p4), or stool frequency (p5) are less direct ways to assess the client's response to rehydration."
+    "incorrect": "Assessing for dehydration (a1) is redundant as the data is already present. Administering more lactulose (a3) is contraindicated. Hemodialysis (a5) is not indicated. While hepatic encephalopathy is a concern, the immediate threat is hypovolemia. Monitoring mental status (p2), abdominal girth (p4), or stool frequency (p5) are less direct ways to assess the client's response to rehydration.",
+    "answerBreakdown": {
+      "a1": "Assessing for dehydration is redundant as the data is already present.",
+      "a2": "Holding the next dose of lactulose is correct to prevent further fluid loss.",
+      "a3": "Administering more lactulose is contraindicated.",
+      "a4": "Encouraging oral fluids is correct to treat the fluid deficit.",
+      "a5": "Hemodialysis is not indicated.",
+      "c1": "Hepatic encephalopathy is a concern, but hypovolemia is the immediate threat.",
+      "c2": "Hypovolemia is the correct condition.",
+      "c3": "Electrolyte imbalance is a consequence of hypovolemia.",
+      "c4": "Gastrointestinal bleeding is not indicated by the data.",
+      "p1": "Monitoring serum electrolytes is correct to track response to treatment.",
+      "p2": "Monitoring mental status is less direct than fluid balance parameters.",
+      "p3": "Monitoring urine output is correct to track response to treatment.",
+      "p4": "Monitoring abdominal girth is not relevant to acute fluid loss.",
+      "p5": "Monitoring stool frequency is not the priority."
+    }
   },
   "scoring": {
     "method": "polytomous",
@@ -210,8 +307,8 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:29:58.306Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:29:58.306Z"
 }

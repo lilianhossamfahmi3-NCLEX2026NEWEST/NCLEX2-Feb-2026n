@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-hemo-bowtie-1772034182267",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 62-year-old client being treated for septic shock. Despite initial interventions, the client's hemodynamic status remains unstable. Based on the electronic health record, complete the bowtie by identifying the condition, two causative factors, and two necessary actions.",
+  "stem": "The nurse is caring for a 62-year-old client being treated for septic shock. Despite initial interventions, the client's hemodynamic status remains unstable. Based on the electronic health record, complete the bowtie by identifying the condition, two causative factors, and two necessary actions.",
   "scoring": {
     "method": "polytomous",
     "maxPoints": 5
@@ -72,7 +72,41 @@
     "bowtie_map_code": "SCN-SHOCK-001",
     "companion_map_code": "SCN-SHOCK-001",
     "hud_map_code": "SCN-SHOCK-001",
-    "scenarioMapCode": "SCN-SHOCK-001"
+    "scenarioMapCode": "SCN-SHOCK-001",
+    "clinicalData": {
+      "vitals": {
+        "hr": 122,
+        "bp": "88/52",
+        "rr": 28,
+        "spo2": 92,
+        "temp": 38.7,
+        "map": 64
+      },
+      "labs": {
+        "lactate": 4.2,
+        "wbc": 18000
+      },
+      "physicalExam": {
+        "general": "Somnolent, diaphoretic",
+        "cardiovascular": "Tachycardia, weak peripheral pulses, MAP 64 mmHg",
+        "respiratory": "Tachypnea, coarse crackles bilaterally",
+        "neurological": "Responds to painful stimuli, oriented to person only",
+        "integumentary": "Skin warm and flushed"
+      },
+      "radiology": "Chest X-Ray: Diffuse bilateral infiltrates consistent with pneumonia.",
+      "medications": [
+        "Vancomycin 1g IV q12h",
+        "Norepinephrine infusion",
+        "Furosemide 20mg IVP STAT",
+        "Pantoprazole 40mg IV daily"
+      ],
+      "nursingOrders": [
+        "Titrate norepinephrine to maintain MAP >65 mmHg",
+        "Administer furosemide to reduce CVP",
+        "Monitor urine output hourly",
+        "Assess respiratory status frequently"
+      ]
+    }
   },
   "correctConditionId": "cond2",
   "sentinelStatus": "remediated_v2026_v1",
@@ -188,8 +222,29 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:03:34.267Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:03:34.267Z",
+  "rationale": {
+    "answerBreakdown": {
+      "conditionRationale": {
+        "cond1": "Incorrect. This condition is characterized by low preload (low CVP). This client's CVP of 18 mmHg is elevated, ruling out hypovolemia as the primary shock state.",
+        "cond2": "Correct. This client's presentation of hypotension, tachycardia, and elevated lactate in the context of infection is classic for septic shock, a form of distributive shock caused by systemic vasodilation.",
+        "cond3": "Incorrect. While there is high preload (high CVP), the primary etiology is sepsis (fever, elevated WBC). The shock state is driven by vasodilation, not primary pump failure."
+      },
+      "parameterRationale": {
+        "c1": "Correct. Sepsis triggers a massive inflammatory response, leading to widespread vasodilation. This decreases systemic vascular resistance, causing profound hypotension.",
+        "c2": "Incorrect. The central venous pressure of 18 mmHg is a direct indicator of high right atrial pressure and preload, which is the opposite of hypovolemia.",
+        "c3": "Correct. The elevated CVP of 18 mmHg directly reflects increased venous return to the right atrium. This indicates either fluid overload or impaired right ventricular function.",
+        "c4": "Incorrect. There are no specific signs of cardiac tamponade, such as muffled heart sounds or pulsus paradoxus. The clinical picture is overwhelmingly consistent with sepsis."
+      },
+      "actionRationale": {
+        "i1": "Correct. Vasopressors counteract the profound vasodilation characteristic of septic shock, increasing systemic vascular resistance and raising the mean arterial pressure to improve organ perfusion.",
+        "i2": "Incorrect. The client's central venous pressure is 18 mmHg, indicating high preload. Administering more fluids would likely worsen fluid overload and could lead to pulmonary edema.",
+        "i3": "Incorrect. While essential for treating the infection, antibiotics do not address the immediate life-threatening hemodynamic instability. The MAR shows antibiotics are already prescribed.",
+        "i4": "Correct. Diuretics will reduce the excessive preload (evidenced by the high CVP), decreasing cardiac workload and improving the heart's pumping efficiency in a fluid-overloaded state."
+      }
+    }
+  }
 }

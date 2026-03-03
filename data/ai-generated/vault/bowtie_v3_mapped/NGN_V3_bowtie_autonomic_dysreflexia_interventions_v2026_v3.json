@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_autonomic_dysreflexia_interventions_v2026",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a client with a T4 spinal cord injury who reports a sudden, severe headache. Based on the data in the electronic health record, what actions should the nurse take, what condition is the client most likely experiencing, and what parameters should the nurse monitor?",
+  "stem": "The nurse is caring for a client with a T4 spinal cord injury who reports a sudden, severe headache. Based on the data in the electronic health record, what actions should the nurse take, what condition is the client most likely experiencing, and what parameters should the nurse monitor?",
   "itemContext": {
     "tabs": [
       {
@@ -34,7 +34,91 @@
         "title": "MAR",
         "content": "Hydralazine 10 mg IV PRN for SBP > 180 mmHg. Administer slowly and monitor BP closely.\nNifedipine 10 mg PO PRN for SBP > 180 mmHg. Do not administer if HR < 50 bpm.\nPolyethylene Glycol 3350 (Miralax) 17 g PO daily for bowel management.\nDocusate Sodium 100 mg PO BID for stool softening."
       }
-    ]
+    ],
+    "patient": {
+      "name": "John Smith",
+      "age": "45",
+      "gender": "Male",
+      "codeStatus": "Full Code",
+      "iso": "Standard Precautions",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "0600": {
+          "bp": "110/70 mmHg",
+          "hr": "72/min",
+          "rr": "16/min",
+          "temp": "37.0°C",
+          "spo2": "98%"
+        },
+        "0900": {
+          "bp": "188/104 mmHg",
+          "hr": "58/min",
+          "rr": "20/min",
+          "temp": "37.2°C",
+          "spo2": "97%"
+        },
+        "0915": {
+          "bp": "212/110 mmHg",
+          "hr": "52/min",
+          "rr": "22/min",
+          "temp": "37.3°C",
+          "spo2": "96%"
+        }
+      },
+      "labResults": [],
+      "physicalExam": {
+        "appearance": "Diaphoretic and flushed above the T4 dermatome, pale and cool below. Anxious and restless.",
+        "cardiovascular": "BP 212/110 mmHg, HR 52 bpm, bounding carotid pulse. No murmurs.",
+        "respiratory": "RR 22 breaths/min, slightly labored. Clear breath sounds.",
+        "neurological": "Severe, pounding headache. No motor or sensory function below T4. Reflexes 2+ and hyperactive above T4.",
+        "gi_gu": "Abdomen distended. Bladder palpably distended and firm. No bowel sounds in lower quadrants.",
+        "integumentary": "Profuse sweating on forehead and neck. Skin below T4 is cool and pale."
+      },
+      "radiology": {
+        "chest_xray": "No acute cardiopulmonary abnormalities.",
+        "abdominal_xray": "Significant stool burden in the colon. No free air or obstruction."
+      },
+      "medications": [
+        {
+          "name": "Hydralazine",
+          "dosage": "10 mg",
+          "route": "IV",
+          "frequency": "PRN",
+          "indication": "SBP > 180 mmHg"
+        },
+        {
+          "name": "Nifedipine",
+          "dosage": "10 mg",
+          "route": "PO",
+          "frequency": "PRN",
+          "indication": "SBP > 180 mmHg, HR > 50 bpm"
+        },
+        {
+          "name": "Polyethylene Glycol 3350 (Miralax)",
+          "dosage": "17 g",
+          "route": "PO",
+          "frequency": "Daily",
+          "indication": "Bowel management"
+        },
+        {
+          "name": "Docusate Sodium",
+          "dosage": "100 mg",
+          "route": "PO",
+          "frequency": "BID",
+          "indication": "Stool softening"
+        }
+      ],
+      "nursingOrders": [
+        "Elevate head of bed to 90 degrees.",
+        "Assess for and relieve bladder distension.",
+        "Assess for and remove fecal impaction.",
+        "Administer antihypertensive medication as prescribed.",
+        "Monitor blood pressure, heart rate, and oxygen saturation every 5-15 minutes.",
+        "Educate the client and family about autonomic dysreflexia triggers and prevention strategies."
+      ]
+    }
   },
   "actions": [
     {
@@ -81,7 +165,7 @@
       "text": "Hypovolemic Shock"
     }
   ],
-  "condition": "c1",
+  "conditionId": "c1",
   "parameters": [
     {
       "id": "p1",
@@ -195,8 +279,26 @@
     "iso": "Standard Precautions",
     "allergies": "NKDA"
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T20:51:58.000Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T20:51:58.000Z",
+  "rationale": {
+    "answerBreakdown": {
+      "a1": "Elevating the head of the bed uses gravity to cause orthostatic hypotension, immediately helping to lower the dangerously high blood pressure. This is the first-line intervention for autonomic dysreflexia.",
+      "a2": "The clinical flaw is not first attempting to identify and remove the noxious stimulus causing the hypertensive crisis. Antihypertensives are a secondary intervention if initial measures fail.",
+      "a3": "After addressing bladder distension, fecal impaction is the next most common trigger. Removing the stimulus is a priority action to resolve the autonomic dysreflexia episode and prevent complications.",
+      "a4": "The clinical flaw is prioritizing a diagnostic assessment for infection over immediate interventions to resolve the hypertensive crisis. While a UTI can be a trigger, it is a less acute cause.",
+      "a5": "Placing the client supine would worsen the hypertension and increase intracranial pressure, significantly raising the risk of seizure or stroke. This action is contraindicated and dangerous.",
+      "c1": "The client's T4 injury, sudden severe hypertension, bradycardia, pounding headache, and diaphoresis above the injury level are classic signs of this condition, triggered by a noxious stimulus below the injury.",
+      "c2": "Spinal shock occurs immediately after injury and is characterized by flaccid paralysis, areflexia, and hypotension. This client's severe hypertension is the opposite of spinal shock.",
+      "c3": "While autonomic dysreflexia can cause a stroke, the primary condition is the dysreflexia itself. The bradycardia and specific pattern of flushing are not typical primary signs of an ischemic stroke.",
+      "c4": "Hypovolemic shock involves fluid loss leading to hypotension and tachycardia. This client's severe hypertension and bradycardia are clinically inconsistent with hypovolemic shock.",
+      "p1": "Blood pressure can rise to life-threatening levels, causing stroke or seizure. Frequent monitoring of blood pressure and the compensatory bradycardia is essential to evaluate the client's response to interventions.",
+      "p2": "Bladder distension is the most common cause of autonomic dysreflexia. Monitoring urine output and assessing for distension are critical to identifying and managing the primary trigger.",
+      "p3": "The clinical flaw is focusing on a less critical parameter during an acute crisis. While bowel impaction is a cause, monitoring bowel sounds is not a priority over critical hemodynamic parameters.",
+      "p4": "The clinical flaw is focusing on a symptom rather than the critical hemodynamic parameters. Skin changes are an assessment finding, not a dynamic parameter to monitor for resolution of the crisis.",
+      "p5": "The clinical flaw is prioritizing a secondary vital sign. While respiratory rate is elevated, it is a response to discomfort; the primary life-threatening issue is cardiovascular."
+    }
+  }
 }

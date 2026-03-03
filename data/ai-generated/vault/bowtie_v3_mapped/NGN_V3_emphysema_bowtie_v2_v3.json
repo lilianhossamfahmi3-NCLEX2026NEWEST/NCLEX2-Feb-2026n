@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-emphysema_bowtie_v2",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 68-year-old client with a history of COPD who presents with increased dyspnea. The client has a barrel chest and an SpO2 of 89% on room air. Based on the available data, complete the bowtie to identify the most likely condition, appropriate actions, and parameters to monitor.",
+  "stem": "The nurse is caring for a 68-year-old client with a history of COPD who presents with increased dyspnea. The client has a barrel chest and an SpO2 of 89% on room air. Based on the available data, complete the bowtie to identify the most likely condition, appropriate actions, and parameters to monitor.",
   "ehr": {
     "tabs": [
       {
@@ -42,6 +42,61 @@
     ]
   },
   "itemContext": {
+    "patient": {
+      "name": "John Doe",
+      "age": 68,
+      "sex": "Male",
+      "codeStatus": "Full code",
+      "iso": "Standard Precautions",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "heartRate": 105,
+        "bloodPressure": "138/88",
+        "respiratoryRate": 26,
+        "temperature": 37.1,
+        "spO2": 89
+      },
+      "labResults": {
+        "abg": "Pending"
+      },
+      "physicalExam": {
+        "general": "Alert and oriented x3, anxious",
+        "respiratory": "Accessory muscle use, barrel chest, diminished breath sounds bilaterally, no wheezes or crackles"
+      },
+      "radiology": {
+        "chestXRay": "Hyperinflation, flattened diaphragms, bullae bilaterally"
+      },
+      "medications": [
+        {
+          "name": "Albuterol",
+          "dosage": "2.5 mg",
+          "route": "nebulizer",
+          "frequency": "Q4H PRN",
+          "lastAdministered": "0800"
+        },
+        {
+          "name": "Ipratropium",
+          "dosage": "0.5 mg",
+          "route": "nebulizer",
+          "frequency": "Q4H PRN",
+          "lastAdministered": "0800"
+        },
+        {
+          "name": "Methylprednisolone",
+          "dosage": "40 mg",
+          "route": "IV",
+          "frequency": "Daily",
+          "lastAdministered": "0800"
+        }
+      ],
+      "nursingOrders": [
+        "Administer oxygen via nasal cannula, titrate to SpO2 88-92%",
+        "Elevate head of bed",
+        "Encourage pursed-lip breathing"
+      ]
+    },
     "sbar": "Situation: John Doe, a 68-year-old male, presents with worsening shortness of breath and fatigue.\nBackground: He has a 40-pack-year smoking history and a diagnosis of COPD. At 08:00, his SpO2 is 89% on room air with a respiratory rate of 26/min.\nAssessment: Findings suggest an emphysema exacerbation with acute hypoxemia. He has a barrel chest and diminished breath sounds, indicating significant air trapping.\nRecommendation: Recommend initiating low-flow oxygen to maintain SpO2 88-92%, instructing on pursed-lip breathing, and obtaining a STAT ABG. Please confirm."
   },
   "potentialConditions": [
@@ -87,7 +142,7 @@
     {
       "id": "a2",
       "text": "Administer bronchodilators via nebulizer",
-      "hoverRationale": "While useful for bronchospasm, the primary problem in emphysema is alveolar destruction, not bronchoconstriction. Oxygenation is the immediate priority.",
+      "hoverRationale": "Bronchodilators help to open airways and improve airflow, addressing the bronchospasm that can accompany COPD exacerbations.",
       "itemMapCode": "ACTION-BRONCH-006"
     },
     {
@@ -99,7 +154,7 @@
     {
       "id": "a4",
       "text": "Initiate chest physiotherapy",
-      "hoverRationale": "This intervention is for clearing excessive secretions, which is more characteristic of chronic bronchitis. Emphysema primarily involves air trapping, not mucus plugging.",
+      "hoverRationale": "Chest physiotherapy is used to mobilize and clear secretions from the airways, which can improve ventilation and reduce the risk of infection.",
       "itemMapCode": "ACTION-CHEST-008"
     }
   ],
@@ -135,7 +190,8 @@
   ],
   "correctActionIds": [
     "a1",
-    "a3"
+    "a3",
+    "a2"
   ],
   "correctParameterIds": [
     "p1",
@@ -161,7 +217,7 @@
       "c3": -1,
       "c4": -1,
       "a1": 1,
-      "a2": -1,
+      "a2": 1,
       "a3": 1,
       "a4": -1,
       "p1": 1,
@@ -169,7 +225,7 @@
       "p3": -1,
       "p4": -1
     },
-    "maxPoints": 6
+    "maxPoints": 8
   },
   "sentinelStatus": "remediated_v2026_v1",
   "mapCodes": {
@@ -211,8 +267,25 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:01:29.181Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:01:29.181Z",
+  "conditionId": "Emphysema",
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Chronic tobacco smoke exposure is a primary cause of emphysema due to its inflammatory and destructive effects on alveolar walls.",
+      "c2": "Alpha-1 antitrypsin deficiency is a genetic cause of emphysema, leading to the breakdown of elastin in the lungs.",
+      "c3": "Occupational exposure to irritants can contribute to COPD but is less directly linked to emphysema than smoking or alpha-1 antitrypsin deficiency.",
+      "c4": "Frequent respiratory infections can exacerbate COPD but are not a primary cause of emphysema.",
+      "a1": "Administering low-flow oxygen is crucial to correct hypoxemia while avoiding suppression of the hypoxic drive in COPD patients.",
+      "a2": "Bronchodilators help to open airways and improve airflow, addressing the bronchospasm that can accompany COPD exacerbations.",
+      "a3": "Pursed-lip breathing helps to increase positive end-expiratory pressure (PEEP), reducing air trapping and improving ventilation.",
+      "a4": "Chest physiotherapy is more appropriate for conditions with excessive secretions, which is not the primary issue in emphysema.",
+      "p1": "Monitoring oxygen saturation and ABGs provides essential data on gas exchange and acid-base balance.",
+      "p2": "Respiratory rate, depth, and effort are key indicators of the patient's work of breathing and potential respiratory distress.",
+      "p3": "Sputum characteristics are more relevant for identifying infections than for assessing the primary issues in emphysema.",
+      "p4": "Fluid balance is important but less critical than direct measures of respiratory function in an acute emphysema exacerbation."
+    }
+  }
 }

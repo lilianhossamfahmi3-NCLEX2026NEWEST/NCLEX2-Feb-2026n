@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-ICP-BOWTIE-98765",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 62-year-old male in the ICU following a traumatic brain injury. The nurse notes a significant change in the client's condition. Use the electronic health record to determine the appropriate actions and monitoring parameters.",
+  "stem": "The nurse is caring for a 62-year-old male in the ICU following a traumatic brain injury. The nurse notes a significant change in the client's condition. Use the electronic health record to determine the appropriate actions and monitoring parameters.",
   "scoring": {
     "method": "polytomous",
     "maxPoints": 5
@@ -28,6 +28,92 @@
       "iso": "Standard precautions",
       "allergies": [
         "Penicillin"
+      ]
+    },
+    "clinicalData": {
+      "vitals": {
+        "1600": {
+          "HR": 70,
+          "BP": "140/70",
+          "RR": 16,
+          "SpO2": 98,
+          "Temp": 37,
+          "GCS": 8
+        },
+        "1700": {
+          "HR": 55,
+          "BP": "160/80",
+          "RR": 12,
+          "SpO2": 95,
+          "Temp": 37,
+          "GCS": 6
+        }
+      },
+      "labResults": {
+        "Sodium": 140,
+        "Potassium": 4,
+        "Chloride": 100,
+        "Glucose": 110,
+        "BUN": 18,
+        "Creatinine": 1,
+        "ABG": {
+          "pH": 7.35,
+          "PaCO2": 45,
+          "PaO2": 95,
+          "HCO3": 24
+        }
+      },
+      "physicalExam": {
+        "General": "Appears uncomfortable, posturing to pain.",
+        "Neuro": "GCS 6 (E2, V-T, M3). Pupils sluggishly reactive to light. Unequal pupil size (anisocoria) noted, with the right pupil larger than the left. Positive Babinski reflex bilaterally.",
+        "Cardiovascular": "Bradycardia present, no murmurs auscultated.",
+        "Respiratory": "Irregular breathing pattern, assisted ventilation via endotracheal tube.",
+        "Skin": "Warm and dry, no signs of edema."
+      },
+      "radiology": {
+        "CT Head": {
+          "Findings": "Diffuse cerebral edema with effacement of the sulci and compression of the ventricles. A 5mm midline shift to the left is present. No acute hemorrhage identified."
+        }
+      },
+      "medications": {
+        "MAR": [
+          {
+            "medication": "Mannitol",
+            "dosage": "25 g",
+            "route": "IV push",
+            "time": "now"
+          },
+          {
+            "medication": "Famotidine",
+            "dosage": "20mg",
+            "route": "IV",
+            "frequency": "BID"
+          },
+          {
+            "medication": "Docusate sodium",
+            "dosage": "100mg",
+            "route": "PO",
+            "frequency": "daily",
+            "notes": "Hold"
+          },
+          {
+            "medication": "Acetaminophen",
+            "dosage": "650mg",
+            "route": "PR",
+            "frequency": "PRN",
+            "condition": "for fever >38.5°C",
+            "notes": "Hold"
+          }
+        ]
+      },
+      "nursingOrders": [
+        "Administer prescribed medications (e.g., mannitol) to reduce cerebral edema.",
+        "Monitor neurological status closely, including GCS, pupillary response, and motor function.",
+        "Elevate head of bed to 30 degrees to promote venous drainage.",
+        "Maintain a patent airway and ensure adequate ventilation.",
+        "Implement seizure precautions.",
+        "Monitor fluid balance and serum electrolytes.",
+        "Provide frequent oral care to prevent complications associated with intubation."
       ]
     },
     "clinicalFeed": "S: This is the nurse for John Doe in ICU bed 4, calling at 17:05. I'm concerned about an acute neurological decline. B: He's a 62-year-old male admitted at 16:00 post-MVA with a severe TBI. His GCS on admission was 8. A: Over the last hour, he developed Cushing's triad: BP is now 160/80, HR is 55, and respirations are irregular at 12. He is posturing to pain. R: I need you to come assess immediately. I believe he has critically high ICP.",
@@ -210,8 +296,25 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:05:32.313Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:05:32.313Z",
+  "rationale": {
+    "answerBreakdown": {
+      "act_1": "Mannitol is an osmotic diuretic that reduces cerebral edema, decreasing ICP.",
+      "act_2": "Fluid bolus is contraindicated as it can worsen cerebral edema and increase ICP.",
+      "act_3": "Seizure precautions are important but not the priority in this acute situation.",
+      "act_4": "Elevating the head of the bed promotes venous drainage, lowering ICP.",
+      "act_5": "Trendelenburg position increases ICP and is contraindicated.",
+      "param_1": "TBI is the primary cause of the increased ICP.",
+      "param_2": "The client's symptoms indicate increased ICP, not hypovolemic shock.",
+      "param_3": "Cerebral edema is a direct consequence of the TBI and contributes to increased ICP.",
+      "param_4": "The client's symptoms are neurological, not cardiac.",
+      "param_5": "Serum sodium is a monitoring parameter, not the cause of the acute deterioration.",
+      "cond_1": "The client is hypertensive, not hypotensive.",
+      "cond_2": "The client exhibits Cushing's triad, indicating increased ICP.",
+      "cond_3": "The client's heart rate is bradycardic, not indicative of atrial fibrillation."
+    }
+  }
 }

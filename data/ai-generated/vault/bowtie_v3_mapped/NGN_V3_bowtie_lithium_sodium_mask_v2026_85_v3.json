@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_lithium_sodium_mask_v2026_85",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for an 82-year-old client with bipolar disorder and heart failure who presents with new symptoms. Based on the client's electronic health record, complete the bowtie by selecting the most likely condition, two actions to take, and two parameters to monitor.",
+  "stem": "The nurse is caring for an 82-year-old client with bipolar disorder and heart failure who presents with new symptoms. Based on the client's electronic health record, complete the bowtie by selecting the most likely condition, two actions to take, and two parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "Elias Schmidt",
@@ -47,7 +47,63 @@
         "title": "Care Plan",
         "content": "<b>Priority Nursing Diagnoses:</b>\n1. Risk for injury related to lithium toxicity.\n2. Electrolyte imbalance related to hyponatremia.\n3. Altered mental status related to lithium toxicity.\n\n<b>Nursing Interventions:</b>\n1. Monitor serum lithium and sodium levels every 6 hours.\n2. Assess neurological status every 2 hours.\n3. Implement safety precautions to prevent falls.\n4. Administer prescribed IV fluids as ordered.\n5. Strict intake and output."
       }
-    ]
+    ],
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "07:00",
+          "bp": "102/64 mmHg",
+          "hr": "92/min",
+          "rr": "18/min",
+          "temp": "36.9°C (98.4°F)",
+          "spo2": "96%",
+          "note": "Client is lethargic."
+        }
+      ],
+      "labs": [
+        {
+          "assessment": "Serum Sodium (Na+)",
+          "result": "129 mEq/L",
+          "referenceRange": "135-145 mEq/L"
+        },
+        {
+          "assessment": "Serum Lithium",
+          "result": "2.4 mEq/L",
+          "referenceRange": "0.6-1.2 mEq/L (Therapeutic)"
+        }
+      ],
+      "physicalExam": {
+        "general": "Lethargic, appears confused.",
+        "neuro": "Oriented to name and place only. Coarse hand tremors noted bilaterally. Complains of tinnitus. No focal deficits.",
+        "cardio": "Regular rate and rhythm, S1 and S2 auscultated. No murmurs, rubs, or gallops.",
+        "pulmonary": "Clear to auscultation bilaterally. No wheezes, rales, or rhonchi.",
+        "skin": "Skin turgor is normal. No edema noted."
+      },
+      "radiology": {
+        "chestXRay": "Mild cardiomegaly. No acute infiltrates or effusions noted."
+      },
+      "medications": [
+        {
+          "medication": "Lithium Carbonate",
+          "dosage": "300 mg",
+          "route": "PO",
+          "frequency": "BID"
+        },
+        {
+          "medication": "Hydrochlorothiazide (HCTZ)",
+          "dosage": "25 mg",
+          "route": "PO",
+          "frequency": "Daily"
+        }
+      ],
+      "nursingOrders": [
+        "Monitor serum lithium and sodium levels every 6 hours.",
+        "Assess neurological status every 2 hours.",
+        "Implement safety precautions to prevent falls.",
+        "Administer prescribed IV fluids as ordered.",
+        "Strict intake and output."
+      ]
+    }
   },
   "bowtieData": {
     "conditionOptions": [
@@ -191,8 +247,50 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:28:38.411Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:28:38.411Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "conditionRationale": "Hyponatremia, caused by the low-sodium diet and HCTZ, leads to increased renal reabsorption of lithium. This causes the client's serum lithium level to rise to a toxic range, producing neurological symptoms.",
+      "actionRationales": [
+        "Holding both medications is the priority. Lithium is the source of the toxicity, and HCTZ is a primary contributing factor by causing sodium depletion, which must be stopped to prevent worsening.",
+        "Resuming a normal sodium diet is essential to correct the underlying hyponatremia. This will help the kidneys excrete lithium more effectively and lower the toxic serum level."
+      ],
+      "parameterRationales": [
+        "Monitoring lithium and sodium levels is essential to track the resolution of toxicity and electrolyte imbalance. Renal function tests (BUN/creatinine) are vital as lithium is cleared by the kidneys.",
+        "Assessing neurological status, tremors, and tinnitus provides a direct clinical measure of the client's response to treatment. Improvement in these signs indicates a reduction in lithium toxicity."
+      ]
+    }
+  },
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "Expected Geriatric Confusion",
+      "rationale": "While confusion can occur in older adults, the acute onset combined with specific neurological signs and lab values points away from a chronic condition. This is an acute toxic state.",
+      "itemMapCode": "SCN-LITHIUM-001-CONDITION-GERIATRIC"
+    },
+    {
+      "id": "c2",
+      "text": "Thiazide/Diet-Induced Lithium Toxicity",
+      "rationale": "Hyponatremia, caused by the low-sodium diet and HCTZ, leads to increased renal reabsorption of lithium. This causes the client's serum lithium level to rise to a toxic range, producing neurological symptoms.",
+      "itemMapCode": "SCN-LITHIUM-001-CONDITION-TOXICITY"
+    },
+    {
+      "id": "c3",
+      "text": "Normal Lithium Side Effects",
+      "rationale": "The client's symptoms, such as coarse tremor and tinnitus, along with a lithium level of 2.4 mEq/L, are signs of severe toxicity, not expected or therapeutic side effects.",
+      "itemMapCode": "SCN-LITHIUM-001-CONDITION-SIDE_EFFECTS"
+    }
+  ]
 }

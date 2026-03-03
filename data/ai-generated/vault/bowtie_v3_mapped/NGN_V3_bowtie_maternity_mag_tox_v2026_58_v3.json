@@ -1,15 +1,80 @@
 {
   "id": "NGN-V3-bowtie_maternity_mag_tox_v2026_58",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 28-year-old client is being treated for severe preeclampsia with a magnesium sulfate infusion. During the hourly assessment, she is difficult to rouse. Based on the documentation, complete the bowtie by selecting the most likely condition, the two actions the nurse should take, and the two parameters the nurse should monitor.",
+  "stem": "A 28-year-old client is being treated for severe preeclampsia with a magnesium sulfate infusion. During the hourly assessment, she is difficult to rouse. Based on the documentation, complete the bowtie by selecting the most likely condition, the two actions the nurse should take, and the two parameters the nurse should monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "Jane Doe",
       "age": "28",
       "gender": "Female",
       "codeStatus": "Full Code",
-      "iso": "Contact Precautions",
+      "iso": "Standard Precautions",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "14:00",
+          "bp": "92/54 mmHg",
+          "hr": "58 bpm",
+          "rr": "9 breaths/min",
+          "temp": "98.2°F (36.8°C)",
+          "spo2": "88% on room air"
+        }
+      ],
+      "labResults": [
+        {
+          "test": "Magnesium, Serum",
+          "result": "10.5 mEq/L",
+          "referenceRange": "4.0-7.0 mEq/L (Therapeutic)"
+        },
+        {
+          "test": "BUN",
+          "result": "28 mg/dL",
+          "referenceRange": "7-20 mg/dL"
+        },
+        {
+          "test": "Creatinine",
+          "result": "1.5 mg/dL",
+          "referenceRange": "0.6-1.2 mg/dL"
+        }
+      ],
+      "physicalExam": {
+        "general": "Difficult to arouse, responds to painful stimuli only.",
+        "respiratory": "RR 9/min, shallow, SpO2 88% on room air, diminished breath sounds bilaterally.",
+        "cardiovascular": "BP 92/54 mmHg, HR 58 bpm, weak peripheral pulses.",
+        "neurological": "Absent deep tendon reflexes, pupils equal and sluggishly reactive to light.",
+        "renal": "Urine output < 30 mL/hr for the past 4 hours."
+      },
+      "radiology": [
+        {
+          "exam": "Chest X-Ray",
+          "time": "14:15",
+          "findings": "No acute cardiopulmonary abnormalities noted. Lungs are clear bilaterally. Heart size within normal limits."
+        }
+      ],
+      "medications": [
+        {
+          "name": "Magnesium Sulfate",
+          "dosage": "40g in 1000 mL 0.9% Sodium Chloride",
+          "route": "IV",
+          "rate": "50 mL/hr (2 g/hr)",
+          "schedule": "Continuous Infusion"
+        },
+        {
+          "name": "Calcium Gluconate",
+          "dosage": "1 gram",
+          "route": "IV",
+          "prn": true
+        }
+      ],
+      "nursingOrders": [
+        "Stop magnesium sulfate infusion immediately.",
+        "Administer IV calcium gluconate as prescribed.",
+        "Monitor respiratory rate, pulse oximetry, and deep tendon reflexes frequently.",
+        "Assess for signs of improving respiratory effort and neurological function.",
+        "Provide oxygen support as needed."
+      ]
     },
     "tabs": [
       {
@@ -225,8 +290,48 @@
       ]
     }
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:34:38.712Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:34:38.712Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "Expected magnesium sulfate side effects"
+    },
+    {
+      "id": "c2",
+      "text": "Magnesium sulfate toxicity"
+    },
+    {
+      "id": "c3",
+      "text": "Eclamptic seizure (postictal state)"
+    }
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Clinical Flaw: Lethargy can be a side effect, but respiratory depression, hypotension, and absent reflexes are signs of life-threatening toxicity, not expected effects.",
+      "c2": "Pathophysiology: Magnesium is a CNS depressant. At toxic levels (>8 mEq/L), it causes loss of deep tendon reflexes, respiratory paralysis, and cardiac depression due to its effects on neuromuscular transmission.",
+      "c3": "Clinical Flaw: While a postictal state involves lethargy, it does not typically cause absent reflexes or severe respiratory depression. The client's presentation is specific to magnesium's effects.",
+      "a1": "Pathophysiology: The immediate priority is to remove the source of the toxicity. Continuing the infusion would worsen the respiratory and cardiac depression, leading to arrest.",
+      "a2": "Pathophysiology: Calcium is the direct antagonist to magnesium. It works by immediately reversing magnesium's effects at the neuromuscular junction, restoring muscle function and respiratory drive.",
+      "a3": "Clinical Flaw: This action is contraindicated and would be lethal. Magnesium toxicity causes hypotension; increasing the dose would worsen the toxicity and lead to cardiovascular collapse.",
+      "a4": "Clinical Flaw: Fundal massage is for uterine atony, not altered consciousness. The client's unresponsiveness is due to CNS depression from a chemical cause, not a postpartum complication.",
+      "a5": "Clinical Flaw: The Trendelenburg position is used for severe hypotension or shock but is not the priority intervention here. The priority is to stop the causative agent and administer the antidote.",
+      "p1": "Pathophysiology: The most life-threatening complication of magnesium toxicity is respiratory arrest. Monitoring respiratory status is critical to assess the severity of toxicity and the response to treatment.",
+      "p2": "Pathophysiology: Deep tendon reflexes are the first clinical sign to disappear as magnesium levels become toxic. Their return indicates that magnesium levels are decreasing and the client is recovering.",
+      "p3": "Clinical Flaw: A positive Babinski sign indicates an upper motor neuron lesion. Magnesium toxicity causes generalized CNS depression and flaccidity, not specific neurological tract signs.",
+      "p4": "Clinical Flaw: Abdominal girth is monitored for conditions like ascites or bowel obstruction. It is not relevant to assessing or managing acute magnesium toxicity.",
+      "p5": "Clinical Flaw: Blood glucose monitoring is essential for clients with diabetes or hypoglycemia. It is not a specific parameter for tracking the resolution of magnesium toxicity."
+    }
+  }
 }

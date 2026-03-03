@@ -3,7 +3,7 @@
   "type": "bowtie",
   "sentinelStatus": "healed_v2026_v13",
   "clinicalFeed": "S: Dr. Smith, this is the nurse for John Doe in room 402. I'm calling about an acute change at 08:30. B: He's a 24-year-old male, 24 hours post-op from a right femur ORIF. His recovery was stable until now. A: He is suddenly agitated, confused, and tachypneic with an SpO2 of 86% on room air. He has a new petechial rash on his chest and axillae. Vitals are HR 122, RR 28. R: I suspect Fat Embolism Syndrome. I need you to come assess him immediately.",
-  "stem": "[V3-MAPPED-2026] A 24-year-old male client is 24 hours post-operative from a femur fracture repair. The nurse finds the client is acutely confused, has a new petechial rash on his chest, and an SpO2 of 86%. Based on the client's presentation, complete the bowtie by selecting the appropriate actions, potential condition, and parameters to monitor.",
+  "stem": "A 24-year-old male client is 24 hours post-operative from a femur fracture repair. The nurse finds the client is acutely confused, has a new petechial rash on his chest, and an SpO2 of 86%. Based on the client's presentation, complete the bowtie by selecting the appropriate actions, potential condition, and parameters to monitor.",
   "ehr": {
     "tabs": [
       {
@@ -13,7 +13,7 @@
           "name": "John Doe",
           "age": "24 years",
           "gender": "Male",
-          "dob": "YYYY-MM-DD",
+          "dob": "1999-05-15",
           "codeStatus": "Full code",
           "isoStatus": "Standard",
           "allergies": "No Known Allergies"
@@ -99,7 +99,8 @@
             "medication": "Oxygen",
             "dose": "15 L/min",
             "route": "Non-rebreather mask",
-            "frequency": "STAT, then PRN to maintain SpO2 >92%"
+            "frequency": "STAT, then PRN to maintain SpO2 >92%",
+            "rationale": "To improve oxygenation and address hypoxemia."
           },
           {
             "medication": "Normal Saline",
@@ -173,7 +174,7 @@
       "text": "Hemoglobin and Hematocrit."
     }
   ],
-  "condition": "condition1",
+  "conditionId": "condition1",
   "correctActionIds": [
     "action1",
     "action4"
@@ -260,8 +261,92 @@
     "condition3": "COND-PNEUMONIA-001",
     "condition4": "COND-PE-001"
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:02:47.640Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:02:47.640Z",
+  "itemContext": {
+    "patient": {
+      "name": "John Doe",
+      "age": "24 years",
+      "gender": "Male",
+      "codeStatus": "Full code",
+      "isoStatus": "Standard",
+      "allergies": "No Known Allergies"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "08:30",
+          "hr": "122 bpm",
+          "bp": "130/78 mmHg",
+          "rr": "28/min",
+          "temp": "37.8°C (100.0°F)",
+          "spo2": "86% (Room Air)"
+        },
+        {
+          "time": "04:00",
+          "hr": "84 bpm",
+          "bp": "124/72 mmHg",
+          "rr": "16/min",
+          "temp": "37.1°C (98.8°F)",
+          "spo2": "98% (Room Air)"
+        }
+      ],
+      "labResults": [],
+      "physicalExam": "General: Acutely agitated and confused. Appears diaphoretic.\nCardiovascular: Tachycardic, regular rhythm, no murmurs auscultated. Capillary refill <3 seconds.\nRespiratory: Tachypneic with increased work of breathing. Scattered crackles auscultated bilaterally. SpO2 86% on room air.\nIntegumentary: Fine, non-blanching petechial rash across upper chest, neck, and in axillae. Surgical site on right thigh clean, dry, and intact. No signs of infection.\nNeurological: Disoriented to time and place. Glasgow Coma Scale (GCS) score of 13 (Eyes 4, Verbal 4, Motor 5).",
+      "radiology": {
+        "xrayChest": "Portable chest X-ray shows bilateral diffuse pulmonary infiltrates, consistent with acute lung injury. No pneumothorax noted.",
+        "ctAngio": "CT Angiography of the chest is negative for pulmonary embolism. No other acute findings."
+      },
+      "medications": [
+        {
+          "medication": "Oxygen",
+          "dose": "15 L/min",
+          "route": "Non-rebreather mask",
+          "frequency": "STAT, then PRN to maintain SpO2 >92%",
+          "rationale": "To improve oxygenation and address hypoxemia."
+        },
+        {
+          "medication": "Normal Saline",
+          "dose": "500 mL",
+          "route": "IV bolus",
+          "frequency": "STAT",
+          "rationale": "Fluid resuscitation to maintain hemodynamic stability."
+        },
+        {
+          "medication": "Morphine",
+          "dose": "2 mg",
+          "route": "IV",
+          "frequency": "PRN q2hr for pain",
+          "rationale": "Pain management"
+        }
+      ],
+      "nursingOrders": [
+        "Administer high-flow oxygen via non-rebreather mask.",
+        "Elevate head of bed to 30 degrees.",
+        "Monitor vital signs and SpO2 continuously.",
+        "Assess neurological status every hour (GCS, orientation).",
+        "Maintain IV access for fluid resuscitation.",
+        "Ensure bed rest and minimize movement of affected extremity.",
+        "Prepare for possible intubation and mechanical ventilation."
+      ]
+    }
+  },
+  "rationale": {
+    "answerBreakdown": {
+      "condition1": "Fat globules released from the fractured femur have embolized to the lungs and brain. This causes the classic triad of respiratory failure, neurological changes, and a petechial rash, which is pathognomonic for FES.",
+      "condition2": "While FES can cause ARDS, the presence of a petechial rash and acute neurological changes are specific hallmarks of FES. ARDS is a potential sequela, not the primary diagnosis causing this unique symptom triad.",
+      "condition3": "Pneumonia is an infectious process that typically presents with fever and productive cough. This client's sudden onset of neurological and dermatological symptoms following trauma is inconsistent with a typical infectious etiology.",
+      "condition4": "A thromboembolic PE does not cause a petechial rash, which results from microvascular occlusion by fat globules. The rash is a key finding that differentiates FES from a typical PE.",
+      "action1": "Fat emboli obstructing pulmonary capillaries cause a severe ventilation-perfusion mismatch, leading to acute hypoxemia. Applying high-flow oxygen is the priority intervention to support tissue oxygenation and prevent further organ damage.",
+      "action2": "Heparin is an anticoagulant for thromboemboli and has no effect on fat globules. Administering it is inappropriate for FES and would not address the underlying pathophysiology of microvascular fat occlusion.",
+      "action3": "While intubation and mechanical ventilation may become necessary if the patient's respiratory status deteriorates, it is not the first action. Applying high-flow oxygen is the priority.",
+      "action4": "Supportive care is key in FES. IV fluids maintain hemodynamic stability and tissue perfusion, while bed rest and immobilization of the fracture prevent further embolization of fat globules from the bone marrow.",
+      "param1": "Monitoring SpO2 is critical as progressive hypoxemia is a hallmark of FES. It directly reflects the extent of pulmonary capillary occlusion by fat emboli and the client's response to oxygen therapy.",
+      "param2": "Cerebral embolization by fat globules causes neurological decline. Monitoring mental status is vital to track the progression of cerebral ischemia and the severity of the syndrome's impact on the central nervous system.",
+      "param3": "While ABGs can provide additional information about the patient's respiratory status, it is not the priority parameter to monitor. Oxygen saturation and mental status are more critical in the initial assessment.",
+      "param4": "Hemoglobin and hematocrit are not priority parameters for monitoring this acute cardiorespiratory and neurological crisis. Monitoring oxygenation and neurological status is the immediate priority."
+    }
+  }
 }

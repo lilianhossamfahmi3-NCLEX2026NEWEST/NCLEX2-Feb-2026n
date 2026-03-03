@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_myasthenia_gravis_cholinergic_crisis_v2026",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 62-year-old client with myasthenia gravis is experiencing acute respiratory distress. After reviewing the electronic health record, the nurse must take immediate action. Complete the bowtie by selecting the appropriate actions to take, the condition the client is most likely experiencing, and the parameters to monitor.",
+  "stem": "A 62-year-old client with myasthenia gravis is experiencing acute respiratory distress. After reviewing the electronic health record, the nurse must take immediate action. Complete the bowtie by selecting the appropriate actions to take, the condition the client is most likely experiencing, and the parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "Jane Doe",
@@ -10,6 +10,94 @@
       "codeStatus": "Full Code",
       "iso": "Standard Precautions",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "06:00",
+          "HR": "72",
+          "BP": "120/80",
+          "RR": "18",
+          "SpO2": "96"
+        },
+        {
+          "time": "07:00",
+          "HR": "68",
+          "BP": "110/70",
+          "RR": "28",
+          "SpO2": "88"
+        },
+        {
+          "time": "07:30",
+          "HR": "58",
+          "BP": "90/60",
+          "RR": "30",
+          "SpO2": "85"
+        },
+        {
+          "time": "07:45",
+          "HR": "55",
+          "BP": "80/50",
+          "RR": "32",
+          "SpO2": "82"
+        }
+      ],
+      "labResults": [
+        {
+          "lab": "Acetylcholinesterase antibody",
+          "result": "Pending",
+          "referenceRange": "Negative"
+        },
+        {
+          "lab": "Potassium",
+          "result": "3.8 mEq/L",
+          "referenceRange": "3.5-5.0 mEq/L"
+        },
+        {
+          "lab": "Sodium",
+          "result": "140 mEq/L",
+          "referenceRange": "135-145 mEq/L"
+        },
+        {
+          "lab": "Creatinine",
+          "result": "0.9 mg/dL",
+          "referenceRange": "0.6-1.2 mg/dL"
+        }
+      ],
+      "physicalExam": "General: Anxious, diaphoretic.\nNeuro: Muscle fasciculations, generalized weakness, ptosis, dysarthria, miosis.\nRespiratory: Shallow respirations, increased work of breathing, copious oral secretions, diminished breath sounds bilaterally.\nCardio: Bradycardia, diminished peripheral pulses.\nGI: Abdominal cramping, hyperactive bowel sounds.",
+      "radiology": "Chest X-Ray: Diffuse bilateral infiltrates suggestive of aspiration pneumonia. No pneumothorax or pleural effusion noted. Cardiac silhouette normal in size.",
+      "medications": [
+        {
+          "name": "Pyridostigmine",
+          "dosage": "60mg",
+          "route": "PO",
+          "frequency": "Q4H",
+          "lastDose": "06:00"
+        },
+        {
+          "name": "Atropine",
+          "dosage": "0.5mg",
+          "route": "IV",
+          "frequency": "PRN",
+          "indication": "Symptomatic bradycardia (HR <60)"
+        },
+        {
+          "name": "Normal Saline",
+          "dosage": "20 mL/hr",
+          "route": "IV",
+          "frequency": "Continuous"
+        }
+      ],
+      "nursingOrders": [
+        "Continuous cardiac monitoring.",
+        "Monitor respiratory status and oxygen saturation continuously.",
+        "Suction oral secretions as needed.",
+        "Prepare for possible intubation and mechanical ventilation.",
+        "Administer atropine 0.5mg IV PRN symptomatic bradycardia (HR <60).",
+        "Hold pyridostigmine.",
+        "Obtain arterial blood gas (ABG) stat.",
+        "STAT Acetylcholinesterase antibody level."
+      ]
     },
     "tabs": [
       {
@@ -195,8 +283,25 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:36:10.404Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:36:10.404Z",
+  "conditionId": "Cholinergic Crisis",
+  "rationale": {
+    "answerBreakdown": {
+      "a1": "Clinical Flaw: Edrophonium is an acetylcholinesterase inhibitor used to diagnose myasthenic crisis. Administering it during a cholinergic crisis would worsen symptoms by increasing acetylcholine levels, potentially causing respiratory arrest.",
+      "a2": "Pathophysiology: Atropine, an anticholinergic agent, is the antidote for cholinergic crisis. It competitively blocks muscarinic receptors, counteracting the severe bradycardia, hypotension, and excessive secretions caused by acetylcholine overstimulation.",
+      "a3": "Pathophysiology: The crisis is caused by an excess of anticholinesterase medication, leading to acetylcholine overload. Withholding these agents is a critical first step to prevent further accumulation of acetylcholine at the neuromuscular junction.",
+      "a4": "Clinical Flaw: Increasing the dose of an anticholinesterase agent would exacerbate the cholinergic crisis. This action is appropriate for a myasthenic crisis, which results from insufficient medication, not an excess.",
+      "p1": "Pathophysiology: Excessive acetylcholine causes respiratory muscle weakness and increased bronchial secretions, leading to acute respiratory failure. Monitoring respiratory status is the highest priority to detect impending arrest.",
+      "p2": "Clinical Flaw: Serum potassium is not directly affected by the pathophysiology of cholinergic crisis. The immediate life threats are respiratory and cardiovascular collapse, making respiratory and hemodynamic monitoring the priority.",
+      "p3": "Pathophysiology: Overstimulation of cardiac muscarinic receptors by excess acetylcholine directly causes profound bradycardia and hypotension. These vital signs are key indicators of crisis severity and the client's response to atropine therapy.",
+      "p4": "Clinical Flaw: While hypoxia from respiratory failure can alter consciousness, it is a secondary effect. The primary life-threatening problems are respiratory and cardiovascular collapse, which must be monitored directly.",
+      "Myasthenic Crisis": "Clinical Flaw: Myasthenic crisis presents with worsening weakness due to undermedication. This client's symptoms of bradycardia, fasciculations, and excessive secretions are classic signs of overmedication (cholinergic crisis).",
+      "Cholinergic Crisis": "Pathophysiology: This condition results from excess acetylcholinesterase inhibitors, leading to acetylcholine overstimulation of muscarinic and nicotinic receptors. This causes the classic symptoms of bradycardia, muscle fasciculations, copious secretions, and respiratory distress.",
+      "Stroke": "Clinical Flaw: While a stroke can cause weakness, it would not typically present with bradycardia, muscle fasciculations, and copious secretions. This client's symptom cluster is specific to a cholinergic toxidrome.",
+      "Pneumonia": "Clinical Flaw: Pneumonia causes respiratory distress but does not account for the widespread neuromuscular and autonomic symptoms seen here. The bradycardia, muscle fasciculations, and cramping point away from a primary pulmonary infection."
+    }
+  }
 }

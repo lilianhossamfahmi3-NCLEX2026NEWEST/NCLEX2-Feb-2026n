@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-stemi_cardiac_bowtie_v3",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is reviewing the electronic health record for a 55-year-old male client in the emergency department for acute chest pain. Based on the provided clinical data, identify the condition the client is most likely experiencing, the actions to take, and parameters to monitor.",
+  "stem": "The nurse is reviewing the electronic health record for a 55-year-old male client in the emergency department for acute chest pain. Based on the provided clinical data, identify the condition the client is most likely experiencing, the actions to take, and parameters to monitor.",
   "ehr": {
     "tabs": [
       {
@@ -74,7 +74,7 @@
       "text": "ST-elevation myocardial infarction (STEMI)"
     }
   ],
-  "condition": "cond4",
+  "conditionId": "cond4",
   "actions": [
     {
       "id": "action1",
@@ -209,8 +209,84 @@
     "iso": "Standard Precautions",
     "allergies": "NKDA"
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:28:40.549Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:28:40.549Z",
+  "rationale": {
+    "answerBreakdown": {
+      "cond1": "Unstable angina is less likely because it doesn't typically present with ST-segment elevation on an ECG.",
+      "cond2": "Aortic dissection is less likely given the absence of tearing pain radiating to the back and the unremarkable chest X-ray.",
+      "cond3": "Pericarditis is less likely because the ECG shows localized ST-segment elevation, whereas pericarditis usually causes diffuse ST-segment elevation.",
+      "cond4": "ST-elevation myocardial infarction (STEMI) is the most likely condition given the client's crushing chest pain, ST-segment elevation in leads V2-V4, and elevated troponin levels.",
+      "action1": "Applying heat packs to the chest wall is not indicated for cardiac chest pain.",
+      "action2": "Preparing for emergent cardiac catheterization is essential to restore blood flow to the blocked coronary artery.",
+      "action3": "Administering sublingual nitroglycerin helps to reduce chest pain by dilating blood vessels and improving blood flow to the heart.",
+      "action4": "Administering IM ketorolac is contraindicated in suspected MI due to increased risk of adverse cardiovascular events.",
+      "param1": "Monitoring serum troponin and CK-MB levels is crucial to assess the extent of myocardial damage.",
+      "param2": "Monitoring abdominal circumference is not relevant in the acute management of a myocardial infarction.",
+      "param3": "Continuous ECG monitoring is essential to detect and manage potential arrhythmias.",
+      "param4": "Monitoring BUN and creatinine levels is not a priority in the immediate management of a STEMI."
+    }
+  },
+  "itemContext": {
+    "patient": {
+      "name": "John Smith",
+      "age": 55,
+      "sex": "Male",
+      "codeStatus": "Full Code",
+      "iso": "Standard Precautions",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "bloodPressure": "155/92 mmHg",
+        "heartRate": "102/min",
+        "respiratoryRate": "22/min",
+        "spO2": "94% on room air",
+        "temperature": "37.1°C (98.8°F)"
+      },
+      "labResults": {
+        "troponinI": "0.5 ng/mL",
+        "ckMB": "Pending",
+        "cbc": "Within normal limits",
+        "cmp": "Within normal limits"
+      },
+      "physicalExam": {
+        "general": "Anxious, diaphoretic male in obvious distress.",
+        "cardiovascular": "Tachycardia, S1 and S2 present, no murmurs auscultated. Pulses 2+ bilaterally in upper and lower extremities.",
+        "respiratory": "Increased work of breathing, lung sounds clear bilaterally.",
+        "neurological": "Alert and oriented to person, place, and time. Complains of jaw pain.",
+        "integumentary": "Skin pale, diaphoretic."
+      },
+      "radiology": {
+        "chestXRay": "No acute cardiopulmonary abnormalities identified. Heart size appears within normal limits. No evidence of pulmonary edema or pneumothorax."
+      },
+      "medications": {
+        "mar": [
+          {
+            "time": "08:30",
+            "medication": "Aspirin 325 mg PO, chewable, STAT"
+          },
+          {
+            "time": "08:35",
+            "medication": "Nitroglycerin 0.4 mg SL, PRN chest pain"
+          },
+          {
+            "time": "08:40",
+            "medication": "Oxygen 2L via nasal cannula, continuous"
+          }
+        ]
+      },
+      "nursingOrders": [
+        "Administer oxygen to maintain SpO2 >94%.",
+        "Administer nitroglycerin as prescribed, monitoring blood pressure closely.",
+        "Prepare the patient for emergent cardiac catheterization.",
+        "Monitor ECG continuously for arrhythmias or ST-segment changes.",
+        "Obtain serial troponin levels as ordered.",
+        "Provide a calm and reassuring environment.",
+        "Educate the patient and family about the diagnosis, treatment plan, and potential complications."
+      ]
+    }
+  }
 }

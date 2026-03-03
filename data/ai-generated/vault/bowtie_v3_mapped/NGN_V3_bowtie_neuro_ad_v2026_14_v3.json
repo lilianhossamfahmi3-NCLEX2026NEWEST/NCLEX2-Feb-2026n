@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_neuro_ad_v2026_14",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 28-year-old client with a T4 spinal cord injury (SCI) reports a sudden, throbbing headache. Based on the documentation, complete the bowtie by selecting the most likely condition, two actions the nurse should take, and two parameters the nurse should monitor.",
+  "stem": "A 28-year-old client with a T4 spinal cord injury (SCI) reports a sudden, throbbing headache. Based on the documentation, complete the bowtie by selecting the most likely condition, two actions the nurse should take, and two parameters the nurse should monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "John Smith",
@@ -47,7 +47,55 @@
         "title": "MAR",
         "content": "<b>PRN Medications:</b><br><b>Hydralazine 10 mg IV push</b> every 4-6 hours PRN for SBP > 180 mmHg.<br><b>Nifedipine 10 mg PO</b> every 6 hours PRN for SBP > 180 mmHg (If IV access not available).<br><br><b>Scheduled Medications:</b><br><b>Docusate Sodium 100 mg PO daily</b> for bowel management.<br><b>Oxybutynin 5 mg PO three times daily</b> for bladder spasms."
       }
-    ]
+    ],
+    "clinicalData": {
+      "vitals": {
+        "bp": "210/115 mmHg",
+        "hr": "52 bpm",
+        "rr": "18 breaths/min",
+        "spo2": "98% on room air",
+        "temp": "99.1°F (37.3°C) oral"
+      },
+      "labResults": {
+        "na": "140 mEq/L",
+        "k": "4.2 mEq/L",
+        "cl": "100 mEq/L",
+        "hco3": "24 mEq/L",
+        "bun": "15 mg/dL",
+        "cr": "0.9 mg/dL",
+        "wbc": "7,500/mm3"
+      },
+      "physicalExam": {
+        "general": "Anxious, flushed, and diaphoretic above the T4 level.",
+        "cardiovascular": "Bradycardia noted, HR 52 bpm. No murmurs auscultated.",
+        "respiratory": "Clear lung sounds bilaterally. No signs of respiratory distress.",
+        "neurological": "Complains of severe, throbbing headache and blurred vision. No focal deficits noted.",
+        "gastrointestinal": "Abdomen distended upon palpation. Bowel sounds hypoactive.",
+        "genitourinary": "Indwelling urinary catheter in place. Bladder palpable and distended."
+      },
+      "radiology": {
+        "ctHead": "No acute intracranial hemorrhage or mass effect identified. No evidence of ischemic changes. Visualized sinuses are clear.",
+        "abdominalXRay": "Mildly distended loops of bowel are noted. No free air or signs of obstruction."
+      },
+      "medications": {
+        "scheduled": [
+          "Docusate Sodium 100 mg PO daily",
+          "Oxybutynin 5 mg PO three times daily"
+        ],
+        "prn": [
+          "Hydralazine 10 mg IV push every 4-6 hours PRN for SBP > 180 mmHg",
+          "Nifedipine 10 mg PO every 6 hours PRN for SBP > 180 mmHg (If IV access not available)"
+        ]
+      },
+      "nursingOrders": [
+        "Elevate head of bed to 90 degrees.",
+        "Check indwelling catheter for kinks or obstruction.",
+        "Monitor blood pressure and heart rate every 2-5 minutes.",
+        "Administer prescribed antihypertensive medication.",
+        "Assess for bowel impaction if catheter is patent and bladder is not distended.",
+        "Provide calm and quiet environment to reduce anxiety."
+      ]
+    }
   },
   "bowtieData": {
     "conditionOptions": [
@@ -195,8 +243,49 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:37:30.121Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:37:30.121Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "Ischemic Stroke",
+      "rationale": "Ischemic stroke typically presents with focal neurological deficits and often tachycardia or normal heart rate, not the profound reflex bradycardia seen here."
+    },
+    {
+      "id": "c2",
+      "text": "Autonomic Dysreflexia",
+      "rationale": "This is a classic presentation of Autonomic Dysreflexia, where a noxious stimulus below the T6 injury level triggers an unopposed sympathetic surge, causing severe hypertension and reflex bradycardia."
+    },
+    {
+      "id": "c3",
+      "text": "Essential Hypertension",
+      "rationale": "Essential hypertension is a chronic condition. The client's acute onset of symptoms, bradycardia, and clear trigger point to an emergent process, not chronic hypertension."
+    }
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Ischemic stroke typically presents with focal neurological deficits and often tachycardia or normal heart rate, not the profound reflex bradycardia seen here.",
+      "c2": "This is a classic presentation of Autonomic Dysreflexia, where a noxious stimulus below the T6 injury level triggers an unopposed sympathetic surge, causing severe hypertension and reflex bradycardia.",
+      "c3": "Essential hypertension is a chronic condition. The client's acute onset of symptoms, bradycardia, and clear trigger point to an emergent process, not chronic hypertension.",
+      "a1": "Elevating the head of the bed utilizes orthostatic hypotension to help lower cerebral blood pressure immediately, which is a priority intervention for this hypertensive crisis.",
+      "a2": "Checking for and resolving bladder distention removes the most common noxious stimulus, which is the root cause of the sympathetic surge in Autonomic Dysreflexia.",
+      "a3": "Placing the client supine is contraindicated as it would increase blood flow to the brain and worsen the severe hypertension, increasing the risk of stroke.",
+      "a4": "While bowel impaction is a cause of AD, it is not the first action. The known catheter issue should be addressed first, and a digital exam can worsen AD if performed hastily.",
+      "p1": "Frequent blood pressure monitoring is critical because uncontrolled, severe hypertension in Autonomic Dysreflexia can quickly lead to catastrophic outcomes like seizures or stroke.",
+      "p2": "Monitoring heart rate is essential to track the compensatory reflex bradycardia, a hallmark sign of Autonomic Dysreflexia, and to assess the client's response to interventions.",
+      "p3": "Measuring leg circumferences is an assessment for deep vein thrombosis (DVT), which is not related to the acute, life-threatening hypertensive crisis of Autonomic Dysreflexia.",
+      "p4": "While mental status is important, monitoring every 4 hours is insufficient for an acute crisis. A change in mental status would be a late sign of a severe complication."
+    }
+  }
 }

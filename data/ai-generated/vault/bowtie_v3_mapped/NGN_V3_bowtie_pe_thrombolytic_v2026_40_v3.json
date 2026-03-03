@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_pe_thrombolytic_v2026_40",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 54-year-old client who has acutely decompensated from a confirmed large pulmonary embolism. Based on the provided electronic health record, complete the bowtie by selecting the most likely condition, two priority nursing actions, and two parameters to monitor.",
+  "stem": "The nurse is caring for a 54-year-old client who has acutely decompensated from a confirmed large pulmonary embolism. Based on the provided electronic health record, complete the bowtie by selecting the most likely condition, two priority nursing actions, and two parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "John Doe",
@@ -10,6 +10,59 @@
       "codeStatus": "Full Code",
       "iso": "None",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "07:00",
+          "bp": "72/40",
+          "hr": "142",
+          "rr": "36",
+          "spo2": "78"
+        }
+      ],
+      "labs": [
+        {
+          "name": "pH",
+          "value": "7.25",
+          "normalRange": "7.35-7.45"
+        },
+        {
+          "name": "PaCO2",
+          "value": "30",
+          "normalRange": "35-45"
+        },
+        {
+          "name": "PaO2",
+          "value": "48",
+          "normalRange": "80-100"
+        }
+      ],
+      "physicalExam": "Unresponsive male, diaphoretic and cyanotic. Tachycardia, weak and thready peripheral pulses, muffled heart sounds. Labored breathing, diminished breath sounds bilaterally, coarse crackles in the bases. Unresponsive to painful stimuli, pupils equal and sluggishly reactive to light. Cool, clammy skin.",
+      "radiology": "Large saddle pulmonary embolism is noted, obstructing blood flow to both main pulmonary arteries. Evidence of right ventricular strain and moderate right ventricular enlargement are also present. No other acute findings.",
+      "medications": [
+        {
+          "name": "Heparin",
+          "dose": "18 units/kg/hr",
+          "route": "IV",
+          "frequency": "Continuous",
+          "status": "Active"
+        },
+        {
+          "name": "Alteplase (t-PA)",
+          "dose": "100 mg",
+          "route": "IV",
+          "frequency": "Once",
+          "status": "Pending"
+        }
+      ],
+      "nursingOrders": [
+        "Administer oxygen therapy to maintain SpO2 >90%.",
+        "Continuously monitor vital signs, including BP, HR, RR, and SpO2.",
+        "Monitor for signs and symptoms of bleeding, including hematuria, hematemesis, and changes in mental status.",
+        "Elevate head of bed to promote lung expansion.",
+        "Prepare for potential intubation and mechanical ventilation."
+      ]
     },
     "tabs": [
       {
@@ -198,8 +251,49 @@
       }
     ]
   },
-  "qualityMark": "NGN-2026-HI-FI-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:45:49.392Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:45:49.392Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "Hemodynamically Stable Pulmonary Embolism",
+      "rationale": "Clinical Flaw: The client's profound hypotension (72/40 mmHg), tachycardia, and unresponsiveness are hallmark signs of hemodynamic instability, directly contradicting a 'stable' diagnosis."
+    },
+    {
+      "id": "c2",
+      "text": "Massive Pulmonary Embolism with Obstructive Shock",
+      "rationale": "Pathophysiology: The large saddle embolus obstructs pulmonary artery outflow, causing right ventricular failure and decreased left ventricular preload. This leads to systemic hypotension and end-organ hypoperfusion, defining obstructive shock."
+    },
+    {
+      "id": "c3",
+      "text": "Hemorrhagic Stroke",
+      "rationale": "Clinical Flaw: While unresponsiveness can occur in a stroke, the primary presentation of profound hypotension, tachycardia, and severe hypoxemia with a confirmed PE points to a cardiopulmonary, not a primary neurological, catastrophe."
+    }
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Clinical Flaw: The client's profound hypotension (72/40 mmHg), tachycardia, and unresponsiveness are hallmark signs of hemodynamic instability, directly contradicting a 'stable' diagnosis.",
+      "c2": "Pathophysiology: The large saddle embolus obstructs pulmonary artery outflow, causing right ventricular failure and decreased left ventricular preload. This leads to systemic hypotension and end-organ hypoperfusion, defining obstructive shock.",
+      "c3": "Clinical Flaw: While unresponsiveness can occur in a stroke, the primary presentation of profound hypotension, tachycardia, and severe hypoxemia with a confirmed PE points to a cardiopulmonary, not a primary neurological, catastrophe.",
+      "a1": "Pathophysiology: Alteplase is a thrombolytic agent that dissolves the fibrin clot obstructing the pulmonary artery. This restores blood flow, relieves right ventricular strain, and reverses the obstructive shock, which is a life-saving intervention in massive PE.",
+      "a2": "Pathophysiology: Thrombolytic therapy systemically breaks down clots, significantly impairing the body's ability to form new clots at puncture sites. Avoiding invasive procedures minimizes the risk of severe, uncontrollable bleeding, a major complication of this therapy.",
+      "a3": "Clinical Flaw: While heparin prevents new clot formation, it does not dissolve the existing life-threatening embolus. In obstructive shock from a massive PE, the priority is thrombolysis, not simply increasing anticoagulation.",
+      "a4": "Clinical Flaw: This maneuver, used for hypovolemic shock, is ineffective and potentially harmful in obstructive shock. It increases venous return to an already failing right ventricle, which can worsen cardiac strain and output.",
+      "p1": "Pathophysiology: Intracranial hemorrhage is a feared complication of thrombolytic therapy. Monitoring for changes in LOC or pupil response is critical for the early detection of a hemorrhagic stroke, allowing for immediate intervention.",
+      "p2": "Pathophysiology: The primary goal of treating obstructive shock is to restore perfusion. Continuously monitoring BP and MAP provides a direct measure of hemodynamic response to thrombolysis and indicates if the shock state is resolving or worsening.",
+      "p3": "Clinical Flaw: While glucose is important for overall metabolic status, it is not a priority parameter for monitoring the immediate effects or life-threatening complications of thrombolytic therapy for a massive PE.",
+      "p4": "Clinical Flaw: Peak flow meters measure airflow in conditions like asthma. They are irrelevant for assessing the hemodynamic and perfusion status of a client with a pulmonary embolism who is unresponsive and critically ill."
+    }
+  }
 }

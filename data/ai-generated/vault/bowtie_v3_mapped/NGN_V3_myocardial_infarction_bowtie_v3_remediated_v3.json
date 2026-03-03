@@ -239,7 +239,7 @@
       }
     ]
   },
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 62-year-old male who presented to the emergency department with acute chest pain. Based on the client's electronic health record, complete the bowtie to identify the most likely condition, two priority actions, and two parameters to monitor.",
+  "stem": "The nurse is caring for a 62-year-old male who presented to the emergency department with acute chest pain. Based on the client's electronic health record, complete the bowtie to identify the most likely condition, two priority actions, and two parameters to monitor.",
   "potentialConditions": [
     {
       "id": "cond1",
@@ -314,7 +314,7 @@
     {
       "id": "p3",
       "text": "Blood pressure",
-      "hoverRationale": "This is not a priority parameter for monitoring the MI itself. While blood pressure reflects hemodynamic stability, it is a consequence of the MI, not a direct measure of myocardial injury or electrical instability.",
+      "hoverRationale": "This is a crucial parameter for monitoring the patient's hemodynamic stability during an MI. Hypotension is common, especially with inferior MI and right ventricular involvement, and can significantly impact cardiac output and perfusion.",
       "itemMapCode": "PARAM-BP"
     },
     {
@@ -330,7 +330,7 @@
       "itemMapCode": "PARAM-URINE-OUTPUT"
     }
   ],
-  "condition": "Acute Inferior Myocardial Infarction",
+  "conditionId": "cond1",
   "correctActionIds": [
     "a2",
     "a3"
@@ -388,8 +388,176 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:09:10.933Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:09:10.933Z",
+  "itemContext": {
+    "patient": {
+      "name": "John Doe",
+      "age": "62",
+      "sex": "Male",
+      "codeStatus": "Full Code",
+      "iso": "Standard Precautions",
+      "allergies": "NKDA",
+      "medicalHistory": [
+        "Hypertension",
+        "Hyperlipidemia"
+      ],
+      "currentMedications": [
+        "Lisinopril 10 mg PO Daily",
+        "Atorvastatin 40 mg PO Daily"
+      ]
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "07:30",
+          "bp": "105/60 mmHg",
+          "hr": "58/min",
+          "rr": "18/min",
+          "temp": "37.0°C (98.6°F)",
+          "spo2": "95% on room air"
+        },
+        {
+          "time": "07:45",
+          "bp": "100/55 mmHg",
+          "hr": "52/min",
+          "rr": "19/min",
+          "temp": "37.1°C (98.8°F)",
+          "spo2": "94% on room air"
+        },
+        {
+          "time": "08:00",
+          "bp": "98/50 mmHg",
+          "hr": "50/min",
+          "rr": "20/min",
+          "temp": "37.2°C (99.0°F)",
+          "spo2": "93% on room air"
+        }
+      ],
+      "labResults": [
+        {
+          "test": "Cardiac Panel",
+          "time": "07:35",
+          "results": [
+            {
+              "name": "Troponin I",
+              "value": "0.50 ng/mL",
+              "reference": "< 0.04 ng/mL"
+            },
+            {
+              "name": "Troponin T",
+              "value": "0.15 ng/mL",
+              "reference": "< 0.01 ng/mL"
+            },
+            {
+              "name": "CK-MB",
+              "value": "6.2 ng/mL",
+              "reference": "< 5.0 ng/mL"
+            }
+          ]
+        },
+        {
+          "test": "Cardiac Panel",
+          "time": "08:35",
+          "results": [
+            {
+              "name": "Troponin I",
+              "value": "1.2 ng/mL",
+              "reference": "< 0.04 ng/mL"
+            },
+            {
+              "name": "Troponin T",
+              "value": "0.30 ng/mL",
+              "reference": "< 0.01 ng/mL"
+            },
+            {
+              "name": "CK-MB",
+              "value": "12.4 ng/mL",
+              "reference": "< 5.0 ng/mL"
+            }
+          ]
+        }
+      ],
+      "physicalExam": {
+        "cardiovascular": "S1 and S2 present, no murmurs, rubs, or gallops auscultated. Point of maximal impulse (PMI) normal. Peripheral pulses +2 bilaterally in upper and lower extremities. Mild jugular venous distention (JVD) noted at 45 degrees.",
+        "respiratory": "Lungs clear to auscultation bilaterally. No wheezes, crackles, or rhonchi. Respiratory effort normal, no signs of distress.",
+        "neurological": "Alert and oriented to person, place, and time. Cranial nerves II-XII intact. Motor strength 5/5 bilaterally in upper and lower extremities. Sensation intact.",
+        "integumentary": "Skin warm, dry, and intact. Diaphoretic. No edema noted."
+      },
+      "radiology": {
+        "chestXRay": "Portable chest X-ray demonstrates no acute cardiopulmonary abnormalities. Heart size appears within normal limits. No evidence of pulmonary edema or pneumothorax. Mediastinal contours are unremarkable."
+      },
+      "medications": [
+        {
+          "name": "Aspirin",
+          "dose": "325 mg",
+          "route": "PO",
+          "frequency": "Once",
+          "time": "07:40"
+        },
+        {
+          "name": "Nitroglycerin",
+          "dose": "0.4 mg",
+          "route": "Sublingual",
+          "frequency": "Every 5 minutes as needed for chest pain, hold for SBP < 90 mmHg",
+          "time": "07:45"
+        },
+        {
+          "name": "Morphine Sulfate",
+          "dose": "2 mg",
+          "route": "IV",
+          "frequency": "Every 5-10 minutes as needed for chest pain",
+          "time": "07:50"
+        },
+        {
+          "name": "Heparin",
+          "dose": "60 units/kg bolus (max 4000 units), then 12 units/kg/hr (max 1000 units/hr)",
+          "route": "IV",
+          "frequency": "Continuous infusion",
+          "time": "08:00"
+        },
+        {
+          "name": "Metoprolol",
+          "dose": "5 mg",
+          "route": "IV",
+          "frequency": "Every 5 minutes x 3 doses, then 25-50 mg PO every 6 hours",
+          "time": "08:15"
+        }
+      ],
+      "nursingOrders": [
+        "Continuous EKG monitoring",
+        "Administer oxygen to maintain SpO2 > 92%",
+        "Monitor vital signs frequently (BP, HR, RR, SpO2)",
+        "Maintain IV access",
+        "Strict bed rest during acute phase",
+        "Monitor lab values (cardiac enzymes, electrolytes)"
+      ]
+    }
+  },
+  "rationale": {
+    "answerBreakdown": {
+      "conditionRationale": {
+        "cond1": "The client's crushing substernal pain, diaphoresis, and EKG findings of ST-elevation in leads II, III, and aVF are the classic presentation for an acute inferior wall STEMI, which is caused by occlusion of the right coronary artery.",
+        "cond2": "Pericarditis typically causes diffuse, concave ST-elevation across most leads and PR segment depression, not the localized ST-elevation seen in the inferior leads of this client's EKG.",
+        "cond3": "Unstable angina is characterized by ischemic chest pain but does not involve ST-segment elevation on the EKG, as it represents ischemia without the complete coronary occlusion and transmural infarction seen in STEMI.",
+        "cond4": "While a medical emergency with chest pain, aortic dissection typically presents with tearing pain and would not cause the specific inferior lead ST-elevation seen on this client's EKG."
+      },
+      "actionRationale": {
+        "a1": "Nitroglycerin reduces preload, which can cause severe hypotension in an inferior MI, especially with right ventricular involvement, leading to hemodynamic collapse.",
+        "a2": "PCI is the definitive reperfusion therapy for STEMI, aiming to mechanically open the occluded coronary artery to restore blood flow and salvage myocardial tissue.",
+        "a3": "Aspirin provides rapid antiplatelet effects by inhibiting thromboxane A2, which helps prevent further thrombus formation at the site of plaque rupture.",
+        "a4": "While a chest X-ray can rule out other pathologies, it delays the critical, time-sensitive reperfusion therapy required for a confirmed STEMI.",
+        "a5": "While morphine can alleviate pain, the primary goals are reperfusion and antiplatelet therapy. Morphine can also cause hypotension, a significant risk in inferior MI."
+      },
+      "parameterRationale": {
+        "p1": "Serial troponin levels are a specific biomarker for myocardial necrosis. Monitoring their rise and fall helps confirm the diagnosis and assess the extent of heart muscle damage.",
+        "p2": "While assessing for crackles is important for detecting heart failure, it does not directly monitor the primary issues of ongoing ischemia or life-threatening arrhythmias in acute MI.",
+        "p3": "Blood pressure is a crucial parameter for monitoring the patient's hemodynamic stability during an MI. Hypotension is common, especially with inferior MI and right ventricular involvement, and can significantly impact cardiac output and perfusion.",
+        "p4": "Continuous EKG monitoring is crucial for detecting dynamic ST-segment changes, which indicate ongoing ischemia or reperfusion, and for identifying potentially lethal arrhythmias.",
+        "p5": "Urine output reflects renal perfusion and overall circulatory status, but it is a less direct and delayed indicator of cardiac function compared to EKG and troponin levels."
+      }
+    }
+  }
 }

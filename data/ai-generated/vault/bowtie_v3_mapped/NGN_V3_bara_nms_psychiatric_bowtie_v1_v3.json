@@ -143,7 +143,7 @@
     ]
   },
   "clinicalFeed": "S: This is the nurse on the psychiatric unit calling about John Doe. He has had a rapid, severe change in condition. B: He is a 45-year-old male with schizophrenia, last receiving fluphenazine three days ago. He was stable at 08:00. A: At 10:30, he is confused, diaphoretic, with a temperature of 40.1°C, heart rate of 125, and severe 'lead-pipe' rigidity. His CK is over 5,000. R: I suspect Neuroleptic Malignant Syndrome and need an immediate evaluation and orders.",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a client with schizophrenia after reporting the changes noted in the clinical feed. The client is experiencing a life-threatening reaction to their antipsychotic medication. Complete the bowtie by identifying the most likely condition, two priority actions to take, and two parameters to monitor.",
+  "stem": "The nurse is caring for a client with schizophrenia after reporting the changes noted in the clinical feed. The client is experiencing a life-threatening reaction to their antipsychotic medication. Complete the bowtie by identifying the most likely condition, two priority actions to take, and two parameters to monitor.",
   "potentialConditions": [
     {
       "id": "cond1",
@@ -162,7 +162,7 @@
       "text": "Neuroleptic Malignant Syndrome (NMS)"
     }
   ],
-  "condition": "cond4",
+  "conditionId": "cond4",
   "actions": [
     {
       "id": "action1",
@@ -295,8 +295,113 @@
     "hud_map_code": "SCN-NMS-PSYCH-001"
   },
   "bowtie_map_code": "SCN-NMS-PSYCH-001",
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T20:47:23.523Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T20:47:23.523Z",
+  "itemContext": {
+    "patient": {
+      "name": "John Doe",
+      "age": "45 years",
+      "sex": "Male",
+      "codeStatus": "Full code",
+      "iso": "Standard precautions",
+      "allergies": "No Known Allergies"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "10:30",
+          "BP": "160/95 mmHg",
+          "HR": "125 bpm",
+          "RR": "24/min",
+          "Temp": "40.1°C (104.2°F)",
+          "SpO2": "94% on room air"
+        },
+        {
+          "time": "08:00",
+          "BP": "128/80 mmHg",
+          "HR": "78 bpm",
+          "RR": "16/min",
+          "Temp": "37.0°C (98.6°F)",
+          "SpO2": "99% on room air"
+        }
+      ],
+      "labResults": [
+        {
+          "test": "Creatine Kinase (CK)",
+          "value": "5,200 U/L",
+          "reference": "30-200 U/L",
+          "status": "Critical High"
+        },
+        {
+          "test": "WBC Count",
+          "value": "15.5 x 10^9/L",
+          "reference": "4.5-11.0 x 10^9/L",
+          "status": "High"
+        },
+        {
+          "test": "Serum Electrolytes",
+          "value": "Sodium 140 mEq/L, Potassium 3.8 mEq/L, Chloride 102 mEq/L, Bicarbonate 24 mEq/L",
+          "reference": "Sodium 135-145 mEq/L, Potassium 3.5-5.0 mEq/L, Chloride 95-105 mEq/L, Bicarbonate 22-28 mEq/L",
+          "status": "Normal"
+        }
+      ],
+      "physicalExam": {
+        "general": "Patient is diaphoretic and confused. Appears acutely ill.",
+        "neuro": "Severe, diffuse muscle rigidity ('lead-pipe' rigidity) present in all extremities. Unable to follow commands. No focal deficits noted.",
+        "cardio": "Tachycardic, regular rhythm. No murmurs, rubs, or gallops.",
+        "resp": "Tachypneic, clear to auscultation bilaterally. No wheezes or crackles.",
+        "skin": "Skin is hot and flushed. Diaphoretic."
+      },
+      "radiology": [
+        {
+          "exam": "Chest X-Ray",
+          "report": "No acute cardiopulmonary abnormalities identified. Lungs are clear. Heart size within normal limits."
+        }
+      ],
+      "medications": [
+        {
+          "name": "Fluphenazine decanoate",
+          "dose": "50 mg",
+          "route": "IM",
+          "frequency": "every 2 weeks",
+          "lastGiven": "3 days ago"
+        },
+        {
+          "name": "Benztropine",
+          "dose": "1 mg",
+          "route": "PO",
+          "frequency": "BID",
+          "lastGiven": "This morning"
+        }
+      ],
+      "nursingOrders": [
+        "Discontinue all antipsychotic medications.",
+        "Administer IV Dantrolene as prescribed.",
+        "Initiate cooling measures (cooling blanket, ice packs to axilla and groin).",
+        "Monitor vital signs frequently (every 15 minutes initially).",
+        "Monitor urine output and serum CK levels.",
+        "Provide a quiet and safe environment. Reduce stimulation."
+      ]
+    }
+  },
+  "rationale": {
+    "answerBreakdown": {
+      "cond1": "Anticholinergic toxicity is characterized by delirium, fever, flushed skin, mydriasis, and urinary retention, not the profound 'lead-pipe' muscle rigidity seen in this client.",
+      "cond2": "Malignant hyperthermia is a reaction to anesthetics, not antipsychotics. This client's condition was triggered by an antipsychotic medication.",
+      "cond3": "Serotonin syndrome presents with hyperreflexia, myoclonus, and tremor, not severe, generalized rigidity.",
+      "cond4": "Neuroleptic Malignant Syndrome is a reaction to antipsychotics, characterized by fever, severe muscle rigidity, autonomic instability, and altered mental status.",
+      "action1": "Discontinuing the antipsychotic medication stops the dopamine blockade causing NMS.",
+      "action2": "Dantrolene is a direct-acting skeletal muscle relaxant that treats the severe rigidity and hyperthermia by inhibiting calcium release from the sarcoplasmic reticulum.",
+      "action3": "Benztropine is an anticholinergic used for extrapyramidal side effects, not NMS, and could worsen hyperthermia and confusion.",
+      "action4": "Restraints can increase isometric muscle contractions, worsening hyperthermia and accelerating rhabdomyolysis.",
+      "action5": "Seizures are not a primary feature of NMS. The priority is to treat the underlying cause and symptoms.",
+      "param1": "The intense muscle rigidity in NMS causes rhabdomyolysis, releasing massive amounts of CK into the bloodstream. Monitoring CK levels is essential.",
+      "param2": "Severe hyperthermia is a cardinal, life-threatening feature of NMS. Frequent monitoring of temperature and vital signs is critical.",
+      "param3": "Deep tendon reflexes are typically diminished or normal in NMS and are not a primary indicator for monitoring NMS progression.",
+      "param4": "Serum CK is the most sensitive and specific laboratory marker for tracking rhabdomyolysis in this condition, not liver function tests.",
+      "param5": "Urine specific gravity is less important than tracking CK levels and overall renal function. It is not a primary monitoring parameter for NMS severity."
+    }
+  }
 }

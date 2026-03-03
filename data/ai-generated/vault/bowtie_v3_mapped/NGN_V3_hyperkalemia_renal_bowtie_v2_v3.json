@@ -176,7 +176,7 @@
       ]
     }
   ],
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a client with end-stage renal disease who missed two dialysis sessions and now has critical hyperkalemia with EKG changes. Based on the client's data, what actions should the nurse take and what parameters should be monitored?",
+  "stem": "The nurse is caring for a client with end-stage renal disease who missed two dialysis sessions and now has critical hyperkalemia with EKG changes. Based on the client's data, what actions should the nurse take and what parameters should be monitored?",
   "actions": [
     {
       "id": "action1",
@@ -229,7 +229,7 @@
       "itemMapCode": "COND-HYPERCALCEMIA"
     }
   ],
-  "condition": "Hyperkalemia (Severe)",
+  "conditionId": "condition1",
   "parameters": [
     {
       "id": "param1",
@@ -262,7 +262,8 @@
   ],
   "correctParameterIds": [
     "param1",
-    "param2"
+    "param2",
+    "param3"
   ],
   "pedagogy": {
     "bloomLevel": "analyze",
@@ -326,8 +327,82 @@
     "companion_map_code": "SCN-RENAL-HYPERKALEMIA-001",
     "hud_map_code": "SCN-RENAL-HYPERKALEMIA-001"
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:04:26.823Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:04:26.823Z",
+  "rationale": {
+    "answerBreakdown": {
+      "action1": "Administering calcium gluconate is crucial in severe hyperkalemia to stabilize the cardiac membrane and prevent life-threatening arrhythmias.",
+      "action2": "Administering IV regular insulin and D50 shifts potassium from the extracellular to intracellular space, rapidly lowering serum potassium levels.",
+      "action3": "Spironolactone is a potassium-sparing diuretic and is contraindicated in hyperkalemia as it would worsen the condition.",
+      "action4": "D5W alone does not contain insulin and will not effectively lower serum potassium levels in a hyperkalemic crisis.",
+      "param1": "Continuous EKG monitoring is essential to detect and manage cardiac arrhythmias caused by hyperkalemia.",
+      "param2": "Monitoring serum potassium levels is crucial to evaluate the effectiveness of treatment and guide further interventions.",
+      "param3": "Monitoring blood glucose is important after insulin administration to prevent hypoglycemia.",
+      "param4": "Deep tendon reflexes are not a primary indicator for monitoring acute cardiac complications of hyperkalemia."
+    }
+  },
+  "itemContext": {
+    "patient": {
+      "name": "John Smith",
+      "age": "72",
+      "sex": "Male",
+      "codeStatus": "Full Code",
+      "iso": "Standard",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "heartRate": "110 bpm (Irregular)",
+        "bloodPressure": "140/90 mmHg",
+        "respiratoryRate": "20 breaths/min",
+        "oxygenSaturation": "94% on room air"
+      },
+      "labResults": {
+        "potassium": "7.2 mEq/L",
+        "sodium": "134 mEq/L",
+        "bicarbonate": "18 mEq/L",
+        "BUN": "85 mg/dL",
+        "creatinine": "9.8 mg/dL",
+        "glucose": "110 mg/dL",
+        "calcium": "8.2 mg/dL"
+      },
+      "physicalExam": {
+        "general": "Lethargic, appears weak",
+        "cardiovascular": "Irregular heart rhythm",
+        "neurological": "Decreased muscle strength in all extremities, hypoactive reflexes"
+      },
+      "radiology": {
+        "ekg": "Peaked T-waves and widened QRS complex"
+      },
+      "medications": [
+        {
+          "name": "Calcium Gluconate",
+          "dosage": "1 gram IV STAT",
+          "route": "IV",
+          "frequency": "STAT"
+        },
+        {
+          "name": "Regular Insulin",
+          "dosage": "10 units IV STAT",
+          "route": "IV",
+          "frequency": "STAT"
+        },
+        {
+          "name": "Dextrose 50% (D50)",
+          "dosage": "25 grams IV STAT",
+          "route": "IV",
+          "frequency": "STAT"
+        }
+      ],
+      "nursingOrders": [
+        "Continuous cardiac monitoring",
+        "Monitor serum potassium levels hourly",
+        "Monitor blood glucose levels every 30 minutes",
+        "Assess neurological status and muscle strength",
+        "Prepare for possible dialysis"
+      ]
+    }
+  }
 }

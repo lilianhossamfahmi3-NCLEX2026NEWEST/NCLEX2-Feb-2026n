@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_endocrine_dka_k_shift_v2026_70",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is reviewing the electronic health record for a 22-year-old client admitted for Diabetic Ketoacidosis (DKA). The client's initial labs reveal a critical electrolyte imbalance that requires immediate intervention. Based on the provided data, complete the bowtie to address the client's needs.",
+  "stem": "The nurse is reviewing the electronic health record for a 22-year-old client admitted for Diabetic Ketoacidosis (DKA). The client's initial labs reveal a critical electrolyte imbalance that requires immediate intervention. Based on the provided data, complete the bowtie to address the client's needs.",
   "itemContext": {
     "patientHeader": {
       "name": "Ricardo Alvarez",
@@ -47,7 +47,55 @@
         "title": "MAR",
         "content": "<b>07:30:</b><br>- Potassium Chloride 40 mEq IV in 100 mL Normal Saline over 4 hours (per protocol).<br><b>07:45:</b><br>- Normal Saline 0.9% 1000 mL IV bolus (prescribed)."
       }
-    ]
+    ],
+    "clinicalData": {
+      "vitals": {
+        "bp": "102/64 mmHg",
+        "hr": "118 bpm",
+        "rr": "28 (Kussmaul)",
+        "temp": "98.4°F (36.9°C)",
+        "spo2": "96% on room air"
+      },
+      "labResults": {
+        "serumPotassium": "3.1 mEq/L",
+        "bloodGlucose": "542 mg/dL",
+        "anionGap": "22 mEq/L",
+        "urineKetones": "Large",
+        "ph": "7.12",
+        "pco2": "28 mmHg",
+        "hco3": "10 mEq/L"
+      },
+      "physicalExam": {
+        "general": "Appears weak and lethargic.",
+        "respiratory": "Kussmaul respirations, deep and rapid. Lung sounds clear bilaterally.",
+        "cardiovascular": "Tachycardic, regular rhythm. Peripheral pulses +2 bilaterally.",
+        "neurological": "Alert and oriented to person, place, and time. Complains of headache.",
+        "integumentary": "Skin warm and dry, poor skin turgor."
+      },
+      "medications": [
+        {
+          "time": "07:30",
+          "name": "Potassium Chloride",
+          "dosage": "40 mEq",
+          "route": "IV in 100 mL Normal Saline",
+          "duration": "over 4 hours",
+          "notes": "per protocol"
+        },
+        {
+          "time": "07:45",
+          "name": "Normal Saline 0.9%",
+          "dosage": "1000 mL",
+          "route": "IV bolus",
+          "notes": "prescribed"
+        }
+      ],
+      "nursingOrders": [
+        "Administer IV fluids as prescribed.",
+        "Administer IV potassium chloride as prescribed, monitoring serum potassium levels and EKG continuously.",
+        "Monitor vital signs, respiratory status, and neurological status frequently.",
+        "Provide client education on insulin administration, sick day management, and prevention of DKA."
+      ]
+    }
   },
   "bowtieData": {
     "conditionOptions": [
@@ -196,8 +244,37 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:08:37.193Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:08:37.193Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    "c1",
+    "c2",
+    "c3"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Incorrect. The client has metabolic acidosis (pH 7.12, high anion gap) and critical hypokalemia (K+ 3.1 mEq/L), indicating a complex and unstable condition, not stable hyperglycemia with normal electrolytes.",
+      "c2": "Correct. The combination of hyperglycemia, ketosis, metabolic acidosis, and a serum potassium of 3.1 mEq/L confirms DKA. The low potassium is critical because insulin therapy will drive potassium into cells, worsening hypokalemia.",
+      "c3": "Incorrect. While DKA can be triggered by infection, the client's temperature is normal and there are no other specific signs of sepsis presented. The clinical picture is classic for DKA.",
+      "a1": "Correct. Insulin drives potassium into cells. Administering insulin with a K+ of 3.1 mEq/L would cause life-threatening hypokalemia. The priority is to correct the potassium level before starting insulin.",
+      "a2": "Correct. The client's total body potassium is depleted, and the serum level is critically low. IV potassium replacement is essential to prevent cardiac dysrhythmias, especially before insulin therapy is initiated.",
+      "a3": "Incorrect. An insulin bolus would rapidly shift potassium into the cells, severely worsening the existing hypokalemia and risking cardiac arrest. This action is contraindicated when K+ is < 3.3 mEq/L.",
+      "a4": "Incorrect. The client's Kussmaul breathing is a compensatory mechanism to correct metabolic acidosis by expelling CO2. Instructing slow breathing would counteract this vital compensation and worsen the acidosis.",
+      "p1": "Correct. Monitoring potassium is critical due to the initial hypokalemia and the shifts that will occur with treatment. EKG monitoring is essential to detect cardiac effects of hypokalemia, such as U-waves.",
+      "p2": "Correct. These parameters are key indicators for resolving DKA. Blood glucose monitoring tracks the response to insulin, while anion gap closure signifies the resolution of the metabolic acidosis.",
+      "p3": "Incorrect. Serum albumin is not a priority parameter for monitoring the acute phase of DKA. It is more relevant for assessing long-term nutritional status or conditions like nephrotic syndrome.",
+      "p4": "Incorrect. A positive Babinski sign is a neurological finding indicating an upper motor neuron lesion. It is not a relevant parameter for monitoring DKA or its associated electrolyte imbalances."
+    }
+  }
 }

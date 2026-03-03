@@ -133,7 +133,7 @@
       "content": "Nursing Priorities: \n1. Restore and maintain adequate blood pressure and tissue perfusion. \n2. Identify and treat the source of infection. \n3. Prevent complications of sepsis. \n\nNursing Interventions: \n1. Administer vasopressors as prescribed to maintain MAP >65 mmHg. \n2. Obtain blood and urine cultures prior to antibiotic administration. \n3. Administer broad-spectrum antibiotics as prescribed. \n4. Monitor vital signs, including temperature, heart rate, blood pressure, respiratory rate, and oxygen saturation, every 15 minutes during acute phase. \n5. Assess urine output hourly. \n6. Monitor serial lactate levels. \n7. Provide supportive care, including oxygen therapy and comfort measures."
     }
   ],
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a client who remains hypotensive despite fluid resuscitation. After reviewing the electronic health record, complete the bowtie by identifying the most likely underlying causes, essential actions, and parameters to monitor.",
+  "stem": "The nurse is caring for a client who remains hypotensive despite fluid resuscitation. After reviewing the electronic health record, complete the bowtie by identifying the most likely underlying causes, essential actions, and parameters to monitor.",
   "potentialConditions": [
     {
       "id": "pc1",
@@ -157,7 +157,7 @@
     }
   ],
   "condition": {
-    "id": "cond1",
+    "id": "pc1",
     "text": "Septic Shock"
   },
   "causes": [
@@ -308,17 +308,149 @@
   "causeConditionMap": [
     {
       "causeId": "c1",
-      "conditionId": "cond1",
+      "conditionId": "pc1",
       "itemMapCode": "CAUSE-INFLAMMATION-SEPSIS"
     },
     {
       "causeId": "c2",
-      "conditionId": "cond1",
+      "conditionId": "pc1",
       "itemMapCode": "CAUSE-VASODILATION-SEPSIS"
     }
   ],
-  "qualityMark": "NGN-2026-HI-FI-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:26:39.444Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:26:39.444Z",
+  "rationale": {
+    "answerBreakdown": {
+      "pc1": "The combination of fever, tachycardia, profound hypotension unresponsive to fluids, and laboratory signs of infection (leukocytosis, elevated lactate) strongly indicates septic shock, a type of distributive shock.",
+      "pc2": "This is less likely as there are no signs of primary cardiac failure like chest pain or new EKG changes. The primary signs point to a systemic inflammatory response, not a pump failure.",
+      "pc3": "While the client is relatively hypovolemic due to vasodilation, the cause is not overt fluid loss. The presence of high fever and leukocytosis points away from simple hypovolemia.",
+      "pc4": "This is unlikely as there is no history of recent exposure to a known allergen. Anaphylaxis typically presents with urticaria, angioedema, or wheezing, which are absent here.",
+      "c1": "Sepsis triggers a massive, uncontrolled inflammatory response, leading to widespread endothelial damage, capillary leak, and organ dysfunction, which is the core pathophysiology of the client's shock state.",
+      "c2": "Bacterial endotoxins trigger the release of potent vasodilators like nitric oxide. This leads to a dramatic decrease in systemic vascular resistance, causing profound hypotension characteristic of septic shock.",
+      "c3": "While myocardial depression can occur later in septic shock, the primary cause of hypotension is profound vasodilation. The client's problem is a failure of vascular tone, not primarily a pump failure.",
+      "c4": "The client's fever and significantly elevated white blood cell count point towards an infectious process, not acute blood loss. Hemorrhagic shock would not typically present with a high temperature.",
+      "a1": "The client is fluid-unresponsive, indicating profound vasodilation. Vasopressors are required to constrict blood vessels, increase systemic vascular resistance, and raise MAP to perfuse vital organs.",
+      "a2": "Identifying the causative organism is critical for guiding targeted antibiotic therapy. Cultures should be drawn before administering antibiotics, if possible, without delaying treatment.",
+      "a3": "Furosemide is a diuretic that would remove volume from the intravascular space. This would worsen hypotension and shock in a client who is already vasodilated and relatively hypovolemic.",
+      "a4": "In a life-threatening condition like septic shock, oral medications are inappropriate due to slow and unreliable absorption. Rapid-acting intravenous broad-spectrum antibiotics are required immediately.",
+      "p1": "MAP is the most critical hemodynamic parameter to monitor in shock. It reflects the average pressure in the arteries during one cardiac cycle and is a direct indicator of vital organ perfusion.",
+      "p2": "Elevated lactate is a key indicator of tissue hypoxia and anaerobic metabolism from shock. Trending lactate levels downward is a primary goal and indicates successful resuscitation.",
+      "p3": "While the initial WBC is a crucial diagnostic marker for sepsis, it does not change rapidly enough to be used for hour-to-hour monitoring of a client's response to resuscitation.",
+      "p4": "While important for assessing fluid balance over a longer period, daily weight is not an acute indicator of hemodynamic stability or immediate response to intervention in a client with septic shock."
+    }
+  },
+  "itemContext": {
+    "patient": {
+      "name": "Alan Turing",
+      "age": "78 years",
+      "gender": "Male",
+      "codeStatus": "Full code",
+      "iso": "Standard precautions",
+      "allergies": "Penicillin",
+      "medicalHistory": "Hypertension, Type 2 Diabetes Mellitus, Benign Prostatic Hyperplasia",
+      "primaryDiagnosis": "Status Post Left Total Hip Arthroplasty"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "08:00",
+          "temperature": "39.3°C (102.8°F)",
+          "heartRate": "124 bpm",
+          "respiratoryRate": "26/min",
+          "bloodPressure": "82/40 mmHg",
+          "map": "54 mmHg",
+          "spo2": "91% on room air"
+        },
+        {
+          "time": "04:00",
+          "temperature": "37.4°C (99.3°F)",
+          "heartRate": "92 bpm",
+          "respiratoryRate": "18/min",
+          "bloodPressure": "118/72 mmHg",
+          "map": "87 mmHg",
+          "spo2": "96% on room air"
+        }
+      ],
+      "labResults": [
+        {
+          "test": "Complete Blood Count (CBC)",
+          "time": "07:45",
+          "results": [
+            {
+              "name": "WBC Count",
+              "value": "18.5 x 10^9/L",
+              "reference": "4.5-11.0 x 10^9/L"
+            },
+            {
+              "name": "Neutrophils",
+              "value": "88%",
+              "reference": "40-75%"
+            }
+          ]
+        },
+        {
+          "test": "Metabolic Panel",
+          "time": "07:45",
+          "results": [
+            {
+              "name": "Lactate",
+              "value": "4.2 mmol/L",
+              "reference": "0.5-2.2 mmol/L"
+            }
+          ]
+        },
+        {
+          "test": "Urinalysis",
+          "time": "07:45",
+          "results": [
+            {
+              "name": "Leukocyte esterase",
+              "value": "Positive",
+              "reference": "Negative"
+            },
+            {
+              "name": "Nitrites",
+              "value": "Positive",
+              "reference": "Negative"
+            },
+            {
+              "name": "Bacteria",
+              "value": "Many",
+              "reference": "None"
+            }
+          ]
+        }
+      ],
+      "physicalExam": "GENERAL: Elderly male, appears lethargic and weak. \nCARDIOVASCULAR: Tachycardic, weak peripheral pulses. \nRESPIRATORY: Rapid and shallow respirations, lungs clear to auscultation bilaterally. \nABDOMEN: Soft, non-distended, normoactive bowel sounds. \nGU: Foley catheter in place, draining cloudy, foul-smelling urine. \nSKIN: Warm and flushed.",
+      "radiology": "CHEST X-RAY: No acute cardiopulmonary abnormalities. \nABDOMINAL CT: No evidence of intra-abdominal abscess or other acute process.",
+      "medications": [
+        {
+          "time": "06:00",
+          "medication": "Oxycodone 5mg PO",
+          "status": "Given"
+        },
+        {
+          "time": "07:00",
+          "medication": "Normal Saline 1000 mL IV Bolus",
+          "status": "Completed at 07:30"
+        },
+        {
+          "time": "07:30",
+          "medication": "Normal Saline 1000 mL IV Bolus",
+          "status": "Completed at 08:00"
+        }
+      ],
+      "nursingOrders": [
+        "Administer vasopressors as prescribed to maintain MAP >65 mmHg.",
+        "Obtain blood and urine cultures prior to antibiotic administration.",
+        "Administer broad-spectrum antibiotics as prescribed.",
+        "Monitor vital signs, including temperature, heart rate, blood pressure, respiratory rate, and oxygen saturation, every 15 minutes during acute phase.",
+        "Assess urine output hourly.",
+        "Monitor serial lactate levels.",
+        "Provide supportive care, including oxygen therapy and comfort measures."
+      ]
+    }
+  }
 }

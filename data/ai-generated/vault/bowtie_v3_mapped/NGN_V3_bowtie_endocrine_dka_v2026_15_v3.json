@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_endocrine_dka_v2026_15",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 19-year-old client with Type 1 Diabetes is admitted to the ED with Kussmaul respirations and fruity breath. Based on the client's electronic health record, identify the condition, two priority actions, and two parameters to monitor.",
+  "stem": "A 19-year-old client with Type 1 Diabetes is admitted to the ED with Kussmaul respirations and fruity breath. Based on the client's electronic health record, identify the condition, two priority actions, and two parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "Jane Doe",
@@ -10,6 +10,57 @@
       "codeStatus": "Full Code",
       "iso": "Standard Precautions",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "bp": "92/58 mmHg",
+        "hr": "124 bpm",
+        "rr": "32 breaths/min (Deep/Rapid)",
+        "temp": "99.8°F (37.7°C)",
+        "spo2": "94% on room air"
+      },
+      "labResults": {
+        "bloodGlucose": "642 mg/dL",
+        "arterialPh": "7.12",
+        "serumBicarbonate": "12 mEq/L",
+        "urineKetones": "Large",
+        "serumPotassium": "5.1 mEq/L"
+      },
+      "physicalExam": {
+        "general": "Lethargic, appears severely dehydrated.",
+        "respiratory": "Kussmaul respirations, fruity breath odor.",
+        "cardiovascular": "Tachycardic, weak peripheral pulses.",
+        "neurological": "Alertness fluctuates, oriented to person only.",
+        "integumentary": "Poor skin turgor, dry mucous membranes."
+      },
+      "radiology": "Chest X-Ray: No acute cardiopulmonary abnormalities identified. Lungs are clear. Heart size is normal. No evidence of pneumonia or pulmonary edema.",
+      "medications": [
+        {
+          "name": "0.9% Normal Saline",
+          "dosage": "1 Liter",
+          "route": "IV bolus",
+          "timing": "STAT"
+        },
+        {
+          "name": "Regular Insulin",
+          "dosage": "0.1 units/kg/hr",
+          "route": "IV infusion",
+          "timing": "Continuous"
+        },
+        {
+          "name": "Potassium Chloride",
+          "dosage": "20 mEq",
+          "route": "IV",
+          "timing": "as indicated by serum potassium levels"
+        }
+      ],
+      "nursingOrders": [
+        "Administer IV fluids as prescribed.",
+        "Administer insulin infusion as prescribed, monitoring blood glucose hourly.",
+        "Monitor potassium levels and administer replacement as prescribed.",
+        "Monitor vital signs, respiratory status, and neurological status frequently.",
+        "Provide education to the client and family regarding DKA management and prevention."
+      ]
     },
     "tabs": [
       {
@@ -191,8 +242,37 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:09:05.933Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:09:05.933Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "This client's profound metabolic acidosis (pH 7.12) and large urine ketones are hallmark features of DKA, not HHS. HHS is characterized by extreme hyperglycemia and hyperosmolality without significant ketoacidosis.",
+      "c2": "The combination of hyperglycemia (642 mg/dL), metabolic acidosis (pH 7.12), and ketonuria in a client with Type 1 Diabetes confirms the diagnosis of DKA. This is a life-threatening state of absolute insulin deficiency.",
+      "c3": "SIADH involves fluid retention and dilutional hyponatremia, which is inconsistent with this client's presentation of severe dehydration and hyperglycemia. The client's symptoms are directly related to insulin deficiency.",
+      "a1": "The initial priority in DKA management is aggressive IV fluid resuscitation to correct severe dehydration, improve tissue perfusion, and prevent circulatory collapse. This must be initiated before or concurrently with insulin therapy.",
+      "a2": "An IV Regular Insulin infusion is essential to stop ketogenesis, correct acidosis, and gradually lower blood glucose. This addresses the underlying metabolic cause of DKA by allowing cells to utilize glucose for energy.",
+      "a3": "Glucagon is used to treat hypoglycemia by raising blood glucose levels. Administering it to a client with a glucose of 642 mg/dL would be extremely dangerous and worsen the hyperglycemia.",
+      "a4": "Oral supplements are inappropriate for a client who is lethargic with nausea and vomiting. Furthermore, IV potassium replacement is typically required once insulin therapy begins and serum potassium levels start to fall.",
+      "p1": "Hourly blood glucose monitoring is critical to guide the insulin infusion rate and prevent rapid drops in glucose, which can lead to cerebral edema. This allows for precise titration of therapy.",
+      "p2": "Insulin therapy drives potassium from the extracellular to the intracellular space, which can cause life-threatening hypokalemia. Frequent monitoring of serum potassium is essential to guide IV potassium replacement and prevent cardiac dysrhythmias.",
+      "p3": "A1c reflects average blood glucose over 2-3 months and is not useful for managing an acute crisis like DKA. It is a long-term management tool, not an acute parameter.",
+      "p4": "While assessing fluid status is important, monitoring weight and skin turgor every 12 hours is not frequent enough for this critically ill client. Hourly urine output and vital signs are more sensitive acute indicators."
+    }
+  },
+  "potentialConditions": [
+    "c1",
+    "c2",
+    "c3"
+  ]
 }

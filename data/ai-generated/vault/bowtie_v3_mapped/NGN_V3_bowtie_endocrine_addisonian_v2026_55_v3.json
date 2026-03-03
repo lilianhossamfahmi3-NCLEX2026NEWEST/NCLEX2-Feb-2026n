@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_endocrine_addisonian_v2026_55",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 41-year-old client with a history of Addison's disease who was admitted after a viral illness. Based on the provided documentation, complete the bowtie by selecting the potential condition, two necessary actions, and two parameters to monitor.",
+  "stem": "The nurse is caring for a 41-year-old client with a history of Addison's disease who was admitted after a viral illness. Based on the provided documentation, complete the bowtie by selecting the potential condition, two necessary actions, and two parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "Jane Doe",
@@ -47,7 +47,77 @@
         "title": "Physical Exam",
         "content": "<b>General:</b> Lethargic, appears weak and ill.<br><b>Integumentary:</b> Skin cold and clammy, poor turgor.<br><b>Cardiovascular:</b> Hypotensive (BP 74/42 mmHg), tachycardia (HR 128/min), weak peripheral pulses.<br><b>Respiratory:</b> Increased respiratory rate (RR 22/min), lungs clear to auscultation.<br><b>Neurological:</b> Alert but disoriented, responds slowly to stimuli.<br><b>Abdominal:</b> Soft, tender to palpation, normoactive bowel sounds."
       }
-    ]
+    ],
+    "clinicalData": {
+      "vitals": [
+        {
+          "timestamp": "14:00",
+          "bp": "74/42",
+          "hr": "128",
+          "rr": "22",
+          "tempF": "99.4",
+          "tempC": "37.4",
+          "o2Sat": "98%"
+        }
+      ],
+      "labResults": [
+        {
+          "test": "Serum Sodium (Na+)",
+          "result": "128",
+          "unit": "mEq/L",
+          "referenceRange": "135-145"
+        },
+        {
+          "test": "Serum Potassium (K+)",
+          "result": "5.8",
+          "unit": "mEq/L",
+          "referenceRange": "3.5-5.0"
+        },
+        {
+          "test": "Blood Glucose",
+          "result": "62",
+          "unit": "mg/dL",
+          "referenceRange": "70-110"
+        },
+        {
+          "test": "Cortisol Level",
+          "result": "< 2.0",
+          "unit": "mcg/dL",
+          "referenceRange": "5-25"
+        }
+      ],
+      "medications": [
+        {
+          "name": "Hydrocortisone",
+          "dosage": "100mg",
+          "route": "IV",
+          "frequency": "STAT",
+          "indication": "Adrenal Insufficiency"
+        },
+        {
+          "name": "D5NS",
+          "dosage": "1000 mL",
+          "route": "IV",
+          "frequency": "Bolus over 1 hour",
+          "indication": "Hypovolemia, Electrolyte Imbalance"
+        }
+      ],
+      "nursingOrders": [
+        "Administer IV fluids (D5NS) to correct hypovolemia and electrolyte imbalances.",
+        "Administer IV hydrocortisone as prescribed to address cortisol deficiency.",
+        "Monitor vital signs (BP, HR, RR) and neurological status closely.",
+        "Monitor serum electrolytes (Na+, K+, glucose) and correct abnormalities.",
+        "Provide a safe environment due to weakness and potential for altered mental status."
+      ],
+      "physicalExam": {
+        "general": "Lethargic, appears weak and ill.",
+        "integumentary": "Skin cold and clammy, poor turgor.",
+        "cardiovascular": "Hypotensive (BP 74/42 mmHg), tachycardia (HR 128/min), weak peripheral pulses.",
+        "respiratory": "Increased respiratory rate (RR 22/min), lungs clear to auscultation.",
+        "neurological": "Alert but disoriented, responds slowly to stimuli.",
+        "abdominal": "Soft, tender to palpation, normoactive bowel sounds."
+      }
+    }
   },
   "bowtieData": {
     "conditionOptions": [
@@ -190,8 +260,49 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:08:09.102Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:08:09.101Z",
+  "conditionId": "c1",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "Addisonian Crisis",
+      "rationale": "Acute deficiency of cortisol and aldosterone causes profound hypotension, hypoglycemia, hyponatremia, and hyperkalemia. This life-threatening state is often triggered by stressors like infection in patients with adrenal insufficiency."
+    },
+    {
+      "id": "c2",
+      "text": "Cushing’s Syndrome",
+      "rationale": "Cushing's syndrome is caused by excess cortisol. This client's symptoms, including hypotension, hypoglycemia, and hyperkalemia, are characteristic of cortisol deficiency, not excess."
+    },
+    {
+      "id": "c3",
+      "text": "Hypovolemic Shock",
+      "rationale": "While the client has signs of shock, hypovolemia is a symptom of the underlying endocrine disorder. Addisonian crisis is the primary diagnosis, as it explains the shock and the specific electrolyte imbalances."
+    }
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "c1": "Correct. Acute deficiency of cortisol and aldosterone causes profound hypotension, hypoglycemia, hyponatremia, and hyperkalemia. This life-threatening state is often triggered by stressors like infection in patients with adrenal insufficiency.",
+      "c2": "Incorrect. Cushing's syndrome is caused by excess cortisol. This client's symptoms, including hypotension, hypoglycemia, and hyperkalemia, are characteristic of cortisol deficiency, not excess.",
+      "c3": "Incorrect. While the client has signs of shock, hypovolemia is a symptom of the underlying endocrine disorder. Addisonian crisis is the primary diagnosis, as it explains the shock and the specific electrolyte imbalances.",
+      "a1": "Correct. IV hydrocortisone immediately replaces deficient cortisol, which is critical for stabilizing blood pressure, correcting hypoglycemia, and restoring vascular tone. It is the cornerstone of treatment for adrenal crisis.",
+      "a2": "Correct. This fluid replaces lost volume to treat hypotension and shock. The dextrose corrects hypoglycemia, and the normal saline (sodium chloride) corrects the hyponatremia and helps dilute serum potassium.",
+      "a3": "Incorrect. This client is hypoglycemic (62 mg/dL), not hyperglycemic. Administering insulin would dangerously lower their blood glucose further, potentially causing coma or death.",
+      "a4": "Incorrect. The client is hyponatremic (128 mEq/L) due to aldosterone deficiency. Sodium restriction would worsen this electrolyte imbalance and contribute to further fluid volume deficit.",
+      "p1": "Correct. Cortisol and aldosterone deficiency leads to severe hypotension and compensatory tachycardia. Monitoring these vital signs is crucial to evaluate the effectiveness of fluid and steroid replacement therapy.",
+      "p2": "Correct. Adrenal crisis causes life-threatening hyperkalemia and hypoglycemia. Frequent monitoring is essential to guide treatment and prevent cardiac dysrhythmias or neurological complications.",
+      "p3": "Incorrect. Trousseau's sign is an indicator of hypocalcemia. This client's primary electrolyte disturbances are hyperkalemia and hyponatremia, not hypocalcemia.",
+      "p4": "Incorrect. Measuring abdominal girth is relevant for conditions like ascites or bowel obstruction. While the client has abdominal pain, it is a symptom of the crisis, not an indication for this specific measurement."
+    }
+  }
 }

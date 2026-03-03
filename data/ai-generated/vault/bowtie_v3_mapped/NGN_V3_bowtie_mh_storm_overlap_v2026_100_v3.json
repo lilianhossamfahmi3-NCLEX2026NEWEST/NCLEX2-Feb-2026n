@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_mh_storm_overlap_v2026_100",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 30-year-old client in the PACU develops sudden hyperthermia and severe muscle rigidity following a thyroidectomy. Based on the electronic health record, identify the condition, two priority actions, and two parameters to monitor.",
+  "stem": "A 30-year-old client in the PACU develops sudden hyperthermia and severe muscle rigidity following a thyroidectomy. Based on the electronic health record, identify the condition, two priority actions, and two parameters to monitor.",
   "itemContext": {
     "tabs": [
       {
@@ -49,7 +49,57 @@
         "title": "Patient Header",
         "content": "<b>Name:</b> Jane Doe<br><b>Age:</b> 30<br><b>Gender:</b> Female<br><b>Code Status:</b> Full Code<br><b>Isolation:</b> Standard<br><b>Allergies:</b> NKDA"
       }
-    ]
+    ],
+    "patient": {
+      "name": "Jane Doe",
+      "age": 30,
+      "sex": "Female",
+      "codeStatus": "Full Code",
+      "isolation": "Standard",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": {
+        "bp": "168/94 mmHg",
+        "hr": "158 bpm",
+        "rr": "32 breaths/min",
+        "temp": "40.6°C",
+        "spo2": "91% on 10L O2 NRB",
+        "etco2": "82 mmHg"
+      },
+      "labResults": {
+        "abg": {
+          "ph": "7.15",
+          "paco2": "85 mmHg",
+          "hco3": "16 mEq/L"
+        },
+        "bmp": {
+          "potassium": "6.2 mEq/L"
+        },
+        "ck": "12,000 U/L"
+      },
+      "physicalExam": {
+        "general": "Anxious, diaphoretic, mottled skin",
+        "neurological": "Generalized muscle rigidity, masseter spasm, hyperreflexia",
+        "cardiovascular": "Tachycardia, bounding pulses",
+        "respiratory": "Tachypnea, shallow breathing",
+        "integumentary": "Hot to touch, profuse sweating"
+      },
+      "radiology": "Chest X-Ray: No acute cardiopulmonary abnormalities",
+      "medications": [
+        "Isoflurane",
+        "Succinylcholine"
+      ],
+      "nursingOrders": [
+        "Administer dantrolene",
+        "Apply cooling measures",
+        "Monitor core temperature",
+        "Administer 100% O2",
+        "Monitor ETCO2, ABGs, electrolytes, CK",
+        "Insert Foley catheter",
+        "Administer IV fluids"
+      ]
+    }
   },
   "bowtieData": {
     "conditionOptions": [
@@ -201,8 +251,40 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:35:45.764Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:35:45.764Z",
+  "rationale": {
+    "answerBreakdown": {
+      "condition": {
+        "c1": "Incorrect. While hyperthermia and tachycardia overlap with thyroid storm, the profound muscle rigidity and extremely high ETCO2 are hallmark signs of MH. Thyroid storm typically involves agitation and tremor, not rigidity.",
+        "c2": "Correct. MH is a hypermetabolic crisis triggered by anesthetic agents. It causes uncontrolled sarcoplasmic calcium release, leading to sustained muscle contraction, rigidity, hyperthermia, and a massive increase in CO2 production.",
+        "c3": "Incorrect. Neuroleptic Malignant Syndrome is triggered by antipsychotic medications, not anesthetic agents. While clinically similar, the causative agent is wrong for this client's immediate post-operative context."
+      },
+      "actions": {
+        "a1": "Correct. Dantrolene is the specific antidote for MH. It acts by inhibiting calcium release from the sarcoplasmic reticulum, directly counteracting the core pathophysiology of the crisis and relaxing the muscles.",
+        "a2": "Correct. Rapidly reducing the core temperature is critical to decrease the body's extreme metabolic rate. This prevents severe CNS and organ damage from hyperthermia and is a priority intervention.",
+        "a3": "Incorrect. While the client is tachycardic, this is a symptom of the hypermetabolic state. The priority is treating the underlying cause with dantrolene, which will help resolve the tachycardia.",
+        "a4": "Incorrect. While respiratory support may be needed, it is not one of the top two initial actions. The priority is to administer the antidote (dantrolene) and initiate cooling to stop the hypermetabolic process.",
+        "a5": "Incorrect. Propylthiouracil treats thyroid storm by blocking thyroid hormone synthesis. This client's presentation is classic for MH, making PTU an inappropriate and delayed intervention."
+      },
+      "parameters": {
+        "p1": "Correct. A rapid, unexplained rise in ETCO2 is the earliest and most sensitive indicator of MH. Core temperature must be monitored continuously to guide aggressive cooling therapy and assess treatment response.",
+        "p2": "Correct. Rhabdomyolysis in MH causes massive muscle breakdown, releasing potassium and creatinine kinase (CK). Monitoring these is crucial to manage life-threatening hyperkalemia and prevent acute kidney injury.",
+        "p3": "Incorrect. Thyroid hormone levels are not a priority for monitoring an acute MH crisis. The results are not available rapidly enough to guide immediate, life-saving interventions for this hypermetabolic emergency.",
+        "p4": "Incorrect. While neurological status is important, pupillary response is not a primary parameter for tracking MH. The core issue is a systemic hypermetabolic and muscular crisis, reflected by ETCO2, temperature, and labs.",
+        "p5": "Incorrect. Urine output and color are monitored for myoglobinuria from rhabdomyolysis. However, monitoring the direct cause (CK) and the most immediate life-threat (potassium) is a higher priority."
+      }
+    }
+  },
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ]
 }

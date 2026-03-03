@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_consent_religious_minor_v2026_91",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A 10-year-old child is experiencing severe post-operative hemorrhage, but the parents refuse a life-saving blood transfusion on religious grounds. Based on the EHR, identify the overriding legal principle, two priority nursing actions, and two parameters to monitor.",
+  "stem": "A 10-year-old child is experiencing severe post-operative hemorrhage, but the parents refuse a life-saving blood transfusion on religious grounds. Based on the EHR, identify the overriding legal principle, two priority nursing actions, and two parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "Jane Doe",
@@ -10,6 +10,81 @@
       "codeStatus": "Full Code",
       "iso": "Standard Precautions",
       "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "07:15",
+          "BP": "72/40 mmHg",
+          "HR": "158/min",
+          "RR": "32/min",
+          "SpO2": "91% on room air",
+          "Temp": "36.5°C (97.7°F)",
+          "note": "Patient is pale, cool to the touch, and lethargic."
+        }
+      ],
+      "labs": [
+        {
+          "type": "CBC",
+          "hemoglobin": "4.2 g/dL (Critical Low)",
+          "hematocrit": "12.6% (Critical Low)"
+        },
+        {
+          "type": "ABG",
+          "pH": "7.21 (Acidosis)",
+          "PaCO2": "30 mmHg",
+          "HCO3": "14 mEq/L"
+        }
+      ],
+      "physicalExam": {
+        "general": "Lethargic, pale, and cool to the touch.",
+        "cardiovascular": "Tachycardic, weak peripheral pulses.",
+        "respiratory": "Tachypneic, shallow breaths, diminished breath sounds bilaterally.",
+        "neurological": "Responds to painful stimuli only.",
+        "integumentary": "Pale, cool, and clammy skin. Delayed capillary refill."
+      },
+      "radiology": [
+        {
+          "time": "07:00",
+          "type": "Chest X-Ray",
+          "findings": "No acute cardiopulmonary abnormalities identified. No evidence of pneumothorax or consolidation."
+        },
+        {
+          "time": "07:10",
+          "type": "Abdominal CT",
+          "findings": "Post-operative fluid collection noted near the surgical site, suggestive of hematoma. No free air or other acute findings."
+        }
+      ],
+      "medications": [
+        {
+          "time": "07:15",
+          "name": "Lactated Ringers",
+          "dosage": "500 mL",
+          "route": "IV bolus",
+          "status": "STAT"
+        },
+        {
+          "time": "07:15",
+          "name": "Sodium Bicarbonate",
+          "dosage": "50 mEq",
+          "route": "IV push",
+          "status": "STAT",
+          "reason": "for acidosis"
+        },
+        {
+          "name": "Packed Red Blood Cells",
+          "dosage": "10 mL/kg",
+          "route": "IV",
+          "status": "Pending",
+          "notes": "if court order obtained"
+        }
+      ],
+      "nursingOrders": [
+        "Administer crystalloid bolus as prescribed.",
+        "Monitor vital signs and laboratory results closely.",
+        "Contact legal and ethics for emergent judicial consent.",
+        "Prepare for potential blood transfusion."
+      ]
     },
     "tabs": [
       {
@@ -192,8 +267,38 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:01:41.852Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:01:41.852Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "conditionRationale": {
+        "c1": "Incorrect: Parental autonomy is not absolute when a child's life is in danger. The state's interest (parens patriae) overrides religious objections in emergencies.",
+        "c2": "Correct: Parens patriae allows the state to protect a child from harm when parents are unable or unwilling, especially in life-threatening situations.",
+        "c3": "Incorrect: The hospital is actively seeking life-saving care, following legal and ethical protocols. Medical neglect would be failing to act."
+      },
+      "actionRationale": {
+        "a1": "Correct: Involving legal/ethics teams is crucial to obtain judicial authorization for life-saving treatment against parental consent.",
+        "a2": "Correct: Administering crystalloids helps stabilize the patient's hemodynamic status while awaiting the court order.",
+        "a3": "Incorrect: Administering treatment against parental refusal without legal authority constitutes battery and could result in legal action.",
+        "a4": "Incorrect: The nurse's duty is to advocate for the child's life, requiring treatment, not withdrawing care."
+      },
+      "parameterRationale": {
+        "p1": "Correct: Monitoring BP, HR, and hemoglobin is critical to assess hemorrhage severity and response to resuscitation.",
+        "p2": "Correct: The ability to administer a blood transfusion depends on legal approval, so tracking the court order's progress is essential.",
+        "p3": "Incorrect: Glucose is not a priority parameter in acute hemorrhagic shock; focus is on perfusion and oxygen-carrying capacity.",
+        "p4": "Incorrect: A Babinski sign assesses upper motor neuron function, not relevant to hemorrhagic shock. Cardiovascular and hematologic status are the priority."
+      }
+    }
+  }
 }

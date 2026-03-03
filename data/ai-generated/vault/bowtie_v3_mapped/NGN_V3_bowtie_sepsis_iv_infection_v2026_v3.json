@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_sepsis_iv_infection_v2026",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for an older adult male admitted for pneumonia whose condition is acutely worsening. The patient has deteriorating vital signs and purulent drainage at the peripheral IV site. Based on the electronic health record, select the actions to take, the potential condition, and the parameters to monitor.",
+  "stem": "The nurse is caring for an older adult male admitted for pneumonia whose condition is acutely worsening. The patient has deteriorating vital signs and purulent drainage at the peripheral IV site. Based on the electronic health record, select the actions to take, the potential condition, and the parameters to monitor.",
   "itemContext": {
     "patientHeader": {
       "name": "John Smith",
@@ -76,9 +76,9 @@
     },
     {
       "id": "a5",
-      "text": "Assess IV site patency.",
-      "rationale": "The IV site is already identified as infected with purulent drainage. The priority is not to check its patency but to address the systemic infection and prepare for the removal of the compromised IV line.",
-      "itemMapCode": "ACTION-IVPATENCY"
+      "text": "Remove the infected IV catheter.",
+      "rationale": "The IV site is already identified as infected with purulent drainage. The priority is to remove the source of infection to prevent further systemic spread.",
+      "itemMapCode": "ACTION-IVREMOVAL"
     }
   ],
   "potentialConditions": [
@@ -90,7 +90,7 @@
     {
       "id": "pc2",
       "text": "Sepsis",
-      "rationale": "The patient's fever, tachycardia, hypotension, confusion, and elevated lactate result from a dysregulated host response to infection. This cascade leads to life-threatening organ dysfunction, which is the definition of sepsis."
+      "rationale": "The patient's fever, tachycardia, hypotension, confusion, elevated lactate, and purulent IV site result from a dysregulated host response to infection. This cascade leads to life-threatening organ dysfunction, which is the definition of sepsis."
     },
     {
       "id": "pc3",
@@ -126,23 +126,25 @@
     {
       "id": "p4",
       "text": "Respiratory rate.",
-      "rationale": "The patient's respiratory rate is already elevated as a compensatory mechanism. However, monitoring blood pressure and mental status provides more direct information about the severity of shock and organ perfusion.",
+      "rationale": "The patient's respiratory rate is already elevated as a compensatory mechanism. Monitoring respiratory rate is important to assess for respiratory failure and the need for intubation.",
       "itemMapCode": "PARAM-RR"
     },
     {
       "id": "p5",
-      "text": "Bowel sounds.",
-      "rationale": "Assessing bowel sounds is not a priority parameter in the acute management of sepsis. While an ileus can occur due to hypoperfusion, this is a later sign and not a primary focus for immediate monitoring.",
-      "itemMapCode": "PARAM-BOWELSOUNDS"
+      "text": "Peripheral IV site.",
+      "rationale": "The IV site needs to be monitored for signs of worsening infection, such as increased redness, swelling, or purulent drainage, which can indicate ongoing catheter-related bloodstream infection.",
+      "itemMapCode": "PARAM-IVSITE"
     }
   ],
   "correctActionIds": [
     "a1",
-    "a2"
+    "a2",
+    "a5"
   ],
   "correctParameterIds": [
     "p2",
-    "p3"
+    "p3",
+    "p4"
   ],
   "scoring": {
     "method": "polytomous",
@@ -177,6 +179,10 @@
       {
         "description": "Contact precautions are essential to prevent the spread of infection in patients with purulent drainage or suspected infections.",
         "strategy": "Ensure proper hand hygiene, use of personal protective equipment (PPE), and appropriate disposal of contaminated materials."
+      },
+      {
+        "description": "Removal of an infected IV catheter is a priority intervention to prevent further systemic spread of infection.",
+        "strategy": "Follow established protocols for IV catheter removal and insertion, including aseptic technique and site assessment."
       }
     ],
     "traps": [
@@ -187,6 +193,10 @@
       {
         "description": "Focusing solely on fever reduction without addressing the underlying infection can mask the severity of sepsis.",
         "strategy": "Administer antipyretics as prescribed, but prioritize identifying and treating the source of infection with appropriate antibiotics and supportive care."
+      },
+      {
+        "description": "Delaying removal of a potentially infected IV catheter can exacerbate sepsis and lead to further complications.",
+        "strategy": "Promptly remove any IV catheter suspected of being infected, following established protocols and guidelines."
       }
     ],
     "mnemonics": [
@@ -200,8 +210,26 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:51:58.549Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:51:58.549Z",
+  "rationale": {
+    "answerBreakdown": {
+      "a1": "The purulent drainage from the IV site indicates a high bacterial load. Initiating contact precautions is essential to prevent the nosocomial transmission of potentially infectious organisms to other patients and healthcare staff.",
+      "a2": "The patient's high fever (39.1°C) is a systemic inflammatory response to the infection. Administering antipyretics helps reduce the fever, which in turn decreases the body's metabolic demand and improves patient comfort.",
+      "a3": "While oral hygiene is part of good nursing care, it is not a priority intervention for a patient experiencing hemodynamic instability from suspected sepsis. The immediate focus must be on life-saving measures.",
+      "a4": "The patient's altered mental status and signs of shock are the most critical findings. Addressing the systemic infection and hemodynamic instability takes precedence over a focused pain assessment at this time.",
+      "a5": "The IV site is already identified as infected with purulent drainage. The priority is to remove the source of infection to prevent further systemic spread.",
+      "pc1": "The patient's hypotension and tachycardia are classic signs of distributive shock, not fluid overload. Fluid overload would present with hypertension, jugular venous distention, and bounding pulses, which are absent in this patient.",
+      "pc2": "The patient's fever, tachycardia, hypotension, confusion, elevated lactate, and purulent IV site result from a dysregulated host response to infection. This cascade leads to life-threatening organ dysfunction, which is the definition of sepsis.",
+      "pc3": "There is no clinical evidence in the EHR, such as dysuria, urinary frequency, or a positive urinalysis, to support a diagnosis of a urinary tract infection as the source of the patient's deterioration.",
+      "pc4": "This patient's symptoms do not align with a pneumothorax, which typically presents with sudden-onset pleuritic chest pain, severe dyspnea, and diminished or absent breath sounds over the affected lung area.",
+      "p1": "While monitoring urine output is vital for assessing kidney perfusion in sepsis, blood pressure and neurological status are more immediate indicators of cardiovascular collapse and cerebral hypoperfusion, which require instant intervention.",
+      "p2": "In sepsis, systemic vasodilation causes profound hypotension and a compensatory tachycardia. Closely monitoring these hemodynamic parameters is critical for titrating fluids and vasopressors to maintain vital organ perfusion.",
+      "p3": "Sepsis can cause septic encephalopathy due to cerebral hypoperfusion and inflammation. Monitoring neurological status is crucial for detecting deterioration and is a key component of sepsis screening tools.",
+      "p4": "The patient's respiratory rate is already elevated as a compensatory mechanism. Monitoring respiratory rate is important to assess for respiratory failure and the need for intubation.",
+      "p5": "The IV site needs to be monitored for signs of worsening infection, such as increased redness, swelling, or purulent drainage, which can indicate ongoing catheter-related bloodstream infection."
+    }
+  }
 }

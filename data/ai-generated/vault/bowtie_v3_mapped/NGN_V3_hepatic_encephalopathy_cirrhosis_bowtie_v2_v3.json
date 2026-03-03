@@ -53,7 +53,7 @@
       }
     ]
   },
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 58-year-old client with decompensated cirrhosis who exhibits a sudden decline in neurological function. Based on the client's presentation and EHR data, the nurse identifies hepatic encephalopathy. Which actions should the nurse implement, and what parameters require immediate monitoring?",
+  "stem": "The nurse is caring for a 58-year-old client with decompensated cirrhosis who exhibits a sudden decline in neurological function. Based on the client's presentation and EHR data, the nurse identifies hepatic encephalopathy. Which actions should the nurse implement, and what parameters require immediate monitoring?",
   "potentialConditions": [
     {
       "id": "condition1",
@@ -76,7 +76,7 @@
       "hoverRationale": "This is a neurological disorder from thiamine deficiency, common in alcoholism, presenting with a triad of confusion, ataxia, and ophthalmoplegia. The client's presentation lacks ataxia and ophthalmoplegia, making hepatic encephalopathy more likely."
     }
   ],
-  "condition": "condition2",
+  "conditionId": "condition2",
   "actions": [
     {
       "id": "action1",
@@ -223,8 +223,101 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T22:03:59.826Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T22:03:59.826Z",
+  "itemContext": {
+    "patient": {
+      "name": "John Smith",
+      "age": 58,
+      "sex": "Male",
+      "codeStatus": "Full Code",
+      "isoStatus": "Negative",
+      "allergies": [
+        "Penicillin"
+      ]
+    },
+    "clinicalData": {
+      "vitals": {
+        "bloodPressure": "110/70 mmHg",
+        "heartRate": "88 bpm",
+        "respiratoryRate": "20 breaths/min",
+        "temperature": "98.8°F (37.1°C)",
+        "oxygenSaturation": "96% on room air"
+      },
+      "labResults": {
+        "ammonia": "150 mcg/dL (High)",
+        "ast": "120 U/L (High)",
+        "alt": "95 U/L (High)",
+        "totalBilirubin": "4.5 mg/dL (High)",
+        "albumin": "2.8 g/dL (Low)",
+        "inr": "1.8 (High)",
+        "sodium": "138 mEq/L",
+        "potassium": "3.4 mEq/L",
+        "creatinine": "1.1 mg/dL",
+        "bun": "25 mg/dL"
+      },
+      "physicalExam": {
+        "general": "Appears stated age, disoriented to time and place.",
+        "neuro": "Pronounced asterixis bilaterally, Glasgow Coma Scale (GCS) score of 13 (Eyes 4, Verbal 4, Motor 5), fetor hepaticus present.",
+        "abdomen": "Distended, positive fluid wave, mild tenderness to palpation in the right upper quadrant. Bowel sounds hypoactive.",
+        "cardiovascular": "Regular rate and rhythm, no murmurs, rubs, or gallops. Peripheral pulses +2 bilaterally.",
+        "respiratory": "Clear to auscultation bilaterally, normal respiratory effort."
+      },
+      "radiology": {
+        "abdominalUltrasound": "Evidence of cirrhosis with nodular liver architecture. Moderate ascites is present. No evidence of hepatocellular carcinoma.",
+        "chestXRay": "No acute cardiopulmonary abnormalities. Mild elevation of the right hemidiaphragm, likely secondary to ascites."
+      },
+      "medications": {
+        "mar": [
+          {
+            "time": "0900",
+            "medication": "Furosemide 40 mg IV"
+          },
+          {
+            "time": "0900",
+            "medication": "Spironolactone 100 mg PO"
+          },
+          {
+            "time": "1000",
+            "medication": "Lactulose 45 g PO"
+          },
+          {
+            "time": "1000",
+            "medication": "Rifaximin 550 mg PO"
+          },
+          {
+            "time": "1500",
+            "medication": "Lactulose 45 g PO (PRN if less than 2 stools)"
+          }
+        ]
+      },
+      "nursingOrders": [
+        "Assess mental status every 2 hours using the Glasgow Coma Scale (GCS) and document findings.",
+        "Monitor frequency and consistency of bowel movements; titrate lactulose to achieve 2-3 soft stools per day.",
+        "Implement fall precautions due to altered mental status.",
+        "Provide skin care and frequent repositioning to prevent skin breakdown.",
+        "Monitor abdominal girth daily to assess for changes in ascites.",
+        "Enforce strict low-sodium diet (2g) and moderate protein intake as prescribed.",
+        "Educate patient and family about the importance of medication adherence and dietary restrictions."
+      ]
+    }
+  },
+  "rationale": {
+    "answerBreakdown": {
+      "condition1": "Hepatorenal syndrome is less likely given the primary neurological symptoms and lack of significant renal dysfunction indicators (e.g., oliguria, rapidly rising creatinine).",
+      "condition2": "Hepatic encephalopathy is the most likely diagnosis given the client's history of cirrhosis, elevated ammonia levels, disorientation, asterixis, and fetor hepaticus.",
+      "condition3": "Spontaneous bacterial peritonitis is less likely without fever, abdominal pain, or a high white blood cell count in the ascitic fluid.",
+      "condition4": "Wernicke's encephalopathy is less likely as the client lacks the classic triad of confusion, ataxia, and ophthalmoplegia.",
+      "action1": "Lactulose is a first-line treatment for hepatic encephalopathy. It reduces ammonia absorption in the gut by converting ammonia to ammonium, which is then excreted in the stool.",
+      "action2": "Rifaximin is used in conjunction with lactulose to reduce ammonia-producing bacteria in the gut, further lowering ammonia levels.",
+      "action3": "A high-protein diet is contraindicated in hepatic encephalopathy as it increases ammonia production, worsening the condition.",
+      "action4": "Chlorpromazine is contraindicated as it is a CNS depressant that can mask neurological symptoms and is metabolized by the liver, potentially worsening liver failure.",
+      "param1": "Monitoring mental status and level of consciousness is crucial to assess the effectiveness of treatment and detect any worsening of encephalopathy.",
+      "param2": "Monitoring the frequency and consistency of bowel movements is essential to titrate the lactulose dose appropriately to achieve the desired effect of 2-3 soft stools per day.",
+      "param3": "While glucose levels are important, they are not the priority in the immediate management of hepatic encephalopathy.",
+      "param4": "While monitoring abdominal circumference is important for managing ascites, it is not a direct indicator of the effectiveness of treatment for hepatic encephalopathy."
+    }
+  }
 }

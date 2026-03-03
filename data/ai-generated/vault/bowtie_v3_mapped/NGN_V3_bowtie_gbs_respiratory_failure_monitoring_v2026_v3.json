@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_gbs_respiratory_failure_monitoring_v2026",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] A nurse is reviewing the electronic health record for a client with Guillain-Barré Syndrome (GBS) who is in acute respiratory distress. Based on the provided data, which actions should the nurse take, what condition is developing, and what parameters require monitoring?",
+  "stem": "A nurse is reviewing the electronic health record for a client with Guillain-Barré Syndrome (GBS) who is in acute respiratory distress. Based on the provided data, which actions should the nurse take, what condition is developing, and what parameters require monitoring?",
   "itemContext": {
     "patientHeader": {
       "name": "Jamie Smith",
@@ -47,7 +47,83 @@
         "title": "Radiology",
         "content": "**Chest X-Ray Report (Today):**\nFindings: Bilateral atelectasis noted at the lung bases. No evidence of consolidation, pleural effusion, or pneumothorax. Cardiac silhouette within normal limits.\nImpression: Atelectasis, likely secondary to hypoventilation. Clinical correlation is recommended."
       }
-    ]
+    ],
+    "clinicalData": {
+      "vitals": {
+        "hr": [
+          "90",
+          "100",
+          "110"
+        ],
+        "rr": [
+          "20",
+          "24",
+          "28"
+        ],
+        "bp": [
+          "130/80",
+          "140/85",
+          "150/90"
+        ],
+        "spo2": [
+          "95% on 2L NC",
+          "92% on 2L NC",
+          "90% on BiPAP"
+        ]
+      },
+      "labs": {
+        "pao2": "60 mmHg",
+        "paco2": "50 mmHg",
+        "ph": "7.30",
+        "sodium": "140 mEq/L",
+        "potassium": "4.0 mEq/L"
+      },
+      "physicalExam": {
+        "general": "Anxious, diaphoretic, and restless.",
+        "neuro": "Progressive ascending paralysis noted. Strength 2/5 in bilateral lower extremities, 3/5 in bilateral upper extremities. Facial droop absent. Pupils equal and reactive to light.",
+        "respiratory": "Increased work of breathing with nasal flaring and intercostal retractions. Auscultation reveals diminished breath sounds bilaterally, with faint wheezing.",
+        "cardiovascular": "Tachycardia present. S1 and S2 auscultated. No murmurs, rubs, or gallops noted."
+      },
+      "radiology": {
+        "cxrFindings": "Bilateral atelectasis noted at the lung bases. No evidence of consolidation, pleural effusion, or pneumothorax.",
+        "cxrImpression": "Atelectasis, likely secondary to hypoventilation."
+      },
+      "medications": [
+        {
+          "medication": "Oxygen",
+          "dosage": "FiO2 40%",
+          "route": "BiPAP",
+          "frequency": "Continuous, titrate to SpO2 > 92%"
+        },
+        {
+          "medication": "Albuterol",
+          "dosage": "2.5 mg",
+          "route": "Nebulizer",
+          "frequency": "Every 4 hours PRN wheezing"
+        },
+        {
+          "medication": "Normal Saline",
+          "dosage": "500 mL",
+          "route": "IV",
+          "frequency": "Bolus over 30 minutes (STAT)"
+        },
+        {
+          "medication": "Pantoprazole",
+          "dosage": "40 mg",
+          "route": "IV",
+          "frequency": "Daily"
+        }
+      ],
+      "nursingOrders": [
+        "Continuous monitoring of respiratory status, including SpO2, respiratory rate, and effort.",
+        "Administer oxygen via BiPAP as prescribed to maintain SpO2 > 92%.",
+        "Elevate head of bed to 45 degrees to optimize lung expansion.",
+        "Prepare for potential intubation and mechanical ventilation based on ABG results and clinical presentation.",
+        "Obtain serial arterial blood gases (ABGs) to assess respiratory status and guide treatment.",
+        "Consult with respiratory therapy for ventilator management.",
+        "Provide emotional support and reassurance to the client and family."
+      ]
+    }
   },
   "actions": [
     {
@@ -181,8 +257,21 @@
       }
     ]
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T21:22:04.077Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T21:22:04.077Z",
+  "conditionId": "Respiratory Muscle Fatigue Leading to Respiratory Failure",
+  "rationale": {
+    "answerBreakdown": {
+      "a1": "GBS causes ascending paralysis that can affect the diaphragm and intercostal muscles, leading to respiratory failure. Intubation and mechanical ventilation provide essential life support by securing the airway and managing gas exchange when the client's own muscles fail.",
+      "a2": "The client's tachycardia and hypertension are signs of respiratory distress and hypoxia, not hypovolemia. Administering a fluid bolus is clinically inappropriate and fails to address the underlying respiratory failure. The CXR also shows atelectasis, not fluid overload.",
+      "a3": "Elevating the head of the bed uses gravity to lower the diaphragm, which increases thoracic capacity and reduces the work of breathing. This is a crucial supportive measure for a client with respiratory muscle weakness.",
+      "a4": "The client's respiratory muscles are already fatigued from the disease process. Encouraging exercises that require significant muscle effort would exacerbate fatigue and worsen respiratory status without improving ventilation.",
+      "p1": "ABGs provide a direct measurement of the client's gas exchange (PaO2, PaCO2) and acid-base status (pH). These values are critical for diagnosing the severity of respiratory failure and guiding ventilatory support.",
+      "p2": "Peripheral edema reflects fluid balance and cardiovascular or renal function. It is not a direct or sensitive indicator of the acute respiratory failure occurring in this client.",
+      "p3": "Hypoxemia and hypercapnia directly impact cerebral function. Worsening restlessness, anxiety, or a declining level of consciousness are key signs of deteriorating gas exchange and impending respiratory arrest.",
+      "p4": "Urine output is a primary indicator of renal perfusion and fluid status. While important for overall assessment, it does not directly reflect the client's immediate and critical respiratory status."
+    }
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "NGN-V3-bowtie_cardiac_angina_v2026_28",
   "type": "bowtie",
-  "stem": "[V3-MAPPED-2026] The nurse is caring for a 62-year-old client experiencing a new pattern of chest pain at rest. Based on the client's electronic health record, complete the bowtie by selecting the most likely condition, two priority actions to take, and two parameters to monitor.",
+  "stem": "The nurse is caring for a 62-year-old client experiencing a new pattern of chest pain at rest. Based on the client's electronic health record, complete the bowtie by selecting the most likely condition, two priority actions to take, and two parameters to monitor.",
   "itemContext": {
     "tabs": [
       {
@@ -39,7 +39,89 @@
         "title": "MAR",
         "content": "<b>11:05:</b> Nitroglycerin 0.4mg SL, PRN for chest pain, one dose administered.<br><b>Scheduled Medications:</b> Aspirin 81mg PO daily."
       }
-    ]
+    ],
+    "patient": {
+      "name": "John Smith",
+      "age": "62",
+      "gender": "Male",
+      "codeStatus": "Full Code",
+      "isoStatus": "Standard",
+      "allergies": "NKDA"
+    },
+    "clinicalData": {
+      "vitals": [
+        {
+          "time": "11:00",
+          "bp": "154/92",
+          "hr": "88",
+          "spo2": "97"
+        },
+        {
+          "time": "11:05",
+          "bp": "138/84",
+          "hr": "82",
+          "spo2": "98"
+        },
+        {
+          "time": "11:20",
+          "bp": "162/98",
+          "hr": "92",
+          "spo2": "98"
+        }
+      ],
+      "labResults": [
+        {
+          "name": "Troponin T",
+          "value": "0.02 ng/mL",
+          "normalRange": "< 0.04 ng/mL"
+        },
+        {
+          "name": "CK-MB",
+          "value": "2.1 ng/mL",
+          "normalRange": "< 5.0 ng/mL"
+        },
+        {
+          "name": "Sodium",
+          "value": "140 mEq/L"
+        },
+        {
+          "name": "Potassium",
+          "value": "4.2 mEq/L"
+        },
+        {
+          "name": "Creatinine",
+          "value": "1.0 mg/dL"
+        },
+        {
+          "name": "Glucose",
+          "value": "95 mg/dL"
+        }
+      ],
+      "physicalExam": "Anxious male in moderate distress, clutching chest. Tachycardia, S1 and S2 present, no murmurs auscultated. Pulses 2+ bilaterally in upper and lower extremities. Clear to auscultation bilaterally. Skin warm, dry, and intact. No edema noted.",
+      "radiology": "Sinus rhythm at 92 bpm. No ST elevation. T-wave inversion in leads V2-V4, suggestive of myocardial ischemia. No acute cardiopulmonary abnormalities identified. Heart size within normal limits. Lungs clear.",
+      "medications": [
+        {
+          "time": "11:05",
+          "name": "Nitroglycerin",
+          "dose": "0.4mg",
+          "route": "SL",
+          "prn": "PRN for chest pain"
+        },
+        {
+          "name": "Aspirin",
+          "dose": "81mg",
+          "route": "PO",
+          "schedule": "daily"
+        }
+      ],
+      "nursingOrders": [
+        "Administer prescribed medications (nitroglycerin, morphine) as ordered.",
+        "Apply continuous cardiac monitoring and assess for dysrhythmias.",
+        "Obtain serial 12-lead EKGs to monitor for changes.",
+        "Maintain client on bedrest with continuous pulse oximetry.",
+        "Provide emotional support and reduce anxiety."
+      ]
+    }
   },
   "bowtieData": {
     "conditionOptions": [
@@ -207,8 +289,54 @@
     "p4": "PARAM-RESP",
     "p5": "PARAM-OUTPUT"
   },
-  "qualityMark": "GOLD-SERIES-V3-MAPPED",
-  "lastFixed": "2026-03-02T19:34:36.259Z",
+  "qualityMark": "GOLD-SERIES-V3-DEEP-REPAIRED",
+  "lastFixed": "2026-03-02T20:56:22.852Z",
   "createdAt": "2026-03-02T19:34:36.259Z",
-  "updatedAt": "2026-03-02T19:34:36.259Z"
+  "updatedAt": "2026-03-02T20:56:22.852Z",
+  "conditionId": "c2",
+  "correctActionIds": [
+    "a1",
+    "a2"
+  ],
+  "correctParameterIds": [
+    "p1",
+    "p2"
+  ],
+  "potentialConditions": [
+    {
+      "id": "c1",
+      "text": "Stable Angina Pectoris"
+    },
+    {
+      "id": "c2",
+      "text": "Unstable Angina Pectoris"
+    },
+    {
+      "id": "c3",
+      "text": "Acute Gastroesophageal Reflux (GERD)"
+    }
+  ],
+  "rationale": {
+    "answerBreakdown": {
+      "conditionRationale": {
+        "c1": "This client's pain occurs at rest and represents a change in pattern, which is inconsistent with stable angina. Stable angina is predictable, occurs with exertion, and is relieved by rest.",
+        "c2": "The client's chest pain at rest, changing pattern, and EKG showing T-wave inversions indicate myocardial ischemia. This presentation is classic for unstable angina, a form of acute coronary syndrome.",
+        "c3": "While GERD can mimic chest pain, this client's cardiac history and EKG changes make a cardiac cause far more likely. Attributing this to GERD would be a critical clinical error."
+      },
+      "actionRationale": {
+        "a1": "Nitroglycerin is a vasodilator that increases coronary blood flow and reduces myocardial oxygen demand. This action directly addresses the underlying pathophysiology of myocardial ischemia.",
+        "a2": "A STAT 12-lead EKG is crucial for detecting ischemic changes, such as ST-segment elevation or depression. This guides further treatment and identifies progression to myocardial infarction.",
+        "a3": "These interventions are appropriate for GERD, not a suspected cardiac event. Delaying cardiac treatment to trial an antacid could lead to irreversible myocardial damage.",
+        "a4": "Increasing activity would increase myocardial oxygen demand, worsening ischemia and potentially precipitating a myocardial infarction. The client requires immediate rest and intervention.",
+        "a5": "While cardiac catheterization may be indicated, it is a collaborative intervention that follows initial stabilization. The nurse's immediate, independent priorities are assessment and medication administration."
+      },
+      "parameterRationale": {
+        "p1": "Monitoring chest pain is essential to evaluate the effectiveness of interventions like nitroglycerin and to detect worsening ischemia. Changes in pain character or location are critical data points.",
+        "p2": "Nitroglycerin causes vasodilation, which can lead to significant hypotension. The nurse must monitor blood pressure closely before and after administration to ensure hemodynamic stability.",
+        "p3": "While important for long-term health management, monitoring fasting blood glucose is not an immediate priority during an acute ischemic event. The focus is on hemodynamic and cardiac status.",
+        "p4": "The client's SpO2 is stable at 98% on room air with no respiratory distress. While important to monitor, it is not a priority over pain and blood pressure in this specific scenario.",
+        "p5": "Monitoring urine output is important for assessing cardiac output and renal perfusion, but it is not as immediately critical as monitoring for hemodynamic instability or worsening ischemia during an acute event."
+      }
+    }
+  }
 }
